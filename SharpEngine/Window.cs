@@ -1,4 +1,4 @@
-﻿
+﻿using System.Collections.Generic;
 
 namespace SharpEngine
 {
@@ -7,6 +7,8 @@ namespace SharpEngine
         private InternalGame internalGame;
         private Vec2 _internalScreenSize;
         private bool _internalMouseVisible;
+        internal int currentScene = -1;
+        internal List<Scene> scenes = new List<Scene>();
 
         public Color backgroundColor;
         public bool exitWithEscape;
@@ -48,6 +50,24 @@ namespace SharpEngine
         public Window(Vec2 screenScreen, Color backgroundColor) : this(screenSize, backgroundColor, true, true);
         public Window(Vec2 screenSize): this(screenSize, Color.BLACK, true, true) {}
         public Window(): this(new Vec2(800, 600), Color.BLACK, true, true) {}
+
+        public void SetCurrentScene(Scene scene)
+        {
+            currentScene = scenes.IndexOf(scene);
+        }
+
+        public void AddScene(Scene scene)
+        {
+            scene.SetWindow(this);
+            scenes.Add(scene);
+            SetCurrentScene(scene);
+        }
+
+        public void RemoveScene(Scene scene)
+        {
+            scene.SetWindow(null);
+            scenes.Remove(scene);
+        }
 
         public void Run()
         {

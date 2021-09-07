@@ -45,6 +45,10 @@ namespace SharpEngine
             internalGame = new InternalGame(this);
         }
 
+        public Window(Vec2 screenScreen, Color backgroundColor) : this(screenSize, backgroundColor, true, true);
+        public Window(Vec2 screenSize): this(screenSize, Color.BLACK, true, true) {}
+        public Window(): this(new Vec2(800, 600), Color.BLACK, true, true) {}
+
         public void Run()
         {
             internalGame.Run();

@@ -8,7 +8,7 @@ namespace SharpEngineTest
         static void Main(string[] args)
         {
             Window win = new Window(new Vec2(900, 600));
-            Console.WriteLine(win.ScreenSize());
+            Console.WriteLine(win.screenSize);
             win.Run();
         }
     }

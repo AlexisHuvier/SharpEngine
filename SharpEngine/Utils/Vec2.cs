@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 
 namespace SharpEngine
 {
@@ -22,7 +21,7 @@ namespace SharpEngine
 
         public float Length()
         {
-            return (float) Math.Sqrt(x * x + y * y);
+            return (float) System.Math.Sqrt(x * x + y * y);
         }
 
         internal Vector2 ToMonoGameVector()

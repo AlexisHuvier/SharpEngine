@@ -45,6 +45,8 @@ namespace SharpEngine
             foreach (Scene scene in window.scenes)
                 scene.UnloadContent();
 
+            TextureManager.Unload();
+
             base.UnloadContent();
         }
 

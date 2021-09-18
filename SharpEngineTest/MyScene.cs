@@ -1,4 +1,5 @@
 ﻿using SharpEngine;
+using SharpEngine.Components;
 
 namespace SharpEngineTest
 {
@@ -6,8 +7,10 @@ namespace SharpEngineTest
     {
         public MyScene(): base()
         {
-            AddEntity(new Entity());
-            System.Console.WriteLine(entities);
+            var ent = new Entity();
+            ent.AddComponent<TransformComponent>(new Vec2(30));
+            AddEntity(ent);
+            System.Console.WriteLine(entities[0].GetComponent<TransformComponent>());
         }
     }
 }

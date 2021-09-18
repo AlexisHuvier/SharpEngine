@@ -4,7 +4,7 @@
     {
         protected Entity entity;
 
-        public Component()
+        public Component(params object[] parameters)
         {
             entity = null;
         }

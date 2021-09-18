@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using SharpEngine.Components;
+using System;
 
 namespace SharpEngine
 {
@@ -14,9 +15,9 @@ namespace SharpEngine
             scene = null;
         }
 
-        public void AddComponent<T>() where T: Component, new()
+        public void AddComponent<T>(params object[] parameters) where T: Component
         {
-            T comp = new T();
+            T comp = Activator.CreateInstance(typeof(T), parameters) as T;
             comp.SetEntity(this);
             components.Add(comp);
         }

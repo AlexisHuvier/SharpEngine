@@ -9,7 +9,7 @@ namespace SharpEngine
         private Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
         private Dictionary<string, string> texturesWillBeCreated = new Dictionary<string, string>();
 
-        public TextureManager(Window window)
+        internal TextureManager(Window window)
         {
             this.window = window;
         }
@@ -31,18 +31,18 @@ namespace SharpEngine
                 textures.Add(texture.Key, Texture2D.FromFile(window.internalGame.GraphicsDevice, texture.Value));
         }
 
-        public Texture2D GetTexture(string name)
+        internal Texture2D GetTexture(string name)
         {
             return textures.GetValueOrDefault(name, null);
         }
 
-        public void Unload(string name)
+        internal void Unload(string name)
         {
             if (GetTexture(name) is Texture2D texture)
                 texture.Dispose();
         }
 
-        public void Unload()
+        internal void Unload()
         {
             foreach (var texture in textures.Values)
                 texture.Dispose();

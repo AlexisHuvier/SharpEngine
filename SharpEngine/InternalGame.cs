@@ -25,6 +25,7 @@ namespace SharpEngine
             graphics.ApplyChanges();
 
             window.textureManager.Load();
+            window.fontManager.Load();
 
             foreach (Scene scene in window.scenes)
                 scene.Initialize();

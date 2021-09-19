@@ -10,6 +10,7 @@ namespace SharpEngine
         internal int currentScene = -1;
         internal List<Scene> scenes = new List<Scene>();
         public TextureManager textureManager;
+        public FontManager fontManager;
 
         public Color backgroundColor;
         public bool exitWithEscape;
@@ -47,6 +48,7 @@ namespace SharpEngine
 
             internalGame = new InternalGame(this);
             textureManager = new TextureManager(this);
+            fontManager = new FontManager(this);
         }
 
         public Window(Vec2 screenSize, Color backgroundColor) : this(screenSize, backgroundColor, true, true) {}

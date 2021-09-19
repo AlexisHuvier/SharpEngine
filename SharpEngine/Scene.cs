@@ -13,6 +13,11 @@ namespace SharpEngine
             entities = new List<Entity>();
         }
 
+        public List<Entity> GetEntities()
+        {
+            return entities;
+        }
+
         public virtual void AddEntity(Entity ent)
         {
             ent.SetScene(this);

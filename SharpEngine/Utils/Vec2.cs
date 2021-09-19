@@ -33,5 +33,10 @@ namespace SharpEngine
         {
             return $"Vec2(x={x}, y={y})";
         }
+
+        public static implicit operator Vec2(Vector2 vec)
+        {
+            return new Vec2(vec.X, vec.Y);
+        }
     }
 }

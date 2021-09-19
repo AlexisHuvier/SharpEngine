@@ -6,13 +6,18 @@ namespace SharpEngine
 {
     public class Entity
     {
-        protected Scene scene;
+        internal Scene scene;
         protected List<Component> components;
 
         public Entity()
         {
             components = new List<Component>();
             scene = null;
+        }
+
+        public List<Component> GetComponents()
+        {
+            return components;
         }
 
         public void AddComponent<T>(params object[] parameters) where T: Component

@@ -1,15 +1,36 @@
-﻿using System;
-using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework.Input;
 
 namespace SharpEngine
 {
     public class InputManager
     {
         private static MouseState oldMouseState = Mouse.GetState();
+        private static KeyboardState oldKeyboardState = Keyboard.GetState();
 
         public static void Update()
         {
             oldMouseState = Mouse.GetState();
+            oldKeyboardState = Keyboard.GetState();
+        }
+
+        public static bool IsKeyDown(Inputs.Key key)
+        {
+            return Keyboard.GetState().IsKeyDown(GetKeys(key));
+        }
+
+        public static bool IsKeyUp(Inputs.Key key)
+        {
+            return Keyboard.GetState().IsKeyUp(GetKeys(key));
+        }
+
+        public static bool IsKeyPressed(Inputs.Key key)
+        {
+            return Keyboard.GetState().IsKeyDown(GetKeys(key)) && !oldKeyboardState.IsKeyDown(GetKeys(key));
+        }
+
+        public static bool IsKeyReleased(Inputs.Key key)
+        {
+            return Keyboard.GetState().IsKeyUp(GetKeys(key)) && !oldKeyboardState.IsKeyUp(GetKeys(key));
         }
 
         public static bool IsMouseButtonDown(Inputs.MouseButton input, bool useOldState = false)
@@ -67,6 +88,11 @@ namespace SharpEngine
         public static Vec2 GetMousePosition()
         {
             return Mouse.GetState().Position.ToVector2();
+        }
+
+        internal static Keys GetKeys(Inputs.Key key)
+        {
+            return (Keys)(int)key;
         }
     }
 }

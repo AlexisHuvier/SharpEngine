@@ -7,10 +7,14 @@ namespace SharpEngineTest
     {
         public MyScene(): base()
         {
+
             var ent = new Entity();
-            ent.AddComponent<TransformComponent>(new Vec2(30));
+            ent.AddComponent<TransformComponent>(new Vec2(100), new Vec2(2, 2), 45);
+            ent.AddComponent<SpriteComponent>("test");
             AddEntity(ent);
-            System.Console.WriteLine(entities[0].GetComponent<TransformComponent>());
+
+            foreach(Component comp in entities[0].GetComponents())
+                System.Console.WriteLine(comp);
         }
     }
 }

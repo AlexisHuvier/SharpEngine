@@ -8,16 +8,34 @@ namespace SharpEngine.Components
     {
         public ControlType controlType;
         public int speed;
+        private Dictionary<ControlKey, Inputs.Key> keys;
 
         public ControlComponent(params object[] parameters): base(parameters)
         {
             controlType = ControlType.MOUSEFOLLOW;
             speed = 5;
+            keys = new Dictionary<ControlKey, Inputs.Key>()
+            {
+                { ControlKey.UP, Inputs.Key.UP },
+                { ControlKey.DOWN, Inputs.Key.DOWN },
+                { ControlKey.LEFT, Inputs.Key.LEFT },
+                { ControlKey.RIGHT, Inputs.Key.RIGHT }
+            };
 
             if (parameters.Length >= 1 && parameters[0] is ControlType control)
                 controlType = control;
             if (parameters.Length >= 2 && parameters[0] is int spd)
                 speed = spd;
+        }
+
+        public Inputs.Key GetKey(ControlKey controlKey)
+        {
+            return keys[controlKey];
+        }
+
+        public void SetKey(ControlKey controlKey, Inputs.Key key)
+        {
+            keys[controlKey] = key;
         }
 
         public override void Update(GameTime gameTime)
@@ -42,16 +60,34 @@ namespace SharpEngine.Components
                         else if (pos.y > mp.y + speed / 2)
                             pos.y -= speed;
                         break;
+                    case ControlType.LEFTRIGHT:
+                        if (InputManager.IsKeyDown(keys[ControlKey.LEFT]))
+                            pos.x -= speed;
+                        if (InputManager.IsKeyDown(keys[ControlKey.RIGHT]))
+                            pos.x += speed;
+                        break;
+                    case ControlType.UPDOWN:
+                        if (InputManager.IsKeyDown(keys[ControlKey.UP]))
+                            pos.y -= speed;
+                        if (InputManager.IsKeyDown(keys[ControlKey.DOWN]))
+                            pos.y += speed;
+                        break;
+                    case ControlType.FOURDIRECTION:
+                        if (InputManager.IsKeyDown(keys[ControlKey.LEFT]))
+                            pos.x -= speed;
+                        if (InputManager.IsKeyDown(keys[ControlKey.RIGHT]))
+                            pos.x += speed;
+                        if (InputManager.IsKeyDown(keys[ControlKey.UP]))
+                            pos.y -= speed;
+                        if (InputManager.IsKeyDown(keys[ControlKey.DOWN]))
+                            pos.y += speed;
+                        break;
                 }
 
                 if (entity.GetComponent<RectCollisionComponent>() is RectCollisionComponent rcc)
                 {
                     if (rcc.can_go(pos, "ControlComponent"))
                         tc.position = pos;
-                    else
-                    {
-                        Console.WriteLine($"CANNOT PASS : {pos} {tc.position}");
-                    }
                 }
                 else
                     tc.position = pos;

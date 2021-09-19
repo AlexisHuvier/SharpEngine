@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SharpEngine
+﻿namespace SharpEngine
 {
     public enum ControlType
     {
-        MOUSEFOLLOW
+        MOUSEFOLLOW,
+        LEFTRIGHT,
+        UPDOWN,
+        FOURDIRECTION
     }
 }

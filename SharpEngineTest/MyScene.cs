@@ -18,8 +18,7 @@ namespace SharpEngineTest
 
             var ent2 = new Entity();
             ent2.AddComponent<TransformComponent>(new Vec2(300), new Vec2(1, 1));
-            ent2.AddComponent<SpriteComponent>("test");
-            ent2.AddComponent<RectCollisionComponent>(new Vec2(45));
+            ent2.AddComponent<TextComponent>("Testing", "arial", Color.WHITE);
             AddEntity(ent2);
 
             foreach (Component comp in entities[0].GetComponents())

@@ -3,28 +3,46 @@ using System.Collections.Generic;
 
 namespace SharpEngine
 {
-    class TextureManager
+    public class TextureManager
     {
-        private static Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
+        private Window window;
+        private Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
+        private Dictionary<string, string> texturesWillBeCreated = new Dictionary<string, string>();
 
-        public static void AddTexture(string name, Texture2D texture)
+        public TextureManager(Window window)
         {
-            if (!textures.ContainsKey(name))
-                textures.Add(name, texture);
+            this.window = window;
         }
 
-        public static Texture2D GetTexture(string name)
+        public void AddTexture(string name, string file)
+        {
+            if (!textures.ContainsKey(name))
+            {
+                if (window.internalGame.GraphicsDevice != null)
+                    textures.Add(name, Texture2D.FromFile(window.internalGame.GraphicsDevice, file));
+                else
+                    texturesWillBeCreated.Add(name, file);
+            }
+        }
+
+        internal void Load()
+        {
+            foreach (KeyValuePair<string, string> texture in texturesWillBeCreated)
+                textures.Add(texture.Key, Texture2D.FromFile(window.internalGame.GraphicsDevice, texture.Value));
+        }
+
+        public Texture2D GetTexture(string name)
         {
             return textures.GetValueOrDefault(name, null);
         }
 
-        public static void Unload(string name)
+        public void Unload(string name)
         {
             if (GetTexture(name) is Texture2D texture)
                 texture.Dispose();
         }
 
-        public static void Unload()
+        public void Unload()
         {
             foreach (var texture in textures.Values)
                 texture.Dispose();

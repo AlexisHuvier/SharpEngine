@@ -9,6 +9,7 @@ namespace SharpEngine
         private bool _internalMouseVisible;
         internal int currentScene = -1;
         internal List<Scene> scenes = new List<Scene>();
+        public TextureManager textureManager;
 
         public Color backgroundColor;
         public bool exitWithEscape;
@@ -45,6 +46,7 @@ namespace SharpEngine
             this.exitWithEscape = exitWithEscape;
 
             internalGame = new InternalGame(this);
+            textureManager = new TextureManager(this);
         }
 
         public Window(Vec2 screenSize, Color backgroundColor) : this(screenSize, backgroundColor, true, true) {}

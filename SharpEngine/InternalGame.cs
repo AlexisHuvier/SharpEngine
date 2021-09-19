@@ -24,6 +24,8 @@ namespace SharpEngine
             graphics.PreferredBackBufferHeight = (int)window.screenSize.y;
             graphics.ApplyChanges();
 
+            window.textureManager.Load();
+
             foreach (Scene scene in window.scenes)
                 scene.Initialize();
 
@@ -45,7 +47,7 @@ namespace SharpEngine
             foreach (Scene scene in window.scenes)
                 scene.UnloadContent();
 
-            TextureManager.Unload();
+            window.textureManager.Unload();
 
             base.UnloadContent();
         }

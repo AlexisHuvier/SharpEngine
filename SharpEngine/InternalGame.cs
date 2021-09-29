@@ -61,6 +61,8 @@ namespace SharpEngine
             if (window.currentScene != -1)
                 window.scenes[window.currentScene].Update(GameTime.FromMonogameGameTime(gameTime));
 
+            InputManager.Update();
+
             base.Update(gameTime);
         }
 

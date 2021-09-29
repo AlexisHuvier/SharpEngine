@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System;
+using SharpEngine.Widgets;
 
 namespace SharpEngine
 {
@@ -6,11 +8,40 @@ namespace SharpEngine
     {
         internal Window window;
         protected List<Entity> entities;
+        protected List<Widget> widgets;
 
         public Scene()
         {
-            this.window = null;
+            window = null;
             entities = new List<Entity>();
+            widgets = new List<Widget>();
+        }
+
+        public List<Widget> GetWidgets()
+        {
+            return widgets;
+        }
+
+        public T AddWidget<T>(params object[] parameters) where T : Widget
+        {
+            T wid = Activator.CreateInstance(typeof(T), parameters) as T;
+            wid.SetScene(this);
+            widgets.Add(wid);
+            return wid;
+        }
+
+        public List<T> GetWidgets<T>() where T : Widget
+        {
+            List<T> temp = new List<T>();
+            foreach (Widget widget in widgets.FindAll((Widget w) => w.GetType() == typeof(T)))
+                temp.Add((T) widget);
+            return temp;
+        }
+
+        public void RemoveWidget(Widget widget)
+        {
+            widget.SetScene(null);
+            widgets.Remove(widget);
         }
 
         public List<Entity> GetEntities()
@@ -39,30 +70,40 @@ namespace SharpEngine
         {
             foreach (Entity ent in entities)
                 ent.Initialize();
+            foreach (Widget widget in widgets)
+                widget.Initialize();
         }
 
         public virtual void LoadContent()
         {
             foreach (Entity ent in entities)
                 ent.LoadContent();
+            foreach (Widget widget in widgets)
+                widget.LoadContent();
         }
 
         public virtual void UnloadContent()
         {
             foreach (Entity ent in entities)
                 ent.UnloadContent();
+            foreach (Widget widget in widgets)
+                widget.UnloadContent();
         }
 
         public virtual void Update(GameTime gameTime)
         {
             foreach (Entity ent in entities)
                 ent.Update(gameTime);
+            foreach (Widget widget in widgets)
+                widget.Update(gameTime);
         }
 
         public virtual void Draw(GameTime gameTime)
         {
             foreach (Entity ent in entities)
                 ent.Draw(gameTime);
+            foreach (Widget widget in widgets)
+                widget.Draw(gameTime);
         }
     }
 }

@@ -8,12 +8,14 @@ namespace SharpEngine.Components
     {
         public ControlType controlType;
         public int speed;
+        public int jumpForce;
         private Dictionary<ControlKey, Inputs.Key> keys;
 
         public ControlComponent(params object[] parameters): base(parameters)
         {
             controlType = ControlType.MOUSEFOLLOW;
             speed = 5;
+            jumpForce = 5;
             keys = new Dictionary<ControlKey, Inputs.Key>()
             {
                 { ControlKey.UP, Inputs.Key.UP },
@@ -24,8 +26,10 @@ namespace SharpEngine.Components
 
             if (parameters.Length >= 1 && parameters[0] is ControlType control)
                 controlType = control;
-            if (parameters.Length >= 2 && parameters[0] is int spd)
+            if (parameters.Length >= 2 && parameters[1] is int spd)
                 speed = spd;
+            if (parameters.Length >= 3 && parameters[2] is int jF)
+                jumpForce = jF;
         }
 
         public Inputs.Key GetKey(ControlKey controlKey)
@@ -81,6 +85,20 @@ namespace SharpEngine.Components
                             pos.y -= speed;
                         if (InputManager.IsKeyDown(keys[ControlKey.DOWN]))
                             pos.y += speed;
+                        break;
+                    case ControlType.CLASSICJUMP:
+                        if (InputManager.IsKeyDown(keys[ControlKey.LEFT]))
+                            pos.x -= speed;
+                        if (InputManager.IsKeyDown(keys[ControlKey.RIGHT]))
+                            pos.x += speed;
+                        if (InputManager.IsKeyPressed(keys[ControlKey.UP]))
+                        {
+                            if (entity.GetComponent<PhysicsComponent>() is PhysicsComponent pc && pc.grounded)
+                            {
+                                pc.grounded = false;
+                                pc.gravity = -jumpForce;
+                            }
+                        }
                         break;
                 }
 

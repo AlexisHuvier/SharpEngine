@@ -5,6 +5,7 @@
         MOUSEFOLLOW,
         LEFTRIGHT,
         UPDOWN,
-        FOURDIRECTION
+        FOURDIRECTION,
+        CLASSICJUMP
     }
 }

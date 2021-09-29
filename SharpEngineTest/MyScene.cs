@@ -1,5 +1,6 @@
 ﻿using SharpEngine;
 using SharpEngine.Components;
+using SharpEngine.Widgets;
 
 namespace SharpEngineTest
 {
@@ -22,8 +23,7 @@ namespace SharpEngineTest
             ent2.AddComponent<RectCollisionComponent>(new Vec2(20));
             AddEntity(ent2);
 
-            foreach (Component comp in entities[0].GetComponents())
-                System.Console.WriteLine(comp);
+            AddWidget<Label>(new Vec2(100), "SALUT LES BROS !", "arial", Color.WHITE);
         }
     }
 }

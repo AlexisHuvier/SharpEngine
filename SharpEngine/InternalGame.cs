@@ -18,11 +18,19 @@ namespace SharpEngine
             IsMouseVisible = window.mouseVisible;
         }
 
+        protected void TextInputHandler(object sender, TextInputEventArgs args)
+        {
+            if (window.currentScene != -1)
+                window.scenes[window.currentScene].TextInput(sender, (Inputs.Key)args.Key, args.Character);
+        }
+
         protected override void Initialize()
         {
             graphics.PreferredBackBufferWidth = (int)window.screenSize.x;
             graphics.PreferredBackBufferHeight = (int)window.screenSize.y;
             graphics.ApplyChanges();
+
+            Window.TextInput += TextInputHandler;
 
             window.textureManager.Load();
             window.fontManager.Load();

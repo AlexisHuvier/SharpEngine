@@ -30,6 +30,9 @@
         public virtual void UnloadContent()
         {}
 
+        public virtual void TextInput(object sender, Inputs.Key key, char Character)
+        {}
+
         public virtual void Update(GameTime gameTime)
         {}
 

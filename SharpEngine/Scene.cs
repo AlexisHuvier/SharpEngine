@@ -98,6 +98,12 @@ namespace SharpEngine
                 widget.Update(gameTime);
         }
 
+        public virtual void TextInput(object sender, Inputs.Key key, char Character)
+        {
+            foreach (Widget widget in widgets)
+                widget.TextInput(sender, key, Character);
+        }
+
         public virtual void Draw(GameTime gameTime)
         {
             foreach (Entity ent in entities)

@@ -38,7 +38,7 @@ namespace SharpEngine.Widgets
                 size = siz;
             if (parameters.Length >= 5 && parameters[4] is Color fC)
                 fontColor = fC;
-            if (parameters.Length >= 4 && parameters[5] is Color bgC)
+            if (parameters.Length >= 6 && parameters[5] is Color bgC)
                 backgroundColor = bgC;
         }
 

@@ -38,7 +38,7 @@ namespace SharpEngine
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             Texture2D blank = new Texture2D(GraphicsDevice, 1, 1);
-            blank.SetData(new[] { Color.WHITE.ToMonoGameColor() });
+            blank.SetData(new[] { Color.WHITE.ToMG() });
             window.textureManager.AddTexture("blank", blank);
 
             foreach (Scene scene in window.scenes)
@@ -72,7 +72,7 @@ namespace SharpEngine
 
         protected override void Draw(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            GraphicsDevice.Clear(window.backgroundColor.ToMonoGameColor());
+            GraphicsDevice.Clear(window.backgroundColor.ToMG());
 
             spriteBatch.Begin();
             if (window.currentScene != -1)

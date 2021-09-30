@@ -72,7 +72,7 @@ namespace SharpEngine
         public static bool MouseInRectangle(Rect rec)
         {
             MouseState state = Mouse.GetState();
-            return rec.ToMonoGameRectangle().Contains(state.X, state.Y);
+            return rec.ToMG().Contains(state.X, state.Y);
         }
 
         public static bool MouseInRectangle(Vec2 position, Vec2 size)

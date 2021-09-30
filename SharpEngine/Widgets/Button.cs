@@ -71,16 +71,16 @@ namespace SharpEngine.Widgets
                 return;
 
             if (state != ButtonState.CLICK && active && state == ButtonState.HOVERED)
-                scene.window.internalGame.spriteBatch.Draw(scene.window.textureManager.GetTexture("blank"), new Rect(position - (size + new Vec2(4)) / 2, (size + new Vec2(4))).ToMonoGameRectangle(), Color.WHITE.ToMonoGameColor());
+                scene.window.internalGame.spriteBatch.Draw(scene.window.textureManager.GetTexture("blank"), new Rect(position - (size + new Vec2(4)) / 2, (size + new Vec2(4))).ToMG(), Color.WHITE.ToMG());
 
-            scene.window.internalGame.spriteBatch.Draw(scene.window.textureManager.GetTexture("blank"), new Rect(position - size / 2, size).ToMonoGameRectangle(), Color.BLACK.ToMonoGameColor());
-            scene.window.internalGame.spriteBatch.Draw(scene.window.textureManager.GetTexture("blank"), new Rect(position - (size - new Vec2(4)) / 2, (size - new Vec2(4))).ToMonoGameRectangle(), backgroundColor.ToMonoGameColor());
+            scene.window.internalGame.spriteBatch.Draw(scene.window.textureManager.GetTexture("blank"), new Rect(position - size / 2, size).ToMG(), Color.BLACK.ToMG());
+            scene.window.internalGame.spriteBatch.Draw(scene.window.textureManager.GetTexture("blank"), new Rect(position - (size - new Vec2(4)) / 2, (size - new Vec2(4))).ToMG(), backgroundColor.ToMG());
 
             var spriteFont = scene.window.fontManager.GetFont(font);
-            scene.window.internalGame.spriteBatch.DrawString(spriteFont, text, position.ToMonoGameVector(), fontColor.ToMonoGameColor(), 0, spriteFont.MeasureString(text) / 2, 1, Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
+            scene.window.internalGame.spriteBatch.DrawString(spriteFont, text, position.ToMG(), fontColor.ToMG(), 0, spriteFont.MeasureString(text) / 2, 1, Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
 
             if(state == ButtonState.CLICK || !active)
-                scene.window.internalGame.spriteBatch.Draw(scene.window.textureManager.GetTexture("blank"), new Rect(position - size / 2, size).ToMonoGameRectangle(), new Color(0, 0, 0, 128).ToMonoGameColor());
+                scene.window.internalGame.spriteBatch.Draw(scene.window.textureManager.GetTexture("blank"), new Rect(position - size / 2, size).ToMG(), new Color(0, 0, 0, 128).ToMG());
         }
     }
 }

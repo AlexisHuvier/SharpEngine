@@ -35,7 +35,7 @@ namespace SharpEngine.Components
             if (entity.GetComponent<TransformComponent>() is TransformComponent tc && displayed && text.Length > 0 && font.Length > 0)
             {
                 var spriteFont = entity.scene.window.fontManager.GetFont(font);
-                entity.scene.window.internalGame.spriteBatch.DrawString(spriteFont, text, tc.position.ToMonoGameVector(), color.ToMonoGameColor(), tc.rotation, spriteFont.MeasureString(text) / 2, tc.scale.ToMonoGameVector(), Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
+                entity.scene.window.internalGame.spriteBatch.DrawString(spriteFont, text, tc.position.ToMG(), color.ToMG(), tc.rotation, spriteFont.MeasureString(text) / 2, tc.scale.ToMG(), Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
             }
         }
 

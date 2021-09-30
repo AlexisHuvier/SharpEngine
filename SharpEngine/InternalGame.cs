@@ -61,6 +61,7 @@ namespace SharpEngine
                 scene.UnloadContent();
 
             window.textureManager.Unload();
+            MusicManager.Unload();
 
             base.UnloadContent();
         }

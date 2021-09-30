@@ -34,6 +34,29 @@ namespace SharpEngine
             return $"Vec2(x={x}, y={y})";
         }
 
+        public static Vec2 operator -(Vec2 vec, Vec2 vec2)
+            => new Vec2(vec.x - vec2.x, vec.y - vec2.y);
+
+        public static Vec2 operator -(Vec2 vec, int factor)
+            => new Vec2(vec.x - factor, vec.y - factor);
+        public static Vec2 operator +(Vec2 vec, Vec2 vec2)
+            => new Vec2(vec.x + vec2.x, vec.y + vec2.y);
+
+        public static Vec2 operator +(Vec2 vec, int factor)
+            => new Vec2(vec.x + factor, vec.y + factor);
+
+        public static Vec2 operator *(Vec2 vec, Vec2 vec2)
+            => new Vec2(vec.x * vec2.x, vec.y * vec2.y);
+
+        public static Vec2 operator *(Vec2 vec, int factor)
+            => new Vec2(vec.x * factor, vec.y * factor);
+
+        public static Vec2 operator /(Vec2 vec, Vec2 vec2)
+            => new Vec2(vec.x / vec2.x, vec.y / vec2.y);
+
+        public static Vec2 operator /(Vec2 vec, int factor)
+            => new Vec2(vec.x / factor, vec.y / factor);
+
         public static implicit operator Vec2(Vector2 vec)
         {
             return new Vec2(vec.X, vec.Y);

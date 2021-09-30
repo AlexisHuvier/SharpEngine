@@ -12,7 +12,6 @@
             font = "";
             color = Color.BLACK;
 
-
             if (parameters.Length >= 2 && parameters[1] is string txt)
                 text = txt;
             if (parameters.Length >= 3 && parameters[2] is string fnt)

@@ -24,6 +24,13 @@ namespace SharpEngineTest
             AddEntity(ent2);
 
             AddWidget<Label>(new Vec2(100), "SALUT LES BROS !", "arial", Color.WHITE);
+            Button b = AddWidget<Button>(new Vec2(300), "Print", "arial", new Vec2(200, 40), Color.BLACK, Color.GRAY);
+            b.command = PrintNada;
+        }
+
+        public void PrintNada(Button _)
+        {
+            System.Console.WriteLine("Nada");
         }
     }
 }

@@ -14,6 +14,14 @@ namespace SharpEngine
             this.window = window;
         }
 
+        internal void AddTexture(string name, Texture2D texture)
+        {
+            if (!textures.ContainsKey(name))
+            {
+                textures.Add(name, texture);
+            }
+        }
+
         public void AddTexture(string name, string file)
         {
             if (!textures.ContainsKey(name))

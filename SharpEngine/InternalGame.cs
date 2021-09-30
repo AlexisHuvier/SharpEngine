@@ -37,6 +37,10 @@ namespace SharpEngine
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            Texture2D blank = new Texture2D(GraphicsDevice, 1, 1);
+            blank.SetData(new[] { Color.WHITE.ToMonoGameColor() });
+            window.textureManager.AddTexture("blank", blank);
+
             foreach (Scene scene in window.scenes)
                 scene.LoadContent();
 

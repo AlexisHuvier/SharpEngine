@@ -7,7 +7,7 @@ namespace SharpEngineTest
     {
         static void Main(string[] args)
         {
-            Window win = new Window(new Vec2(900, 600));
+            Window win = new Window(new Vec2(900, 600), Color.CORNFLOWER_BLUE);
 
             win.textureManager.AddTexture("test", "test.png");
             win.fontManager.AddFont("arial", "C:\\Windows\\Fonts\\arial.ttf");

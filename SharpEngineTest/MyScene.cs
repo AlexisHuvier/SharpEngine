@@ -1,6 +1,5 @@
 ﻿using SharpEngine;
 using SharpEngine.Components;
-using SharpEngine.Widgets;
 
 namespace SharpEngineTest
 {
@@ -8,23 +7,19 @@ namespace SharpEngineTest
     {
         public MyScene(): base()
         {
-            AddWidget<Label>(new Vec2(100), "SALUT LES BROS !", "arial", Color.WHITE);
-            Button b = AddWidget<Button>(new Vec2(300), "Print", "arial", new Vec2(200, 40), Color.BLACK, Color.GRAY);
-            b.command = PrintNada;
-            AddWidget<Image>(new Vec2(300, 400), "test");
-            AddWidget<Checkbox>(new Vec2(500));
-            AddWidget<Checkbox>(new Vec2(500, 300), "Heyo", "arial", 1f, Color.WHITE, true);
-            AddWidget<Checkbox>(new Vec2(500, 400), "Heyo", "arial", 2f);
-            AddWidget<LineEdit>(new Vec2(600, 100), "", "arial");
-            AddWidget<Selector>(new Vec2(650, 300), "arial", "Ceci", "est", "un test");
-            AddWidget<Selector>(new Vec2(650, 300), "arial", "Ceci", "est", "un test");
-            AddWidget<ProgressBar>(new Vec2(300, 200)).value = 20;
-            AddWidget<ProgressBar>(new Vec2(300, 500), Color.RED, new Vec2(100, 20)).value = 76;
-        }
+            Entity ent = new Entity();
+            ent.AddComponent<TransformComponent>(new Vec2(100));
+            ent.AddComponent<RectCollisionComponent>(new Vec2(10), new Vec2(0), false).collisionCallback = (Entity e, Entity other, string cause) => System.Console.WriteLine(cause);
+            ent.AddComponent<SpriteComponent>("test");
+            ent.AddComponent<ControlComponent>(ControlType.FOURDIRECTION);
+            AddEntity(ent);
 
-        public void PrintNada(Button _)
-        {
-            System.Console.WriteLine("Nada");
+            Entity ent2 = new Entity();
+            ent2.AddComponent<TransformComponent>(new Vec2(100, 300));
+            ent2.AddComponent<RectCollisionComponent>(new Vec2(10), new Vec2(0), false);
+            ent2.AddComponent<SpriteComponent>("test");
+            AddEntity(ent2);
+
         }
     }
 }

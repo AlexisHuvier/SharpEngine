@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Version>0.1.3</Version>
+    <Version>0.1.4</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Little 2D game engine built on Monogame</Description>
     <PackageProjectUrl />

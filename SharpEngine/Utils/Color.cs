@@ -44,7 +44,7 @@
             this.a = a;
         }
 
-        internal Microsoft.Xna.Framework.Color ToMG()
+        public Microsoft.Xna.Framework.Color ToMG()
         {
             return new Microsoft.Xna.Framework.Color(r, g, b, a);
         }

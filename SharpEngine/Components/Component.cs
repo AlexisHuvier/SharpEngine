@@ -1,8 +1,10 @@
-﻿namespace SharpEngine.Components
+﻿using Microsoft.Xna.Framework.Graphics;
+
+namespace SharpEngine.Components
 {
     public class Component
     {
-        protected Entity entity;
+        internal Entity entity;
 
         public Component(params object[] parameters)
         {
@@ -12,6 +14,25 @@
         public virtual void SetEntity(Entity entity)
         {
             this.entity = entity;
+        }
+
+        public Entity GetEntity()
+        {
+            return entity;
+        }
+
+        public SpriteBatch GetSpriteBatch()
+        {
+            if (entity != null && entity.scene != null && entity.scene.window != null)
+                return entity.scene.window.internalGame.spriteBatch;
+            return null;
+        }
+
+        public Window GetWindow()
+        {
+            if (entity != null && entity.scene != null)
+                return entity.scene.window;
+            return null;
         }
 
         public virtual void Initialize() {}

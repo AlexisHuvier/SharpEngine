@@ -23,8 +23,8 @@ namespace SharpEngine.Components
             base.Draw(gameTime);
 
             if (entity.GetComponent<TransformComponent>() is TransformComponent tc && displayed && sprite.Length > 0) {
-                var texture = entity.scene.window.textureManager.GetTexture(sprite);
-                entity.scene.window.internalGame.spriteBatch.Draw(texture, tc.position.ToMG(), null, Color.WHITE.ToMG(), MathHelper.ToRadians(tc.rotation), new Vector2(texture.Width, texture.Height) / 2, tc.scale.ToMG(), Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
+                var texture = GetWindow().textureManager.GetTexture(sprite);
+                GetSpriteBatch().Draw(texture, tc.position.ToMG(), null, Color.WHITE.ToMG(), MathHelper.ToRadians(tc.rotation), new Vector2(texture.Width, texture.Height) / 2, tc.scale.ToMG(), Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
             }
         }
 

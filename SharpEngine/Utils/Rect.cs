@@ -17,7 +17,7 @@ namespace SharpEngine
         public Rect(Vec2 pos, float width, float height) : this(pos, new Vec2(width, height)) { }
         public Rect(float x, float y, float width, float height) : this(new Vec2(x, y), new Vec2(width, height)) { }
 
-        internal Rectangle ToMG()
+        public Rectangle ToMG()
         {
             return new Rectangle((int) position.x, (int) position.y, (int) size.x, (int) size.y);
         }

@@ -15,7 +15,7 @@ namespace SharpEngine
             this.isRunningSlowly = isRunningSlowly;
         }
 
-        internal static GameTime FromMonogameGameTime(Microsoft.Xna.Framework.GameTime gameTime)
+        public static GameTime FromMonogameGameTime(Microsoft.Xna.Framework.GameTime gameTime)
         {
             return new GameTime(gameTime.TotalGameTime, gameTime.ElapsedGameTime, gameTime.IsRunningSlowly);
         }

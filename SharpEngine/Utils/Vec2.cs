@@ -24,7 +24,7 @@ namespace SharpEngine
             return (float) System.Math.Sqrt(x * x + y * y);
         }
 
-        internal Vector2 ToMG()
+        public Vector2 ToMG()
         {
             return new Vector2(x, y);
         }

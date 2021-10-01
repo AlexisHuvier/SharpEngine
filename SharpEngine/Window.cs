@@ -4,7 +4,7 @@ namespace SharpEngine
 {
     public class Window
     {
-        internal InternalGame internalGame;
+        public InternalGame internalGame;
         private Vec2 _internalScreenSize;
         private bool _internalMouseVisible;
         internal int currentScene = -1;

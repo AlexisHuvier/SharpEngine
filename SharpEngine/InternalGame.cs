@@ -4,10 +4,10 @@ using Microsoft.Xna.Framework.Input;
 
 namespace SharpEngine
 {
-    internal class InternalGame : Game
+    public class InternalGame : Game
     {
-        internal readonly GraphicsDeviceManager graphics;
-        internal SpriteBatch spriteBatch;
+        public readonly GraphicsDeviceManager graphics;
+        public SpriteBatch spriteBatch;
         private readonly Window window;
 
         public InternalGame(Window win) : base()

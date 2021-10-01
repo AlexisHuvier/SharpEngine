@@ -49,6 +49,11 @@ namespace SharpEngine
             this.scene = scene;
         }
 
+        public Scene GetScene()
+        {
+            return scene;
+        }
+
         public virtual void Initialize() 
         {
             foreach (Component comp in components)

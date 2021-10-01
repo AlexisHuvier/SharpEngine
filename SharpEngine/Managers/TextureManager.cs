@@ -14,7 +14,7 @@ namespace SharpEngine
             this.window = window;
         }
 
-        internal void AddTexture(string name, Texture2D texture)
+        public void AddTexture(string name, Texture2D texture)
         {
             if (!textures.ContainsKey(name))
             {
@@ -39,7 +39,7 @@ namespace SharpEngine
                 textures.Add(texture.Key, Texture2D.FromFile(window.internalGame.GraphicsDevice, texture.Value));
         }
 
-        internal Texture2D GetTexture(string name)
+        public Texture2D GetTexture(string name)
         {
             return textures.GetValueOrDefault(name, null);
         }

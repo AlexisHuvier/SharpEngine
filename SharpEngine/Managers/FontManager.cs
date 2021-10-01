@@ -63,7 +63,7 @@ namespace SharpEngine
             }
         }
 
-        internal SpriteFont GetFont(string name)
+        public SpriteFont GetFont(string name)
         {
             return fonts.GetValueOrDefault(name, null);
         }

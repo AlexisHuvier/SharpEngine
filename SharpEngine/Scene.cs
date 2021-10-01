@@ -66,6 +66,11 @@ namespace SharpEngine
             this.window = window;
         }
 
+        public Window GetWindow()
+        {
+            return window;
+        }
+
         public virtual void Initialize()
         {
             foreach (Entity ent in entities)

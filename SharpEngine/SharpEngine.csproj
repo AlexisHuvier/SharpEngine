@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Version>0.1.1</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Little 2D game engine built on Monogame</Description>
+    <PackageProjectUrl />
+    <Authors>LavaPower - LycosNovation</Authors>
+    <Company>LycosNovation</Company>
+    <Copyright>Copyright (c) LavaPower 2021</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

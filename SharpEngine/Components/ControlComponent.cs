@@ -104,7 +104,7 @@ namespace SharpEngine.Components
 
                 if (entity.GetComponent<RectCollisionComponent>() is RectCollisionComponent rcc)
                 {
-                    if (rcc.can_go(pos, "ControlComponent"))
+                    if (rcc.CanGo(pos, "ControlComponent"))
                         tc.position = pos;
                 }
                 else

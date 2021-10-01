@@ -38,7 +38,7 @@
 
                 if (entity.GetComponent<RectCollisionComponent>() is RectCollisionComponent rcc)
                 {
-                    if (rcc.can_go(pos, "GRAVITY"))
+                    if (rcc.CanGo(pos, "GRAVITY"))
                     {
                         grounded = false;
                         tc.position = pos;

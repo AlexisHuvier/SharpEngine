@@ -18,7 +18,7 @@ namespace SharpEngine.Components
                 offset = off;
         }
 
-        public bool can_go(Vec2 position, string cause)
+        public bool CanGo(Vec2 position, string cause)
         {
             var rect = new Rectangle((int) (position.x + offset.x - size.x / 2), (int) (position.y + offset.y - size.y / 2), (int)size.x, (int)size.y);
             foreach(Entity e in entity.scene.GetEntities())

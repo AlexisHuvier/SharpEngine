@@ -24,7 +24,7 @@ namespace SharpEngine.Components
 
             if (entity.GetComponent<TransformComponent>() is TransformComponent tc && displayed && sprite.Length > 0) {
                 var texture = GetWindow().textureManager.GetTexture(sprite);
-                GetSpriteBatch().Draw(texture, tc.position.ToMG(), null, Color.WHITE.ToMG(), MathHelper.ToRadians(tc.rotation), new Vector2(texture.Width, texture.Height) / 2, tc.scale.ToMG(), Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
+                GetSpriteBatch().Draw(texture, (tc.position - CameraManager.position).ToMG(), null, Color.WHITE.ToMG(), MathHelper.ToRadians(tc.rotation), new Vector2(texture.Width, texture.Height) / 2, tc.scale.ToMG(), Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
             }
         }
 

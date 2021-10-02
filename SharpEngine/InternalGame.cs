@@ -69,6 +69,8 @@ namespace SharpEngine
 
         protected override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            CameraManager.Update(window.screenSize);
+
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 

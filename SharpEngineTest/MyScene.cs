@@ -20,6 +20,7 @@ namespace SharpEngineTest
             ent2.AddComponent<SpriteComponent>("test");
             AddEntity(ent2);
 
+            CameraManager.followEntity = ent;
         }
     }
 }

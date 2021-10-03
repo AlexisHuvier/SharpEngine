@@ -60,6 +60,11 @@ namespace SharpEngine
             currentScene = scenes.IndexOf(scene);
         }
 
+        public void TakeScreenshot(string fileName)
+        {
+            internalGame.TakeScreenshot(fileName);
+        }
+
         public void AddScene(Scene scene)
         {
             scene.SetWindow(this);
@@ -76,6 +81,11 @@ namespace SharpEngine
         public void Run()
         {
             internalGame.Run();
+        }
+
+        public void Stop()
+        {
+            internalGame.Exit();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.IO;
 
 namespace SharpEngine
 {
@@ -16,6 +17,26 @@ namespace SharpEngine
 
             graphics = new GraphicsDeviceManager(this);
             IsMouseVisible = window.mouseVisible;
+        }
+
+        internal void TakeScreenshot(string fileName)
+        {
+            int w = GraphicsDevice.PresentationParameters.BackBufferWidth;
+            int h = GraphicsDevice.PresentationParameters.BackBufferHeight;
+
+            Draw(new Microsoft.Xna.Framework.GameTime());
+
+            int[] backBuffer = new int[w * h];
+            GraphicsDevice.GetBackBufferData(backBuffer);
+ 
+            Texture2D texture = new Texture2D(GraphicsDevice, w, h, false, GraphicsDevice.PresentationParameters.BackBufferFormat);
+            texture.SetData(backBuffer);
+
+            Stream stream = File.OpenWrite(fileName + ".jpg");
+
+            texture.SaveAsJpeg(stream, w, h);
+            stream.Dispose();
+            texture.Dispose();
         }
 
         protected void TextInputHandler(object sender, TextInputEventArgs args)

@@ -5,6 +5,8 @@ namespace SharpEngineTest
 {
     class MyScene: Scene
     {
+        Save save;
+
         public MyScene(): base()
         {
             Entity ent = new Entity();
@@ -21,6 +23,8 @@ namespace SharpEngineTest
             AddEntity(ent2);
 
             CameraManager.followEntity = ent;
+
+            save = Save.Load("save.ses", new System.Collections.Generic.Dictionary<string, object>() { { "point", 1 }});
         }
 
         public override void Update(GameTime gameTime)
@@ -29,6 +33,17 @@ namespace SharpEngineTest
 
             GetEntities()[0].GetComponent<TransformComponent>().zLayer = (int)GetEntities()[0].GetComponent<TransformComponent>().position.y;
             GetEntities()[1].GetComponent<TransformComponent>().zLayer = (int)GetEntities()[1].GetComponent<TransformComponent>().position.y;
+
+            if (InputManager.IsKeyPressed(SharpEngine.Inputs.Key.P))
+                GetWindow().TakeScreenshot("test");
+            if (InputManager.IsKeyReleased(SharpEngine.Inputs.Key.Q))
+                GetWindow().Stop();
+            if (InputManager.IsKeyPressed(SharpEngine.Inputs.Key.A))
+                save.SetObject("point", save.GetObjectAs<int>("point") + 1);
+            if (InputManager.IsKeyPressed(SharpEngine.Inputs.Key.S))
+                save.Write("save.ses");
+            if (InputManager.IsKeyPressed(SharpEngine.Inputs.Key.R))
+                System.Console.WriteLine(save.GetObjectAs<int>("point"));
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System;
 using SharpEngine.Widgets;
+using SharpEngine.Components;
 
 namespace SharpEngine
 {
@@ -109,9 +110,30 @@ namespace SharpEngine
                 widget.TextInput(sender, key, Character);
         }
 
+        public List<Entity> GetEntitySortByZ()
+        {
+            List<Entity> temp = new List<Entity>(entities);
+            temp.Sort((Entity a, Entity b) => {
+                if (a.GetComponent<TransformComponent>() is TransformComponent atc)
+                {
+                    if (b.GetComponent<TransformComponent>() is TransformComponent btc)
+                    {
+                        return atc.zLayer - btc.zLayer;
+                    }
+                    else
+                        return 1;
+                }
+                else if (b.GetComponent<TransformComponent>() is TransformComponent btc)
+                    return -1;
+                else
+                    return 0;
+            });
+            return temp;
+        }
+
         public virtual void Draw(GameTime gameTime)
         {
-            foreach (Entity ent in entities)
+            foreach (Entity ent in GetEntitySortByZ())
                 ent.Draw(gameTime);
             foreach (Widget widget in widgets)
                 widget.Draw(gameTime);

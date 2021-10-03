@@ -5,24 +5,28 @@
         public Vec2 position;
         public Vec2 scale;
         public int rotation;
+        public int zLayer;
 
         public TransformComponent(params object[] parameters): base(parameters)
         {
-            this.position = new Vec2(0);
-            this.scale = new Vec2(1);
-            this.rotation = 0;
+            position = new Vec2(0);
+            scale = new Vec2(1);
+            rotation = 0;
+            zLayer = 0;
 
             if (parameters.Length >= 1 && parameters[0] is Vec2 pos)
-                this.position = pos;
+                position = pos;
             if (parameters.Length >= 2 && parameters[1] is Vec2 sca)
-                this.scale = sca;
+                scale = sca;
             if (parameters.Length >= 3 && parameters[2] is int rot)
-                this.rotation = rot;
+                rotation = rot;
+            if (parameters.Length >= 4 && parameters[3] is int z)
+                zLayer = z;
         }
 
         public override string ToString()
         {
-            return $"TransformComponent(pos={position}, scale={scale}, rotation={rotation})";
+            return $"TransformComponent(pos={position}, scale={scale}, rotation={rotation}, zLayer={zLayer})";
         }
     }
 }

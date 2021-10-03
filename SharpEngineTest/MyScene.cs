@@ -22,5 +22,13 @@ namespace SharpEngineTest
 
             CameraManager.followEntity = ent;
         }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+
+            GetEntities()[0].GetComponent<TransformComponent>().zLayer = (int)GetEntities()[0].GetComponent<TransformComponent>().position.y;
+            GetEntities()[1].GetComponent<TransformComponent>().zLayer = (int)GetEntities()[1].GetComponent<TransformComponent>().position.y;
+        }
     }
 }

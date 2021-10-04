@@ -10,6 +10,7 @@ namespace SharpEngineTest
             Window win = new Window(new Vec2(900, 600), Color.CORNFLOWER_BLUE);
 
             win.textureManager.AddTexture("test", "test.png");
+            win.textureManager.AddTexture("spritesheet", "spritesheet.png");
             win.fontManager.AddFont("arial", "C:\\Windows\\Fonts\\arial.ttf");
 
             win.AddScene(new MyScene());

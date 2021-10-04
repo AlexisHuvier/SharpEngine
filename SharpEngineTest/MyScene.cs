@@ -1,5 +1,6 @@
 ﻿using SharpEngine;
 using SharpEngine.Components;
+using System.Collections.Generic;
 
 namespace SharpEngineTest
 {
@@ -21,6 +22,11 @@ namespace SharpEngineTest
             ent2.AddComponent<RectCollisionComponent>(new Vec2(10), new Vec2(0), false);
             ent2.AddComponent<SpriteComponent>("test");
             AddEntity(ent2);
+
+            Entity ent3 = new Entity();
+            ent3.AddComponent<TransformComponent>(new Vec2(100, 400), new Vec2(2));
+            ent3.AddComponent<SpriteSheetComponent>("spritesheet", new Vec2(32), new Dictionary<string, List<int>>() { { "idle", new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 } } }, "idle");
+            AddEntity(ent3);
 
             CameraManager.followEntity = ent;
 

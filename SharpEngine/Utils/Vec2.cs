@@ -29,6 +29,18 @@ namespace SharpEngine
             return new Vector2(x, y);
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj is Vec2 vec)
+                return this == vec;
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         public override string ToString()
         {
             return $"Vec2(x={x}, y={y})";

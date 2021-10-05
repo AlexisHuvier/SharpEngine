@@ -47,10 +47,17 @@ namespace SharpEngine
         }
 
         public static bool operator !=(Vec2 vec1, Vec2 vec2)
-            => (vec1 != null && vec2 != null &&  (vec1.x != vec2.x || vec1.y != vec2.y)) || vec1 != vec2;
+            => !(vec1 == vec2);
 
         public static bool operator ==(Vec2 vec1, Vec2 vec2)
-            => (vec1 != null && vec2 != null && (vec1.x == vec2.x || vec1.y == vec2.y)) || vec1 == vec2;
+        {
+            if (vec1 is null)
+                return vec2 is null;
+            else if (vec2 is null)
+                return false;
+            else
+                return vec1.x == vec2.x && vec1.y == vec2.y;
+        }
 
         public static Vec2 operator -(Vec2 vec)
             => new Vec2(-vec.x, -vec.y);

@@ -40,10 +40,17 @@ namespace SharpEngine
         }
 
         public static bool operator !=(Rect r1, Rect r2)
-            => (r1 != null && r2 != null && (r1.position != r2.position || r1.size != r2.size)) || r1 != r2;
+            => !(r1 == r2);
 
         public static bool operator ==(Rect r1, Rect r2)
-            => (r1 != null && r2 != null && (r1.position == r2.position || r1.size == r2.size)) || r1 == r2;
+        {
+            if (r1 is null)
+                return r2 is null;
+            else if (r2 is null)
+                return false;
+            else
+                return r1.position == r2.position && r1.size == r2.size;
+        }
 
         public static implicit operator Rect(Rectangle rectangle)
         {

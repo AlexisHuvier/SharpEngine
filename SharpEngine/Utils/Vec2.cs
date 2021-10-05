@@ -34,6 +34,15 @@ namespace SharpEngine
             return $"Vec2(x={x}, y={y})";
         }
 
+        public static bool operator !=(Vec2 vec1, Vec2 vec2)
+            => vec1.x != vec2.x || vec1.y != vec2.y;
+
+        public static bool operator ==(Vec2 vec1, Vec2 vec2)
+            => vec1.x == vec2.x && vec1.y == vec2.y;
+
+        public static Vec2 operator -(Vec2 vec)
+            => new Vec2(-vec.x, -vec.y);
+
         public static Vec2 operator -(Vec2 vec, Vec2 vec2)
             => new Vec2(vec.x - vec2.x, vec.y - vec2.y);
 

@@ -22,6 +22,23 @@ namespace SharpEngine
             return new Rectangle((int) position.x, (int) position.y, (int) size.x, (int) size.y);
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj is Rect rect)
+                return this == rect;
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return $"Rect(position={position}, size={size})";
+        }
+
         public static bool operator !=(Rect r1, Rect r2)
             => r1.position != r2.position || r1.size != r2.size;
 

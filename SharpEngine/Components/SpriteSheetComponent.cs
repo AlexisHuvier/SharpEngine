@@ -48,6 +48,11 @@ namespace SharpEngine.Components
             internalTimer = timer;
         }
 
+        public string GetAnim()
+        {
+            return currentAnim;
+        }
+
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);

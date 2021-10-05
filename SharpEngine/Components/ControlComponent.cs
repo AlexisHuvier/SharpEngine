@@ -10,12 +10,14 @@ namespace SharpEngine.Components
         public int speed;
         public int jumpForce;
         private Dictionary<ControlKey, Inputs.Key> keys;
+        public bool isMoving;
 
         public ControlComponent(params object[] parameters): base(parameters)
         {
             controlType = ControlType.MOUSEFOLLOW;
             speed = 5;
             jumpForce = 5;
+            isMoving = false;
             keys = new Dictionary<ControlKey, Inputs.Key>()
             {
                 { ControlKey.UP, Inputs.Key.UP },
@@ -45,6 +47,8 @@ namespace SharpEngine.Components
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+
+            isMoving = false;
 
             if(entity.GetComponent<TransformComponent>() is TransformComponent tc)
             {
@@ -105,10 +109,16 @@ namespace SharpEngine.Components
                 if (entity.GetComponent<RectCollisionComponent>() is RectCollisionComponent rcc)
                 {
                     if (rcc.CanGo(pos, "ControlComponent"))
+                    {
+                        isMoving = true;
                         tc.position = pos;
+                    }
                 }
                 else
+                {
+                    isMoving = true;
                     tc.position = pos;
+                }
             }
         }
 

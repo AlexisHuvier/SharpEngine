@@ -22,6 +22,12 @@ namespace SharpEngine
             return new Rectangle((int) position.x, (int) position.y, (int) size.x, (int) size.y);
         }
 
+        public static bool operator !=(Rect r1, Rect r2)
+            => r1.position != r2.position || r1.size != r2.size;
+
+        public static bool operator ==(Rect r1, Rect r2)
+            => r1.position == r2.position && r1.size == r2.size;
+
         public static implicit operator Rect(Rectangle rectangle)
         {
             return new Rect(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);

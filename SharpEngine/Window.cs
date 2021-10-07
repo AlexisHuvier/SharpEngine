@@ -78,6 +78,11 @@ namespace SharpEngine
             scenes.Remove(scene);
         }
 
+        public Scene GetScene(int index)
+        {
+            return scenes[index];
+        }
+
         public void Run()
         {
             internalGame.Run();

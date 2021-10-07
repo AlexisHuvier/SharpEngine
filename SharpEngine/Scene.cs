@@ -98,10 +98,10 @@ namespace SharpEngine
 
         public virtual void Update(GameTime gameTime)
         {
-            foreach (Entity ent in entities)
-                ent.Update(gameTime);
-            foreach (Widget widget in widgets)
-                widget.Update(gameTime);
+            for (int i = entities.Count - 1; i > -1; i++)
+                entities[i].Update(gameTime);
+            for (int i = widgets.Count - 1; i > -1; i++)
+                widgets[i].Update(gameTime);
         }
 
         public virtual void TextInput(object sender, Inputs.Key key, char Character)

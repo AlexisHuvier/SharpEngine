@@ -98,9 +98,9 @@ namespace SharpEngine
 
         public virtual void Update(GameTime gameTime)
         {
-            for (int i = entities.Count - 1; i > -1; i++)
+            for (int i = entities.Count - 1; i > -1; i--)
                 entities[i].Update(gameTime);
-            for (int i = widgets.Count - 1; i > -1; i++)
+            for (int i = widgets.Count - 1; i > -1; i--)
                 widgets[i].Update(gameTime);
         }
 

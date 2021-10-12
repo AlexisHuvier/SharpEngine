@@ -1,5 +1,6 @@
 ﻿using SharpEngine;
 using SharpEngine.Components;
+using SharpEngine.Widgets;
 using System.Collections.Generic;
 
 namespace SharpEngineTest
@@ -29,6 +30,8 @@ namespace SharpEngineTest
             AddEntity(ent3);
 
             CameraManager.followEntity = ent;
+
+            AddWidget<TexturedButton>(new Vec2(250), "Heyo", "arial", "test");
 
             save = Save.Load("save.ses", new System.Collections.Generic.Dictionary<string, object>() { { "point", 1 }});
         }

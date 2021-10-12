@@ -65,7 +65,10 @@ namespace SharpEngine
 
         public SpriteFont GetFont(string name)
         {
-            return fonts.GetValueOrDefault(name, null);
+            if (fonts.ContainsKey(name))
+                return fonts[name];
+            else
+                throw new System.Exception($"Font not founded : {name}");
         }
     }
 }

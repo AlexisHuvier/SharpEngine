@@ -53,8 +53,6 @@ namespace SharpEngine
         }
 
         public static implicit operator Rect(Rectangle rectangle)
-        {
-            return new Rect(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);
-        }
+            => rectangle == null ? null : new Rect(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);
     }
 }

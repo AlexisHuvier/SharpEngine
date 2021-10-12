@@ -41,7 +41,10 @@ namespace SharpEngine
 
         public Texture2D GetTexture(string name)
         {
-            return textures.GetValueOrDefault(name, null);
+            if (textures.ContainsKey(name))
+                return textures[name];
+            else
+                throw new System.Exception($"Texture not founded : {name}");
         }
 
         internal void Unload(string name)

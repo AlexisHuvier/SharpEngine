@@ -1,4 +1,6 @@
-﻿namespace SharpEngine.Widgets
+﻿using Microsoft.Xna.Framework.Graphics;
+
+namespace SharpEngine.Widgets
 {
     public class Widget
     {
@@ -19,6 +21,25 @@
         public virtual void SetScene(Scene scene)
         {
             this.scene = scene;
+        }
+
+        public Scene GetScene()
+        {
+            return scene;
+        }
+
+        public SpriteBatch GetSpriteBatch()
+        {
+            if (scene != null && scene.window != null)
+                return scene.window.internalGame.spriteBatch;
+            return null;
+        }
+
+        public Window GetWindow()
+        {
+            if (scene != null)
+                return scene.window;
+            return null;
         }
 
         public virtual void Initialize()

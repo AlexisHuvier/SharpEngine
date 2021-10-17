@@ -53,6 +53,8 @@ namespace SharpEngineTest
                 save.Write("save.ses");
             if (InputManager.IsKeyPressed(SharpEngine.Inputs.Key.R))
                 System.Console.WriteLine(save.GetObjectAs<int>("point"));
+            if (InputManager.IsKeyPressed(SharpEngine.Inputs.Key.F))
+                System.Console.WriteLine($"{DebugManager.GetFPS()} - {DebugManager.GetGCMemory()}");
         }
     }
 }

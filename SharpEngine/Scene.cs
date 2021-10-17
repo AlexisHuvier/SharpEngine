@@ -106,6 +106,8 @@ namespace SharpEngine
 
         public virtual void TextInput(object sender, Inputs.Key key, char Character)
         {
+            foreach (Entity e in entities)
+                e.TextInput(sender, key, Character);
             foreach (Widget widget in widgets)
                 widget.TextInput(sender, key, Character);
         }

@@ -72,6 +72,12 @@ namespace SharpEngine
                 comp.UnloadContent();
         }
 
+        public virtual void TextInput(object sender, Inputs.Key key, char Character)
+        {
+            foreach (Component comp in components)
+                comp.TextInput(sender, key, Character);
+        }
+
         public virtual void Update(GameTime gameTime)
         {
             foreach (Component comp in components)

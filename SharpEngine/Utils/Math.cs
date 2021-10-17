@@ -2,7 +2,15 @@
 {
     class Math
     {
-        public static int Clamp(int value, int mini = int.MinValue, int maxi = int.MaxValue)
+        public const float E = 2.71828175F;
+        public const float LOG10E = 0.4342945F;
+        public const float LOG2E = 1.442695F;
+        public const float PI = 3.14159274F;
+        public const float PIOVER2 = 1.57079637F;
+        public const float PIOVER4 = 0.7853982F;
+        public const float TAU = 6.28318548F;
+        public const float TWOPI = 6.28318548F;
+        public static float Clamp(float value, float mini = float.MinValue, float maxi = float.MaxValue)
         {
             if (value < mini)
                 return mini;
@@ -11,7 +19,8 @@
             else
                 return value;
         }
-        public static float Clamp(float value, float mini = float.MinValue, float maxi = float.MaxValue)
+
+        public static int Clamp(int value, int mini = int.MinValue, int maxi = int.MaxValue)
         {
             if (value < mini)
                 return mini;

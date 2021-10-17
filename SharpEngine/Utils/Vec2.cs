@@ -19,9 +19,23 @@ namespace SharpEngine
             y = y_;
         }
 
+        public Vec2 Normalized()
+        {
+            var length = Length();
+            if (length == 0)
+                return null;
+            else
+                return new Vec2(x / length, y / length);
+        }
+
         public float Length()
         {
             return (float) System.Math.Sqrt(x * x + y * y);
+        }
+
+        public float LengthSquared()
+        {
+            return x * x + y * y;
         }
 
         public Vector2 ToMG()

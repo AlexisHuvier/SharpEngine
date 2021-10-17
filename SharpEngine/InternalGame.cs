@@ -90,6 +90,7 @@ namespace SharpEngine
 
         protected override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            DebugManager.Update(GameTime.FromMonogameGameTime(gameTime));
             CameraManager.Update(window.screenSize);
 
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
@@ -105,6 +106,8 @@ namespace SharpEngine
 
         protected override void Draw(Microsoft.Xna.Framework.GameTime gameTime)
         {
+            DebugManager.Draw();
+
             GraphicsDevice.Clear(window.backgroundColor.ToMG());
 
             spriteBatch.Begin();

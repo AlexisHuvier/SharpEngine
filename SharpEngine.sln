@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpEngine", "SharpEngine\SharpEngine.csproj", "{1C870B7B-7F95-4BFE-846C-D474D88D4246}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpEngine", "SharpEngine\SharpEngine.csproj", "{1C870B7B-7F95-4BFE-846C-D474D88D4246}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpEngineTest", "SharpEngineTest\SharpEngineTest.csproj", "{E16BB5B2-4F78-4EAA-B306-44D0C2C11E97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpEngineTest", "SharpEngineTest\SharpEngineTest.csproj", "{E16BB5B2-4F78-4EAA-B306-44D0C2C11E97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

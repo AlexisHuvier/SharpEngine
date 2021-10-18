@@ -11,6 +11,7 @@ namespace SharpEngineTest
 
             win.textureManager.AddTexture("test", "test.png");
             win.textureManager.AddTexture("spritesheet", "spritesheet.png");
+            win.textureManager.AddTexture("flamme", "flamme.gif");
             win.fontManager.AddFont("arial", "C:\\Windows\\Fonts\\arial.ttf");
 
             win.AddScene(new MyScene());

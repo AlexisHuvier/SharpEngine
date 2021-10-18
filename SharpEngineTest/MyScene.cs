@@ -29,6 +29,11 @@ namespace SharpEngineTest
             ent3.AddComponent<SpriteSheetComponent>("spritesheet", new Vec2(32), new Dictionary<string, List<int>>() { { "idle", new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 } } }, "idle");
             AddEntity(ent3);
 
+            Entity ent4 = new Entity();
+            ent4.AddComponent<TransformComponent>(new Vec2(100, 500), new Vec2(4));
+            ent4.AddComponent<SpriteComponent>("flamme");
+            AddEntity(ent4);
+
             CameraManager.followEntity = ent;
 
             AddWidget<TexturedButton>(new Vec2(250), "Heyo", "arial", "test");

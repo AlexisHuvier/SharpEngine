@@ -2,6 +2,9 @@
 
 namespace SharpEngine
 {
+    /// <summary>
+    /// Temps du jeu
+    /// </summary>
     public class GameTime
     {
         public TimeSpan totalGameTime { get; set; }

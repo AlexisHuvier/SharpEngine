@@ -2,11 +2,20 @@
 
 namespace SharpEngine.Components
 {
+    /// <summary>
+    /// Composant ajoutant l'affichage d'un sprite
+    /// </summary>
     public class SpriteComponent: Component
     {
         public string sprite;
         public bool displayed;
 
+        /// <summary>
+        /// Initialise le Composant.<para/>
+        /// -> Paramètre 1 : Nom de la texture (string) ("")<para/>
+        /// -> Paramètre 2 : Est affiché (bool) (true)<para/>
+        /// </summary>
+        /// <param name="parameters">Paramètres du Composant</param>
         public SpriteComponent(params object[] parameters): base(parameters)
         {
             sprite = "";

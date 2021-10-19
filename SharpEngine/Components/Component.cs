@@ -2,10 +2,18 @@
 
 namespace SharpEngine.Components
 {
+    /// <summary>
+    /// Composant basique
+    /// </summary>
     public class Component
     {
         internal Entity entity;
 
+        /// <summary>
+        /// Initialise le Composant.<para/>
+        /// N'utilise aucun paramètre.
+        /// </summary>
+        /// <param name="parameters">Paramètres du Composant</param>
         public Component(params object[] parameters)
         {
             entity = null;

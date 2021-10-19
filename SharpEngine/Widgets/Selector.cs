@@ -2,6 +2,9 @@
 
 namespace SharpEngine.Widgets
 {
+    /// <summary>
+    /// Sélecteur
+    /// </summary>
     public class Selector: Widget
     {
         private readonly List<string> texts;
@@ -11,6 +14,13 @@ namespace SharpEngine.Widgets
         private string font;
         private int selected;
 
+        /// <summary>
+        /// Initialise le Widget.<para/>
+        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))<para/>
+        /// -> Paramètre 2 : Nom de la police (string) ("")<para/>
+        /// -> Paramètre 3.. : Liste des mots (null)<para/>
+        /// </summary>
+        /// <param name="parameters">Paramètres du Widget</param>
         public Selector(params object[] parameters) : base(parameters)
         {
             font = "";

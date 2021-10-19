@@ -3,6 +3,9 @@ using System.IO;
 
 namespace SharpEngine
 {
+    /// <summary>
+    /// Sauvegarde de données
+    /// </summary>
     public class Save
     {
         private Dictionary<string, object> data;

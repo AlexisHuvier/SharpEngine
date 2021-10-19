@@ -4,6 +4,9 @@ using System;
 
 namespace SharpEngine
 {
+    /// <summary>
+    /// Entité basique
+    /// </summary>
     public class Entity
     {
         internal Scene scene;

@@ -2,6 +2,9 @@
 
 namespace SharpEngine
 {
+    /// <summary>
+    /// Gestion des informations Debug
+    /// </summary>
     public class DebugManager
     {
         private static int frameRate = 0;

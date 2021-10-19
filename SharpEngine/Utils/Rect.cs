@@ -2,6 +2,9 @@
 
 namespace SharpEngine
 {
+    /// <summary>
+    /// Rectangle
+    /// </summary>
     public class Rect
     {
         public Vec2 position;

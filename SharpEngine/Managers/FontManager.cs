@@ -5,6 +5,9 @@ using System.IO;
 
 namespace SharpEngine
 {
+    /// <summary>
+    /// Gestion des polices
+    /// </summary>
     public class FontManager
     {
         private Window window;

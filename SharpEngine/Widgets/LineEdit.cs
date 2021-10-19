@@ -2,6 +2,9 @@
 
 namespace SharpEngine.Widgets
 {
+    /// <summary>
+    /// Entrée de texte
+    /// </summary>
     public class LineEdit: Widget
     {
         public string text;
@@ -12,6 +15,14 @@ namespace SharpEngine.Widgets
         private float timer;
         private bool cursor;
 
+        /// <summary>
+        /// Initialise le Widget.<para/>
+        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))<para/>
+        /// -> Paramètre 2 : Texte (string) ("")<para/>
+        /// -> Paramètre 3 : Nom de la police (string) ("")<para/>
+        /// -> Paramètre 4 : Taille (<seealso cref="Vec2"/>) (Vec2(300, 500))<para/>
+        /// </summary>
+        /// <param name="parameters">Paramètres du Widget</param>
         public LineEdit(params object[] parameters): base(parameters)
         {
             text = "";

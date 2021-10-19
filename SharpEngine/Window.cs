@@ -2,6 +2,9 @@
 
 namespace SharpEngine
 {
+    /// <summary>
+    /// Fenêtre
+    /// </summary>
     public class Window
     {
         public InternalGame internalGame;

@@ -2,6 +2,9 @@
 
 namespace SharpEngine
 {
+    /// <summary>
+    /// Gestion des entrées
+    /// </summary>
     public class InputManager
     {
         private static MouseState oldMouseState = Mouse.GetState();

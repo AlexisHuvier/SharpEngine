@@ -5,6 +5,9 @@ using System.IO;
 
 namespace SharpEngine
 {
+    /// <summary>
+    /// Classe interne du jeu
+    /// </summary>
     public class InternalGame : Game
     {
         public readonly GraphicsDeviceManager graphics;

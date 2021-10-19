@@ -1,10 +1,20 @@
 ﻿namespace SharpEngine.Widgets
 {
+    /// <summary>
+    /// Image
+    /// </summary>
     public class Image: Widget
     {
         public string texture;
         public Vec2 size;
 
+        /// <summary>
+        /// Initialise le Widget.<para/>
+        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))<para/>
+        /// -> Paramètre 2 : Nom de la texture (string) ("")<para/>
+        /// -> Paramètre 3 : Taille (<seealso cref="Vec2"/>) (null)<para/>
+        /// </summary>
+        /// <param name="parameters">Paramètres du Widget</param>
         public Image(params object[] parameters): base(parameters)
         {
             texture = "";

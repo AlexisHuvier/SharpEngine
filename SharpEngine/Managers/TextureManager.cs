@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace SharpEngine
 {
+    /// <summary>
+    /// Gestion des textures
+    /// </summary>
     public class TextureManager
     {
         private Window window;

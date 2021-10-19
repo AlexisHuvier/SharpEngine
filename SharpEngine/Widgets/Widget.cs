@@ -2,6 +2,9 @@
 
 namespace SharpEngine.Widgets
 {
+    /// <summary>
+    /// Widget basique
+    /// </summary>
     public class Widget
     {
         internal Scene scene;
@@ -9,6 +12,11 @@ namespace SharpEngine.Widgets
         public bool displayed;
         public bool active;
 
+        /// <summary>
+        /// Initialise le Widget.<para/>
+        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))
+        /// </summary>
+        /// <param name="parameters">Paramètres du Widget</param>
         public Widget(params object[] parameters)
         {
             position = new Vec2(0);

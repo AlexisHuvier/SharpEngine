@@ -16,14 +16,14 @@
             timeGravity = 100;
 
             if (parameters.Length >= 1 && parameters[0] is int grav)
-                gravity = grav;
+                maxGravity = grav;
             if (parameters.Length >= 2 && parameters[1] is int gG)
                 groundedGravity = gG;
             if (parameters.Length >= 3 && parameters[2] is int tG)
                 timeGravity = tG;
 
             grounded = false;
-            gravity = 5;
+            gravity = maxGravity;
             time = timeGravity;
         }
 

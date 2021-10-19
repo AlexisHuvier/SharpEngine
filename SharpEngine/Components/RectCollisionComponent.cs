@@ -37,12 +37,12 @@ namespace SharpEngine.Components
                         var erect = new Rectangle((int)(tc.position.x + rcc.offset.x - rcc.size.x / 2), (int)(tc.position.y + rcc.offset.y - rcc.size.y / 2), (int)rcc.size.x, (int)rcc.size.y);
                         if (erect.Intersects(rect))
                         {
-                            if(solid && rcc.solid)
-                                return false;
                             if (collisionCallback != null)
                                 collisionCallback(entity, e, cause);
                             if (rcc.collisionCallback != null)
                                 collisionCallback(e, entity, cause);
+                            if (solid && rcc.solid)
+                                return false;
                         }
                     }
                 }

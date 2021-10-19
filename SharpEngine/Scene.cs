@@ -5,6 +5,9 @@ using SharpEngine.Components;
 
 namespace SharpEngine
 {
+    /// <summary>
+    /// Scène
+    /// </summary>
     public class Scene
     {
         internal Window window;

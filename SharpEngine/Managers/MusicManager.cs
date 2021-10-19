@@ -4,6 +4,9 @@ using System;
 
 namespace SharpEngine
 {
+    /// <summary>
+    /// Gestion des musiques
+    /// </summary>
     public class MusicManager
     {
         private static Dictionary<string, Song> songs = new Dictionary<string, Song>();

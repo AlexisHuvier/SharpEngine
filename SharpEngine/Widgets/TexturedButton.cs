@@ -2,6 +2,9 @@
 
 namespace SharpEngine.Widgets
 {
+    /// <summary>
+    /// Bouton texturé
+    /// </summary>
     public class TexturedButton : Widget
     {
         private enum ButtonState
@@ -20,6 +23,16 @@ namespace SharpEngine.Widgets
 
         private ButtonState state;
 
+        /// <summary>
+        /// Initialise le Widget.<para/>
+        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))<para/>
+        /// -> Paramètre 2 : Texte (string) ("")<para/>
+        /// -> Paramètre 3 : Nom de la police (string) ("")<para/>
+        /// -> Paramètre 4 : Nom de la texture (string) ("")<para/>
+        /// -> Paramètre 5 : Taille (<seealso cref="Vec2"/>) (null)<para/>
+        /// -> Paramètre 6 : Couleur du texte (<seealso cref="Color"/>) (Color.BLACK)
+        /// </summary>
+        /// <param name="parameters">Paramètres du Widget</param>
         public TexturedButton(params object[] parameters) : base(parameters)
         {
             text = "";

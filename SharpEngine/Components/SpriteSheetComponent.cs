@@ -4,6 +4,9 @@ using Microsoft.Xna.Framework;
 
 namespace SharpEngine.Components
 {
+    /// <summary>
+    /// Composant ajoutant l'affichage d'animations à partir d'un SpriteSheet
+    /// </summary>
     public class SpriteSheetComponent : Component
     {
         public string sprite;
@@ -15,6 +18,16 @@ namespace SharpEngine.Components
         private float internalTimer;
         public bool displayed;
 
+        /// <summary>
+        /// Initialise le Composant.<para/>
+        /// -> Paramètre 1 : Nom de la texture (string) ("")<para/>
+        /// -> Paramètre 2 : Taille d'un sprite (<seealso cref="Vec2"/>) (Vec2(0))<para/>
+        /// -> Paramètre 3 : Dictonnaire d'animations (nom -> liste d'ids) (<seealso cref="Dictionary{string, List{int}}"/>) (Dictionnaire vide)<para/>
+        /// -> Paramètre 4 : Animation actuelle (string) ("")<para/>
+        /// -> Paramètre 5 : Temps en ms entre les frames (float) (250)<para/>
+        /// -> Paramètre 6 : Est affiché (bool) (true)
+        /// </summary>
+        /// <param name="parameters">Paramètres du Composant</param>
         public SpriteSheetComponent(params object[] parameters) : base(parameters)
         {
             sprite = "";

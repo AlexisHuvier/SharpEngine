@@ -2,6 +2,9 @@
 
 namespace SharpEngine
 {
+    /// <summary>
+    /// Vecteur 2D
+    /// </summary>
     public class Vec2
     {
         public float x;

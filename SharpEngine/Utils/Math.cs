@@ -1,5 +1,8 @@
 ﻿namespace SharpEngine
 {
+    /// <summary>
+    /// Fonctions et constantes mathématiques
+    /// </summary>
     class Math
     {
         public const float E = 2.71828175F;

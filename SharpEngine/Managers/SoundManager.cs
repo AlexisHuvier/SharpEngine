@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace SharpEngine
 {
+    /// <summary>
+    /// Gestion des bruitages
+    /// </summary>
     public class SoundManager
     {
         private static Dictionary<string, SoundEffect> soundEffects = new Dictionary<string, SoundEffect>();

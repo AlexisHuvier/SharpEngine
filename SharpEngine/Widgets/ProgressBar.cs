@@ -1,11 +1,22 @@
 ﻿namespace SharpEngine.Widgets
 {
+    /// <summary>
+    /// Barre de progresssion
+    /// </summary>
     public class ProgressBar: Widget
     {
         public Color color;
         public Vec2 size;
         public int value;
 
+        /// <summary>
+        /// Initialise le Widget.<para/>
+        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))<para/>
+        /// -> Paramètre 2 : Couleur de la barre (<seealso cref="Color"/>) (Color.GREEN)<para/>
+        /// -> Paramètre 3 : Taille (<seealso cref="Vec2"/>) (Vec2(200, 30))<para/>
+        /// -> Paramètre 4 : Valeur (int) (0)
+        /// </summary>
+        /// <param name="parameters">Paramètres du Widget</param>
         public ProgressBar(params object[] parameters): base(parameters)
         {
             color = Color.GREEN;

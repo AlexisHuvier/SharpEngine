@@ -2,7 +2,9 @@
 
 namespace SharpEngine.Widgets
 {
-
+    /// <summary>
+    /// Bouton
+    /// </summary>
     public class Button: Widget
     {
         private enum ButtonState
@@ -21,6 +23,16 @@ namespace SharpEngine.Widgets
 
         private ButtonState state;
 
+        /// <summary>
+        /// Initialise le Widget.<para/>
+        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))<para/>
+        /// -> Paramètre 2 : Texte (string) ("")<para/>
+        /// -> Paramètre 3 : Nom de la police (string) ("")<para/>
+        /// -> Paramètre 4 : Taille (<seealso cref="Vec2"/>) (Vec2(200, 40))<para/>
+        /// -> Paramètre 5 : Couleur du texte (<seealso cref="Color"/>) (Color.BLACK)<para/>
+        /// -> Paramètre 6 : Couleur du fond (<seealso cref="Color"/>) (Color.GRAY)
+        /// </summary>
+        /// <param name="parameters">Paramètres du Widget</param>
         public Button(params object[] parameters): base(parameters)
         {
             text = "";

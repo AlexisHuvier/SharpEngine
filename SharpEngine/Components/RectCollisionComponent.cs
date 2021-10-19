@@ -3,6 +3,9 @@ using System;
 
 namespace SharpEngine.Components
 {
+    /// <summary>
+    /// Composant ajoutant une collision rectangulaire
+    /// </summary>
     public class RectCollisionComponent: Component
     {
         public Vec2 size;
@@ -10,6 +13,13 @@ namespace SharpEngine.Components
         public bool solid;
         public Action<Entity, Entity, string> collisionCallback;
 
+        /// <summary>
+        /// Initialise le Composant.<para/>
+        /// -> Paramètre 1 : Taille du rectangle (<seealso cref="Vec2"/>) (Vec2(1))<para/>
+        /// -> Paramètre 2 : Décalage par rapport à la position (<seealso cref="Vec2"/>) (Vec2(0))<para/>
+        /// -> Paramètre 3 : Bloque le passage (bool) (true)
+        /// </summary>
+        /// <param name="parameters">Paramètres du Composant</param>
         public RectCollisionComponent(params object[] parameters): base(parameters)
         {
             size = new Vec2(1);

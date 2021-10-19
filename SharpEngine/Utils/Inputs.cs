@@ -1,5 +1,8 @@
 ﻿namespace SharpEngine.Inputs
 {
+    /// <summary>
+    /// Boutons de la souris
+    /// </summary>
     public enum MouseButton
     {
         LEFT,
@@ -7,6 +10,9 @@
         RIGHT
     }
 
+    /// <summary>
+    /// Boutons du clavier
+    /// </summary>
     public enum Key
     {
         NONE = 0,

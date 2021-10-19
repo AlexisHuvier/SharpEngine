@@ -2,6 +2,9 @@
 
 namespace SharpEngine.Components
 {
+    /// <summary>
+    /// Composant de contrôle basique
+    /// </summary>
     public class ControlComponent: Component
     {
         public ControlType controlType;
@@ -10,6 +13,13 @@ namespace SharpEngine.Components
         private Dictionary<ControlKey, Inputs.Key> keys;
         public bool isMoving;
 
+        /// <summary>
+        /// Initialise le Composant.<para/>
+        /// -> Paramètre 1 : Type de contrôle (<seealso cref="ControlType"/>) (ControlType.MOUSEFOLLOW)<para/>
+        /// -> Paramètre 2 : Rapidité du mouvement (int) (5)<para/>
+        /// -> Paramètre 3 : Force du saut (int) (5)
+        /// </summary>
+        /// <param name="parameters">Paramètres du Composant</param>
         public ControlComponent(params object[] parameters): base(parameters)
         {
             controlType = ControlType.MOUSEFOLLOW;

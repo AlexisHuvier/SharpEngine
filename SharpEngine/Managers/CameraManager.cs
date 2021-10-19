@@ -2,6 +2,9 @@
 
 namespace SharpEngine
 {
+    /// <summary>
+    /// Gestion de la Caméra
+    /// </summary>
     public class CameraManager
     {
         public static Vec2 position = new Vec2(0);

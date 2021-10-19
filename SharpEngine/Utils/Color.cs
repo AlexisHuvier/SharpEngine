@@ -1,5 +1,8 @@
 ﻿namespace SharpEngine
 {
+    /// <summary>
+    /// Couleur
+    /// </summary>
     public class Color
     {
         private int internalR;

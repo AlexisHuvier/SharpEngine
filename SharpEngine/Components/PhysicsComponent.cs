@@ -1,5 +1,8 @@
 ﻿namespace SharpEngine.Components
 {
+    /// <summary>
+    /// Composant de physique basique
+    /// </summary>
     public class PhysicsComponent : Component
     {
         public int maxGravity;
@@ -9,6 +12,13 @@
         private int time;
         public int gravity;
 
+        /// <summary>
+        /// Initialise le Composant.<para/>
+        /// -> Paramètre 1 : Gravité maximum (int) (5)<para/>
+        /// -> Paramètre 2 : Gravité au sol (int) (2)<para/>
+        /// -> Paramètre 3 : Temps en ms pour augmenter la gravité (int) (100)
+        /// </summary>
+        /// <param name="parameters">Paramètres du Composant</param>
         public PhysicsComponent(params object[] parameters) : base(parameters)
         {
             maxGravity = 5;

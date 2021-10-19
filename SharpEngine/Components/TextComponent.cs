@@ -1,5 +1,8 @@
 ﻿namespace SharpEngine.Components
 {
+    /// <summary>
+    /// Composant ajoutant l'affichage d'un texte
+    /// </summary>
     public class TextComponent: Component
     {
         public string text;
@@ -7,6 +10,14 @@
         public Color color;
         public bool displayed;
 
+        /// <summary>
+        /// Initialise le Composant.<para/>
+        /// -> Paramètre 1 : Texte (string) ("")<para/>
+        /// -> Paramètre 2 : Nom de la police (string) ("")<para/>
+        /// -> Paramètre 3 : Couleur du texte (<seealso cref="Color"/>) (Color.BLACK)<para/>
+        /// -> Paramètre 3 : Est affiché (bool) (true)
+        /// </summary>
+        /// <param name="parameters">Paramètres du Composant</param>
         public TextComponent(params object[] parameters) : base(parameters)
         {
             text = "";

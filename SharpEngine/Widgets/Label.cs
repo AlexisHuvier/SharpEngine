@@ -1,11 +1,22 @@
 ﻿namespace SharpEngine.Widgets
 {
+    /// <summary>
+    /// Label
+    /// </summary>
     public class Label: Widget
     {
         public string text;
         public string font;
         public Color color;
 
+        /// <summary>
+        /// Initialise le Widget.<para/>
+        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))<para/>
+        /// -> Paramètre 2 : Texte (string) ("")<para/>
+        /// -> Paramètre 3 : Nom de la police (string) ("")<para/>
+        /// -> Paramètre 4 : Couleur du texte (<seealso cref="Color"/>) (Color.BLACK)<para/>
+        /// </summary>
+        /// <param name="parameters">Paramètres du Widget</param>
         public Label(params object[] parameters): base(parameters)
         {
             text = "";

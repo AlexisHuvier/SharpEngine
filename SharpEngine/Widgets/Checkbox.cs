@@ -1,5 +1,8 @@
 ﻿namespace SharpEngine.Widgets
 {
+    /// <summary>
+    /// Checkbox
+    /// </summary>
     public class Checkbox: Widget
     {
         public string text;
@@ -8,6 +11,16 @@
         public Color fontColor;
         public bool isChecked;
 
+        /// <summary>
+        /// Initialise le Widget.<para/>
+        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))<para/>
+        /// -> Paramètre 2 : Texte (string) ("")<para/>
+        /// -> Paramètre 3 : Nom de la police (string) ("")<para/>
+        /// -> Paramètre 4 : Echelle (int) (1)<para/>
+        /// -> Paramètre 5 : Couleur du texte (<seealso cref="Color"/>) (Color.BLACK)<para/>
+        /// -> Paramètre 6 : Est cochée (bool) (false)
+        /// </summary>
+        /// <param name="parameters">Paramètres du Widget</param>
         public Checkbox(params object[] parameters): base(parameters)
         {
             text = "";

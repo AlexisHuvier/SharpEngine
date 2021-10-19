@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework.Input;
-using SharpEngine.Inputs;
+﻿using SharpEngine.Inputs;
 
 namespace SharpEngine.Widgets
 {

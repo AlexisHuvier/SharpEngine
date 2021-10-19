@@ -1,0 +1,1 @@
+D:\Programmation\c#\docfx\docfx.exe build -t .\_exported_templates\default -o "../../SharpEngine Docs/"

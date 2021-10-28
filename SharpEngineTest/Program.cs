@@ -1,5 +1,4 @@
 ﻿using SharpEngine;
-using System;
 
 namespace SharpEngineTest
 {

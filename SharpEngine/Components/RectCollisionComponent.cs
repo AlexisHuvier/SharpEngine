@@ -42,17 +42,32 @@ namespace SharpEngine.Components
             {
                 if (e != entity)
                 {
-                    if (e.GetComponent<RectCollisionComponent>() is RectCollisionComponent rcc && e.GetComponent<TransformComponent>() is TransformComponent tc)
+                    if (e.GetComponent<TransformComponent>() is TransformComponent tc)
                     {
-                        var erect = new Rectangle((int)(tc.position.x + rcc.offset.x - rcc.size.x / 2), (int)(tc.position.y + rcc.offset.y - rcc.size.y / 2), (int)rcc.size.x, (int)rcc.size.y);
-                        if (erect.Intersects(rect))
+                        if (e.GetComponent<RectCollisionComponent>() is RectCollisionComponent rcc)
                         {
-                            if (collisionCallback != null)
-                                collisionCallback(entity, e, cause);
-                            if (rcc.collisionCallback != null)
-                                collisionCallback(e, entity, cause);
-                            if (solid && rcc.solid)
-                                return false;
+                            var erect = new Rectangle((int)(tc.position.x + rcc.offset.x - rcc.size.x / 2), (int)(tc.position.y + rcc.offset.y - rcc.size.y / 2), (int)rcc.size.x, (int)rcc.size.y);
+                            if (erect.Intersects(rect))
+                            {
+                                if (collisionCallback != null)
+                                    collisionCallback(entity, e, cause);
+                                if (rcc.collisionCallback != null)
+                                    collisionCallback(e, entity, cause);
+                                if (solid && rcc.solid)
+                                    return false;
+                            }
+                        }
+                        else if(e.GetComponent<CircleCollisionComponent>() is CircleCollisionComponent ccc)
+                        {
+                            if(Math.IntersectCircleRect(tc.position.x, tc.position.y, ccc.radius, rect.X, rect.Y, rect.Width, rect.Height))
+                            {
+                                if (collisionCallback != null)
+                                    collisionCallback(entity, e, cause);
+                                if (ccc.collisionCallback != null)
+                                    collisionCallback(e, entity, cause);
+                                if (solid && ccc.solid)
+                                    return false;
+                            }
                         }
                     }
                 }

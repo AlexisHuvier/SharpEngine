@@ -16,10 +16,16 @@ namespace SharpEngineTest
 
             Entity ent = new Entity();
             ent.AddComponent<TransformComponent>(new Vec2(450, 300));
-            ent.AddComponent<RectCollisionComponent>(new Vec2(10), new Vec2(0), false).collisionCallback = (Entity e, Entity other, string cause) => System.Console.WriteLine(cause);
+            ent.AddComponent<RectCollisionComponent>(new Vec2(10), new Vec2(0), true);
             ent.AddComponent<SpriteComponent>("test");
             ent.AddComponent<ControlComponent>(ControlType.FOURDIRECTION);
             AddEntity(ent);
+
+            Entity ent3 = new Entity();
+            ent3.AddComponent<TransformComponent>(new Vec2(0, 0));
+            ent3.AddComponent<CircleCollisionComponent>(200, new Vec2(0), true);
+            ent3.AddComponent<SpriteComponent>("test");
+            AddEntity(ent3);
 
             CameraManager.followEntity = ent;
         }

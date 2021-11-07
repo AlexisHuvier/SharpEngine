@@ -19,6 +19,7 @@ namespace SharpEngineTest
             ent.AddComponent<RectCollisionComponent>(new Vec2(10), new Vec2(0), true);
             ent.AddComponent<SpriteComponent>("test");
             ent.AddComponent<ControlComponent>(ControlType.FOURDIRECTION);
+            ent.AddComponent<AutoMovementComponent>(new Vec2(2), 5);
             AddEntity(ent);
 
             Entity ent3 = new Entity();

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 
 namespace SharpEngine
 {
@@ -14,6 +15,9 @@ namespace SharpEngine
         internal List<Scene> scenes = new List<Scene>();
         public TextureManager textureManager;
         public FontManager fontManager;
+
+        public Func<bool> startCallback = null;
+        public Func<bool> stopCallback = null;
 
         public Color backgroundColor;
         public bool exitWithEscape;
@@ -88,12 +92,14 @@ namespace SharpEngine
 
         public void Run()
         {
-            internalGame.Run();
+            if(startCallback == null || startCallback())
+                internalGame.Run();
         }
 
         public void Stop()
         {
-            internalGame.Exit();
+            if(stopCallback == null || stopCallback())
+                internalGame.Exit();
         }
     }
 }

@@ -29,11 +29,8 @@
                 if (direction.Length() != 0)
                 {
                     Vec2 pos = new Vec2(tc.position.x, tc.position.y) + direction;
-                    if (entity.GetComponent<RectCollisionComponent>() is RectCollisionComponent rcc)
-                    {
-                        if (rcc.CanGo(pos, "ControlComponent"))
-                            tc.position = pos;
-                    }
+                    if (entity.GetComponent<PhysicsComponent>() is PhysicsComponent pc)
+                        pc.SetPosition(pos);
                     else
                         tc.position = pos;
                 }

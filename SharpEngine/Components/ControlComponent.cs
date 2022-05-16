@@ -50,11 +50,11 @@ namespace SharpEngine.Components
 
             isMoving = false;
 
-            if(entity.GetComponent<TransformComponent>() is TransformComponent tc)
+            if (entity.GetComponent<TransformComponent>() is TransformComponent tc)
             {
                 Vec2 pos = new Vec2(tc.position.x, tc.position.y);
 
-                switch(controlType)
+                switch (controlType)
                 {
                     case ControlType.MOUSEFOLLOW:
                         var mp = InputManager.GetMousePosition();
@@ -97,27 +97,18 @@ namespace SharpEngine.Components
                             pos.x += speed;
                         if (InputManager.IsKeyPressed(keys[ControlKey.UP]))
                         {
-                            if (entity.GetComponent<PhysicsComponent>() is PhysicsComponent pc && pc.grounded)
-                            {
-                                pc.grounded = false;
-                                pc.gravity = -jumpForce;
-                            }
+                            throw new System.NotImplementedException();
                         }
                         break;
                 }
 
-                if (entity.GetComponent<RectCollisionComponent>() is RectCollisionComponent rcc)
-                {
-                    if (rcc.CanGo(pos, "ControlComponent"))
-                    {
-                        isMoving = true;
-                        tc.position = pos;
-                    }
-                }
-                else
+                if (tc.position != pos)
                 {
                     isMoving = true;
-                    tc.position = pos;
+                    if (entity.GetComponent<PhysicsComponent>() is PhysicsComponent pc)
+                        pc.SetPosition(new Vec2(pos.x, pos.y));
+                    else
+                        tc.position = pos;
                 }
             }
         }

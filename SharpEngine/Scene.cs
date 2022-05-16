@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using System;
 using SharpEngine.Widgets;
 using SharpEngine.Components;
+using tainicom.Aether.Physics2D.Dynamics;
 
 namespace SharpEngine
 {
@@ -13,12 +13,18 @@ namespace SharpEngine
         internal Window window;
         protected List<Entity> entities;
         protected List<Widget> widgets;
+        internal World world;
 
-        public Scene()
+        public Scene(int gravity = 200)
         {
             window = null;
             entities = new List<Entity>();
             widgets = new List<Widget>();
+
+            world = new World(new tainicom.Aether.Physics2D.Common.Vector2(0, gravity));
+            world.ContactManager.VelocityConstraintsMultithreadThreshold = 256;
+            world.ContactManager.PositionConstraintsMultithreadThreshold = 256;
+            world.ContactManager.CollideMultithreadThreshold = 256;
         }
 
         public List<Widget> GetWidgets()
@@ -100,6 +106,7 @@ namespace SharpEngine
 
         public virtual void Update(GameTime gameTime)
         {
+            world.Step((float)gameTime.elapsedGameTime.TotalSeconds);
             for (int i = entities.Count - 1; i > -1; i--)
                 entities[i].Update(gameTime);
             for (int i = widgets.Count - 1; i > -1; i--)

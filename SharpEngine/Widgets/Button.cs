@@ -24,34 +24,22 @@ namespace SharpEngine.Widgets
         private ButtonState state;
 
         /// <summary>
-        /// Initialise le Widget.<para/>
-        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))<para/>
-        /// -> Paramètre 2 : Texte (string) ("")<para/>
-        /// -> Paramètre 3 : Nom de la police (string) ("")<para/>
-        /// -> Paramètre 4 : Taille (<seealso cref="Vec2"/>) (Vec2(200, 40))<para/>
-        /// -> Paramètre 5 : Couleur du texte (<seealso cref="Color"/>) (Color.BLACK)<para/>
-        /// -> Paramètre 6 : Couleur du fond (<seealso cref="Color"/>) (Color.GRAY)
+        /// Initialise le Widget.
         /// </summary>
-        /// <param name="parameters">Paramètres du Widget</param>
-        public Button(params object[] parameters): base(parameters)
+        /// <param name="position">Position (Vec2(0))</param>
+        /// <param name="text">Texte</param>
+        /// <param name="font">Nom de la police</param>
+        /// <param name="size">Taille (Vec2(200, 40))</param>
+        /// <param name="fontColor">Couleur du texte (Color.BLACK)</param>
+        /// <param name="backgroundColor">Couleur du fond (Color.GRAY)</param>
+        public Button(Vec2 position = null, string text = "", string font = "", Vec2 size = null, Color fontColor = null, Color backgroundColor = null): base(position)
         {
-            text = "";
-            font = "";
-            size = new Vec2(200, 40);
-            fontColor = Color.BLACK;
-            backgroundColor = Color.GRAY;
+            this.text = text;
+            this.font = font;
+            this.size = size ?? new Vec2(200, 40);
+            this.fontColor = fontColor ?? Color.BLACK;
+            this.backgroundColor = backgroundColor ?? Color.GRAY;
             state = ButtonState.IDLE;
-
-            if (parameters.Length >= 2 && parameters[1] is string txt)
-                text = txt;
-            if (parameters.Length >= 3 && parameters[2] is string fnt)
-                font = fnt;
-            if (parameters.Length >= 4 && parameters[3] is Vec2 siz)
-                size = siz;
-            if (parameters.Length >= 5 && parameters[4] is Color fC)
-                fontColor = fC;
-            if (parameters.Length >= 6 && parameters[5] is Color bgC)
-                backgroundColor = bgC;
         }
 
         public override void Update(GameTime gameTime)

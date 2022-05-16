@@ -10,25 +10,17 @@
         public int value;
 
         /// <summary>
-        /// Initialise le Widget.<para/>
-        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))<para/>
-        /// -> Paramètre 2 : Couleur de la barre (<seealso cref="Color"/>) (Color.GREEN)<para/>
-        /// -> Paramètre 3 : Taille (<seealso cref="Vec2"/>) (Vec2(200, 30))<para/>
-        /// -> Paramètre 4 : Valeur (int) (0)
+        /// Initialise le Widget.
         /// </summary>
-        /// <param name="parameters">Paramètres du Widget</param>
-        public ProgressBar(params object[] parameters): base(parameters)
+        /// <param name="position">Position (Vec2(0))</param>
+        /// <param name="color">Couleur de la barre (Color.GREEN)</param>
+        /// <param name="size">Taille (Vec2(200, 30))</param>
+        /// <param name="value">Valeur</param>
+        public ProgressBar(Vec2 position = null, Color color = null, Vec2 size = null, int value = 0): base(position)
         {
-            color = Color.GREEN;
-            size = new Vec2(200, 30);
-            value = 0;
-
-            if (parameters.Length >= 2 && parameters[1] is Color clr)
-                color = clr;
-            if (parameters.Length >= 3 && parameters[2] is Vec2 siz)
-                size = siz;
-            if (parameters.Length >= 4 && parameters[3] is int val)
-                value = val;
+            this.color = color ?? Color.GREEN;
+            this.size = size ?? new Vec2(200, 30);
+            this.value = value;
         }
 
         public override void Draw(GameTime gameTime)

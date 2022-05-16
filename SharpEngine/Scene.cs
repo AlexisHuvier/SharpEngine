@@ -26,12 +26,11 @@ namespace SharpEngine
             return widgets;
         }
 
-        public T AddWidget<T>(params object[] parameters) where T : Widget
+        public T AddWidget<T>(T widget) where T : Widget
         {
-            T wid = Activator.CreateInstance(typeof(T), parameters) as T;
-            wid.SetScene(this);
-            widgets.Add(wid);
-            return wid;
+            widget.SetScene(this);
+            widgets.Add(widget);
+            return widget;
         }
 
         public List<T> GetWidgets<T>() where T : Widget

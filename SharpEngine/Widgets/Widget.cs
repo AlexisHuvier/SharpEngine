@@ -13,18 +13,14 @@ namespace SharpEngine.Widgets
         public bool active;
 
         /// <summary>
-        /// Initialise le Widget.<para/>
-        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))
+        /// Initialise le Widget.
         /// </summary>
-        /// <param name="parameters">Paramètres du Widget</param>
-        public Widget(params object[] parameters)
+        /// <param name="position">Position (Vec2(0))</param>
+        public Widget(Vec2 position = null)
         {
-            position = new Vec2(0);
+            this.position = position ?? new Vec2(0);
             displayed = true;
             active = true;
-
-            if (parameters.Length >= 1 && parameters[0] is Vec2 pos)
-                position = pos;
         }
         public virtual void SetScene(Scene scene)
         {

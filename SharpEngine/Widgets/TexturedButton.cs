@@ -24,34 +24,22 @@ namespace SharpEngine.Widgets
         private ButtonState state;
 
         /// <summary>
-        /// Initialise le Widget.<para/>
-        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))<para/>
-        /// -> Paramètre 2 : Texte (string) ("")<para/>
-        /// -> Paramètre 3 : Nom de la police (string) ("")<para/>
-        /// -> Paramètre 4 : Nom de la texture (string) ("")<para/>
-        /// -> Paramètre 5 : Taille (<seealso cref="Vec2"/>) (null)<para/>
-        /// -> Paramètre 6 : Couleur du texte (<seealso cref="Color"/>) (Color.BLACK)
+        /// Initialise le Widget.
         /// </summary>
-        /// <param name="parameters">Paramètres du Widget</param>
-        public TexturedButton(params object[] parameters) : base(parameters)
+        /// <param name="position">Position (Vec2(0))</param>
+        /// <param name="text">Texte</param>
+        /// <param name="font">Nom de la police</param>
+        /// <param name="texture">Nom de la texture</param>
+        /// <param name="size">Taille</param>
+        /// <param name="fontColor">Couleur du texte (Color.BLACK)</param>
+        public TexturedButton(Vec2 position = null, string text = "", string font = "", string texture = "", Vec2 size = null, Color fontColor = null) : base(position)
         {
-            text = "";
-            font = "";
-            texture = "";
-            size = null;
-            fontColor = Color.BLACK;
+            this.text = text;
+            this.font = font;
+            this.texture = texture;
+            this.size = size;
+            this.fontColor = fontColor ?? Color.BLACK;
             state = ButtonState.IDLE;
-
-            if (parameters.Length >= 2 && parameters[1] is string txt)
-                text = txt;
-            if (parameters.Length >= 3 && parameters[2] is string fnt)
-                font = fnt;
-            if (parameters.Length >= 4 && parameters[3] is string textu)
-                texture = textu;
-            if (parameters.Length >= 5 && parameters[4] is Vec2 siz)
-                size = siz;
-            if (parameters.Length >= 6 && parameters[5] is Color fC)
-                fontColor = fC;
         }
 
         public override void Update(GameTime gameTime)

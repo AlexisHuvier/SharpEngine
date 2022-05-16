@@ -16,25 +16,17 @@ namespace SharpEngine.Widgets
         private bool cursor;
 
         /// <summary>
-        /// Initialise le Widget.<para/>
-        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))<para/>
-        /// -> Paramètre 2 : Texte (string) ("")<para/>
-        /// -> Paramètre 3 : Nom de la police (string) ("")<para/>
-        /// -> Paramètre 4 : Taille (<seealso cref="Vec2"/>) (Vec2(300, 500))<para/>
+        /// Initialise le Widget.
         /// </summary>
-        /// <param name="parameters">Paramètres du Widget</param>
-        public LineEdit(params object[] parameters): base(parameters)
+        /// <param name="position">Position (Vec2(0))</param>
+        /// <param name="text">Texte</param>
+        /// <param name="font">Nom de la police</param>
+        /// <param name="size">Taille (Vec2(300, 50))</param>
+        public LineEdit(Vec2 position = null, string text = "", string font = "", Vec2 size = null): base(position)
         {
-            text = "";
-            font = "";
-            size = new Vec2(300, 50);
-
-            if (parameters.Length >= 2 && parameters[1] is string txt)
-                text = txt;
-            if (parameters.Length >= 3 && parameters[2] is string fnt)
-                font = fnt;
-            if (parameters.Length >= 4 && parameters[3] is Vec2 siz)
-                size = siz;
+            this.text = text;
+            this.font = font;
+            this.size = size ?? new Vec2(300, 50);
 
             focused = false;
             timer = 500;

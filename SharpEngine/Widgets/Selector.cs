@@ -15,25 +15,16 @@ namespace SharpEngine.Widgets
         private int selected;
 
         /// <summary>
-        /// Initialise le Widget.<para/>
-        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))<para/>
-        /// -> Paramètre 2 : Nom de la police (string) ("")<para/>
-        /// -> Paramètre 3.. : Liste des mots (null)<para/>
+        /// Initialise le Widget.
         /// </summary>
-        /// <param name="parameters">Paramètres du Widget</param>
-        public Selector(params object[] parameters) : base(parameters)
+        /// <param name="position">Position (Vec2(0))</param>
+        /// <param name="font">Nom de la police</param>
+        /// <param name="texts">Liste des possibilités</param>
+        public Selector(Vec2 position = null, string font = "", List<string> texts = null) : base(position)
         {
-            font = "";
-            texts = new List<string>();
+            this.font = font;
+            this.texts = texts ?? new List<string>();
             selected = 0;
-
-            if (parameters.Length >= 2 && parameters[1] is string fnt)
-                font = fnt;
-            if (parameters.Length >= 3)
-            {
-                foreach (string obj in parameters[2..])
-                    texts.Add(obj);
-            }
         }
 
         public string GetValue()

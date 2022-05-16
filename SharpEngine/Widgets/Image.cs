@@ -9,21 +9,15 @@
         public Vec2 size;
 
         /// <summary>
-        /// Initialise le Widget.<para/>
-        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))<para/>
-        /// -> Paramètre 2 : Nom de la texture (string) ("")<para/>
-        /// -> Paramètre 3 : Taille (<seealso cref="Vec2"/>) (null)<para/>
+        /// Initialise le Widget.
         /// </summary>
-        /// <param name="parameters">Paramètres du Widget</param>
-        public Image(params object[] parameters): base(parameters)
+        /// <param name="position">Position (Vec2(0))</param>
+        /// <param name="texture">Nom de la texture</param>
+        /// <param name="size">Taille de l'image</param>
+        public Image(Vec2 position = null, string texture = "", Vec2 size = null): base(position)
         {
-            texture = "";
-            size = null;
-
-            if (parameters.Length >= 2 && parameters[1] is string text)
-                texture = text;
-            if (parameters.Length >= 3 && parameters[2] is Vec2 siz)
-                size = siz;
+            this.texture = texture;
+            this.size = size;
         }
 
         public override void Draw(GameTime gameTime)

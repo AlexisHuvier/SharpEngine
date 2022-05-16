@@ -10,25 +10,17 @@
         public Color color;
 
         /// <summary>
-        /// Initialise le Widget.<para/>
-        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))<para/>
-        /// -> Paramètre 2 : Texte (string) ("")<para/>
-        /// -> Paramètre 3 : Nom de la police (string) ("")<para/>
-        /// -> Paramètre 4 : Couleur du texte (<seealso cref="Color"/>) (Color.BLACK)<para/>
+        /// Initialise le Widget.
         /// </summary>
-        /// <param name="parameters">Paramètres du Widget</param>
-        public Label(params object[] parameters): base(parameters)
+        /// <param name="position">Position (Vec2(0))</param>
+        /// <param name="text">Texte</param>
+        /// <param name="font">Nom de la police</param>
+        /// <param name="color">Couleur du texte (Color.BLACK)</param>
+        public Label(Vec2 position = null, string text = "", string font = "", Color color = null): base(position)
         {
-            text = "";
-            font = "";
-            color = Color.BLACK;
-
-            if (parameters.Length >= 2 && parameters[1] is string txt)
-                text = txt;
-            if (parameters.Length >= 3 && parameters[2] is string fnt)
-                font = fnt;
-            if (parameters.Length >= 4 && parameters[3] is Color clr)
-                color = clr;
+            this.text = text;
+            this.font = font;
+            this.color = color ?? Color.BLACK;
         }
 
         public override void Draw(GameTime gameTime)

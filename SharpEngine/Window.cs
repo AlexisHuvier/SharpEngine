@@ -46,10 +46,17 @@ namespace SharpEngine
             }
         }
 
-        public Window(Vec2 screenSize, Color backgroundColor, bool mouseVisible, bool exitWithEscape)
+        /// <summary>
+        /// Initalise la Fenêtre.
+        /// </summary>
+        /// <param name="screenSize">Taille de la fenêtre (Vec2(800,600))</param>
+        /// <param name="backgroundColor">Couleur de fond (Color.BLACK)</param>
+        /// <param name="mouseVisible">Rend la souris visible</param>
+        /// <param name="exitWithEscape">Quitte le jeu quand échap est appuyé</param>
+        public Window(Vec2 screenSize = null, Color backgroundColor = null, bool mouseVisible = true, bool exitWithEscape = true)
         {
-            this.screenSize = screenSize;
-            this.backgroundColor = backgroundColor;
+            this.screenSize = screenSize ?? new Vec2(800, 600);
+            this.backgroundColor = backgroundColor ?? Color.BLACK;
             this.mouseVisible = mouseVisible;
             this.exitWithEscape = exitWithEscape;
 
@@ -58,20 +65,11 @@ namespace SharpEngine
             fontManager = new FontManager(this);
         }
 
-        public Window(Vec2 screenSize, Color backgroundColor) : this(screenSize, backgroundColor, true, true) {}
-        public Window(Vec2 screenSize): this(screenSize, Color.BLACK, true, true) {}
-        public Window(): this(new Vec2(800, 600), Color.BLACK, true, true) {}
+        public Scene GetScene(int index) => scenes[index];
+        public void SetCurrentScene(Scene scene) => currentScene = scenes.IndexOf(scene);
         public Scene GetCurrentScene() => scenes[currentScene];
 
-        public void SetCurrentScene(Scene scene)
-        {
-            currentScene = scenes.IndexOf(scene);
-        }
-
-        public void TakeScreenshot(string fileName)
-        {
-            internalGame.TakeScreenshot(fileName);
-        }
+        public void TakeScreenshot(string fileName) => internalGame.TakeScreenshot(fileName);
 
         public void AddScene(Scene scene)
         {
@@ -84,11 +82,6 @@ namespace SharpEngine
         {
             scene.SetWindow(null);
             scenes.Remove(scene);
-        }
-
-        public Scene GetScene(int index)
-        {
-            return scenes[index];
         }
 
         public void Run()

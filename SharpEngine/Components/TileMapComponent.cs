@@ -31,20 +31,15 @@ namespace SharpEngine.Components
         protected List<string> textures;
 
         /// <summary>
-        /// Initialise le Composant.<para/>
-        /// -> Paramètre 1 : Chemin vers la tilemap (string) ("")
+        /// Initialise le Composant.
         /// </summary>
-        /// <param name="parameters">Paramètres du Composant</param>
-        public TileMapComponent(params object[] parameters): base(parameters)
+        /// <param name="tilemap">Chemin vers la tilemap</param>
+        /// <exception cref="Exception"></exception>
+        public TileMapComponent(string tilemap): base()
         {
             tiles = new List<Tile>();
             layers = new List<Layer>();
             textures = new List<string>();
-
-            var tilemap = "";
-
-            if (parameters.Length >= 1 && parameters[0] is string tm)
-                tilemap = tm;
 
             XElement file = XElement.Load(tilemap);
 

@@ -11,28 +11,18 @@
         public int zLayer;
 
         /// <summary>
-        /// Initialise le Composant.<para/>
-        /// -> Paramètre 1 : Position (<seealso cref="Vec2"/>) (Vec2(0))<para/>
-        /// -> Paramètre 2 : Echelle (<seealso cref="Vec2"/>) (Vec2(1))<para/>
-        /// -> Paramètre 3 : Rotation (int) (0)<para/>
-        /// -> Paramètre 4 : Layer Z (int) (0)
+        /// Initialise le Composant.
         /// </summary>
-        /// <param name="parameters">Paramètres du Composant</param>
-        public TransformComponent(params object[] parameters): base(parameters)
+        /// <param name="position">Position</param>
+        /// <param name="scale">Echelle</param>
+        /// <param name="rotation">Rotation</param>
+        /// <param name="zLayer">Layer Z</param>
+        public TransformComponent(Vec2 position = null, Vec2 scale = null, int rotation = 0, int zLayer = 0): base()
         {
-            position = new Vec2(0);
-            scale = new Vec2(1);
-            rotation = 0;
-            zLayer = 0;
-
-            if (parameters.Length >= 1 && parameters[0] is Vec2 pos)
-                position = pos;
-            if (parameters.Length >= 2 && parameters[1] is Vec2 sca)
-                scale = sca;
-            if (parameters.Length >= 3 && parameters[2] is int rot)
-                rotation = rot;
-            if (parameters.Length >= 4 && parameters[3] is int z)
-                zLayer = z;
+            this.position = position ?? new Vec2(0);
+            this.scale = scale ?? new Vec2(1);
+            this.rotation = rotation;
+            this.zLayer = zLayer;
         }
 
         public override string ToString()

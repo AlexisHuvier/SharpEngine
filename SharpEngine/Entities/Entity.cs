@@ -23,9 +23,8 @@ namespace SharpEngine
             return components;
         }
 
-        public T AddComponent<T>(params object[] parameters) where T: Component
+        public T AddComponent<T>(T comp) where T: Component
         {
-            T comp = Activator.CreateInstance(typeof(T), parameters) as T;
             comp.SetEntity(this);
             components.Add(comp);
             return comp;

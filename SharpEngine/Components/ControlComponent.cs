@@ -14,17 +14,16 @@ namespace SharpEngine.Components
         public bool isMoving;
 
         /// <summary>
-        /// Initialise le Composant.<para/>
-        /// -> Paramètre 1 : Type de contrôle (<seealso cref="ControlType"/>) (ControlType.MOUSEFOLLOW)<para/>
-        /// -> Paramètre 2 : Rapidité du mouvement (int) (5)<para/>
-        /// -> Paramètre 3 : Force du saut (int) (5)
+        /// Initialise le Composant.
         /// </summary>
-        /// <param name="parameters">Paramètres du Composant</param>
-        public ControlComponent(params object[] parameters): base(parameters)
+        /// <param name="controlType">Type de controle</param>
+        /// <param name="speed">Vitesse du mouvement</param>
+        /// <param name="jumpForce">Force du saut</param>
+        public ControlComponent(ControlType controlType = ControlType.MOUSEFOLLOW, int speed = 5, int jumpForce = 5): base()
         {
-            controlType = ControlType.MOUSEFOLLOW;
-            speed = 5;
-            jumpForce = 5;
+            this.controlType = controlType;
+            this.speed = speed;
+            this.jumpForce = jumpForce;
             isMoving = false;
             keys = new Dictionary<ControlKey, Inputs.Key>()
             {
@@ -33,13 +32,6 @@ namespace SharpEngine.Components
                 { ControlKey.LEFT, Inputs.Key.LEFT },
                 { ControlKey.RIGHT, Inputs.Key.RIGHT }
             };
-
-            if (parameters.Length >= 1 && parameters[0] is ControlType control)
-                controlType = control;
-            if (parameters.Length >= 2 && parameters[1] is int spd)
-                speed = spd;
-            if (parameters.Length >= 3 && parameters[2] is int jF)
-                jumpForce = jF;
         }
 
         public Inputs.Key GetKey(ControlKey controlKey)

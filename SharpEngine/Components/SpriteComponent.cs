@@ -12,24 +12,16 @@ namespace SharpEngine.Components
         public Vec2 offset;
 
         /// <summary>
-        /// Initialise le Composant.<para/>
-        /// -> Paramètre 1 : Nom de la texture (string) ("")<para/>
-        /// -> Paramètre 2 : Est affiché (bool) (true)<para/>
-        /// -> Paramètre 3 : Offset (<seealso cref="Vec2"/>) (Vec2(0))<para/>
+        /// Initialise le Composant.
         /// </summary>
-        /// <param name="parameters">Paramètres du Composant</param>
-        public SpriteComponent(params object[] parameters): base(parameters)
+        /// <param name="sprite">Nom de la texture</param>
+        /// <param name="displayed">Est affiché</param>
+        /// <param name="offset">Décalage de la position du Sprite (Vec2(0))</param>
+        public SpriteComponent(string sprite, bool displayed = true, Vec2 offset = null): base()
         {
-            sprite = "";
-            displayed = true;
-            offset = new Vec2(0);
-
-            if (parameters.Length >= 1 && parameters[0] is string spr)
-                sprite = spr;
-            if (parameters.Length >= 2 && parameters[1] is bool disp)
-                displayed = disp;
-            if (parameters.Length >= 3 && parameters[2] is Vec2 off)
-                offset = off;
+            this.sprite = sprite;
+            this.displayed = displayed;
+            this.offset = offset ?? new Vec2(0);
         }
 
         public override void Draw(GameTime gameTime)

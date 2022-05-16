@@ -12,32 +12,20 @@
         public Vec2 offset;
 
         /// <summary>
-        /// Initialise le Composant.<para/>
-        /// -> Paramètre 1 : Texte (string) ("")<para/>
-        /// -> Paramètre 2 : Nom de la police (string) ("")<para/>
-        /// -> Paramètre 3 : Couleur du texte (<seealso cref="Color"/>) (Color.BLACK)<para/>
-        /// -> Paramètre 4 : Est affiché (bool) (true)<para/>
-        /// -> Paramètre 5 : Offset (<seealso cref="Vec2"/>) (Vec2(0))
+        /// Initialise le Composant.
         /// </summary>
-        /// <param name="parameters">Paramètres du Composant</param>
-        public TextComponent(params object[] parameters) : base(parameters)
+        /// <param name="text">Texte</param>
+        /// <param name="font">Nom de la police</param>
+        /// <param name="color">Couleur du texte (Color.BLACK)</param>
+        /// <param name="displayed">Est affiché</param>
+        /// <param name="offset">Décalage de la position du texte (Vec2(0))</param>
+        public TextComponent(string text = "", string font = "", Color color = null, bool displayed = true, Vec2 offset = null) : base()
         {
-            text = "";
-            font = "";
-            color = Color.BLACK;
-            displayed = true;
-            offset = new Vec2(0);
-
-            if (parameters.Length >= 1 && parameters[0] is string txt)
-                text = txt;
-            if (parameters.Length >= 2 && parameters[1] is string fnt)
-                font = fnt;
-            if (parameters.Length >= 3 && parameters[2] is Color clr)
-                color = clr;
-            if (parameters.Length >= 4 && parameters[3] is bool disp)
-                displayed = disp;
-            if (parameters.Length >= 5 && parameters[4] is Vec2 off)
-                offset = off;
+            this.text = text;
+            this.font = font;
+            this.color = color ?? Color.BLACK;
+            this.displayed = displayed;
+            this.offset = offset ?? new Vec2(0);
         }
 
         public override void Draw(GameTime gameTime)

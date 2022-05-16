@@ -9,20 +9,14 @@
         public int rotation;
 
         /// <summary>
-        /// Initialise le Composant.<para/>
-        /// -> Paramètre 1 : Direction (<seealso cref="Vec2"/>) (Vec2(0))<para/>
-        /// -> Paramètre 2 : Rotation (int) (0)
+        /// Initialise le Composant.
         /// </summary>
-        /// <param name="parameters">Paramètres du Composant</param>
-        public AutoMovementComponent(params object[] parameters) : base(parameters)
+        /// <param name="direction">Mouvement automatique (Vec2(0))</param>
+        /// <param name="rotation">Rotation automatique</param>
+        public AutoMovementComponent(Vec2 direction = null, int rotation = 0) : base()
         {
-            direction = new Vec2(0);
-            rotation = 0;
-
-            if (parameters.Length >= 1 && parameters[0] is Vec2 dir)
-                direction = dir;
-            if (parameters.Length >= 2 && parameters[1] is int rot)
-                rotation = rot;
+            this.direction = direction ?? new Vec2(0);
+            this.rotation = rotation;
         }
 
         public override void Update(GameTime gameTime)

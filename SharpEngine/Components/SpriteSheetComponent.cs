@@ -11,7 +11,7 @@ namespace SharpEngine.Components
     {
         public string sprite;
         public Vec2 spriteSize;
-        public Dictionary<string, List<int>> anims;
+        public Dictionary<string, List<int>> animations;
         private string currentAnim;
         private int currentImage;
         public float timer;
@@ -19,36 +19,22 @@ namespace SharpEngine.Components
         public bool displayed;
 
         /// <summary>
-        /// Initialise le Composant.<para/>
-        /// -> Paramètre 1 : Nom de la texture (string) ("")<para/>
-        /// -> Paramètre 2 : Taille d'un sprite (<seealso cref="Vec2"/>) (Vec2(0))<para/>
-        /// -> Paramètre 3 : Dictonnaire d'animations (nom -> liste d'ids) (<seealso cref="Dictionary{string, List{int}}"/>) (Dictionnaire vide)<para/>
-        /// -> Paramètre 4 : Animation actuelle (string) ("")<para/>
-        /// -> Paramètre 5 : Temps en ms entre les frames (float) (250)<para/>
-        /// -> Paramètre 6 : Est affiché (bool) (true)
+        /// Initialise le Componsant.
         /// </summary>
-        /// <param name="parameters">Paramètres du Composant</param>
-        public SpriteSheetComponent(params object[] parameters) : base(parameters)
+        /// <param name="sprite">Nom de la texture</param>
+        /// <param name="spriteSize">Taille d'un sprite</param>
+        /// <param name="animations">Dictionnaire des animations (nom -> liste id)</param>
+        /// <param name="currentAnim">Animation actuelle </param>
+        /// <param name="timer">Temps en ms entre chaque frame</param>
+        /// <param name="displayed">Est affiché</param>
+        public SpriteSheetComponent(string sprite, Vec2 spriteSize, Dictionary<string, List<int>> animations, string currentAnim = "", float timer = 250, bool displayed = true) : base()
         {
-            sprite = "";
-            spriteSize = new Vec2(0);
-            anims = new Dictionary<string, List<int>>();
-            currentAnim = "";
-            timer = 250;
-            displayed = true;
-
-            if (parameters.Length >= 1 && parameters[0] is string spr)
-                sprite = spr;
-            if (parameters.Length >= 2 && parameters[1] is Vec2 sSize)
-                spriteSize = sSize;
-            if (parameters.Length >= 3 && parameters[2] is Dictionary<string, List<int>> animations)
-                anims = animations;
-            if (parameters.Length >= 4 && parameters[3] is string currentAnimation)
-                currentAnim = currentAnimation;
-            if (parameters.Length >= 5 && parameters[4] is float tim)
-                timer = tim;
-            if (parameters.Length >= 6 && parameters[5] is bool disp)
-                displayed = disp;
+            this.sprite = sprite;
+            this.spriteSize = spriteSize;
+            this.animations = animations;
+            this.currentAnim = currentAnim;
+            this.timer = timer;
+            this.displayed = displayed;
 
             currentImage = 0;
             internalTimer = timer;
@@ -70,11 +56,11 @@ namespace SharpEngine.Components
         {
             base.Update(gameTime);
 
-            if (currentAnim.Length >= 0 && anims.ContainsKey(currentAnim))
+            if (currentAnim.Length >= 0 && animations.ContainsKey(currentAnim))
             {
                 if (internalTimer <= 0)
                 {
-                    if (currentImage >= anims[currentAnim].Count - 1)
+                    if (currentImage >= animations[currentAnim].Count - 1)
                         currentImage = 0;
                     else
                         currentImage++;
@@ -88,10 +74,10 @@ namespace SharpEngine.Components
         {
             base.Draw(gameTime);
 
-            if (entity.GetComponent<TransformComponent>() is TransformComponent tc && displayed && sprite.Length > 0 && currentAnim.Length > 0 && spriteSize != new Vec2(0) && anims.ContainsKey(currentAnim))
+            if (entity.GetComponent<TransformComponent>() is TransformComponent tc && displayed && sprite.Length > 0 && currentAnim.Length > 0 && spriteSize != new Vec2(0) && animations.ContainsKey(currentAnim))
             {
                 var texture = GetWindow().textureManager.GetTexture(sprite);
-                Vec2 positionSource = new Vec2(spriteSize.x * (int)(anims[currentAnim][currentImage] % (texture.Width / spriteSize.x)), spriteSize.y * (anims[currentAnim][currentImage] / (int)(texture.Height / spriteSize.y)));
+                Vec2 positionSource = new Vec2(spriteSize.x * (int)(animations[currentAnim][currentImage] % (texture.Width / spriteSize.x)), spriteSize.y * (animations[currentAnim][currentImage] / (int)(texture.Height / spriteSize.y)));
                 GetSpriteBatch().Draw(texture, (tc.position - CameraManager.position).ToMG(), new Rect(positionSource, spriteSize).ToMG(), Color.WHITE.ToMG(), MathHelper.ToRadians(tc.rotation), (spriteSize / 2).ToMG(), tc.scale.ToMG(), SpriteEffects.None, 1);
             }
         }

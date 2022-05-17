@@ -3,7 +3,7 @@
     /// <summary>
     /// Fonctions et constantes mathématiques
     /// </summary>
-    class Math
+    public class Math
     {
         public const float E = 2.71828175F;
         public const float LOG10E = 0.4342945F;

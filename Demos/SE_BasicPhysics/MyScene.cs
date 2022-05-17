@@ -1,13 +1,11 @@
 ﻿using SharpEngine;
 using SharpEngine.Components;
-using SharpEngine.Widgets;
-using System.Collections.Generic;
 
-namespace SharpEngineTest
+namespace SE_BasicPhysics
 {
-    class MyScene: Scene
+    class MyScene : Scene
     {
-        public MyScene(): base()
+        public MyScene() : base()
         {
             Entity ent = new Entity();
             ent.AddComponent(new TransformComponent(new Vec2(420, 300)));
@@ -28,11 +26,6 @@ namespace SharpEngineTest
 
             if (InputManager.IsKeyPressed(SharpEngine.Inputs.Key.F))
                 System.Console.WriteLine($"{DebugManager.GetFPS()} - {DebugManager.GetGCMemory()}");
-            if (InputManager.IsKeyPressed(SharpEngine.Inputs.Key.G))
-            {
-                System.Console.WriteLine(entities[0].GetComponent<TransformComponent>().position);
-                System.Console.WriteLine(entities[0].GetComponent<PhysicsComponent>().GetPosition());
-            }
 
             if (InputManager.IsMouseButtonPressed(SharpEngine.Inputs.MouseButton.LEFT))
                 entities[0].GetComponent<PhysicsComponent>().SetPosition(new Vec2(420, 300));

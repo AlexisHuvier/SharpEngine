@@ -11,6 +11,7 @@ namespace SharpEngine
         public InternalGame internalGame;
         private Vec2 _internalScreenSize;
         private bool _internalMouseVisible;
+        private FullScreenType _internalFullScreen;
         internal int currentScene = -1;
         internal List<Scene> scenes = new List<Scene>();
         public TextureManager textureManager;
@@ -21,6 +22,7 @@ namespace SharpEngine
 
         public Color backgroundColor;
         public bool exitWithEscape;
+
         public Vec2 screenSize
         {
             get => _internalScreenSize;
@@ -35,6 +37,18 @@ namespace SharpEngine
                 }
             }
         }
+
+        public FullScreenType fullscreen
+        {
+            get => _internalFullScreen;
+            set 
+            {
+                _internalFullScreen = value;
+                if(internalGame != null)
+                    internalGame.SetFullscreen(value);
+            }
+        }
+
         public bool mouseVisible
         {
             get => _internalMouseVisible;
@@ -53,12 +67,14 @@ namespace SharpEngine
         /// <param name="backgroundColor">Couleur de fond (Color.BLACK)</param>
         /// <param name="mouseVisible">Rend la souris visible</param>
         /// <param name="exitWithEscape">Quitte le jeu quand échap est appuyé</param>
-        public Window(Vec2 screenSize = null, Color backgroundColor = null, bool mouseVisible = true, bool exitWithEscape = true)
+        /// <param name="fullscreen">Lance le jeu avec ou sans fullscreen</param>
+        public Window(Vec2 screenSize = null, Color backgroundColor = null, bool mouseVisible = true, bool exitWithEscape = true, FullScreenType fullscreen = FullScreenType.NO_FULLSCREEN)
         {
             this.screenSize = screenSize ?? new Vec2(800, 600);
             this.backgroundColor = backgroundColor ?? Color.BLACK;
             this.mouseVisible = mouseVisible;
             this.exitWithEscape = exitWithEscape;
+            this.fullscreen = fullscreen;
 
             internalGame = new InternalGame(this);
             textureManager = new TextureManager(this);

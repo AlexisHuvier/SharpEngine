@@ -22,6 +22,37 @@ namespace SharpEngine
             IsMouseVisible = window.mouseVisible;
         }
 
+        internal void SetFullscreen(FullScreenType fullScreenType)
+        {
+            switch(fullScreenType) {
+                case FullScreenType.BORDERLESS_FULLSCREEN:
+                    if (graphics.IsFullScreen)
+                        graphics.ToggleFullScreen();
+                    int displayWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+                    int displayHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+                    graphics.PreferredBackBufferWidth = displayWidth;
+                    graphics.PreferredBackBufferHeight = displayHeight;
+
+                    Window.IsBorderless = true;
+                    graphics.ApplyChanges();
+                    break;
+                case FullScreenType.HARDWARE_FULLSCREEN:
+                    SetFullscreen(FullScreenType.NO_FULLSCREEN);
+                    graphics.ToggleFullScreen();
+                    graphics.ApplyChanges();
+                    break;
+                case FullScreenType.NO_FULLSCREEN:
+                    if (graphics.IsFullScreen)
+                        graphics.ToggleFullScreen();
+                    graphics.PreferredBackBufferWidth = (int)window.screenSize.x;
+                    graphics.PreferredBackBufferHeight = (int)window.screenSize.y;
+
+                    Window.IsBorderless = false;
+                    graphics.ApplyChanges();
+                    break;
+            }
+        }
+
         internal void TakeScreenshot(string fileName)
         {
             int w = GraphicsDevice.PresentationParameters.BackBufferWidth;
@@ -53,6 +84,8 @@ namespace SharpEngine
             graphics.PreferredBackBufferWidth = (int)window.screenSize.x;
             graphics.PreferredBackBufferHeight = (int)window.screenSize.y;
             graphics.ApplyChanges();
+
+            SetFullscreen(window.fullscreen);
 
             Window.TextInput += TextInputHandler;
 

@@ -52,9 +52,34 @@
             return new Microsoft.Xna.Framework.Color(r, g, b, a);
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj is Color color)
+                return this == color;
+            return base.Equals(obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         public override string ToString()
         {
-            return $"Color(r={r}, g={g}, b={b}, a={a}";
+            return $"Color(r={r}, g={g}, b={b}, a={a})";
+        }
+
+        public static bool operator !=(Color color, Color color2)
+            => !(color == color2);
+
+        public static bool operator ==(Color color, Color color2)
+        {
+            if (color is null)
+                return color2 is null;
+            else if (color2 is null)
+                return false;
+            else
+                return color.r == color2.r && color.g == color2.g && color.b == color2.b && color.a == color2.a;
         }
 
         public static readonly Color MEDIUM_AQUAMARINE = new Color(102, 205, 170, 255);

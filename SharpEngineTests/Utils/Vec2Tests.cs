@@ -42,7 +42,11 @@ namespace SharpEngineTests.Utils
         }
 
         [TestMethod]
-        public void ToMG() => Assert.IsInstanceOfType(new Vec2(0).ToMG(), typeof(Microsoft.Xna.Framework.Vector2));
+        public void Convert()
+        {
+            Assert.IsInstanceOfType(new Vec2(0).ToMG(), typeof(Microsoft.Xna.Framework.Vector2));
+            Assert.IsInstanceOfType(new Vec2(0).ToAetherPhysics(), typeof(tainicom.Aether.Physics2D.Common.Vector2));
+        }
 
         [TestMethod]
         public void toString() => Assert.AreEqual($"Vec2(x=1, y=1)", new Vec2(1).ToString());

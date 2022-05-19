@@ -45,6 +45,7 @@ namespace SharpEngine
         {
             return new Vector2(x, y);
         }
+        public tainicom.Aether.Physics2D.Common.Vector2 ToAetherPhysics() => new tainicom.Aether.Physics2D.Common.Vector2(x, y);
 
         public override bool Equals(object obj)
         {

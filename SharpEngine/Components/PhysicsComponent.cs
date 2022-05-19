@@ -4,48 +4,40 @@ using tainicom.Aether.Physics2D.Dynamics;
 
 namespace SharpEngine.Components
 {
+
     /// <summary>
     /// Composant de physique basique
     /// </summary>
     public class PhysicsComponent : Component
     {
-        public Body body;
-
-        public readonly string type;
-        public readonly List<object> parameters;
-
-        /// <summary>
-        /// Initialise le Composant avec une collision Rectangulaire
-        /// </summary>
-        /// <param name="size">Taille de la collision</param>
-        /// <param name="density">Densité</param>
-        /// <param name="restitution">Restitution</param>
-        /// <param name="friction">Friction</param>
-        /// <param name="bodyType">Type de corps</param>
-        public PhysicsComponent(Vec2 size, float density = 1f, float restitution = 0.5f, float friction = 0.5f, BodyType bodyType = BodyType.Dynamic) : base()
+        private enum FixtureType
         {
-            type = "Rectangle";
-            parameters = new List<object>()
-            {
-                size, density, restitution, friction, bodyType
-            };
+            RECTANGLE,
+            CIRCLE
         }
 
-        /// <summary>
-        /// Initialise le Composant avec une collision Circulaire
-        /// </summary>
-        /// <param name="radius">Rayon de la collision</param>
-        /// <param name="density">Densité</param>
-        /// <param name="restitution">Restitution</param>
-        /// <param name="friction">Friction</param>
-        /// <param name="bodyType">Type de corps</param>
-        public PhysicsComponent(float radius, float density = 1f, float restitution = 0.5f, float friction = 0.5f, BodyType bodyType = BodyType.Dynamic) : base()
+        private class FixtureInfo
         {
-            type = "Circle";
-            parameters = new List<object>()
-            {
-                radius, density, restitution, friction, bodyType
-            };
+            public float density;
+            public float restitution;
+            public float friction;
+            public FixtureType type;
+            public object parameter;
+            public Vec2 offset;
+        }
+
+        public Body body;
+
+        private BodyType bodyType;
+        private List<FixtureInfo> fixtures = new List<FixtureInfo>();
+
+        /// <summary>
+        /// Initialise le Composant
+        /// </summary>
+        /// <param name="bodyType">Type de corps</param>
+        public PhysicsComponent(BodyType bodyType = BodyType.Dynamic) : base()
+        {
+            this.bodyType = bodyType;
         }
 
         public Vec2 GetPosition() => new Vec2(body.Position.X, body.Position.Y);
@@ -54,33 +46,58 @@ namespace SharpEngine.Components
         public int GetRotation() => (int)(body.Rotation * 180 / System.Math.PI);
         public void SetRotation(int rotation) => body.Rotation = (float)(rotation * System.Math.PI / 180f);
 
+        public void AddRectangleCollision(Vec2 size, Vec2 offset = null, float density = 1f, float restitution = 0.5f, float friction = 0.5f)
+        {
+            FixtureInfo fixture = new FixtureInfo()
+            {
+                density = density,
+                restitution = restitution,
+                friction = friction,
+                type = FixtureType.RECTANGLE,
+                parameter = size,
+                offset = offset ?? new Vec2(0)
+            };
+            fixtures.Add(fixture);
+        }
+
+        public void AddCircleCollision(float radius, Vec2 offset = null, float density = 1f, float restitution = 0.5f, float friction = 0.5f)
+        {
+            FixtureInfo fixture = new FixtureInfo()
+            {
+                density = density,
+                restitution = restitution,
+                friction = friction,
+                type = FixtureType.CIRCLE,
+                parameter = radius,
+                offset = offset ?? new Vec2(0)
+            };
+            fixtures.Add(fixture);
+        }
+
         public override void Initialize()
         {
             base.Initialize();
 
-            float density = System.Convert.ToSingle(parameters[1]);
-            float restitution = System.Convert.ToSingle(parameters[2]);
-            float friction = System.Convert.ToSingle(parameters[3]);
-            BodyType bodyType = (BodyType)parameters[4];
             body = GetWindow().GetCurrentScene().world.CreateBody(bodyType: bodyType);
-            Fixture fixture;
-
-            switch(type)
+            foreach(FixtureInfo info in fixtures)
             {
-                case "Rectangle":
-                    Vec2 size = parameters[0] as Vec2;
-                    fixture = body.CreateRectangle(size.x, size.y, density, tainicom.Aether.Physics2D.Common.Vector2.Zero);
-                    break;
-                case "Circle":
-                    float radius = System.Convert.ToSingle(parameters[0]);
-                    fixture = body.CreateCircle(radius, density, tainicom.Aether.Physics2D.Common.Vector2.Zero);
-                    break;
-                default:
-                    throw new Exception($"Unknown Type of Body : {type}");
+                Fixture fixture;
+                switch(info.type)
+                {
+                    case FixtureType.RECTANGLE:
+                        Vec2 size = info.parameter as Vec2;
+                        fixture = body.CreateRectangle(size.x, size.y, info.density, info.offset.ToAetherPhysics());
+                        break;
+                    case FixtureType.CIRCLE:
+                        float radius = Convert.ToSingle(info.parameter);
+                        fixture = body.CreateCircle(radius, info.density, info.offset.ToAetherPhysics());
+                        break;
+                    default:
+                        throw new Exception($"Unknown Type of Fixture : {info.type}");
+                }
+                fixture.Restitution = info.restitution;
+                fixture.Friction = info.friction;
             }
-
-            fixture.Restitution = restitution;
-            fixture.Friction = friction;
 
             if(entity.GetComponent<TransformComponent>() is TransformComponent tc)
             {
@@ -101,9 +118,6 @@ namespace SharpEngine.Components
             }
         }
 
-        public override string ToString()
-        {
-            return $"PhysicsComponent(body={body}, type={type})";
-        }
+        public override string ToString() => $"PhysicsComponent(body={body}, nbFixtures={fixtures.Count})";
     }
 }

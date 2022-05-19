@@ -25,9 +25,6 @@
             this.zLayer = zLayer;
         }
 
-        public override string ToString()
-        {
-            return $"TransformComponent(pos={position}, scale={scale}, rotation={rotation}, zLayer={zLayer})";
-        }
+        public override string ToString() => $"TransformComponent(pos={position}, scale={scale}, rotation={rotation}, zLayer={zLayer})";
     }
 }

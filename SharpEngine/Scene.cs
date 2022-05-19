@@ -27,10 +27,7 @@ namespace SharpEngine
             world.ContactManager.CollideMultithreadThreshold = 256;
         }
 
-        public List<Widget> GetWidgets()
-        {
-            return widgets;
-        }
+        public List<Widget> GetWidgets() => widgets;
 
         public T AddWidget<T>(T widget) where T : Widget
         {
@@ -53,10 +50,7 @@ namespace SharpEngine
             widgets.Remove(widget);
         }
 
-        public List<Entity> GetEntities()
-        {
-            return entities;
-        }
+        public List<Entity> GetEntities() => entities;
 
         public virtual void AddEntity(Entity ent)
         {
@@ -70,15 +64,8 @@ namespace SharpEngine
             entities.Remove(ent);
         }
 
-        public virtual void SetWindow(Window window)
-        {
-            this.window = window;
-        }
-
-        public Window GetWindow()
-        {
-            return window;
-        }
+        public virtual void SetWindow(Window window) => this.window = window;
+        public Window GetWindow() => window;
 
         public virtual void Initialize()
         {

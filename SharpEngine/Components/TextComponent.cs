@@ -39,9 +39,6 @@
             }
         }
 
-        public override string ToString()
-        {
-            return $"TextComponent(text={text}, font={font}, color={color}, displayed={displayed}, offset={offset})";
-        }
+        public override string ToString() => $"TextComponent(text={text}, font={font}, color={color}, displayed={displayed}, offset={offset})";
     }
 }

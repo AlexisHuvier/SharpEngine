@@ -47,10 +47,7 @@
             this.a = a;
         }
 
-        public Microsoft.Xna.Framework.Color ToMG()
-        {
-            return new Microsoft.Xna.Framework.Color(r, g, b, a);
-        }
+        public Microsoft.Xna.Framework.Color ToMG() => new Microsoft.Xna.Framework.Color(r, g, b, a);
 
         public override bool Equals(object obj)
         {
@@ -59,18 +56,10 @@
             return base.Equals(obj);
         }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+        public override int GetHashCode() => base.GetHashCode();
+        public override string ToString() => $"Color(r={r}, g={g}, b={b}, a={a})";
 
-        public override string ToString()
-        {
-            return $"Color(r={r}, g={g}, b={b}, a={a})";
-        }
-
-        public static bool operator !=(Color color, Color color2)
-            => !(color == color2);
+        public static bool operator !=(Color color, Color color2) => !(color == color2);
 
         public static bool operator ==(Color color, Color color2)
         {

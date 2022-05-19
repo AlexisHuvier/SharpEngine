@@ -15,20 +15,9 @@ namespace SharpEngine
             data = defaut;
         }
 
-        public object GetObject(string key)
-        {
-            return data.GetValueOrDefault(key, null);
-        }
-
-        public T GetObjectAs<T>(string key)
-        {
-            return data.ContainsKey(key) ? (T) data[key] : default;
-        }
-
-        public void SetObject(string key, object value)
-        {
-            data[key] = value;
-        }
+        public object GetObject(string key) => data.GetValueOrDefault(key, null);
+        public T GetObjectAs<T>(string key) => data.ContainsKey(key) ? (T) data[key] : default;
+        public void SetObject(string key, object value) => data[key] = value;
 
         public void Write(string filename)
         {

@@ -20,10 +20,7 @@ namespace SharpEngine
         public Rect(Vec2 pos, float width, float height) : this(pos, new Vec2(width, height)) { }
         public Rect(float x, float y, float width, float height) : this(new Vec2(x, y), new Vec2(width, height)) { }
 
-        public Rectangle ToMG()
-        {
-            return new Rectangle((int) position.x, (int) position.y, (int) size.x, (int) size.y);
-        }
+        public Rectangle ToMG() => new Rectangle((int) position.x, (int) position.y, (int) size.x, (int) size.y);
 
         public override bool Equals(object obj)
         {
@@ -32,18 +29,10 @@ namespace SharpEngine
             return base.Equals(obj);
         }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+        public override int GetHashCode() => base.GetHashCode();
+        public override string ToString() => $"Rect(position={position}, size={size})";
 
-        public override string ToString()
-        {
-            return $"Rect(position={position}, size={size})";
-        }
-
-        public static bool operator !=(Rect r1, Rect r2)
-            => !(r1 == r2);
+        public static bool operator !=(Rect r1, Rect r2) => !(r1 == r2);
 
         public static bool operator ==(Rect r1, Rect r2)
         {
@@ -55,7 +44,6 @@ namespace SharpEngine
                 return r1.position == r2.position && r1.size == r2.size;
         }
 
-        public static implicit operator Rect(Rectangle rectangle)
-            => rectangle == null ? null : new Rect(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);
+        public static implicit operator Rect(Rectangle rectangle) => new Rect(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);
     }
 }

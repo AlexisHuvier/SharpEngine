@@ -31,20 +31,10 @@ namespace SharpEngine
                 return new Vec2(x / length, y / length);
         }
 
-        public float Length()
-        {
-            return (float) System.Math.Sqrt(x * x + y * y);
-        }
+        public float Length() => (float) System.Math.Sqrt(x * x + y * y);
+        public float LengthSquared() => x * x + y * y;
 
-        public float LengthSquared()
-        {
-            return x * x + y * y;
-        }
-
-        public Vector2 ToMG()
-        {
-            return new Vector2(x, y);
-        }
+        public Vector2 ToMG() => new Vector2(x, y);
         public tainicom.Aether.Physics2D.Common.Vector2 ToAetherPhysics() => new tainicom.Aether.Physics2D.Common.Vector2(x, y);
 
         public override bool Equals(object obj)
@@ -54,18 +44,10 @@ namespace SharpEngine
             return base.Equals(obj);
         }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+        public override int GetHashCode() => base.GetHashCode();
+        public override string ToString() => $"Vec2(x={x}, y={y})";
 
-        public override string ToString()
-        {
-            return $"Vec2(x={x}, y={y})";
-        }
-
-        public static bool operator !=(Vec2 vec1, Vec2 vec2)
-            => !(vec1 == vec2);
+        public static bool operator !=(Vec2 vec1, Vec2 vec2) => !(vec1 == vec2);
 
         public static bool operator ==(Vec2 vec1, Vec2 vec2)
         {
@@ -77,33 +59,15 @@ namespace SharpEngine
                 return vec1.x == vec2.x && vec1.y == vec2.y;
         }
 
-        public static Vec2 operator -(Vec2 vec)
-            => vec == null ? null : new Vec2(-vec.x, -vec.y);
-
-        public static Vec2 operator -(Vec2 vec, Vec2 vec2)
-            => vec == null || vec2 == null ? null : new Vec2(vec.x - vec2.x, vec.y - vec2.y);
-
-        public static Vec2 operator -(Vec2 vec, float factor)
-            => vec == null ? null : new Vec2(vec.x - factor, vec.y - factor);
-        public static Vec2 operator +(Vec2 vec, Vec2 vec2)
-            => vec == null || vec2 == null ? null : new Vec2(vec.x + vec2.x, vec.y + vec2.y);
-
-        public static Vec2 operator +(Vec2 vec, float factor)
-            => vec == null ? null : new Vec2(vec.x + factor, vec.y + factor);
-
-        public static Vec2 operator *(Vec2 vec, Vec2 vec2)
-            => vec == null || vec2 == null ? null : new Vec2(vec.x * vec2.x, vec.y * vec2.y);
-
-        public static Vec2 operator *(Vec2 vec, float factor)
-            => vec == null ? null : new Vec2(vec.x * factor, vec.y * factor);
-
-        public static Vec2 operator /(Vec2 vec, Vec2 vec2)
-            => vec == null || vec2 == null ? null : new Vec2(vec.x / vec2.x, vec.y / vec2.y);
-
-        public static Vec2 operator /(Vec2 vec, float factor)
-            => vec == null ? null : new Vec2(vec.x / factor, vec.y / factor);
-
-        public static implicit operator Vec2(Vector2 vec)
-            => vec == null ? null : new Vec2(vec.X, vec.Y);
+        public static Vec2 operator -(Vec2 vec) => vec == null ? null : new Vec2(-vec.x, -vec.y);
+        public static Vec2 operator -(Vec2 vec, Vec2 vec2) => vec == null || vec2 == null ? null : new Vec2(vec.x - vec2.x, vec.y - vec2.y);
+        public static Vec2 operator -(Vec2 vec, float factor) => vec == null ? null : new Vec2(vec.x - factor, vec.y - factor);
+        public static Vec2 operator +(Vec2 vec, Vec2 vec2) => vec == null || vec2 == null ? null : new Vec2(vec.x + vec2.x, vec.y + vec2.y);
+        public static Vec2 operator +(Vec2 vec, float factor) => vec == null ? null : new Vec2(vec.x + factor, vec.y + factor);
+        public static Vec2 operator *(Vec2 vec, Vec2 vec2) => vec == null || vec2 == null ? null : new Vec2(vec.x * vec2.x, vec.y * vec2.y);
+        public static Vec2 operator *(Vec2 vec, float factor) => vec == null ? null : new Vec2(vec.x * factor, vec.y * factor);
+        public static Vec2 operator /(Vec2 vec, Vec2 vec2) => vec == null || vec2 == null ? null : new Vec2(vec.x / vec2.x, vec.y / vec2.y);
+        public static Vec2 operator /(Vec2 vec, float factor) => vec == null ? null : new Vec2(vec.x / factor, vec.y / factor);
+        public static implicit operator Vec2(Vector2 vec) => new Vec2(vec.X, vec.Y);
     }
 }

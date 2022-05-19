@@ -20,9 +20,7 @@ namespace SharpEngine
         public void AddTexture(string name, Texture2D texture)
         {
             if (!textures.ContainsKey(name))
-            {
                 textures.Add(name, texture);
-            }
         }
 
         public void AddTexture(string name, string file)

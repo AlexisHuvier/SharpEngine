@@ -27,10 +27,7 @@ namespace SharpEngine.Widgets
             selected = 0;
         }
 
-        public string GetValue()
-        {
-            return texts[selected];
-        }
+        public string GetValue() => texts[selected];
 
         public override void LoadContent()
         {

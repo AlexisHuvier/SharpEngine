@@ -1,1 +1,0 @@
-D:\Programmation\c#\docfx\docfx.exe -t .\_exported_templates\default --serve

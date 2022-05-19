@@ -10,13 +10,13 @@ namespace SE_BasicPhysics
             Entity ent = new Entity();
             ent.AddComponent(new TransformComponent(new Vec2(420, 300)));
             ent.AddComponent(new SpriteComponent("test"));
-            ent.AddComponent(new PhysicsComponent(new Vec2(44), bodyType: tainicom.Aether.Physics2D.Dynamics.BodyType.Dynamic));
+            ent.AddComponent(new PhysicsComponent(tainicom.Aether.Physics2D.Dynamics.BodyType.Dynamic)).AddRectangleCollision(new Vec2(44));
             AddEntity(ent);
 
             Entity e2 = new Entity();
             e2.AddComponent(new TransformComponent(new Vec2(450, 500)));
             e2.AddComponent(new SpriteComponent("test"));
-            e2.AddComponent(new PhysicsComponent(new Vec2(44), bodyType: tainicom.Aether.Physics2D.Dynamics.BodyType.Static));
+            e2.AddComponent(new PhysicsComponent(tainicom.Aether.Physics2D.Dynamics.BodyType.Static)).AddRectangleCollision(new Vec2(44));
             AddEntity(e2);
         }
 

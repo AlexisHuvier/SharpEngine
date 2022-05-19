@@ -78,5 +78,7 @@ namespace SharpEngine.Components
                 GetSpriteBatch().Draw(texture, (tc.position - CameraManager.position).ToMG(), new Rect(positionSource, spriteSize).ToMG(), Color.WHITE.ToMG(), MathHelper.ToRadians(tc.rotation), (spriteSize / 2).ToMG(), tc.scale.ToMG(), SpriteEffects.None, 1);
             }
         }
+
+        public override string ToString() => $"SpriteSheetComponent(sprite={sprite}, spriteSize={spriteSize}, nbAnimations={animations.Count}, currentAnim={currentAnim})";
     }
 }

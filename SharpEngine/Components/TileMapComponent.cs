@@ -118,9 +118,6 @@ namespace SharpEngine.Components
             }
         }
 
-        public override string ToString()
-        {
-            return $"TileMapComponent(orientation={orientation}, renderorder={renderorder}, size={size}, tileSize={tileSize}, infinite={infinite})";
-        }
+        public override string ToString() => $"TileMapComponent(orientation={orientation}, renderorder={renderorder}, size={size}, tileSize={tileSize}, infinite={infinite})";
     }
 }

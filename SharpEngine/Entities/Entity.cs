@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using SharpEngine.Components;
-using System;
 
 namespace SharpEngine
 {
@@ -18,10 +17,7 @@ namespace SharpEngine
             scene = null;
         }
 
-        public List<Component> GetComponents()
-        {
-            return components;
-        }
+        public List<Component> GetComponents() => components;
 
         public T AddComponent<T>(T comp) where T: Component
         {
@@ -46,15 +42,8 @@ namespace SharpEngine
             components.Remove(component);
         }
 
-        public virtual void SetScene(Scene scene)
-        {
-            this.scene = scene;
-        }
-
-        public Scene GetScene()
-        {
-            return scene;
-        }
+        public virtual void SetScene(Scene scene) => this.scene = scene;
+        public Scene GetScene() => scene;
 
         public virtual void Initialize() 
         {

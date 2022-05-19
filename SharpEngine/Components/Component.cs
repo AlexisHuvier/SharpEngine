@@ -17,15 +17,8 @@ namespace SharpEngine.Components
             entity = null;
         }
 
-        public virtual void SetEntity(Entity entity)
-        {
-            this.entity = entity;
-        }
-
-        public Entity GetEntity()
-        {
-            return entity;
-        }
+        public virtual void SetEntity(Entity entity) => this.entity = entity;
+        public Entity GetEntity() => entity;
 
         public SpriteBatch GetSpriteBatch()
         {

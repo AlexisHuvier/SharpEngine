@@ -22,15 +22,8 @@ namespace SharpEngine.Widgets
             displayed = true;
             active = true;
         }
-        public virtual void SetScene(Scene scene)
-        {
-            this.scene = scene;
-        }
-
-        public Scene GetScene()
-        {
-            return scene;
-        }
+        public virtual void SetScene(Scene scene) => this.scene = scene;
+        public Scene GetScene() => scene;
 
         public SpriteBatch GetSpriteBatch()
         {

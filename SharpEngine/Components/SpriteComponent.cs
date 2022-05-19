@@ -34,9 +34,6 @@ namespace SharpEngine.Components
             }
         }
 
-        public override string ToString()
-        {
-            return $"SpriteComponent(sprite={sprite}, displayed={displayed}, offset={offset})";
-        }
+        public override string ToString() => $"SpriteComponent(sprite={sprite}, displayed={displayed}, offset={offset})";
     }
 }

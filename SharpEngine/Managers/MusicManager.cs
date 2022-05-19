@@ -30,19 +30,8 @@ namespace SharpEngine
                 MediaPlayer.Play(songs[name]);
         }
 
-        public static void Stop()
-        {
-            MediaPlayer.Stop();
-        }
-
-        public static void SetRepeating(bool repeat)
-        {
-            MediaPlayer.IsRepeating = repeat;
-        }
-
-        public static void SetVolume(int volume)
-        {
-            MediaPlayer.Volume = volume / 100f;
-        }
+        public static void Stop() => MediaPlayer.Stop();
+        public static void SetRepeating(bool repeat) => MediaPlayer.IsRepeating = repeat;
+        public static void SetVolume(int volume) => MediaPlayer.Volume = volume / 100f;
     }
 }

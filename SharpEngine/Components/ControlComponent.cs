@@ -34,15 +34,8 @@ namespace SharpEngine.Components
             };
         }
 
-        public Inputs.Key GetKey(ControlKey controlKey)
-        {
-            return keys[controlKey];
-        }
-
-        public void SetKey(ControlKey controlKey, Inputs.Key key)
-        {
-            keys[controlKey] = key;
-        }
+        public Inputs.Key GetKey(ControlKey controlKey) => keys[controlKey];
+        public void SetKey(ControlKey controlKey, Inputs.Key key) => keys[controlKey] = key;
 
         public override void Update(GameTime gameTime)
         {
@@ -113,9 +106,6 @@ namespace SharpEngine.Components
             }
         }
 
-        public override string ToString()
-        {
-            return $"ControlComponent(controlType={controlType}, speed={speed})";
-        }
+        public override string ToString() => $"ControlComponent(controlType={controlType}, speed={speed})";
     }
 }

@@ -11,15 +11,8 @@ namespace SharpEngine
         private static int frameCounter = 0;
         private static TimeSpan elapsedTime = TimeSpan.Zero;
 
-        public static int GetFPS()
-        {
-            return frameRate;
-        }
-
-        public static long GetGCMemory()
-        {
-            return GC.GetTotalMemory(false);
-        }
+        public static int GetFPS() => frameRate;
+        public static long GetGCMemory() => GC.GetTotalMemory(false);
 
         internal static void Update(GameTime gameTime)
         {
@@ -33,9 +26,6 @@ namespace SharpEngine
             }
         }
 
-        internal static void Draw()
-        {
-            frameCounter++;
-        }
+        internal static void Draw() => frameCounter++;
     }
 }

@@ -43,9 +43,6 @@
             }
         }
 
-        public override string ToString()
-        {
-            return $"AutoMovementComponent(direction={direction}, rotation={rotation})";
-        }
+        public override string ToString() => $"AutoMovementComponent(direction={direction}, rotation={rotation})";
     }
 }

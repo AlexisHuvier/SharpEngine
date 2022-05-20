@@ -16,10 +16,14 @@ namespace SE_Particles
                 minSize: 20, maxSize: 20, sizeFunction: ParticleUtils.ParticleParametersFunction.DECREASE, active: true, offset: new Vec2(20, 0)); 
             ParticleUtils.ParticleEmitter thirdEmitter = new ParticleUtils.ParticleEmitter(new Color[] { Color.GREEN }, minDirection: 0, maxDirection: 360,
                 minSize: 20, maxSize: 20, sizeFunction: ParticleUtils.ParticleParametersFunction.INCREASE, active: true, offset: new Vec2(70, 0));
+            ParticleUtils.ParticleEmitter fourEmitter = new ParticleUtils.ParticleEmitter(new Color[] { Color.RED }, minDirection: -140, maxDirection: -40,
+                endColors: new Color[] { Color.YELLOW }, minSize: 10, maxSize: 10, sizeFunction: ParticleUtils.ParticleParametersFunction.DECREASE, active: true, 
+                offset: new Vec2(-80, 0));
             ParticleComponent cmp = ent.AddComponent(new ParticleComponent());
             cmp.AddEmitter(firstEmitter);
             cmp.AddEmitter(secondEmitter);
             cmp.AddEmitter(thirdEmitter);
+            cmp.AddEmitter(fourEmitter);
             AddEntity(ent);
         }
     }

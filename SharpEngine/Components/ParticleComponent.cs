@@ -17,7 +17,7 @@ namespace SharpEngine.Components
         {
             base.Update(gameTime);
 
-            foreach(ParticleUtils.ParticleEmitter particleEmitter in particleEmitters)
+            foreach (ParticleUtils.ParticleEmitter particleEmitter in particleEmitters)
                 particleEmitter.Update(gameTime);
         }
 

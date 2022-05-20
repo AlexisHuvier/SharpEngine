@@ -15,7 +15,8 @@ namespace SharpEngine.Utils
         public class ParticleEmitter
         {
             public List<Particle> particles = new List<Particle>();
-            public Color[] colors;
+            public Color[] beginColors;
+            public Color[] endColors;
             public Vec2 offset = new Vec2(0);
             public float minVelocity = 20;
             public float maxVelocity = 20;
@@ -44,14 +45,15 @@ namespace SharpEngine.Utils
             private List<Particle> mustBeDeleted = new List<Particle>();
             private float timerBeforeSpawn = 0;
 
-            public ParticleEmitter(Color[] colors, Vec2 offset = null, float minVelocity = 20, float maxVelocity = 20, float minAcceleration = 0, float maxAcceleration = 0,
+            public ParticleEmitter(Color[] beginColors, Color[] endColors = null, Vec2 offset = null, float minVelocity = 20, float maxVelocity = 20, float minAcceleration = 0, float maxAcceleration = 0,
                 float minRotationSpeed = 0, float maxRotationSpeed = 0, float minRotation = 0, float maxRotation = 0, float minLifetime = 2, float maxLifetime = 2,
                 float minDirection = 0, float maxDirection = 0, float minTimerBeforeSpawn = 0.3f, float maxTimerBeforeSpawn = 0.3f, float minSize = 5, float maxSize = 5,
                 int minNbParticlesPerSpawn = 4, int maxNbParticlesPerSpawn = 4, int maxParticles = -1,
                 ParticleParametersFunction sizeFunction = ParticleParametersFunction.NORMAL, float sizeFunctionValue = 0,
                 bool active = false)
             {
-                this.colors = colors;
+                this.beginColors = beginColors;
+                this.endColors = endColors;
                 this.offset = offset ?? new Vec2(0);
                 this.minVelocity = minVelocity;
                 this.maxVelocity = maxVelocity;
@@ -89,9 +91,12 @@ namespace SharpEngine.Utils
                 float rotationSpeed = Math.RandomBetween(minRotationSpeed, maxRotationSpeed);
                 float lifetime = Math.RandomBetween(minLifetime, maxLifetime);
                 float size = Math.RandomBetween(minSize, maxSize);
-                Color color = colors[Math.RandomBetween(0, colors.Length - 1)];
+                Color beginColor = beginColors[Math.RandomBetween(0, beginColors.Length - 1)];
+                Color endColor = null;
+                if(endColors != null)
+                    endColor = endColors[Math.RandomBetween(0, endColors.Length - 1)];
 
-                Particle particle = new Particle(position, velocity, acceleration, lifetime, size, rotation, rotationSpeed, color, sizeFunction, sizeFunctionValue);
+                Particle particle = new Particle(position, velocity, acceleration, lifetime, size, rotation, rotationSpeed, beginColor, endColor, sizeFunction, sizeFunctionValue);
                 particles.Add(particle);
             }
 
@@ -145,11 +150,13 @@ namespace SharpEngine.Utils
             public float maxSize;
             public float rotation;
             public float rotationSpeed;
-            public Color color;
+            public Color beginColor;
+            public Color currentColor;
+            public Color endColor;
             public ParticleParametersFunction sizeFunction = ParticleParametersFunction.NORMAL;
             public float sizeFunctionValue = 0;
 
-            public Particle(Vec2 position, Vec2 velocity, Vec2 acceleration, float lifetime, float size, float rotation, float rotationSpeed, Color color,
+            public Particle(Vec2 position, Vec2 velocity, Vec2 acceleration, float lifetime, float size, float rotation, float rotationSpeed, Color beginColor, Color endColor,
                 ParticleParametersFunction sizeFunction = ParticleParametersFunction.NORMAL, float sizeFunctionValue = 0)
             {
                 this.position = position;
@@ -164,7 +171,9 @@ namespace SharpEngine.Utils
                     this.size = size;
                 this.rotation = rotation;
                 this.rotationSpeed = rotationSpeed;
-                this.color = color;
+                this.beginColor = beginColor;
+                currentColor = beginColor;
+                this.endColor = endColor;
                 this.sizeFunction = sizeFunction;
                 this.sizeFunctionValue = sizeFunctionValue;
             }
@@ -190,6 +199,9 @@ namespace SharpEngine.Utils
                         size -= sizeFunctionValue;
                 }
 
+                if (endColor != null && endColor != beginColor)
+                    currentColor = Color.GetColorBetween(beginColor, endColor, timeSinceStart, lifetime);
+
                 timeSinceStart += (float)gameTime.elapsedGameTime.TotalSeconds;
             }
 
@@ -199,7 +211,7 @@ namespace SharpEngine.Utils
                 {
                     var texture = window.textureManager.GetTexture("blank");
                     var size = new Vec2(this.size);
-                    window.internalGame.spriteBatch.Draw(texture, new Rect((particleEmitterPosition + position - CameraManager.position - size / 2), size).ToMG(), null, color.ToMG(), Math.ToRadians(rotation), new Microsoft.Xna.Framework.Vector2(0), Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
+                    window.internalGame.spriteBatch.Draw(texture, new Rect((particleEmitterPosition + position - CameraManager.position - size / 2), size).ToMG(), null, currentColor.ToMG(), Math.ToRadians(rotation), new Microsoft.Xna.Framework.Vector2(0), Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
                 }
             }
         }

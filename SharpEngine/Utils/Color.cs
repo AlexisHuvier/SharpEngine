@@ -71,6 +71,17 @@
                 return color.r == color2.r && color.g == color2.g && color.b == color2.b && color.a == color2.a;
         }
 
+        public static Color GetColorBetween(Color startColor, Color endColor, float currentTime, float maxTime)
+        {
+            float stepA = ((endColor.a - startColor.a) * currentTime / maxTime);
+            float stepR = ((endColor.r - startColor.r) * currentTime / maxTime);
+            float stepG = ((endColor.g - startColor.g) * currentTime / maxTime);
+            float stepB = ((endColor.b - startColor.b) * currentTime / maxTime);
+
+            return new Color(startColor.r + System.Convert.ToInt32(stepR), startColor.g + System.Convert.ToInt32(stepG), startColor.b + System.Convert.ToInt32(stepB),
+                startColor.a + System.Convert.ToInt32(stepA));
+        }
+
         public static readonly Color MEDIUM_AQUAMARINE = new Color(102, 205, 170, 255);
         public static readonly Color MEDIUM_BLUE = new Color(0, 0, 205, 255);
         public static readonly Color MEDIUM_ORQUID = new Color(186, 85, 211, 255);

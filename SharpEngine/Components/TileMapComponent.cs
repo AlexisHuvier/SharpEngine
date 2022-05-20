@@ -1,6 +1,7 @@
 ﻿using System.Xml.Linq;
 using System;
 using System.Collections.Generic;
+using SharpEngine.Utils;
 
 namespace SharpEngine.Components
 {
@@ -10,24 +11,13 @@ namespace SharpEngine.Components
     /// </summary>
     public class TileMapComponent: Component
     {
-        public struct Tile
-        {
-            public int id;
-            public string source;
-        }
-
-        protected struct Layer
-        {
-            public List<int> tiles;
-        }
-
         protected string orientation;
         protected string renderorder;
         protected Vec2 size;
         protected Vec2 tileSize;
         protected bool infinite;
-        protected List<Tile> tiles;
-        protected List<Layer> layers;
+        protected List<TileUtils.Tile> tiles;
+        protected List<TileUtils.Layer> layers;
         protected List<string> textures;
 
         /// <summary>
@@ -37,8 +27,8 @@ namespace SharpEngine.Components
         /// <exception cref="Exception"></exception>
         public TileMapComponent(string tilemap): base()
         {
-            tiles = new List<Tile>();
-            layers = new List<Layer>();
+            tiles = new List<TileUtils.Tile>();
+            layers = new List<TileUtils.Layer>();
             textures = new List<string>();
 
             XElement file = XElement.Load(tilemap);
@@ -57,7 +47,7 @@ namespace SharpEngine.Components
 
             foreach(XElement tiletype in file.Element("tileset").Elements("tile"))
             {
-                Tile tile = new Tile()
+                TileUtils.Tile tile = new TileUtils.Tile()
                 {
                     id = Convert.ToInt32(tiletype.Attribute("id").Value) + 1,
                     source = System.IO.Path.GetFileNameWithoutExtension(tiletype.Element("image").Attribute("source").Value)
@@ -71,7 +61,7 @@ namespace SharpEngine.Components
                 List<int> tiles = new List<int>();
                 foreach (string tile in element.Element("data").Value.Split(","))
                     tiles.Add(Convert.ToInt32(tile));
-                Layer layer = new Layer
+                TileUtils.Layer layer = new TileUtils.Layer
                 {
                     tiles = tiles
                 };
@@ -89,14 +79,14 @@ namespace SharpEngine.Components
             }
         }
 
-        public Tile GetTile(int id)
+        public TileUtils.Tile GetTile(int id)
         {
-            foreach(Tile tile in tiles)
+            foreach(TileUtils.Tile tile in tiles)
             {
                 if (tile.id == id)
                     return tile;
             }
-            return new Tile() { };
+            return new TileUtils.Tile() { };
         }
 
         public override void Draw(GameTime gameTime)
@@ -105,7 +95,7 @@ namespace SharpEngine.Components
 
             if (entity.GetComponent<TransformComponent>() is TransformComponent tc && layers.Count > 0)
             {
-                foreach(Layer layer in layers)
+                foreach(TileUtils.Layer layer in layers)
                 {
                     for(int i = 0; i < layer.tiles.Count; i++)
                     {

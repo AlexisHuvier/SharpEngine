@@ -5,6 +5,13 @@ namespace SharpEngine.Utils
 {
     public class ParticleUtils
     {
+        public enum ParticleParametersFunction
+        {
+            DECREASE,
+            INCREASE,
+            NORMAL
+        }
+
         public class ParticleEmitter
         {
             public List<Particle> particles = new List<Particle>();
@@ -28,6 +35,8 @@ namespace SharpEngine.Utils
             public int maxNbParticlesPerSpawn = 4;
             public float minSize = 5;
             public float maxSize = 5;
+            public ParticleParametersFunction sizeFunction = ParticleParametersFunction.NORMAL;
+            public float sizeFunctionValue = 0;
 
             public int maxParticles = -1;
             public bool active;
@@ -37,8 +46,10 @@ namespace SharpEngine.Utils
 
             public ParticleEmitter(Color[] colors, Vec2 offset = null, float minVelocity = 20, float maxVelocity = 20, float minAcceleration = 0, float maxAcceleration = 0,
                 float minRotationSpeed = 0, float maxRotationSpeed = 0, float minRotation = 0, float maxRotation = 0, float minLifetime = 2, float maxLifetime = 2,
-                int minNbParticlesPerSpawn = 4, int maxNbParticlesPerSpawn = 4, int maxParticles = -1, bool active = false)
                 float minDirection = 0, float maxDirection = 0, float minTimerBeforeSpawn = 0.3f, float maxTimerBeforeSpawn = 0.3f, float minSize = 5, float maxSize = 5,
+                int minNbParticlesPerSpawn = 4, int maxNbParticlesPerSpawn = 4, int maxParticles = -1,
+                ParticleParametersFunction sizeFunction = ParticleParametersFunction.NORMAL, float sizeFunctionValue = 0,
+                bool active = false)
             {
                 this.colors = colors;
                 this.offset = offset ?? new Vec2(0);
@@ -62,6 +73,8 @@ namespace SharpEngine.Utils
                 this.minNbParticlesPerSpawn = minNbParticlesPerSpawn;
                 this.maxNbParticlesPerSpawn = maxNbParticlesPerSpawn;
                 this.maxParticles = maxParticles;
+                this.sizeFunction = sizeFunction;
+                this.sizeFunctionValue = sizeFunctionValue;
             }
 
             public int GetParticlesCount() => particles.Count;
@@ -78,7 +91,7 @@ namespace SharpEngine.Utils
                 float size = Math.RandomBetween(minSize, maxSize);
                 Color color = colors[Math.RandomBetween(0, colors.Length - 1)];
 
-                Particle particle = new Particle(position, velocity, acceleration, lifetime, size, rotation, rotationSpeed, color);
+                Particle particle = new Particle(position, velocity, acceleration, lifetime, size, rotation, rotationSpeed, color, sizeFunction, sizeFunctionValue);
                 particles.Add(particle);
             }
 
@@ -129,21 +142,31 @@ namespace SharpEngine.Utils
             public float lifetime;
             public float timeSinceStart;
             public float size;
+            public float maxSize;
             public float rotation;
             public float rotationSpeed;
             public Color color;
+            public ParticleParametersFunction sizeFunction = ParticleParametersFunction.NORMAL;
+            public float sizeFunctionValue = 0;
 
             public Particle(Vec2 position, Vec2 velocity, Vec2 acceleration, float lifetime, float size, float rotation, float rotationSpeed, Color color,
+                ParticleParametersFunction sizeFunction = ParticleParametersFunction.NORMAL, float sizeFunctionValue = 0)
             {
                 this.position = position;
                 this.velocity = velocity;
                 this.acceleration = acceleration;
                 this.lifetime = lifetime;
                 timeSinceStart = 0;
-                this.size = size;
+                this.maxSize = size;
+                if (sizeFunction == ParticleParametersFunction.INCREASE)
+                    this.size = 0;
+                else
+                    this.size = size;
                 this.rotation = rotation;
                 this.rotationSpeed = rotationSpeed;
                 this.color = color;
+                this.sizeFunction = sizeFunction;
+                this.sizeFunctionValue = sizeFunctionValue;
             }
 
             public void Update(GameTime gameTime)
@@ -151,6 +174,21 @@ namespace SharpEngine.Utils
                 velocity += acceleration * (float)gameTime.elapsedGameTime.TotalSeconds;
                 position += velocity * (float)gameTime.elapsedGameTime.TotalSeconds;
                 rotation += rotationSpeed * (float)gameTime.elapsedGameTime.TotalSeconds;
+
+                if(sizeFunction == ParticleParametersFunction.INCREASE)
+                {
+                    if (sizeFunctionValue == 0)
+                        size = maxSize * timeSinceStart / lifetime;
+                    else
+                        size += sizeFunctionValue;
+                }
+                else if(sizeFunction == ParticleParametersFunction.DECREASE)
+                {
+                    if (sizeFunctionValue == 0)
+                        size = maxSize * (lifetime - timeSinceStart) / lifetime;
+                    else
+                        size -= sizeFunctionValue;
+                }
 
                 timeSinceStart += (float)gameTime.elapsedGameTime.TotalSeconds;
             }

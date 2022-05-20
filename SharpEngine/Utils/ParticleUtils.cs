@@ -26,8 +26,8 @@ namespace SharpEngine.Utils
             public float maxTimerBeforeSpawn = 0.3f;
             public int minNbParticlesPerSpawn = 4;
             public int maxNbParticlesPerSpawn = 4;
-            public int minSize = 5;
-            public int maxSize = 5;
+            public float minSize = 5;
+            public float maxSize = 5;
 
             public int maxParticles = -1;
             public bool active;
@@ -37,8 +37,8 @@ namespace SharpEngine.Utils
 
             public ParticleEmitter(Color[] colors, Vec2 offset = null, float minVelocity = 20, float maxVelocity = 20, float minAcceleration = 0, float maxAcceleration = 0,
                 float minRotationSpeed = 0, float maxRotationSpeed = 0, float minRotation = 0, float maxRotation = 0, float minLifetime = 2, float maxLifetime = 2,
-                float minDirection = 0, float maxDirection = 0, float minTimerBeforeSpawn = 0.3f, float maxTimerBeforeSpawn = 0.3f, int minSize = 5, int maxSize = 5,
                 int minNbParticlesPerSpawn = 4, int maxNbParticlesPerSpawn = 4, int maxParticles = -1, bool active = false)
+                float minDirection = 0, float maxDirection = 0, float minTimerBeforeSpawn = 0.3f, float maxTimerBeforeSpawn = 0.3f, float minSize = 5, float maxSize = 5,
             {
                 this.colors = colors;
                 this.offset = offset ?? new Vec2(0);
@@ -75,7 +75,7 @@ namespace SharpEngine.Utils
                 float rotation = Math.RandomBetween(minRotation, maxRotation);
                 float rotationSpeed = Math.RandomBetween(minRotationSpeed, maxRotationSpeed);
                 float lifetime = Math.RandomBetween(minLifetime, maxLifetime);
-                int size = Math.RandomBetween(minSize, maxSize);
+                float size = Math.RandomBetween(minSize, maxSize);
                 Color color = colors[Math.RandomBetween(0, colors.Length - 1)];
 
                 Particle particle = new Particle(position, velocity, acceleration, lifetime, size, rotation, rotationSpeed, color);
@@ -128,12 +128,12 @@ namespace SharpEngine.Utils
             public Vec2 acceleration;
             public float lifetime;
             public float timeSinceStart;
-            public int size;
+            public float size;
             public float rotation;
             public float rotationSpeed;
             public Color color;
 
-            public Particle(Vec2 position, Vec2 velocity, Vec2 acceleration, float lifetime, int size, float rotation, float rotationSpeed, Color color)
+            public Particle(Vec2 position, Vec2 velocity, Vec2 acceleration, float lifetime, float size, float rotation, float rotationSpeed, Color color,
             {
                 this.position = position;
                 this.velocity = velocity;

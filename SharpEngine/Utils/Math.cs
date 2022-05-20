@@ -1,4 +1,6 @@
-﻿namespace SharpEngine
+﻿using System;
+
+namespace SharpEngine
 {
     /// <summary>
     /// Fonctions et constantes mathématiques
@@ -13,6 +15,17 @@
         public const float PIOVER4 = 0.7853982F;
         public const float TAU = 6.28318548F;
         public const float TWOPI = 6.28318548F;
+
+        private static Random rand = new Random();
+
+        public static float RandomBetween(float min, float max)
+        {
+            double range = max - min;
+            double sample = rand.NextDouble();
+            return (float)(sample * range + min);
+        }
+
+        public static int RandomBetween(int min, int max) => rand.Next(min, max + 1);
 
         public static float ToDegrees(float radians) => radians * 180 / PI;
         public static float ToRadians(float degrees) => degrees * PI / 180;

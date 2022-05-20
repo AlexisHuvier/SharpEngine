@@ -157,10 +157,12 @@ namespace SharpEngine.Utils
 
             public void Draw(Window window, Vec2 particleEmitterPosition)
             {
-                var texture = window.textureManager.GetTexture("blank");
-                var size = new Vec2(this.size);
-                window.internalGame.spriteBatch.Draw(texture, new Rect((particleEmitterPosition + position - CameraManager.position), size).ToMG(), null, color.ToMG(), Math.ToRadians(rotation), (size / 2).ToMG(), Microsoft.Xna.Framework.Graphics.SpriteEffects.None,  1);
-
+                if (this.size != 0)
+                {
+                    var texture = window.textureManager.GetTexture("blank");
+                    var size = new Vec2(this.size);
+                    window.internalGame.spriteBatch.Draw(texture, new Rect((particleEmitterPosition + position - CameraManager.position - size / 2), size).ToMG(), null, color.ToMG(), Math.ToRadians(rotation), new Microsoft.Xna.Framework.Vector2(0), Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
+                }
             }
         }
     }

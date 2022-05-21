@@ -17,19 +17,19 @@ namespace SharpEngine.Components
         {
             base.Update(gameTime);
 
-            foreach (ParticleUtils.ParticleEmitter particleEmitter in particleEmitters)
-                particleEmitter.Update(gameTime);
+            if (entity.GetComponent<TransformComponent>() is TransformComponent tc)
+            {
+                foreach (ParticleUtils.ParticleEmitter particleEmitter in particleEmitters)
+                    particleEmitter.Update(gameTime, tc.position);
+            }
         }
 
         public override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);
 
-            if (entity.GetComponent<TransformComponent>() is TransformComponent tc)
-            {
-                foreach (ParticleUtils.ParticleEmitter particleEmitter in particleEmitters)
-                    particleEmitter.Draw(GetWindow(), tc.position);
-            }
+            foreach (ParticleUtils.ParticleEmitter particleEmitter in particleEmitters)
+                particleEmitter.Draw(GetWindow());
         }
     }
 }

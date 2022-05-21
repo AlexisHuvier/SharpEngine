@@ -82,7 +82,7 @@ namespace SharpEngine.Utils
 
             public int GetParticlesCount() => particles.Count;
 
-            public void SpawnParticle()
+            public void SpawnParticle(Vec2 objectPosition)
             {
                 Vec2 position;
                 if (spawnSize == null || spawnSize == new Vec2(0))
@@ -101,11 +101,11 @@ namespace SharpEngine.Utils
                 if(endColors != null)
                     endColor = endColors[Math.RandomBetween(0, endColors.Length - 1)];
 
-                Particle particle = new Particle(position, velocity, acceleration, lifetime, size, rotation, rotationSpeed, beginColor, endColor, sizeFunction, sizeFunctionValue);
+                Particle particle = new Particle(objectPosition + position, velocity, acceleration, lifetime, size, rotation, rotationSpeed, beginColor, endColor, sizeFunction, sizeFunctionValue);
                 particles.Add(particle);
             }
 
-            public void Update(GameTime gameTime)
+            public void Update(GameTime gameTime, Vec2 objectPosition)
             {
                 mustBeDeleted = new List<Particle>();
                 foreach (Particle particle in particles)
@@ -128,7 +128,7 @@ namespace SharpEngine.Utils
                         {
                             int nbParticles = Math.RandomBetween(minNbParticlesPerSpawn, maxNbParticlesPerSpawn);
                             for (int i = 0; i < nbParticles; i++)
-                                SpawnParticle();
+                                SpawnParticle(objectPosition);
                         }
                         timerBeforeSpawn = Math.RandomBetween(minTimerBeforeSpawn, maxTimerBeforeSpawn);
                     }
@@ -137,10 +137,10 @@ namespace SharpEngine.Utils
                 }
             }
 
-            public void Draw(Window window, Vec2 objectPosition)
+            public void Draw(Window window)
             {
                 foreach (Particle particle in particles)
-                    particle.Draw(window, objectPosition + offset);
+                    particle.Draw(window);
             }
         }
 
@@ -210,13 +210,13 @@ namespace SharpEngine.Utils
                 timeSinceStart += (float)gameTime.elapsedGameTime.TotalSeconds;
             }
 
-            public void Draw(Window window, Vec2 particleEmitterPosition)
+            public void Draw(Window window)
             {
                 if (this.size != 0)
                 {
                     var texture = window.textureManager.GetTexture("blank");
                     var size = new Vec2(this.size);
-                    window.internalGame.spriteBatch.Draw(texture, new Rect((particleEmitterPosition + position - CameraManager.position - size / 2), size).ToMG(), null, currentColor.ToMG(), Math.ToRadians(rotation), new Microsoft.Xna.Framework.Vector2(0), Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
+                    window.internalGame.spriteBatch.Draw(texture, new Rect((position - CameraManager.position - size / 2), size).ToMG(), null, currentColor.ToMG(), Math.ToRadians(rotation), new Microsoft.Xna.Framework.Vector2(0), Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
                 }
             }
         }

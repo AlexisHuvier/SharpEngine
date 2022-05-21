@@ -38,6 +38,7 @@ namespace SharpEngine.Utils
             public float maxSize = 5;
             public ParticleParametersFunction sizeFunction = ParticleParametersFunction.NORMAL;
             public float sizeFunctionValue = 0;
+            public Vec2 spawnSize = null;
 
             public int maxParticles = -1;
             public bool active;
@@ -45,12 +46,11 @@ namespace SharpEngine.Utils
             private List<Particle> mustBeDeleted = new List<Particle>();
             private float timerBeforeSpawn = 0;
 
-            public ParticleEmitter(Color[] beginColors, Color[] endColors = null, Vec2 offset = null, float minVelocity = 20, float maxVelocity = 20, float minAcceleration = 0, float maxAcceleration = 0,
-                float minRotationSpeed = 0, float maxRotationSpeed = 0, float minRotation = 0, float maxRotation = 0, float minLifetime = 2, float maxLifetime = 2,
-                float minDirection = 0, float maxDirection = 0, float minTimerBeforeSpawn = 0.3f, float maxTimerBeforeSpawn = 0.3f, float minSize = 5, float maxSize = 5,
-                int minNbParticlesPerSpawn = 4, int maxNbParticlesPerSpawn = 4, int maxParticles = -1,
-                ParticleParametersFunction sizeFunction = ParticleParametersFunction.NORMAL, float sizeFunctionValue = 0,
-                bool active = false)
+            public ParticleEmitter(Color[] beginColors, Color[] endColors = null, Vec2 spawnSize = null, Vec2 offset = null, float minVelocity = 20, float maxVelocity = 20, 
+                float minAcceleration = 0, float maxAcceleration = 0, float minRotationSpeed = 0, float maxRotationSpeed = 0, float minRotation = 0, float maxRotation = 0, 
+                float minLifetime = 2, float maxLifetime = 2, float minDirection = 0, float maxDirection = 0, float minTimerBeforeSpawn = 0.3f, float maxTimerBeforeSpawn = 0.3f, 
+                float minSize = 5, float maxSize = 5, int minNbParticlesPerSpawn = 4, int maxNbParticlesPerSpawn = 4, int maxParticles = -1, bool active = false,
+                ParticleParametersFunction sizeFunction = ParticleParametersFunction.NORMAL, float sizeFunctionValue = 0)
             {
                 this.beginColors = beginColors;
                 this.endColors = endColors;
@@ -77,13 +77,18 @@ namespace SharpEngine.Utils
                 this.maxParticles = maxParticles;
                 this.sizeFunction = sizeFunction;
                 this.sizeFunctionValue = sizeFunctionValue;
+                this.spawnSize = spawnSize;
             }
 
             public int GetParticlesCount() => particles.Count;
 
             public void SpawnParticle()
             {
-                Vec2 position = offset;
+                Vec2 position;
+                if (spawnSize == null || spawnSize == new Vec2(0))
+                    position = offset;
+                else
+                    position = offset + new Vec2(Math.RandomBetween(-spawnSize.x / 2, spawnSize.x / 2), Math.RandomBetween(-spawnSize.y / 2, spawnSize.y / 2));
                 float angle = Math.RandomBetween(minDirection, maxDirection);
                 Vec2 velocity = new Vec2(MathF.Cos(Math.ToRadians(angle)), MathF.Sin(Math.ToRadians(angle))) * Math.RandomBetween(minVelocity, maxVelocity);
                 Vec2 acceleration = new Vec2(MathF.Cos(Math.ToRadians(angle)), MathF.Sin(Math.ToRadians(angle))) * Math.RandomBetween(minAcceleration, maxAcceleration);

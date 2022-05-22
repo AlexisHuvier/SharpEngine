@@ -4,8 +4,9 @@ C# 2D Game Engine
 
 ## Installation, Download, Usage
 
-- Version 0.7.X (Last Release) : <https://lycos-novation.github.io/SharpEngine-Docs/0.7/>
-- Version 0.8.0 (INDEV) : <https://lycos-novation.github.io/SharpEngine-Docs/0.8/>
+- Version 0.7.X : <https://lycos-novation.github.io/SharpEngine-Docs/0.7/>
+- Version 0.8.0 (Last Release) : <https://lycos-novation.github.io/SharpEngine-Docs/0.8/>
+- Version Indev : <https://lycos-novation.github.io/SharpEngine-Docs/indev/>
 
 ## Dependencies
 
@@ -26,14 +27,14 @@ C# 2D Game Engine
 - Utility Classes
 - Save System
 - Managers : Font, Textures, Input, Sound, Music
+- Particles
 
 ## Uncoming Features
 
 *Warning : This is a non-exhaustive list and subject to change.*
 
 - More UI
-- Translation
-- Particles
+- Transitions
 - Network
 - Sprite Packer
 - Lights

@@ -83,6 +83,7 @@ namespace SharpEngine
 
         public Scene GetScene(int index) => scenes[index];
         public void SetCurrentScene(Scene scene) => currentScene = scenes.IndexOf(scene);
+        public void SetCurrentScene(int sceneID) => currentScene = sceneID;
         public Scene GetCurrentScene() => scenes[currentScene];
 
         public void TakeScreenshot(string fileName) => internalGame.TakeScreenshot(fileName);
@@ -91,7 +92,7 @@ namespace SharpEngine
         {
             scene.SetWindow(this);
             scenes.Add(scene);
-            SetCurrentScene(scene);
+            currentScene = scenes.Count - 1;
         }
 
         public void RemoveScene(Scene scene)

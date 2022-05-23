@@ -32,7 +32,8 @@ namespace SharpEngine.Widgets
         /// <param name="texture">Nom de la texture</param>
         /// <param name="size">Taille</param>
         /// <param name="fontColor">Couleur du texte (Color.BLACK)</param>
-        public TexturedButton(Vec2 position = null, string text = "", string font = "", string texture = "", Vec2 size = null, Color fontColor = null) : base(position)
+        public TexturedButton(Vec2 position = null, string text = "", string font = "", string texture = "", Vec2 size = null, 
+            Color fontColor = null) : base(position)
         {
             this.text = text;
             this.font = font;

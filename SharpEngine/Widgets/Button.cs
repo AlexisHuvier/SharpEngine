@@ -70,6 +70,8 @@ namespace SharpEngine.Widgets
             if (!displayed || scene == null)
                 return;
 
+            Vec2 position = parent != null ? this.position + parent.position : this.position;
+
             if (state != ButtonState.CLICK && active && state == ButtonState.HOVERED)
                 scene.window.internalGame.spriteBatch.Draw(scene.window.textureManager.GetTexture("blank"), new Rect(position - (size + new Vec2(4)) / 2, (size + new Vec2(4))).ToMG(), Color.WHITE.ToMG());
 

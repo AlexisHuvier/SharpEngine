@@ -25,16 +25,17 @@
 
         public override void Draw(GameTime gameTime)
         {
+            base.Draw(gameTime);
+
             if (!displayed || scene == null)
                 return;
 
             if(text.Length > 0 && font.Length > 0)
             {
+                Vec2 position = parent != null ? this.position + parent.position : this.position;
                 var spriteFont = scene.window.fontManager.GetFont(font);
                 scene.window.internalGame.spriteBatch.DrawString(spriteFont, text, position.ToMG(), color.ToMG(), 0, spriteFont.MeasureString(text) / 2, 1, Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
             }
-
-            base.Draw(gameTime);
         }
     }
 }

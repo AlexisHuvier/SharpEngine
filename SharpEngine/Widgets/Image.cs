@@ -26,6 +26,8 @@
 
             if(displayed && texture.Length > 0) {
                 var sprite = scene.window.textureManager.GetTexture(texture);
+                Vec2 position = parent != null ? this.position + parent.position : this.position;
+
                 if (size == null)
                     scene.window.internalGame.spriteBatch.Draw(sprite, new Rect(position - new Vec2(sprite.Width, sprite.Height) / 2, new Vec2(sprite.Width, sprite.Height)).ToMG(), Color.WHITE.ToMG());
                 else

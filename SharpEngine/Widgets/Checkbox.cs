@@ -53,6 +53,8 @@
             if (scene == null || !displayed)
                 return;
 
+            Vec2 position = parent != null ? this.position + parent.position : this.position;
+
             if (text.Length > 0 && font.Length > 0)
             {
                 Vec2 size = new Vec2(20) * scale + new Vec2(8, 0) + new Vec2(scene.window.fontManager.GetFont(font).MeasureString(text).X, 0);

@@ -64,9 +64,13 @@ namespace SharpEngine.Widgets
             };
             text = new Label(position, texts[selected], font);
 
-            LeftButton.scene = scene;
-            RightButton.scene = scene;
-            text.scene = scene;
+            LeftButton.SetScene(scene);
+            RightButton.SetScene(scene);
+            text.SetScene(scene);
+
+            LeftButton.SetParent(parent);
+            RightButton.SetParent(parent);
+            text.SetParent(parent);
         }
 
         public override void Update(GameTime gameTime)
@@ -79,14 +83,14 @@ namespace SharpEngine.Widgets
 
         public override void Draw(GameTime gameTime)
         {
+            base.Draw(gameTime);
+
             if (scene == null)
                 return;
 
             LeftButton.Draw(gameTime);
             RightButton.Draw(gameTime);
             text.Draw(gameTime);
-
-            base.Draw(gameTime);
         }
     }
 }

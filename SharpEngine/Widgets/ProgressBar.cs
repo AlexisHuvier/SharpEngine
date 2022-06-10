@@ -30,6 +30,7 @@
             if (scene == null || !displayed)
                 return;
 
+            Vec2 position = parent != null ? this.position + parent.position : this.position;
             scene.window.internalGame.spriteBatch.Draw(scene.window.textureManager.GetTexture("blank"), new Rect(position - size / 2, size).ToMG(), Color.BLACK.ToMG());
             scene.window.internalGame.spriteBatch.Draw(scene.window.textureManager.GetTexture("blank"), new Rect(position - (size - new Vec2(4)) / 2, (size - new Vec2(4))).ToMG(), Color.WHITE.ToMG());
             Vec2 barSize = (size - new Vec2(8));

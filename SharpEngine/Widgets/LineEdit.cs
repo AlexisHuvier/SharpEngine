@@ -11,7 +11,7 @@ namespace SharpEngine.Widgets
         public string font;
         public Vec2 size;
 
-        private bool focused;
+        public bool focused;
         private float timer;
         private bool cursor;
 
@@ -36,6 +36,9 @@ namespace SharpEngine.Widgets
         public override void TextInput(object sender, Key key, char Character)
         {
             base.TextInput(sender, key, Character);
+
+            if (!focused)
+                return;
 
             if (key == Key.BACK)
             {

@@ -1,100 +1,108 @@
-﻿using SharpEngine.Inputs;
+﻿using SharpEngine.Managers;
+using SharpEngine.Utils;
 
-namespace SharpEngine.Widgets
+namespace SharpEngine.Widgets;
+
+/// <summary>
+/// Entrée de texte
+/// </summary>
+public class LineEdit : Widget
 {
+    public string Text;
+    public string Font;
+    public Vec2 Size;
+    public bool Focused;
+    
+    private float _timer;
+    private bool _cursor;
+
     /// <summary>
-    /// Entrée de texte
+    /// Initialise le Widget.
     /// </summary>
-    public class LineEdit: Widget
+    /// <param name="position">Position (Vec2(0))</param>
+    /// <param name="text">Texte</param>
+    /// <param name="font">Nom de la police</param>
+    /// <param name="size">Taille (Vec2(300, 50))</param>
+    public LineEdit(Vec2 position = null, string text = "", string font = "", Vec2 size = null) : base(position)
     {
-        public string text;
-        public string font;
-        public Vec2 size;
+        Text = text;
+        Font = font;
+        Size = size ?? new Vec2(300, 50);
+        Focused = false;
+        
+        _timer = 500;
+        _cursor = false;
+    }
 
-        public bool focused;
-        private float timer;
-        private bool cursor;
+    public override void TextInput(object sender, Key key, char character)
+    {
+        base.TextInput(sender, key, character);
 
-        /// <summary>
-        /// Initialise le Widget.
-        /// </summary>
-        /// <param name="position">Position (Vec2(0))</param>
-        /// <param name="text">Texte</param>
-        /// <param name="font">Nom de la police</param>
-        /// <param name="size">Taille (Vec2(300, 50))</param>
-        public LineEdit(Vec2 position = null, string text = "", string font = "", Vec2 size = null): base(position)
+        if (!Focused)
+            return;
+
+        if (key == Key.Back)
         {
-            this.text = text;
-            this.font = font;
-            this.size = size ?? new Vec2(300, 50);
+            if (Text.Length >= 1)
+                Text = Text[..^1];
+        }
+        else if ((char.IsSymbol(character) || char.IsWhiteSpace(character) || char.IsLetterOrDigit(character) ||
+                  char.IsPunctuation(character)) && Font.Length > 1 &&
+                 Scene.Window.FontManager.GetFont(Font).MeasureString(Text + character).X < Size.X - 8)
+            Text += character;
+    }
 
-            focused = false;
-            timer = 500;
-            cursor = false;
+    public override void Update(GameTime gameTime)
+    {
+        base.Update(gameTime);
+
+        if (!Active)
+        {
+            _cursor = false;
+            return;
         }
 
-        public override void TextInput(object sender, Key key, char Character)
+        if (InputManager.IsMouseButtonPressed(MouseButton.Left))
         {
-            base.TextInput(sender, key, Character);
-
-            if (!focused)
-                return;
-
-            if (key == Key.BACK)
-            {
-                if (text.Length >= 1)
-                    text = text[..^1];
-            }
-            else if ((char.IsSymbol(Character) || char.IsWhiteSpace(Character) || char.IsLetterOrDigit(Character) || char.IsPunctuation(Character)) && font.Length > 1 &&
-                scene.window.fontManager.GetFont(font).MeasureString(text + Character).X < size.x - 8)
-                text += Character;
+            Focused = InputManager.MouseInRectangle(Position - Size / 2, Size);
+            if (!Focused && _cursor)
+                _cursor = false;
         }
 
-        public override void Update(GameTime gameTime)
+        if (!Focused) return;
+        
+        if (_timer <= 0)
         {
-            base.Update(gameTime);
-
-            if(!active)
-            {
-                cursor = false;
-                return;
-            }
-
-            if(InputManager.IsMouseButtonPressed(Inputs.MouseButton.LEFT))
-            {
-                focused = InputManager.MouseInRectangle(position - size / 2, size);
-                if (!focused && cursor)
-                    cursor = false;
-            }
-
-            if(focused)
-            {
-                if(timer <= 0)
-                {
-                    cursor = !cursor;
-                    timer = 500;
-                }
-                timer -= (float)gameTime.elapsedGameTime.TotalMilliseconds;
-            }
+            _cursor = !_cursor;
+            _timer = 500;
         }
 
-        public override void Draw(GameTime gameTime)
-        {
-            base.Draw(gameTime);
+        _timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+    }
 
-            if (scene == null || !displayed)
-                return;
+    public override void Draw(GameTime gameTime)
+    {
+        base.Draw(gameTime);
 
-            Vec2 position = parent != null ? this.position + parent.position : this.position;
-            scene.window.internalGame.spriteBatch.Draw(scene.window.textureManager.GetTexture("blank"), new Rect(position - size / 2, size).ToMG(), Color.BLACK.ToMG());
-            scene.window.internalGame.spriteBatch.Draw(scene.window.textureManager.GetTexture("blank"), new Rect(position - (size - new Vec2(4)) / 2, size - new Vec2(4)).ToMG(), Color.WHITE.ToMG());
-            if (font.Length >= 1) {
-                var spriteFont = scene.window.fontManager.GetFont(font);
-                if (cursor)
-                    scene.window.internalGame.spriteBatch.DrawString(spriteFont, text + "I", (position - size / 2 + new Vec2(4, size.y / 2 - spriteFont.MeasureString(text + "I").Y / 2)).ToMG(), Color.BLACK.ToMG());
-                else
-                    scene.window.internalGame.spriteBatch.DrawString(spriteFont, text, (position - size / 2 + new Vec2(4, size.y / 2 - spriteFont.MeasureString(text).Y / 2)).ToMG(), Color.BLACK.ToMG());
-            }
-        }
+        if (Scene == null || !Displayed)
+            return;
+
+        var realPosition = Parent != null ? Position + Parent.Position : Position;
+        Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
+            new Rect(realPosition - Size / 2, Size).ToMg(), Color.Black.ToMg());
+        Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
+            new Rect(realPosition - (Size - new Vec2(4)) / 2, Size - new Vec2(4)).ToMg(), Color.White.ToMg());
+        
+        if (Font.Length < 1) return;
+        
+        var spriteFont = Scene.Window.FontManager.GetFont(Font);
+        if (_cursor)
+            Scene.Window.InternalGame.SpriteBatch.DrawString(spriteFont, Text + "I",
+                (realPosition - Size / 2 + new Vec2(4, Size.Y / 2 - spriteFont.MeasureString(Text + "I").Y / 2)).ToMg(),
+                Color.Black.ToMg());
+        else
+            Scene.Window.InternalGame.SpriteBatch.DrawString(spriteFont, Text,
+                (realPosition - Size / 2 + new Vec2(4, Size.Y / 2 - spriteFont.MeasureString(Text).Y / 2)).ToMg(),
+                Color.Black.ToMg());
     }
 }

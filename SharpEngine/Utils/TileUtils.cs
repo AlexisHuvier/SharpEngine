@@ -1,18 +1,17 @@
 ﻿using System.Collections.Generic;
 
-namespace SharpEngine.Utils
-{
-    public class TileUtils
-    {
-        public struct Tile
-        {
-            public int id;
-            public string source;
-        }
+namespace SharpEngine.Utils;
 
-        public struct Layer
-        {
-            public List<int> tiles;
-        }
+public static class TileUtils
+{
+    public struct Tile
+    {
+        public int Id;
+        public string Source;
+    }
+
+    public struct Layer
+    {
+        public List<int> Tiles;
     }
 }

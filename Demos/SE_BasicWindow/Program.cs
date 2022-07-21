@@ -1,12 +1,13 @@
 ﻿using SharpEngine;
+using SharpEngine.Utils;
 
 namespace SE_BasicWindow
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            Window win = new Window(new Vec2(900, 600), Color.CORNFLOWER_BLUE, fullscreen: FullScreenType.BORDERLESS_FULLSCREEN);
+            var win = new Window(new Vec2(900, 600), Color.CornflowerBlue);
 
             win.AddScene(new MyScene());
             win.Run();

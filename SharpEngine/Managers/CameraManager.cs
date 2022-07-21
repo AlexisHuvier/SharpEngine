@@ -1,19 +1,20 @@
 ﻿using SharpEngine.Components;
+using SharpEngine.Entities;
+using SharpEngine.Utils;
 
-namespace SharpEngine
+namespace SharpEngine.Managers;
+
+/// <summary>
+/// Gestion de la Caméra
+/// </summary>
+public class CameraManager
 {
-    /// <summary>
-    /// Gestion de la Caméra
-    /// </summary>
-    public class CameraManager
-    {
-        public static Vec2 position = new Vec2(0);
-        public static Entity followEntity = null;
+    public static Vec2 Position { get; set; } = new(0);
+    public static Entity FollowEntity { get; set; } = null;
 
-        public static void Update(Vec2 windowSize)
-        {
-            if(followEntity != null && followEntity.GetComponent<TransformComponent>() is TransformComponent tc)
-                position = tc.position - windowSize / 2;
-        }
+    public static void Update(Vec2 windowSize)
+    {
+        if(FollowEntity?.GetComponent<TransformComponent>() is {} tc)
+            Position = tc.Position - windowSize / 2;
     }
 }

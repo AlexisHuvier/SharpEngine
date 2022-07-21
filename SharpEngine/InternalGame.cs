@@ -1,157 +1,163 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.IO;
+using SharpEngine.Managers;
+using SharpEngine.Utils;
+using Color = SharpEngine.Utils.Color;
+using GameTime = SharpEngine.Utils.GameTime;
 
-namespace SharpEngine
+namespace SharpEngine;
+
+/// <summary>
+/// Classe interne du jeu
+/// </summary>
+public class InternalGame : Game
 {
-    /// <summary>
-    /// Classe interne du jeu
-    /// </summary>
-    public class InternalGame : Game
+    public readonly GraphicsDeviceManager Graphics;
+    public SpriteBatch SpriteBatch;
+    private readonly Window _window;
+
+    public InternalGame(Window win)
     {
-        public readonly GraphicsDeviceManager graphics;
-        public SpriteBatch spriteBatch;
-        private readonly Window window;
+        _window = win;
 
-        public InternalGame(Window win) : base()
-        {
-            window = win;
+        Graphics = new GraphicsDeviceManager(this);
+        IsMouseVisible = _window.MouseVisible;
+    }
 
-            graphics = new GraphicsDeviceManager(this);
-            IsMouseVisible = window.mouseVisible;
+    internal void SetFullscreen(FullScreenType fullScreenType)
+    {
+        switch(fullScreenType) {
+            case FullScreenType.BorderlessFullscreen:
+                if (Graphics.IsFullScreen)
+                    Graphics.ToggleFullScreen();
+                var displayWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+                var displayHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+                Graphics.PreferredBackBufferWidth = displayWidth;
+                Graphics.PreferredBackBufferHeight = displayHeight;
+
+                Window.IsBorderless = true;
+                Graphics.ApplyChanges();
+                break;
+            case FullScreenType.HardwareFullscreen:
+                SetFullscreen(FullScreenType.NoFullscreen);
+                Graphics.ToggleFullScreen();
+                Graphics.ApplyChanges();
+                break;
+            case FullScreenType.NoFullscreen:
+                if (Graphics.IsFullScreen)
+                    Graphics.ToggleFullScreen();
+                Graphics.PreferredBackBufferWidth = (int)_window.ScreenSize.X;
+                Graphics.PreferredBackBufferHeight = (int)_window.ScreenSize.Y;
+
+                Window.IsBorderless = false;
+                Graphics.ApplyChanges();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(fullScreenType), fullScreenType, null);
         }
+    }
 
-        internal void SetFullscreen(FullScreenType fullScreenType)
-        {
-            switch(fullScreenType) {
-                case FullScreenType.BORDERLESS_FULLSCREEN:
-                    if (graphics.IsFullScreen)
-                        graphics.ToggleFullScreen();
-                    int displayWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-                    int displayHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-                    graphics.PreferredBackBufferWidth = displayWidth;
-                    graphics.PreferredBackBufferHeight = displayHeight;
+    internal void TakeScreenshot(string fileName)
+    {
+        var w = GraphicsDevice.PresentationParameters.BackBufferWidth;
+        var h = GraphicsDevice.PresentationParameters.BackBufferHeight;
 
-                    Window.IsBorderless = true;
-                    graphics.ApplyChanges();
-                    break;
-                case FullScreenType.HARDWARE_FULLSCREEN:
-                    SetFullscreen(FullScreenType.NO_FULLSCREEN);
-                    graphics.ToggleFullScreen();
-                    graphics.ApplyChanges();
-                    break;
-                case FullScreenType.NO_FULLSCREEN:
-                    if (graphics.IsFullScreen)
-                        graphics.ToggleFullScreen();
-                    graphics.PreferredBackBufferWidth = (int)window.screenSize.x;
-                    graphics.PreferredBackBufferHeight = (int)window.screenSize.y;
+        Draw(new Microsoft.Xna.Framework.GameTime());
 
-                    Window.IsBorderless = false;
-                    graphics.ApplyChanges();
-                    break;
-            }
-        }
+        var backBuffer = new int[w * h];
+        GraphicsDevice.GetBackBufferData(backBuffer);
 
-        internal void TakeScreenshot(string fileName)
-        {
-            int w = GraphicsDevice.PresentationParameters.BackBufferWidth;
-            int h = GraphicsDevice.PresentationParameters.BackBufferHeight;
+        var texture = new Texture2D(GraphicsDevice, w, h, false, GraphicsDevice.PresentationParameters.BackBufferFormat);
+        texture.SetData(backBuffer);
 
-            Draw(new Microsoft.Xna.Framework.GameTime());
+        Stream stream = File.OpenWrite(fileName + ".jpg");
 
-            int[] backBuffer = new int[w * h];
-            GraphicsDevice.GetBackBufferData(backBuffer);
- 
-            Texture2D texture = new Texture2D(GraphicsDevice, w, h, false, GraphicsDevice.PresentationParameters.BackBufferFormat);
-            texture.SetData(backBuffer);
+        texture.SaveAsJpeg(stream, w, h);
+        stream.Dispose();
+        texture.Dispose();
+    }
 
-            Stream stream = File.OpenWrite(fileName + ".jpg");
+    private void TextInputHandler(object sender, TextInputEventArgs args)
+    {
+        if (_window.CurrentScene != -1)
+            _window.Scenes[_window.CurrentScene].TextInput(sender, (Key)args.Key, args.Character);
+    }
 
-            texture.SaveAsJpeg(stream, w, h);
-            stream.Dispose();
-            texture.Dispose();
-        }
+    protected override void Initialize()
+    {
+        Graphics.PreferredBackBufferWidth = (int)_window.ScreenSize.X;
+        Graphics.PreferredBackBufferHeight = (int)_window.ScreenSize.Y;
+        Graphics.ApplyChanges();
 
-        protected void TextInputHandler(object sender, TextInputEventArgs args)
-        {
-            if (window.currentScene != -1)
-                window.scenes[window.currentScene].TextInput(sender, (Inputs.Key)args.Key, args.Character);
-        }
+        SetFullscreen(_window.Fullscreen);
 
-        protected override void Initialize()
-        {
-            graphics.PreferredBackBufferWidth = (int)window.screenSize.x;
-            graphics.PreferredBackBufferHeight = (int)window.screenSize.y;
-            graphics.ApplyChanges();
+        Window.TextInput += TextInputHandler;
 
-            SetFullscreen(window.fullscreen);
+        _window.TextureManager.Load();
+        _window.FontManager.Load();
 
-            Window.TextInput += TextInputHandler;
+        foreach (var scene in _window.Scenes)
+            scene.Initialize();
 
-            window.textureManager.Load();
-            window.fontManager.Load();
+        base.Initialize();
+    }
 
-            foreach (Scene scene in window.scenes)
-                scene.Initialize();
+    protected override void LoadContent()
+    {
+        SpriteBatch = new SpriteBatch(GraphicsDevice);
 
-            base.Initialize();
-        }
+        var blank = new Texture2D(GraphicsDevice, 1, 1);
+        blank.SetData(new[] { Color.White.ToMg() });
+        _window.TextureManager.AddTexture("blank", blank);
 
-        protected override void LoadContent()
-        {
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+        foreach (var scene in _window.Scenes)
+            scene.LoadContent();
 
-            Texture2D blank = new Texture2D(GraphicsDevice, 1, 1);
-            blank.SetData(new[] { Color.WHITE.ToMG() });
-            window.textureManager.AddTexture("blank", blank);
+        base.LoadContent();
+    }
 
-            foreach (Scene scene in window.scenes)
-                scene.LoadContent();
+    protected override void UnloadContent()
+    {
+        foreach (var scene in _window.Scenes)
+            scene.UnloadContent();
 
-            base.LoadContent();
-        }
+        _window.TextureManager.Unload();
+        MusicManager.Unload();
+        SoundManager.Unload();
 
-        protected override void UnloadContent()
-        {
-            foreach (Scene scene in window.scenes)
-                scene.UnloadContent();
+        base.UnloadContent();
+    }
 
-            window.textureManager.Unload();
-            MusicManager.Unload();
-            SoundManager.Unload();
+    protected override void Update(Microsoft.Xna.Framework.GameTime gameTime)
+    {
+        DebugManager.Update(GameTime.FromMonogameGameTime(gameTime));
+        CameraManager.Update(_window.ScreenSize);
 
-            base.UnloadContent();
-        }
+        if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            Exit();
 
-        protected override void Update(Microsoft.Xna.Framework.GameTime gameTime)
-        {
-            DebugManager.Update(GameTime.FromMonogameGameTime(gameTime));
-            CameraManager.Update(window.screenSize);
+        if (_window.CurrentScene != -1)
+            _window.Scenes[_window.CurrentScene].Update(GameTime.FromMonogameGameTime(gameTime));
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+        InputManager.Update();
 
-            if (window.currentScene != -1)
-                window.scenes[window.currentScene].Update(GameTime.FromMonogameGameTime(gameTime));
+        base.Update(gameTime);
+    }
 
-            InputManager.Update();
+    protected override void Draw(Microsoft.Xna.Framework.GameTime gameTime)
+    {
+        DebugManager.Draw();
 
-            base.Update(gameTime);
-        }
+        GraphicsDevice.Clear(_window.BackgroundColor.ToMg());
 
-        protected override void Draw(Microsoft.Xna.Framework.GameTime gameTime)
-        {
-            DebugManager.Draw();
+        SpriteBatch.Begin();
+        if (_window.CurrentScene != -1)
+            _window.Scenes[_window.CurrentScene].Draw(GameTime.FromMonogameGameTime(gameTime));
+        SpriteBatch.End();
 
-            GraphicsDevice.Clear(window.backgroundColor.ToMG());
-
-            spriteBatch.Begin();
-            if (window.currentScene != -1)
-                window.scenes[window.currentScene].Draw(GameTime.FromMonogameGameTime(gameTime));
-            spriteBatch.End();
-
-            base.Draw(gameTime);
-        }
+        base.Draw(gameTime);
     }
 }

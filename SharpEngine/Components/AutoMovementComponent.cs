@@ -1,48 +1,47 @@
-﻿namespace SharpEngine.Components
+﻿using SharpEngine.Utils;
+
+namespace SharpEngine.Components;
+
+/// <summary>
+/// Composant permettant un mouvement ou une rotation automatique
+/// </summary>
+public class AutoMovementComponent : Component
 {
+    public Vec2 Direction;
+    public int Rotation;
+
     /// <summary>
-    /// Composant permettant un mouvement ou une rotation automatique
+    /// Initialise le Composant.
     /// </summary>
-    public class AutoMovementComponent : Component
+    /// <param name="direction">Mouvement automatique (Vec2(0))</param>
+    /// <param name="rotation">Rotation automatique</param>
+    public AutoMovementComponent(Vec2 direction = null, int rotation = 0)
     {
-        public Vec2 direction;
-        public int rotation;
-
-        /// <summary>
-        /// Initialise le Composant.
-        /// </summary>
-        /// <param name="direction">Mouvement automatique (Vec2(0))</param>
-        /// <param name="rotation">Rotation automatique</param>
-        public AutoMovementComponent(Vec2 direction = null, int rotation = 0) : base()
-        {
-            this.direction = direction ?? new Vec2(0);
-            this.rotation = rotation;
-        }
-
-        public override void Update(GameTime gameTime)
-        {
-            base.Update(gameTime);
-
-
-            if (entity.GetComponent<TransformComponent>() is TransformComponent tc)
-            {
-                if (direction.Length() != 0)
-                {
-                    Vec2 pos = new Vec2(tc.position.x, tc.position.y) + direction;
-                    if (entity.GetComponent<PhysicsComponent>() is PhysicsComponent pc)
-                        pc.SetPosition(pos);
-                    else
-                        tc.position = pos;
-                }
-
-                if(rotation != 0)
-                {
-                    int rot = tc.rotation + rotation;
-                    tc.rotation = rot;
-                }
-            }
-        }
-
-        public override string ToString() => $"AutoMovementComponent(direction={direction}, rotation={rotation})";
+        Direction = direction ?? new Vec2(0);
+        Rotation = rotation;
     }
+
+    public override void Update(GameTime gameTime)
+    {
+        base.Update(gameTime);
+
+
+        if (Entity.GetComponent<TransformComponent>() is not { } tc) return;
+        
+        if (Direction.Length() != 0)
+        {
+            var pos = new Vec2(tc.Position.X, tc.Position.Y) + Direction;
+            if (Entity.GetComponent<PhysicsComponent>() is { } pc)
+                pc.SetPosition(pos);
+            else
+                tc.Position = pos;
+        }
+
+        if (Rotation == 0) return;
+        
+        var rot = tc.Rotation + Rotation;
+        tc.Rotation = rot;
+    }
+
+    public override string ToString() => $"AutoMovementComponent(direction={Direction}, rotation={Rotation})";
 }

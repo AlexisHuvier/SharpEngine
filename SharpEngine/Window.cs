@@ -1,116 +1,114 @@
 ﻿using System.Collections.Generic;
 using System;
+using SharpEngine.Managers;
+using SharpEngine.Utils;
 
-namespace SharpEngine
+namespace SharpEngine;
+
+/// <summary>
+/// Fenêtre
+/// </summary>
+public class Window
 {
-    /// <summary>
-    /// Fenêtre
-    /// </summary>
-    public class Window
+    public readonly InternalGame InternalGame;
+    private Vec2 _internalScreenSize;
+    private bool _internalMouseVisible;
+    private FullScreenType _internalFullScreen;
+    internal int CurrentScene = -1;
+    internal readonly List<Scene> Scenes = new();
+    public readonly TextureManager TextureManager;
+    public readonly FontManager FontManager;
+
+    public Func<bool> StartCallback = null;
+    public Func<bool> StopCallback = null;
+
+    public Color BackgroundColor;
+    public bool ExitWithEscape;
+
+    public Vec2 ScreenSize
     {
-        public InternalGame internalGame;
-        private Vec2 _internalScreenSize;
-        private bool _internalMouseVisible;
-        private FullScreenType _internalFullScreen;
-        internal int currentScene = -1;
-        internal List<Scene> scenes = new List<Scene>();
-        public TextureManager textureManager;
-        public FontManager fontManager;
-
-        public Func<bool> startCallback = null;
-        public Func<bool> stopCallback = null;
-
-        public Color backgroundColor;
-        public bool exitWithEscape;
-
-        public Vec2 screenSize
+        get => _internalScreenSize;
+        set
         {
-            get => _internalScreenSize;
-            set
-            {
-                _internalScreenSize = value;
-                if (internalGame != null)
-                {
-                    internalGame.graphics.PreferredBackBufferWidth = (int)value.x;
-                    internalGame.graphics.PreferredBackBufferHeight = (int)value.y;
-                    internalGame.graphics.ApplyChanges();
-                }
-            }
+            _internalScreenSize = value;
+            if (InternalGame == null) return;
+            InternalGame.Graphics.PreferredBackBufferWidth = (int)value.X;
+            InternalGame.Graphics.PreferredBackBufferHeight = (int)value.Y;
+            InternalGame.Graphics.ApplyChanges();
         }
+    }
 
-        public FullScreenType fullscreen
+    public FullScreenType Fullscreen
+    {
+        get => _internalFullScreen;
+        set 
         {
-            get => _internalFullScreen;
-            set 
-            {
-                _internalFullScreen = value;
-                if(internalGame != null)
-                    internalGame.SetFullscreen(value);
-            }
+            _internalFullScreen = value;
+            InternalGame?.SetFullscreen(value);
         }
+    }
 
-        public bool mouseVisible
+    public bool MouseVisible
+    {
+        get => _internalMouseVisible;
+        set
         {
-            get => _internalMouseVisible;
-            set
-            {
-                _internalMouseVisible = value;
-                if (internalGame != null)
-                    internalGame.IsMouseVisible = mouseVisible;
-            }
+            _internalMouseVisible = value;
+            if (InternalGame != null)
+                InternalGame.IsMouseVisible = MouseVisible;
         }
+    }
 
-        /// <summary>
-        /// Initalise la Fenêtre.
-        /// </summary>
-        /// <param name="screenSize">Taille de la fenêtre (Vec2(800,600))</param>
-        /// <param name="backgroundColor">Couleur de fond (Color.BLACK)</param>
-        /// <param name="mouseVisible">Rend la souris visible</param>
-        /// <param name="exitWithEscape">Quitte le jeu quand échap est appuyé</param>
-        /// <param name="fullscreen">Lance le jeu avec ou sans fullscreen</param>
-        public Window(Vec2 screenSize = null, Color backgroundColor = null, bool mouseVisible = true, bool exitWithEscape = true, FullScreenType fullscreen = FullScreenType.NO_FULLSCREEN)
-        {
-            this.screenSize = screenSize ?? new Vec2(800, 600);
-            this.backgroundColor = backgroundColor ?? Color.BLACK;
-            this.mouseVisible = mouseVisible;
-            this.exitWithEscape = exitWithEscape;
-            this.fullscreen = fullscreen;
+    /// <summary>
+    /// Initalise la Fenêtre.
+    /// </summary>
+    /// <param name="screenSize">Taille de la fenêtre (Vec2(800,600))</param>
+    /// <param name="backgroundColor">Couleur de fond (Color.BLACK)</param>
+    /// <param name="mouseVisible">Rend la souris visible</param>
+    /// <param name="exitWithEscape">Quitte le jeu quand échap est appuyé</param>
+    /// <param name="fullscreen">Lance le jeu avec ou sans fullscreen</param>
+    public Window(Vec2 screenSize = null, Color backgroundColor = null, bool mouseVisible = true, bool exitWithEscape = true, FullScreenType fullscreen = FullScreenType.NoFullscreen)
+    {
+        ScreenSize = screenSize ?? new Vec2(800, 600);
+        BackgroundColor = backgroundColor ?? Color.Black;
+        MouseVisible = mouseVisible;
+        ExitWithEscape = exitWithEscape;
+        Fullscreen = fullscreen;
 
-            internalGame = new InternalGame(this);
-            textureManager = new TextureManager(this);
-            fontManager = new FontManager(this);
-        }
+        InternalGame = new InternalGame(this);
+        TextureManager = new TextureManager(this);
+        FontManager = new FontManager(this);
+    }
 
-        public Scene GetScene(int index) => scenes[index];
-        public void SetCurrentScene(Scene scene) => currentScene = scenes.IndexOf(scene);
-        public void SetCurrentScene(int sceneID) => currentScene = sceneID;
-        public Scene GetCurrentScene() => scenes[currentScene];
+    public Scene GetScene(int index) => Scenes[index];
+    public void SetCurrentScene(Scene scene) => CurrentScene = Scenes.IndexOf(scene);
+    public void SetCurrentScene(int sceneId) => CurrentScene = sceneId;
+    public Scene GetCurrentScene() => Scenes[CurrentScene];
 
-        public void TakeScreenshot(string fileName) => internalGame.TakeScreenshot(fileName);
+    public void TakeScreenshot(string fileName) => InternalGame.TakeScreenshot(fileName);
 
-        public void AddScene(Scene scene)
-        {
-            scene.SetWindow(this);
-            scenes.Add(scene);
-            currentScene = scenes.Count - 1;
-        }
+    public void AddScene(Scene scene)
+    {
+        scene.SetWindow(this);
+        Scenes.Add(scene);
+        CurrentScene = Scenes.Count - 1;
+    }
 
-        public void RemoveScene(Scene scene)
-        {
-            scene.SetWindow(null);
-            scenes.Remove(scene);
-        }
+    public void RemoveScene(Scene scene)
+    {
+        scene.SetWindow(null);
+        Scenes.Remove(scene);
+    }
 
-        public void Run()
-        {
-            if(startCallback == null || startCallback())
-                internalGame.Run();
-        }
+    public void Run()
+    {
+        if(StartCallback == null || StartCallback())
+            InternalGame.Run();
+    }
 
-        public void Stop()
-        {
-            if(stopCallback == null || stopCallback())
-                internalGame.Exit();
-        }
+    public void Stop()
+    {
+        if(StopCallback == null || StopCallback())
+            InternalGame.Exit();
     }
 }

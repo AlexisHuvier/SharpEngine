@@ -1,23 +1,22 @@
 ﻿using System;
 
-namespace SharpEngine
+namespace SharpEngine.Utils;
+
+/// <summary>
+/// Temps du jeu
+/// </summary>
+public class GameTime
 {
-    /// <summary>
-    /// Temps du jeu
-    /// </summary>
-    public class GameTime
+    public TimeSpan TotalGameTime { get; set; }
+    public TimeSpan ElapsedGameTime { get; set; }
+    public bool IsRunningSlowly { get; set; }
+
+    public GameTime(TimeSpan totalGameTime, TimeSpan elapsedGameTime, bool isRunningSlowly)
     {
-        public TimeSpan totalGameTime { get; set; }
-        public TimeSpan elapsedGameTime { get; set; }
-        public bool isRunningSlowly { get; set; }
-
-        public GameTime(TimeSpan totalGameTime, TimeSpan elapsedGameTime, bool isRunningSlowly)
-        {
-            this.totalGameTime = totalGameTime;
-            this.elapsedGameTime = elapsedGameTime;
-            this.isRunningSlowly = isRunningSlowly;
-        }
-
-        public static GameTime FromMonogameGameTime(Microsoft.Xna.Framework.GameTime gameTime) => new GameTime(gameTime.TotalGameTime, gameTime.ElapsedGameTime, gameTime.IsRunningSlowly);
+        TotalGameTime = totalGameTime;
+        ElapsedGameTime = elapsedGameTime;
+        IsRunningSlowly = isRunningSlowly;
     }
+
+    public static GameTime FromMonogameGameTime(Microsoft.Xna.Framework.GameTime gameTime) => new(gameTime.TotalGameTime, gameTime.ElapsedGameTime, gameTime.IsRunningSlowly);
 }

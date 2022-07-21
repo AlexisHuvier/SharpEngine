@@ -2,45 +2,41 @@
 using System.IO;
 using System.Text.Json;
 
-namespace SharpEngine.Managers
+namespace SharpEngine.Managers;
+
+public static class LangManager
 {
-    public class LangManager
+    private class Lang
     {
-        private class Lang
+        public string Name;
+        public Dictionary<string, string> Translations;
+
+        public Lang(string name, Dictionary<string, string> translations)
         {
-            public string name;
-            public Dictionary<string, string> translations;
-
-            public Lang(string name, Dictionary<string, string> translations)
-            {
-                this.name = name;
-                this.translations = translations;
-            }
-
-            public string GetTranslation(string key, string defaultTransalation) => translations.GetValueOrDefault(key, defaultTransalation);
-
-            public static Lang FromFile(string file) => JsonSerializer.Deserialize<Lang>(File.ReadAllText(file));
+            Name = name;
+            Translations = translations;
         }
 
-        private static Dictionary<string, Lang> langs = new Dictionary<string, Lang>();
-        private static string currentLang = "default";
+        public string GetLangTranslation(string key, string defaultTranslation) => Translations.GetValueOrDefault(key, defaultTranslation);
 
-        public static string GetCurrentLang() => currentLang;
-        public static void SetCurrentLang(string lang) => currentLang = lang;
+        public static Lang FromFile(string file) => JsonSerializer.Deserialize<Lang>(File.ReadAllText(file));
+    }
 
-        public static List<string> GetLangs() => new List<string>(langs.Keys);
+    private static readonly Dictionary<string, Lang> Langs = new();
+    private static string _currentLang = "default";
 
-        public static void AddLang(string file)
-        {
-            Lang lang = Lang.FromFile(file);
-            langs.Add(lang.name, lang);
-        }
+    public static string GetCurrentLang() => _currentLang;
+    public static void SetCurrentLang(string lang) => _currentLang = lang;
+    public static List<string> GetLangs() => new(Langs.Keys);
 
-        public static string GetTranslation(string key, string defaultTranslation)
-        {
-            if(GetLangs().Contains(currentLang))
-                return langs[currentLang].GetTranslation(key, defaultTranslation);
-            return defaultTranslation;
-        }
+    public static void AddLang(string file)
+    {
+        var lang = Lang.FromFile(file);
+        Langs.Add(lang.Name, lang);
+    }
+
+    public static string GetTranslation(string key, string defaultTranslation)
+    {
+        return GetLangs().Contains(_currentLang) ? Langs[_currentLang].GetLangTranslation(key, defaultTranslation) : defaultTranslation;
     }
 }

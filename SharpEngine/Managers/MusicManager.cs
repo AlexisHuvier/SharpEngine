@@ -1,37 +1,36 @@
-﻿using Microsoft.Xna.Framework.Media;
+﻿using System;
 using System.Collections.Generic;
-using System;
+using Microsoft.Xna.Framework.Media;
 
-namespace SharpEngine
+namespace SharpEngine.Managers;
+
+/// <summary>
+/// Gestion des musiques
+/// </summary>
+public static class MusicManager
 {
-    /// <summary>
-    /// Gestion des musiques
-    /// </summary>
-    public class MusicManager
+    private static readonly Dictionary<string, Song> Songs = new();
+
+    internal static void Unload()
     {
-        private static Dictionary<string, Song> songs = new Dictionary<string, Song>();
-
-        internal static void Unload()
-        {
-            foreach (KeyValuePair<string, Song> song in songs)
-                song.Value.Dispose();
-            songs.Clear();
-        }
-
-        public static void AddSong(string name, Uri file)
-        {
-            if (!songs.ContainsKey(name))
-                songs.Add(name, Song.FromUri(name, file));
-        }
-
-        public static void Play(string name)
-        {
-            if (songs.ContainsKey(name))
-                MediaPlayer.Play(songs[name]);
-        }
-
-        public static void Stop() => MediaPlayer.Stop();
-        public static void SetRepeating(bool repeat) => MediaPlayer.IsRepeating = repeat;
-        public static void SetVolume(int volume) => MediaPlayer.Volume = volume / 100f;
+        foreach (var song in Songs)
+            song.Value.Dispose();
+        Songs.Clear();
     }
+
+    public static void AddSong(string name, Uri file)
+    {
+        if (!Songs.ContainsKey(name))
+            Songs.Add(name, Song.FromUri(name, file));
+    }
+
+    public static void Play(string name)
+    {
+        if (Songs.ContainsKey(name))
+            MediaPlayer.Play(Songs[name]);
+    }
+
+    public static void Stop() => MediaPlayer.Stop();
+    public static void SetRepeating(bool repeat) => MediaPlayer.IsRepeating = repeat;
+    public static void SetVolume(int volume) => MediaPlayer.Volume = volume / 100f;
 }

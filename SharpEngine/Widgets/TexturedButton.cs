@@ -1,101 +1,104 @@
 ﻿using System;
+using SharpEngine.Managers;
+using SharpEngine.Utils;
 
-namespace SharpEngine.Widgets
+namespace SharpEngine.Widgets;
+
+/// <summary>
+/// Bouton texturé
+/// </summary>
+public class TexturedButton : Widget
 {
-    /// <summary>
-    /// Bouton texturé
-    /// </summary>
-    public class TexturedButton : Widget
+    private enum ButtonState
     {
-        private enum ButtonState
+        Idle,
+        Click,
+        Hovered
+    }
+
+    public string Text;
+    public string Font;
+    public string Texture;
+    public Vec2 Size;
+    public Color FontColor;
+    public Action<TexturedButton> Command;
+
+    private ButtonState _state;
+
+    /// <summary>
+    /// Initialise le Widget.
+    /// </summary>
+    /// <param name="position">Position (Vec2(0))</param>
+    /// <param name="text">Texte</param>
+    /// <param name="font">Nom de la police</param>
+    /// <param name="texture">Nom de la texture</param>
+    /// <param name="size">Taille</param>
+    /// <param name="fontColor">Couleur du texte (Color.BLACK)</param>
+    public TexturedButton(Vec2 position = null, string text = "", string font = "", string texture = "",
+        Vec2 size = null, Color fontColor = null) : base(position)
+    {
+        Text = text;
+        Font = font;
+        Texture = texture;
+        Size = size;
+        FontColor = fontColor ?? Color.Black;
+        _state = ButtonState.Idle;
+    }
+
+    public override void Update(GameTime gameTime)
+    {
+        base.Update(gameTime);
+
+        if (Size == null)
         {
-            IDLE,
-            CLICK,
-            HOVERED
+            var temp = Scene.Window.TextureManager.GetTexture(Texture);
+            Size = new Vec2(temp.Width, temp.Height);
         }
 
-        public string text;
-        public string font;
-        public string texture;
-        public Vec2 size;
-        public Color fontColor;
-        public Action<TexturedButton> command;
+        if (!Active)
+            return;
 
-        private ButtonState state;
-
-        /// <summary>
-        /// Initialise le Widget.
-        /// </summary>
-        /// <param name="position">Position (Vec2(0))</param>
-        /// <param name="text">Texte</param>
-        /// <param name="font">Nom de la police</param>
-        /// <param name="texture">Nom de la texture</param>
-        /// <param name="size">Taille</param>
-        /// <param name="fontColor">Couleur du texte (Color.BLACK)</param>
-        public TexturedButton(Vec2 position = null, string text = "", string font = "", string texture = "", Vec2 size = null, 
-            Color fontColor = null) : base(position)
+        if (InputManager.MouseInRectangle(new Rect(Position - Size / 2, Size)))
         {
-            this.text = text;
-            this.font = font;
-            this.texture = texture;
-            this.size = size;
-            this.fontColor = fontColor ?? Color.BLACK;
-            state = ButtonState.IDLE;
+            if (InputManager.IsMouseButtonPressed(MouseButton.Left) && Command != null)
+                Command(this);
+
+            _state = InputManager.IsMouseButtonDown(MouseButton.Left) ? ButtonState.Click : ButtonState.Hovered;
+        }
+        else
+            _state = ButtonState.Idle;
+    }
+
+    public override void Draw(GameTime gameTime)
+    {
+        base.Draw(gameTime);
+
+        if (Size == null)
+        {
+            var temp = Scene.Window.TextureManager.GetTexture(Texture);
+            Size = new Vec2(temp.Width, temp.Height);
         }
 
-        public override void Update(GameTime gameTime)
-        {
-            base.Update(gameTime);
+        if (!Displayed || Scene == null)
+            return;
 
-            if (size == null)
-            {
-                var temp = scene.window.textureManager.GetTexture(texture);
-                size = new Vec2(temp.Width, temp.Height);
-            }
+        var realPosition = Parent != null ? Position + Parent.Position : Position;
 
-            if (!active)
-                return;
+        if (_state != ButtonState.Click && Active && _state == ButtonState.Hovered)
+            Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
+                new Rect(realPosition - (Size + new Vec2(4)) / 2, (Size + new Vec2(4))).ToMg(), Color.White.ToMg());
 
-            if (InputManager.MouseInRectangle(new Rect(position - size / 2, size)))
-            {
-                if (InputManager.IsMouseButtonPressed(Inputs.MouseButton.LEFT) && command != null)
-                    command(this);
+        Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
+            new Rect(realPosition - Size / 2, Size).ToMg(), Color.Black.ToMg());
+        Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture(Texture),
+            new Rect(realPosition - (Size - new Vec2(4)) / 2, (Size - new Vec2(4))).ToMg(), Color.White.ToMg());
 
-                if (InputManager.IsMouseButtonDown(Inputs.MouseButton.LEFT))
-                    state = ButtonState.CLICK;
-                else
-                    state = ButtonState.HOVERED;
-            }
-            else
-                state = ButtonState.IDLE;
-        }
+        var spriteFont = Scene.Window.FontManager.GetFont(Font);
+        Scene.Window.InternalGame.SpriteBatch.DrawString(spriteFont, Text, realPosition.ToMg(), FontColor.ToMg(), 0,
+            spriteFont.MeasureString(Text) / 2, 1, Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
 
-        public override void Draw(GameTime gameTime)
-        {
-            base.Draw(gameTime);
-
-            if (size == null)
-            {
-                var temp = scene.window.textureManager.GetTexture(texture);
-                size = new Vec2(temp.Width, temp.Height);
-            }
-
-            if (!displayed || scene == null)
-                return;
-
-            Vec2 position = parent != null ? this.position + parent.position : this.position;
-
-            if (state != ButtonState.CLICK && active && state == ButtonState.HOVERED)
-                scene.window.internalGame.spriteBatch.Draw(scene.window.textureManager.GetTexture("blank"), new Rect(position - (size + new Vec2(4)) / 2, (size + new Vec2(4))).ToMG(), Color.WHITE.ToMG());
-
-            scene.window.internalGame.spriteBatch.Draw(scene.window.textureManager.GetTexture("blank"), new Rect(position - size / 2, size).ToMG(), Color.BLACK.ToMG());
-            scene.window.internalGame.spriteBatch.Draw(scene.window.textureManager.GetTexture(texture), new Rect(position - (size - new Vec2(4)) / 2, (size - new Vec2(4))).ToMG(), Color.WHITE.ToMG());
-
-            var spriteFont = scene.window.fontManager.GetFont(font);
-            scene.window.internalGame.spriteBatch.DrawString(spriteFont, text, position.ToMG(), fontColor.ToMG(), 0, spriteFont.MeasureString(text) / 2, 1, Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
-
-            if (state == ButtonState.CLICK || !active)
-                scene.window.internalGame.spriteBatch.Draw(scene.window.textureManager.GetTexture("blank"), new Rect(position - size / 2, size).ToMG(), new Color(0, 0, 0, 128).ToMG());
-        }
+        if (_state == ButtonState.Click || !Active)
+            Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
+                new Rect(realPosition - Size / 2, Size).ToMg(), new Color(0, 0, 0, 128).ToMg());
     }
 }

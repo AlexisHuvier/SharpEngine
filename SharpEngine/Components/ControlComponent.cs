@@ -1,111 +1,113 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using SharpEngine.Managers;
+using SharpEngine.Utils;
 
-namespace SharpEngine.Components
+namespace SharpEngine.Components;
+
+/// <summary>
+/// Composant de contrôle basique
+/// </summary>
+public class ControlComponent: Component
 {
+    public ControlType ControlType;
+    public int Speed;
+    public int JumpForce;
+    private Dictionary<ControlKey, Key> _keys;
+    public bool IsMoving;
+
     /// <summary>
-    /// Composant de contrôle basique
+    /// Initialise le Composant.
     /// </summary>
-    public class ControlComponent: Component
+    /// <param name="controlType">Type de controle</param>
+    /// <param name="speed">Vitesse du mouvement</param>
+    /// <param name="jumpForce">Force du saut</param>
+    public ControlComponent(ControlType controlType = ControlType.MouseFollow, int speed = 5, int jumpForce = 5)
     {
-        public ControlType controlType;
-        public int speed;
-        public int jumpForce;
-        private Dictionary<ControlKey, Inputs.Key> keys;
-        public bool isMoving;
-
-        /// <summary>
-        /// Initialise le Composant.
-        /// </summary>
-        /// <param name="controlType">Type de controle</param>
-        /// <param name="speed">Vitesse du mouvement</param>
-        /// <param name="jumpForce">Force du saut</param>
-        public ControlComponent(ControlType controlType = ControlType.MOUSEFOLLOW, int speed = 5, int jumpForce = 5): base()
+        ControlType = controlType;
+        Speed = speed;
+        JumpForce = jumpForce;
+        IsMoving = false;
+        _keys = new Dictionary<ControlKey, Key>()
         {
-            this.controlType = controlType;
-            this.speed = speed;
-            this.jumpForce = jumpForce;
-            isMoving = false;
-            keys = new Dictionary<ControlKey, Inputs.Key>()
-            {
-                { ControlKey.UP, Inputs.Key.UP },
-                { ControlKey.DOWN, Inputs.Key.DOWN },
-                { ControlKey.LEFT, Inputs.Key.LEFT },
-                { ControlKey.RIGHT, Inputs.Key.RIGHT }
-            };
-        }
-
-        public Inputs.Key GetKey(ControlKey controlKey) => keys[controlKey];
-        public void SetKey(ControlKey controlKey, Inputs.Key key) => keys[controlKey] = key;
-
-        public override void Update(GameTime gameTime)
-        {
-            base.Update(gameTime);
-
-            isMoving = false;
-
-            if (entity.GetComponent<TransformComponent>() is TransformComponent tc)
-            {
-                Vec2 pos = new Vec2(tc.position.x, tc.position.y);
-
-                switch (controlType)
-                {
-                    case ControlType.MOUSEFOLLOW:
-                        var mp = InputManager.GetMousePosition();
-                        if (pos.x < mp.x - speed / 2)
-                            pos.x += speed;
-                        else if (pos.x > mp.x + speed / 2)
-                            pos.x -= speed;
-
-                        if (pos.y < mp.y - speed / 2)
-                            pos.y += speed;
-                        else if (pos.y > mp.y + speed / 2)
-                            pos.y -= speed;
-                        break;
-                    case ControlType.LEFTRIGHT:
-                        if (InputManager.IsKeyDown(keys[ControlKey.LEFT]))
-                            pos.x -= speed;
-                        if (InputManager.IsKeyDown(keys[ControlKey.RIGHT]))
-                            pos.x += speed;
-                        break;
-                    case ControlType.UPDOWN:
-                        if (InputManager.IsKeyDown(keys[ControlKey.UP]))
-                            pos.y -= speed;
-                        if (InputManager.IsKeyDown(keys[ControlKey.DOWN]))
-                            pos.y += speed;
-                        break;
-                    case ControlType.FOURDIRECTION:
-                        if (InputManager.IsKeyDown(keys[ControlKey.LEFT]))
-                            pos.x -= speed;
-                        if (InputManager.IsKeyDown(keys[ControlKey.RIGHT]))
-                            pos.x += speed;
-                        if (InputManager.IsKeyDown(keys[ControlKey.UP]))
-                            pos.y -= speed;
-                        if (InputManager.IsKeyDown(keys[ControlKey.DOWN]))
-                            pos.y += speed;
-                        break;
-                    case ControlType.CLASSICJUMP:
-                        if (InputManager.IsKeyDown(keys[ControlKey.LEFT]))
-                            pos.x -= speed;
-                        if (InputManager.IsKeyDown(keys[ControlKey.RIGHT]))
-                            pos.x += speed;
-                        if (InputManager.IsKeyPressed(keys[ControlKey.UP]))
-                        {
-                            throw new System.NotImplementedException();
-                        }
-                        break;
-                }
-
-                if (tc.position != pos)
-                {
-                    isMoving = true;
-                    if (entity.GetComponent<PhysicsComponent>() is PhysicsComponent pc)
-                        pc.SetPosition(new Vec2(pos.x, pos.y));
-                    else
-                        tc.position = pos;
-                }
-            }
-        }
-
-        public override string ToString() => $"ControlComponent(controlType={controlType}, speed={speed})";
+            { ControlKey.Up, Key.Up },
+            { ControlKey.Down, Key.Down },
+            { ControlKey.Left, Key.Left },
+            { ControlKey.Right, Key.Right }
+        };
     }
+
+    public Key GetKey(ControlKey controlKey) => _keys[controlKey];
+    public void SetKey(ControlKey controlKey, Key key) => _keys[controlKey] = key;
+
+    public override void Update(GameTime gameTime)
+    {
+        base.Update(gameTime);
+
+        IsMoving = false;
+
+        if (Entity.GetComponent<TransformComponent>() is not { } tc) return;
+        
+        var pos = new Vec2(tc.Position.X, tc.Position.Y);
+
+        switch (ControlType)
+        {
+            case ControlType.MouseFollow:
+                var mp = InputManager.GetMousePosition();
+                if (pos.X < mp.X - Speed / 2f)
+                    pos.X += Speed;
+                else if (pos.X > mp.X + Speed / 2f)
+                    pos.X -= Speed;
+
+                if (pos.Y < mp.Y - Speed / 2f)
+                    pos.Y += Speed;
+                else if (pos.Y > mp.Y + Speed / 2f)
+                    pos.Y -= Speed;
+                break;
+            case ControlType.LeftRight:
+                if (InputManager.IsKeyDown(_keys[ControlKey.Left]))
+                    pos.X -= Speed;
+                if (InputManager.IsKeyDown(_keys[ControlKey.Right]))
+                    pos.X += Speed;
+                break;
+            case ControlType.UpDown:
+                if (InputManager.IsKeyDown(_keys[ControlKey.Up]))
+                    pos.Y -= Speed;
+                if (InputManager.IsKeyDown(_keys[ControlKey.Down]))
+                    pos.Y += Speed;
+                break;
+            case ControlType.FourDirection:
+                if (InputManager.IsKeyDown(_keys[ControlKey.Left]))
+                    pos.X -= Speed;
+                if (InputManager.IsKeyDown(_keys[ControlKey.Right]))
+                    pos.X += Speed;
+                if (InputManager.IsKeyDown(_keys[ControlKey.Up]))
+                    pos.Y -= Speed;
+                if (InputManager.IsKeyDown(_keys[ControlKey.Down]))
+                    pos.Y += Speed;
+                break;
+            case ControlType.ClassicJump:
+                if (InputManager.IsKeyDown(_keys[ControlKey.Left]))
+                    pos.X -= Speed;
+                if (InputManager.IsKeyDown(_keys[ControlKey.Right]))
+                    pos.X += Speed;
+                if (InputManager.IsKeyPressed(_keys[ControlKey.Up]))
+                {
+                    throw new NotImplementedException();
+                }
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(ControlType), ControlType, null);
+        }
+
+        if (tc.Position == pos) return;
+            
+        IsMoving = true;
+        if (Entity.GetComponent<PhysicsComponent>() is { } pc)
+            pc.SetPosition(new Vec2(pos.X, pos.Y));
+        else
+            tc.Position = pos;
+    }
+
+    public override string ToString() => $"ControlComponent(controlType={ControlType}, speed={Speed})";
 }

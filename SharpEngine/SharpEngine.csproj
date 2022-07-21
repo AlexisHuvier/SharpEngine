@@ -10,6 +10,7 @@
     <Company>LycosNovation</Company>
     <Copyright>Copyright (c) LavaPower 2021</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageVersion>0.10.0</PackageVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

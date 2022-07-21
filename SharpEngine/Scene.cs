@@ -1,140 +1,141 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using SharpEngine.Widgets;
 using SharpEngine.Components;
+using SharpEngine.Entities;
+using SharpEngine.Utils;
 using tainicom.Aether.Physics2D.Dynamics;
 
-namespace SharpEngine
+namespace SharpEngine;
+
+/// <summary>
+/// Scène
+/// </summary>
+public class Scene
 {
-    /// <summary>
-    /// Scène
-    /// </summary>
-    public class Scene
+    internal Window Window;
+    protected readonly List<Entity> Entities;
+    protected readonly List<Widget> Widgets;
+    internal World World;
+
+    public Scene(int gravity = 200)
     {
-        internal Window window;
-        protected List<Entity> entities;
-        protected List<Widget> widgets;
-        internal World world;
+        Window = null;
+        Entities = new List<Entity>();
+        Widgets = new List<Widget>();
 
-        public Scene(int gravity = 200)
+        World = new World(new tainicom.Aether.Physics2D.Common.Vector2(0, gravity))
         {
-            window = null;
-            entities = new List<Entity>();
-            widgets = new List<Widget>();
+            ContactManager =
+            {
+                VelocityConstraintsMultithreadThreshold = 256,
+                PositionConstraintsMultithreadThreshold = 256,
+                CollideMultithreadThreshold = 256
+            }
+        };
+    }
 
-            world = new World(new tainicom.Aether.Physics2D.Common.Vector2(0, gravity));
-            world.ContactManager.VelocityConstraintsMultithreadThreshold = 256;
-            world.ContactManager.PositionConstraintsMultithreadThreshold = 256;
-            world.ContactManager.CollideMultithreadThreshold = 256;
-        }
+    public List<Widget> GetWidgets() => Widgets;
 
-        public List<Widget> GetWidgets() => widgets;
+    public T AddWidget<T>(T widget) where T : Widget
+    {
+        widget.SetScene(this);
+        Widgets.Add(widget);
+        return widget;
+    }
 
-        public T AddWidget<T>(T widget) where T : Widget
-        {
-            widget.SetScene(this);
-            widgets.Add(widget);
-            return widget;
-        }
+    public List<T> GetWidgets<T>() where T : Widget
+    {
+        return Widgets.FindAll(w => w.GetType() == typeof(T)).Cast<T>().ToList();
+    }
 
-        public List<T> GetWidgets<T>() where T : Widget
-        {
-            List<T> temp = new List<T>();
-            foreach (Widget widget in widgets.FindAll((Widget w) => w.GetType() == typeof(T)))
-                temp.Add((T) widget);
-            return temp;
-        }
+    public void RemoveWidget(Widget widget)
+    {
+        widget.SetScene(null);
+        Widgets.Remove(widget);
+    }
 
-        public void RemoveWidget(Widget widget)
-        {
-            widget.SetScene(null);
-            widgets.Remove(widget);
-        }
+    public List<Entity> GetEntities() => Entities;
 
-        public List<Entity> GetEntities() => entities;
+    public virtual void AddEntity(Entity ent)
+    {
+        ent.SetScene(this);
+        Entities.Add(ent);
+    }
 
-        public virtual void AddEntity(Entity ent)
-        {
-            ent.SetScene(this);
-            entities.Add(ent);
-        }
+    public virtual void RemoveEntity(Entity ent)
+    {
+        ent.SetScene(null);
+        Entities.Remove(ent);
+    }
 
-        public virtual void RemoveEntity(Entity ent)
-        {
-            ent.SetScene(null);
-            entities.Remove(ent);
-        }
+    public virtual void SetWindow(Window window) => Window = window;
+    
+    public Window GetWindow() => Window;
 
-        public virtual void SetWindow(Window window) => this.window = window;
-        public Window GetWindow() => window;
+    public virtual void Initialize()
+    {
+        foreach (var ent in Entities)
+            ent.Initialize();
+        foreach (var widget in Widgets)
+            widget.Initialize();
+    }
 
-        public virtual void Initialize()
-        {
-            foreach (Entity ent in entities)
-                ent.Initialize();
-            foreach (Widget widget in widgets)
-                widget.Initialize();
-        }
+    public virtual void LoadContent()
+    {
+        foreach (var ent in Entities)
+            ent.LoadContent();
+        foreach (var widget in Widgets)
+            widget.LoadContent();
+    }
 
-        public virtual void LoadContent()
-        {
-            foreach (Entity ent in entities)
-                ent.LoadContent();
-            foreach (Widget widget in widgets)
-                widget.LoadContent();
-        }
+    public virtual void UnloadContent()
+    {
+        foreach (var ent in Entities)
+            ent.UnloadContent();
+        foreach (var widget in Widgets)
+            widget.UnloadContent();
+    }
 
-        public virtual void UnloadContent()
-        {
-            foreach (Entity ent in entities)
-                ent.UnloadContent();
-            foreach (Widget widget in widgets)
-                widget.UnloadContent();
-        }
+    public virtual void Update(GameTime gameTime)
+    {
+        World.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
+        for (var i = Entities.Count - 1; i > -1; i--)
+            Entities[i].Update(gameTime);
+        for (var i = Widgets.Count - 1; i > -1; i--)
+            Widgets[i].Update(gameTime);
+    }
 
-        public virtual void Update(GameTime gameTime)
-        {
-            world.Step((float)gameTime.elapsedGameTime.TotalSeconds);
-            for (int i = entities.Count - 1; i > -1; i--)
-                entities[i].Update(gameTime);
-            for (int i = widgets.Count - 1; i > -1; i--)
-                widgets[i].Update(gameTime);
-        }
+    public virtual void TextInput(object sender, Key key, char character)
+    {
+        foreach (var e in Entities)
+            e.TextInput(sender, key, character);
+        foreach (var widget in Widgets)
+            widget.TextInput(sender, key, character);
+    }
 
-        public virtual void TextInput(object sender, Inputs.Key key, char Character)
-        {
-            foreach (Entity e in entities)
-                e.TextInput(sender, key, Character);
-            foreach (Widget widget in widgets)
-                widget.TextInput(sender, key, Character);
-        }
+    public List<Entity> GetEntitySortByZ()
+    {
+        var temp = new List<Entity>(Entities);
+        temp.Sort((a, b) => {
+            if (a.GetComponent<TransformComponent>() is { } atc)
+            {
+                if (b.GetComponent<TransformComponent>() is { } btc)
+                    return atc.ZLayer - btc.ZLayer;
+                return 1;
+            }
+            if (b.GetComponent<TransformComponent>() is { })
+                return -1;
+            return 0;
+        });
+        return temp;
+    }
 
-        public List<Entity> GetEntitySortByZ()
-        {
-            List<Entity> temp = new List<Entity>(entities);
-            temp.Sort((Entity a, Entity b) => {
-                if (a.GetComponent<TransformComponent>() is TransformComponent atc)
-                {
-                    if (b.GetComponent<TransformComponent>() is TransformComponent btc)
-                    {
-                        return atc.zLayer - btc.zLayer;
-                    }
-                    else
-                        return 1;
-                }
-                else if (b.GetComponent<TransformComponent>() is TransformComponent btc)
-                    return -1;
-                else
-                    return 0;
-            });
-            return temp;
-        }
-
-        public virtual void Draw(GameTime gameTime)
-        {
-            foreach (Entity ent in GetEntitySortByZ())
-                ent.Draw(gameTime);
-            foreach (Widget widget in widgets)
-                widget.Draw(gameTime);
-        }
+    public virtual void Draw(GameTime gameTime)
+    {
+        foreach (var ent in GetEntitySortByZ())
+            ent.Draw(gameTime);
+        foreach (var widget in Widgets)
+            widget.Draw(gameTime);
     }
 }

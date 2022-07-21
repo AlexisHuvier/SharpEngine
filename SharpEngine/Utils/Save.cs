@@ -1,90 +1,81 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace SharpEngine
+namespace SharpEngine.Utils;
+
+/// <summary>
+/// Sauvegarde de données
+/// </summary>
+public class Save
 {
-    /// <summary>
-    /// Sauvegarde de données
-    /// </summary>
-    public class Save
+    private readonly Dictionary<string, object> _data;
+
+    public Save(Dictionary<string, object> @default)
     {
-        private Dictionary<string, object> data;
+        _data = @default;
+    }
 
-        public Save(Dictionary<string, object> defaut)
+    public object GetObject(string key) => _data.GetValueOrDefault(key, null);
+    public T GetObjectAs<T>(string key) => _data.ContainsKey(key) ? (T) _data[key] : default;
+    public void SetObject(string key, object value) => _data[key] = value;
+
+    public void Write(string filename)
+    {
+        using var bW = new BinaryWriter(File.Open(filename, FileMode.Create));
+        foreach (var dt in _data)
         {
-            data = defaut;
-        }
-
-        public object GetObject(string key) => data.GetValueOrDefault(key, null);
-        public T GetObjectAs<T>(string key) => data.ContainsKey(key) ? (T) data[key] : default;
-        public void SetObject(string key, object value) => data[key] = value;
-
-        public void Write(string filename)
-        {
-            using (BinaryWriter bW = new BinaryWriter(File.Open(filename, FileMode.Create)))
+            bW.Write(dt.Key);
+            switch (dt.Value)
             {
-                foreach (KeyValuePair<string, object> dt in data)
-                {
-                    bW.Write(dt.Key);
-                    if (dt.Value is bool v)
-                    {
-                        bW.Write("b");
-                        bW.Write(v);
-                    }
-                    else if (dt.Value is int v1)
-                    {
-                        bW.Write("i");
-                        bW.Write(v1);
-                    }
-                    else if (dt.Value is double v3)
-                    {
-                        bW.Write("d");
-                        bW.Write(v3);
-                    }
-                    else
-                    {
-                        bW.Write("s");
-                        bW.Write(dt.Value.ToString());
-                    }
-                }
+                case bool v:
+                    bW.Write("b");
+                    bW.Write(v);
+                    break;
+                case int v1:
+                    bW.Write("i");
+                    bW.Write(v1);
+                    break;
+                case double v3:
+                    bW.Write("d");
+                    bW.Write(v3);
+                    break;
+                default:
+                    bW.Write("s");
+                    bW.Write(dt.Value.ToString() ?? string.Empty);
+                    break;
             }
         }
+    }
 
-        public static Save Load(string fileName, Dictionary<string, object> defaut)
-        {
-            Save temp = new Save(defaut);
-            temp.Load(fileName);
-            return temp;
-        }
+    public static Save Load(string fileName, Dictionary<string, object> @default)
+    {
+        var temp = new Save(@default);
+        temp.Load(fileName);
+        return temp;
+    }
 
-        public void Load(string fileName) 
+    public void Load(string fileName)
+    {
+        if (!File.Exists(fileName)) return;
+        
+        _data.Clear();
+        using var bR = new BinaryReader(File.OpenRead(fileName));
+        try
         {
-            if (File.Exists(fileName))
+            while (bR.ReadString() is { } key)
             {
-                data.Clear();
-                using (BinaryReader bR = new BinaryReader(File.OpenRead(fileName)))
+                var type = bR.ReadString();
+                object value = type switch
                 {
-                    try
-                    {
-                        while (bR.ReadString() is string key)
-                        {
-                            string type = bR.ReadString();
-                            object value;
-                            if (type == "b")
-                                value = bR.ReadBoolean();
-                            else if (type == "i")
-                                value = bR.ReadInt32();
-                            else if (type == "d")
-                                value = bR.ReadDouble();
-                            else
-                                value = bR.ReadString();
-                            data.Add(key, value);
-                        }
-                    }
-                    catch(EndOfStreamException)
-                    { }
-                }
+                    "b" => bR.ReadBoolean(),
+                    "i" => bR.ReadInt32(),
+                    "d" => bR.ReadDouble(),
+                    _ => bR.ReadString()
+                };
+                _data.Add(key, value);
             }
         }
+        catch(EndOfStreamException)
+        { }
     }
 }

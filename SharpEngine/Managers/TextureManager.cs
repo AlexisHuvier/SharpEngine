@@ -1,64 +1,61 @@
-﻿using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework.Graphics;
 
-namespace SharpEngine
+namespace SharpEngine.Managers;
+
+/// <summary>
+/// Gestion des textures
+/// </summary>
+public class TextureManager
 {
-    /// <summary>
-    /// Gestion des textures
-    /// </summary>
-    public class TextureManager
+    private readonly Window _window;
+    private readonly Dictionary<string, Texture2D> _textures = new();
+    private readonly Dictionary<string, string> _texturesWillBeCreated = new();
+
+    internal TextureManager(Window window)
     {
-        private Window window;
-        private Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
-        private Dictionary<string, string> texturesWillBeCreated = new Dictionary<string, string>();
+        _window = window;
+    }
 
-        internal TextureManager(Window window)
-        {
-            this.window = window;
-        }
+    public void AddTexture(string name, Texture2D texture)
+    {
+        if (!_textures.ContainsKey(name))
+            _textures.Add(name, texture);
+    }
 
-        public void AddTexture(string name, Texture2D texture)
-        {
-            if (!textures.ContainsKey(name))
-                textures.Add(name, texture);
-        }
+    public void AddTexture(string name, string file)
+    {
+        if (_textures.ContainsKey(name)) return;
+        
+        if (_window.InternalGame.GraphicsDevice != null)
+            _textures.Add(name, Texture2D.FromFile(_window.InternalGame.GraphicsDevice, file));
+        else
+            _texturesWillBeCreated.Add(name, file);
+    }
 
-        public void AddTexture(string name, string file)
-        {
-            if (!textures.ContainsKey(name))
-            {
-                if (window.internalGame.GraphicsDevice != null)
-                    textures.Add(name, Texture2D.FromFile(window.internalGame.GraphicsDevice, file));
-                else
-                    texturesWillBeCreated.Add(name, file);
-            }
-        }
+    internal void Load()
+    {
+        foreach (var texture in _texturesWillBeCreated)
+            _textures.Add(texture.Key, Texture2D.FromFile(_window.InternalGame.GraphicsDevice, texture.Value));
+    }
 
-        internal void Load()
-        {
-            foreach (KeyValuePair<string, string> texture in texturesWillBeCreated)
-                textures.Add(texture.Key, Texture2D.FromFile(window.internalGame.GraphicsDevice, texture.Value));
-        }
+    public Texture2D GetTexture(string name)
+    {
+        if (_textures.ContainsKey(name))
+            return _textures[name];
+        throw new System.Exception($"Texture not founded : {name}");
+    }
 
-        public Texture2D GetTexture(string name)
-        {
-            if (textures.ContainsKey(name))
-                return textures[name];
-            else
-                throw new System.Exception($"Texture not founded : {name}");
-        }
+    internal void Unload(string name)
+    {
+        if (GetTexture(name) is { } texture)
+            texture.Dispose();
+    }
 
-        internal void Unload(string name)
-        {
-            if (GetTexture(name) is Texture2D texture)
-                texture.Dispose();
-        }
-
-        internal void Unload()
-        {
-            foreach (var texture in textures.Values)
-                texture.Dispose();
-            textures.Clear();
-        }
+    internal void Unload()
+    {
+        foreach (var texture in _textures.Values)
+            texture.Dispose();
+        _textures.Clear();
     }
 }

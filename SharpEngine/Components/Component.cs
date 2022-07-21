@@ -1,44 +1,41 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using SharpEngine.Entities;
+using SharpEngine.Utils;
 
-namespace SharpEngine.Components
+namespace SharpEngine.Components;
+
+/// <summary>
+/// Composant basique
+/// </summary>
+public class Component
 {
+    internal Entity Entity;
+
     /// <summary>
-    /// Composant basique
+    /// Initialise le Composant.
     /// </summary>
-    public class Component
+    protected Component()
     {
-        internal Entity entity;
-
-        /// <summary>
-        /// Initialise le Composant.
-        /// </summary>
-        public Component()
-        {
-            entity = null;
-        }
-
-        public virtual void SetEntity(Entity entity) => this.entity = entity;
-        public Entity GetEntity() => entity;
-
-        public SpriteBatch GetSpriteBatch()
-        {
-            if (entity != null && entity.scene != null && entity.scene.window != null)
-                return entity.scene.window.internalGame.spriteBatch;
-            return null;
-        }
-
-        public Window GetWindow()
-        {
-            if (entity != null && entity.scene != null)
-                return entity.scene.window;
-            return null;
-        }
-
-        public virtual void Initialize() {}
-        public virtual void LoadContent() {}
-        public virtual void UnloadContent() {}
-        public virtual void TextInput(object sender, Inputs.Key key, char Character) {}
-        public virtual void Update(GameTime gameTime) {}
-        public virtual void Draw(GameTime gameTime) {}
+        Entity = null;
     }
+
+    public virtual void SetEntity(Entity entity) => Entity = entity;
+    public Entity GetEntity() => Entity;
+
+    public SpriteBatch GetSpriteBatch()
+    {
+        return Entity?.Scene?.Window.InternalGame.SpriteBatch;
+    }
+
+    public Window GetWindow()
+    {
+        return Entity?.Scene?.Window;
+    }
+
+    public virtual void Initialize() {}
+    public virtual void LoadContent() {}
+    public virtual void UnloadContent() {}
+    public virtual void TextInput(object sender, Key key, char character) {}
+    public virtual void Update(GameTime gameTime) {}
+    public virtual void Draw(GameTime gameTime) {}
 }

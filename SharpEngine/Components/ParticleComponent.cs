@@ -1,35 +1,30 @@
 ﻿using System.Collections.Generic;
 using SharpEngine.Utils;
 
-namespace SharpEngine.Components
+namespace SharpEngine.Components;
+
+public class ParticleComponent: Component
 {
-    public class ParticleComponent: Component
+    private List<ParticleEmitter> _particleEmitters = new();
+
+    public void AddEmitter(ParticleEmitter particleEmitter) => _particleEmitters.Add(particleEmitter);
+    public List<ParticleEmitter> GetEmitters() => _particleEmitters;
+
+    public override void Update(GameTime gameTime)
     {
-        private List<ParticleUtils.ParticleEmitter> particleEmitters = new List<ParticleUtils.ParticleEmitter>();
+        base.Update(gameTime);
 
-        public ParticleComponent(): base()
-        {}
+        if (Entity.GetComponent<TransformComponent>() is not { } tc) return;
+        
+        foreach (var particleEmitter in _particleEmitters)
+            particleEmitter.Update(gameTime, tc.Position);
+    }
 
-        public void AddEmitter(ParticleUtils.ParticleEmitter particleEmitter) => particleEmitters.Add(particleEmitter);
-        public List<ParticleUtils.ParticleEmitter> GetEmitters() => particleEmitters;
+    public override void Draw(GameTime gameTime)
+    {
+        base.Draw(gameTime);
 
-        public override void Update(GameTime gameTime)
-        {
-            base.Update(gameTime);
-
-            if (entity.GetComponent<TransformComponent>() is TransformComponent tc)
-            {
-                foreach (ParticleUtils.ParticleEmitter particleEmitter in particleEmitters)
-                    particleEmitter.Update(gameTime, tc.position);
-            }
-        }
-
-        public override void Draw(GameTime gameTime)
-        {
-            base.Draw(gameTime);
-
-            foreach (ParticleUtils.ParticleEmitter particleEmitter in particleEmitters)
-                particleEmitter.Draw(GetWindow());
-        }
+        foreach (var particleEmitter in _particleEmitters)
+            particleEmitter.Draw(GetWindow());
     }
 }

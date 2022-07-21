@@ -1,38 +1,42 @@
-﻿namespace SharpEngine.Widgets
+﻿using SharpEngine.Utils;
+
+namespace SharpEngine.Widgets;
+
+/// <summary>
+/// Image
+/// </summary>
+public class Image : Widget
 {
+    public string Texture;
+    public Vec2 Size;
+
     /// <summary>
-    /// Image
+    /// Initialise le Widget.
     /// </summary>
-    public class Image: Widget
+    /// <param name="position">Position (Vec2(0))</param>
+    /// <param name="texture">Nom de la texture</param>
+    /// <param name="size">Taille de l'image</param>
+    public Image(Vec2 position = null, string texture = "", Vec2 size = null) : base(position)
     {
-        public string texture;
-        public Vec2 size;
+        Texture = texture;
+        Size = size;
+    }
 
-        /// <summary>
-        /// Initialise le Widget.
-        /// </summary>
-        /// <param name="position">Position (Vec2(0))</param>
-        /// <param name="texture">Nom de la texture</param>
-        /// <param name="size">Taille de l'image</param>
-        public Image(Vec2 position = null, string texture = "", Vec2 size = null): base(position)
-        {
-            this.texture = texture;
-            this.size = size;
-        }
+    public override void Draw(GameTime gameTime)
+    {
+        base.Draw(gameTime);
 
-        public override void Draw(GameTime gameTime)
-        {
-            base.Draw(gameTime);
+        if (!Displayed || Texture.Length <= 0) return;
+        
+        var sprite = Scene.Window.TextureManager.GetTexture(Texture);
+        var realPosition = Parent != null ? Position + Parent.Position : Position;
 
-            if(displayed && texture.Length > 0) {
-                var sprite = scene.window.textureManager.GetTexture(texture);
-                Vec2 position = parent != null ? this.position + parent.position : this.position;
-
-                if (size == null)
-                    scene.window.internalGame.spriteBatch.Draw(sprite, new Rect(position - new Vec2(sprite.Width, sprite.Height) / 2, new Vec2(sprite.Width, sprite.Height)).ToMG(), Color.WHITE.ToMG());
-                else
-                    scene.window.internalGame.spriteBatch.Draw(sprite, new Rect(position - size / 2, size).ToMG(), Color.WHITE.ToMG());
-            }
-        }
+        if (Size == null)
+            Scene.Window.InternalGame.SpriteBatch.Draw(sprite,
+                new Rect(realPosition - new Vec2(sprite.Width, sprite.Height) / 2,
+                    new Vec2(sprite.Width, sprite.Height)).ToMg(), Color.White.ToMg());
+        else
+            Scene.Window.InternalGame.SpriteBatch.Draw(sprite, new Rect(realPosition - Size / 2, Size).ToMg(),
+                Color.White.ToMg());
     }
 }

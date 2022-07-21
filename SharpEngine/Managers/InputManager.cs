@@ -1,61 +1,54 @@
 ﻿using Microsoft.Xna.Framework.Input;
+using SharpEngine.Utils;
 
-namespace SharpEngine
+namespace SharpEngine.Managers;
+
+/// <summary>
+/// Gestion des entrées
+/// </summary>
+public static class InputManager
 {
-    /// <summary>
-    /// Gestion des entrées
-    /// </summary>
-    public class InputManager
+    private static MouseState _oldMouseState = Mouse.GetState();
+    private static KeyboardState _oldKeyboardState = Keyboard.GetState();
+
+    public static void Update()
     {
-        private static MouseState oldMouseState = Mouse.GetState();
-        private static KeyboardState oldKeyboardState = Keyboard.GetState();
-
-        public static void Update()
-        {
-            oldMouseState = Mouse.GetState();
-            oldKeyboardState = Keyboard.GetState();
-        }
-
-        public static bool IsKeyDown(Inputs.Key key) => Keyboard.GetState().IsKeyDown(GetKeys(key));
-        public static bool IsKeyUp(Inputs.Key key) => Keyboard.GetState().IsKeyUp(GetKeys(key));
-        public static bool IsKeyPressed(Inputs.Key key) => Keyboard.GetState().IsKeyDown(GetKeys(key)) && !oldKeyboardState.IsKeyDown(GetKeys(key));
-        public static bool IsKeyReleased(Inputs.Key key) => Keyboard.GetState().IsKeyUp(GetKeys(key)) && !oldKeyboardState.IsKeyUp(GetKeys(key));
-
-        public static bool IsMouseButtonDown(Inputs.MouseButton input, bool useOldState = false)
-        {
-            MouseState state;
-            if (useOldState)
-                state = oldMouseState;
-            else
-                state = Mouse.GetState();
-
-            switch (input)
-            {
-                case Inputs.MouseButton.LEFT:
-                    return state.LeftButton == ButtonState.Pressed;
-                case Inputs.MouseButton.MIDDLE:
-                    return state.MiddleButton == ButtonState.Pressed;
-                case Inputs.MouseButton.RIGHT:
-                    return state.RightButton == ButtonState.Pressed;
-                default:
-                    return false;
-            }
-        }
-
-        public static bool IsMouseButtonUp(Inputs.MouseButton input, bool useOldState = false) => !IsMouseButtonDown(input, useOldState);
-        public static bool IsMouseButtonPressed(Inputs.MouseButton input) => IsMouseButtonUp(input, true) && IsMouseButtonDown(input, false);
-        public static bool IsMouseButtonReleased(Inputs.MouseButton input) => IsMouseButtonUp(input, false) && IsMouseButtonDown(input, true);
-
-        public static bool MouseInRectangle(Rect rec)
-        {
-            MouseState state = Mouse.GetState();
-            return rec.ToMG().Contains(state.X, state.Y);
-        }
-
-        public static bool MouseInRectangle(Vec2 position, Vec2 size) => MouseInRectangle(new Rect(position, size));
-        public static int GetMouseWheelValue() => Mouse.GetState().ScrollWheelValue - oldMouseState.ScrollWheelValue;
-        public static Vec2 GetMousePosition() => Mouse.GetState().Position.ToVector2();
-
-        internal static Keys GetKeys(Inputs.Key key) => (Keys)(int)key;
+        _oldMouseState = Mouse.GetState();
+        _oldKeyboardState = Keyboard.GetState();
     }
+
+    public static bool IsKeyDown(Key key) => Keyboard.GetState().IsKeyDown(GetKeys(key));
+    public static bool IsKeyUp(Key key) => Keyboard.GetState().IsKeyUp(GetKeys(key));
+    public static bool IsKeyPressed(Key key) => Keyboard.GetState().IsKeyDown(GetKeys(key)) && !_oldKeyboardState.IsKeyDown(GetKeys(key));
+    public static bool IsKeyReleased(Key key) => Keyboard.GetState().IsKeyUp(GetKeys(key)) && !_oldKeyboardState.IsKeyUp(GetKeys(key));
+
+    public static bool IsMouseButtonDown(MouseButton input, bool useOldState = false)
+    {
+        MouseState state;
+        state = useOldState ? _oldMouseState : Mouse.GetState();
+
+        return input switch
+        {
+            MouseButton.Left => state.LeftButton == ButtonState.Pressed,
+            MouseButton.Middle => state.MiddleButton == ButtonState.Pressed,
+            MouseButton.Right => state.RightButton == ButtonState.Pressed,
+            _ => false
+        };
+    }
+
+    public static bool IsMouseButtonUp(MouseButton input, bool useOldState = false) => !IsMouseButtonDown(input, useOldState);
+    public static bool IsMouseButtonPressed(MouseButton input) => IsMouseButtonUp(input, true) && IsMouseButtonDown(input);
+    public static bool IsMouseButtonReleased(MouseButton input) => IsMouseButtonUp(input) && IsMouseButtonDown(input, true);
+
+    public static bool MouseInRectangle(Rect rec)
+    {
+        var state = Mouse.GetState();
+        return rec.ToMg().Contains(state.X, state.Y);
+    }
+
+    public static bool MouseInRectangle(Vec2 position, Vec2 size) => MouseInRectangle(new Rect(position, size));
+    public static int GetMouseWheelValue() => Mouse.GetState().ScrollWheelValue - _oldMouseState.ScrollWheelValue;
+    public static Vec2 GetMousePosition() => Mouse.GetState().Position.ToVector2();
+
+    private static Keys GetKeys(Key key) => (Keys)(int)key;
 }

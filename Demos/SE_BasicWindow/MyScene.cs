@@ -31,6 +31,15 @@ namespace SE_BasicWindow
                 Console.WriteLine($"FPS : {DebugManager.GetFps()}");
                 Console.WriteLine($"GC Memory : {DebugManager.GetGcMemory()}");
             }
+
+            if (InputManager.IsKeyPressed(Key.Z))
+            {
+                Console.WriteLine($"Connected GamePad : {InputManager.IsGamePadConnected(GamePadIndex.One)}");
+                Console.WriteLine($"1A Pressed : {InputManager.IsGamePadButtonDown(GamePadIndex.One, GamePadButton.A)}");
+                Console.WriteLine($"2A Pressed : {InputManager.IsGamePadButtonDown(GamePadIndex.Two, GamePadButton.A)}");
+                Console.WriteLine($"Left Trigger Value : {InputManager.GetGamePadTrigger(GamePadIndex.One, GamePadTrigger.Left)}");
+                Console.WriteLine($"Left X Axis Value : {InputManager.GetGamePadJoyStickAxis(GamePadIndex.One, GamePadJoyStickAxis.LeftX)}");
+            }
         }
     }
 }

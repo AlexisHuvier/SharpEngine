@@ -1,4 +1,5 @@
-﻿using SharpEngine;
+﻿using System.Runtime.Intrinsics.X86;
+using SharpEngine;
 using SharpEngine.Components;
 using SharpEngine.Entities;
 using SharpEngine.Managers;
@@ -15,6 +16,13 @@ namespace SE_BasicPhysics
             ent.AddComponent(new SpriteComponent("test"));
             ent.AddComponent(new PhysicsComponent()).AddRectangleCollision(new Vec2(44));
             AddEntity(ent);
+            
+            var ent3 = new Entity();
+            ent3.AddComponent(new TransformComponent(new Vec2(420, 300)));
+            ent3.AddComponent(new SpriteComponent("test"));
+            ent3.AddComponent(new ControlComponent(ControlType.FourDirection));
+            ent3.AddComponent(new PhysicsComponent(tainicom.Aether.Physics2D.Dynamics.BodyType.Static)).AddRectangleCollision(new Vec2(44));
+            AddEntity(ent3);
 
             var e2 = new Entity();
             e2.AddComponent(new TransformComponent(new Vec2(450, 500)));

@@ -14,6 +14,8 @@ public class ControlComponent: Component
     public int Speed;
     public int JumpForce;
     private Dictionary<ControlKey, Key> _keys;
+    public bool UseGamePad;
+    public GamePadIndex GamePadIndex;
     public bool IsMoving;
 
     /// <summary>
@@ -22,12 +24,16 @@ public class ControlComponent: Component
     /// <param name="controlType">Type de controle</param>
     /// <param name="speed">Vitesse du mouvement</param>
     /// <param name="jumpForce">Force du saut</param>
-    public ControlComponent(ControlType controlType = ControlType.MouseFollow, int speed = 5, int jumpForce = 5)
+    /// <param name="useGamePad">Utiliser la manette</param>
+    /// <param name="gamePadIndex">Index de la manette utilisée</param>
+    public ControlComponent(ControlType controlType = ControlType.MouseFollow, int speed = 5, int jumpForce = 5, bool useGamePad = true, GamePadIndex gamePadIndex = GamePadIndex.One)
     {
         ControlType = controlType;
         Speed = speed;
         JumpForce = jumpForce;
         IsMoving = false;
+        UseGamePad = useGamePad;
+        GamePadIndex = gamePadIndex;
         _keys = new Dictionary<ControlKey, Key>()
         {
             { ControlKey.Up, Key.Up },
@@ -65,36 +71,65 @@ public class ControlComponent: Component
                     pos.Y -= Speed;
                 break;
             case ControlType.LeftRight:
-                if (InputManager.IsKeyDown(_keys[ControlKey.Left]))
-                    pos.X -= Speed;
-                if (InputManager.IsKeyDown(_keys[ControlKey.Right]))
-                    pos.X += Speed;
+                if (UseGamePad && InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftX) != 0)
+                    pos.X += Speed * InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftX);
+                else
+                {
+                    if (InputManager.IsKeyDown(_keys[ControlKey.Left]))
+                        pos.X -= Speed;
+                    if (InputManager.IsKeyDown(_keys[ControlKey.Right]))
+                        pos.X += Speed;
+                }
                 break;
             case ControlType.UpDown:
-                if (InputManager.IsKeyDown(_keys[ControlKey.Up]))
-                    pos.Y -= Speed;
-                if (InputManager.IsKeyDown(_keys[ControlKey.Down]))
-                    pos.Y += Speed;
+                if (UseGamePad && InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftY) != 0)
+                    pos.Y -= Speed * InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftY);
+                else
+                {
+                    if (InputManager.IsKeyDown(_keys[ControlKey.Up]))
+                        pos.Y -= Speed;
+                    if (InputManager.IsKeyDown(_keys[ControlKey.Down]))
+                        pos.Y += Speed;
+                }
+
                 break;
             case ControlType.FourDirection:
-                if (InputManager.IsKeyDown(_keys[ControlKey.Left]))
-                    pos.X -= Speed;
-                if (InputManager.IsKeyDown(_keys[ControlKey.Right]))
-                    pos.X += Speed;
-                if (InputManager.IsKeyDown(_keys[ControlKey.Up]))
-                    pos.Y -= Speed;
-                if (InputManager.IsKeyDown(_keys[ControlKey.Down]))
-                    pos.Y += Speed;
+                if (UseGamePad && (InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftX) != 0 ||
+                                   InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftY) != 0))
+                {
+                    pos.X += Speed * InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftX);
+                    pos.Y -= Speed * InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftY);
+                }
+                else
+                {
+                    if (InputManager.IsKeyDown(_keys[ControlKey.Left]))
+                        pos.X -= Speed;
+                    if (InputManager.IsKeyDown(_keys[ControlKey.Right]))
+                        pos.X += Speed;
+                    if (InputManager.IsKeyDown(_keys[ControlKey.Up]))
+                        pos.Y -= Speed;
+                    if (InputManager.IsKeyDown(_keys[ControlKey.Down]))
+                        pos.Y += Speed;
+                }
+
                 break;
             case ControlType.ClassicJump:
-                if (InputManager.IsKeyDown(_keys[ControlKey.Left]))
-                    pos.X -= Speed;
-                if (InputManager.IsKeyDown(_keys[ControlKey.Right]))
-                    pos.X += Speed;
-                if (InputManager.IsKeyPressed(_keys[ControlKey.Up]))
+                if (UseGamePad && InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftX) != 0)
+                    pos.X += Speed * InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftX);
+                else
+                {
+                    if (InputManager.IsKeyDown(_keys[ControlKey.Left]))
+                        pos.X -= Speed;
+                    if (InputManager.IsKeyDown(_keys[ControlKey.Right]))
+                        pos.X += Speed;
+                }
+
+                if (InputManager.IsKeyPressed(_keys[ControlKey.Up]) ||
+                    (UseGamePad && InputManager.IsGamePadButtonPressed(GamePadIndex, GamePadButton.A)))
                 {
                     throw new NotImplementedException();
                 }
+
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(ControlType), ControlType, null);

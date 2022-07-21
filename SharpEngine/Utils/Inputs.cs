@@ -11,6 +11,59 @@ public enum MouseButton
 }
 
 /// <summary>
+/// Index des manettes
+/// </summary>
+public enum GamePadIndex
+{
+    One = 0,
+    Two = 1,
+    Three = 2,
+    Four = 3
+}
+
+/// <summary>
+/// Boutons des manettes
+/// </summary>
+public enum GamePadButton
+{
+    A,
+    B,
+    X,
+    Y,
+    Back,
+    Start,
+    LeftShoulder,
+    RightShoulder,
+    LeftStick,
+    RightStick,
+    BigButton,
+    DPadUp,
+    DPadDown,
+    DPadLeft,
+    DPadRight
+}
+
+/// <summary>
+/// Axes des joyticks des manettes
+/// </summary>
+public enum GamePadJoyStickAxis
+{
+    LeftX,
+    LeftY,
+    RightX,
+    RightY
+}
+
+/// <summary>
+/// Gachettes des manettes
+/// </summary>
+public enum GamePadTrigger
+{
+    Left,
+    Right
+}
+
+/// <summary>
 /// Boutons du clavier
 /// </summary>
 public enum Key

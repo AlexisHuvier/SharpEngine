@@ -12,14 +12,14 @@ namespace SharpEngine.Components;
 /// </summary>
 public class TileMapComponent: Component
 {
-    protected string Orientation;
-    protected string Renderorder;
-    protected Vec2 Size;
-    protected Vec2 TileSize;
-    protected bool Infinite;
-    protected List<TileUtils.Tile> Tiles;
-    protected List<TileUtils.Layer> Layers;
-    protected List<string> Textures;
+    private readonly string _orientation;
+    private readonly string _renderOrder;
+    private readonly Vec2 _size;
+    private readonly Vec2 _tileSize;
+    private readonly bool _infinite;
+    private readonly List<TileUtils.Tile> _tiles;
+    private readonly List<TileUtils.Layer> _layers;
+    private readonly List<string> _textures;
 
     /// <summary>
     /// Initialise le Composant.
@@ -28,22 +28,22 @@ public class TileMapComponent: Component
     /// <exception cref="Exception"></exception>
     public TileMapComponent(string tilemap)
     {
-        Tiles = new List<TileUtils.Tile>();
-        Layers = new List<TileUtils.Layer>();
-        Textures = new List<string>();
+        _tiles = new List<TileUtils.Tile>();
+        _layers = new List<TileUtils.Layer>();
+        _textures = new List<string>();
 
         var file = XElement.Load(tilemap);
 
-        Orientation = file.Attribute("orientation")?.Value;
-        if (Orientation != "orthogonal")
+        _orientation = file.Attribute("orientation")?.Value;
+        if (_orientation != "orthogonal")
             throw new Exception("SharpEngine can only use orthogonal tilemap.");
-        Renderorder = file.Attribute("renderorder")?.Value;
-        if (Renderorder != "right-down")
+        _renderOrder = file.Attribute("renderorder")?.Value;
+        if (_renderOrder != "right-down")
             throw new Exception("SharpEngine can only use tilemap with right-down renderorder");
-        Size = new Vec2(Convert.ToInt32(file.Attribute("width")?.Value), Convert.ToInt32(file.Attribute("height")?.Value));
-        TileSize = new Vec2(Convert.ToInt32(file.Attribute("tilewidth")?.Value), Convert.ToInt32(file.Attribute("tileheight")?.Value));
-        Infinite = Convert.ToBoolean(Convert.ToInt32(file.Attribute("infinite")?.Value));
-        if(Infinite)
+        _size = new Vec2(Convert.ToInt32(file.Attribute("width")?.Value), Convert.ToInt32(file.Attribute("height")?.Value));
+        _tileSize = new Vec2(Convert.ToInt32(file.Attribute("tilewidth")?.Value), Convert.ToInt32(file.Attribute("tileheight")?.Value));
+        _infinite = Convert.ToBoolean(Convert.ToInt32(file.Attribute("infinite")?.Value));
+        if(_infinite)
             throw new Exception("SharpEngine can only use non-infinite tilemap.");
 
         foreach(var tiletype in file.Element("tileset")?.Elements("tile")!)
@@ -53,8 +53,8 @@ public class TileMapComponent: Component
                 Id = Convert.ToInt32(tiletype.Attribute("id")?.Value) + 1,
                 Source = System.IO.Path.GetFileNameWithoutExtension(tiletype.Element("image")?.Attribute("source")?.Value)
             };
-            Textures.Add(System.IO.Path.GetDirectoryName(tilemap) + System.IO.Path.DirectorySeparatorChar + tiletype.Element("image")?.Attribute("source")?.Value);
-            Tiles.Add(tile);
+            _textures.Add(System.IO.Path.GetDirectoryName(tilemap) + System.IO.Path.DirectorySeparatorChar + tiletype.Element("image")?.Attribute("source")?.Value);
+            _tiles.Add(tile);
         }
 
         foreach(var element in file.Elements("layer"))
@@ -64,7 +64,7 @@ public class TileMapComponent: Component
             {
                 Tiles = tiles
             };
-            Layers.Add(layer);
+            _layers.Add(layer);
         }
     }
 
@@ -72,15 +72,15 @@ public class TileMapComponent: Component
     {
         base.Update(gameTime);
 
-        for(var i = Textures.Count - 1; i > -1; i--) {
-            GetWindow().TextureManager.AddTexture(System.IO.Path.GetFileNameWithoutExtension(Textures[i]), Textures[i]);
-            Textures.RemoveAt(i);
+        for(var i = _textures.Count - 1; i > -1; i--) {
+            GetWindow().TextureManager.AddTexture(System.IO.Path.GetFileNameWithoutExtension(_textures[i]), _textures[i]);
+            _textures.RemoveAt(i);
         }
     }
 
     public TileUtils.Tile GetTile(int id)
     {
-        foreach (var tile in Tiles.Where(tile => tile.Id == id))
+        foreach (var tile in _tiles.Where(tile => tile.Id == id))
             return tile;
         
         return new TileUtils.Tile();
@@ -90,19 +90,19 @@ public class TileMapComponent: Component
     {
         base.Draw(gameTime);
 
-        if (Entity.GetComponent<TransformComponent>() is not { } tc || Layers.Count <= 0) return;
+        if (Entity.GetComponent<TransformComponent>() is not { } tc || _layers.Count <= 0) return;
         
-        foreach(var layer in Layers)
+        foreach(var layer in _layers)
         {
             for(var i = 0; i < layer.Tiles.Count; i++)
             {
                 if (layer.Tiles[i] == 0) continue;
                     
-                var position = tc.Position - TileSize * Size / 2 - CameraManager.Position + new Vec2(TileSize.X * Convert.ToInt32(i % Convert.ToInt32(Size.X)), TileSize.Y * Convert.ToInt32(i / Convert.ToInt32(Size.Y)));
-                GetSpriteBatch().Draw(GetWindow().TextureManager.GetTexture(GetTile(layer.Tiles[i]).Source), new Rect(position, TileSize).ToMg(), Color.White.ToMg());
+                var position = tc.Position - _tileSize * _size / 2 - CameraManager.Position + new Vec2(_tileSize.X * Convert.ToInt32(i % Convert.ToInt32(_size.X)), _tileSize.Y * Convert.ToInt32(i / Convert.ToInt32(_size.Y)));
+                GetSpriteBatch().Draw(GetWindow().TextureManager.GetTexture(GetTile(layer.Tiles[i]).Source), new Rect(position, _tileSize).ToMg(), Color.White.ToMg());
             }
         }
     }
 
-    public override string ToString() => $"TileMapComponent(orientation={Orientation}, renderorder={Renderorder}, size={Size}, tileSize={TileSize}, infinite={Infinite})";
+    public override string ToString() => $"TileMapComponent(orientation={_orientation}, renderorder={_renderOrder}, size={_size}, tileSize={_tileSize}, infinite={_infinite})";
 }

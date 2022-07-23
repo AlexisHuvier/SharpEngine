@@ -59,7 +59,7 @@ public class TileMapComponent: Component
 
         foreach(var element in file.Elements("layer"))
         {
-            var tiles = ((element.Element("data")?.Value.Split(",")!.Select(tile => Convert.ToInt32(tile))) ?? Array.Empty<int>()).ToList();
+            var tiles = element.Element("data")?.Value.Split(",")!.Select(tile => Convert.ToInt32(tile)).ToList() ;
             var layer = new TileUtils.Layer
             {
                 Tiles = tiles
@@ -97,7 +97,7 @@ public class TileMapComponent: Component
             for(var i = 0; i < layer.Tiles.Count; i++)
             {
                 if (layer.Tiles[i] == 0) continue;
-                    
+                
                 var position = tc.Position - _tileSize * _size / 2 - CameraManager.Position + new Vec2(_tileSize.X * Convert.ToInt32(i % Convert.ToInt32(_size.X)), _tileSize.Y * Convert.ToInt32(i / Convert.ToInt32(_size.Y)));
                 GetSpriteBatch().Draw(GetWindow().TextureManager.GetTexture(GetTile(layer.Tiles[i]).Source), new Rect(position, _tileSize).ToMg(), Color.White.ToMg());
             }

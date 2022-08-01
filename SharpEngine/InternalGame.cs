@@ -27,6 +27,14 @@ public class InternalGame : Game
         IsMouseVisible = _window.MouseVisible;
     }
 
+    internal void SetVSync(bool vsync)
+    {
+        
+        Graphics.SynchronizeWithVerticalRetrace = vsync;
+        IsFixedTimeStep = vsync;
+        Graphics.ApplyChanges();
+    }
+
     internal void SetFullscreen(FullScreenType fullScreenType)
     {
         switch(fullScreenType) {
@@ -93,6 +101,7 @@ public class InternalGame : Game
         Graphics.ApplyChanges();
 
         SetFullscreen(_window.Fullscreen);
+        SetVSync(_window.VSync);
 
         Window.TextInput += TextInputHandler;
 

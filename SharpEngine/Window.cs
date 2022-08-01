@@ -14,6 +14,7 @@ public class Window
     private Vec2 _internalScreenSize;
     private bool _internalMouseVisible;
     private FullScreenType _internalFullScreen;
+    private bool _internalVSync;
     internal int CurrentScene = -1;
     internal readonly List<Scene> Scenes = new();
     public readonly TextureManager TextureManager;
@@ -48,6 +49,16 @@ public class Window
         }
     }
 
+    public bool VSync
+    {
+        get => _internalVSync;
+        set
+        {
+            _internalVSync = value;
+            InternalGame?.SetVSync(value);
+        }
+    }
+
     public bool MouseVisible
     {
         get => _internalMouseVisible;
@@ -67,13 +78,15 @@ public class Window
     /// <param name="mouseVisible">Rend la souris visible</param>
     /// <param name="exitWithEscape">Quitte le jeu quand échap est appuyé</param>
     /// <param name="fullscreen">Lance le jeu avec ou sans fullscreen</param>
-    public Window(Vec2 screenSize = null, Color backgroundColor = null, bool mouseVisible = true, bool exitWithEscape = true, FullScreenType fullscreen = FullScreenType.NoFullscreen)
+    /// <param name="vsync">Lance le jeu avec ou sans la vsync</param>
+    public Window(Vec2 screenSize = null, Color backgroundColor = null, bool mouseVisible = true, bool exitWithEscape = true, FullScreenType fullscreen = FullScreenType.NoFullscreen, bool vsync = false)
     {
         ScreenSize = screenSize ?? new Vec2(800, 600);
         BackgroundColor = backgroundColor ?? Color.Black;
         MouseVisible = mouseVisible;
         ExitWithEscape = exitWithEscape;
         Fullscreen = fullscreen;
+        VSync = vsync;
 
         InternalGame = new InternalGame(this);
         TextureManager = new TextureManager(this);

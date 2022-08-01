@@ -1,4 +1,6 @@
-﻿using SharpEngine.Utils;
+﻿using Microsoft.Xna.Framework.Graphics;
+using SharpEngine.Core;
+using SharpEngine.Utils;
 
 namespace SharpEngine.Widgets;
 
@@ -36,7 +38,6 @@ public class Label : Widget
         
         var realPosition = Parent != null ? Position + Parent.Position : Position;
         var spriteFont = Scene.Window.FontManager.GetFont(Font);
-        Scene.Window.InternalGame.SpriteBatch.DrawString(spriteFont, Text, realPosition.ToMg(), Color.ToMg(), 0,
-            spriteFont.MeasureString(Text) / 2, 1, Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
+        Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, Color, 0, spriteFont.MeasureString(Text) / 2, new Vec2(1), SpriteEffects.None, 1);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using SharpEngine.Core;
 using SharpEngine.Managers;
 using SharpEngine.Utils;
 using Color = SharpEngine.Utils.Color;
@@ -78,9 +79,9 @@ public class SpriteSheetComponent : Component
         if (Entity.GetComponent<TransformComponent>() is not { } tc || !Displayed || Sprite.Length <= 0 ||
             _currentAnim.Length <= 0 || SpriteSize == new Vec2(0) || !Animations.ContainsKey(_currentAnim)) return;
         
-        var texture = GetWindow().TextureManager.GetTexture(Sprite);
+        var texture = Entity.Scene.Window.TextureManager.GetTexture(Sprite);
         var positionSource = new Vec2(SpriteSize.X * (int)(Animations[_currentAnim][_currentImage] % (texture.Width / SpriteSize.X)), SpriteSize.Y * (Animations[_currentAnim][_currentImage] / (int)(texture.Height / SpriteSize.Y)));
-        GetSpriteBatch().Draw(texture, (tc.Position - CameraManager.Position).ToMg(), new Rect(positionSource, SpriteSize).ToMg(), Color.White.ToMg(), MathHelper.ToRadians(tc.Rotation), (SpriteSize / 2).ToMg(), tc.Scale.ToMg(), SpriteEffects.None, 1);
+        Renderer.RenderTexture(Entity.Scene.Window, texture, tc.Position - CameraManager.Position, new Rect(positionSource, SpriteSize), Color.White, MathHelper.ToRadians(tc.Rotation), SpriteSize / 2, tc.Scale, SpriteEffects.None, 1);
     }
 
     public override string ToString() => $"SpriteSheetComponent(sprite={Sprite}, spriteSize={SpriteSize}, nbAnimations={Animations.Count}, currentAnim={_currentAnim})";

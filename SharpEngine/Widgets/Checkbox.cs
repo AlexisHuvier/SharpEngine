@@ -1,4 +1,5 @@
-﻿using SharpEngine.Managers;
+﻿using SharpEngine.Core;
+using SharpEngine.Managers;
 using SharpEngine.Utils;
 
 namespace SharpEngine.Widgets;
@@ -60,36 +61,26 @@ public class Checkbox : Widget
             return;
 
         var realPosition = Parent != null ? Position + Parent.Position : Position;
+        var blankTexture = Scene.Window.TextureManager.GetTexture("blank");
 
         if (Text.Length > 0 && Font.Length > 0)
         {
             var size = new Vec2(20) * Scale + new Vec2(8, 0) +
                        new Vec2(Scene.Window.FontManager.GetFont(Font).MeasureString(Text).X, 0);
-            Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
-                new Rect(realPosition - size / 2, new Vec2(20) * Scale).ToMg(), Color.Black.ToMg());
-            Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
-                new Rect(realPosition + new Vec2(2 * Scale) - size / 2, new Vec2(16) * Scale).ToMg(), Color.White.ToMg());
+            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - size / 2, new Vec2(20) * Scale), Color.Black);
+            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition + new Vec2(2 * Scale) - size / 2, new Vec2(16) * Scale), Color.White);
             if (IsChecked)
-                Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
-                    new Rect(realPosition + new Vec2(3 * Scale) - size / 2, new Vec2(14) * Scale).ToMg(),
-                    Color.Black.ToMg());
+                Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition + new Vec2(3 * Scale) - size / 2, new Vec2(14) * Scale), Color.Black);
             var spriteFont = Scene.Window.FontManager.GetFont(Font);
-            Scene.Window.InternalGame.SpriteBatch.DrawString(spriteFont, Text,
-                (realPosition - size / 2 + new Vec2(20 * Scale + 8, 20 * Scale / 2) +
-                 new Vec2(0, -spriteFont.MeasureString(Text).Y / 2)).ToMg(), FontColor.ToMg());
+            Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition - size / 2 + new Vec2(20 * Scale + 8, 20 * Scale / 2) + new Vec2(0, -spriteFont.MeasureString(Text).Y / 2), FontColor);
         }
         else
         {
             var size = new Vec2(20) * Scale;
-            Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
-                new Rect(realPosition - size / 2, size).ToMg(), Color.Black.ToMg());
-            Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
-                new Rect(realPosition - (size - new Vec2(4 * Scale)) / 2, (size - new Vec2(4 * Scale))).ToMg(),
-                Color.White.ToMg());
+            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - new Vec2(20) * Scale / 2, new Vec2(20) * Scale), Color.Black);
+            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - new Vec2(16) * Scale / 2, new Vec2(16) * Scale), Color.White);
             if (IsChecked)
-                Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
-                    new Rect(realPosition - (size - new Vec2(8 * Scale)) / 2, (size - new Vec2(8 * Scale))).ToMg(),
-                    Color.Black.ToMg());
+                Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - new Vec2(14) * Scale / 2, new Vec2(14) * Scale), Color.Black);
         }
     }
 }

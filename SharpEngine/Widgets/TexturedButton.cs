@@ -1,4 +1,6 @@
 ﻿using System;
+using Microsoft.Xna.Framework.Graphics;
+using SharpEngine.Core;
 using SharpEngine.Managers;
 using SharpEngine.Utils;
 
@@ -83,22 +85,18 @@ public class TexturedButton : Widget
             return;
 
         var realPosition = Parent != null ? Position + Parent.Position : Position;
+        var blankTexture = Scene.Window.TextureManager.GetTexture("blank");
 
         if (_state != ButtonState.Click && Active && _state == ButtonState.Hovered)
-            Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
-                new Rect(realPosition - (Size + new Vec2(4)) / 2, (Size + new Vec2(4))).ToMg(), Color.White.ToMg());
+            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - (Size + new Vec2(4)) / 2, (Size + new Vec2(4))), Color.White);
 
-        Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
-            new Rect(realPosition - Size / 2, Size).ToMg(), Color.Black.ToMg());
-        Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture(Texture),
-            new Rect(realPosition - (Size - new Vec2(4)) / 2, (Size - new Vec2(4))).ToMg(), Color.White.ToMg());
+        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), Color.Black);
+        Renderer.RenderTexture(Scene.Window, Scene.Window.TextureManager.GetTexture(Texture), new Rect(realPosition - (Size - new Vec2(4)) / 2, (Size - new Vec2(4))), Color.White);
 
         var spriteFont = Scene.Window.FontManager.GetFont(Font);
-        Scene.Window.InternalGame.SpriteBatch.DrawString(spriteFont, Text, realPosition.ToMg(), FontColor.ToMg(), 0,
-            spriteFont.MeasureString(Text) / 2, 1, Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
+        Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, FontColor, 0, spriteFont.MeasureString(Text) / 2, new Vec2(1), SpriteEffects.None, 1);
 
-        if (_state == ButtonState.Click || !Active)
-            Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
-                new Rect(realPosition - Size / 2, Size).ToMg(), new Color(0, 0, 0, 128).ToMg());
+        if(_state == ButtonState.Click || !Active)
+            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), new Color(0, 0, 0, 128));
     }
 }

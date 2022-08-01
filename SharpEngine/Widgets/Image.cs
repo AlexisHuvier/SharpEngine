@@ -1,4 +1,5 @@
-﻿using SharpEngine.Utils;
+﻿using SharpEngine.Core;
+using SharpEngine.Utils;
 
 namespace SharpEngine.Widgets;
 
@@ -31,12 +32,9 @@ public class Image : Widget
         var sprite = Scene.Window.TextureManager.GetTexture(Texture);
         var realPosition = Parent != null ? Position + Parent.Position : Position;
 
-        if (Size == null)
-            Scene.Window.InternalGame.SpriteBatch.Draw(sprite,
-                new Rect(realPosition - new Vec2(sprite.Width, sprite.Height) / 2,
-                    new Vec2(sprite.Width, sprite.Height)).ToMg(), Color.White.ToMg());
-        else
-            Scene.Window.InternalGame.SpriteBatch.Draw(sprite, new Rect(realPosition - Size / 2, Size).ToMg(),
-                Color.White.ToMg());
+        Renderer.RenderTexture(Scene.Window, sprite,
+            Size == null
+                ? new Rect(realPosition - new Vec2(sprite.Width, sprite.Height) / 2, new Vec2(sprite.Width, sprite.Height))
+                : new Rect(realPosition - Size / 2, Size), Color.White);
     }
 }

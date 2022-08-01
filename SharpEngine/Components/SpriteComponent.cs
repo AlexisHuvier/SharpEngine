@@ -1,4 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using SharpEngine.Core;
 using SharpEngine.Managers;
 using SharpEngine.Utils;
 using Color = SharpEngine.Utils.Color;
@@ -34,8 +36,8 @@ public class SpriteComponent: Component
 
         if (Entity.GetComponent<TransformComponent>() is not { } tc || !Displayed || Sprite.Length <= 0) return;
         
-        var texture = GetWindow().TextureManager.GetTexture(Sprite);
-        GetSpriteBatch().Draw(texture, (tc.Position + Offset - CameraManager.Position).ToMg(), null, Color.White.ToMg(), MathHelper.ToRadians(tc.Rotation), new Vector2(texture.Width, texture.Height) / 2, tc.Scale.ToMg(), Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
+        var texture = Entity.Scene.Window.TextureManager.GetTexture(Sprite);
+        Renderer.RenderTexture(Entity.Scene.Window, texture, tc.Position + Offset - CameraManager.Position, null, Color.White, MathHelper.ToRadians(tc.Rotation), new Vec2(texture.Width, texture.Height) / 2, tc.Scale, SpriteEffects.None, 1);
     }
 
     public override string ToString() => $"SpriteComponent(sprite={Sprite}, displayed={Displayed}, offset={Offset})";

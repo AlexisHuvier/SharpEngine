@@ -1,4 +1,5 @@
-﻿using SharpEngine.Managers;
+﻿using SharpEngine.Core;
+using SharpEngine.Managers;
 using SharpEngine.Utils;
 
 namespace SharpEngine.Widgets;
@@ -88,21 +89,16 @@ public class LineEdit : Widget
             return;
 
         var realPosition = Parent != null ? Position + Parent.Position : Position;
-        Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
-            new Rect(realPosition - Size / 2, Size).ToMg(), Color.Black.ToMg());
-        Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
-            new Rect(realPosition - (Size - new Vec2(4)) / 2, Size - new Vec2(4)).ToMg(), Color.White.ToMg());
+        var blankTexture = Scene.Window.TextureManager.GetTexture("blank");
+        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), Color.Black);
+        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - (Size - new Vec2(4)) / 2, Size - new Vec2(4)), Color.White);
         
         if (Font.Length < 1) return;
         
         var spriteFont = Scene.Window.FontManager.GetFont(Font);
         if (_cursor)
-            Scene.Window.InternalGame.SpriteBatch.DrawString(spriteFont, Text + "I",
-                (realPosition - Size / 2 + new Vec2(4, Size.Y / 2 - spriteFont.MeasureString(Text + "I").Y / 2)).ToMg(),
-                Color.Black.ToMg());
+            Renderer.RenderText(Scene.Window, spriteFont, Text + "I", realPosition - Size / 2 + new Vec2(4, Size.Y / 2 - spriteFont.MeasureString(Text + "I").Y / 2), Color.Black);
         else
-            Scene.Window.InternalGame.SpriteBatch.DrawString(spriteFont, Text,
-                (realPosition - Size / 2 + new Vec2(4, Size.Y / 2 - spriteFont.MeasureString(Text).Y / 2)).ToMg(),
-                Color.Black.ToMg());
+            Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition - Size / 2 + new Vec2(4, Size.Y / 2 - spriteFont.MeasureString(Text).Y / 2), Color.Black);
     }
 }

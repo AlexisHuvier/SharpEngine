@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Xna.Framework.Graphics;
+using SharpEngine.Core;
 using SharpEngine.Managers;
 using SharpEngine.Utils;
 
@@ -99,7 +101,8 @@ public class TileMapComponent: Component
                 if (layer.Tiles[i] == 0) continue;
                 
                 var position = tc.Position - _tileSize * _size / 2 - CameraManager.Position + new Vec2(_tileSize.X * Convert.ToInt32(i % Convert.ToInt32(_size.X)), _tileSize.Y * Convert.ToInt32(i / Convert.ToInt32(_size.Y)));
-                GetSpriteBatch().Draw(GetWindow().TextureManager.GetTexture(GetTile(layer.Tiles[i]).Source), new Rect(position, _tileSize).ToMg(), Color.White.ToMg());
+                var texture = Entity.Scene.Window.TextureManager.GetTexture(GetTile(layer.Tiles[i]).Source);
+                Renderer.RenderTexture(Entity.Scene.Window, texture, position, null, Color.White, 0, _tileSize / 2, new Vec2(1), SpriteEffects.None, 1);
             }
         }
     }

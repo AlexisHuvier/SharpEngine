@@ -1,4 +1,5 @@
-﻿using SharpEngine.Utils;
+﻿using SharpEngine.Core;
+using SharpEngine.Utils;
 
 namespace SharpEngine.Widgets;
 
@@ -33,13 +34,11 @@ public class ProgressBar : Widget
             return;
 
         var realPosition = Parent != null ? Position + Parent.Position : Position;
-        Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
-            new Rect(realPosition - Size / 2, Size).ToMg(), Color.Black.ToMg());
-        Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
-            new Rect(realPosition - (Size - new Vec2(4)) / 2, (Size - new Vec2(4))).ToMg(), Color.White.ToMg());
+        var blankTexture = Scene.Window.TextureManager.GetTexture("blank");
+        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), Color.Black);
+        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - (Size - new Vec2(4)) / 2, (Size - new Vec2(4))), Color.White);
         var barSize = (Size - new Vec2(8));
         var realSize = new Vec2(barSize.X * Value / 100, barSize.Y);
-        Scene.Window.InternalGame.SpriteBatch.Draw(Scene.Window.TextureManager.GetTexture("blank"),
-            new Rect(realPosition - barSize / 2, realSize).ToMg(), Color.ToMg());
+        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - barSize / 2, realSize), Color);
     }
 }

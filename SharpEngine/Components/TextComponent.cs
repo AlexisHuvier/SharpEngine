@@ -1,5 +1,10 @@
-﻿using SharpEngine.Managers;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using SharpEngine.Core;
+using SharpEngine.Managers;
 using SharpEngine.Utils;
+using Color = SharpEngine.Utils.Color;
+using GameTime = SharpEngine.Utils.GameTime;
 
 namespace SharpEngine.Components;
 
@@ -38,8 +43,8 @@ public class TextComponent: Component
         if (Entity.GetComponent<TransformComponent>() is not { } tc || !Displayed || Text.Length <= 0 ||
             Font.Length <= 0) return;
         
-        var spriteFont = GetWindow().FontManager.GetFont(Font);
-        GetSpriteBatch().DrawString(spriteFont, Text, (tc.Position + Offset - CameraManager.Position).ToMg(), Color.ToMg(), tc.Rotation, spriteFont.MeasureString(Text) / 2, tc.Scale.ToMg(), Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
+        var spriteFont = Entity.Scene.Window.FontManager.GetFont(Font);
+        Renderer.RenderText(Entity.Scene.Window, spriteFont, Text, tc.Position + Offset - CameraManager.Position, Color, MathHelper.ToRadians(tc.Rotation), spriteFont.MeasureString(Text) / 2, tc.Scale, SpriteEffects.None, 1);
     }
 
     public override string ToString() => $"TextComponent(text={Text}, font={Font}, color={Color}, displayed={Displayed}, offset={Offset})";

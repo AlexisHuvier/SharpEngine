@@ -82,8 +82,9 @@ public class TileMapComponent: Component
 
     public TileUtils.Tile GetTile(int id)
     {
-        foreach (var tile in _tiles.Where(tile => tile.Id == id))
-            return tile;
+        foreach (var tile in _tiles)
+            if(tile.Id == id)
+                return tile;
         
         return new TileUtils.Tile();
     }

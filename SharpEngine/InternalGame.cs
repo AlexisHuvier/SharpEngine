@@ -145,7 +145,7 @@ public class InternalGame : Game
         DebugManager.Update(GameTime.FromMonogameGameTime(gameTime));
         CameraManager.Update(_window.ScreenSize);
 
-        if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+        if (Keyboard.GetState().IsKeyDown(Keys.Escape) && _window.ExitWithEscape)
             Exit();
 
         if (_window.CurrentScene != -1)

@@ -22,7 +22,7 @@ public class Widget
     /// Initialise le Widget.
     /// </summary>
     /// <param name="position">Position (Vec2(0))</param>
-    public Widget(Vec2 position = null)
+    protected Widget(Vec2 position = null)
     {
         _childs = new List<Widget>();
         Position = position ?? new Vec2(0);

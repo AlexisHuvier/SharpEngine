@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using SharpEngine.Utils;
+using tainicom.Aether.Physics2D.Common;
 using tainicom.Aether.Physics2D.Dynamics;
 
 namespace SharpEngine.Components;
@@ -42,7 +43,12 @@ public class PhysicsComponent : Component
     }
 
     public Vec2 GetPosition() => new(Body.Position.X, Body.Position.Y);
-    public void SetPosition(Vec2 position) => Body.Position = new tainicom.Aether.Physics2D.Common.Vector2(position.X, position.Y);
+    public void SetPosition(Vec2 position) => Body.Position = new Vector2(position.X, position.Y);
+
+    public Vec2 GetLinearVelocity() => new(Body.LinearVelocity.X, Body.LinearVelocity.Y);
+    public void SetLinearVelocity(Vec2 velocity) => Body.LinearVelocity = new Vector2(velocity.X, velocity.Y);
+
+    public void ApplyLinearImpulse(Vec2 impulse) => Body.ApplyLinearImpulse(new Vector2(impulse.X, impulse.Y));
 
     public int GetRotation() => (int)(Body.Rotation * 180 / System.Math.PI);
     public void SetRotation(int rotation) => Body.Rotation = (float)(rotation * System.Math.PI / 180f);

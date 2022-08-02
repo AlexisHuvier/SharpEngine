@@ -60,14 +60,14 @@ public class ControlComponent: Component
         {
             case ControlType.MouseFollow:
                 var mp = InputManager.GetMousePosition();
-                if (pos.X < mp.X - Speed / 2f)
+                if (pos.X < mp.X - Speed * (float)gameTime.ElapsedGameTime.TotalSeconds / 2f)
                     pos.X += Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                else if (pos.X > mp.X + Speed / 2f)
+                else if (pos.X > mp.X + Speed * (float)gameTime.ElapsedGameTime.TotalSeconds / 2f)
                     pos.X -= Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-                if (pos.Y < mp.Y - Speed / 2f)
+                if (pos.Y < mp.Y - Speed * (float)gameTime.ElapsedGameTime.TotalSeconds / 2f)
                     pos.Y += Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                else if (pos.Y > mp.Y + Speed / 2f)
+                else if (pos.Y > mp.Y + Speed * (float)gameTime.ElapsedGameTime.TotalSeconds / 2f)
                     pos.Y -= Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 break;
             case ControlType.LeftRight:

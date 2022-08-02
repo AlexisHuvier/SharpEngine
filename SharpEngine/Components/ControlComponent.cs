@@ -49,6 +49,8 @@ public class ControlComponent: Component
         base.Update(gameTime);
 
         IsMoving = false;
+        if (Entity.GetComponent<PhysicsComponent>() is { } pctemp)
+            pctemp.SetLinearVelocity(new Vec2(0));
 
         if (Entity.GetComponent<TransformComponent>() is not { } tc) return;
         
@@ -137,7 +139,7 @@ public class ControlComponent: Component
             
         IsMoving = true;
         if (Entity.GetComponent<PhysicsComponent>() is { } pc)
-            pc.SetPosition(new Vec2(pos.X, pos.Y));
+            pc.SetLinearVelocity((pos - tc.Position) / (float)gameTime.ElapsedGameTime.TotalSeconds);
         else
             tc.Position = pos;
     }

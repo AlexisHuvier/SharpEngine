@@ -3,6 +3,8 @@ using Microsoft.Xna.Framework.Graphics;
 using SharpEngine.Core;
 using SharpEngine.Managers;
 using SharpEngine.Utils;
+using SharpEngine.Utils.Control;
+using SharpEngine.Utils.Math;
 
 namespace SharpEngine.Widgets;
 

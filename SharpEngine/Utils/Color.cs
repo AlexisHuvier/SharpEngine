@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharpEngine.Utils.Math;
+using System;
 
 namespace SharpEngine.Utils;
 
@@ -15,22 +16,22 @@ public class Color
     public int R
     {
         get => _internalR;
-        set => _internalR = Math.Clamp(value, 0, 255);
+        set => _internalR = MathUtils.Clamp(value, 0, 255);
     }
     public int G
     {
         get => _internalG;
-        set => _internalG = Math.Clamp(value, 0, 255);
+        set => _internalG = MathUtils.Clamp(value, 0, 255);
     }
     public int B
     {
         get => _internalB;
-        set => _internalB = Math.Clamp(value, 0, 255);
+        set => _internalB = MathUtils.Clamp(value, 0, 255);
     }
     public int A
     {
         get => _internalA;
-        set => _internalA = Math.Clamp(value, 0, 255);
+        set => _internalA = MathUtils.Clamp(value, 0, 255);
     }
 
     public Color(int r, int g, int b) 

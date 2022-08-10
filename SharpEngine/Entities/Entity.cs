@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SharpEngine.Components;
-using SharpEngine.Utils;
+using SharpEngine.Utils.Control;
+using SharpEngine.Utils.Math;
 
 namespace SharpEngine.Entities;
 

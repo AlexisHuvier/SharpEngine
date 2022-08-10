@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using SharpEngine.Core;
 using SharpEngine.Utils;
+using SharpEngine.Utils.Math;
 
 namespace SharpEngine.Widgets;
 

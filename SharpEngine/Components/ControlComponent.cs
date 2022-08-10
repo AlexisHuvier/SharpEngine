@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using SharpEngine.Managers;
 using SharpEngine.Utils;
+using SharpEngine.Utils.Control;
+using SharpEngine.Utils.Math;
 
 namespace SharpEngine.Components;
 

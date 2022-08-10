@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace SharpEngine.Utils;
+namespace SharpEngine.Utils.Math;
 
 /// <summary>
 /// Fonctions et constantes mathématiques
 /// </summary>
-public class Math
+public static class MathUtils
 {
     public const float E = 2.71828175F;
     public const float Log10E = 0.4342945F;

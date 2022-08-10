@@ -5,8 +5,9 @@ using Microsoft.Xna.Framework.Input;
 using System.IO;
 using SharpEngine.Managers;
 using SharpEngine.Utils;
+using SharpEngine.Utils.Control;
 using Color = SharpEngine.Utils.Color;
-using GameTime = SharpEngine.Utils.GameTime;
+using GameTime = SharpEngine.Utils.Math.GameTime;
 
 namespace SharpEngine;
 

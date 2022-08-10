@@ -4,6 +4,8 @@ using SharpEngine.Widgets;
 using SharpEngine.Components;
 using SharpEngine.Entities;
 using SharpEngine.Utils;
+using SharpEngine.Utils.Control;
+using SharpEngine.Utils.Math;
 using tainicom.Aether.Physics2D.Dynamics;
 
 namespace SharpEngine;

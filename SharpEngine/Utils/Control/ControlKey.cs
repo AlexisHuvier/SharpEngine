@@ -1,4 +1,4 @@
-﻿namespace SharpEngine.Utils;
+﻿namespace SharpEngine.Utils.Control;
 
 /// <summary>
 /// Touches utilisées par le <seealso cref="Components.ControlComponent"/>

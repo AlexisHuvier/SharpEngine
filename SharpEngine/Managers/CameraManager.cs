@@ -1,6 +1,7 @@
 ﻿using SharpEngine.Components;
 using SharpEngine.Entities;
 using SharpEngine.Utils;
+using SharpEngine.Utils.Math;
 
 namespace SharpEngine.Managers;
 

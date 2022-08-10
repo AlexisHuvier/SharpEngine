@@ -2,9 +2,9 @@
 using Microsoft.Xna.Framework.Graphics;
 using SharpEngine.Core;
 using SharpEngine.Managers;
-using SharpEngine.Utils;
+using SharpEngine.Utils.Math;
 using Color = SharpEngine.Utils.Color;
-using GameTime = SharpEngine.Utils.GameTime;
+using GameTime = SharpEngine.Utils.Math.GameTime;
 
 namespace SharpEngine.Components;
 

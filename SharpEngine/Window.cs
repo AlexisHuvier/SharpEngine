@@ -2,6 +2,7 @@
 using System;
 using SharpEngine.Managers;
 using SharpEngine.Utils;
+using SharpEngine.Utils.Math;
 
 namespace SharpEngine;
 

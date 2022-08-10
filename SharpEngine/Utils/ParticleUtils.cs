@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SharpEngine.Managers;
+using SharpEngine.Utils.Math;
 
 namespace SharpEngine.Utils;
 
@@ -91,21 +92,21 @@ public class ParticleEmitter
         if (SpawnSize == null || SpawnSize == new Vec2(0))
             position = Offset;
         else
-            position = Offset + new Vec2(Math.RandomBetween(-SpawnSize.X / 2, SpawnSize.X / 2),
-                Math.RandomBetween(-SpawnSize.Y / 2, SpawnSize.Y / 2));
-        var angle = Math.RandomBetween(MinDirection, MaxDirection);
-        var velocity = new Vec2(MathF.Cos(Math.ToRadians(angle)), MathF.Sin(Math.ToRadians(angle))) *
-                       Math.RandomBetween(MinVelocity, MaxVelocity);
-        var acceleration = new Vec2(MathF.Cos(Math.ToRadians(angle)), MathF.Sin(Math.ToRadians(angle))) *
-                           Math.RandomBetween(MinAcceleration, MaxAcceleration);
-        var rotation = Math.RandomBetween(MinRotation, MaxRotation);
-        var rotationSpeed = Math.RandomBetween(MinRotationSpeed, MaxRotationSpeed);
-        var lifetime = Math.RandomBetween(MinLifetime, MaxLifetime);
-        var size = Math.RandomBetween(MinSize, MaxSize);
-        var beginColor = BeginColors[Math.RandomBetween(0, BeginColors.Length - 1)];
+            position = Offset + new Vec2(MathUtils.RandomBetween(-SpawnSize.X / 2, SpawnSize.X / 2),
+                MathUtils.RandomBetween(-SpawnSize.Y / 2, SpawnSize.Y / 2));
+        var angle = MathUtils.RandomBetween(MinDirection, MaxDirection);
+        var velocity = new Vec2(MathF.Cos(MathUtils.ToRadians(angle)), MathF.Sin(MathUtils.ToRadians(angle))) *
+                       MathUtils.RandomBetween(MinVelocity, MaxVelocity);
+        var acceleration = new Vec2(MathF.Cos(MathUtils.ToRadians(angle)), MathF.Sin(MathUtils.ToRadians(angle))) *
+                           MathUtils.RandomBetween(MinAcceleration, MaxAcceleration);
+        var rotation = MathUtils.RandomBetween(MinRotation, MaxRotation);
+        var rotationSpeed = MathUtils.RandomBetween(MinRotationSpeed, MaxRotationSpeed);
+        var lifetime = MathUtils.RandomBetween(MinLifetime, MaxLifetime);
+        var size = MathUtils.RandomBetween(MinSize, MaxSize);
+        var beginColor = BeginColors[MathUtils.RandomBetween(0, BeginColors.Length - 1)];
         Color endColor = null;
         if (EndColors != null)
-            endColor = EndColors[Math.RandomBetween(0, EndColors.Length - 1)];
+            endColor = EndColors[MathUtils.RandomBetween(0, EndColors.Length - 1)];
 
         var particle = new Particle(objectPosition + position, velocity, acceleration, lifetime, size, rotation,
             rotationSpeed, beginColor, endColor, SizeFunction, SizeFunctionValue);
@@ -133,12 +134,12 @@ public class ParticleEmitter
         {
             if (MaxParticles == -1 || MaxParticles > Particles.Count)
             {
-                var nbParticles = Math.RandomBetween(MinNbParticlesPerSpawn, MaxNbParticlesPerSpawn);
+                var nbParticles = MathUtils.RandomBetween(MinNbParticlesPerSpawn, MaxNbParticlesPerSpawn);
                 for (var i = 0; i < nbParticles; i++)
                     SpawnParticle(objectPosition);
             }
 
-            _timerBeforeSpawn = Math.RandomBetween(MinTimerBeforeSpawn, MaxTimerBeforeSpawn);
+            _timerBeforeSpawn = MathUtils.RandomBetween(MinTimerBeforeSpawn, MaxTimerBeforeSpawn);
         }
 
         _timerBeforeSpawn -= (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -231,7 +232,7 @@ public class Particle
         var size = new Vec2(Size);
         window.InternalGame.SpriteBatch.Draw(texture,
             new Rect((Position - CameraManager.Position - size / 2), size).ToMg(), null, CurrentColor.ToMg(),
-            Math.ToRadians(Rotation), new Microsoft.Xna.Framework.Vector2(0),
+            MathUtils.ToRadians(Rotation), new Microsoft.Xna.Framework.Vector2(0),
             Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
     }
 }

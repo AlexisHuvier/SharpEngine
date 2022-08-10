@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using SharpEngine.Entities;
-using SharpEngine.Utils;
+using SharpEngine.Utils.Math;
+using SharpEngine.Utils.Control;
 
 namespace SharpEngine.Components;
 

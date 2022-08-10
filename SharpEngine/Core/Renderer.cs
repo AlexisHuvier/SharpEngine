@@ -1,6 +1,7 @@
 ﻿#nullable enable
 using Microsoft.Xna.Framework.Graphics;
 using SharpEngine.Utils;
+using SharpEngine.Utils.Math;
 
 namespace SharpEngine.Core;
 

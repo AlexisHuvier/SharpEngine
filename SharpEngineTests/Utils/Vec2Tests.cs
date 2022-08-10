@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpEngine.Utils;
+using SharpEngine.Utils.Math;
 
 namespace SharpEngineTests.Utils;
 

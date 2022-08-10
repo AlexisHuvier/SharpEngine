@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SharpEngine.Utils;
+namespace SharpEngine.Utils.Math;
 
 /// <summary>
 /// Temps du jeu

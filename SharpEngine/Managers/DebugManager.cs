@@ -1,5 +1,5 @@
 ﻿using System;
-using SharpEngine.Utils;
+using SharpEngine.Utils.Math;
 
 namespace SharpEngine.Managers;
 

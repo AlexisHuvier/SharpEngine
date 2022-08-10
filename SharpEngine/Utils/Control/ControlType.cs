@@ -1,4 +1,4 @@
-﻿namespace SharpEngine.Utils;
+﻿namespace SharpEngine.Utils.Control;
 
 /// <summary>
 /// Types de contrôle utilisés par le <seealso cref="Components.ControlComponent"/>

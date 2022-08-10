@@ -1,4 +1,4 @@
-﻿namespace SharpEngine.Utils;
+﻿namespace SharpEngine.Utils.Control;
 
 /// <summary>
 /// Boutons de la souris

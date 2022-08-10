@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using SharpEngine.Components;
 using SharpEngine.Utils.Control;
 using SharpEngine.Utils.Math;
@@ -31,7 +30,13 @@ public class Entity
 
     public T GetComponent<T>() where T: Component
     {
-        return _components.Where(comp => comp.GetType() == typeof(T)).Cast<T>().FirstOrDefault();
+        foreach (var component in _components)
+        {
+            if (component.GetType() == typeof(T))
+                return (T)component;
+        }
+
+        return null;
     }
 
     public void RemoveComponent(Component component)

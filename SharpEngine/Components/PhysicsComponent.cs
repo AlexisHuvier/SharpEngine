@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using SharpEngine.Utils.Math;
+using SharpEngine.Utils.Physic;
 using tainicom.Aether.Physics2D.Common;
 using tainicom.Aether.Physics2D.Dynamics;
 
@@ -12,22 +13,6 @@ namespace SharpEngine.Components;
 /// </summary>
 public class PhysicsComponent : Component
 {
-    private enum FixtureType
-    {
-        Rectangle,
-        Circle
-    }
-
-    private class FixtureInfo
-    {
-        public float Density;
-        public float Restitution;
-        public float Friction;
-        public FixtureType Type;
-        public object Parameter;
-        public Vec2 Offset;
-    }
-
     public Body Body;
 
     private BodyType _bodyType;

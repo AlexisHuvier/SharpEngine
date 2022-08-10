@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using SharpEngine.Entities;
 using SharpEngine.Utils.Math;
 using SharpEngine.Utils.Physic;
 using tainicom.Aether.Physics2D.Common;
 using tainicom.Aether.Physics2D.Dynamics;
+using tainicom.Aether.Physics2D.Dynamics.Joints;
+using JointType = SharpEngine.Utils.Physic.JointType;
 
 namespace SharpEngine.Components;
 
@@ -17,6 +20,7 @@ public class PhysicsComponent : Component
 
     private BodyType _bodyType;
     private List<FixtureInfo> _fixtures = new();
+    private List<JointInfo> _joints = new();
 
     /// <summary>
     /// Initialise le Composant
@@ -66,11 +70,32 @@ public class PhysicsComponent : Component
         _fixtures.Add(fixture);
     }
 
+    public void AddJoin(Entity other)
+    {
+        var joint = new JointInfo()
+        {
+            Target = other,
+            Type = JointType.Distance
+        };
+        _joints.Add(joint);
+    }
+
     public override void Initialize()
     {
         base.Initialize();
 
-        Body = GetWindow().GetCurrentScene().World.CreateBody(bodyType: _bodyType);
+        Body = Entity.Scene.World.CreateBody(bodyType: _bodyType);
+
+        if (Entity.GetComponent<TransformComponent>() is not { } tc) return;
+        
+        Body.Rotation = (float)(tc.Rotation * System.Math.PI / 180f);
+        Body.Position = new Vector2(tc.Position.X, tc.Position.Y);
+    }
+
+    public override void Update(GameTime gameTime)
+    {
+        base.Update(gameTime);
+        
         foreach(var info in _fixtures)
         {
             Fixture fixture;
@@ -91,22 +116,28 @@ public class PhysicsComponent : Component
             fixture.Restitution = info.Restitution;
             fixture.Friction = info.Friction;
         }
+        _fixtures.Clear();
 
-        if (Entity.GetComponent<TransformComponent>() is not { } tc) return;
-        
-        Body.Rotation = (float)(tc.Rotation * System.Math.PI / 180f);
-        Body.Position = new tainicom.Aether.Physics2D.Common.Vector2(tc.Position.X, tc.Position.Y);
-    }
-
-    public override void Update(GameTime gameTime)
-    {
-        base.Update(gameTime);
+        foreach (var jointInfo in _joints)
+        {
+            switch (jointInfo.Type)
+            {
+                case JointType.Distance:
+                    Entity.Scene.World.Add(new DistanceJoint(
+                        Body, jointInfo.Target.GetComponent<PhysicsComponent>().Body, 
+                        new Vec2(0).ToAetherPhysics(), new Vec2(0).ToAetherPhysics()));
+                    break;
+                default:
+                    throw new Exception($"Unknown Type of Joint : {jointInfo.Type}");
+            }
+        }
+        _joints.Clear();
 
         if (Entity.GetComponent<TransformComponent>() is not { } tc) return;
         
         tc.Position.X = Body.Position.X;
         tc.Position.Y = Body.Position.Y;
-        tc.Rotation = (int)(Body.Rotation * 180 / System.Math.PI);
+        tc.Rotation = (int)(Body.Rotation * 180 / Math.PI);
     }
 
     public override string ToString() => $"PhysicsComponent(body={Body}, nbFixtures={_fixtures.Count})";

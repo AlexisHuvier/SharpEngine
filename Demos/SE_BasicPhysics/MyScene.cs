@@ -3,6 +3,8 @@ using SharpEngine.Components;
 using SharpEngine.Entities;
 using SharpEngine.Managers;
 using SharpEngine.Utils;
+using SharpEngine.Utils.Control;
+using SharpEngine.Utils.Math;
 
 namespace SE_BasicPhysics;
 
@@ -10,47 +12,32 @@ internal sealed class MyScene : Scene
 {
     public MyScene()
     {
+        var ent2 = new Entity();
+        ent2.AddComponent(new TransformComponent(new Vec2(420, 100)));
+        ent2.AddComponent(new SpriteComponent("test"));
+        ent2.AddComponent(new PhysicsComponent()).AddRectangleCollision(new Vec2(44), restitution: 1f);
+        AddEntity(ent2);
+        
         var ent = new Entity();
-        ent.AddComponent(new TransformComponent(new Vec2(420, 100)));
+        ent.AddComponent(new TransformComponent(new Vec2(420, 50)));
         ent.AddComponent(new SpriteComponent("test"));
-        ent.AddComponent(new PhysicsComponent()).AddRectangleCollision(new Vec2(44), restitution: 1f);
+        var phys = ent.AddComponent(new PhysicsComponent());
+        phys.AddRectangleCollision(new Vec2(44), restitution: 1f);
+        phys.AddJoin(ent2);
         AddEntity(ent);
 
-        var ent3 = new Entity();
-        ent3.AddComponent(new TransformComponent(new Vec2(420, 300)));
-        ent3.AddComponent(new SpriteComponent("test"));
-        ent3.AddComponent(new ControlComponent());
-        ent3.AddComponent(new PhysicsComponent(tainicom.Aether.Physics2D.Dynamics.BodyType.Kinematic))
-            .AddRectangleCollision(new Vec2(44));
-        AddEntity(ent3);
-
-        var e2 = new Entity();
-        e2.AddComponent(new TransformComponent(new Vec2(450, 500)));
-        e2.AddComponent(new SpriteComponent("test"));
-        e2.AddComponent(new PhysicsComponent(tainicom.Aether.Physics2D.Dynamics.BodyType.Static))
-            .AddRectangleCollision(new Vec2(44));
-        AddEntity(e2);
-        
-        var wall = new Entity();
-        wall.AddComponent(new TransformComponent(new Vec2(0, 0)));
-        wall.AddComponent(new SpriteComponent("test"));
-        wall.AddComponent(new PhysicsComponent(tainicom.Aether.Physics2D.Dynamics.BodyType.Static))
-            .AddRectangleCollision(new Vec2(900, 44));
-        AddEntity(wall);
-        
-        var wall2 = new Entity();
-        wall2.AddComponent(new TransformComponent(new Vec2(0, 44)));
-        wall2.AddComponent(new SpriteComponent("test"));
-        wall2.AddComponent(new PhysicsComponent(tainicom.Aether.Physics2D.Dynamics.BodyType.Static))
-            .AddRectangleCollision(new Vec2(44, 556));
-        AddEntity(wall2);
-        
-        var wall3 = new Entity();
-        wall3.AddComponent(new TransformComponent(new Vec2(856, 44)));
-        wall3.AddComponent(new SpriteComponent("test"));
-        wall3.AddComponent(new PhysicsComponent(tainicom.Aether.Physics2D.Dynamics.BodyType.Static))
-            .AddRectangleCollision(new Vec2(44, 556));
-        AddEntity(wall3);
+        for (var x = 20; x < 900; x += 150)
+        {
+            for (var y = 150; y < 600; y += 150)
+            {
+                var e2 = new Entity();
+                e2.AddComponent(new TransformComponent(new Vec2(y % 300 == 0 ? x : x + 75 , y + 50)));
+                e2.AddComponent(new SpriteComponent("test"));
+                e2.AddComponent(new PhysicsComponent(tainicom.Aether.Physics2D.Dynamics.BodyType.Static))
+                    .AddRectangleCollision(new Vec2(44));
+                AddEntity(e2);
+            }
+        }
     }
 
     public override void Update(GameTime gameTime)
@@ -58,6 +45,9 @@ internal sealed class MyScene : Scene
         base.Update(gameTime);
 
         if (InputManager.IsMouseButtonPressed(MouseButton.Left))
-            Entities[0].GetComponent<PhysicsComponent>().SetPosition(new Vec2(420, 300));
+        {
+            Entities[0].GetComponent<PhysicsComponent>().SetPosition(new Vec2(420, 100));
+            Entities[1].GetComponent<PhysicsComponent>().SetPosition(new Vec2(420, 50));
+        }
     }
 }

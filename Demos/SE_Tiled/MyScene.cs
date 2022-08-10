@@ -3,6 +3,8 @@ using SharpEngine.Components;
 using SharpEngine.Entities;
 using SharpEngine.Managers;
 using SharpEngine.Utils;
+using SharpEngine.Utils.Control;
+using SharpEngine.Utils.Math;
 
 namespace SE_Tiled;
 public sealed class MyScene : Scene

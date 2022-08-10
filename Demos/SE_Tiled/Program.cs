@@ -1,5 +1,6 @@
 ﻿using SharpEngine;
 using SharpEngine.Utils;
+using SharpEngine.Utils.Math;
 
 namespace SE_Tiled;
 

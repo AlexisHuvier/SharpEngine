@@ -7,6 +7,8 @@ using SharpEngine.Utils.Physic;
 using tainicom.Aether.Physics2D.Common;
 using tainicom.Aether.Physics2D.Dynamics;
 using tainicom.Aether.Physics2D.Dynamics.Joints;
+using DistanceJoint = SharpEngine.Utils.Physic.DistanceJoint;
+using Joint = SharpEngine.Utils.Physic.Joint;
 using JointType = SharpEngine.Utils.Physic.JointType;
 
 namespace SharpEngine.Components;
@@ -70,13 +72,8 @@ public class PhysicsComponent : Component
         _fixtures.Add(fixture);
     }
 
-    public void AddJoin(Entity other)
+    public void AddJoin(Joint joint)
     {
-        var joint = new JointInfo()
-        {
-            Target = other,
-            Type = JointType.Distance
-        };
         _joints.Add(joint);
     }
 
@@ -118,17 +115,21 @@ public class PhysicsComponent : Component
         }
         _fixtures.Clear();
 
-        foreach (var jointInfo in _joints)
+        foreach (var joint in _joints)
         {
-            switch (jointInfo.Type)
+            switch (joint.Type)
             {
                 case JointType.Distance:
-                    Entity.Scene.World.Add(new DistanceJoint(
-                        Body, jointInfo.Target.GetComponent<PhysicsComponent>().Body, 
-                        new Vec2(0).ToAetherPhysics(), new Vec2(0).ToAetherPhysics()));
+                    var aetherJoint = new tainicom.Aether.Physics2D.Dynamics.Joints.DistanceJoint(
+                        Body, joint.Target.GetComponent<PhysicsComponent>().Body,
+                        new Vec2(0).ToAetherPhysics(), new Vec2(0).ToAetherPhysics());
+                    var distance = ((DistanceJoint)joint).Length;
+                    if (distance != -1)
+                        aetherJoint.Length = distance;
+                    Entity.Scene.World.Add(aetherJoint);
                     break;
                 default:
-                    throw new Exception($"Unknown Type of Joint : {jointInfo.Type}");
+                    throw new Exception($"Unknown Type of Joint : {joint.Type}");
             }
         }
         _joints.Clear();

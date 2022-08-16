@@ -6,6 +6,7 @@ using SharpEngine.Utils.Math;
 using SharpEngine.Utils.Physic;
 using tainicom.Aether.Physics2D.Common;
 using tainicom.Aether.Physics2D.Dynamics;
+using tainicom.Aether.Physics2D.Dynamics.Contacts;
 using tainicom.Aether.Physics2D.Dynamics.Joints;
 using DistanceJoint = SharpEngine.Utils.Physic.DistanceJoint;
 using Joint = SharpEngine.Utils.Physic.Joint;
@@ -20,9 +21,12 @@ public class PhysicsComponent : Component
 {
     public Body Body;
 
+    public Func<Fixture, Fixture, Contact, bool> CollisionCallback;
+    public Action<Fixture, Fixture, Contact> SeparationCallback;
+    
     private BodyType _bodyType;
     private List<FixtureInfo> _fixtures = new();
-    private List<JointInfo> _joints = new();
+    private List<Joint> _joints = new();
 
     /// <summary>
     /// Initialise le Composant
@@ -87,6 +91,8 @@ public class PhysicsComponent : Component
         
         Body.Rotation = (float)(tc.Rotation * System.Math.PI / 180f);
         Body.Position = new Vector2(tc.Position.X, tc.Position.Y);
+        Body.OnCollision += OnCollision;
+        Body.OnSeparation += OnSeparation;
     }
 
     public override void Update(GameTime gameTime)
@@ -140,7 +146,9 @@ public class PhysicsComponent : Component
         tc.Position.Y = Body.Position.Y;
         tc.Rotation = (int)(Body.Rotation * 180 / Math.PI);
     }
-
+    
+    private bool OnCollision(Fixture sender, Fixture other, Contact contact) => CollisionCallback == null || CollisionCallback(sender, other, contact);
+    private void OnSeparation(Fixture sender, Fixture other, Contact contact) => SeparationCallback?.Invoke(sender, other, contact);
     public override string ToString() => $"PhysicsComponent(body={Body}, nbFixtures={_fixtures.Count})";
 }
 

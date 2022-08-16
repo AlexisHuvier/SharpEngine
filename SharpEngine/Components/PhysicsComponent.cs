@@ -89,7 +89,7 @@ public class PhysicsComponent : Component
 
         if (Entity.GetComponent<TransformComponent>() is not { } tc) return;
         
-        Body.Rotation = (float)(tc.Rotation * System.Math.PI / 180f);
+        Body.Rotation = (float)(tc.Rotation * Math.PI / 180f);
         Body.Position = new Vector2(tc.Position.X, tc.Position.Y);
         Body.OnCollision += OnCollision;
         Body.OnSeparation += OnSeparation;

@@ -2,5 +2,7 @@
 
 public enum JointType
 {
-    Distance
+    Distance,
+    Revolute,
+    Rope
 }

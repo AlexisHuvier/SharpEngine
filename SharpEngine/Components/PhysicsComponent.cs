@@ -125,6 +125,11 @@ public class PhysicsComponent : Component
                 case JointType.Distance:
                     Entity.Scene.World.Add(((DistanceJoint)joint).ToAetherPhysics(Body));
                     break;
+                case JointType.Revolute:
+                    Entity.Scene.World.Add(((RevoluteJoint)joint).ToAetherPhysics(Body));
+                    break;
+                case JointType.Rope:
+                    Entity.Scene.World.Add(((RopeJoint)joint).ToAetherPhysics(Body));
                     break;
                 default:
                     throw new Exception($"Unknown Type of Joint : {joint.Type}");

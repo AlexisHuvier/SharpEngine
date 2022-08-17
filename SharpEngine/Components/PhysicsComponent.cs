@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using SharpEngine.Entities;
+using SharpEngine.Utils;
 using SharpEngine.Utils.Math;
 using SharpEngine.Utils.Physic;
 using SharpEngine.Utils.Physic.Joints;
@@ -123,13 +123,8 @@ public class PhysicsComponent : Component
             switch (joint.Type)
             {
                 case JointType.Distance:
-                    var aetherJoint = new tainicom.Aether.Physics2D.Dynamics.Joints.DistanceJoint(
-                        Body, joint.Target.GetComponent<PhysicsComponent>().Body,
-                        new Vec2(0).ToAetherPhysics(), new Vec2(0).ToAetherPhysics());
-                    var distance = ((DistanceJoint)joint).Length;
-                    if (distance != -1)
-                        aetherJoint.Length = distance;
-                    Entity.Scene.World.Add(aetherJoint);
+                    Entity.Scene.World.Add(((DistanceJoint)joint).ToAetherPhysics(Body));
+                    break;
                     break;
                 default:
                     throw new Exception($"Unknown Type of Joint : {joint.Type}");

@@ -55,7 +55,7 @@ internal sealed class MyScene : Scene
         var ent6 = new Entity();
         ent6.AddComponent(new TransformComponent(new Vec2(620, 50)));
         ent6.AddComponent(new SpriteComponent("test"));
-        var phys3 = ent6.AddComponent(new PhysicsComponent());
+        var phys3 = ent6.AddComponent(new PhysicsComponent(BodyType.Kinematic));
         phys3.AddRectangleCollision(new Vec2(44), restitution: 1f);
         phys3.AddJoin(new DistanceJoint(JointType.Distance, ent5, 100));
         AddEntity(ent6);
@@ -67,7 +67,7 @@ internal sealed class MyScene : Scene
                 var e2 = new Entity();
                 e2.AddComponent(new TransformComponent(new Vec2(y % 300 == 0 ? x : x + 75 , y + 50)));
                 e2.AddComponent(new SpriteComponent("test"));
-                e2.AddComponent(new PhysicsComponent(tainicom.Aether.Physics2D.Dynamics.BodyType.Static))
+                e2.AddComponent(new PhysicsComponent(BodyType.Static))
                     .AddRectangleCollision(new Vec2(44));
                 AddEntity(e2);
             }
@@ -96,5 +96,10 @@ internal sealed class MyScene : Scene
             Console.WriteLine($"FPS : {DebugManager.GetFps()}");
             Console.WriteLine($"GC Memory : {DebugManager.GetGcMemory()}");
         }
+        
+        if(InputManager.IsKeyDown(Key.Left))
+            Entities[4].GetComponent<PhysicsComponent>().SetLinearVelocity(new Vec2(-200, 0));
+        if(InputManager.IsKeyDown(Key.Right))
+            Entities[4].GetComponent<PhysicsComponent>().SetLinearVelocity(new Vec2(200, 0));
     }
 }

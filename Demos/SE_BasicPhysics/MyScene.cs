@@ -2,10 +2,10 @@
 using SharpEngine.Components;
 using SharpEngine.Entities;
 using SharpEngine.Managers;
-using SharpEngine.Utils;
 using SharpEngine.Utils.Control;
 using SharpEngine.Utils.Math;
 using SharpEngine.Utils.Physic;
+using SharpEngine.Utils.Physic.Joints;
 using tainicom.Aether.Physics2D.Dynamics;
 
 namespace SE_BasicPhysics;
@@ -27,7 +27,7 @@ internal sealed class MyScene : Scene
         ent.AddComponent(new SpriteComponent("test"));
         var phys = ent.AddComponent(new PhysicsComponent());
         phys.AddRectangleCollision(new Vec2(44), restitution: 1f);
-        phys.AddJoin(new DistanceJoint(JointType.Distance, ent2));
+        phys.AddJoin(new RevoluteJoint(ent2, new Vec2(10, 0)));
         AddEntity(ent);
         
         
@@ -42,7 +42,7 @@ internal sealed class MyScene : Scene
         ent4.AddComponent(new SpriteComponent("test"));
         var phys2 = ent4.AddComponent(new PhysicsComponent());
         phys2.AddRectangleCollision(new Vec2(44), restitution: 1f);
-        phys2.AddJoin(new DistanceJoint(JointType.Distance, ent3, 20));
+        phys2.AddJoin(new DistanceJoint(ent3));
         AddEntity(ent4);
         
         
@@ -57,7 +57,7 @@ internal sealed class MyScene : Scene
         ent6.AddComponent(new SpriteComponent("test"));
         var phys3 = ent6.AddComponent(new PhysicsComponent(BodyType.Kinematic));
         phys3.AddRectangleCollision(new Vec2(44), restitution: 1f);
-        phys3.AddJoin(new DistanceJoint(JointType.Distance, ent5, 100));
+        phys3.AddJoin(new RopeJoint(ent5, maxLength: 100));
         AddEntity(ent6);
 
         for (var x = 20; x < 900; x += 150)
@@ -95,11 +95,9 @@ internal sealed class MyScene : Scene
             Console.WriteLine($"Monogame Version : {DebugManager.GetMonogameVersion()}");
             Console.WriteLine($"FPS : {DebugManager.GetFps()}");
             Console.WriteLine($"GC Memory : {DebugManager.GetGcMemory()}");
+            Console.WriteLine($"{InputManager.GetGamePadJoyStickAxis(0, GamePadJoyStickAxis.LeftX)}");
         }
-        
-        if(InputManager.IsKeyDown(Key.Left))
-            Entities[4].GetComponent<PhysicsComponent>().SetLinearVelocity(new Vec2(-200, 0));
-        if(InputManager.IsKeyDown(Key.Right))
-            Entities[4].GetComponent<PhysicsComponent>().SetLinearVelocity(new Vec2(200, 0));
+        if(InputManager.GetGamePadJoyStickAxis(0, GamePadJoyStickAxis.LeftX) != 0)
+            Entities[4].GetComponent<PhysicsComponent>().SetLinearVelocity(new Vec2(200 * InputManager.GetGamePadJoyStickAxis(0, GamePadJoyStickAxis.LeftX), 0));
     }
 }

@@ -4,13 +4,10 @@ using System.Diagnostics;
 using SharpEngine.Entities;
 using SharpEngine.Utils.Math;
 using SharpEngine.Utils.Physic;
+using SharpEngine.Utils.Physic.Joints;
 using tainicom.Aether.Physics2D.Common;
 using tainicom.Aether.Physics2D.Dynamics;
 using tainicom.Aether.Physics2D.Dynamics.Contacts;
-using tainicom.Aether.Physics2D.Dynamics.Joints;
-using DistanceJoint = SharpEngine.Utils.Physic.DistanceJoint;
-using Joint = SharpEngine.Utils.Physic.Joint;
-using JointType = SharpEngine.Utils.Physic.JointType;
 
 namespace SharpEngine.Components;
 

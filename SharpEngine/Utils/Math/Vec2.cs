@@ -7,6 +7,9 @@ namespace SharpEngine.Utils.Math;
 /// </summary>
 public class Vec2
 {
+    public static Vec2 Zero { get; } = new(0);
+    public static Vec2 One { get; } = new(1);
+    
     public float X;
     public float Y;
 

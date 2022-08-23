@@ -1,4 +1,5 @@
-﻿using SharpEngine.Utils;
+﻿using System.Collections.Specialized;
+using SharpEngine.Utils;
 using SharpEngine.Utils.Math;
 
 namespace SharpEngine.Components;
@@ -18,7 +19,7 @@ public class AutoMovementComponent : Component
     /// <param name="rotation">Rotation automatique</param>
     public AutoMovementComponent(Vec2 direction = null, int rotation = 0)
     {
-        Direction = direction ?? new Vec2(0);
+        Direction = direction ?? Vec2.Zero;
         Rotation = rotation;
     }
 

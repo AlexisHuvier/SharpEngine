@@ -33,7 +33,7 @@ public class TextComponent: Component
         Font = font;
         Color = color ?? Color.Black;
         Displayed = displayed;
-        Offset = offset ?? new Vec2(0);
+        Offset = offset ?? Vec2.Zero;
     }
 
     public override void Draw(GameTime gameTime)

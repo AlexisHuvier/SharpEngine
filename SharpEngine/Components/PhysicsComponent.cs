@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using SharpEngine.Utils;
 using SharpEngine.Utils.Math;
 using SharpEngine.Utils.Physic;
 using SharpEngine.Utils.Physic.Joints;
@@ -42,8 +41,8 @@ public class PhysicsComponent : Component
 
     public void ApplyLinearImpulse(Vec2 impulse) => Body.ApplyLinearImpulse(new Vector2(impulse.X, impulse.Y));
 
-    public int GetRotation() => (int)(Body.Rotation * 180 / System.Math.PI);
-    public void SetRotation(int rotation) => Body.Rotation = (float)(rotation * System.Math.PI / 180f);
+    public int GetRotation() => (int)(Body.Rotation * 180 / Math.PI);
+    public void SetRotation(int rotation) => Body.Rotation = (float)(rotation * Math.PI / 180f);
 
     public void AddRectangleCollision(Vec2 size, Vec2 offset = null, float density = 1f, float restitution = 0.5f, float friction = 0.5f)
     {

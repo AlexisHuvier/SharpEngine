@@ -22,8 +22,8 @@ public class TransformComponent: Component
     /// <param name="zLayer">Layer Z</param>
     public TransformComponent(Vec2 position = null, Vec2 scale = null, int rotation = 0, int zLayer = 0)
     {
-        Position = position ?? new Vec2(0);
-        Scale = scale ?? new Vec2(1);
+        Position = position ?? Vec2.Zero;
+        Scale = scale ?? Vec2.One;
         Rotation = rotation;
         ZLayer = zLayer;
     }

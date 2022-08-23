@@ -49,12 +49,14 @@ public class TileMapComponent: Component
         if(_infinite)
             throw new Exception("SharpEngine can only use non-infinite tilemap.");
 
+        // BASIC TILES
         foreach(var tiletype in file.Element("tileset")?.Elements("tile")!)
         {
             var tile = new TileUtils.Tile()
             {
                 Id = Convert.ToInt32(tiletype.Attribute("id")?.Value) + 1,
-                Source = System.IO.Path.GetFileNameWithoutExtension(tiletype.Element("image")?.Attribute("source")?.Value)
+                Source = System.IO.Path.GetFileNameWithoutExtension(tiletype.Element("image")?.Attribute("source")?.Value),
+                SourceRect = null
             };
             _textures.Add(System.IO.Path.GetDirectoryName(tilemap) + System.IO.Path.DirectorySeparatorChar + tiletype.Element("image")?.Attribute("source")?.Value);
             _tiles.Add(tile);
@@ -95,16 +97,19 @@ public class TileMapComponent: Component
         base.Draw(gameTime);
 
         if (Entity.GetComponent<TransformComponent>() is not { } tc || _layers.Count <= 0) return;
+
+        var compPosition = tc.Position - _tileSize * _size / 2 - CameraManager.Position;
+        var originPosition = _tileSize / 2;
         
         foreach(var layer in _layers)
         {
             for(var i = 0; i < layer.Tiles.Count; i++)
             {
                 if (layer.Tiles[i] == 0) continue;
-                
-                var position = tc.Position - _tileSize * _size / 2 - CameraManager.Position + new Vec2(_tileSize.X * Convert.ToInt32(i % Convert.ToInt32(_size.X)), _tileSize.Y * Convert.ToInt32(i / Convert.ToInt32(_size.Y)));
-                var texture = Entity.Scene.Window.TextureManager.GetTexture(GetTile(layer.Tiles[i]).Source);
-                Renderer.RenderTexture(Entity.Scene.Window, texture, position, null, Color.White, 0, _tileSize / 2, new Vec2(1), SpriteEffects.None, 1);
+                var tile = GetTile(layer.Tiles[i]);
+                var position = compPosition + new Vec2(_tileSize.X * Convert.ToInt32(i % Convert.ToInt32(_size.X)), _tileSize.Y * Convert.ToInt32(i / Convert.ToInt32(_size.Y)));
+                var texture = Entity.Scene.Window.TextureManager.GetTexture(tile.Source);
+                Renderer.RenderTexture(Entity.Scene.Window, texture, position, tile.SourceRect, Color.White, 0, originPosition, Vec2.One, SpriteEffects.None, 1);
             }
         }
     }

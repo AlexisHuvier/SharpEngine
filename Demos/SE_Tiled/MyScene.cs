@@ -2,7 +2,6 @@
 using SharpEngine.Components;
 using SharpEngine.Entities;
 using SharpEngine.Managers;
-using SharpEngine.Utils;
 using SharpEngine.Utils.Control;
 using SharpEngine.Utils.Math;
 
@@ -11,18 +10,15 @@ public sealed class MyScene : Scene
 {
     public MyScene()
     {
-        var ent = new Entity();
-        ent.AddComponent(new TransformComponent(new Vec2(420, 300)));
-        ent.AddComponent(new TileMapComponent("Resources/map.tmx"));
-        AddEntity(ent);
-
-        var ent2 = new Entity();
-        ent2.AddComponent(new TransformComponent(new Vec2(420, 300)));
-        ent2.AddComponent(new ControlComponent(ControlType.FourDirection));
-        ent2.AddComponent(new SpriteComponent("sprite0"));
-        AddEntity(ent2);
-
-        CameraManager.FollowEntity = ent2;
+        var tilemap = new Entity();
+        tilemap.AddComponent(new TransformComponent(new Vec2(220, 300)));
+        tilemap.AddComponent(new TileMapComponent("Resources/map.tmx"));
+        AddEntity(tilemap);
+        
+        var tilemapTileset = new Entity();
+        tilemapTileset.AddComponent(new TransformComponent(new Vec2(620, 300)));
+        tilemapTileset.AddComponent(new TileMapComponent("Resources/map_tileset.tmx"));
+        AddEntity(tilemapTileset);
     }
     public override void Update(GameTime gameTime)
     {

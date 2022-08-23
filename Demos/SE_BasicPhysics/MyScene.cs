@@ -4,7 +4,6 @@ using SharpEngine.Entities;
 using SharpEngine.Managers;
 using SharpEngine.Utils.Control;
 using SharpEngine.Utils.Math;
-using SharpEngine.Utils.Physic;
 using SharpEngine.Utils.Physic.Joints;
 using tainicom.Aether.Physics2D.Dynamics;
 

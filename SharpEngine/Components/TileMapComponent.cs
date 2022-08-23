@@ -61,6 +61,32 @@ public class TileMapComponent: Component
             _textures.Add(System.IO.Path.GetDirectoryName(tilemap) + System.IO.Path.DirectorySeparatorChar + tiletype.Element("image")?.Attribute("source")?.Value);
             _tiles.Add(tile);
         }
+        
+        // TILESET FILE
+        foreach (var image in file.Element("tileset")?.Elements("image")!)
+        {
+            _textures.Add(System.IO.Path.GetDirectoryName(tilemap) + System.IO.Path.DirectorySeparatorChar + image.Attribute("source")?.Value);
+            var width = Convert.ToInt32(image.Attribute("width")?.Value);
+            var height = Convert.ToInt32(image.Attribute("height")?.Value);
+            var tilewidth = Convert.ToInt32(file.Element("tileset")?.Attribute("tilewidth")?.Value);
+            var tileheight = Convert.ToInt32(file.Element("tileset")?.Attribute("tileheight")?.Value);
+            var nbXTile = width / tilewidth;
+            var nbYTile = height / tileheight;
+
+            for (var y = 0; y < nbYTile; y++)
+            {
+                for (var x = 0; x < nbXTile; x++)
+                {
+                    var tile = new TileUtils.Tile()
+                    {
+                        Id = 1 + x + y * nbXTile,
+                        Source = System.IO.Path.GetFileNameWithoutExtension(image.Attribute("source")?.Value),
+                        SourceRect =  new Rect(x * tilewidth, y * tilewidth, tilewidth, tileheight)
+                    };
+                    _tiles.Add(tile);
+                }
+            }
+        }
 
         foreach(var element in file.Elements("layer"))
         {

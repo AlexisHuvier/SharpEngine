@@ -25,6 +25,7 @@ public class Window
 
     public Func<bool> StartCallback = null;
     public Func<bool> StopCallback = null;
+    public Action RenderImGui = null;
 
     public Color BackgroundColor;
     public bool ExitWithEscape;

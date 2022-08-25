@@ -6,6 +6,7 @@ using System.IO;
 using SharpEngine.Managers;
 using SharpEngine.Utils;
 using SharpEngine.Utils.Control;
+using SharpEngine.Utils.ImGui;
 using Color = SharpEngine.Utils.Color;
 using GameTime = SharpEngine.Utils.Math.GameTime;
 
@@ -19,6 +20,7 @@ public class InternalGame : Game
     public readonly GraphicsDeviceManager Graphics;
     public SpriteBatch SpriteBatch;
     private readonly Window _window;
+    private ImGuiRenderer _imGuiRenderer;
 
     public InternalGame(Window win)
     {
@@ -112,6 +114,9 @@ public class InternalGame : Game
         foreach (var scene in _window.Scenes)
             scene.Initialize();
 
+        _imGuiRenderer = new ImGuiRenderer(this);
+        _imGuiRenderer.RebuildFontAlias();
+
         base.Initialize();
     }
 
@@ -159,14 +164,20 @@ public class InternalGame : Game
 
     protected override void Draw(Microsoft.Xna.Framework.GameTime gameTime)
     {
+        var gT = GameTime.FromMonogameGameTime(gameTime);
+        
         DebugManager.Draw();
 
         GraphicsDevice.Clear(_window.BackgroundColor.ToMg());
 
         SpriteBatch.Begin();
         if (_window.CurrentScene != -1)
-            _window.Scenes[_window.CurrentScene].Draw(GameTime.FromMonogameGameTime(gameTime));
+            _window.Scenes[_window.CurrentScene].Draw(gT);
         SpriteBatch.End();
+        
+        _imGuiRenderer.BeforeLayout(gT);
+        _window.RenderImGui?.Invoke();
+        _imGuiRenderer.AfterLayout();
 
         base.Draw(gameTime);
     }

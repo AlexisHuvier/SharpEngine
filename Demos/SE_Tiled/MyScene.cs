@@ -12,13 +12,21 @@ public sealed class MyScene : Scene
     {
         var tilemap = new Entity();
         tilemap.AddComponent(new TransformComponent(new Vec2(220, 300)));
-        tilemap.AddComponent(new TileMapComponent("Resources/map.tmx"));
+        tilemap.AddComponent(new TileMapComponent("map"));
         AddEntity(tilemap);
         
         var tilemapTileset = new Entity();
         tilemapTileset.AddComponent(new TransformComponent(new Vec2(620, 300)));
-        tilemapTileset.AddComponent(new TileMapComponent("Resources/map_tileset.tmx"));
+        tilemapTileset.AddComponent(new TileMapComponent("map_tileset"));
         AddEntity(tilemapTileset);
+
+        var player = new Entity();
+        player.AddComponent(new TransformComponent(new Vec2(420, 300)));
+        player.AddComponent(new SpriteComponent("sprite0"));
+        player.AddComponent(new ControlComponent(ControlType.FourDirection));
+        AddEntity(player);
+
+        CameraManager.FollowEntity = player;
     }
     public override void Update(GameTime gameTime)
     {

@@ -18,8 +18,10 @@ public class Window
     private bool _internalVSync;
     internal int CurrentScene = -1;
     internal readonly List<Scene> Scenes = new();
+    
     public readonly TextureManager TextureManager;
     public readonly FontManager FontManager;
+    public readonly TilemapManager TileMapManager;
 
     public Func<bool> StartCallback = null;
     public Func<bool> StopCallback = null;
@@ -92,6 +94,7 @@ public class Window
         InternalGame = new InternalGame(this);
         TextureManager = new TextureManager(this);
         FontManager = new FontManager(this);
+        TileMapManager = new TilemapManager(this);
     }
 
     public Scene GetScene(int index) => Scenes[index];

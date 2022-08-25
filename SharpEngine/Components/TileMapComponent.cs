@@ -15,14 +15,7 @@ namespace SharpEngine.Components;
 /// </summary>
 public class TileMapComponent: Component
 {
-    private readonly string _orientation;
-    private readonly string _renderOrder;
-    private readonly Vec2 _size;
-    private readonly Vec2 _tileSize;
-    private readonly bool _infinite;
-    private readonly List<TileUtils.Tile> _tiles;
-    private readonly List<TileUtils.Layer> _layers;
-    private readonly List<string> _textures;
+    public string Map;
 
     /// <summary>
     /// Initialise le Composant.
@@ -31,114 +24,33 @@ public class TileMapComponent: Component
     /// <exception cref="Exception"></exception>
     public TileMapComponent(string tilemap)
     {
-        _tiles = new List<TileUtils.Tile>();
-        _layers = new List<TileUtils.Layer>();
-        _textures = new List<string>();
-
-        var file = XElement.Load(tilemap);
-
-        _orientation = file.Attribute("orientation")?.Value;
-        if (_orientation != "orthogonal")
-            throw new Exception("SharpEngine can only use orthogonal tilemap.");
-        _renderOrder = file.Attribute("renderorder")?.Value;
-        if (_renderOrder != "right-down")
-            throw new Exception("SharpEngine can only use tilemap with right-down renderorder");
-        _size = new Vec2(Convert.ToInt32(file.Attribute("width")?.Value), Convert.ToInt32(file.Attribute("height")?.Value));
-        _tileSize = new Vec2(Convert.ToInt32(file.Attribute("tilewidth")?.Value), Convert.ToInt32(file.Attribute("tileheight")?.Value));
-        _infinite = Convert.ToBoolean(Convert.ToInt32(file.Attribute("infinite")?.Value));
-        if(_infinite)
-            throw new Exception("SharpEngine can only use non-infinite tilemap.");
-
-        // BASIC TILES
-        foreach(var tiletype in file.Element("tileset")?.Elements("tile")!)
-        {
-            var tile = new TileUtils.Tile()
-            {
-                Id = Convert.ToInt32(tiletype.Attribute("id")?.Value) + 1,
-                Source = System.IO.Path.GetFileNameWithoutExtension(tiletype.Element("image")?.Attribute("source")?.Value),
-                SourceRect = null
-            };
-            _textures.Add(System.IO.Path.GetDirectoryName(tilemap) + System.IO.Path.DirectorySeparatorChar + tiletype.Element("image")?.Attribute("source")?.Value);
-            _tiles.Add(tile);
-        }
-        
-        // TILESET FILE
-        foreach (var image in file.Element("tileset")?.Elements("image")!)
-        {
-            _textures.Add(System.IO.Path.GetDirectoryName(tilemap) + System.IO.Path.DirectorySeparatorChar + image.Attribute("source")?.Value);
-            var width = Convert.ToInt32(image.Attribute("width")?.Value);
-            var height = Convert.ToInt32(image.Attribute("height")?.Value);
-            var tilewidth = Convert.ToInt32(file.Element("tileset")?.Attribute("tilewidth")?.Value);
-            var tileheight = Convert.ToInt32(file.Element("tileset")?.Attribute("tileheight")?.Value);
-            var nbXTile = width / tilewidth;
-            var nbYTile = height / tileheight;
-
-            for (var y = 0; y < nbYTile; y++)
-            {
-                for (var x = 0; x < nbXTile; x++)
-                {
-                    var tile = new TileUtils.Tile()
-                    {
-                        Id = 1 + x + y * nbXTile,
-                        Source = System.IO.Path.GetFileNameWithoutExtension(image.Attribute("source")?.Value),
-                        SourceRect =  new Rect(x * tilewidth, y * tilewidth, tilewidth, tileheight)
-                    };
-                    _tiles.Add(tile);
-                }
-            }
-        }
-
-        foreach(var element in file.Elements("layer"))
-        {
-            var tiles = element.Element("data")?.Value.Split(",")!.Select(tile => Convert.ToInt32(tile)).ToList() ;
-            var layer = new TileUtils.Layer
-            {
-                Tiles = tiles
-            };
-            _layers.Add(layer);
-        }
-    }
-
-    public override void Update(GameTime gameTime)
-    {
-        base.Update(gameTime);
-
-        for(var i = _textures.Count - 1; i > -1; i--) {
-            GetWindow().TextureManager.AddTexture(System.IO.Path.GetFileNameWithoutExtension(_textures[i]), _textures[i]);
-            _textures.RemoveAt(i);
-        }
-    }
-
-    public TileUtils.Tile GetTile(int id)
-    {
-        foreach (var tile in _tiles)
-            if(tile.Id == id)
-                return tile;
-        
-        return new TileUtils.Tile();
+        Map = tilemap;
     }
 
     public override void Draw(GameTime gameTime)
     {
         base.Draw(gameTime);
 
-        if (Entity.GetComponent<TransformComponent>() is not { } tc || _layers.Count <= 0) return;
+        var tileMap = GetWindow().TileMapManager.GetMap(Map);
 
-        var compPosition = tc.Position - _tileSize * _size / 2 - CameraManager.Position;
-        var originPosition = _tileSize / 2;
-        
-        foreach(var layer in _layers)
+        if (Entity.GetComponent<TransformComponent>() is not { } tc || tileMap.Map.Layers.Count == 0) return;
+
+        var compPosition = tc.Position - tileMap.TileSize * tileMap.Size / 2 - CameraManager.Position;
+        var originPosition = tileMap.TileSize / 2;
+
+        foreach (var layer in tileMap.Map.Layers.Where(layer => layer.Data != null))
         {
-            for(var i = 0; i < layer.Tiles.Count; i++)
+            for(var i = 0; i < layer.Data!.Tiles.Count; i++)
             {
-                if (layer.Tiles[i] == 0) continue;
-                var tile = GetTile(layer.Tiles[i]);
-                var position = compPosition + new Vec2(_tileSize.X * Convert.ToInt32(i % Convert.ToInt32(_size.X)), _tileSize.Y * Convert.ToInt32(i / Convert.ToInt32(_size.Y)));
+                if (layer.Data.Tiles[i] == 0) continue;
+                var tile = tileMap.GetTile(layer.Data.Tiles[i]);
+                var position = compPosition + new Vec2(tileMap.TileSize.X * Convert.ToInt32(i % Convert.ToInt32(tileMap.Size.X)), tileMap.TileSize.Y * Convert.ToInt32(i / Convert.ToInt32(tileMap.Size.Y)));
                 var texture = Entity.Scene.Window.TextureManager.GetTexture(tile.Source);
                 Renderer.RenderTexture(Entity.Scene.Window, texture, position, tile.SourceRect, Color.White, 0, originPosition, Vec2.One, SpriteEffects.None, 1);
             }
         }
+
     }
 
-    public override string ToString() => $"TileMapComponent(orientation={_orientation}, renderorder={_renderOrder}, size={_size}, tileSize={_tileSize}, infinite={_infinite})";
+    public override string ToString() => $"TileMapComponent(Tilemap={Map})";
 }

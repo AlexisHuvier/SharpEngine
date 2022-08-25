@@ -12,6 +12,7 @@ public class Entity
 {
     internal Scene Scene;
     private readonly List<Component> _components;
+    public string Tag;
 
     public Entity()
     {

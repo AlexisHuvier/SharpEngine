@@ -1,27 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using SharpEngine.Utils;
 
 namespace SharpEngine.Managers;
 
 public static class LangManager
 {
-    private class Lang
-    {
-        public string Name;
-        public Dictionary<string, string> Translations;
-
-        public Lang(string name, Dictionary<string, string> translations)
-        {
-            Name = name;
-            Translations = translations;
-        }
-
-        public string GetLangTranslation(string key, string defaultTranslation) => Translations.GetValueOrDefault(key, defaultTranslation);
-
-        public static Lang FromFile(string file) => JsonSerializer.Deserialize<Lang>(File.ReadAllText(file));
-    }
-
     private static readonly Dictionary<string, Lang> Langs = new();
     private static string _currentLang = "default";
 

@@ -11,8 +11,7 @@ internal class MyScene : Scene
 {
     public MyScene()
     {
-        AddWidget(new ProgressBar(new Vec2(100, 100), Color.Green, value: 85));
-        GetWidgets<ProgressBar>()[0].AddChild(new ProgressBar(new Vec2(100, 100), Color.Blue, value: 76));
+        AddWidget(new Slider(new Vec2(200, 400), Color.Orange, font: "basic"));
     }
 
     public override void Update(GameTime gameTime)

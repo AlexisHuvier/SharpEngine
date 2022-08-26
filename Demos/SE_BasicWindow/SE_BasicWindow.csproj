@@ -11,4 +11,10 @@
     <ProjectReference Include="..\..\SharpEngine\SharpEngine.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Resources\basic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

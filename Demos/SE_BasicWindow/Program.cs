@@ -11,7 +11,7 @@ internal static class Program
 {
     private static void Main()
     {
-        var win = new Window(new Vec2(900, 600), Color.CornflowerBlue)
+        var win = new Window(new Vec2(900, 600), Color.CornflowerBlue, debug: true)
         {
             RenderImGui = () =>
             {
@@ -19,7 +19,7 @@ internal static class Program
                     ImGui.Text($"SE Version : {DebugManager.GetSharpEngineVersion()}");
                     ImGui.Text($"Monogame Version : {DebugManager.GetMonogameVersion()}");
                     ImGui.Text($"FPS : {DebugManager.GetFps()}");
-                    ImGui.Text($"GC Memory : {DebugManager.GetGcMemory()}");
+                    ImGui.Text($"GC Memory : {DebugManager.GetGcMemory() / 1024} ko");
                 
                     ImGui.Text($"Connected GamePad : {InputManager.IsGamePadConnected(GamePadIndex.One)}");
                     ImGui.Text($"1A Pressed : {InputManager.IsGamePadButtonDown(GamePadIndex.One, GamePadButton.A)}");

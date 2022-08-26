@@ -25,5 +25,7 @@ internal class MyScene : Scene
             GetWindow().Fullscreen = FullScreenType.HardwareFullscreen;
         if (InputManager.IsKeyPressed(Key.D3))
             GetWindow().Fullscreen = FullScreenType.BorderlessFullscreen;
+        if (InputManager.IsKeyPressed(Key.D))
+            GetWindow().Debug = !GetWindow().Debug;
     }
 }

@@ -29,6 +29,7 @@ public class Window
 
     public Color BackgroundColor;
     public bool ExitWithEscape;
+    public bool Debug;
 
     public Vec2 ScreenSize
     {
@@ -83,7 +84,8 @@ public class Window
     /// <param name="exitWithEscape">Quitte le jeu quand échap est appuyé</param>
     /// <param name="fullscreen">Lance le jeu avec ou sans fullscreen</param>
     /// <param name="vsync">Lance le jeu avec ou sans la vsync</param>
-    public Window(Vec2 screenSize = null, Color backgroundColor = null, bool mouseVisible = true, bool exitWithEscape = true, FullScreenType fullscreen = FullScreenType.NoFullscreen, bool vsync = false)
+    /// <param name="debug">Lance le jeu en mode debug ou non</param>
+    public Window(Vec2 screenSize = null, Color backgroundColor = null, bool mouseVisible = true, bool exitWithEscape = true, FullScreenType fullscreen = FullScreenType.NoFullscreen, bool vsync = false, bool debug = false)
     {
         ScreenSize = screenSize ?? new Vec2(800, 600);
         BackgroundColor = backgroundColor ?? Color.Black;
@@ -91,6 +93,7 @@ public class Window
         ExitWithEscape = exitWithEscape;
         Fullscreen = fullscreen;
         VSync = vsync;
+        Debug = debug;
 
         InternalGame = new InternalGame(this);
         TextureManager = new TextureManager(this);

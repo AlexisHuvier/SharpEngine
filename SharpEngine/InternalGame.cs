@@ -174,10 +174,13 @@ public class InternalGame : Game
         if (_window.CurrentScene != -1)
             _window.Scenes[_window.CurrentScene].Draw(gT);
         SpriteBatch.End();
-        
-        _imGuiRenderer.BeforeLayout(gT);
-        _window.RenderImGui?.Invoke();
-        _imGuiRenderer.AfterLayout();
+
+        if (_window.Debug)
+        {
+            _imGuiRenderer.BeforeLayout(gT);
+            _window.RenderImGui?.Invoke();
+            _imGuiRenderer.AfterLayout();
+        }
 
         base.Draw(gameTime);
     }

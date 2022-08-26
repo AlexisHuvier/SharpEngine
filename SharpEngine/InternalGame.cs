@@ -178,7 +178,7 @@ public class InternalGame : Game
         if (_window.Debug)
         {
             _imGuiRenderer.BeforeLayout(gT);
-            _window.RenderImGui?.Invoke();
+            _window.RenderImGui?.Invoke(_window);
             _imGuiRenderer.AfterLayout();
         }
 

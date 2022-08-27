@@ -9,7 +9,9 @@ public static class Renderer
 {
     public static void RenderTexture(Window window, Texture2D texture, Vec2 position, Rect? sourceRectangle, Color color, float rotation, Vec2 origin, Vec2 scale, SpriteEffects effets, float layerDepth)
     {
-        var size = sourceRectangle != null ? sourceRectangle.Size * scale : new Vec2(texture.Width * scale.X, texture.Height * scale.Y);
+        var size = sourceRectangle != null
+            ? new Vec2(sourceRectangle.Size.X * scale.X, sourceRectangle.Size.Y * scale.Y)
+            : new Vec2(texture.Width * scale.X, texture.Height * scale.Y);
         var windowSize = window.ScreenSize;
 
         if (position.X - origin.X >= windowSize.X || position.X - origin.X + size.X <= 0 ||

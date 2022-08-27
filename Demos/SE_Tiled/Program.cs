@@ -13,6 +13,7 @@ internal static class Program
         win.TextureManager.AddTexture("sprite0", "Resources/sprite0.png");
         win.TileMapManager.AddMap("map", "Resources/map.tmx");
         win.TileMapManager.AddMap("map_tileset", "Resources/map_tileset.tmx");
+        win.TileMapManager.AddMap("map_infinite", "Resources/map_infinite.tmx");
         
         win.AddScene(new MyScene());
         win.Run();

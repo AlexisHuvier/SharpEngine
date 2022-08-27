@@ -20,6 +20,11 @@ public sealed class MyScene : Scene
         tilemapTileset.AddComponent(new TileMapComponent("map_tileset"));
         AddEntity(tilemapTileset);
 
+        var tilemapInfinite = new Entity();
+        tilemapInfinite.AddComponent(new TransformComponent(new Vec2(420, 600)));
+        tilemapInfinite.AddComponent(new TileMapComponent("map_infinite"));
+        AddEntity(tilemapInfinite);
+
         var player = new Entity();
         player.AddComponent(new TransformComponent(new Vec2(420, 300)));
         player.AddComponent(new SpriteComponent("sprite0"));

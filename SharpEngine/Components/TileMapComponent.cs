@@ -33,7 +33,7 @@ public class TileMapComponent: Component
 
         if (Entity.GetComponent<TransformComponent>() is not { } tc || tileMap.Map.Layers.Count == 0) return;
         
-        var compPosition = tc.Position - tileMap.TileSize * tileMap.Size / 2 - CameraManager.Position;
+        var compPosition = tileMap.Map.Infinite ? tc.Position - CameraManager.Position: tc.Position - tileMap.TileSize * tileMap.Size / 2 - CameraManager.Position;
         var originPosition = tileMap.TileSize / 2;
 
         foreach (var layer in tileMap.Map.Layers.Where(layer => layer.Data != null))
@@ -55,10 +55,9 @@ public class TileMapComponent: Component
                 {
                     if (chunk.Tiles[i] == 0) continue;
                     var tile = tileMap.GetTile(chunk.Tiles[i]);
-                    var position = new Vec2(compPosition.X + x * chunk.Width + tileMap.TileSize.X * Convert.ToInt32(i % chunk.Width), compPosition.Y + y * chunk.Height + tileMap.TileSize.Y * Convert.ToInt32(i / chunk.Width));
+                    var position = new Vec2(compPosition.X + x * tileMap.TileSize.X + tileMap.TileSize.X * Convert.ToInt32(i % chunk.Width), compPosition.Y + y * tileMap.TileSize.Y + tileMap.TileSize.Y * Convert.ToInt32(i / chunk.Width));
                     var texture = Entity.Scene.Window.TextureManager.GetTexture(tile.Source);
-                    Console.WriteLine($"{layer.Data!.Chunks.IndexOf(chunk)} => ({x*chunk.Width}x{y*chunk.Height}) - {position}");
-                    Renderer.RenderTexture(Entity.Scene.Window, texture, position, tile.SourceRect, Color.White, layer.Data!.Chunks.IndexOf(chunk) == 0 ? 45: 0, originPosition, Vec2.One,SpriteEffects.None, 1);
+                    Renderer.RenderTexture(Entity.Scene.Window, texture, position, tile.SourceRect, Color.White, 0, originPosition, Vec2.One,SpriteEffects.None, 1);
                 }
             }
         }

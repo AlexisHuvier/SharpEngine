@@ -16,7 +16,7 @@ public sealed class MyScene : Scene
         AddEntity(tilemap);
         
         var tilemapTileset = new Entity();
-        tilemapTileset.AddComponent(new TransformComponent(new Vec2(620, 300)));
+        tilemapTileset.AddComponent(new TransformComponent(new Vec2(620, 300), scale: new Vec2(2)));
         tilemapTileset.AddComponent(new TileMapComponent("map_tileset"));
         AddEntity(tilemapTileset);
 

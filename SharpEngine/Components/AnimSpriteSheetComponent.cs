@@ -12,7 +12,7 @@ namespace SharpEngine.Components;
 /// <summary>
 /// Composant ajoutant l'affichage d'animations à partir d'un SpriteSheet
 /// </summary>
-public class SpriteSheetComponent : Component
+public class AnimSpriteSheetComponent : Component
 {
     public string Sprite;
     public Vec2 SpriteSize;
@@ -33,7 +33,7 @@ public class SpriteSheetComponent : Component
     /// <param name="currentAnim">Animation actuelle </param>
     /// <param name="timer">Temps en ms entre chaque frame</param>
     /// <param name="displayed">Est affiché</param>
-    public SpriteSheetComponent(string sprite, Vec2 spriteSize, Dictionary<string, List<int>> animations, string currentAnim = "", float timer = 250, bool displayed = true)
+    public AnimSpriteSheetComponent(string sprite, Vec2 spriteSize, Dictionary<string, List<int>> animations, string currentAnim = "", float timer = 250, bool displayed = true)
     {
         Sprite = sprite;
         SpriteSize = spriteSize;

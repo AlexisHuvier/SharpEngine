@@ -14,13 +14,12 @@ public static class Renderer
             : new Vec2(texture.Width * scale.X, texture.Height * scale.Y);
         var windowSize = window.ScreenSize;
 
-        if (position.X - origin.X >= windowSize.X || position.X - origin.X + size.X <= 0 ||
-            position.Y - origin.Y >= windowSize.Y || position.Y - origin.Y + size.Y <= 0) return;
+        if (position.X - origin.X - size.X * scale.X >= windowSize.X || position.X - origin.X + size.X * scale.X <= 0 ||
+            position.Y - origin.Y - size.Y * scale.Y >= windowSize.Y || position.Y - origin.Y + size.Y * scale.Y <= 0) return;
         
         if (sourceRectangle is null)
             window.InternalGame.SpriteBatch.Draw(texture, position.ToMg(), null, color.ToMg(), rotation,
-                origin.ToMg(),
-                scale.ToMg(), effets, layerDepth);
+                origin.ToMg(), scale.ToMg(), effets, layerDepth);
         else
             window.InternalGame.SpriteBatch.Draw(texture, position.ToMg(), sourceRectangle.ToMg(), color.ToMg(),
                 rotation, origin.ToMg(), scale.ToMg(), effets, layerDepth);
@@ -42,8 +41,8 @@ public static class Renderer
         var size = font.MeasureString(text) * scale;
         var windowSize = window.ScreenSize;
 
-        if (position.X - origin.X >= windowSize.X || position.X - origin.X + size.X <= 0 ||
-            position.Y - origin.Y >= windowSize.Y || position.Y - origin.Y + size.Y <= 0) return;
+        if (position.X - origin.X - size.X * scale.X >= windowSize.X || position.X - origin.X + size.X * scale.X <= 0 ||
+            position.Y - origin.Y - size.Y * scale.Y >= windowSize.Y || position.Y - origin.Y + size.Y * scale.Y <= 0) return;
         
         window.InternalGame.SpriteBatch.DrawString(font, text, position.ToMg(), color.ToMg(), rotation, origin.ToMg(), scale.ToMg(), effects, layerDepth);
     }

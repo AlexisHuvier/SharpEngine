@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using SharpEngine.Core;
@@ -80,7 +81,9 @@ public class AnimSpriteSheetComponent : Component
             _currentAnim.Length <= 0 || SpriteSize == new Vec2(0) || !Animations.ContainsKey(_currentAnim)) return;
         
         var texture = Entity.Scene.Window.TextureManager.GetTexture(Sprite);
-        var positionSource = new Vec2(SpriteSize.X * (int)(Animations[_currentAnim][_currentImage] % (texture.Width / SpriteSize.X)), SpriteSize.Y * (Animations[_currentAnim][_currentImage] / (texture.Height / SpriteSize.Y)));
+        
+        // ReSharper disable once PossibleLossOfFraction
+        var positionSource = new Vec2(SpriteSize.X * (Animations[_currentAnim][_currentImage] % (texture.Width / SpriteSize.X)), SpriteSize.Y * (Animations[_currentAnim][_currentImage] / (int)(texture.Width / SpriteSize.X))); 
         Renderer.RenderTexture(Entity.Scene.Window, texture, tc.Position - CameraManager.Position, new Rect(positionSource, SpriteSize), Color.White, MathHelper.ToRadians(tc.Rotation), SpriteSize / 2, tc.Scale, SpriteEffects.None, 1);
     }
 

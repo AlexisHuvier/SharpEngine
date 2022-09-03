@@ -1,5 +1,6 @@
 ﻿using ImGuiNET;
 using SharpEngine;
+using SharpEngine.Components;
 using SharpEngine.Managers;
 using SharpEngine.Utils;
 using SharpEngine.Utils.Control;
@@ -29,11 +30,14 @@ internal static class Program
                     ImGui.Text($"Left X Axis Value : {InputManager.GetGamePadJoyStickAxis(GamePadIndex.One, GamePadJoyStickAxis.LeftX)}");
                     ImGui.Separator();
                     ImGui.Text($"Slider Value : {((Slider)window.GetCurrentScene().GetWidgets()[0]).Value}");
+                    ImGui.Separator();
+                    ImGui.Text($"Anim : {((MyScene)window.GetCurrentScene()).e.GetComponent<AnimSpriteSheetComponent>()}");
                 }
             }
         };
         
         win.FontManager.AddFont("basic", "Resources/basic.ttf");
+        win.TextureManager.AddTexture("KnightM", "Resources/KnightM.png");
 
         win.AddScene(new MyScene());
         win.Run();

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SharpEngine.Widgets;
 using SharpEngine.Components;
@@ -15,6 +16,8 @@ namespace SharpEngine;
 /// </summary>
 public class Scene
 {
+    public Action<Scene> OpenScene;
+    public Action<Scene> CloseScene;
     internal Window Window;
     protected readonly List<Entity> Entities;
     protected readonly List<Widget> Widgets;

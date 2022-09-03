@@ -102,8 +102,24 @@ public class Window
     }
 
     public Scene GetScene(int index) => Scenes[index];
-    public void SetCurrentScene(Scene scene) => CurrentScene = Scenes.IndexOf(scene);
-    public void SetCurrentScene(int sceneId) => CurrentScene = sceneId;
+
+    public void SetCurrentScene(Scene scene)
+    {
+        if(CurrentScene != -1)
+            Scenes[CurrentScene].CloseScene?.Invoke(Scenes[CurrentScene]);
+        CurrentScene = Scenes.IndexOf(scene);
+        Scenes[CurrentScene].OpenScene?.Invoke(Scenes[CurrentScene]);
+    }
+
+    public void SetCurrentScene(int sceneId)
+    {
+        
+        if(CurrentScene != -1)
+            Scenes[CurrentScene].CloseScene?.Invoke(Scenes[CurrentScene]);
+        CurrentScene = sceneId;
+        Scenes[CurrentScene].OpenScene?.Invoke(Scenes[CurrentScene]);
+    }
+
     public Scene GetCurrentScene() => Scenes[CurrentScene];
 
     public void TakeScreenshot(string fileName) => InternalGame.TakeScreenshot(fileName);

@@ -4,14 +4,12 @@ namespace SharpEngine.Utils.TileMap;
 
 public class Tile
 {
-    public readonly uint Id;
-    public readonly string Source;
-    public readonly Rect SourceRect;
+    public readonly Vec2 Position;
+    public readonly uint Type;
 
-    public Tile(uint id, string source, Rect sourceRect)
+    public Tile(Vec2 position, uint type)
     {
-        Id = id;
-        Source = source;
-        SourceRect = sourceRect;
+        Position = position;
+        Type = type;
     }
 }

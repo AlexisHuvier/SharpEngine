@@ -9,7 +9,7 @@ namespace SharpEngine.Utils.TileMap;
 public class TileMap
 {
     public readonly TiledMap Map;
-    public readonly List<Tile> Tiles;
+    public readonly List<TileType> Tiles;
     public readonly Vec2 Size;
     public readonly Vec2 TileSize;
     
@@ -19,7 +19,7 @@ public class TileMap
         Size = new Vec2(Map.Width, Map.Height);
         TileSize = new Vec2(Map.TileWidth, Map.TileHeight);
         
-        Tiles = new List<Tile>();
+        Tiles = new List<TileType>();
         var mapFolder = Path.GetDirectoryName(Map.File);
         foreach (var tileset in Map.Tilesets)
         {
@@ -31,7 +31,7 @@ public class TileMap
 
                 var source = Map.File + tile.Image.Source;
                 window.TextureManager.AddTexture(source, mapFolder + Path.DirectorySeparatorChar + tile.Image.Source);
-                Tiles.Add(new Tile(tile.Id + 1, source, null));
+                Tiles.Add(new TileType(tile.Id + 1, source, null));
             }
 
             id += (uint)tileset.Tiles.Count;
@@ -45,7 +45,7 @@ public class TileMap
                 for (var y = 0; y < nbYTile; y++)
                 {
                     for (var x = 0; x < nbXTile; x++)
-                        Tiles.Add(new Tile((uint)(id + x + y * nbXTile), source,
+                        Tiles.Add(new TileType((uint)(id + x + y * nbXTile), source,
                             new Rect(x * tileset.TileWidth, y * tileset.TileHeight, tileset.TileWidth,
                                 tileset.TileHeight)));
                 }
@@ -53,7 +53,7 @@ public class TileMap
         }
     }
 
-    public Tile GetTile(uint id)
+    public TileType GetTile(uint id)
     {
         foreach(var tile in Tiles)
             if (tile.Id == id)

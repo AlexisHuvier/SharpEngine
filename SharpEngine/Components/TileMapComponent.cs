@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework.Graphics;
 using SharpEngine.Core;
 using SharpEngine.Managers;
 using SharpEngine.Utils;
 using SharpEngine.Utils.Math;
+using SharpEngine.Utils.TileMap;
 
 namespace SharpEngine.Components;
 
@@ -13,7 +15,21 @@ namespace SharpEngine.Components;
 /// </summary>
 public class TileMapComponent: Component
 {
-    public string Map;
+    public TileMap Map;
+
+    private string TileMap
+    {
+        get => _tilemap;
+        set
+        {
+            _tilemap = value;
+            if(GetWindow() != null)
+                UpdateTileMap(_tilemap);
+        }
+    }
+    
+    private List<Layer> _layers = new();
+    private string _tilemap;
 
     /// <summary>
     /// Initialise le Composant.
@@ -22,42 +38,81 @@ public class TileMapComponent: Component
     /// <exception cref="Exception"></exception>
     public TileMapComponent(string tilemap)
     {
-        Map = tilemap;
+        TileMap = tilemap;
+    }
+
+    public void UpdateTileMap(string tilemap)
+    {
+        Map = GetWindow().TileMapManager.GetMap(tilemap);
+        
+        _layers = new List<Layer>();
+        
+        if (Entity.GetComponent<TransformComponent>() is not { } tc || Map.Map.Layers.Count == 0) return;
+        
+        var compPosition = Map.Map.Infinite ? tc.Position: tc.Position - Map.TileSize * Map.Size * tc.Scale / 2;
+
+        foreach (var layer in Map.Map.Layers.Where(layer => layer.Data != null))
+        {
+            var lay = new Layer();
+            for (var i = 0; i < layer.Data!.Tiles.Count; i++)
+            {
+                var position =
+                    new Vec2(
+                        compPosition.X + Map.TileSize.X * tc.Scale.X * Convert.ToInt32(i % Convert.ToInt32(Map.Size.X)),
+                        compPosition.Y + Map.TileSize.Y * tc.Scale.Y * Convert.ToInt32(i / Convert.ToInt32(Map.Size.X)));
+                lay.Tiles.Add(new Tile(position, layer.Data.Tiles[i]));
+            }
+
+            foreach (var chunk in layer.Data!.Chunks)
+            {
+                var chun = new Chunk();
+                var x = chunk.X;
+                var y = chunk.Y;
+                for (var i = 0; i < chunk.Tiles.Count; i++)
+                {
+                    var position = new Vec2(
+                        compPosition.X + x * Map.TileSize.X * tc.Scale.X +
+                        Map.TileSize.X * tc.Scale.X * Convert.ToInt32(i % Convert.ToInt32(chunk.Width)),
+                        compPosition.Y + y * Map.TileSize.Y * tc.Scale.Y +
+                        Map.TileSize.Y * tc.Scale.Y * Convert.ToInt32(i / Convert.ToInt32(chunk.Width)));
+                    chun.Tiles.Add(new Tile(position, chunk.Tiles[i]));
+                }
+                lay.Chunks.Add(chun);
+            }
+            _layers.Add(lay);
+        }
+    }
+
+    public override void Initialize()
+    {
+        UpdateTileMap(_tilemap);
     }
 
     public override void Draw(GameTime gameTime)
     {
         base.Draw(gameTime);
-
-        var tileMap = GetWindow().TileMapManager.GetMap(Map);
-
-        if (Entity.GetComponent<TransformComponent>() is not { } tc || tileMap.Map.Layers.Count == 0) return;
+        if (Entity.GetComponent<TransformComponent>() is not { } tc || _layers.Count == 0) return;
         
-        var compPosition = tileMap.Map.Infinite ? tc.Position - CameraManager.Position: tc.Position - tileMap.TileSize * tileMap.Size * tc.Scale / 2 - CameraManager.Position;
-        var originPosition = tileMap.TileSize * tc.Scale / 2;
+        var originPosition = Map.TileSize * tc.Scale / 2;
 
-        foreach (var layer in tileMap.Map.Layers.Where(layer => layer.Data != null))
+        foreach (var layer in _layers)
         {
-            for(var i = 0; i < layer.Data!.Tiles.Count; i++)
+            foreach (var tile in layer.Tiles)
             {
-                if (layer.Data.Tiles[i] == 0) continue;
-                var tile = tileMap.GetTile(layer.Data.Tiles[i]);
-                var position = new Vec2(compPosition.X + tileMap.TileSize.X * tc.Scale.X * Convert.ToInt32(i % Convert.ToInt32(tileMap.Size.X)), compPosition.Y + tileMap.TileSize.Y * tc.Scale.Y * Convert.ToInt32(i / Convert.ToInt32(tileMap.Size.X)));
-                var texture = Entity.Scene.Window.TextureManager.GetTexture(tile.Source);
-                Renderer.RenderTexture(Entity.Scene.Window, texture, position, tile.SourceRect, Color.White, 0, originPosition, tc.Scale, SpriteEffects.None, 1);
+                if(tile.Type == 0) continue;
+                var tiletype = Map.GetTile(tile.Type);
+                var texture = Entity.Scene.Window.TextureManager.GetTexture(tiletype.Source);
+                Renderer.RenderTexture(Entity.Scene.Window, texture, tile.Position - CameraManager.Position, tiletype.SourceRect, Color.White, 0, originPosition, tc.Scale, SpriteEffects.None, 1);
             }
 
-            foreach (var chunk in layer.Data!.Chunks)
+            foreach (var chunk in layer.Chunks)
             {
-                var x = chunk.X;
-                var y = chunk.Y;
-                for (var i = 0; i < chunk.Tiles.Count; i++)
+                foreach (var tile in chunk.Tiles)
                 {
-                    if (chunk.Tiles[i] == 0) continue;
-                    var tile = tileMap.GetTile(chunk.Tiles[i]);
-                    var position = new Vec2(compPosition.X + x * tileMap.TileSize.X * tc.Scale.X + tileMap.TileSize.X * tc.Scale.X * Convert.ToInt32(i % chunk.Width), compPosition.Y + y * tileMap.TileSize.Y * tc.Scale.Y + tileMap.TileSize.Y * tc.Scale.Y * Convert.ToInt32(i / chunk.Width));
-                    var texture = Entity.Scene.Window.TextureManager.GetTexture(tile.Source);
-                    Renderer.RenderTexture(Entity.Scene.Window, texture, position, tile.SourceRect, Color.White, 0, originPosition, tc.Scale,SpriteEffects.None, 1);
+                    if(tile.Type == 0) continue;
+                    var tiletype = Map.GetTile(tile.Type);
+                    var texture = Entity.Scene.Window.TextureManager.GetTexture(tiletype.Source);
+                    Renderer.RenderTexture(Entity.Scene.Window, texture, tile.Position - CameraManager.Position, tiletype.SourceRect, Color.White, 0, originPosition, tc.Scale, SpriteEffects.None, 1);
                 }
             }
         }

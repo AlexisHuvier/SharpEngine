@@ -24,6 +24,11 @@ public sealed class MyScene : Scene
         tilemapInfinite.AddComponent(new TransformComponent(new Vec2(420, 600)));
         tilemapInfinite.AddComponent(new TileMapComponent("map_infinite"));
         AddEntity(tilemapInfinite);
+        
+        var ent = new Entity();
+        ent.AddComponent(new TransformComponent(new Vec2(320, 300)));
+        ent.AddComponent(new SpriteComponent("sprite0"));
+        AddEntity(ent);
 
         var player = new Entity();
         player.AddComponent(new TransformComponent(new Vec2(420, 300)));
@@ -43,5 +48,7 @@ public sealed class MyScene : Scene
         Console.WriteLine($"Monogame Version : {DebugManager.GetMonogameVersion()}");
         Console.WriteLine($"FPS : {DebugManager.GetFps()}");
         Console.WriteLine($"GC Memory : {DebugManager.GetGcMemory()}");
+        Console.WriteLine($"POSITION : {GetEntities()[^1].GetComponent<TransformComponent>().Position}");
+        Console.WriteLine($"IS MOVING : {GetEntities()[^1].GetComponent<ControlComponent>().IsMoving}");
     }
 }

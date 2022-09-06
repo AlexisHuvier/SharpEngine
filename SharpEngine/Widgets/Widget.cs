@@ -35,6 +35,7 @@ public class Widget
 
     public void SetParent(Widget widget) => Parent = widget;
     public Widget GetParent() => Parent;
+    public Vec2 GetRealPosition() => Parent != null ? Position + Parent.Position : Position;
 
     public List<Widget> GetChilds() => _childs;
 

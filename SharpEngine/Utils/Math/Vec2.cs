@@ -35,7 +35,6 @@ public class Vec2
     public float LengthSquared() => X * X + Y * Y;
 
     public Vector2 ToMg() => new(X, Y);
-    public tainicom.Aether.Physics2D.Common.Vector2 ToAetherPhysics() => new(X, Y);
 
     public override bool Equals(object obj)
     {

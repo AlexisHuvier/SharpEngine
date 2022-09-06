@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Xna.Framework;
 using SharpEngine.Widgets;
 using SharpEngine.Components;
 using SharpEngine.Entities;
-using SharpEngine.Utils;
 using SharpEngine.Utils.Control;
-using SharpEngine.Utils.Math;
 using tainicom.Aether.Physics2D.Dynamics;
+using GameTime = SharpEngine.Utils.Math.GameTime;
 
 namespace SharpEngine;
 
@@ -29,7 +29,7 @@ public class Scene
         Entities = new List<Entity>();
         Widgets = new List<Widget>();
 
-        World = new World(new tainicom.Aether.Physics2D.Common.Vector2(0, gravity))
+        World = new World(new Vector2(0, gravity))
         {
             ContactManager =
             {

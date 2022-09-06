@@ -21,7 +21,7 @@ public class RopeJoint: Joint
     public RJoint ToAetherPhysics(Body from)
     {
         var joint = new RJoint(from, Target.GetComponent<PhysicsComponent>().Body, 
-            FromPosition.ToAetherPhysics(), TargetPosition.ToAetherPhysics());
+            FromPosition.ToMg(), TargetPosition.ToMg());
         if (System.Math.Abs(MaxLength - (-1)) > InternalUtils.FloatTolerance)
             joint.MaxLength = MaxLength;
         return joint;

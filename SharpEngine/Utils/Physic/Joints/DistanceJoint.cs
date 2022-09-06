@@ -25,7 +25,7 @@ public class DistanceJoint: Joint
     public DJoint ToAetherPhysics(Body from)
     {
         var joint = new DJoint(from, Target.GetComponent<PhysicsComponent>().Body, 
-            FromPosition.ToAetherPhysics(), TargetPosition.ToAetherPhysics());
+            FromPosition.ToMg(), TargetPosition.ToMg());
         if (System.Math.Abs(Length - (-1)) > InternalUtils.FloatTolerance)
             joint.Length = Length;
         if (System.Math.Abs(Frequency - (-1)) > InternalUtils.FloatTolerance)

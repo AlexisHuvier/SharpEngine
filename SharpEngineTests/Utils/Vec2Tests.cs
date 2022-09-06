@@ -46,7 +46,6 @@ public class Vec2Tests
     public void Convert()
     {
         Assert.IsInstanceOfType(new Vec2(0).ToMg(), typeof(Microsoft.Xna.Framework.Vector2));
-        Assert.IsInstanceOfType(new Vec2(0).ToAetherPhysics(), typeof(tainicom.Aether.Physics2D.Common.Vector2));
     }
 
     [TestMethod]

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Microsoft.Xna.Framework;
 using SharpEngine.Utils.Math;
 using SharpEngine.Utils.Physic;
 using SharpEngine.Utils.Physic.Joints;
-using tainicom.Aether.Physics2D.Common;
 using tainicom.Aether.Physics2D.Dynamics;
 using tainicom.Aether.Physics2D.Dynamics.Contacts;
+using GameTime = SharpEngine.Utils.Math.GameTime;
 
 namespace SharpEngine.Components;
 
@@ -103,11 +104,11 @@ public class PhysicsComponent : Component
                 case FixtureType.Rectangle:
                     var size = info.Parameter as Vec2;
                     Debug.Assert(size != null, nameof(size) + " != null");
-                    fixture = Body.CreateRectangle(size.X, size.Y, info.Density, info.Offset.ToAetherPhysics());
+                    fixture = Body.CreateRectangle(size.X, size.Y, info.Density, info.Offset.ToMg());
                     break;
                 case FixtureType.Circle:
                     var radius = Convert.ToSingle(info.Parameter);
-                    fixture = Body.CreateCircle(radius, info.Density, info.Offset.ToAetherPhysics());
+                    fixture = Body.CreateCircle(radius, info.Density, info.Offset.ToMg());
                     break;
                 default:
                     throw new Exception($"Unknown Type of Fixture : {info.Type}");

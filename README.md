@@ -5,8 +5,8 @@ C# 2D Game Engine
 ## Installation, Download, Usage
 
 - Version 0.7.X : <https://lycos-novation.github.io/SharpEngine-Docs/0.7/>
-- Version 0.8.0 (Last Release) : <https://lycos-novation.github.io/SharpEngine-Docs/0.8/>
-- Version Indev : <https://lycos-novation.github.io/SharpEngine-Docs/indev/>
+- Version 0.8.X : <https://lycos-novation.github.io/SharpEngine-Docs/0.8/>
+- Version Indev (NOT UPDATED) : <https://lycos-novation.github.io/SharpEngine-Docs/indev/>
 
 ## Dependencies
 
@@ -14,6 +14,7 @@ C# 2D Game Engine
 - Monogame
 - Aether Physics
 - SpriteFontPlus
+- ImGui.NET
 
 ## Features
 

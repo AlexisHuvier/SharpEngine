@@ -42,7 +42,7 @@ public class Slider : Widget
 
         if (InputManager.IsMouseButtonDown(MouseButton.Left))
         {
-            var realPosition = (Parent != null ? Position + Parent.Position : Position) - Size / 2;
+            var realPosition = GetRealPosition() - Size / 2;
             if (!InputManager.MouseInRectangle(realPosition, Size)) return;
             
             

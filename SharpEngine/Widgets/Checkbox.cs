@@ -51,7 +51,7 @@ public class Checkbox : Widget
             size = new Vec2(20) * Scale;
 
         if (InputManager.IsMouseButtonPressed(MouseButton.Left) &&
-            InputManager.MouseInRectangle(Position - size / 2, new Vec2(20) * Scale))
+            InputManager.MouseInRectangle(GetRealPosition() - size / 2, new Vec2(20) * Scale))
             IsChecked = !IsChecked;
     }
 

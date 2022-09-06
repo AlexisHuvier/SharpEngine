@@ -54,8 +54,8 @@ public class Button: Widget
 
         if (!Active)
             return;
-
-        if (InputManager.MouseInRectangle(new Rect(Position - Size / 2, Size)))
+        
+        if (InputManager.MouseInRectangle(new Rect(GetRealPosition() - Size / 2, Size)))
         {
             if (InputManager.IsMouseButtonPressed(MouseButton.Left) && Command != null)
                 Command(this);

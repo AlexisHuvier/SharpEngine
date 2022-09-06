@@ -24,14 +24,19 @@ public class PhysicsComponent : Component
     private BodyType _bodyType;
     private List<FixtureInfo> _fixtures = new();
     private List<Joint> _joints = new();
+    private bool _fixedRotation;
+    private bool _ignoreGravity;
 
     /// <summary>
     /// Initialise le Composant
     /// </summary>
     /// <param name="bodyType">Type de corps</param>
-    public PhysicsComponent(BodyType bodyType = BodyType.Dynamic)
+    /// <param name="fixedRotation">Bloquage de la rotation</param>
+    public PhysicsComponent(BodyType bodyType = BodyType.Dynamic, bool ignoreGravity = false, bool fixedRotation = false)
     {
         _bodyType = bodyType;
+        _fixedRotation = fixedRotation;
+        _ignoreGravity = ignoreGravity;
     }
 
     public Vec2 GetPosition() => new(Body.Position.X, Body.Position.Y);
@@ -88,6 +93,8 @@ public class PhysicsComponent : Component
         
         Body.Rotation = (float)(tc.Rotation * Math.PI / 180f);
         Body.Position = new Vector2(tc.Position.X, tc.Position.Y);
+        Body.FixedRotation = _fixedRotation;
+        Body.IgnoreGravity = _ignoreGravity;
         Body.OnCollision += OnCollision;
         Body.OnSeparation += OnSeparation;
     }

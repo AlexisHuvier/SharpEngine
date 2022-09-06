@@ -6,6 +6,7 @@ using SharpEngine.Widgets;
 using SharpEngine.Components;
 using SharpEngine.Entities;
 using SharpEngine.Utils.Control;
+using tainicom.Aether.Physics2D.Diagnostics;
 using tainicom.Aether.Physics2D.Dynamics;
 using GameTime = SharpEngine.Utils.Math.GameTime;
 
@@ -22,6 +23,7 @@ public class Scene
     protected readonly List<Entity> Entities;
     protected readonly List<Widget> Widgets;
     internal World World;
+    private DebugView _debugView;
 
     public Scene(int gravity = 200)
     {
@@ -38,6 +40,11 @@ public class Scene
                 CollideMultithreadThreshold = 256
             }
         };
+        _debugView = new DebugView(World);
+        _debugView.AppendFlags(DebugViewFlags.Shape);
+        _debugView.AppendFlags(DebugViewFlags.CenterOfMass);
+        _debugView.AppendFlags(DebugViewFlags.DebugPanel);
+        _debugView.AppendFlags(DebugViewFlags.PerformanceGraph);
     }
 
     public List<Widget> GetWidgets() => Widgets;
@@ -88,6 +95,7 @@ public class Scene
 
     public virtual void LoadContent()
     {
+        _debugView.LoadContent(Window.InternalGame.GraphicsDevice, Window.InternalGame.Content);
         foreach (var ent in Entities)
             ent.LoadContent();
         foreach (var widget in Widgets)
@@ -105,6 +113,10 @@ public class Scene
     public virtual void Update(GameTime gameTime)
     {
         World.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
+        
+        if(Window.Debug)
+            _debugView.UpdatePerformanceGraph(World.UpdateTime);
+        
         for (var i = Entities.Count - 1; i > -1; i--)
             Entities[i].Update(gameTime);
         for (var i = Widgets.Count - 1; i > -1; i--)
@@ -142,5 +154,12 @@ public class Scene
             ent.Draw(gameTime);
         foreach (var widget in Widgets)
             widget.Draw(gameTime);
+        
+        if (Window.Debug)
+        {
+            var i = Matrix.CreateOrthographicOffCenter(0, Window.ScreenSize.X, Window.ScreenSize.Y, 0, -100, 10);
+            var view = Matrix.CreateScale(1);
+            _debugView.RenderDebugData(ref i, ref view);
+        }
     }
 }

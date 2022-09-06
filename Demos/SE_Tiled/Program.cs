@@ -8,7 +8,7 @@ internal static class Program
 {
     private static void Main()
     {
-        var win = new Window(new Vec2(900, 600), Color.CornflowerBlue);
+        var win = new Window(new Vec2(900, 600), Color.CornflowerBlue, debug: true);
 
         win.TextureManager.AddTexture("sprite0", "Resources/sprite0.png");
         win.TileMapManager.AddMap("map", "Resources/map.tmx");

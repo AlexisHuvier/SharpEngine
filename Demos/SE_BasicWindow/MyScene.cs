@@ -24,6 +24,10 @@ internal class MyScene : Scene
         }, "idle", 100f));
         AddEntity(e);
         AddWidget(new Slider(new Vec2(200, 400), Color.Orange, font: "basic"));
+        AddWidget(new ColorRect(new Vec2(400, 400), new Vec2(50), Color.OrangeRed));
+        AddWidget(new Frame(new Vec2(450, 300), new Vec2(50), new Vec2(10), Color.Brown));
+        AddWidget(new Image(new Vec2(600, 400), "KnightM", null, new Rect(16, 0, 16, 28), true, true, new Vec2(3)));
+        AddWidget(new Selector(new Vec2(200, 500), "basic", 50, new List<string> { "one", "two", "three" }));
     }
 
     public override void Update(GameTime gameTime)

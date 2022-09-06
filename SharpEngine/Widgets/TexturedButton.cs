@@ -96,7 +96,7 @@ public class TexturedButton : Widget
         Renderer.RenderTexture(Scene.Window, Scene.Window.TextureManager.GetTexture(Texture), new Rect(realPosition - (Size - new Vec2(4)) / 2, (Size - new Vec2(4))), Color.White);
 
         var spriteFont = Scene.Window.FontManager.GetFont(Font);
-        Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, FontColor, 0, spriteFont.MeasureString(Text) / 2, new Vec2(1), SpriteEffects.None, 1);
+        Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, FontColor, 0, spriteFont.MeasureString(Text) / 2, Vec2.One, SpriteEffects.None, 1);
 
         if(_state == ButtonState.Click || !Active)
             Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), new Color(0, 0, 0, 128));

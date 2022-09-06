@@ -70,8 +70,7 @@ public class Button: Widget
     {
         base.Draw(gameTime);
 
-        if (!Displayed || Scene == null)
-            return;
+        if (!Displayed || Scene == null) return;
 
         var realPosition = Parent != null ? Position + Parent.Position : Position;
         var blankTexture = Scene.Window.TextureManager.GetTexture("blank");
@@ -83,7 +82,7 @@ public class Button: Widget
         Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - (Size - new Vec2(4)) / 2, (Size - new Vec2(4))), BackgroundColor);
 
         var spriteFont = Scene.Window.FontManager.GetFont(Font);
-        Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, FontColor, 0, spriteFont.MeasureString(Text) / 2, new Vec2(1), SpriteEffects.None, 1);
+        Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, FontColor, 0, spriteFont.MeasureString(Text) / 2, Vec2.One, SpriteEffects.None, 1);
 
         if(_state == ButtonState.Click || !Active)
             Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), new Color(0, 0, 0, 128));

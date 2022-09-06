@@ -32,10 +32,8 @@ public class Label : Widget
     {
         base.Draw(gameTime);
 
-        if (!Displayed || Scene == null)
+        if (!Displayed || Scene == null || Text.Length <= 0 || Font.Length <= 0)
             return;
-
-        if (Text.Length <= 0 || Font.Length <= 0) return;
         
         var realPosition = Parent != null ? Position + Parent.Position : Position;
         var spriteFont = Scene.Window.FontManager.GetFont(Font);

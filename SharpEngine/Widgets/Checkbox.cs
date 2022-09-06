@@ -78,7 +78,6 @@ public class Checkbox : Widget
         }
         else
         {
-            var size = new Vec2(20) * Scale;
             Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - new Vec2(20) * Scale / 2, new Vec2(20) * Scale), Color.Black);
             Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - new Vec2(16) * Scale / 2, new Vec2(16) * Scale), Color.White);
             if (IsChecked)

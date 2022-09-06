@@ -55,7 +55,7 @@ internal sealed class MyScene : Scene
         ent6.AddComponent(new TransformComponent(new Vec2(620, 50)));
         ent6.AddComponent(new SpriteComponent("test"));
         ent6.AddComponent(new ControlComponent(ControlType.FourDirection));
-        var phys3 = ent6.AddComponent(new PhysicsComponent(BodyType.Kinematic));
+        var phys3 = ent6.AddComponent(new PhysicsComponent(ignoreGravity: true, fixedRotation: true));
         phys3.AddRectangleCollision(new Vec2(44), restitution: 1f);
         phys3.AddJoin(new RopeJoint(ent5, maxLength: 100));
         AddEntity(ent6);

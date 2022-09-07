@@ -45,7 +45,7 @@ public class Image : Widget
         if (!Displayed || Texture.Length <= 0) return;
         
         var sprite = Scene.Window.TextureManager.GetTexture(Texture);
-        var realPosition = Parent != null ? Position + Parent.Position : Position;
+        var realPosition = Parent != null ? Position + Parent.GetRealPosition() : Position;
 
         var effects = SpriteEffects.None;
         if (FlipX)

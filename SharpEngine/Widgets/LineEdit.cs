@@ -90,7 +90,7 @@ public class LineEdit : Widget
         if (Scene == null || !Displayed)
             return;
 
-        var realPosition = Parent != null ? Position + Parent.Position : Position;
+        var realPosition = Parent != null ? Position + Parent.GetRealPosition() : Position;
         var blankTexture = Scene.Window.TextureManager.GetTexture("blank");
         Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), Color.Black);
         Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - (Size - new Vec2(4)) / 2, Size - new Vec2(4)), Color.White);

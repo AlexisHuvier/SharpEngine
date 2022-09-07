@@ -72,7 +72,7 @@ public class Button: Widget
 
         if (!Displayed || Scene == null) return;
 
-        var realPosition = Parent != null ? Position + Parent.Position : Position;
+        var realPosition = Parent != null ? Position + Parent.GetRealPosition() : Position;
         var blankTexture = Scene.Window.TextureManager.GetTexture("blank");
 
         if (_state != ButtonState.Click && Active && _state == ButtonState.Hovered)

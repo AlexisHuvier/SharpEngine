@@ -62,7 +62,7 @@ public class Checkbox : Widget
         if (Scene == null || !Displayed)
             return;
 
-        var realPosition = Parent != null ? Position + Parent.Position : Position;
+        var realPosition = Parent != null ? Position + Parent.GetRealPosition() : Position;
         var blankTexture = Scene.Window.TextureManager.GetTexture("blank");
 
         if (Text.Length > 0 && Font.Length > 0)

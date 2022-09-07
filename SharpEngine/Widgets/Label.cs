@@ -35,7 +35,7 @@ public class Label : Widget
         if (!Displayed || Scene == null || Text.Length <= 0 || Font.Length <= 0)
             return;
         
-        var realPosition = Parent != null ? Position + Parent.Position : Position;
+        var realPosition = Parent != null ? Position + Parent.GetRealPosition() : Position;
         var spriteFont = Scene.Window.FontManager.GetFont(Font);
         Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, Color, 0, spriteFont.MeasureString(Text) / 2, new Vec2(1), SpriteEffects.None, 1);
     }

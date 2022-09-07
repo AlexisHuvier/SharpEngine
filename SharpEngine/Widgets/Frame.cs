@@ -31,7 +31,7 @@ public class Frame: Widget
         if (!Displayed || Scene == null) return;
 
         var texture = Scene.Window.TextureManager.GetTexture("blank");
-        var realPosition = Parent != null ? Position + Parent.Position : Position;
+        var realPosition = Parent != null ? Position + Parent.GetRealPosition() : Position;
         
         Renderer.RenderTexture(Scene.Window, texture, new Rect(realPosition - Size / 2, Size.X, BorderSize.Y), Color);
         Renderer.RenderTexture(Scene.Window, texture, new Rect(realPosition - Size / 2, BorderSize.X, Size.Y), Color);

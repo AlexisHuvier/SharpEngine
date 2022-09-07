@@ -104,8 +104,8 @@ public class Widget
 
     public virtual void Update(GameTime gameTime)
     {
-        foreach (var widget in _childs)
-            widget.Update(gameTime);
+        for(var i = _childs.Count - 1; i > -1; i--)
+            _childs[i].Update(gameTime);
     }
 
     public virtual void Draw(GameTime gameTime)

@@ -23,11 +23,10 @@ public class Selector : Widget
     /// <param name="texts">Liste des possibilités</param>
     public Selector(Vec2 position = null, string font = "", int sizeBetweenButtons = 0, List<string> texts = null) : base(position)
     {
-        var font1 = font;
         _texts = texts ?? new List<string>();
         _selected = 0;
 
-        var leftButton = AddChild(new Button(new Vec2(- 20 - sizeBetweenButtons / 2f, 0), "<", font1,
+        var leftButton = AddChild(new Button(new Vec2(- 20 - sizeBetweenButtons / 2f, 0), "<", font,
             new Vec2(20)));
         leftButton.Command = _ =>
         {
@@ -38,7 +37,7 @@ public class Selector : Widget
             _text.Text = _texts[_selected];
         };
 
-        var rightButton = AddChild(new Button(new Vec2(20 + sizeBetweenButtons / 2f, 0), ">", font1, new Vec2(20)));
+        var rightButton = AddChild(new Button(new Vec2(20 + sizeBetweenButtons / 2f, 0), ">", font, new Vec2(20)));
         rightButton.Command = _ =>
         {
             if (_selected == _texts.Count - 1)
@@ -48,7 +47,7 @@ public class Selector : Widget
             _text.Text = _texts[_selected];
         };
 
-        _text = AddChild(new Label(Vec2.Zero, _texts[_selected], font1));
+        _text = AddChild(new Label(Vec2.Zero, _texts[_selected], font));
     }
 
     public string GetValue() => _texts[_selected];

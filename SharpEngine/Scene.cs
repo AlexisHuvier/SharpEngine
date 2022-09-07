@@ -69,7 +69,7 @@ public class Scene
 
     public List<Entity> GetEntities() => Entities;
 
-    public virtual Entity AddEntity(Entity ent)
+    public virtual T AddEntity<T>(T ent) where T: Entity
     {
         ent.SetScene(this);
         Entities.Add(ent);

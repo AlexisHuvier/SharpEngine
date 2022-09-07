@@ -69,10 +69,11 @@ public class Scene
 
     public List<Entity> GetEntities() => Entities;
 
-    public virtual void AddEntity(Entity ent)
+    public virtual Entity AddEntity(Entity ent)
     {
         ent.SetScene(this);
         Entities.Add(ent);
+        return ent;
     }
 
     public virtual void RemoveEntity(Entity ent)

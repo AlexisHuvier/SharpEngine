@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
+using SharpEngine.Entities;
 using SharpEngine.Utils.Math;
 using SharpEngine.Utils.Physic;
 using SharpEngine.Utils.Physic.Joints;
@@ -97,6 +98,18 @@ public class PhysicsComponent : Component
         Body.IgnoreGravity = _ignoreGravity;
         Body.OnCollision += OnCollision;
         Body.OnSeparation += OnSeparation;
+    }
+
+    public virtual void RemoveBody()
+    {
+        Entity.Scene.World.Remove(Body);
+    }
+
+    public override void SetEntity(Entity entity)
+    {
+        base.SetEntity(entity);
+        if(entity == null && Body != null)
+            RemoveBody();
     }
 
     public override void Update(GameTime gameTime)

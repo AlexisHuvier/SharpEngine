@@ -36,7 +36,6 @@ public class Entity
             if (component.GetType() == typeof(T))
                 return (T)component;
         }
-
         return null;
     }
 

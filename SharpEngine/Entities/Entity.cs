@@ -45,7 +45,13 @@ public class Entity
         _components.Remove(component);
     }
 
-    public virtual void SetScene(Scene scene) => Scene = scene;
+    public virtual void SetScene(Scene scene)
+    {
+        if(scene == null && GetComponent<PhysicsComponent>() is {} phys)
+            phys.RemoveBody();
+        Scene = scene;
+    }
+    
     public Scene GetScene() => Scene;
 
     public virtual void Initialize() 

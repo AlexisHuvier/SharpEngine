@@ -89,6 +89,9 @@ internal sealed class MyScene : Scene
         }
         
         
+        if(InputManager.IsKeyPressed(Key.V))
+            RemoveEntity(Entities[7]);
+
         if (InputManager.IsKeyPressed(Key.A))
         {
             Console.WriteLine($"SE Version : {DebugManager.GetSharpEngineVersion()}");

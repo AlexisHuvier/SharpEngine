@@ -4,6 +4,7 @@ using SharpEngine.Entities;
 using SharpEngine.Managers;
 using SharpEngine.Utils.Control;
 using SharpEngine.Utils.Math;
+using SharpEngine.Utils.Physic;
 using SharpEngine.Utils.Physic.Joints;
 using tainicom.Aether.Physics2D.Dynamics;
 
@@ -48,7 +49,7 @@ internal sealed class MyScene : Scene
         var ent5 = new Entity();
         ent5.AddComponent(new TransformComponent(new Vec2(620, 100)));
         ent5.AddComponent(new SpriteComponent("test"));
-        ent5.AddComponent(new PhysicsComponent()).AddRectangleCollision(new Vec2(44), restitution: 1f);
+        ent5.AddComponent(new PhysicsComponent()).AddRectangleCollision(new Vec2(44), restitution: 1f, tag: FixtureTag.IgnoreCollisions);
         AddEntity(ent5);
         
         var ent6 = new Entity();

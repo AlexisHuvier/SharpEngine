@@ -51,7 +51,8 @@ public class PhysicsComponent : Component
     public int GetRotation() => (int)(Body.Rotation * 180 / Math.PI);
     public void SetRotation(int rotation) => Body.Rotation = (float)(rotation * Math.PI / 180f);
 
-    public void AddRectangleCollision(Vec2 size, Vec2 offset = null, float density = 1f, float restitution = 0.5f, float friction = 0.5f)
+    public void AddRectangleCollision(Vec2 size, Vec2 offset = null, float density = 1f, float restitution = 0.5f, 
+        float friction = 0.5f, FixtureTag tag = FixtureTag.Normal, Func<Fixture, Fixture, Contact, bool> onCollision = null)
     {
         var fixture = new FixtureInfo()
         {
@@ -62,11 +63,13 @@ public class PhysicsComponent : Component
             Parameter = size,
             Offset = offset ?? new Vec2(0),
             Tag = tag,
+            OnCollision = onCollision
         };
         _fixtures.Add(fixture);
     }
 
-    public void AddCircleCollision(float radius, Vec2 offset = null, float density = 1f, float restitution = 0.5f, float friction = 0.5f)
+    public void AddCircleCollision(float radius, Vec2 offset = null, float density = 1f, float restitution = 0.5f, 
+        float friction = 0.5f, FixtureTag tag = FixtureTag.Normal, Func<Fixture, Fixture, Contact, bool> onCollision = null)
     {
         var fixture = new FixtureInfo()
         {
@@ -77,6 +80,7 @@ public class PhysicsComponent : Component
             Parameter = radius,
             Offset = offset ?? new Vec2(0),
             Tag = tag,
+            OnCollision = onCollision
         };
         _fixtures.Add(fixture);
     }
@@ -135,6 +139,7 @@ public class PhysicsComponent : Component
                 default:
                     throw new Exception($"Unknown Type of Fixture : {info.Type}");
             }
+            fixture.OnCollision += (sender, other, contact) => info.OnCollision?.Invoke(sender, other, contact) ?? true;
             fixture.Tag = info.Tag;
             fixture.Restitution = info.Restitution;
             fixture.Friction = info.Friction;

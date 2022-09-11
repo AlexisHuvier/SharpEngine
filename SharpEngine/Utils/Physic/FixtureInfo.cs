@@ -10,4 +10,5 @@ public class FixtureInfo
     public FixtureType Type;
     public object Parameter;
     public Vec2 Offset;
+    public FixtureTag Tag;
 }

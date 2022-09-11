@@ -60,7 +60,8 @@ public class PhysicsComponent : Component
             Friction = friction,
             Type = FixtureType.Rectangle,
             Parameter = size,
-            Offset = offset ?? new Vec2(0)
+            Offset = offset ?? new Vec2(0),
+            Tag = tag,
         };
         _fixtures.Add(fixture);
     }
@@ -74,7 +75,8 @@ public class PhysicsComponent : Component
             Friction = friction,
             Type = FixtureType.Circle,
             Parameter = radius,
-            Offset = offset ?? new Vec2(0)
+            Offset = offset ?? new Vec2(0),
+            Tag = tag,
         };
         _fixtures.Add(fixture);
     }
@@ -133,6 +135,7 @@ public class PhysicsComponent : Component
                 default:
                     throw new Exception($"Unknown Type of Fixture : {info.Type}");
             }
+            fixture.Tag = info.Tag;
             fixture.Restitution = info.Restitution;
             fixture.Friction = info.Friction;
         }
@@ -163,8 +166,18 @@ public class PhysicsComponent : Component
         tc.Position.Y = Body.Position.Y;
         tc.Rotation = (int)(Body.Rotation * 180 / Math.PI);
     }
+
+    private bool OnCollision(Fixture sender, Fixture other, Contact contact)
+    {
+        var result = true;
+        if (CollisionCallback != null)
+            result = CollisionCallback(sender, other, contact);
+
+        if ((FixtureTag)sender.Tag == FixtureTag.IgnoreCollisions || (FixtureTag)other.Tag == FixtureTag.IgnoreCollisions)
+            result = false;
+        return result;
+    }
     
-    private bool OnCollision(Fixture sender, Fixture other, Contact contact) => CollisionCallback == null || CollisionCallback(sender, other, contact);
     private void OnSeparation(Fixture sender, Fixture other, Contact contact) => SeparationCallback?.Invoke(sender, other, contact);
     public override string ToString() => $"PhysicsComponent(body={Body}, nbFixtures={_fixtures.Count})";
 }

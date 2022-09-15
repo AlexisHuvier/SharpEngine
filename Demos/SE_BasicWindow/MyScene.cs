@@ -29,6 +29,7 @@ internal class MyScene : Scene
         AddWidget(new Frame(new Vec2(450, 300), new Vec2(50), new Vec2(10), Color.Brown, Color.Aqua));
         AddWidget(new Image(new Vec2(600, 400), "KnightM", null, new Rect(16, 0, 16, 28), true, true, new Vec2(3)));
         AddWidget(new Selector(new Vec2(200, 500), "basic", 50, new List<string> { "one", "two", "three" }));
+        AddWidget(new Image(new Vec2(100, 500), "KnightM", new Vec2(200, 200), rotation: 45));
     }
 
     public override void Update(GameTime gameTime)

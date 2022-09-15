@@ -1,7 +1,9 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using SharpEngine.Core;
-using SharpEngine.Utils;
 using SharpEngine.Utils.Math;
+using Color = SharpEngine.Utils.Color;
+using GameTime = SharpEngine.Utils.Math.GameTime;
 
 namespace SharpEngine.Widgets;
 
@@ -59,11 +61,12 @@ public class Image : Widget
         if (SourceRect == null)
         { 
             var scale = Size == null ? Scale : new Vec2(Size.X / sprite.Width * Scale.X, Size.Y / sprite.Height * Scale.Y);
-            Renderer.RenderTexture(Scene.Window, sprite, realPosition, null, Color.White, Rotation,
-                new Vec2(sprite.Width, sprite.Height) / 2, scale, effects, 1);
+            Renderer.RenderTexture(Scene.Window, sprite, realPosition, null, Color.White, 
+                MathHelper.ToRadians(Rotation), new Vec2(sprite.Width, sprite.Height) / 2, scale, 
+                effects, 1);
         }
         else
-            Renderer.RenderTexture(Scene.Window, sprite, realPosition, SourceRect, Color.Wheat, Rotation, SourceRect.Size / 2,
-                Scale, effects, 1);
+            Renderer.RenderTexture(Scene.Window, sprite, realPosition, SourceRect, Color.Wheat, 
+                MathHelper.ToRadians(Rotation), SourceRect.Size / 2, Scale, effects, 1);
     }
 }

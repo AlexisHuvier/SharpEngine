@@ -57,8 +57,11 @@ public class Image : Widget
             effects |= SpriteEffects.FlipVertically;
 
         if (SourceRect == null)
-                Size == null ? new Vec2(sprite.Width, sprite.Height) / 2 : Size  / 2, Scale, effects, 1);
+        { 
+            var scale = Size == null ? Scale : new Vec2(Size.X / sprite.Width * Scale.X, Size.Y / sprite.Height * Scale.Y);
             Renderer.RenderTexture(Scene.Window, sprite, realPosition, null, Color.White, Rotation,
+                new Vec2(sprite.Width, sprite.Height) / 2, scale, effects, 1);
+        }
         else
             Renderer.RenderTexture(Scene.Window, sprite, realPosition, SourceRect, Color.Wheat, Rotation, SourceRect.Size / 2,
                 Scale, effects, 1);

@@ -16,6 +16,7 @@ public class Image : Widget
     public bool FlipX;
     public bool FlipY;
     public Vec2 Scale;
+    public int Rotation;
 
     /// <summary>
     /// Initialise le Widget.
@@ -27,8 +28,9 @@ public class Image : Widget
     /// <param name="flipX">Si l'image est retourné en X</param>
     /// <param name="flipY">Si l'image est retourné en Y</param>
     /// <param name="scale">Scale de l'image</param>
+    /// <param name="rotation">Rotation de l'image</param>
     public Image(Vec2 position = null, string texture = "", Vec2 size = null, Rect sourceRect = null, 
-        bool flipX = false, bool flipY = false, Vec2 scale = null) : base(position)
+        bool flipX = false, bool flipY = false, Vec2 scale = null, int rotation = 0) : base(position)
     {
         Texture = texture;
         Size = size;
@@ -36,6 +38,7 @@ public class Image : Widget
         FlipX = flipX;
         FlipY = flipY;
         Scale = scale ?? Vec2.One;
+        Rotation = rotation;
     }
 
     public override void Draw(GameTime gameTime)
@@ -54,10 +57,10 @@ public class Image : Widget
             effects |= SpriteEffects.FlipVertically;
 
         if (SourceRect == null)
-            Renderer.RenderTexture(Scene.Window, sprite, realPosition, null, Color.White, 0,
                 Size == null ? new Vec2(sprite.Width, sprite.Height) / 2 : Size  / 2, Scale, effects, 1);
+            Renderer.RenderTexture(Scene.Window, sprite, realPosition, null, Color.White, Rotation,
         else
-            Renderer.RenderTexture(Scene.Window, sprite, realPosition, SourceRect, Color.Wheat, 0, SourceRect.Size / 2,
+            Renderer.RenderTexture(Scene.Window, sprite, realPosition, SourceRect, Color.Wheat, Rotation, SourceRect.Size / 2,
                 Scale, effects, 1);
     }
 }

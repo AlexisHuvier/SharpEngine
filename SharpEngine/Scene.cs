@@ -160,7 +160,7 @@ public class Scene
             widgetsToAdd.RemoveAt(0);
         }
 
-        finalWidgets.Sort((a, b) => a.ZLayer - b.ZLayer);
+        finalWidgets = finalWidgets.OrderBy(x => x.ZLayer).ToList();
 
         return finalWidgets;
     }

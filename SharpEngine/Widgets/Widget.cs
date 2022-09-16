@@ -16,6 +16,7 @@ public class Widget
     public Vec2 Position;
     public bool Displayed;
     public bool Active;
+    public int ZLayer;
     internal Widget Parent;
     private readonly List<Widget> _childs;
 
@@ -24,13 +25,15 @@ public class Widget
     /// Initialise le Widget.
     /// </summary>
     /// <param name="position">Position (Vec2(0))</param>
-    protected Widget(Vec2 position = null)
+    /// <param name="zLayer">Z Layer</param>
+    protected Widget(Vec2 position = null, int zLayer = 1)
     {
         _childs = new List<Widget>();
         Position = position ?? new Vec2(0);
         Displayed = true;
         Active = true;
         Parent = null;
+        ZLayer = zLayer;
     }
 
     public void SetParent(Widget widget) => Parent = widget;
@@ -50,7 +53,7 @@ public class Widget
 
     public List<T> GetChilds<T>() where T : Widget
     {
-        return _childs.FindAll((w) => w.GetType() == typeof(T)).Cast<T>().ToList();
+        return _childs.FindAll(w => w.GetType() == typeof(T)).Cast<T>().ToList();
     }
 
     public void RemoveChild(Widget widget)

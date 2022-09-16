@@ -146,14 +146,30 @@ public class Scene
                 return -1;
             return 0;
         });
-        return temp;
+        return finalEntities;
+    }
+
+    public List<Widget> GetDisplayedWidgetsSortByZ()
+    {
+        var widgetsToAdd = new List<Widget>(Widgets.Where(x => x.Displayed));
+        var finalWidgets = new List<Widget>();
+        while (widgetsToAdd.Count != 0)
+        {
+            finalWidgets.Add(widgetsToAdd[0]);
+            widgetsToAdd.InsertRange(1, widgetsToAdd[0].GetChilds().Where(x => x.Displayed));
+            widgetsToAdd.RemoveAt(0);
+        }
+
+        finalWidgets.Sort((a, b) => a.ZLayer - b.ZLayer);
+
+        return finalWidgets;
     }
 
     public virtual void Draw(GameTime gameTime)
     {
         foreach (var ent in GetEntitySortByZ())
             ent.Draw(gameTime);
-        foreach (var widget in Widgets)
+        foreach (var widget in GetDisplayedWidgetsSortByZ())
             widget.Draw(gameTime);
         
         if (Window.Debug)

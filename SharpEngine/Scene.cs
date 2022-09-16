@@ -134,8 +134,8 @@ public class Scene
 
     public List<Entity> GetEntitySortByZ()
     {
-        var temp = new List<Entity>(Entities);
-        temp.Sort((a, b) => {
+        var finalEntities = new List<Entity>(Entities);
+        finalEntities.Sort((a, b) => {
             if (a.GetComponent<TransformComponent>() is { } atc)
             {
                 if (b.GetComponent<TransformComponent>() is { } btc)

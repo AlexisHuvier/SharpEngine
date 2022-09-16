@@ -16,9 +16,20 @@ public class Widget
     public Vec2 Position;
     public bool Displayed;
     public bool Active;
-    public int ZLayer;
+    public int ZLayer
+    {
+        get => _zLayer;
+        set
+        {
+            _zLayer = value;
+            foreach (var child in GetChilds().Where(child => child.ZLayer < value))
+                child.ZLayer = value;
+        }
+    }
+    
     internal Widget Parent;
     private readonly List<Widget> _childs;
+    private int _zLayer;
 
 
     /// <summary>
@@ -47,6 +58,8 @@ public class Widget
         if (Scene != null)
             widget.SetScene(Scene);
         widget.SetParent(this);
+        if (widget.ZLayer < ZLayer)
+            widget.ZLayer = ZLayer;
         _childs.Add(widget);
         return widget;
     }

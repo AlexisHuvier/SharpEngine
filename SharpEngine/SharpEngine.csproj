@@ -10,7 +10,7 @@
     <Company>LycosNovation</Company>
     <Copyright>Copyright (c) LavaPower 2021</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageVersion>0.16.5</PackageVersion>
+    <PackageVersion>0.16.6</PackageVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 

@@ -156,7 +156,7 @@ public class Scene
         while (widgetsToAdd.Count != 0)
         {
             finalWidgets.Add(widgetsToAdd[0]);
-            widgetsToAdd.InsertRange(1, widgetsToAdd[0].GetChilds().Where(x => x.Displayed));
+            widgetsToAdd.InsertRange(1, widgetsToAdd[0].GetDisplayedChilds());
             widgetsToAdd.RemoveAt(0);
         }
 

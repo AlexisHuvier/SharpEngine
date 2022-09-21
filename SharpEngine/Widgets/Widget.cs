@@ -53,6 +53,18 @@ public class Widget
 
     public List<Widget> GetChilds() => _childs;
 
+    public List<Widget> GetDisplayedChilds()
+    {
+        var childs = new List<Widget>();
+        foreach (var child in _childs)
+        {
+            if(child.Displayed)
+                childs.Add(child);
+        }
+
+        return childs;
+    }
+
     public T AddChild<T>(T widget) where T : Widget
     {
         if (Scene != null)

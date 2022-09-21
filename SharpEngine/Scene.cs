@@ -25,11 +25,16 @@ public class Scene
     internal World World;
     private DebugView _debugView;
 
+    private readonly List<Entity> _entitiesToRemove;
+    private readonly List<Widget> _widgetsToRemove;
+
     public Scene(int gravity = 200)
     {
         Window = null;
         Entities = new List<Entity>();
         Widgets = new List<Widget>();
+        _entitiesToRemove = new List<Entity>();
+        _widgetsToRemove = new List<Widget>();
 
         World = new World(new Vector2(0, gravity))
         {
@@ -61,11 +66,7 @@ public class Scene
         return Widgets.FindAll(w => w.GetType() == typeof(T)).Cast<T>().ToList();
     }
 
-    public void RemoveWidget(Widget widget)
-    {
-        widget.SetScene(null);
-        Widgets.Remove(widget);
-    }
+    public void RemoveWidget(Widget widget) => _widgetsToRemove.Add(widget);
 
     public List<Entity> GetEntities() => Entities;
 
@@ -76,11 +77,7 @@ public class Scene
         return ent;
     }
 
-    public virtual void RemoveEntity(Entity ent)
-    {
-        ent.SetScene(null);
-        Entities.Remove(ent);
-    }
+    public virtual void RemoveEntity(Entity ent) => _entitiesToRemove.Add(ent);
 
     public virtual void SetWindow(Window window) => Window = window;
     
@@ -113,11 +110,23 @@ public class Scene
 
     public virtual void Update(GameTime gameTime)
     {
+        foreach (var ent in _entitiesToRemove)
+        {
+            ent.SetScene(null);
+            Entities.Remove(ent);
+        }
+
+        foreach (var widget in _widgetsToRemove)
+        {
+            widget.SetScene(null);
+            Widgets.Remove(widget);
+        }
+        
         World.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
         
         if(Window.Debug)
             _debugView.UpdatePerformanceGraph(World.UpdateTime);
-        
+
         for (var i = Entities.Count - 1; i > -1; i--)
             Entities[i].Update(gameTime);
         for (var i = Widgets.Count - 1; i > -1; i--)

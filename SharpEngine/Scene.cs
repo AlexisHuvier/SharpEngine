@@ -66,7 +66,16 @@ public class Scene
         return Widgets.FindAll(w => w.GetType() == typeof(T)).Cast<T>().ToList();
     }
 
-    public void RemoveWidget(Widget widget) => _widgetsToRemove.Add(widget);
+    public void RemoveWidget(Widget widget, bool delay = false)
+    {
+        if(delay)
+            _widgetsToRemove.Add(widget);
+        else
+        {
+            widget.SetScene(null);
+            Widgets.Remove(widget);
+        }
+    }
 
     public List<Entity> GetEntities() => Entities;
 
@@ -77,7 +86,16 @@ public class Scene
         return ent;
     }
 
-    public virtual void RemoveEntity(Entity ent) => _entitiesToRemove.Add(ent);
+    public virtual void RemoveEntity(Entity ent, bool delay = false)
+    {
+        if(delay)
+            _entitiesToRemove.Add(ent);
+        else
+        {
+            ent.SetScene(null);
+            Entities.Remove(ent);
+        }
+    }
 
     public virtual void SetWindow(Window window) => Window = window;
     

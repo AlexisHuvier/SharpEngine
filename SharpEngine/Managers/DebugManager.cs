@@ -18,7 +18,7 @@ public static class DebugManager
     public static int GetFps() => _frameRate;
     public static long GetGcMemory() => GC.GetTotalMemory(false);
     public static string GetMonogameVersion() => MonoGameVersion;
-    public static string GetSharpEngineVersion() => "0.16.7";
+    public static string GetSharpEngineVersion() => "0.16.8";
 
     internal static void Update(GameTime gameTime)
     {

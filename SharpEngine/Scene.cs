@@ -140,6 +140,9 @@ public class Scene
             Widgets.Remove(widget);
         }
         
+        _entitiesToRemove.Clear();
+        _widgetsToRemove.Clear();
+        
         World.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
         
         if(Window.Debug)

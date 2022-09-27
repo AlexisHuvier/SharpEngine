@@ -28,7 +28,7 @@ public class InventorySlot: Widget
         {
             _frame.BorderColor = Color.White;
             _tooltip.Displayed = true;
-            _tooltip.Position = InputManager.GetMousePosition() - Position;
+            _tooltip.Position = InputManager.GetMousePosition() - GetRealPosition();
         }
         else
         {

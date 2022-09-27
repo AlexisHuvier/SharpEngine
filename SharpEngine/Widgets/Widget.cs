@@ -132,6 +132,9 @@ public class Widget
 
     public virtual void Update(GameTime gameTime)
     {
+        if (!Displayed)
+            return;
+        
         for(var i = _childs.Count - 1; i > -1; i--)
             _childs[i].Update(gameTime);
     }

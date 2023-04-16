@@ -41,8 +41,8 @@ public class TextureManager
 
     public Texture2D GetTexture(string name)
     {
-        if (_textures.ContainsKey(name))
-            return _textures[name];
+        if (_textures.TryGetValue(name, out var texture))
+            return texture;
         throw new System.Exception($"Texture not founded : {name}");
     }
 

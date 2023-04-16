@@ -6,9 +6,9 @@ public class TileType
 {
     public readonly uint Id;
     public readonly string Source;
-    public readonly Rect SourceRect;
+    public readonly Rect? SourceRect;
 
-    public TileType(uint id, string source, Rect sourceRect)
+    public TileType(uint id, string source, Rect? sourceRect)
     {
         Id = id;
         Source = source;

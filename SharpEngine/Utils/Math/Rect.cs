@@ -1,11 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 
 namespace SharpEngine.Utils.Math;
 
 /// <summary>
 /// Rectangle
 /// </summary>
-public class Rect
+public struct Rect
 {
     public Vec2 Position;
     public Vec2 Size;
@@ -29,19 +30,10 @@ public class Rect
         return obj != null && obj.Equals(this);
     }
 
-    public override int GetHashCode() => base.GetHashCode();
+    public bool Equals(Rect other) => Position.Equals(other.Position) && Size.Equals(other.Size);
+    public override int GetHashCode() => HashCode.Combine(Position, Size);
     public override string ToString() => $"Rect(position={Position}, size={Size})";
-
     public static bool operator !=(Rect r1, Rect r2) => !(r1 == r2);
-
-    public static bool operator ==(Rect r1, Rect r2)
-    {
-        if (r1 is null)
-            return r2 is null;
-        if (r2 is null)
-            return false;
-        return r1.Position == r2.Position && r1.Size == r2.Size;
-    }
-
+    public static bool operator ==(Rect r1, Rect r2) => r1.Position == r2.Position && r1.Size == r2.Size;
     public static implicit operator Rect(Rectangle rectangle) => new(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);
 }

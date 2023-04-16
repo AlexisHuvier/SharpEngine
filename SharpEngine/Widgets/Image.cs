@@ -14,7 +14,7 @@ public class Image : Widget
 {
     public string Texture;
     public Vec2 Size;
-    public Rect SourceRect;
+    public Rect? SourceRect;
     public bool FlipX;
     public bool FlipY;
     public Vec2 Scale;
@@ -67,6 +67,6 @@ public class Image : Widget
         }
         else
             Renderer.RenderTexture(Scene.Window, sprite, realPosition, SourceRect, Color.Wheat, 
-                MathHelper.ToRadians(Rotation), SourceRect.Size / 2, Scale, effects, 1);
+                MathHelper.ToRadians(Rotation), SourceRect.Value.Size / 2, Scale, effects, 1);
     }
 }

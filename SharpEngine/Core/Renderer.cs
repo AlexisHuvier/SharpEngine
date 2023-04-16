@@ -9,8 +9,8 @@ public static class Renderer
 {
     public static void RenderTexture(Window window, Texture2D texture, Vec2 position, Rect? sourceRectangle, Color color, float rotation, Vec2 origin, Vec2 scale, SpriteEffects effets, float layerDepth)
     {
-        var sizeX = sourceRectangle != null ? sourceRectangle.Size.X * scale.X : texture.Width * scale.X;
-        var sizeY = sourceRectangle != null ? sourceRectangle.Size.Y * scale.Y : texture.Height * scale.Y;
+        var sizeX = sourceRectangle != null ? sourceRectangle.Value.Size.X * scale.X : texture.Width * scale.X;
+        var sizeY = sourceRectangle != null ? sourceRectangle.Value.Size.Y * scale.Y : texture.Height * scale.Y;
         var windowSize = window.ScreenSize;
 
         if (position.X - origin.X - sizeX * scale.X >= windowSize.X || position.X - origin.X + sizeX * scale.X <= 0 ||
@@ -20,7 +20,7 @@ public static class Renderer
             window.InternalGame.SpriteBatch.Draw(texture, position.ToMg(), null, color.ToMg(), rotation,
                 origin.ToMg(), scale.ToMg(), effets, layerDepth);
         else
-            window.InternalGame.SpriteBatch.Draw(texture, position.ToMg(), sourceRectangle.ToMg(), color.ToMg(),
+            window.InternalGame.SpriteBatch.Draw(texture, position.ToMg(), sourceRectangle.Value.ToMg(), color.ToMg(),
                 rotation, origin.ToMg(), scale.ToMg(), effets, layerDepth);
     }
 

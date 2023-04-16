@@ -51,7 +51,7 @@ public class PhysicsComponent : Component
     public int GetRotation() => (int)(Body.Rotation * 180 / Math.PI);
     public void SetRotation(int rotation) => Body.Rotation = (float)(rotation * Math.PI / 180f);
 
-    public void AddRectangleCollision(Vec2 size, Vec2 offset = null, float density = 1f, float restitution = 0.5f, 
+    public void AddRectangleCollision(Vec2 size, Vec2? offset = null, float density = 1f, float restitution = 0.5f, 
         float friction = 0.5f, FixtureTag tag = FixtureTag.Normal, Func<Fixture, Fixture, Contact, bool> onCollision = null)
     {
         var fixture = new FixtureInfo()
@@ -68,7 +68,7 @@ public class PhysicsComponent : Component
         _fixtures.Add(fixture);
     }
 
-    public void AddCircleCollision(float radius, Vec2 offset = null, float density = 1f, float restitution = 0.5f, 
+    public void AddCircleCollision(float radius, Vec2? offset = null, float density = 1f, float restitution = 0.5f, 
         float friction = 0.5f, FixtureTag tag = FixtureTag.Normal, Func<Fixture, Fixture, Contact, bool> onCollision = null)
     {
         var fixture = new FixtureInfo()
@@ -128,9 +128,9 @@ public class PhysicsComponent : Component
             switch(info.Type)
             {
                 case FixtureType.Rectangle:
-                    var size = info.Parameter as Vec2;
+                    var size = info.Parameter as Vec2?;
                     Debug.Assert(size != null, nameof(size) + " != null");
-                    fixture = Body.CreateRectangle(size.X, size.Y, info.Density, info.Offset.ToMg());
+                    fixture = Body.CreateRectangle(size.Value.X, size.Value.Y, info.Density, info.Offset.ToMg());
                     break;
                 case FixtureType.Circle:
                     var radius = Convert.ToSingle(info.Parameter);

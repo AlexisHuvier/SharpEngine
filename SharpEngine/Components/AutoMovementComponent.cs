@@ -17,7 +17,7 @@ public class AutoMovementComponent : Component
     /// </summary>
     /// <param name="direction">Mouvement automatique (Vec2(0))</param>
     /// <param name="rotation">Rotation automatique</param>
-    public AutoMovementComponent(Vec2 direction = null, int rotation = 0)
+    public AutoMovementComponent(Vec2? direction = null, int rotation = 0)
     {
         Direction = direction ?? Vec2.Zero;
         Rotation = rotation;

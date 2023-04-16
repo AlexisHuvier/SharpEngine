@@ -20,7 +20,7 @@ public class ProgressBar : Widget
     /// <param name="color">Couleur de la barre (Color.GREEN)</param>
     /// <param name="size">Taille (Vec2(200, 30))</param>
     /// <param name="value">Valeur</param>
-    public ProgressBar(Vec2 position = null, Color color = null, Vec2 size = null, int value = 0) : base(position)
+    public ProgressBar(Vec2? position = null, Color color = null, Vec2? size = null, int value = 0) : base(position)
     {
         Color = color ?? Color.Green;
         Size = size ?? new Vec2(200, 30);

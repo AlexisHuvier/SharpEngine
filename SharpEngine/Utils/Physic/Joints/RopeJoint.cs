@@ -10,10 +10,8 @@ public class RopeJoint: Joint
 {
     public float MaxLength { get; set; }
 
-    public RopeJoint(Entity target, Vec2 fromPosition = null, Vec2 targetPosition = null,
-        float maxLength = -1) : base(JointType.Rope, target,  
-        fromPosition == null ? new Vec2(0): fromPosition, 
-        targetPosition == null ? new Vec2(0) : targetPosition)
+    public RopeJoint(Entity target, Vec2? fromPosition = null, Vec2? targetPosition = null,
+        float maxLength = -1) : base(JointType.Rope, target, fromPosition ?? Vec2.Zero, targetPosition ?? Vec2.Zero)
     {
         MaxLength = maxLength;
     }

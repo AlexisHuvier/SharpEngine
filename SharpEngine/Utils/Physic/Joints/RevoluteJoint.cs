@@ -8,9 +8,8 @@ namespace SharpEngine.Utils.Physic.Joints;
 
 public class RevoluteJoint: Joint
 {
-    public RevoluteJoint(Entity target, Vec2 fromPosition = null) : base(JointType.Revolute, target, 
-        fromPosition == null ? new Vec2(0): fromPosition,
-        fromPosition == null ? new Vec2(0): fromPosition)
+    public RevoluteJoint(Entity target, Vec2? fromPosition = null) : base(JointType.Revolute, target, 
+        fromPosition ?? Vec2.Zero, fromPosition ?? Vec2.Zero)
     {}
 
     public RJoint ToAetherPhysics(Body from) => 

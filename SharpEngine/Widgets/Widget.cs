@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using System.Linq;
-using SharpEngine.Utils;
 using SharpEngine.Utils.Control;
 using SharpEngine.Utils.Math;
 
@@ -37,7 +36,7 @@ public class Widget
     /// </summary>
     /// <param name="position">Position (Vec2(0))</param>
     /// <param name="zLayer">Z Layer</param>
-    protected Widget(Vec2 position = null, int zLayer = 1)
+    protected Widget(Vec2? position = null, int zLayer = 1)
     {
         _childs = new List<Widget>();
         Position = position ?? new Vec2(0);

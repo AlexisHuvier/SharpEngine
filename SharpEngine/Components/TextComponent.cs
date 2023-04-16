@@ -27,7 +27,7 @@ public class TextComponent: Component
     /// <param name="color">Couleur du texte (Color.BLACK)</param>
     /// <param name="displayed">Est affiché</param>
     /// <param name="offset">Décalage de la position du texte (Vec2(0))</param>
-    public TextComponent(string text = "", string font = "", Color color = null, bool displayed = true, Vec2 offset = null)
+    public TextComponent(string text = "", string font = "", Color color = null, bool displayed = true, Vec2? offset = null)
     {
         Text = text;
         Font = font;

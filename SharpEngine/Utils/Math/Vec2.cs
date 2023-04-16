@@ -1,11 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 
 namespace SharpEngine.Utils.Math;
 
 /// <summary>
 /// Vecteur 2D
 /// </summary>
-public class Vec2
+public struct Vec2
 {
     public static Vec2 Zero { get; } = new(0);
     public static Vec2 One { get; } = new(1);
@@ -28,7 +29,7 @@ public class Vec2
     public Vec2 Normalized()
     {
         var length = Length();
-        return length == 0 ? null : new Vec2(X / length, Y / length);
+        return length == 0 ? Zero : new Vec2(X / length, Y / length);
     }
 
     public float Length() => (float) System.Math.Sqrt(X * X + Y * Y);
@@ -42,29 +43,21 @@ public class Vec2
             return this == vec;
         return obj != null && obj.Equals(this);
     }
-
-    public override int GetHashCode() => base.GetHashCode();
+    public bool Equals(Vec2 other) => X.Equals(other.X) && Y.Equals(other.Y);
+    public override int GetHashCode() => HashCode.Combine(X, Y);
     public override string ToString() => $"Vec2(x={X}, y={Y})";
 
     public static bool operator !=(Vec2 vec1, Vec2 vec2) => !(vec1 == vec2);
 
-    public static bool operator ==(Vec2 vec1, Vec2 vec2)
-    {
-        if (vec1 is null)
-            return vec2 is null;
-        if (vec2 is null)
-            return false;
-        return System.Math.Abs(vec1.X - vec2.X) < InternalUtils.FloatTolerance && System.Math.Abs(vec1.Y - vec2.Y) < InternalUtils.FloatTolerance;
-    }
-
-    public static Vec2 operator -(Vec2 vec) => vec == null ? null : new Vec2(-vec.X, -vec.Y);
-    public static Vec2 operator -(Vec2 vec, Vec2 vec2) => vec == null || vec2 == null ? null : new Vec2(vec.X - vec2.X, vec.Y - vec2.Y);
-    public static Vec2 operator -(Vec2 vec, float factor) => vec == null ? null : new Vec2(vec.X - factor, vec.Y - factor);
-    public static Vec2 operator +(Vec2 vec, Vec2 vec2) => vec == null || vec2 == null ? null : new Vec2(vec.X + vec2.X, vec.Y + vec2.Y);
-    public static Vec2 operator +(Vec2 vec, float factor) => vec == null ? null : new Vec2(vec.X + factor, vec.Y + factor);
-    public static Vec2 operator *(Vec2 vec, Vec2 vec2) => vec == null || vec2 == null ? null : new Vec2(vec.X * vec2.X, vec.Y * vec2.Y);
-    public static Vec2 operator *(Vec2 vec, float factor) => vec == null ? null : new Vec2(vec.X * factor, vec.Y * factor);
-    public static Vec2 operator /(Vec2 vec, Vec2 vec2) => vec == null || vec2 == null ? null : new Vec2(vec.X / vec2.X, vec.Y / vec2.Y);
-    public static Vec2 operator /(Vec2 vec, float factor) => vec == null ? null : new Vec2(vec.X / factor, vec.Y / factor);
+    public static bool operator ==(Vec2 vec1, Vec2 vec2) => System.Math.Abs(vec1.X - vec2.X) < InternalUtils.FloatTolerance && System.Math.Abs(vec1.Y - vec2.Y) < InternalUtils.FloatTolerance;
+    public static Vec2 operator -(Vec2 vec) => new(-vec.X, -vec.Y);
+    public static Vec2 operator -(Vec2 vec, Vec2 vec2) => new(vec.X - vec2.X, vec.Y - vec2.Y);
+    public static Vec2 operator -(Vec2 vec, float factor) => new(vec.X - factor, vec.Y - factor);
+    public static Vec2 operator +(Vec2 vec, Vec2 vec2) => new(vec.X + vec2.X, vec.Y + vec2.Y);
+    public static Vec2 operator +(Vec2 vec, float factor) => new(vec.X + factor, vec.Y + factor);
+    public static Vec2 operator *(Vec2 vec, Vec2 vec2) => new(vec.X * vec2.X, vec.Y * vec2.Y);
+    public static Vec2 operator *(Vec2 vec, float factor) => new(vec.X * factor, vec.Y * factor);
+    public static Vec2 operator /(Vec2 vec, Vec2 vec2) => new(vec.X / vec2.X, vec.Y / vec2.Y);
+    public static Vec2 operator /(Vec2 vec, float factor) => new(vec.X / factor, vec.Y / factor);
     public static implicit operator Vec2(Vector2 vec) => new(vec.X, vec.Y);
 }

@@ -85,7 +85,7 @@ public class Window
     /// <param name="fullscreen">Lance le jeu avec ou sans fullscreen</param>
     /// <param name="vsync">Lance le jeu avec ou sans la vsync</param>
     /// <param name="debug">Lance le jeu en mode debug ou non</param>
-    public Window(Vec2 screenSize = null, Color backgroundColor = null, bool mouseVisible = true, bool exitWithEscape = true, FullScreenType fullscreen = FullScreenType.NoFullscreen, bool vsync = false, bool debug = false)
+    public Window(Vec2? screenSize = null, Color backgroundColor = null, bool mouseVisible = true, bool exitWithEscape = true, FullScreenType fullscreen = FullScreenType.NoFullscreen, bool vsync = false, bool debug = false)
     {
         ScreenSize = screenSize ?? new Vec2(800, 600);
         BackgroundColor = backgroundColor ?? Color.Black;

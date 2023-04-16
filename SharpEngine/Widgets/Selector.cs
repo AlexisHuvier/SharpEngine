@@ -21,7 +21,7 @@ public class Selector : Widget
     /// <param name="font">Nom de la police</param>
     /// <param name="sizeBetweenButtons">Taille entre les boutons</param>
     /// <param name="texts">Liste des possibilités</param>
-    public Selector(Vec2 position = null, string font = "", int sizeBetweenButtons = 0, List<string> texts = null) : base(position)
+    public Selector(Vec2? position = null, string font = "", int sizeBetweenButtons = 0, List<string> texts = null) : base(position)
     {
         _texts = texts ?? new List<string>();
         _selected = 0;

@@ -46,7 +46,7 @@ public class ParticleEmitter
     private List<Particle> _mustBeDeleted = new();
     private float _timerBeforeSpawn;
 
-    public ParticleEmitter(Color[] beginColors, Color[] endColors = null, Vec2 spawnSize = null, Vec2 offset = null,
+    public ParticleEmitter(Color[] beginColors, Color[] endColors = null, Vec2? spawnSize = null, Vec2? offset = null,
         float minVelocity = 20, float maxVelocity = 20,
         float minAcceleration = 0, float maxAcceleration = 0, float minRotationSpeed = 0, float maxRotationSpeed = 0,
         float minRotation = 0, float maxRotation = 0,
@@ -58,7 +58,7 @@ public class ParticleEmitter
     {
         BeginColors = beginColors;
         EndColors = endColors;
-        Offset = offset ?? new Vec2(0);
+        Offset = offset ?? Vec2.Zero;
         MinVelocity = minVelocity;
         MaxVelocity = maxVelocity;
         MinAcceleration = minAcceleration;
@@ -81,7 +81,7 @@ public class ParticleEmitter
         MaxParticles = maxParticles;
         SizeFunction = sizeFunction;
         SizeFunctionValue = sizeFunctionValue;
-        SpawnSize = spawnSize;
+        SpawnSize = spawnSize ?? Vec2.Zero;
     }
 
     public int GetParticlesCount() => Particles.Count;
@@ -89,7 +89,7 @@ public class ParticleEmitter
     public void SpawnParticle(Vec2 objectPosition)
     {
         Vec2 position;
-        if (SpawnSize == null || SpawnSize == new Vec2(0))
+        if (SpawnSize == Vec2.Zero)
             position = Offset;
         else
             position = Offset + new Vec2(MathUtils.RandomBetween(-SpawnSize.X / 2, SpawnSize.X / 2),

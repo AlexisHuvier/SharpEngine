@@ -27,7 +27,7 @@ public class SpriteComponent: Component
     /// <param name="offset">Décalage de la position du Sprite (Vec2(0))</param>
     /// <param name="flipX">Si le sprite est retourné en X</param>
     /// <param name="flipY">Si le sprite est retourné en Y</param>
-    public SpriteComponent(string sprite, bool displayed = true, Vec2 offset = null, bool flipX = false, bool flipY = false)
+    public SpriteComponent(string sprite, bool displayed = true, Vec2? offset = null, bool flipX = false, bool flipY = false)
     {
         Sprite = sprite;
         Displayed = displayed;

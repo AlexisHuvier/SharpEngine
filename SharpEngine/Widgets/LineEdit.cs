@@ -26,7 +26,7 @@ public class LineEdit : Widget
     /// <param name="text">Texte</param>
     /// <param name="font">Nom de la police</param>
     /// <param name="size">Taille (Vec2(300, 50))</param>
-    public LineEdit(Vec2 position = null, string text = "", string font = "", Vec2 size = null) : base(position)
+    public LineEdit(Vec2? position = null, string text = "", string font = "", Vec2? size = null) : base(position)
     {
         Text = text;
         Font = font;

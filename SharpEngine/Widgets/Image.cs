@@ -31,11 +31,11 @@ public class Image : Widget
     /// <param name="flipY">Si l'image est retourné en Y</param>
     /// <param name="scale">Scale de l'image</param>
     /// <param name="rotation">Rotation de l'image</param>
-    public Image(Vec2 position = null, string texture = "", Vec2 size = null, Rect sourceRect = null, 
-        bool flipX = false, bool flipY = false, Vec2 scale = null, int rotation = 0) : base(position)
+    public Image(Vec2? position = null, string texture = "", Vec2? size = null, Rect? sourceRect = null, 
+        bool flipX = false, bool flipY = false, Vec2? scale = null, int rotation = 0) : base(position)
     {
         Texture = texture;
-        Size = size;
+        Size = size ?? Vec2.Zero;
         SourceRect = sourceRect;
         FlipX = flipX;
         FlipY = flipY;
@@ -60,7 +60,7 @@ public class Image : Widget
 
         if (SourceRect == null)
         { 
-            var scale = Size == null ? Scale : new Vec2(Size.X / sprite.Width * Scale.X, Size.Y / sprite.Height * Scale.Y);
+            var scale = Size == Vec2.Zero ? Scale : new Vec2(Size.X / sprite.Width * Scale.X, Size.Y / sprite.Height * Scale.Y);
             Renderer.RenderTexture(Scene.Window, sprite, realPosition, null, Color.White, 
                 MathHelper.ToRadians(Rotation), new Vec2(sprite.Width, sprite.Height) / 2, scale, 
                 effects, 1);

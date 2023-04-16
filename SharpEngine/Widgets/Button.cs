@@ -38,7 +38,7 @@ public class Button: Widget
     /// <param name="size">Taille (Vec2(200, 40))</param>
     /// <param name="fontColor">Couleur du texte (Color.BLACK)</param>
     /// <param name="backgroundColor">Couleur du fond (Color.GRAY)</param>
-    public Button(Vec2 position = null, string text = "", string font = "", Vec2 size = null, Color fontColor = null, Color backgroundColor = null): base(position)
+    public Button(Vec2? position = null, string text = "", string font = "", Vec2? size = null, Color fontColor = null, Color backgroundColor = null): base(position)
     {
         Text = text;
         Font = font;

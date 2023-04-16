@@ -41,7 +41,7 @@ public class AnimSpriteSheetComponent : Component
     /// <param name="flipX">Si le sprite est retourné en X</param>
     /// <param name="flipY">Si le sprite est retourné en Y</param>
     public AnimSpriteSheetComponent(string sprite, Vec2 spriteSize, Dictionary<string, List<int>> animations, 
-        string currentAnim = "", float timer = 250, bool displayed = true, Vec2 offset = null, bool flipX = false,
+        string currentAnim = "", float timer = 250, bool displayed = true, Vec2? offset = null, bool flipX = false,
         bool flipY = false)
     {
         Sprite = sprite;

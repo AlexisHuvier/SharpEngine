@@ -38,13 +38,13 @@ public class TexturedButton : Widget
     /// <param name="texture">Nom de la texture</param>
     /// <param name="size">Taille</param>
     /// <param name="fontColor">Couleur du texte (Color.BLACK)</param>
-    public TexturedButton(Vec2 position = null, string text = "", string font = "", string texture = "",
-        Vec2 size = null, Color fontColor = null) : base(position)
+    public TexturedButton(Vec2? position = null, string text = "", string font = "", string texture = "",
+        Vec2? size = null, Color fontColor = null) : base(position)
     {
         Text = text;
         Font = font;
         Texture = texture;
-        Size = size;
+        Size = size ?? Vec2.Zero;
         FontColor = fontColor ?? Color.Black;
         _state = ButtonState.Idle;
     }
@@ -53,7 +53,7 @@ public class TexturedButton : Widget
     {
         base.Update(gameTime);
 
-        if (Size == null)
+        if (Size == Vec2.Zero)
         {
             var temp = Scene.Window.TextureManager.GetTexture(Texture);
             Size = new Vec2(temp.Width, temp.Height);
@@ -77,7 +77,7 @@ public class TexturedButton : Widget
     {
         base.Draw(gameTime);
 
-        if (Size == null)
+        if (Size == Vec2.Zero)
         {
             var temp = Scene.Window.TextureManager.GetTexture(Texture);
             Size = new Vec2(temp.Width, temp.Height);

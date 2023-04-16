@@ -20,7 +20,7 @@ public class Frame: Widget
     /// <param name="borderSize">Taille de la bordure (Vec2(3))</param>
     /// <param name="borderColor">Couleur de la bordure (Color.Black)</param>
     /// <param name="backgroundColor">Couleur de fond (Transparent)</param>
-    public Frame(Vec2 position = null, Vec2 size = null, Vec2 borderSize = null, Color borderColor = null, Color backgroundColor = null) : base(position)
+    public Frame(Vec2? position = null, Vec2? size = null, Vec2? borderSize = null, Color borderColor = null, Color backgroundColor = null) : base(position)
     {
         BorderColor = borderColor ?? Color.Black;
         Size = size ?? new Vec2(5);

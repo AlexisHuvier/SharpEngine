@@ -26,7 +26,7 @@ public class Checkbox : Widget
     /// <param name="scale">Echelle</param>
     /// <param name="fontColor">Couleur du texte (Color.BLACK)</param>
     /// <param name="isChecked">Est cochée</param>
-    public Checkbox(Vec2 position = null, string text = "", string font = "", int scale = 1, Color fontColor = null,
+    public Checkbox(Vec2? position = null, string text = "", string font = "", int scale = 1, Color fontColor = null,
         bool isChecked = false) : base(position)
     {
         Text = text;

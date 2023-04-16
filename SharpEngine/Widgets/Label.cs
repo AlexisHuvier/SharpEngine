@@ -21,7 +21,7 @@ public class Label : Widget
     /// <param name="text">Texte</param>
     /// <param name="font">Nom de la police</param>
     /// <param name="color">Couleur du texte (Color.BLACK)</param>
-    public Label(Vec2 position = null, string text = "", string font = "", Color color = null) : base(position)
+    public Label(Vec2? position = null, string text = "", string font = "", Color color = null) : base(position)
     {
         Text = text;
         Font = font;

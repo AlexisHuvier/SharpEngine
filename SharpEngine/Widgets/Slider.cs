@@ -27,7 +27,7 @@ public class Slider : Widget
     /// <param name="font">Nom de la police</param>
     /// <param name="fontColor">Couleur de la police (Color.BLACK)</param>
     /// <param name="value">Valeur</param>
-    public Slider(Vec2 position = null, Color color = null, Vec2 size = null, string font = "", Color fontColor = null, int value = 0) : base(position)
+    public Slider(Vec2? position = null, Color color = null, Vec2? size = null, string font = "", Color fontColor = null, int value = 0) : base(position)
     {
         Color = color ?? Color.Green;
         Size = size ?? new Vec2(200, 30);

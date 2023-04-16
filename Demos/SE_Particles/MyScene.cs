@@ -20,7 +20,7 @@ public sealed class MyScene : Scene
                 sizeFunction: ParticleParametersFunction.Decrease, active: true, offset: new Vec2(20, 0)),
             new(new[] { Color.Green }, minDirection: 0, maxDirection: 360, minSize: 20, maxSize: 20,
                 sizeFunction: ParticleParametersFunction.Increase, active: true, offset: new Vec2(70, 0)),
-            new(new[] { Color.Red }, minDirection: -140, maxDirection: -40, endColors: new Color[] { Color.Yellow },
+            new(new[] { Color.Red }, minDirection: -140, maxDirection: -40, endColors: new[] { Color.Yellow },
                 minSize: 10,
                 maxSize: 10, sizeFunction: ParticleParametersFunction.Decrease, active: true, offset: new Vec2(-80, 0)),
             new(new[] { Color.Blue }, minDirection: -90, maxDirection: -90, active: true, offset: new Vec2(120, 0),

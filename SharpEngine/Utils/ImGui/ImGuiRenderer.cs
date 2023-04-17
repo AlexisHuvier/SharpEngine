@@ -12,12 +12,12 @@ namespace SharpEngine.Utils.ImGui;
 
 public class ImGuiRenderer
 {
-    private InternalGame _game;
+    private readonly InternalGame _game;
     
-    private GraphicsDevice _graphicsDevice;
+    private readonly GraphicsDevice _graphicsDevice;
     
     private BasicEffect _effect;
-    private RasterizerState _rasterizerState;
+    private readonly RasterizerState _rasterizerState;
 
     private byte[] _vertexData;
     private VertexBuffer _vertexBuffer;
@@ -27,13 +27,13 @@ public class ImGuiRenderer
     private IndexBuffer _indexBuffer;
     private int _indexBufferSize;
 
-    private Dictionary<IntPtr, Texture2D> _loadedTextures;
+    private readonly Dictionary<IntPtr, Texture2D> _loadedTextures;
 
     private int _textureId;
     private IntPtr? _fontTextureId;
 
     private int _scrollWheelValue;
-    private List<int> _keys = new();
+    private readonly List<int> _keys = new();
 
     public ImGuiRenderer(InternalGame game)
     {
@@ -68,10 +68,7 @@ public class ImGuiRenderer
     public virtual void AfterLayout()
     {
         ImGuiNET.ImGui.Render();
-        unsafe
-        {
-            RenderDrawData(ImGuiNET.ImGui.GetDrawData());
-        }
+        RenderDrawData(ImGuiNET.ImGui.GetDrawData());
     }
 
     protected virtual void SetupInput()
@@ -99,7 +96,7 @@ public class ImGuiRenderer
         _keys.Add(io.KeyMap[(int)ImGuiKey.Y] = (int)Keys.Y);
         _keys.Add(io.KeyMap[(int)ImGuiKey.Z] = (int)Keys.Z);
 
-        _game.Window.TextInput += (s, a) =>
+        _game.Window.TextInput += (_, a) =>
         {
             if (a.Character == '\t') return;
             io.AddInputCharacter(a.Character);
@@ -253,7 +250,7 @@ public class ImGuiRenderer
         _indexBuffer.SetData(_indexData, 0, drawDataPtr.TotalIdxCount * sizeof(ushort));
     }
 
-    private unsafe void RenderCommandLists(ImDrawDataPtr drawDataPtr)
+    private void RenderCommandLists(ImDrawDataPtr drawDataPtr)
     {
         _graphicsDevice.SetVertexBuffer(_vertexBuffer);
         _graphicsDevice.Indices = _indexBuffer;

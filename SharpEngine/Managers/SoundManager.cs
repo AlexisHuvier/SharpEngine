@@ -25,7 +25,7 @@ public static class SoundManager
 
     public static void Play(string name, float volume = 1f, float pitch = 0f, float pan = 0f)
     {
-        if (SoundEffects.ContainsKey(name))
-            SoundEffects[name].Play(volume, pitch, pan);
+        if (SoundEffects.TryGetValue(name, out var effect))
+            effect.Play(volume, pitch, pan);
     }
 }

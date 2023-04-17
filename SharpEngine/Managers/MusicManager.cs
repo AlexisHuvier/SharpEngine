@@ -26,8 +26,8 @@ public static class MusicManager
 
     public static void Play(string name)
     {
-        if (Songs.ContainsKey(name))
-            MediaPlayer.Play(Songs[name]);
+        if (Songs.TryGetValue(name, out var song))
+            MediaPlayer.Play(song);
     }
 
     public static void Stop() => MediaPlayer.Stop();

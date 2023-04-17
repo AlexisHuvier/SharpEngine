@@ -13,7 +13,7 @@ public class ControlComponent: Component
 {
     public ControlType ControlType;
     public int Speed;
-    private Dictionary<ControlKey, Key> _keys;
+    private readonly Dictionary<ControlKey, Key> _keys;
     public bool UseGamePad;
     public GamePadIndex GamePadIndex;
     public bool IsMoving;
@@ -33,7 +33,7 @@ public class ControlComponent: Component
         IsMoving = false;
         UseGamePad = useGamePad;
         GamePadIndex = gamePadIndex;
-        _keys = new Dictionary<ControlKey, Key>()
+        _keys = new Dictionary<ControlKey, Key>
         {
             { ControlKey.Up, Key.Up },
             { ControlKey.Down, Key.Down },

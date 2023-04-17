@@ -17,11 +17,7 @@ public class TextureManager
         _window = window;
     }
 
-    public void AddTexture(string name, Texture2D texture)
-    {
-        if (!_textures.ContainsKey(name))
-            _textures.Add(name, texture);
-    }
+    public void AddTexture(string name, Texture2D texture) =>  _textures.TryAdd(name, texture);
 
     public void AddTexture(string name, string file)
     {

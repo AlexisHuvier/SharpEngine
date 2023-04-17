@@ -22,16 +22,8 @@ public class Component
 
     public virtual void SetEntity(Entity entity) => Entity = entity;
     public Entity GetEntity() => Entity;
-
-    public SpriteBatch GetSpriteBatch()
-    {
-        return Entity?.Scene?.Window.InternalGame.SpriteBatch;
-    }
-
-    public Window GetWindow()
-    {
-        return Entity?.Scene?.Window;
-    }
+    public SpriteBatch GetSpriteBatch() => Entity?.Scene?.Window.InternalGame.SpriteBatch;
+    public Window GetWindow() => Entity?.Scene?.Window;
 
     public virtual void Initialize() {}
     public virtual void LoadContent() {}

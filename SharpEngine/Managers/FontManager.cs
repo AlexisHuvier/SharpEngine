@@ -67,8 +67,8 @@ public class FontManager
 
     public SpriteFont GetFont(string name)
     {
-        if (_fonts.ContainsKey(name))
-            return _fonts[name];
+        if (_fonts.TryGetValue(name, out var font))
+            return font;
         throw new System.Exception($"Font not founded : {name}");
     }
 }

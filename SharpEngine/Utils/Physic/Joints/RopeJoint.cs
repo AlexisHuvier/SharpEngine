@@ -20,7 +20,7 @@ public class RopeJoint: Joint
     {
         var joint = new RJoint(from, Target.GetComponent<PhysicsComponent>().Body, 
             FromPosition.ToMg(), TargetPosition.ToMg());
-        if (System.Math.Abs(MaxLength - (-1)) > InternalUtils.FloatTolerance)
+        if (System.Math.Abs(MaxLength + 1) > InternalUtils.FloatTolerance)
             joint.MaxLength = MaxLength;
         return joint;
     }

@@ -6,7 +6,7 @@ namespace SharpEngine.Components;
 
 public class ParticleComponent: Component
 {
-    private List<ParticleEmitter> _particleEmitters = new();
+    private readonly List<ParticleEmitter> _particleEmitters = new();
 
     public void AddEmitter(ParticleEmitter particleEmitter) => _particleEmitters.Add(particleEmitter);
     public List<ParticleEmitter> GetEmitters() => _particleEmitters;

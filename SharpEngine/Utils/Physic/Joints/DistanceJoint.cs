@@ -25,11 +25,11 @@ public class DistanceJoint: Joint
     {
         var joint = new DJoint(from, Target.GetComponent<PhysicsComponent>().Body, 
             FromPosition.ToMg(), TargetPosition.ToMg());
-        if (System.Math.Abs(Length - (-1)) > InternalUtils.FloatTolerance)
+        if (System.Math.Abs(Length + 1) > InternalUtils.FloatTolerance)
             joint.Length = Length;
-        if (System.Math.Abs(Frequency - (-1)) > InternalUtils.FloatTolerance)
+        if (System.Math.Abs(Frequency + 1) > InternalUtils.FloatTolerance)
             joint.Frequency = Frequency;
-        if (System.Math.Abs(DampingRatio - (-1)) > InternalUtils.FloatTolerance)
+        if (System.Math.Abs(DampingRatio + 1) > InternalUtils.FloatTolerance)
             joint.DampingRatio = DampingRatio;
         return joint;
     }

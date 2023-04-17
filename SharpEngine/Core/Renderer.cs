@@ -7,7 +7,7 @@ namespace SharpEngine.Core;
 
 public static class Renderer
 {
-    public static void RenderTexture(Window window, Texture2D texture, Vec2 position, Rect? sourceRectangle, Color color, float rotation, Vec2 origin, Vec2 scale, SpriteEffects effets, float layerDepth)
+    public static void RenderTexture(Window window, Texture2D texture, Vec2 position, Rect? sourceRectangle, Color color, float rotation, Vec2 origin, Vec2 scale, SpriteEffects effects, float layerDepth)
     {
         var sizeX = sourceRectangle != null ? sourceRectangle.Value.Size.X * scale.X : texture.Width * scale.X;
         var sizeY = sourceRectangle != null ? sourceRectangle.Value.Size.Y * scale.Y : texture.Height * scale.Y;
@@ -18,10 +18,10 @@ public static class Renderer
         
         if (sourceRectangle is null)
             window.InternalGame.SpriteBatch.Draw(texture, position.ToMg(), null, color.ToMg(), rotation,
-                origin.ToMg(), scale.ToMg(), effets, layerDepth);
+                origin.ToMg(), scale.ToMg(), effects, layerDepth);
         else
             window.InternalGame.SpriteBatch.Draw(texture, position.ToMg(), sourceRectangle.Value.ToMg(), color.ToMg(),
-                rotation, origin.ToMg(), scale.ToMg(), effets, layerDepth);
+                rotation, origin.ToMg(), scale.ToMg(), effects, layerDepth);
     }
 
     public static void RenderTexture(Window window, Texture2D texture, Rect destinationRectangle, Color color)

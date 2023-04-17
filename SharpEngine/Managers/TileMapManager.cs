@@ -27,8 +27,8 @@ public class TilemapManager
 
     public TileMap GetMap(string name)
     {
-        if (_tileMaps.ContainsKey(name))
-            return _tileMaps[name];
+        if (_tileMaps.TryGetValue(name, out var map))
+            return map;
         throw new System.Exception($"TileMap not founded : {name}");
     }
 }

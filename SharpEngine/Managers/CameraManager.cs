@@ -8,10 +8,10 @@ namespace SharpEngine.Managers;
 /// <summary>
 /// Gestion de la Caméra
 /// </summary>
-public class CameraManager
+public static class CameraManager
 {
     public static Vec2 Position { get; set; } = new(0);
-    public static Entity FollowEntity { get; set; } = null;
+    public static Entity FollowEntity { get; set; }
 
     public static void Update(Vec2 windowSize)
     {

@@ -1,17 +1,21 @@
 ﻿using SharpEngine;
 using SharpEngine.Components;
 using SharpEngine.Entities;
+using SharpEngine.Managers;
 using SharpEngine.Utils;
+using SharpEngine.Utils.Control;
 using SharpEngine.Utils.Math;
 
 namespace SE_Particles;
 
 public sealed class MyScene : Scene
 {
+    private Entity _ent;
+    
     public MyScene()
     {
-        var ent = new Entity();
-        ent.AddComponent(new TransformComponent(new Vec2(420, 300)));
+        _ent = new Entity();
+        _ent.AddComponent(new TransformComponent(new Vec2(420, 300)));
         ParticleEmitter[] emitters =
         {
             new(new[] { Color.Blue, Color.Red, Color.Yellow }, minDirection: -120, maxDirection: -60, active: true,
@@ -26,10 +30,18 @@ public sealed class MyScene : Scene
             new(new[] { Color.Blue }, minDirection: -90, maxDirection: -90, active: true, offset: new Vec2(120, 0),
                 spawnSize: new Vec2(40))
         };
-        var cmp = ent.AddComponent(new ParticleComponent());
+        var cmp = _ent.AddComponent(new ParticleComponent());
         foreach (var emitter in emitters)
             cmp.AddEmitter(emitter);
-        ent.AddComponent(new ControlComponent());
-        AddEntity(ent);
+        AddEntity(_ent);
+    }
+
+    public override void Update(GameTime gameTime)
+    {
+        base.Update(gameTime);
+
+        if (InputManager.IsMouseButtonPressed(MouseButton.Left))
+            _ent.GetComponent<TransformComponent>().Position = InputManager.GetMousePosition();
+
     }
 }

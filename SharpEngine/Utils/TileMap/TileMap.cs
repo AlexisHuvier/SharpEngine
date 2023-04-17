@@ -53,7 +53,7 @@ public class TileMap
         }
     }
 
-    public TileType GetTile(uint id)
+    public TileType? GetTile(uint id)
     {
         foreach(var tile in Tiles)
             if (tile.Id == id)

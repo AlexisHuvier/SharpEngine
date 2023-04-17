@@ -5,7 +5,7 @@ using tainicom.Aether.Physics2D.Dynamics.Contacts;
 
 namespace SharpEngine.Utils.Physic;
 
-public class FixtureInfo
+public struct FixtureInfo
 {
     public float Density;
     public float Restitution;

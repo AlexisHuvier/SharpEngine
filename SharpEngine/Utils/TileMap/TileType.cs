@@ -2,7 +2,7 @@
 
 namespace SharpEngine.Utils.TileMap;
 
-public class TileType
+public struct TileType
 {
     public readonly uint Id;
     public readonly string Source;

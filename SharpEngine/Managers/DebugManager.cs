@@ -19,6 +19,17 @@ public static class DebugManager
     private static TimeSpan _elapsedTime = TimeSpan.Zero;
     private static int _frameCounter;
 
+    public static void CreateSharpEngineImGuiWindow()
+    {
+        ImGui.Begin("SharpEngine Debug");
+        ImGui.Text($"MonoGame Version : {MonoGameVersion}");
+        ImGui.Text($"SharpEngine Version : {SharpEngineVersion}");
+        ImGui.Separator();
+        ImGui.Text($"FPS from ImGui : {1000.0/ImGui.GetIO().Framerate:.000}ms/frame ({ImGui.GetIO().Framerate} FPS)");
+        ImGui.Text($"FPS from SE : {1000.0/FrameRate:.000}ms/frame ({FrameRate} FPS)");
+        ImGui.Text($"GC Memory : {GcMemory/1000000.0:.000} mo");
+        ImGui.End();
+    }
 
     internal static void Update(GameTime gameTime)
     {

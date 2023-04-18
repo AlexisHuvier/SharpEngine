@@ -93,14 +93,6 @@ internal sealed class MyScene : Scene
         if(InputManager.IsKeyPressed(Key.V))
             RemoveEntity(Entities[7]);
 
-        if (InputManager.IsKeyPressed(Key.A))
-        {
-            Console.WriteLine($"SE Version : {DebugManager.GetSharpEngineVersion()}");
-            Console.WriteLine($"Monogame Version : {DebugManager.GetMonogameVersion()}");
-            Console.WriteLine($"FPS : {DebugManager.GetFps()}");
-            Console.WriteLine($"GC Memory : {DebugManager.GetGcMemory()}");
-            Console.WriteLine($"{InputManager.GetGamePadJoyStickAxis(0, GamePadJoyStickAxis.LeftX)}");
-        }
         if(InputManager.GetGamePadJoyStickAxis(0, GamePadJoyStickAxis.LeftX) != 0)
             Entities[4].GetComponent<PhysicsComponent>().SetLinearVelocity(new Vec2(200 * InputManager.GetGamePadJoyStickAxis(0, GamePadJoyStickAxis.LeftX), 0));
     }

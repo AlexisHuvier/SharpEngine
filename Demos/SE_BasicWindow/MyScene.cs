@@ -6,6 +6,5 @@ internal class MyScene : Scene
 {
     public MyScene()
     {
-        AddWidget(new Inventory());
     }
 }

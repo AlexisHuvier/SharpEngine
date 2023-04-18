@@ -38,17 +38,4 @@ public sealed class MyScene : Scene
 
         CameraManager.FollowEntity = player;
     }
-    public override void Update(GameTime gameTime)
-    {
-        base.Update(gameTime);
-
-        if (!InputManager.IsKeyPressed(Key.A)) return;
-        
-        Console.WriteLine($"SE Version : {DebugManager.GetSharpEngineVersion()}");
-        Console.WriteLine($"Monogame Version : {DebugManager.GetMonogameVersion()}");
-        Console.WriteLine($"FPS : {DebugManager.GetFps()}");
-        Console.WriteLine($"GC Memory : {DebugManager.GetGcMemory()}");
-        Console.WriteLine($"POSITION : {GetEntities()[^1].GetComponent<TransformComponent>().Position}");
-        Console.WriteLine($"IS MOVING : {GetEntities()[^1].GetComponent<ControlComponent>().IsMoving}");
-    }
 }

@@ -15,15 +15,7 @@ internal static class Program
     {
         var win = new Window(new Vec2(900, 600), Color.CornflowerBlue, debug: true)
         {
-            RenderImGui = _ =>
-            {
-                {
-                    ImGui.Text($"SE Version : {DebugManager.GetSharpEngineVersion()}");
-                    ImGui.Text($"Monogame Version : {DebugManager.GetMonogameVersion()}");
-                    ImGui.Text($"FPS : {DebugManager.GetFps()}");
-                    ImGui.Text($"GC Memory : {DebugManager.GetGcMemory() / 1024} ko");
-                }
-            }
+            RenderImGui = _ => DebugManager.CreateSharpEngineImGuiWindow()
         };
         
         win.FontManager.AddFont("basic", "Resources/basic.ttf");

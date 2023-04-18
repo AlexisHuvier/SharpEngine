@@ -163,9 +163,8 @@ public class PhysicsComponent : Component
         _joints.Clear();
 
         if (Entity.GetComponent<TransformComponent>() is not { } tc) return;
-        
-        tc.Position.X = Body.Position.X;
-        tc.Position.Y = Body.Position.Y;
+
+        tc.Position = new Vec2(Body.Position.X, Body.Position.Y);
         tc.Rotation = (int)(Body.Rotation * 180 / Math.PI);
     }
 

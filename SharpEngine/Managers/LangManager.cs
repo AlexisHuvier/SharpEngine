@@ -7,11 +7,9 @@ namespace SharpEngine.Managers;
 
 public static class LangManager
 {
-    private static readonly Dictionary<string, Lang> Langs = new();
-    private static string _currentLang = "default";
+    public static string CurrentLang { get; set; } = "default";
 
-    public static string GetCurrentLang() => _currentLang;
-    public static void SetCurrentLang(string lang) => _currentLang = lang;
+    private static readonly Dictionary<string, Lang> Langs = new();
     public static List<string> GetLangs() => new(Langs.Keys);
 
     public static void AddLang(string file)
@@ -22,6 +20,6 @@ public static class LangManager
 
     public static string GetTranslation(string key, string defaultTranslation)
     {
-        return GetLangs().Contains(_currentLang) ? Langs[_currentLang].GetLangTranslation(key, defaultTranslation) : defaultTranslation;
+        return GetLangs().Contains(CurrentLang) ? Langs[CurrentLang].GetLangTranslation(key, defaultTranslation) : defaultTranslation;
     }
 }

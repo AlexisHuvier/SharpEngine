@@ -13,11 +13,11 @@ namespace SharpEngine.Components;
 /// </summary>
 public class TextComponent: Component
 {
-    public string Text;
-    public string Font;
-    public Color Color;
-    public bool Displayed;
-    public Vec2 Offset;
+    public string Text { get; set; }
+    public string Font { get; set; }
+    public Color Color { get; set; }
+    public bool Displayed { get; set; }
+    public Vec2 Offset { get; set; }
 
     /// <summary>
     /// Initialise le Composant.

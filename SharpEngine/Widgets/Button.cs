@@ -20,12 +20,12 @@ public class Button: Widget
         Hovered
     }
 
-    public string Text;
-    public string Font;
-    public Vec2 Size;
-    public Color FontColor;
-    public Color BackgroundColor;
-    public Action<Button> Command;
+    public string Text { get; set; }
+    public string Font { get; set; }
+    public Vec2 Size { get; set; }
+    public Color FontColor { get; set; }
+    public Color BackgroundColor { get; set; }
+    public Action<Button> Command { get; set; }
 
     private ButtonState _state;
 

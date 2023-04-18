@@ -6,8 +6,8 @@ namespace SharpEngine.Widgets;
 
 public class ColorRect: Widget
 {
-    public Color Color;
-    public Vec2 Size;
+    public Color Color { get; set; }
+    public Vec2 Size { get; set; }
 
     /// <summary>
     /// Initialise le Widget.

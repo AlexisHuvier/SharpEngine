@@ -4,8 +4,8 @@ namespace SharpEngine.Utils.TileMap;
 
 public class Layer
 {
-    public List<Chunk> Chunks;
-    public List<Tile> Tiles;
+    public List<Chunk> Chunks { get; set; }
+    public List<Tile> Tiles { get; set; }
 
     public Layer(List<Chunk> chunks, List<Tile> tiles)
     {

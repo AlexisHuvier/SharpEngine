@@ -15,15 +15,25 @@ namespace SharpEngine.Components;
 /// </summary>
 public class AnimSpriteSheetComponent : Component
 {
-    public string Sprite;
-    public Vec2 SpriteSize;
-    public Dictionary<string, List<int>> Animations;
-    public bool Displayed;
-    public float Timer;
-    public Vec2 Offset;
-    public bool FlipX;
-    public bool FlipY;
-    
+    public string Sprite { get; set; }
+    public Vec2 SpriteSize { get; set; }
+    public Dictionary<string, List<int>> Animations { get; set; }
+    public bool Displayed { get; set; }
+    public float Timer { get; set; }
+    public Vec2 Offset { get; set; }
+    public bool FlipX { get; set; }
+    public bool FlipY { get; set; }
+    public string Anim
+    {
+        get => _currentAnim;
+        set
+        {
+            _currentAnim = value;
+            _currentImage = 0;
+            _internalTimer = Timer;
+        }
+    }
+
     private string _currentAnim;
     private int _currentImage;
     private float _internalTimer;
@@ -57,15 +67,6 @@ public class AnimSpriteSheetComponent : Component
         _currentImage = 0;
         _internalTimer = timer;
     }
-
-    public void SetAnim(string anim)
-    {
-        _currentAnim = anim;
-        _currentImage = 0;
-        _internalTimer = Timer;
-    }
-
-    public string GetAnim() => _currentAnim;
 
     public override void Update(GameTime gameTime)
     {

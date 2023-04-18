@@ -12,11 +12,11 @@ namespace SharpEngine.Widgets;
 /// </summary>
 public class Slider : Widget
 {
-    public Color Color;
-    public Vec2 Size;
-    public int Value;
-    public string Font;
-    public Color FontColor;
+    public Color Color { get; set; }
+    public Vec2 Size { get; set; }
+    public int Value { get; set; }
+    public string Font { get; set; }
+    public Color FontColor { get; set; }
 
     /// <summary>
     /// Initialise le Widget.

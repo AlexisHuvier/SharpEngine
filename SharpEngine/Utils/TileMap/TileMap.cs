@@ -8,10 +8,10 @@ namespace SharpEngine.Utils.TileMap;
 
 public class TileMap
 {
-    public readonly TiledMap Map;
-    public readonly List<TileType> Tiles;
-    public readonly Vec2 Size;
-    public readonly Vec2 TileSize;
+    public TiledMap Map { get; }
+    public List<TileType> Tiles { get; }
+    public Vec2 Size { get; }
+    public Vec2 TileSize { get; }
     
     public TileMap(string map, Window window)
     {

@@ -9,9 +9,9 @@ namespace SharpEngine.Widgets;
 /// </summary>
 public class ProgressBar : Widget
 {
-    public Color Color;
-    public Vec2 Size;
-    public int Value;
+    public Color Color { get; set; }
+    public Vec2 Size { get; set; }
+    public int Value { get; set; }
 
     /// <summary>
     /// Initialise le Widget.

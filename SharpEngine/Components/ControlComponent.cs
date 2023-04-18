@@ -11,12 +11,13 @@ namespace SharpEngine.Components;
 /// </summary>
 public class ControlComponent: Component
 {
-    public ControlType ControlType;
-    public int Speed;
+    public ControlType ControlType { get; set; }
+    public int Speed { get; set; }
+    public bool UseGamePad { get; set; }
+    public GamePadIndex GamePadIndex { get; set; }
+    public bool IsMoving { get; private set; }
+    
     private readonly Dictionary<ControlKey, Key> _keys;
-    public bool UseGamePad;
-    public GamePadIndex GamePadIndex;
-    public bool IsMoving;
 
     /// <summary>
     /// Initialise le Composant.

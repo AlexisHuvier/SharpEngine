@@ -18,11 +18,10 @@ public class TilemapManager
     
     public void AddMap(string name, string file)
     {
-        if (!_tileMaps.ContainsKey(name))
-        {
-            var map = new TileMap(file, _window);
-            _tileMaps.Add(name, map);
-        }
+        if (_tileMaps.ContainsKey(name)) return;
+        
+        var map = new TileMap(file, _window);
+        _tileMaps.Add(name, map);
     }
 
     public TileMap GetMap(string name)

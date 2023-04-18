@@ -16,16 +16,16 @@ public static class MathUtils
     public const float Tau = 6.28318548F;
     public const float TwoPi = 6.28318548F;
 
-    private static Random _rand = new();
+    private static readonly Random Rand = new();
 
     public static float RandomBetween(float min, float max)
     {
         double range = max - min;
-        var sample = _rand.NextDouble();
+        var sample = Rand.NextDouble();
         return (float)(sample * range + min);
     }
 
-    public static int RandomBetween(int min, int max) => _rand.Next(min, max + 1);
+    public static int RandomBetween(int min, int max) => Rand.Next(min, max + 1);
 
     public static float ToDegrees(float radians) => radians * 180 / Pi;
     public static float ToRadians(float degrees) => degrees * Pi / 180;

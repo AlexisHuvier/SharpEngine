@@ -6,10 +6,10 @@ namespace SharpEngine.Widgets;
 
 public class Frame: Widget
 {
-    public Color BorderColor;
-    public Vec2 Size;
-    public Vec2 BorderSize;
-    public Color BackgroundColor;
+    public Color BorderColor { get; set; }
+    public Vec2 Size { get; set; }
+    public Vec2 BorderSize { get; set; }
+    public Color BackgroundColor { get; set; }
     
     
     /// <summary>

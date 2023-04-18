@@ -8,10 +8,10 @@ namespace SharpEngine.Components;
 /// </summary>
 public class TransformComponent: Component
 {
-    public Vec2 Position;
-    public Vec2 Scale;
-    public int Rotation;
-    public int ZLayer;
+    public Vec2 Position { get; set; }
+    public Vec2 Scale { get; set; }
+    public int Rotation { get; set; }
+    public int ZLayer { get; set; }
 
     /// <summary>
     /// Initialise le Composant.

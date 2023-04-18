@@ -11,10 +11,10 @@ namespace SharpEngine.Widgets;
 /// </summary>
 public class LineEdit : Widget
 {
-    public string Text;
-    public string Font;
-    public Vec2 Size;
-    public bool Focused;
+    public string Text { get; set; }
+    public string Font { get; set; }
+    public Vec2 Size { get; set; }
+    public bool Focused { get; set; }
     
     private float _timer;
     private bool _cursor;

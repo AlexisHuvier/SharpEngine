@@ -16,20 +16,20 @@ public class Window
     private bool _internalMouseVisible;
     private FullScreenType _internalFullScreen;
     private bool _internalVSync;
-    internal int CurrentScene = -1;
+    private int _internalIndexCurrentScene = -1;
     internal readonly List<Scene> Scenes = new();
     
-    public readonly TextureManager TextureManager;
-    public readonly FontManager FontManager;
-    public readonly TilemapManager TileMapManager;
+    public TextureManager TextureManager { get; }
+    public FontManager FontManager { get; }
+    public TilemapManager TileMapManager { get; }
 
-    public Func<bool> StartCallback = null;
-    public Func<bool> StopCallback = null;
-    public Action<Window> RenderImGui = null;
+    public Func<bool> StartCallback { get; set; }
+    public Func<bool> StopCallback { get; set; }
+    public Action<Window> RenderImGui { get; set; }
 
-    public Color BackgroundColor;
-    public bool ExitWithEscape;
-    public bool Debug;
+    public Color BackgroundColor { get; set; }
+    public bool ExitWithEscape { get; set; }
+    public bool Debug { get; set; }
 
     public Vec2 ScreenSize
     {
@@ -75,6 +75,30 @@ public class Window
         }
     }
 
+    public int IndexCurrentScene
+    {
+        get => _internalIndexCurrentScene;
+        set
+        {
+            if(_internalIndexCurrentScene != -1)
+                Scenes[_internalIndexCurrentScene].CloseScene?.Invoke(Scenes[_internalIndexCurrentScene]);
+            _internalIndexCurrentScene = value;
+            Scenes[_internalIndexCurrentScene].OpenScene?.Invoke(Scenes[_internalIndexCurrentScene]);
+        }
+    }
+
+    public Scene CurrentScene
+    {
+        get => Scenes[_internalIndexCurrentScene];
+        set
+        {
+            if(_internalIndexCurrentScene != -1)
+                Scenes[_internalIndexCurrentScene].CloseScene?.Invoke(Scenes[_internalIndexCurrentScene]);
+            _internalIndexCurrentScene = Scenes.IndexOf(value);
+            Scenes[_internalIndexCurrentScene].OpenScene?.Invoke(Scenes[_internalIndexCurrentScene]);
+        }
+    }
+
     /// <summary>
     /// Initalise la Fenêtre.
     /// </summary>
@@ -103,32 +127,13 @@ public class Window
 
     public Scene GetScene(int index) => Scenes[index];
 
-    public void SetCurrentScene(Scene scene)
-    {
-        if(CurrentScene != -1)
-            Scenes[CurrentScene].CloseScene?.Invoke(Scenes[CurrentScene]);
-        CurrentScene = Scenes.IndexOf(scene);
-        Scenes[CurrentScene].OpenScene?.Invoke(Scenes[CurrentScene]);
-    }
-
-    public void SetCurrentScene(int sceneId)
-    {
-        
-        if(CurrentScene != -1)
-            Scenes[CurrentScene].CloseScene?.Invoke(Scenes[CurrentScene]);
-        CurrentScene = sceneId;
-        Scenes[CurrentScene].OpenScene?.Invoke(Scenes[CurrentScene]);
-    }
-
-    public Scene GetCurrentScene() => Scenes[CurrentScene];
-
     public void TakeScreenshot(string fileName) => InternalGame.TakeScreenshot(fileName);
 
     public void AddScene(Scene scene)
     {
         scene.SetWindow(this);
         Scenes.Add(scene);
-        CurrentScene = Scenes.Count - 1;
+        _internalIndexCurrentScene = Scenes.Count - 1;
     }
 
     public void RemoveScene(Scene scene)

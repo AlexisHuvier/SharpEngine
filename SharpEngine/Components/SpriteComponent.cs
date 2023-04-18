@@ -13,11 +13,11 @@ namespace SharpEngine.Components;
 /// </summary>
 public class SpriteComponent: Component
 {
-    public string Sprite;
-    public bool Displayed;
-    public Vec2 Offset;
-    public bool FlipX;
-    public bool FlipY;
+    public string Sprite { get; set; }
+    public bool Displayed { get; set; }
+    public Vec2 Offset { get; set; }
+    public bool FlipX { get; set; }
+    public bool FlipY { get; set; }
 
     /// <summary>
     /// Initialise le Composant.

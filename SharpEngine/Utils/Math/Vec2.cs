@@ -11,8 +11,8 @@ public struct Vec2
     public static Vec2 Zero { get; } = new(0);
     public static Vec2 One { get; } = new(1);
     
-    public float X;
-    public float Y;
+    public float X { get; set; }
+    public float Y { get; set; }
 
     public Vec2(float same)
     {
@@ -35,7 +35,7 @@ public struct Vec2
     public float Length() => (float) System.Math.Sqrt(X * X + Y * Y);
     public float LengthSquared() => X * X + Y * Y;
 
-    public Vector2 ToMg() => new(X, Y);
+    public readonly Vector2 ToMg() => new(X, Y);
 
     public override bool Equals(object obj)
     {

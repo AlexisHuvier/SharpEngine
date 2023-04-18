@@ -14,34 +14,34 @@ public enum ParticleParametersFunction
 
 public class ParticleEmitter
 {
-    public List<Particle> Particles = new();
-    public Color[] BeginColors;
-    public Color[] EndColors;
-    public Vec2 Offset;
-    public float MinVelocity;
-    public float MaxVelocity;
-    public float MinAcceleration;
-    public float MaxAcceleration;
-    public float MinRotationSpeed;
-    public float MaxRotationSpeed;
-    public float MinRotation;
-    public float MaxRotation;
-    public float MinLifetime;
-    public float MaxLifetime;
-    public float MinDirection;
-    public float MaxDirection;
-    public float MinTimerBeforeSpawn;
-    public float MaxTimerBeforeSpawn;
-    public int MinNbParticlesPerSpawn;
-    public int MaxNbParticlesPerSpawn;
-    public float MinSize;
-    public float MaxSize;
-    public ParticleParametersFunction SizeFunction;
-    public float SizeFunctionValue;
-    public Vec2 SpawnSize;
+    public List<Particle> Particles { get; }= new();
+    public Color[] BeginColors { get; set; }
+    public Color[] EndColors { get; set; }
+    public Vec2 Offset { get; set; }
+    public float MinVelocity { get; set; }
+    public float MaxVelocity { get; set; }
+    public float MinAcceleration { get; set; }
+    public float MaxAcceleration { get; set; }
+    public float MinRotationSpeed { get; set; }
+    public float MaxRotationSpeed { get; set; }
+    public float MinRotation { get; set; }
+    public float MaxRotation { get; set; }
+    public float MinLifetime { get; set; }
+    public float MaxLifetime { get; set; }
+    public float MinDirection { get; set; }
+    public float MaxDirection { get; set; }
+    public float MinTimerBeforeSpawn { get; set; }
+    public float MaxTimerBeforeSpawn { get; set; }
+    public int MinNbParticlesPerSpawn { get; set; }
+    public int MaxNbParticlesPerSpawn { get; set; }
+    public float MinSize { get; set; }
+    public float MaxSize { get; set; }
+    public ParticleParametersFunction SizeFunction { get; set; }
+    public float SizeFunctionValue { get; set; }
+    public Vec2 SpawnSize { get; set; }
 
-    public int MaxParticles;
-    public bool Active;
+    public int MaxParticles { get; set; }
+    public bool Active { get; set; }
 
     private List<Particle> _mustBeDeleted = new();
     private float _timerBeforeSpawn;
@@ -154,20 +154,20 @@ public class ParticleEmitter
 
 public class Particle
 {
-    public Vec2 Position;
-    public Vec2 Velocity;
-    public Vec2 Acceleration;
-    public float Lifetime;
-    public float TimeSinceStart;
-    public float Size;
-    public float MaxSize;
-    public float Rotation;
-    public float RotationSpeed;
-    public Color BeginColor;
-    public Color CurrentColor;
-    public Color EndColor;
-    public ParticleParametersFunction SizeFunction;
-    public float SizeFunctionValue;
+    public Vec2 Position { get; set; }
+    public Vec2 Velocity { get; set; }
+    public Vec2 Acceleration { get; set; }
+    public float Lifetime { get; set; }
+    public float TimeSinceStart { get; set; }
+    public float Size { get; set; }
+    public float MaxSize { get; set; }
+    public float Rotation { get; set; }
+    public float RotationSpeed { get; set; }
+    public Color BeginColor { get; set; }
+    public Color CurrentColor { get; set; }
+    public Color EndColor { get; set; }
+    public ParticleParametersFunction SizeFunction { get; set; }
+    public float SizeFunctionValue { get; set; }
 
     public Particle(Vec2 position, Vec2 velocity, Vec2 acceleration, float lifetime, float size, float rotation,
         float rotationSpeed, Color beginColor, Color endColor,

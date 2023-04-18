@@ -17,8 +17,9 @@ namespace SharpEngine;
 /// </summary>
 public class InternalGame : Game
 {
-    public readonly GraphicsDeviceManager Graphics;
-    public SpriteBatch SpriteBatch;
+    public GraphicsDeviceManager Graphics { get; }
+    public SpriteBatch SpriteBatch { get; set; }
+    
     private readonly Window _window;
     private ImGuiRenderer _imGuiRenderer;
 
@@ -93,8 +94,8 @@ public class InternalGame : Game
 
     private void TextInputHandler(object sender, TextInputEventArgs args)
     {
-        if (_window.CurrentScene != -1)
-            _window.Scenes[_window.CurrentScene].TextInput(sender, (Key)args.Key, args.Character);
+        if (_window.IndexCurrentScene != -1)
+            _window.Scenes[_window.IndexCurrentScene].TextInput(sender, (Key)args.Key, args.Character);
     }
 
     protected override void Initialize()
@@ -154,8 +155,8 @@ public class InternalGame : Game
         if (Keyboard.GetState().IsKeyDown(Keys.Escape) && _window.ExitWithEscape)
             Exit();
 
-        if (_window.CurrentScene != -1)
-            _window.Scenes[_window.CurrentScene].Update(GameTime.FromMonogameGameTime(gameTime));
+        if (_window.IndexCurrentScene != -1)
+            _window.Scenes[_window.IndexCurrentScene].Update(GameTime.FromMonogameGameTime(gameTime));
 
         InputManager.Update();
 
@@ -171,8 +172,8 @@ public class InternalGame : Game
         GraphicsDevice.Clear(_window.BackgroundColor.ToMg());
 
         SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
-        if (_window.CurrentScene != -1)
-            _window.Scenes[_window.CurrentScene].Draw(gT);
+        if (_window.IndexCurrentScene != -1)
+            _window.Scenes[_window.IndexCurrentScene].Draw(gT);
         SpriteBatch.End();
 
         if (_window.Debug)

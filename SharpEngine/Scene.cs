@@ -17,8 +17,8 @@ namespace SharpEngine;
 /// </summary>
 public class Scene
 {
-    public Action<Scene> OpenScene;
-    public Action<Scene> CloseScene;
+    public Action<Scene> OpenScene { get; set; }
+    public Action<Scene> CloseScene { get; set; }
     internal Window Window;
     protected readonly List<Entity> Entities;
     protected readonly List<Widget> Widgets;
@@ -186,7 +186,7 @@ public class Scene
         while (widgetsToAdd.Count != 0)
         {
             finalWidgets.Add(widgetsToAdd[0]);
-            widgetsToAdd.InsertRange(1, widgetsToAdd[0].GetDisplayedChilds());
+            widgetsToAdd.InsertRange(1, widgetsToAdd[0].GetDisplayedChildren());
             widgetsToAdd.RemoveAt(0);
         }
 

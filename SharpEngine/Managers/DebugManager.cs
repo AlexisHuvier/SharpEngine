@@ -1,4 +1,5 @@
 ﻿using System;
+using ImGuiNET;
 using SharpEngine.Utils.Math;
 
 namespace SharpEngine.Managers;
@@ -8,17 +9,16 @@ namespace SharpEngine.Managers;
 /// </summary>
 public static class DebugManager
 {
-    private static int _frameRate;
-    private static int _frameCounter;
-    private static TimeSpan _elapsedTime = TimeSpan.Zero;
-
-    private static readonly string MonoGameVersion = System.Diagnostics.FileVersionInfo
+    public static int FrameRate { get; private set; }
+    public static string MonoGameVersion => System.Diagnostics.FileVersionInfo
         .GetVersionInfo(typeof(Microsoft.Xna.Framework.Game).Assembly.Location).FileVersion;
+    public static long GcMemory => GC.GetTotalMemory(false);
+    public static string SharpEngineVersion => "0.17.0";
+    
+    
+    private static TimeSpan _elapsedTime = TimeSpan.Zero;
+    private static int _frameCounter;
 
-    public static int GetFps() => _frameRate;
-    public static long GetGcMemory() => GC.GetTotalMemory(false);
-    public static string GetMonogameVersion() => MonoGameVersion;
-    public static string GetSharpEngineVersion() => "0.16.11";
 
     internal static void Update(GameTime gameTime)
     {
@@ -27,7 +27,7 @@ public static class DebugManager
         if (_elapsedTime <= TimeSpan.FromSeconds(1)) return;
         
         _elapsedTime -= TimeSpan.FromSeconds(1);
-        _frameRate = _frameCounter;
+        FrameRate = _frameCounter;
         _frameCounter = 0;
     }
 

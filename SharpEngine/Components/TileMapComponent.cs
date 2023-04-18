@@ -15,9 +15,9 @@ namespace SharpEngine.Components;
 /// </summary>
 public class TileMapComponent: Component
 {
-    public TileMap Map;
+    public TileMap Map { get; internal set; }
 
-    private string TileMap
+    public string TileMap
     {
         get => _tilemap;
         set

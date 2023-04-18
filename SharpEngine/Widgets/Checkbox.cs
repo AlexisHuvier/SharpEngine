@@ -11,11 +11,11 @@ namespace SharpEngine.Widgets;
 /// </summary>
 public class Checkbox : Widget
 {
-    public string Text;
-    public string Font;
-    public float Scale;
-    public Color FontColor;
-    public bool IsChecked;
+    public string Text { get; set; }
+    public string Font { get; set; }
+    public float Scale { get; set; }
+    public Color FontColor { get; set; }
+    public bool IsChecked { get; set; }
 
     /// <summary>
     /// Initialise le Widget.

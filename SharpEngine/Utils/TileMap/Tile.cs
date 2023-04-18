@@ -4,8 +4,8 @@ namespace SharpEngine.Utils.TileMap;
 
 public class Tile
 {
-    public readonly Vec2 Position;
-    public readonly uint Type;
+    public Vec2 Position { get; }
+    public uint Type { get; }
 
     public Tile(Vec2 position, uint type)
     {

@@ -12,13 +12,13 @@ namespace SharpEngine.Widgets;
 /// </summary>
 public class Image : Widget
 {
-    public string Texture;
-    public Vec2 Size;
-    public Rect? SourceRect;
-    public bool FlipX;
-    public bool FlipY;
-    public Vec2 Scale;
-    public int Rotation;
+    public string Texture { get; set; }
+    public Vec2 Size { get; set; }
+    public Rect? SourceRect { get; set; }
+    public bool FlipX { get; set; }
+    public bool FlipY { get; set; }
+    public Vec2 Scale { get; set; }
+    public int Rotation { get; set; }
 
     /// <summary>
     /// Initialise le Widget.

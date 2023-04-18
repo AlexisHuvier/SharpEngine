@@ -9,8 +9,8 @@ namespace SharpEngine.Components;
 /// </summary>
 public class AutoMovementComponent : Component
 {
-    public Vec2 Direction;
-    public int Rotation;
+    public Vec2 Direction { get; set; }
+    public int Rotation { get; set; }
 
     /// <summary>
     /// Initialise le Composant.

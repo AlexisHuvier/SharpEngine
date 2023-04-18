@@ -4,7 +4,7 @@ namespace SharpEngine.Utils.TileMap;
 
 public class Chunk
 {
-    public List<Tile> Tiles;
+    public List<Tile> Tiles { get; set; }
 
     public Chunk(List<Tile> tiles)
     {

@@ -20,12 +20,12 @@ public class TexturedButton : Widget
         Hovered
     }
 
-    public string Text;
-    public string Font;
-    public string Texture;
-    public Vec2 Size;
-    public Color FontColor;
-    public Action<TexturedButton> Command;
+    public string Text { get; set; }
+    public string Font { get; set; }
+    public string Texture { get; set; }
+    public Vec2 Size { get; set; }
+    public Color FontColor { get; set; }
+    public Action<TexturedButton> Command { get; set; }
 
     private ButtonState _state;
 

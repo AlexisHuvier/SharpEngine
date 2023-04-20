@@ -10,12 +10,12 @@ namespace SharpEngine.Managers;
 public static class DebugManager
 {
     public static int FrameRate { get; private set; }
-    public static string MonoGameVersion => System.Diagnostics.FileVersionInfo
+    public readonly static string MonoGameVersion = System.Diagnostics.FileVersionInfo
         .GetVersionInfo(typeof(Microsoft.Xna.Framework.Game).Assembly.Location).FileVersion;
     public static long GcMemory => GC.GetTotalMemory(false);
-    public static string SharpEngineVersion => "0.17.0";
-    
-    
+    public const string SharpEngineVersion = "0.17.0";
+
+
     private static TimeSpan _elapsedTime = TimeSpan.Zero;
     private static int _frameCounter;
 

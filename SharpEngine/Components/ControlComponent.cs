@@ -16,6 +16,7 @@ public class ControlComponent: Component
     public bool UseGamePad { get; set; }
     public GamePadIndex GamePadIndex { get; set; }
     public bool IsMoving { get; private set; }
+    public Vec2 Direction { get; private set; }
     
     private readonly Dictionary<ControlKey, Key> _keys;
 
@@ -140,6 +141,7 @@ public class ControlComponent: Component
         if (tc.Position == pos) return;
             
         IsMoving = true;
+        Direction = (pos - tc.Position).Normalized();
         if (Entity.GetComponent<PhysicsComponent>() is { } pc)
             pc.SetLinearVelocity((pos - tc.Position) / (float)gameTime.ElapsedGameTime.TotalSeconds);
         else

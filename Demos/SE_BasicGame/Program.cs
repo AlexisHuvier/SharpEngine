@@ -17,7 +17,7 @@ internal static class Program
             {
                 DebugManager.CreateSharpEngineImGuiWindow();
                 {
-                    ImGui.Begin("Basic Game Informations");
+                    ImGui.Begin("Basic Game Information");
                     ImGui.Text($"Player Position : {((MyScene)win.GetScene(0)).Player.GetComponent<TransformComponent>().Position}");
                     ImGui.End();
                 }

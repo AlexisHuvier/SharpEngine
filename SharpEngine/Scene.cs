@@ -202,7 +202,7 @@ public class Scene
         foreach (var widget in GetDisplayedWidgetsSortByZ())
             widget.Draw(gameTime);
         
-        if (Window.Debug)
+        if (Window.Debug && Window.ShowPhysicDebugView)
         {
             var i = Matrix.CreateOrthographicOffCenter(0, Window.ScreenSize.X, Window.ScreenSize.Y, 0, -100, 10);
             var view = Matrix.CreateScale(1);

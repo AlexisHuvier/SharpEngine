@@ -40,13 +40,24 @@ public class TileMap
             {
                 var source = Map.File + tileset.Image.Source;
                 window.TextureManager.AddTexture(source, mapFolder + Path.DirectorySeparatorChar + tileset.Image.Source);
-                var nbXTile = tileset.Image.Width / tileset.TileWidth;
-                var nbYTile = tileset.Image.Height / tileset.TileHeight;
+                uint nbXTile;
+                uint nbYTile;
+                if (tileset.Spacing == 0)
+                {
+                    nbXTile = tileset.Image.Width / tileset.TileWidth;
+                    nbYTile = tileset.Image.Height / tileset.TileHeight;
+                }
+                else
+                {
+                    nbXTile = tileset.Image.Width / (tileset.TileWidth + tileset.Spacing) + 1;
+                    nbYTile = tileset.Image.Height / (tileset.TileHeight + tileset.Spacing) + 1;
+                }
+
                 for (var y = 0; y < nbYTile; y++)
                 {
                     for (var x = 0; x < nbXTile; x++)
                         Tiles.Add(new TileType((uint)(id + x + y * nbXTile), source,
-                            new Rect(x * tileset.TileWidth, y * tileset.TileHeight, tileset.TileWidth,
+                            new Rect(x * (tileset.TileWidth + tileset.Spacing), y * (tileset.TileHeight + tileset.Spacing), tileset.TileWidth,
                                 tileset.TileHeight)));
                 }
             }

@@ -9,6 +9,7 @@ namespace SharpEngine.Utils.Math;
 public struct Rect
 {
     public Vec2 Position { get; set; }
+
     public Vec2 Size { get; set; }
 
     public Rect(Vec2 pos, Vec2 siz)

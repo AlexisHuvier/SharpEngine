@@ -15,7 +15,7 @@ namespace SharpEngine.Components;
 /// </summary>
 public class TileMapComponent: Component
 {
-    public TileMap Map { get; internal set; }
+    public TileMap Map { get; private set; }
 
     public string TileMap
     {
@@ -60,7 +60,7 @@ public class TileMapComponent: Component
                     new Vec2(
                         compPosition.X + Map.TileSize.X * tc.Scale.X * Convert.ToInt32(i % Convert.ToInt32(Map.Size.X)),
                         compPosition.Y + Map.TileSize.Y * tc.Scale.Y * Convert.ToInt32(i / Convert.ToInt32(Map.Size.X)));
-                lay.Tiles.Add(new Tile(position, layer.Data.Tiles[i]));
+                lay.Tiles.Add(new Tile(position, Map.GetTile(layer.Data.Tiles[i])));
             }
 
             foreach (var chunk in layer.Data!.Chunks)
@@ -75,7 +75,7 @@ public class TileMapComponent: Component
                         Map.TileSize.X * tc.Scale.X * Convert.ToInt32(i % Convert.ToInt32(chunk.Width)),
                         compPosition.Y + y * Map.TileSize.Y * tc.Scale.Y +
                         Map.TileSize.Y * tc.Scale.Y * Convert.ToInt32(i / Convert.ToInt32(chunk.Width)));
-                    chun.Tiles.Add(new Tile(position, chunk.Tiles[i]));
+                    chun.Tiles.Add(new Tile(position, Map.GetTile(chunk.Tiles[i])));
                 }
                 lay.Chunks.Add(chun);
             }
@@ -99,20 +99,20 @@ public class TileMapComponent: Component
         {
             foreach (var tile in layer.Tiles)
             {
-                if(tile.Type == 0) continue;
-                var tiletype = Map.GetTile(tile.Type);
-                var texture = Entity.Scene.Window.TextureManager.GetTexture(tiletype?.Source);
-                Renderer.RenderTexture(Entity.Scene.Window, texture, tile.Position - CameraManager.Position, tiletype?.SourceRect, Color.White, 0, originPosition, tc.Scale, SpriteEffects.None, 1);
+                if(tile.Type == null) continue;
+                
+                var texture = Entity.Scene.Window.TextureManager.GetTexture(tile.Type?.Source);
+                Renderer.RenderTexture(Entity.Scene.Window, texture, tile.Position - CameraManager.Position, tile.Type?.SourceRect, Color.White, 0, originPosition, tc.Scale, SpriteEffects.None, 1);
             }
 
             foreach (var chunk in layer.Chunks)
             {
                 foreach (var tile in chunk.Tiles)
                 {
-                    if(tile.Type == 0) continue;
-                    var tiletype = Map.GetTile(tile.Type);
-                    var texture = Entity.Scene.Window.TextureManager.GetTexture(tiletype?.Source);
-                    Renderer.RenderTexture(Entity.Scene.Window, texture, tile.Position - CameraManager.Position, tiletype?.SourceRect, Color.White, 0, originPosition, tc.Scale, SpriteEffects.None, 1);
+                    if(tile.Type == null) continue;
+                    
+                    var texture = Entity.Scene.Window.TextureManager.GetTexture(tile.Type?.Source);
+                    Renderer.RenderTexture(Entity.Scene.Window, texture, tile.Position - CameraManager.Position, tile.Type?.SourceRect, Color.White, 0, originPosition, tc.Scale, SpriteEffects.None, 1);
                 }
             }
         }

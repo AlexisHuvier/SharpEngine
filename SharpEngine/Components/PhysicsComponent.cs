@@ -58,7 +58,7 @@ public class PhysicsComponent : Component
             Friction = friction,
             Type = FixtureType.Rectangle,
             Parameter = size,
-            Offset = offset ?? new Vec2(0),
+            Offset = offset ?? Vec2.Zero,
             Tag = tag,
             OnCollision = onCollision
         };
@@ -75,7 +75,7 @@ public class PhysicsComponent : Component
             Friction = friction,
             Type = FixtureType.Circle,
             Parameter = radius,
-            Offset = offset ?? new Vec2(0),
+            Offset = offset ?? Vec2.Zero,
             Tag = tag,
             OnCollision = onCollision
         };

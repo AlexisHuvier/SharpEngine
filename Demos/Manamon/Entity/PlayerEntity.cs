@@ -15,7 +15,21 @@ public class PlayerEntity: SharpEngine.Entities.Entity
         AddComponent(new TransformComponent(new Vec2(200), new Vec2(0.75f)));
         AddComponent(new ControlComponent(ControlType.FourDirection));
         AddComponent(new SpriteComponent("Liwä"));
-        AddComponent(new PhysicsComponent(ignoreGravity: true, fixedRotation: true)).AddRectangleCollision(PlayerSize);
+        var phys = AddComponent(new PhysicsComponent(ignoreGravity: true, fixedRotation: true));
+        phys.AddRectangleCollision(PlayerSize);
+        phys.CollisionCallback = (sender, other, contact) =>
+        {
+            foreach (var enemy in ((Game)GetScene()).Enemies)
+            {
+                if (enemy.GetComponent<PhysicsComponent>() is { } physicsComponent &&
+                    physicsComponent.Body == other.Body)
+                {
+                    Console.WriteLine("OUI !");
+                    break;
+                }
+            }
+            return true;
+        };
         AddComponent(new OutOfWindowComponent(direction => ((Game)GetScene()).NextMap(direction)));
     }
 }

@@ -10,9 +10,9 @@ namespace Manamon.Scene;
 public class Game: SharpEngine.Scene
 {
     public Vec2 CurrentMap = Vec2.Zero;
+    public readonly List<EnemyEntity> Enemies = new();
     
     private readonly MapEntity _map;
-    private List<EnemyEntity> _enemies = new();
 
     public Game()
     {
@@ -40,14 +40,14 @@ public class Game: SharpEngine.Scene
             tileMapComponent.TileMap = map.Map;
             CurrentMap = newMap;
 
-            foreach (var enemy in _enemies)
+            foreach (var enemy in Enemies)
                 RemoveEntity(enemy);
-            _enemies.Clear();
+            Enemies.Clear();
             foreach (var enemy in map.Enemies)
             {
                 var entity = AddEntity(new EnemyEntity(enemy.Key, new Vec2(0.75f), enemy.Value));
                 entity.Initialize();
-                _enemies.Add(entity);
+                Enemies.Add(entity);
             }
 
             return true;

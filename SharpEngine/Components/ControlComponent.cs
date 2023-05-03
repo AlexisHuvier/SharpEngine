@@ -64,35 +64,35 @@ public class ControlComponent: Component
             case ControlType.MouseFollow:
                 var mp = InputManager.GetMousePosition();
                 if (pos.X < mp.X - Speed * (float)gameTime.ElapsedGameTime.TotalSeconds / 2f)
-                    pos.X += Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    pos.X += 1;
                 else if (pos.X > mp.X + Speed * (float)gameTime.ElapsedGameTime.TotalSeconds / 2f)
-                    pos.X -= Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    pos.X -= 1;
 
                 if (pos.Y < mp.Y - Speed * (float)gameTime.ElapsedGameTime.TotalSeconds / 2f)
-                    pos.Y += Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    pos.Y += 1;
                 else if (pos.Y > mp.Y + Speed * (float)gameTime.ElapsedGameTime.TotalSeconds / 2f)
-                    pos.Y -= Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    pos.Y -= 1;
                 break;
             case ControlType.LeftRight:
                 if (UseGamePad && InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftX) != 0)
-                    pos.X += Speed * InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftX) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    pos.X += InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftX);
                 else
                 {
                     if (InputManager.IsKeyDown(_keys[ControlKey.Left]))
-                        pos.X -= Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        pos.X -= 1;
                     if (InputManager.IsKeyDown(_keys[ControlKey.Right]))
-                        pos.X += Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        pos.X += 1;
                 }
                 break;
             case ControlType.UpDown:
                 if (UseGamePad && InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftY) != 0)
-                    pos.Y -= Speed * InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftY) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    pos.Y -= InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftY);
                 else
                 {
                     if (InputManager.IsKeyDown(_keys[ControlKey.Up]))
-                        pos.Y -= Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        pos.Y -= 1;
                     if (InputManager.IsKeyDown(_keys[ControlKey.Down]))
-                        pos.Y += Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        pos.Y += 1;
                 }
 
                 break;
@@ -100,31 +100,31 @@ public class ControlComponent: Component
                 if (UseGamePad && (InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftX) != 0 ||
                                    InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftY) != 0))
                 {
-                    pos.X += Speed * InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftX) * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    pos.Y -= Speed * InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftY) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    pos.X += InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftX);
+                    pos.Y -= InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftY);
                 }
                 else
                 {
                     if (InputManager.IsKeyDown(_keys[ControlKey.Left]))
-                        pos.X -= Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        pos.X -= 1;
                     if (InputManager.IsKeyDown(_keys[ControlKey.Right]))
-                        pos.X += Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        pos.X += 1;
                     if (InputManager.IsKeyDown(_keys[ControlKey.Up]))
-                        pos.Y -= Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        pos.Y -= 1;
                     if (InputManager.IsKeyDown(_keys[ControlKey.Down]))
-                        pos.Y += Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        pos.Y += 1;
                 }
 
                 break;
             case ControlType.ClassicJump:
                 if (UseGamePad && InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftX) != 0)
-                    pos.X += Speed * InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftX) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    pos.X += InputManager.GetGamePadJoyStickAxis(GamePadIndex, GamePadJoyStickAxis.LeftX);
                 else
                 {
                     if (InputManager.IsKeyDown(_keys[ControlKey.Left]))
-                        pos.X -= Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        pos.X -= 1;
                     if (InputManager.IsKeyDown(_keys[ControlKey.Right]))
-                        pos.X += Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        pos.X += 1;
                 }
 
                 if (InputManager.IsKeyPressed(_keys[ControlKey.Up]) ||
@@ -143,9 +143,9 @@ public class ControlComponent: Component
         IsMoving = true;
         Direction = (pos - tc.Position).Normalized();
         if (Entity.GetComponent<PhysicsComponent>() is { } pc)
-            pc.SetLinearVelocity((pos - tc.Position) / (float)gameTime.ElapsedGameTime.TotalSeconds);
+            pc.SetLinearVelocity(Direction * Speed);
         else
-            tc.Position = pos;
+            tc.Position += Direction * Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
     }
 
     public override string ToString() => $"ControlComponent(controlType={ControlType}, speed={Speed})";

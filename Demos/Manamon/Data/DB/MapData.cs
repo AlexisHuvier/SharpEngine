@@ -18,7 +18,7 @@ public struct MapData
     private static readonly List<MapData> Types = new()
     {
         new MapData(new Vec2(0), "map", new Dictionary<Vec2, string>()),
-        new MapData(new Vec2(1, 0), "map2", new Dictionary<Vec2, string>()
+        new MapData(new Vec2(1, 0), "map2", new Dictionary<Vec2, string>
         {
             { new Vec2(200), "Liwä" }
         })

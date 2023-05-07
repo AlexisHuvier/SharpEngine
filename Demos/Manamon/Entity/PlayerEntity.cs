@@ -17,14 +17,15 @@ public class PlayerEntity: SharpEngine.Entities.Entity
         AddComponent(new SpriteComponent("Liwä"));
         var phys = AddComponent(new PhysicsComponent(ignoreGravity: true, fixedRotation: true));
         phys.AddRectangleCollision(PlayerSize);
-        phys.CollisionCallback = (sender, other, contact) =>
+        phys.CollisionCallback = (_, other, _) =>
         {
             foreach (var enemy in ((Game)GetScene()).Enemies)
             {
                 if (enemy.GetComponent<PhysicsComponent>() is { } physicsComponent &&
                     physicsComponent.Body == other.Body)
                 {
-                    Console.WriteLine("OUI !");
+                    ((Combat)GetScene().GetWindow().GetScene(2)).Init(enemy.Enemy);
+                    GetScene().GetWindow().IndexCurrentScene = 2;
                     break;
                 }
             }

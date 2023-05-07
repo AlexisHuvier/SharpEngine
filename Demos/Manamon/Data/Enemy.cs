@@ -4,7 +4,7 @@ namespace Manamon.Data;
 
 public class Enemy
 {
-    public List<Monster> Team = new() { new Monster() };
+    public readonly List<Monster> Team = new() { new Monster("Liwä") };
     public bool IsDefeat = false;
     public EnemyData Data;
 

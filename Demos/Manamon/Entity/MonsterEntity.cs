@@ -13,6 +13,6 @@ public class MonsterEntity: SharpEngine.Entities.Entity
         _monster = monster;
         
         AddComponent(new TransformComponent(position));
-        AddComponent(new SpriteComponent(_monster.Name));
+        AddComponent(new SpriteComponent(_monster.Data.Name));
     }
 }

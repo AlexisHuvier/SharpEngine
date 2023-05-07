@@ -77,6 +77,13 @@ public class Scene
         }
     }
 
+    public void RemoveAllWidgets()
+    {
+        foreach (var widget in Widgets)
+            widget.SetScene(null);
+        Widgets.Clear();
+    }
+
     public List<Entity> GetEntities() => Entities;
 
     public virtual T AddEntity<T>(T ent) where T: Entity
@@ -95,6 +102,13 @@ public class Scene
             ent.SetScene(null);
             Entities.Remove(ent);
         }
+    }
+    
+    public void RemoveAllEntities()
+    {
+        foreach (var entity in Entities)
+            entity.SetScene(null);
+        Entities.Clear();
     }
 
     public virtual void SetWindow(Window window) => Window = window;

@@ -6,11 +6,11 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Little 2D game engine built on Monogame</Description>
     <PackageProjectUrl />
-    <Authors>LavaPower - LycosNovation</Authors>
-    <Company>LycosNovation</Company>
-    <Copyright>Copyright (c) LavaPower 2021</Copyright>
+    <Authors>LavaPower</Authors>
+    <Company>LavaPower</Company>
+    <Copyright>Copyright (c) LavaPower 2021-2023</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageVersion>0.16.11</PackageVersion>
+    <PackageVersion>0.17.0</PackageVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 

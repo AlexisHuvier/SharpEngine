@@ -2,6 +2,7 @@
 
 public struct MonsterData
 {
+
     public uint Id { get; }
     public string Name { get; }
     public string Description { get; }
@@ -17,6 +18,12 @@ public struct MonsterData
         Race = race;
         Spells = spells;
     }
+    
+    public static bool operator ==(MonsterData lhs, MonsterData rhs) => lhs.Id == rhs.Id;
+    public static bool operator !=(MonsterData lhs, MonsterData rhs) => !(lhs == rhs);
+    public bool Equals(MonsterData other) => Id == other.Id;
+    public override bool Equals(object? obj) => obj is MonsterData other && Equals(other);
+    public override int GetHashCode() => (int)Id;
 
     private static readonly List<MonsterData> Types = new()
     {

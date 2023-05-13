@@ -14,7 +14,7 @@ public class Combat: SharpEngine.Scene
     private int _indexMonsterPlayer = 0;
     private int _currentMessage;
     private double _timerBeforeInput;
-    private Enemy _enemy;
+    private Enemy _enemy = null!;
     
     public CombatFrame CombatFrame = null!;
     public FightFrame FightFrame = null!;
@@ -36,7 +36,7 @@ public class Combat: SharpEngine.Scene
         CombatFrame.Initialize();
         CombatFrame.SetMessage($"{enemy.Data.Name} lance son premier Manamon !\nIl s'agit de {enemy.Team[_indexMonsterEnemy].Data.Name} !");
 
-        FightFrame = AddWidget(new FightFrame(new Vec2(600, 750), Callback));
+        FightFrame = AddWidget(new FightFrame(new Vec2(600, 750), Manamon.Player.Team, _indexMonsterPlayer, Callback));
         FightFrame.Initialize();
         FightFrame.Displayed = false;
         

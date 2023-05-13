@@ -15,8 +15,8 @@ public class Save
         _data = @default;
     }
 
-    public object GetObject(string key) => _data.GetValueOrDefault(key, null);
-    public T GetObjectAs<T>(string key) => _data.ContainsKey(key) ? (T) _data[key] : default;
+    public object GetObject(string key, object @default) => _data.GetValueOrDefault(key, @default);
+    public T GetObjectAs<T>(string key, T @default) => _data.TryGetValue(key, out var value) ? (T)value : @default;
     public void SetObject(string key, object value) => _data[key] = value;
 
     public void Write(string filename)

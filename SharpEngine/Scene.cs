@@ -21,6 +21,7 @@ public class Scene
     public Action<Scene> CloseScene { get; set; }
     internal Window Window;
     protected readonly List<Entity> Entities;
+    protected readonly List<Entity> EntitiesSortByZ;
     protected readonly List<Widget> Widgets;
     internal World World;
     private DebugView _debugView;
@@ -32,6 +33,7 @@ public class Scene
     {
         Window = null;
         Entities = new List<Entity>();
+        EntitiesSortByZ = new List<Entity>();
         Widgets = new List<Widget>();
         _entitiesToRemove = new List<Entity>();
         _widgetsToRemove = new List<Widget>();
@@ -90,6 +92,7 @@ public class Scene
     {
         ent.SetScene(this);
         Entities.Add(ent);
+        EntitiesSortByZ.Add(ent);
         return ent;
     }
 
@@ -101,6 +104,7 @@ public class Scene
         {
             ent.SetScene(null);
             Entities.Remove(ent);
+            EntitiesSortByZ.Remove(ent);
         }
     }
     
@@ -109,6 +113,7 @@ public class Scene
         foreach (var entity in Entities)
             entity.SetScene(null);
         Entities.Clear();
+        EntitiesSortByZ.Clear();
     }
 
     public virtual void SetWindow(Window window) => Window = window;
@@ -146,6 +151,7 @@ public class Scene
         {
             ent.SetScene(null);
             Entities.Remove(ent);
+            EntitiesSortByZ.Remove(ent);
         }
 
         foreach (var widget in _widgetsToRemove)
@@ -176,24 +182,22 @@ public class Scene
             widget.TextInput(sender, key, character);
     }
 
-    public List<Entity> GetEntitySortByZ()
+    private void CalculateEntitySortByZ()
     {
-        var finalEntities = new List<Entity>(Entities);
-        finalEntities.Sort((a, b) => {
+        EntitiesSortByZ.Sort((a, b) => {
             if (a.GetComponent<TransformComponent>() is { } atc)
             {
                 if (b.GetComponent<TransformComponent>() is { } btc)
                     return atc.ZLayer - btc.ZLayer;
                 return 1;
             }
-            if (b.GetComponent<TransformComponent>() is { })
+            if (b.GetComponent<TransformComponent>() is not null)
                 return -1;
             return 0;
         });
-        return finalEntities;
     }
 
-    public List<Widget> GetDisplayedWidgetsSortByZ()
+    private List<Widget> GetDisplayedWidgetsSortByZ()
     {
         var widgetsToAdd = new List<Widget>(Widgets.Where(x => x.Displayed));
         var finalWidgets = new List<Widget>();
@@ -211,7 +215,8 @@ public class Scene
 
     public virtual void Draw(GameTime gameTime)
     {
-        foreach (var ent in GetEntitySortByZ())
+        CalculateEntitySortByZ();
+        foreach (var ent in EntitiesSortByZ)
             ent.Draw(gameTime);
         foreach (var widget in GetDisplayedWidgetsSortByZ())
             widget.Draw(gameTime);

@@ -17,18 +17,19 @@ public class Widget
     public Widget Parent { get; set; }
     public int ZLayer
     {
-        get => _zLayer;
+        get => (int)(LayerDepth * 4096);
         set
         {
-            _zLayer = value;
+            LayerDepth = value / 4096f;
             foreach (var child in GetChildren().Where(child => child.ZLayer < value))
                 child.ZLayer = value;
         }
     }
-    public Scene Scene { get; private set; }
+
+    protected Scene Scene { get; private set; }
+    protected float LayerDepth;
     
     private readonly List<Widget> _children;
-    private int _zLayer;
 
 
     /// <summary>

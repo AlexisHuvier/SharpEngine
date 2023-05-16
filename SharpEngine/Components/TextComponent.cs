@@ -44,7 +44,9 @@ public class TextComponent: Component
             Font.Length <= 0) return;
         
         var spriteFont = Entity.Scene.Window.FontManager.GetFont(Font);
-        Renderer.RenderText(Entity.Scene.Window, spriteFont, Text, tc.Position + Offset - CameraManager.Position, Color, MathHelper.ToRadians(tc.Rotation), spriteFont.MeasureString(Text) / 2, tc.Scale, SpriteEffects.None, 1);
+        var position = new Vec2(tc.Position.X + Offset.X - CameraManager.Position.X,
+            tc.Position.Y + Offset.Y - CameraManager.Position.Y);
+        Renderer.RenderText(Entity.Scene.Window, spriteFont, Text, position, Color, MathHelper.ToRadians(tc.Rotation), spriteFont.MeasureString(Text) / 2, tc.Scale, SpriteEffects.None, tc.LayerDepth);
     }
 
     public override string ToString() => $"TextComponent(text={Text}, font={Font}, color={Color}, displayed={Displayed}, offset={Offset})";

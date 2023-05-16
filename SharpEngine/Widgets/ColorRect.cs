@@ -29,6 +29,6 @@ public class ColorRect: Widget
 
         var texture = Scene.Window.TextureManager.GetTexture("blank");
         var realPosition = Parent != null ? Position + Parent.GetRealPosition() : Position;
-        Renderer.RenderTexture(Scene.Window, texture, new Rect(realPosition - Size / 2, Size), Color);
+        Renderer.RenderTexture(Scene.Window, texture, new Rect(realPosition - Size / 2, Size), Color, LayerDepth);
     }
 }

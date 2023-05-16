@@ -1,4 +1,5 @@
 ﻿#nullable enable
+using System.Numerics;
 using Microsoft.Xna.Framework.Graphics;
 using SharpEngine.Utils;
 using SharpEngine.Utils.Math;
@@ -24,7 +25,7 @@ public static class Renderer
                 rotation, origin.ToMg(), scale.ToMg(), effects, layerDepth);
     }
 
-    public static void RenderTexture(Window window, Texture2D texture, Rect destinationRectangle, Color color)
+    public static void RenderTexture(Window window, Texture2D texture, Rect destinationRectangle, Color color, float layerDepth)
     {
         var position = destinationRectangle.Position;
         var size = destinationRectangle.Size;
@@ -32,7 +33,7 @@ public static class Renderer
 
         if (position.X >= windowSize.X || position.X + size.X <= 0 || position.Y >= windowSize.Y || position.Y + size.Y <= 0) return;
         
-        window.InternalGame.SpriteBatch.Draw(texture, destinationRectangle.ToMg(), color.ToMg());
+        window.InternalGame.SpriteBatch.Draw(texture, destinationRectangle.ToMg(), null, color.ToMg(), 0, Vector2.Zero, SpriteEffects.None, layerDepth);
     }
 
     public static void RenderText(Window window, SpriteFont font, string text, Vec2 position, Color color, float rotation, Vec2 origin, Vec2 scale, SpriteEffects effects, float layerDepth)

@@ -49,7 +49,9 @@ public class SpriteComponent: Component
             effects |= SpriteEffects.FlipVertically;
         
         var texture = Entity.Scene.Window.TextureManager.GetTexture(Sprite);
-        Renderer.RenderTexture(Entity.Scene.Window, texture, tc.Position + Offset - CameraManager.Position, null, Color.White, MathHelper.ToRadians(tc.Rotation), new Vec2(texture.Width / 2f, texture.Height / 2f), tc.Scale, effects, 1);
+        var position = new Vec2(tc.Position.X + Offset.X - CameraManager.Position.X,
+            tc.Position.Y + Offset.Y - CameraManager.Position.Y);
+        Renderer.RenderTexture(Entity.Scene.Window, texture, position, null, Color.White, MathHelper.ToRadians(tc.Rotation), new Vec2(texture.Width / 2f, texture.Height / 2f), tc.Scale, effects, tc.LayerDepth);
     }
 
     public override string ToString() => $"SpriteComponent(sprite={Sprite}, displayed={Displayed}, offset={Offset})";

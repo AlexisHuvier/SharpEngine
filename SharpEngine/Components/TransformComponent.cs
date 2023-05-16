@@ -11,7 +11,12 @@ public class TransformComponent: Component
     public Vec2 Position { get; set; }
     public Vec2 Scale { get; set; }
     public int Rotation { get; set; }
-    public int ZLayer { get; set; }
+    public int ZLayer { 
+        get => (int)(LayerDepth * 4096);
+        set => LayerDepth = value / 4096f;
+    }
+
+    protected internal float LayerDepth;
 
     /// <summary>
     /// Initialise le Composant.

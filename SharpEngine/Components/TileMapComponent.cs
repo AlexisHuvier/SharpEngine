@@ -102,7 +102,7 @@ public class TileMapComponent: Component
                 if(tile.Type == null) continue;
                 
                 var texture = Entity.Scene.Window.TextureManager.GetTexture(tile.Type?.Source);
-                Renderer.RenderTexture(Entity.Scene.Window, texture, tile.Position - CameraManager.Position, tile.Type?.SourceRect, Color.White, 0, originPosition, tc.Scale, SpriteEffects.None, 1);
+                Renderer.RenderTexture(Entity.Scene.Window, texture, tile.Position - CameraManager.Position, tile.Type?.SourceRect, Color.White, 0, originPosition, tc.Scale, SpriteEffects.None, tc.LayerDepth);
             }
 
             foreach (var chunk in layer.Chunks)
@@ -112,7 +112,7 @@ public class TileMapComponent: Component
                     if(tile.Type == null) continue;
                     
                     var texture = Entity.Scene.Window.TextureManager.GetTexture(tile.Type?.Source);
-                    Renderer.RenderTexture(Entity.Scene.Window, texture, tile.Position - CameraManager.Position, tile.Type?.SourceRect, Color.White, 0, originPosition, tc.Scale, SpriteEffects.None, 1);
+                    Renderer.RenderTexture(Entity.Scene.Window, texture, tile.Position - CameraManager.Position, tile.Type?.SourceRect, Color.White, 0, originPosition, tc.Scale, SpriteEffects.None, tc.LayerDepth);
                 }
             }
         }

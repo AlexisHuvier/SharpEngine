@@ -63,10 +63,10 @@ public class Image : Widget
             var scale = Size == Vec2.Zero ? Scale : new Vec2(Size.X / sprite.Width * Scale.X, Size.Y / sprite.Height * Scale.Y);
             Renderer.RenderTexture(Scene.Window, sprite, realPosition, null, Color.White, 
                 MathHelper.ToRadians(Rotation), new Vec2(sprite.Width, sprite.Height) / 2, scale, 
-                effects, 1);
+                effects, LayerDepth);
         }
         else
             Renderer.RenderTexture(Scene.Window, sprite, realPosition, SourceRect, Color.Wheat, 
-                MathHelper.ToRadians(Rotation), SourceRect.Value.Size / 2, Scale, effects, 1);
+                MathHelper.ToRadians(Rotation), SourceRect.Value.Size / 2, Scale, effects, LayerDepth);
     }
 }

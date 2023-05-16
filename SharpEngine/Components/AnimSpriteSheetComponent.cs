@@ -113,7 +113,7 @@ public class AnimSpriteSheetComponent : Component
         
         // ReSharper disable once PossibleLossOfFraction
         var positionSource = new Vec2(SpriteSize.X * (anim.Value.Indices[_currentImage] % (texture.Width / SpriteSize.X)), SpriteSize.Y * (anim.Value.Indices[_currentImage] / (int)(texture.Width / SpriteSize.X))); 
-        Renderer.RenderTexture(Entity.Scene.Window, texture, tc.Position + Offset - CameraManager.Position, new Rect(positionSource, SpriteSize), Color.White, MathHelper.ToRadians(tc.Rotation), SpriteSize / 2, tc.Scale, effects, 1);
+        Renderer.RenderTexture(Entity.Scene.Window, texture, tc.Position + Offset - CameraManager.Position, new Rect(positionSource, SpriteSize), Color.White, MathHelper.ToRadians(tc.Rotation), SpriteSize / 2, tc.Scale, effects, tc.LayerDepth);
     }
 
     public override string ToString() => $"SpriteSheetComponent(sprite={Sprite}, spriteSize={SpriteSize}, nbAnimations={Animations.Count}, currentAnim={_currentAnim})";

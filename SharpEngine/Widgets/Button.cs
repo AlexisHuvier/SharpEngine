@@ -76,15 +76,15 @@ public class Button: Widget
         var blankTexture = Scene.Window.TextureManager.GetTexture("blank");
 
         if (_state != ButtonState.Click && Active && _state == ButtonState.Hovered)
-            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - (Size + new Vec2(4)) / 2, (Size + new Vec2(4))), Color.White);
+            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - (Size + new Vec2(4)) / 2, Size + new Vec2(4)), Color.White, LayerDepth);
         
-        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), Color.Black);
-        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - (Size - new Vec2(4)) / 2, (Size - new Vec2(4))), BackgroundColor);
+        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), Color.Black, LayerDepth);
+        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - (Size - new Vec2(4)) / 2, Size - new Vec2(4)), BackgroundColor, LayerDepth);
 
         var spriteFont = Scene.Window.FontManager.GetFont(Font);
         Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, FontColor, 0, spriteFont.MeasureString(Text) / 2, Vec2.One, SpriteEffects.None, 1);
 
         if(_state == ButtonState.Click || !Active)
-            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), new Color(0, 0, 0, 128));
+            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), new Color(0, 0, 0, 128), LayerDepth);
     }
 }

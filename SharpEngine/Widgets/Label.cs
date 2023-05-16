@@ -37,6 +37,6 @@ public class Label : Widget
         
         var realPosition = Parent != null ? Position + Parent.GetRealPosition() : Position;
         var spriteFont = Scene.Window.FontManager.GetFont(Font);
-        Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, Color, 0, spriteFont.MeasureString(Text) / 2, new Vec2(1), SpriteEffects.None, 1);
+        Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, Color, 0, spriteFont.MeasureString(Text) / 2, new Vec2(1), SpriteEffects.None, LayerDepth);
     }
 }

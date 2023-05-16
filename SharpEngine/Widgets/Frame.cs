@@ -42,20 +42,20 @@ public class Frame: Widget
             Renderer.RenderTexture(Scene.Window, texture, new Rect(realPosition - Size / 2, Size.X, BorderSize.Y),
                 BorderColor, LayerDepth);
             Renderer.RenderTexture(Scene.Window, texture, new Rect(realPosition - Size / 2, BorderSize.X, Size.Y),
-                BorderColor, LayerDepth);
+                BorderColor, LayerDepth + 0.00001f);
             Renderer.RenderTexture(Scene.Window, texture,
                 new Rect(realPosition.X - Size.X / 2, realPosition.Y + (Size.Y - BorderSize.Y) - Size.Y / 2, Size.X,
-                    BorderSize.Y), BorderColor, LayerDepth);
+                    BorderSize.Y), BorderColor, LayerDepth + 0.00002f);
             Renderer.RenderTexture(Scene.Window, texture,
                 new Rect(realPosition.X + (Size.X - BorderSize.X) - Size.X / 2, realPosition.Y - Size.Y / 2,
                     BorderSize.X,
-                    Size.Y), BorderColor, LayerDepth);
+                    Size.Y), BorderColor, LayerDepth + 0.00003f);
         }
         else
         {
             Renderer.RenderTexture(Scene.Window, texture, new Rect(realPosition - Size / 2, Size), BorderColor, LayerDepth);
             var internalSize = Size - BorderSize * 2;
-            Renderer.RenderTexture(Scene.Window, texture, new Rect(realPosition - internalSize / 2, internalSize), BackgroundColor, LayerDepth);
+            Renderer.RenderTexture(Scene.Window, texture, new Rect(realPosition - internalSize / 2, internalSize), BackgroundColor, LayerDepth + 0.00001f);
         }
     }
 }

@@ -93,14 +93,14 @@ public class LineEdit : Widget
         var realPosition = Parent != null ? Position + Parent.GetRealPosition() : Position;
         var blankTexture = Scene.Window.TextureManager.GetTexture("blank");
         Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), Color.Black, LayerDepth);
-        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - (Size - new Vec2(4)) / 2, Size - new Vec2(4)), Color.White, LayerDepth);
+        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - whiteSize / 2, whiteSize), Color.White, LayerDepth + 0.00001f);
         
         if (Font.Length < 1) return;
         
         var spriteFont = Scene.Window.FontManager.GetFont(Font);
         if (_cursor)
-            Renderer.RenderText(Scene.Window, spriteFont, Text + "I", realPosition - Size / 2 + new Vec2(4, Size.Y / 2 - spriteFont.MeasureString(Text + "I").Y / 2), Color.Black);
+            Renderer.RenderText(Scene.Window, spriteFont, Text + "I", realPosition - Size / 2 + new Vec2(4, Size.Y / 2 - spriteFont.MeasureString(Text + "I").Y / 2), Color.Black, LayerDepth + 0.00002f);
         else
-            Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition - Size / 2 + new Vec2(4, Size.Y / 2 - spriteFont.MeasureString(Text).Y / 2), Color.Black);
+            Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition - Size / 2 + new Vec2(4, Size.Y / 2 - spriteFont.MeasureString(Text).Y / 2), Color.Black, LayerDepth + 0.00002f);
     }
 }

@@ -90,15 +90,16 @@ public class TexturedButton : Widget
         var blankTexture = Scene.Window.TextureManager.GetTexture("blank");
 
         if (_state != ButtonState.Click && Active && _state == ButtonState.Hovered)
-            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - (Size + new Vec2(4)) / 2, (Size + new Vec2(4))), Color.White, LayerDepth);
+            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - size / 2, size), Color.White,
+                LayerDepth);
 
-        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), Color.Black, LayerDepth);
-        Renderer.RenderTexture(Scene.Window, Scene.Window.TextureManager.GetTexture(Texture), new Rect(realPosition - (Size - new Vec2(4)) / 2, (Size - new Vec2(4))), Color.White, LayerDepth);
+        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), Color.Black, LayerDepth + 0.00001f);
+        Renderer.RenderTexture(Scene.Window, Scene.Window.TextureManager.GetTexture(Texture), new Rect(realPosition - textureSize / 2, textureSize), Color.White, LayerDepth + 0.00002f);
 
         var spriteFont = Scene.Window.FontManager.GetFont(Font);
-        Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, FontColor, 0, spriteFont.MeasureString(Text) / 2, Vec2.One, SpriteEffects.None, 1);
+        Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, FontColor, 0, spriteFont.MeasureString(Text) / 2, Vec2.One, SpriteEffects.None, LayerDepth + 0.00003f);
 
         if(_state == ButtonState.Click || !Active)
-            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), new Color(0, 0, 0, 128), LayerDepth);
+            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), new Color(0, 0, 0, 128), LayerDepth + 0.00004f);
     }
 }

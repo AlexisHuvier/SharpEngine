@@ -47,12 +47,8 @@ public static class Renderer
         window.InternalGame.SpriteBatch.DrawString(font, text, position.ToMg(), color.ToMg(), rotation, origin.ToMg(), scale.ToMg(), effects, layerDepth);
     }
 
-    public static void RenderText(Window window, SpriteFont font, string text, Vec2 position, Color color)
+    public static void RenderText(Window window, SpriteFont font, string text, Vec2 position, Color color, float layerDepth)
     {
-        var size = font.MeasureString(text);
-        var windowSize = window.ScreenSize;
-
-        if (position.X >= windowSize.X || position.X + size.X <= 0 || position.Y >= windowSize.Y || position.Y + size.Y <= 0) return;
-        window.InternalGame.SpriteBatch.DrawString(font, text, position.ToMg(), color.ToMg());
+        RenderText(window, font, text, position, color, 0, Vec2.Zero, Vec2.One, SpriteEffects.None, layerDepth);
     }
 }

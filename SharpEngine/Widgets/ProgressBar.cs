@@ -37,9 +37,9 @@ public class ProgressBar : Widget
         var realPosition = Parent != null ? Position + Parent.GetRealPosition() : Position;
         var blankTexture = Scene.Window.TextureManager.GetTexture("blank");
         Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), Color.Black, LayerDepth);
-        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - (Size - new Vec2(4)) / 2, Size - new Vec2(4)), Color.White, LayerDepth);
         var barSize = Size - new Vec2(8);
+        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - whiteSize / 2, whiteSize), Color.White, LayerDepth + 0.00001f);
         var realSize = new Vec2(barSize.X * Value / 100, barSize.Y);
-        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - barSize / 2, realSize), Color, LayerDepth);
+        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - barSize / 2, realSize), Color, LayerDepth + 0.00002f);
     }
 }

@@ -7,9 +7,9 @@ namespace SE_BasicWindow.Entity;
 
 public class Player: SharpEngine.Entities.Entity
 {
-    public Player()
+    public Player(Vec2 position, int layer)
     {
-        AddComponent(new TransformComponent(new Vec2(50, 50), new Vec2(3)));
+        AddComponent(new TransformComponent(position, new Vec2(3), zLayer: layer));
         AddComponent(new AnimSpriteSheetComponent("KnightM", new Vec2(16, 28), new List<Animation>
         {
             new("die", new List<uint> { 0 }, 100f),

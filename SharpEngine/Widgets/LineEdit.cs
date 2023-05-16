@@ -92,6 +92,7 @@ public class LineEdit : Widget
 
         var realPosition = Parent != null ? Position + Parent.GetRealPosition() : Position;
         var blankTexture = Scene.Window.TextureManager.GetTexture("blank");
+        var whiteSize = Size - 4;
         Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), Color.Black, LayerDepth);
         Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - whiteSize / 2, whiteSize), Color.White, LayerDepth + 0.00001f);
         

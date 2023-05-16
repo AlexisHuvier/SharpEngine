@@ -74,10 +74,15 @@ public class Button: Widget
 
         var realPosition = Parent != null ? Position + Parent.GetRealPosition() : Position;
         var blankTexture = Scene.Window.TextureManager.GetTexture("blank");
+        var whiteSize = Size - 4;
 
         if (_state != ButtonState.Click && Active && _state == ButtonState.Hovered)
-            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - (Size + new Vec2(4)) / 2, Size + new Vec2(4)), Color.White, LayerDepth);
-        
+        {
+            var hoverSize = Size + 4;
+            Renderer.RenderTexture(Scene.Window, blankTexture,
+                new Rect(realPosition - hoverSize / 2, hoverSize), Color.White, LayerDepth);
+        }
+
         Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), Color.Black, LayerDepth + 0.00001f);
         Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - whiteSize / 2, whiteSize), BackgroundColor, LayerDepth + 0.00002f);
 

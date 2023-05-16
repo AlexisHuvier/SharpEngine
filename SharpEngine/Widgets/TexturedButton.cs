@@ -90,9 +90,13 @@ public class TexturedButton : Widget
         var blankTexture = Scene.Window.TextureManager.GetTexture("blank");
 
         if (_state != ButtonState.Click && Active && _state == ButtonState.Hovered)
+        {
+            var size = Size + 4;
             Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - size / 2, size), Color.White,
                 LayerDepth);
+        }
 
+        var textureSize = Size - 4;
         Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), Color.Black, LayerDepth + 0.00001f);
         Renderer.RenderTexture(Scene.Window, Scene.Window.TextureManager.GetTexture(Texture), new Rect(realPosition - textureSize / 2, textureSize), Color.White, LayerDepth + 0.00002f);
 

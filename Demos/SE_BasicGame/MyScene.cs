@@ -1,5 +1,6 @@
-﻿using SE_BasicWindow.Entity;
+﻿using SE_BasicWindow.Classes;
 using SharpEngine;
+using SharpEngine.Utils;
 using SharpEngine.Utils.Math;
 using SharpEngine.Widgets;
 
@@ -18,5 +19,7 @@ internal class MyScene : Scene
 
         AddWidget(new Image(new Vec2(400, 300), "KnightM", scale: new Vec2(3))).ZLayer = 10;
         AddWidget(new Image(new Vec2(405, 305), "KnightM", scale: new Vec2(3))).ZLayer = 0;
+
+        AddWidget(new TestWidget(new Vec2(400, 300), 1000));
     }
 }

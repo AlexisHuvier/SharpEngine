@@ -3,7 +3,7 @@ using SharpEngine.Utils;
 using SharpEngine.Utils.Control;
 using SharpEngine.Utils.Math;
 
-namespace SE_BasicWindow.Entity;
+namespace SE_BasicWindow.Classes;
 
 public class Player: SharpEngine.Entities.Entity
 {

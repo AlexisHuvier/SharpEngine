@@ -22,7 +22,7 @@ public class Widget
         {
             LayerDepth = value / 4096f;
             foreach (var child in GetChildren().Where(child => child.ZLayer < value))
-                child.ZLayer = value;
+                child.ZLayer = value + 1;
         }
     }
 
@@ -54,25 +54,13 @@ public class Widget
     public List<T> GetChildren<T>() where T : Widget =>
         _children.FindAll(w => w.GetType() == typeof(T)).Cast<T>().ToList();
 
-    public List<Widget> GetDisplayedChildren()
-    {
-        var children = new List<Widget>();
-        foreach (var child in _children)
-        {
-            if(child.Displayed)
-                children.Add(child);
-        }
-
-        return children;
-    }
-
     public T AddChild<T>(T widget) where T : Widget
     {
         if (Scene != null)
             widget.SetScene(Scene);
         widget.Parent = this;
         if (widget.ZLayer < ZLayer)
-            widget.ZLayer = ZLayer;
+            widget.ZLayer = ZLayer + 1;
         _children.Add(widget);
         return widget;
     }
@@ -137,5 +125,7 @@ public class Widget
 
     public virtual void Draw(GameTime gameTime)
     {
+        foreach (var child in _children)
+            child.Draw(gameTime);
     }
 }

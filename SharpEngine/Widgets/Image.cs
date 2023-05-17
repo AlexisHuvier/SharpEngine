@@ -47,7 +47,7 @@ public class Image : Widget
     {
         base.Draw(gameTime);
 
-        if (!Displayed || Texture.Length <= 0) return;
+        if (!Displayed || Scene == null || Texture.Length <= 0) return;
         
         var sprite = Scene.Window.TextureManager.GetTexture(Texture);
         var realPosition = Parent != null ? Position + Parent.GetRealPosition() : Position;

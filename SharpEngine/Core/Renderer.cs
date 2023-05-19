@@ -25,6 +25,17 @@ public static class Renderer
                 rotation, origin.ToMg(), scale.ToMg(), effects, layerDepth);
     }
 
+    public static void RenderTexture(Window window, Texture2D texture, Rect destinationRectangle, Color color, float rotation, Vec2 origin, SpriteEffects effects, float layerDepth)
+    {
+        var position = destinationRectangle.Position;
+        var size = destinationRectangle.Size;
+        var windowSize = window.ScreenSize;
+
+        if (position.X >= windowSize.X || position.X + size.X <= 0 || position.Y >= windowSize.Y || position.Y + size.Y <= 0) return;
+        
+        window.InternalGame.SpriteBatch.Draw(texture, destinationRectangle.ToMg(), null, color.ToMg(), rotation, origin.ToMg(), effects, layerDepth);
+    }
+
     public static void RenderTexture(Window window, Texture2D texture, Rect destinationRectangle, Color color, float layerDepth)
     {
         var position = destinationRectangle.Position;

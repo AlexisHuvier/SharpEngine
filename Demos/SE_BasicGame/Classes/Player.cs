@@ -17,6 +17,7 @@ public class Player: SharpEngine.Entities.Entity
             new("walk", new List<uint> { 3, 4, 5, 6, 7, 8 }, 100f)
         }, "idle"));
         AddComponent(new ControlComponent(ControlType.FourDirection, useGamePad: false));
+        AddComponent(new RectComponent(Color.Black, new Vec2(100, 100)));
     }
 
     public override void Update(GameTime gameTime)

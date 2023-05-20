@@ -79,6 +79,7 @@ public class Widget
     }
 
     public Scene GetScene() => Scene;
+    public T GetScene<T>() where T : Scene => (T)Scene;
 
     public SpriteBatch GetSpriteBatch()
     {

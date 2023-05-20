@@ -130,6 +130,8 @@ public class Window
     }
 
     public Scene GetScene(int index) => Scenes[index];
+    public T GetCurrentScene<T>() where T : Scene => (T)Scenes[_internalIndexCurrentScene];
+    public T GetScene<T>(int index) where T : Scene => (T)Scenes[index];
 
     public void TakeScreenshot(string fileName) => InternalGame.TakeScreenshot(fileName);
 

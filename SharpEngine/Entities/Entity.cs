@@ -53,6 +53,7 @@ public class Entity
     }
     
     public Scene GetScene() => Scene;
+    public T GetScene<T>() where T : Scene => (T)Scene;
 
     public virtual void Initialize() 
     {

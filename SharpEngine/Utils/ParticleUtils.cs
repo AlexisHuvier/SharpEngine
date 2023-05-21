@@ -42,9 +42,14 @@ public class ParticleEmitter
 
     public int MaxParticles { get; set; }
     public bool Active { get; set; }
+    public int ZLayer { 
+        get => (int)(_internalLayerDepth * 4096);
+        set => _internalLayerDepth = value / 4096f;
+    }
 
     private List<Particle> _mustBeDeleted = new();
     private float _timerBeforeSpawn;
+    private float _internalLayerDepth;
 
     public ParticleEmitter(Color[] beginColors, Color[] endColors = null, Vec2? spawnSize = null, Vec2? offset = null,
         float minVelocity = 20, float maxVelocity = 20,
@@ -53,7 +58,7 @@ public class ParticleEmitter
         float minLifetime = 2, float maxLifetime = 2, float minDirection = 0, float maxDirection = 0,
         float minTimerBeforeSpawn = 0.3f, float maxTimerBeforeSpawn = 0.3f,
         float minSize = 5, float maxSize = 5, int minNbParticlesPerSpawn = 4, int maxNbParticlesPerSpawn = 4,
-        int maxParticles = -1, bool active = false,
+        int maxParticles = -1, bool active = false, int zLayer = 4096,
         ParticleParametersFunction sizeFunction = ParticleParametersFunction.Normal, float sizeFunctionValue = 0)
     {
         BeginColors = beginColors;
@@ -79,6 +84,7 @@ public class ParticleEmitter
         MinNbParticlesPerSpawn = minNbParticlesPerSpawn;
         MaxNbParticlesPerSpawn = maxNbParticlesPerSpawn;
         MaxParticles = maxParticles;
+        ZLayer = zLayer;
         SizeFunction = sizeFunction;
         SizeFunctionValue = sizeFunctionValue;
         SpawnSize = spawnSize ?? Vec2.Zero;
@@ -109,7 +115,7 @@ public class ParticleEmitter
             endColor = EndColors[MathUtils.RandomBetween(0, EndColors.Length - 1)];
 
         var particle = new Particle(objectPosition + position, velocity, acceleration, lifetime, size, rotation,
-            rotationSpeed, beginColor, endColor, SizeFunction, SizeFunctionValue);
+            rotationSpeed, beginColor, endColor, _internalLayerDepth, SizeFunction, SizeFunctionValue);
         Particles.Add(particle);
     }
 
@@ -168,9 +174,10 @@ public class Particle
     public Color EndColor { get; set; }
     public ParticleParametersFunction SizeFunction { get; set; }
     public float SizeFunctionValue { get; set; }
+    public float InternalLayerDepth { get; set; }
 
     public Particle(Vec2 position, Vec2 velocity, Vec2 acceleration, float lifetime, float size, float rotation,
-        float rotationSpeed, Color beginColor, Color endColor,
+        float rotationSpeed, Color beginColor, Color endColor, float internalLayerDepth,
         ParticleParametersFunction sizeFunction = ParticleParametersFunction.Normal, float sizeFunctionValue = 0)
     {
         Position = position;
@@ -188,6 +195,7 @@ public class Particle
         BeginColor = beginColor;
         CurrentColor = beginColor;
         EndColor = endColor;
+        InternalLayerDepth = internalLayerDepth;
         SizeFunction = sizeFunction;
         SizeFunctionValue = sizeFunctionValue;
     }
@@ -229,10 +237,11 @@ public class Particle
         if (Size == 0) return;
 
         var texture = window.TextureManager.GetTexture("blank");
-        var size = new Vec2(Size);
         window.InternalGame.SpriteBatch.Draw(texture,
-            new Rect((Position - CameraManager.Position - size / 2), size).ToMg(), null, CurrentColor.ToMg(),
-            MathUtils.ToRadians(Rotation), new Microsoft.Xna.Framework.Vector2(0),
-            Microsoft.Xna.Framework.Graphics.SpriteEffects.None, 1);
+            new Rect(
+                new Vec2(Position.X - CameraManager.Position.X - Size / 2,
+                    Position.Y - CameraManager.Position.Y - Size / 2), Size, Size).ToMg(), null,
+            CurrentColor.ToMg(), MathUtils.ToRadians(Rotation), new Microsoft.Xna.Framework.Vector2(0),
+            Microsoft.Xna.Framework.Graphics.SpriteEffects.None, InternalLayerDepth);
     }
 }

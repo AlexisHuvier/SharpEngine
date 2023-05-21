@@ -71,6 +71,13 @@ public class Widget
         _children.Remove(widget);
     }
 
+    public void RemoveAllChildren()
+    {
+        foreach (var child in _children)
+            child.SetScene(null);
+        _children.Clear();
+    }
+
     public virtual void SetScene(Scene scene)
     {
         Scene = scene;

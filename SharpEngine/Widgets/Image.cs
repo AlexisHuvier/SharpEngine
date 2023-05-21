@@ -67,6 +67,6 @@ public class Image : Widget
         }
         else
             Renderer.RenderTexture(Scene.Window, sprite, realPosition, SourceRect, Color.Wheat, 
-                MathHelper.ToRadians(Rotation), SourceRect.Value.Size / 2, Scale, effects, LayerDepth);
+                MathHelper.ToRadians(Rotation), new Vec2(SourceRect.Value.Width / 2, SourceRect.Value.Height / 2), Scale, effects, LayerDepth);
     }
 }

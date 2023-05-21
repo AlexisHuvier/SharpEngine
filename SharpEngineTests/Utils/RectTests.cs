@@ -17,8 +17,10 @@ public class RectTests
         Assert.AreEqual(r, r2);
         Assert.AreEqual(r, r3);
         Assert.AreEqual(r, r4);
-        Assert.AreEqual(new Vec2(0), r.Position);
-        Assert.AreEqual(new Vec2(0), r.Size);
+        Assert.AreEqual(0, r.X);
+        Assert.AreEqual(0, r.Y);
+        Assert.AreEqual(0, r.Width);
+        Assert.AreEqual(0, r.Height);
     }
 
     [TestMethod]

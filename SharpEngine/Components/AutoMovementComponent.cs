@@ -41,17 +41,16 @@ public class AutoMovementComponent : Component
         
         if (Direction.Length != 0)
         {
-            var pos = new Vec2(_transformComponent.Position.X, _transformComponent.Position.Y) + Direction;
             if (_physicsComponent != null)
-                _physicsComponent.SetPosition(pos);
+                _physicsComponent.SetLinearVelocity(Direction);
             else
-                _transformComponent.Position = pos;
+                _transformComponent.Position = new Vec2(
+                    _transformComponent.Position.X + Direction.X * (float)gameTime.ElapsedGameTime.TotalSeconds,
+                    _transformComponent.Position.Y + Direction.Y * (float)gameTime.ElapsedGameTime.TotalSeconds);
         }
 
         if (Rotation == 0) return;
-        
-        var rot = _transformComponent.Rotation + Rotation;
-        _transformComponent.Rotation = rot;
+        _transformComponent.Rotation += Rotation;
     }
 
     public override string ToString() => $"AutoMovementComponent(direction={Direction}, rotation={Rotation})";

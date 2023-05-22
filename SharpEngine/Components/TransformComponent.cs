@@ -8,9 +8,9 @@ namespace SharpEngine.Components;
 /// </summary>
 public class TransformComponent: Component
 {
-    public Vec2 Position { get; set; }
-    public Vec2 Scale { get; set; }
-    public int Rotation { get; set; }
+    public Vec2 Position;
+    public Vec2 Scale;
+    public int Rotation;
     public int ZLayer { 
         get => (int)(LayerDepth * 4096);
         set => LayerDepth = value / 4096f;

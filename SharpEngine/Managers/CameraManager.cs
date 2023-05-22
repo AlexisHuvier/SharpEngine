@@ -10,12 +10,15 @@ namespace SharpEngine.Managers;
 /// </summary>
 public static class CameraManager
 {
-    public static Vec2 Position { get; set; } = new(0);
-    public static Entity FollowEntity { get; set; }
+    public static Vec2 Position = Vec2.Zero;
+    public static Entity FollowEntity;
 
     public static void Update(Vec2 windowSize)
     {
-        if(FollowEntity?.GetComponent<TransformComponent>() is {} tc)
-            Position = tc.Position - windowSize / 2;
+        if (FollowEntity?.GetComponent<TransformComponent>() is { } tc)
+            Position = new Vec2(
+                tc.Position.X - windowSize.X / 2,
+                tc.Position.Y - windowSize.Y / 2
+            );
     }
 }

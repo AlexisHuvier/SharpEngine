@@ -2,9 +2,9 @@
 
 namespace SharpEngine.Utils.TileMap;
 
-public class Chunk
+public readonly struct Chunk
 {
-    public List<Tile> Tiles { get; set; }
+    public readonly List<Tile> Tiles;
 
     public Chunk(List<Tile> tiles)
     {

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using SharpEngine.Core;
@@ -16,13 +15,13 @@ namespace SharpEngine.Components;
 /// </summary>
 public class AnimSpriteSheetComponent : Component
 {
-    public string Sprite { get; set; }
-    public Vec2 SpriteSize { get; set; }
-    public List<Animation> Animations { get; set; }
-    public bool Displayed { get; set; }
-    public Vec2 Offset { get; set; }
-    public bool FlipX { get; set; }
-    public bool FlipY { get; set; }
+    public string Sprite;
+    public Vec2 SpriteSize;
+    public List<Animation> Animations;
+    public bool Displayed;
+    public Vec2 Offset;
+    public bool FlipX;
+    public bool FlipY;
     public string Anim
     {
         get => _currentAnim;
@@ -37,6 +36,8 @@ public class AnimSpriteSheetComponent : Component
     private string _currentAnim;
     private int _currentImage;
     private float _internalTimer;
+
+    private TransformComponent _transformComponent;
 
     /// <summary>
     /// Initialise le Componsant.
@@ -77,6 +78,13 @@ public class AnimSpriteSheetComponent : Component
         return null;
     }
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _transformComponent = Entity.GetComponent<TransformComponent>();
+    }
+
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
@@ -99,9 +107,9 @@ public class AnimSpriteSheetComponent : Component
     {
         base.Draw(gameTime);
         var anim = GetAnimation(_currentAnim);
-        
-        if (Entity.GetComponent<TransformComponent>() is not { } tc || !Displayed || Sprite.Length <= 0 ||
-            _currentAnim.Length <= 0 || SpriteSize == new Vec2(0) || anim == null) return;
+
+        if (_transformComponent == null || !Displayed || Sprite.Length <= 0 || _currentAnim.Length <= 0 ||
+            SpriteSize == new Vec2(0) || anim == null) return;
         
         var effects = SpriteEffects.None;
         if (FlipX)
@@ -112,8 +120,14 @@ public class AnimSpriteSheetComponent : Component
         var texture = Entity.Scene.Window.TextureManager.GetTexture(Sprite);
         
         // ReSharper disable once PossibleLossOfFraction
-        var positionSource = new Vec2(SpriteSize.X * (anim.Value.Indices[_currentImage] % (texture.Width / SpriteSize.X)), SpriteSize.Y * (anim.Value.Indices[_currentImage] / (int)(texture.Width / SpriteSize.X))); 
-        Renderer.RenderTexture(Entity.Scene.Window, texture, tc.Position + Offset - CameraManager.Position, new Rect(positionSource, SpriteSize), Color.White, MathHelper.ToRadians(tc.Rotation), SpriteSize / 2, tc.Scale, effects, tc.LayerDepth);
+        var positionSource =
+            new Vec2(SpriteSize.X * (anim.Value.Indices[_currentImage] % (texture.Width / SpriteSize.X)),
+                SpriteSize.Y * (anim.Value.Indices[_currentImage] / (int)(texture.Width / SpriteSize.X)));
+        var position = new Vec2(_transformComponent.Position.X + Offset.X - CameraManager.Position.X,
+            _transformComponent.Position.Y + Offset.Y - CameraManager.Position.Y);
+        Renderer.RenderTexture(Entity.Scene.Window, texture, position, new Rect(positionSource, SpriteSize),
+            Color.White, MathHelper.ToRadians(_transformComponent.Rotation), SpriteSize / 2, _transformComponent.Scale,
+            effects, _transformComponent.LayerDepth);
     }
 
     public override string ToString() => $"SpriteSheetComponent(sprite={Sprite}, spriteSize={SpriteSize}, nbAnimations={Animations.Count}, currentAnim={_currentAnim})";

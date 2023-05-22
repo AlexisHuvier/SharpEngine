@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using SharpEngine.Utils;
 using SharpEngine.Utils.Math;
 
 namespace SharpEngine.Widgets;
@@ -10,6 +8,8 @@ namespace SharpEngine.Widgets;
 /// </summary>
 public class Selector : Widget
 {
+    public string Value => _texts[_selected];
+
     private readonly List<string> _texts;
     private Label _text;
     private int _selected;
@@ -49,6 +49,4 @@ public class Selector : Widget
 
         _text = AddChild(new Label(Vec2.Zero, _texts[_selected], font));
     }
-
-    public string GetValue() => _texts[_selected];
 }

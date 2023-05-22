@@ -13,5 +13,5 @@ public class RevoluteJoint: Joint
     {}
 
     public RJoint ToAetherPhysics(Body from) => 
-        new(from, Target.GetComponent<PhysicsComponent>().Body, FromPosition.ToMg());
+        new(from, Target.GetComponent<PhysicsComponent>().Body, FromPosition);
 }

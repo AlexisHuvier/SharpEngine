@@ -5,10 +5,10 @@ namespace SharpEngine.Utils.Physic.Joints;
 
 public class Joint
 {
-    public Entity Target { get; set; }
-    public JointType Type { get; set; }
-    public Vec2 FromPosition { get; set; }
-    public Vec2 TargetPosition { get; set; }
+    public Entity Target;
+    public JointType Type;
+    public Vec2 FromPosition;
+    public Vec2 TargetPosition;
 
     protected Joint(JointType type, Entity target, Vec2 fromPosition, Vec2 targetPosition)
     {

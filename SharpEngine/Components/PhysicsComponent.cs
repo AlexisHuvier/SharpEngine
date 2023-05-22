@@ -22,16 +22,19 @@ public class PhysicsComponent : Component
     public Func<Fixture, Fixture, Contact, bool> CollisionCallback;
     public Action<Fixture, Fixture, Contact> SeparationCallback;
     
-    private BodyType _bodyType;
-    private List<FixtureInfo> _fixtures = new();
-    private List<Joint> _joints = new();
-    private bool _fixedRotation;
-    private bool _ignoreGravity;
+    private readonly BodyType _bodyType;
+    private readonly List<FixtureInfo> _fixtures = new();
+    private readonly List<Joint> _joints = new();
+    private readonly bool _fixedRotation;
+    private readonly bool _ignoreGravity;
+
+    private TransformComponent _transformComponent;
 
     /// <summary>
     /// Initialise le Composant
     /// </summary>
     /// <param name="bodyType">Type de corps</param>
+    /// <param name="ignoreGravity">Bloquage de la gravité</param>
     /// <param name="fixedRotation">Bloquage de la rotation</param>
     public PhysicsComponent(BodyType bodyType = BodyType.Dynamic, bool ignoreGravity = false, bool fixedRotation = false)
     {
@@ -91,12 +94,13 @@ public class PhysicsComponent : Component
     {
         base.Initialize();
 
+        _transformComponent = Entity.GetComponent<TransformComponent>();
         Body = Entity.Scene.World.CreateBody(bodyType: _bodyType);
 
-        if (Entity.GetComponent<TransformComponent>() is not { } tc) return;
+        if (_transformComponent == null) return;
         
-        Body.Rotation = (float)(tc.Rotation * Math.PI / 180f);
-        Body.Position = new Vector2(tc.Position.X, tc.Position.Y);
+        Body.Rotation = (float)(_transformComponent.Rotation * Math.PI / 180f);
+        Body.Position = new Vector2(_transformComponent.Position.X, _transformComponent.Position.Y);
         Body.FixedRotation = _fixedRotation;
         Body.IgnoreGravity = _ignoreGravity;
         Body.OnCollision += OnCollision;
@@ -127,11 +131,11 @@ public class PhysicsComponent : Component
                 case FixtureType.Rectangle:
                     var size = info.Parameter as Vec2?;
                     Debug.Assert(size != null, nameof(size) + " != null");
-                    fixture = Body.CreateRectangle(size.Value.X, size.Value.Y, info.Density, info.Offset.ToMg());
+                    fixture = Body.CreateRectangle(size.Value.X, size.Value.Y, info.Density, info.Offset);
                     break;
                 case FixtureType.Circle:
                     var radius = Convert.ToSingle(info.Parameter);
-                    fixture = Body.CreateCircle(radius, info.Density, info.Offset.ToMg());
+                    fixture = Body.CreateCircle(radius, info.Density, info.Offset);
                     break;
                 default:
                     throw new Exception($"Unknown Type of Fixture : {info.Type}");
@@ -162,10 +166,10 @@ public class PhysicsComponent : Component
         }
         _joints.Clear();
 
-        if (Entity.GetComponent<TransformComponent>() is not { } tc) return;
+        if (_transformComponent == null) return;
 
-        tc.Position = new Vec2(Body.Position.X, Body.Position.Y);
-        tc.Rotation = (int)(Body.Rotation * 180 / Math.PI);
+        _transformComponent.Position = new Vec2(Body.Position.X, Body.Position.Y);
+        _transformComponent.Rotation = (int)(Body.Rotation * 180 / Math.PI);
     }
 
     private bool OnCollision(Fixture sender, Fixture other, Contact contact)

@@ -44,8 +44,6 @@ public struct Rect
         Height = height;
     }
 
-    public Rectangle ToMg() => new((int) X, (int) Y, (int) Width, (int) Height);
-
     public override bool Equals(object obj)
     {
         if (obj is Rect rect)
@@ -63,4 +61,5 @@ public struct Rect
                                                         System.Math.Abs(r1.Width - r2.Width) < 0.00001f &&
                                                         System.Math.Abs(r1.Height - r2.Height) < 0.00001f;
     public static implicit operator Rect(Rectangle rectangle) => new(rectangle.X, rectangle.Y, rectangle.Width, rectangle.Height);
+    public static implicit operator Rectangle(Rect rect) => new((int)rect.X, (int)rect.Y, (int)rect.Width, (int)rect.Height);
 }

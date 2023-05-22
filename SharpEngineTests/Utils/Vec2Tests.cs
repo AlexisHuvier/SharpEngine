@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.Xna.Framework;
 using SharpEngine.Utils;
 using SharpEngine.Utils.Math;
 
@@ -26,8 +27,8 @@ public class Vec2Tests
     {
         var vec = new Vec2(3, 4);
 
-        Assert.AreEqual(5, vec.Length());
-        Assert.AreEqual(25, vec.LengthSquared());
+        Assert.AreEqual(5, vec.Length);
+        Assert.AreEqual(25, vec.LengthSquared);
     }
 
     [TestMethod]
@@ -37,19 +38,19 @@ public class Vec2Tests
         var vec2 = new Vec2(0, 5);
         var vec3 = new Vec2(3, 4);
 
-        Assert.AreEqual(new Vec2(1, 0), vec.Normalized());
-        Assert.AreEqual(new Vec2(0, 1), vec2.Normalized());
-        Assert.AreEqual(new Vec2(.6f, .8f), vec3.Normalized());
+        Assert.AreEqual(new Vec2(1, 0), vec.Normalized);
+        Assert.AreEqual(new Vec2(0, 1), vec2.Normalized);
+        Assert.AreEqual(new Vec2(.6f, .8f), vec3.Normalized);
     }
 
     [TestMethod]
     public void Convert()
     {
-        Assert.IsInstanceOfType(new Vec2(0).ToMg(), typeof(Microsoft.Xna.Framework.Vector2));
+        Assert.IsInstanceOfType((Vector2)new Vec2(0), typeof(Vector2));
     }
 
     [TestMethod]
-    public void toString() => Assert.AreEqual($"Vec2(x=1, y=1)", new Vec2(1).ToString());
+    public void Vec2ToString() => Assert.AreEqual($"Vec2(x=1, y=1)", new Vec2(1).ToString());
 
     [TestMethod]
     public void ArithmeticOperations()

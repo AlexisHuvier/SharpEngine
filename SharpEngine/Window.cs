@@ -23,14 +23,13 @@ public class Window
     public FontManager FontManager { get; }
     public TilemapManager TileMapManager { get; }
 
-    public Func<bool> StartCallback { get; set; }
-    public Func<bool> StopCallback { get; set; }
-    public Action<Window> RenderImGui { get; set; }
-
-    public Color BackgroundColor { get; set; }
-    public bool ExitWithEscape { get; set; }
-    public bool Debug { get; set; }
-    public bool ShowPhysicDebugView { get; set; }
+    public Func<bool> StartCallback;
+    public Func<bool> StopCallback;
+    public Action<Window> RenderImGui;
+    public Color BackgroundColor;
+    public bool ExitWithEscape;
+    public bool Debug;
+    public bool ShowPhysicDebugView;
 
     public Vec2 ScreenSize
     {
@@ -110,7 +109,8 @@ public class Window
     /// <param name="fullscreen">Lance le jeu avec ou sans fullscreen</param>
     /// <param name="vsync">Lance le jeu avec ou sans la vsync</param>
     /// <param name="debug">Lance le jeu en mode debug ou non</param>
-    public Window(Vec2? screenSize = null, Color backgroundColor = null, bool mouseVisible = true,
+    /// <param name="showPhysicDebugView">Affiche la vue debug physique ou non</param>
+    public Window(Vec2? screenSize = null, Color? backgroundColor = null, bool mouseVisible = true,
         bool exitWithEscape = true, FullScreenType fullscreen = FullScreenType.NoFullscreen, bool vsync = false,
         bool debug = false, bool showPhysicDebugView = false)
     {

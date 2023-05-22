@@ -11,11 +11,11 @@ namespace SharpEngine.Widgets;
 /// </summary>
 public class Checkbox : Widget
 {
-    public string Text { get; set; }
-    public string Font { get; set; }
-    public float Scale { get; set; }
-    public Color FontColor { get; set; }
-    public bool IsChecked { get; set; }
+    public string Text;
+    public string Font;
+    public float Scale;
+    public Color FontColor;
+    public bool IsChecked;
 
     /// <summary>
     /// Initialise le Widget.
@@ -26,7 +26,7 @@ public class Checkbox : Widget
     /// <param name="scale">Echelle</param>
     /// <param name="fontColor">Couleur du texte (Color.BLACK)</param>
     /// <param name="isChecked">Est cochée</param>
-    public Checkbox(Vec2? position = null, string text = "", string font = "", int scale = 1, Color fontColor = null,
+    public Checkbox(Vec2? position = null, string text = "", string font = "", int scale = 1, Color? fontColor = null,
         bool isChecked = false) : base(position)
     {
         Text = text;
@@ -67,21 +67,47 @@ public class Checkbox : Widget
 
         if (Text.Length > 0 && Font.Length > 0)
         {
-            var size = new Vec2(20) * Scale + new Vec2(8, 0) +
-                       new Vec2(Scene.Window.FontManager.GetFont(Font).MeasureString(Text).X, 0);
-            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - size / 2, new Vec2(20) * Scale), Color.Black, LayerDepth + 0.00001f);
-            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition + new Vec2(2 * Scale) - size / 2, new Vec2(16) * Scale), Color.White, LayerDepth + 0.00002f);
+            var size = new Vec2(
+                20 * Scale + 8 + Scene.Window.FontManager.GetFont(Font).MeasureString(Text).X,
+                20 * Scale
+            );
+
+            Renderer.RenderTexture(
+                Scene.Window, blankTexture, 
+                new Rect(realPosition.X - size.X / 2, realPosition.Y - size.Y / 2, 20 * Scale, 20 * Scale), Color.Black, 
+                LayerDepth + 0.00001f);
+            Renderer.RenderTexture(
+                Scene.Window, blankTexture,
+                new Rect(realPosition.X + 2 * Scale - size.X / 2, realPosition.Y + 2 * Scale - size.Y / 2, 16 * Scale, 16 * Scale)
+                , Color.White, LayerDepth + 0.00002f);
             if (IsChecked)
-                Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition + new Vec2(3 * Scale) - size / 2, new Vec2(14) * Scale), Color.Black, LayerDepth + 0.00003f);
+                Renderer.RenderTexture(
+                    Scene.Window, blankTexture, 
+                    new Rect(realPosition.X + 3 * Scale - size.X / 2, realPosition.Y + 3 * Scale - size.Y / 2, 14 * Scale, 14 * Scale), 
+                    Color.Black, LayerDepth + 0.00003f);
             var spriteFont = Scene.Window.FontManager.GetFont(Font);
-            Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition - size / 2 + new Vec2(20 * Scale + 8, 20 * Scale / 2) + new Vec2(0, -spriteFont.MeasureString(Text).Y / 2), FontColor, LayerDepth + 0.00004f);
+            Renderer.RenderText(
+                Scene.Window, spriteFont, Text,
+                new Vec2(
+                    realPosition.X - size.X / 2 + 20 * Scale + 8,
+                    realPosition.Y - size.Y / 2 + 20 * Scale / 2 - spriteFont.MeasureString(Text).Y / 2), 
+                FontColor, LayerDepth + 0.00004f);
         }
         else
         {
-            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - 10 * Scale, new Vec2(20 * Scale)), Color.Black, LayerDepth + 0.00005f);
-            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - 8 * Scale, new Vec2(16 * Scale)), Color.White, LayerDepth + 0.00006f);
+            Renderer.RenderTexture(
+                Scene.Window, blankTexture, 
+                new Rect(realPosition.X - 10 * Scale, realPosition.Y - 10 * Scale, 20 * Scale, 20 * Scale), 
+                Color.Black, LayerDepth + 0.00005f);
+            Renderer.RenderTexture(
+                Scene.Window, blankTexture, 
+                new Rect(realPosition.X - 8 * Scale, realPosition.Y - 8 * Scale, 16 * Scale, 16 * Scale),
+                Color.White, LayerDepth + 0.00006f);
             if (IsChecked)
-                Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - 7 * Scale, new Vec2(14 * Scale)), Color.Black, LayerDepth + 0.00007f);
+                Renderer.RenderTexture(
+                    Scene.Window, blankTexture, 
+                    new Rect(realPosition.X - 7 * Scale, realPosition.Y - 7 * Scale, 14 * Scale, 14 * Scale), 
+                    Color.Black, LayerDepth + 0.00007f);
         }
     }
 }

@@ -6,12 +6,13 @@ using TiledLoader.Objects;
 
 namespace SharpEngine.Utils.TileMap;
 
-public class TileMap
+public readonly struct TileMap
 {
-    public TiledMap Map { get; }
-    public Dictionary<uint, TileType> Tiles { get; }
-    public Vec2 Size { get; }
-    public Vec2 TileSize { get; }
+    public readonly TiledMap Map;
+    public readonly Vec2 Size;
+    public readonly Vec2 TileSize;
+    
+    private readonly Dictionary<uint, TileType> _tiles;
     
     public TileMap(string map, Window window)
     {
@@ -19,7 +20,7 @@ public class TileMap
         Size = new Vec2(Map.Width, Map.Height);
         TileSize = new Vec2(Map.TileWidth, Map.TileHeight);
         
-        Tiles = new Dictionary<uint, TileType>();
+        _tiles = new Dictionary<uint, TileType>();
         var mapFolder = Path.GetDirectoryName(Map.File);
         foreach (var tileset in Map.Tilesets)
         {
@@ -31,7 +32,7 @@ public class TileMap
 
                 var source = Map.File + tile.Image.Source;
                 window.TextureManager.AddTexture(source, mapFolder + Path.DirectorySeparatorChar + tile.Image.Source);
-                Tiles.Add(tile.Id + 1, new TileType(tile.Id + 1, source, null));
+                _tiles.Add(tile.Id + 1, new TileType(tile.Id + 1, source, null));
             }
 
             id += (uint)tileset.Tiles.Count;
@@ -56,7 +57,7 @@ public class TileMap
                 for (var y = 0; y < nbYTile; y++)
                 {
                     for (var x = 0; x < nbXTile; x++)
-                        Tiles.Add((uint)(id + x + y * nbXTile), new TileType((uint)(id + x + y * nbXTile), source,
+                        _tiles.Add((uint)(id + x + y * nbXTile), new TileType((uint)(id + x + y * nbXTile), source,
                             new Rect(x * (tileset.TileWidth + tileset.Spacing), y * (tileset.TileHeight + tileset.Spacing), tileset.TileWidth,
                                 tileset.TileHeight)));
                 }
@@ -66,7 +67,7 @@ public class TileMap
 
     public TileType? GetTile(uint id)
     {
-        if (Tiles.TryGetValue(id, out var tile))
+        if (_tiles.TryGetValue(id, out var tile))
             return tile;
         return null;
     }

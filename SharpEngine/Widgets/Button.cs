@@ -20,12 +20,12 @@ public class Button: Widget
         Hovered
     }
 
-    public string Text { get; set; }
-    public string Font { get; set; }
-    public Vec2 Size { get; set; }
-    public Color FontColor { get; set; }
-    public Color BackgroundColor { get; set; }
-    public Action<Button> Command { get; set; }
+    public string Text;
+    public string Font;
+    public Vec2 Size;
+    public Color FontColor;
+    public Color BackgroundColor;
+    public Action<Button> Command;
 
     private ButtonState _state;
 
@@ -38,7 +38,7 @@ public class Button: Widget
     /// <param name="size">Taille (Vec2(200, 40))</param>
     /// <param name="fontColor">Couleur du texte (Color.BLACK)</param>
     /// <param name="backgroundColor">Couleur du fond (Color.GRAY)</param>
-    public Button(Vec2? position = null, string text = "", string font = "", Vec2? size = null, Color fontColor = null, Color backgroundColor = null): base(position)
+    public Button(Vec2? position = null, string text = "", string font = "", Vec2? size = null, Color? fontColor = null, Color? backgroundColor = null): base(position)
     {
         Text = text;
         Font = font;
@@ -79,17 +79,25 @@ public class Button: Widget
         if (_state != ButtonState.Click && Active && _state == ButtonState.Hovered)
         {
             var hoverSize = Size + 4;
+            var hoverPosition = new Vec2(realPosition.X - hoverSize.X / 2, realPosition.Y - hoverSize.Y / 2);
             Renderer.RenderTexture(Scene.Window, blankTexture,
-                new Rect(realPosition - hoverSize / 2, hoverSize), Color.White, LayerDepth);
+                new Rect(hoverPosition, hoverSize), Color.White, LayerDepth);
         }
 
-        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), Color.Black, LayerDepth + 0.00001f);
-        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - whiteSize / 2, whiteSize), BackgroundColor, LayerDepth + 0.00002f);
+        Renderer.RenderTexture(Scene.Window, blankTexture,
+            new Rect(realPosition.X - Size.X / 2, realPosition.Y - Size.Y / 2, Size), Color.Black,
+            LayerDepth + 0.00001f);
+        Renderer.RenderTexture(Scene.Window, blankTexture,
+            new Rect(realPosition.X - whiteSize.X / 2, realPosition.Y - whiteSize.Y / 2, whiteSize),
+            BackgroundColor, LayerDepth + 0.00002f);
 
         var spriteFont = Scene.Window.FontManager.GetFont(Font);
-        Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, FontColor, 0, spriteFont.MeasureString(Text) / 2, Vec2.One, SpriteEffects.None, LayerDepth + 0.00003f);
+        Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, FontColor, 0,
+            spriteFont.MeasureString(Text) / 2, Vec2.One, SpriteEffects.None, LayerDepth + 0.00003f);
 
-        if(_state == ButtonState.Click || !Active)
-            Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), new Color(0, 0, 0, 128), LayerDepth + 0.00004f);
+        if (_state == ButtonState.Click || !Active)
+            Renderer.RenderTexture(Scene.Window, blankTexture,
+                new Rect(realPosition.X - Size.X / 2, realPosition.Y - Size.Y / 2, Size), 
+                new Color(0, 0, 0, 128), LayerDepth + 0.00004f);
     }
 }

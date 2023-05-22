@@ -6,10 +6,10 @@ namespace SharpEngine.Widgets;
 
 public class Frame: Widget
 {
-    public Color BorderColor { get; set; }
-    public Vec2 Size { get; set; }
-    public Vec2 BorderSize { get; set; }
-    public Color BackgroundColor { get; set; }
+    public Color BorderColor;
+    public Vec2 Size;
+    public Vec2 BorderSize;
+    public Color? BackgroundColor;
     
     
     /// <summary>
@@ -20,7 +20,7 @@ public class Frame: Widget
     /// <param name="borderSize">Taille de la bordure (Vec2(3))</param>
     /// <param name="borderColor">Couleur de la bordure (Color.Black)</param>
     /// <param name="backgroundColor">Couleur de fond (Transparent)</param>
-    public Frame(Vec2? position = null, Vec2? size = null, Vec2? borderSize = null, Color borderColor = null, Color backgroundColor = null) : base(position)
+    public Frame(Vec2? position = null, Vec2? size = null, Vec2? borderSize = null, Color? borderColor = null, Color? backgroundColor = null) : base(position)
     {
         BorderColor = borderColor ?? Color.Black;
         Size = size ?? new Vec2(5);
@@ -39,23 +39,37 @@ public class Frame: Widget
 
         if (BackgroundColor == null)
         {
-            Renderer.RenderTexture(Scene.Window, texture, new Rect(realPosition - Size / 2, Size.X, BorderSize.Y),
+            Renderer.RenderTexture(
+                Scene.Window, texture,
+                new Rect(realPosition.X - Size.X / 2, realPosition.Y - Size.Y / 2, Size.X, BorderSize.Y),
                 BorderColor, LayerDepth);
-            Renderer.RenderTexture(Scene.Window, texture, new Rect(realPosition - Size / 2, BorderSize.X, Size.Y),
+            Renderer.RenderTexture(
+                Scene.Window, texture,
+                new Rect(realPosition.X - Size.X / 2, realPosition.Y - Size.Y / 2, BorderSize.X, Size.Y),
                 BorderColor, LayerDepth + 0.00001f);
-            Renderer.RenderTexture(Scene.Window, texture,
+            Renderer.RenderTexture(
+                Scene.Window, texture,
                 new Rect(realPosition.X - Size.X / 2, realPosition.Y + (Size.Y - BorderSize.Y) - Size.Y / 2, Size.X,
-                    BorderSize.Y), BorderColor, LayerDepth + 0.00002f);
-            Renderer.RenderTexture(Scene.Window, texture,
+                    BorderSize.Y),
+                BorderColor, LayerDepth + 0.00002f);
+            Renderer.RenderTexture(
+                Scene.Window, texture,
                 new Rect(realPosition.X + (Size.X - BorderSize.X) - Size.X / 2, realPosition.Y - Size.Y / 2,
-                    BorderSize.X,
-                    Size.Y), BorderColor, LayerDepth + 0.00003f);
+                    BorderSize.X, Size.Y),
+                BorderColor, LayerDepth + 0.00003f);
         }
         else
         {
-            Renderer.RenderTexture(Scene.Window, texture, new Rect(realPosition - Size / 2, Size), BorderColor, LayerDepth);
-            var internalSize = Size - BorderSize * 2;
-            Renderer.RenderTexture(Scene.Window, texture, new Rect(realPosition - internalSize / 2, internalSize), BackgroundColor, LayerDepth + 0.00001f);
+            Renderer.RenderTexture(
+                Scene.Window, texture, 
+                new Rect(realPosition.X - Size.X / 2, realPosition.Y - Size.Y / 2, Size), 
+                BorderColor, LayerDepth);
+            Renderer.RenderTexture(
+                Scene.Window, texture,
+                new Rect(realPosition.X - (Size.X - BorderSize.X * 2) / 2,
+                    realPosition.Y - (Size.Y - BorderSize.Y * 2) / 2, Size.X - BorderSize.X * 2,
+                    Size.Y - BorderSize.Y * 2),
+                BackgroundColor.Value, LayerDepth + 0.00001f);
         }
     }
 }

@@ -58,7 +58,7 @@ public static class InputManager
     public static bool MouseInRectangle(Rect rec)
     {
         var state = Mouse.GetState();
-        return rec.ToMg().Contains(state.X, state.Y);
+        return ((Rectangle)rec).Contains(state.X, state.Y);
     }
 
     public static bool MouseInRectangle(Vec2 position, Vec2 size) => MouseInRectangle(new Rect(position, size));

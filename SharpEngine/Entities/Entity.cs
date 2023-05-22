@@ -12,7 +12,7 @@ public class Entity
 {
     internal Scene Scene;
     private readonly List<Component> _components;
-    public string Tag { get; set; }
+    public string Tag;
 
     public Entity()
     {
@@ -24,8 +24,8 @@ public class Entity
 
     public T AddComponent<T>(T comp) where T: Component
     {
-        comp.SetEntity(this);
         _components.Add(comp);
+        comp.SetEntity(this);
         return comp;
     }
 

@@ -10,9 +10,9 @@ namespace SharpEngine.Widgets;
 /// </summary>
 public class Label : Widget
 {
-    public string Text { get; set; }
-    public string Font { get; set; }
-    public Color Color { get; set; }
+    public string Text;
+    public string Font;
+    public Color Color;
 
     /// <summary>
     /// Initialise le Widget.
@@ -21,7 +21,7 @@ public class Label : Widget
     /// <param name="text">Texte</param>
     /// <param name="font">Nom de la police</param>
     /// <param name="color">Couleur du texte (Color.BLACK)</param>
-    public Label(Vec2? position = null, string text = "", string font = "", Color color = null) : base(position)
+    public Label(Vec2? position = null, string text = "", string font = "", Color? color = null) : base(position)
     {
         Text = text;
         Font = font;
@@ -37,6 +37,7 @@ public class Label : Widget
         
         var realPosition = Parent != null ? Position + Parent.GetRealPosition() : Position;
         var spriteFont = Scene.Window.FontManager.GetFont(Font);
-        Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, Color, 0, spriteFont.MeasureString(Text) / 2, new Vec2(1), SpriteEffects.None, LayerDepth);
+        Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, Color, 0, spriteFont.MeasureString(Text) / 2,
+            new Vec2(1), SpriteEffects.None, LayerDepth);
     }
 }

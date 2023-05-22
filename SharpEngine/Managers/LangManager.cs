@@ -7,7 +7,7 @@ namespace SharpEngine.Managers;
 
 public static class LangManager
 {
-    public static string CurrentLang { get; set; } = "default";
+    public static string CurrentLang = "default";
 
     private static readonly Dictionary<string, Lang> Langs = new();
     public static List<string> GetLangs() => new(Langs.Keys);

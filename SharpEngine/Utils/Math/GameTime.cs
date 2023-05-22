@@ -5,11 +5,11 @@ namespace SharpEngine.Utils.Math;
 /// <summary>
 /// Temps du jeu
 /// </summary>
-public class GameTime
+public struct GameTime
 {
-    public TimeSpan TotalGameTime { get; set; }
-    public TimeSpan ElapsedGameTime { get; set; }
-    public bool IsRunningSlowly { get; set; }
+    public TimeSpan TotalGameTime;
+    public TimeSpan ElapsedGameTime;
+    public bool IsRunningSlowly;
 
     public GameTime(TimeSpan totalGameTime, TimeSpan elapsedGameTime, bool isRunningSlowly)
     {

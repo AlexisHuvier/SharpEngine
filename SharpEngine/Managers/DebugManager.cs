@@ -10,13 +10,13 @@ namespace SharpEngine.Managers;
 public static class DebugManager
 {
     public static int FrameRate { get; private set; }
-    public readonly static string MonoGameVersion = System.Diagnostics.FileVersionInfo
+    public static readonly string MonoGameVersion = System.Diagnostics.FileVersionInfo
         .GetVersionInfo(typeof(Microsoft.Xna.Framework.Game).Assembly.Location).FileVersion;
     public static long GcMemory => GC.GetTotalMemory(false);
-    public const string SharpEngineVersion = "0.17.0";
+    public const string SharpEngineVersion = "0.19.0";
 
 
-    private static TimeSpan _elapsedTime = TimeSpan.Zero;
+    private static double _elapsedTime;
     private static int _frameCounter;
 
     public static void CreateSharpEngineImGuiWindow()
@@ -33,11 +33,11 @@ public static class DebugManager
 
     internal static void Update(GameTime gameTime)
     {
-        _elapsedTime += gameTime.ElapsedGameTime;
+        _elapsedTime += gameTime.ElapsedGameTime.TotalSeconds;
 
-        if (_elapsedTime <= TimeSpan.FromSeconds(1)) return;
+        if (_elapsedTime <= 1) return;
         
-        _elapsedTime -= TimeSpan.FromSeconds(1);
+        _elapsedTime -= 1;
         FrameRate = _frameCounter;
         _frameCounter = 0;
     }

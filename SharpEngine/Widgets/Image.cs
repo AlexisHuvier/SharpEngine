@@ -12,13 +12,13 @@ namespace SharpEngine.Widgets;
 /// </summary>
 public class Image : Widget
 {
-    public string Texture { get; set; }
-    public Vec2 Size { get; set; }
-    public Rect? SourceRect { get; set; }
-    public bool FlipX { get; set; }
-    public bool FlipY { get; set; }
-    public Vec2 Scale { get; set; }
-    public int Rotation { get; set; }
+    public string Texture;
+    public Vec2 Size;
+    public Rect? SourceRect;
+    public bool FlipX;
+    public bool FlipY;
+    public Vec2 Scale;
+    public int Rotation;
 
     /// <summary>
     /// Initialise le Widget.
@@ -59,14 +59,17 @@ public class Image : Widget
             effects |= SpriteEffects.FlipVertically;
 
         if (SourceRect == null)
-        { 
-            var scale = Size == Vec2.Zero ? Scale : new Vec2(Size.X / sprite.Width * Scale.X, Size.Y / sprite.Height * Scale.Y);
-            Renderer.RenderTexture(Scene.Window, sprite, realPosition, null, Color.White, 
-                MathHelper.ToRadians(Rotation), new Vec2(sprite.Width, sprite.Height) / 2, scale, 
+        {
+            var scale = Size == Vec2.Zero
+                ? Scale
+                : new Vec2(Size.X / sprite.Width * Scale.X, Size.Y / sprite.Height * Scale.Y);
+            Renderer.RenderTexture(Scene.Window, sprite, realPosition, null, Color.White,
+                MathHelper.ToRadians(Rotation), new Vec2(sprite.Width / 2f, sprite.Height / 2f), scale,
                 effects, LayerDepth);
         }
         else
-            Renderer.RenderTexture(Scene.Window, sprite, realPosition, SourceRect, Color.Wheat, 
-                MathHelper.ToRadians(Rotation), new Vec2(SourceRect.Value.Width / 2, SourceRect.Value.Height / 2), Scale, effects, LayerDepth);
+            Renderer.RenderTexture(Scene.Window, sprite, realPosition, SourceRect, Color.Wheat,
+                MathHelper.ToRadians(Rotation), new Vec2(SourceRect.Value.Width / 2, SourceRect.Value.Height / 2),
+                Scale, effects, LayerDepth);
     }
 }

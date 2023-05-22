@@ -6,7 +6,7 @@ namespace SharpEngine.Utils;
 /// <summary>
 /// Couleur
 /// </summary>
-public class Color
+public struct Color
 {
     private int _internalR;
     private int _internalG;
@@ -58,31 +58,25 @@ public class Color
             return this == color;
         return obj != null && obj.Equals(this);
     }
-    protected bool Equals(Color other) => _internalR == other._internalR && _internalG == other._internalG &&
-                                          _internalB == other._internalB && _internalA == other._internalA;
     public override int GetHashCode() => HashCode.Combine(_internalR, _internalG, _internalB, _internalA);
 
     public override string ToString() => $"Color(r={R}, g={G}, b={B}, a={A})";
 
     public static bool operator !=(Color color, Color color2) => !(color == color2);
-
-    public static bool operator ==(Color color, Color color2)
-    {
-        if (color is null)
-            return color2 is null;
-        if (color2 is null)
-            return false;
-        return color.R == color2.R && color.G == color2.G && color.B == color2.B && color.A == color2.A;
-    }
+    public static bool operator ==(Color color, Color color2) =>
+        color.R == color2.R && color.G == color2.G && color.B == color2.B && color.A == color2.A;
 
     public static Color GetColorBetween(Color startColor, Color endColor, float currentTime, float maxTime)
     {
-        float stepA = ((endColor.A - startColor.A) * currentTime / maxTime);
-        float stepR = ((endColor.R - startColor.R) * currentTime / maxTime);
-        float stepG = ((endColor.G - startColor.G) * currentTime / maxTime);
-        float stepB = ((endColor.B - startColor.B) * currentTime / maxTime);
+        var stepA = (endColor.A - startColor.A) * currentTime / maxTime;
+        var stepR = (endColor.R - startColor.R) * currentTime / maxTime;
+        var stepG = (endColor.G - startColor.G) * currentTime / maxTime;
+        var stepB = (endColor.B - startColor.B) * currentTime / maxTime;
 
-        return new Color(startColor.R + Convert.ToInt32(stepR), startColor.G + Convert.ToInt32(stepG), startColor.B + Convert.ToInt32(stepB),
+        return new Color(
+            startColor.R + Convert.ToInt32(stepR), 
+            startColor.G + Convert.ToInt32(stepG),
+            startColor.B + Convert.ToInt32(stepB),
             startColor.A + Convert.ToInt32(stepA));
     }
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.Xna.Framework;
 using SharpEngine.Utils;
 using SharpEngine.Utils.Math;
 
@@ -25,5 +26,5 @@ public class RectTests
 
     [TestMethod]
     public void ToMg() =>
-        Assert.IsInstanceOfType(new Rect(0, 0, 0, 0).ToMg(), typeof(Microsoft.Xna.Framework.Rectangle));
+        Assert.IsInstanceOfType((Rectangle)new Rect(0, 0, 0, 0), typeof(Rectangle));
 }

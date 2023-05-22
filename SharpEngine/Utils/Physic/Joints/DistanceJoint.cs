@@ -8,9 +8,9 @@ namespace SharpEngine.Utils.Physic.Joints;
 
 public class DistanceJoint: Joint
 {
-    public float Length { get; set; }
-    public float Frequency { get; set; }
-    public float DampingRatio { get; set; }
+    public float Length;
+    public float Frequency;
+    public float DampingRatio;
 
     public DistanceJoint(Entity target, Vec2? fromPosition = null, Vec2? targetPosition = null,
         float length = -1, float frequency = -1, float dampingRatio = -1) : base(JointType.Distance, target,
@@ -24,7 +24,7 @@ public class DistanceJoint: Joint
     public DJoint ToAetherPhysics(Body from)
     {
         var joint = new DJoint(from, Target.GetComponent<PhysicsComponent>().Body, 
-            FromPosition.ToMg(), TargetPosition.ToMg());
+            FromPosition, TargetPosition);
         if (System.Math.Abs(Length + 1) > InternalUtils.FloatTolerance)
             joint.Length = Length;
         if (System.Math.Abs(Frequency + 1) > InternalUtils.FloatTolerance)

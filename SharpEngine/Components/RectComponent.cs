@@ -12,10 +12,12 @@ namespace SharpEngine.Components;
 
 public class RectComponent: Component
 {
-    public Color Color { get; set; }
-    public Vec2 Size { get; set; }
-    public bool Displayed { get; set; }
-    public Vec2 Offset { get; set; }
+    public Color Color;
+    public Vec2 Size;
+    public bool Displayed;
+    public Vec2 Offset;
+
+    private TransformComponent _transformComponent;
     
     public RectComponent(Color color, Vec2 size, bool displayed = true, Vec2? offset = null)
     {
@@ -25,17 +27,25 @@ public class RectComponent: Component
         Offset = offset ?? Vec2.Zero;
     }
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _transformComponent = Entity.GetComponent<TransformComponent>();
+    }
+
     public override void Draw(GameTime gameTime)
     {
         base.Draw(gameTime);
         
-        if (Entity.GetComponent<TransformComponent>() is not { } tc || !Displayed) return;
+        if (_transformComponent == null || !Displayed) return;
         
         var texture = Entity.Scene.Window.TextureManager.GetTexture("blank");
-        var position = new Vec2(tc.Position.X + Offset.X - CameraManager.Position.X,
-            tc.Position.Y + Offset.Y - CameraManager.Position.Y);
-        var size = Size * tc.Scale;
-        Console.WriteLine(new Rect(position, size));
-        Renderer.RenderTexture(Entity.Scene.Window, texture, new Rect(position - size / 2, size), Color, MathHelper.ToRadians(tc.Rotation), Vec2.Zero, SpriteEffects.None, tc.LayerDepth);
+        var size = Size * _transformComponent.Scale;
+        Renderer.RenderTexture(Entity.Scene.Window, texture,
+            new Rect(_transformComponent.Position.X + Offset.X - CameraManager.Position.X - size.X / 2,
+                _transformComponent.Position.Y + Offset.Y - CameraManager.Position.Y - size.Y / 2, size), Color,
+            MathHelper.ToRadians(_transformComponent.Rotation), Vec2.Zero, SpriteEffects.None,
+            _transformComponent.LayerDepth);
     }
 }

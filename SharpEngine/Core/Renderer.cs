@@ -18,46 +18,45 @@ public static class Renderer
             position.Y - origin.Y - sizeY * scale.Y >= windowSize.Y || position.Y - origin.Y + sizeY * scale.Y <= 0) return;
         
         if (sourceRectangle is null)
-            window.InternalGame.SpriteBatch.Draw(texture, position.ToMg(), null, color.ToMg(), rotation,
-                origin.ToMg(), scale.ToMg(), effects, layerDepth);
+            window.InternalGame.SpriteBatch.Draw(texture, position, null, color.ToMg(), rotation,
+                origin, scale, effects, layerDepth);
         else
-            window.InternalGame.SpriteBatch.Draw(texture, position.ToMg(), sourceRectangle.Value.ToMg(), color.ToMg(),
-                rotation, origin.ToMg(), scale.ToMg(), effects, layerDepth);
+            window.InternalGame.SpriteBatch.Draw(texture, position, sourceRectangle.Value, color.ToMg(),
+                rotation, origin, scale, effects, layerDepth);
     }
 
     public static void RenderTexture(Window window, Texture2D texture, Rect destinationRectangle, Color color, float rotation, Vec2 origin, SpriteEffects effects, float layerDepth)
     {
         var windowSize = window.ScreenSize;
 
-        if (destinationRectangle.X >= windowSize.X || 
-            destinationRectangle.X + destinationRectangle.X <= 0 || 
-            destinationRectangle.Y >= windowSize.Y || 
-            destinationRectangle.Y + destinationRectangle.Y <= 0) return;
-        
-        window.InternalGame.SpriteBatch.Draw(texture, destinationRectangle.ToMg(), null, color.ToMg(), rotation, origin.ToMg(), effects, layerDepth);
+        if (destinationRectangle.X >= windowSize.X || destinationRectangle.X + destinationRectangle.Width <= 0 || 
+            destinationRectangle.Y >= windowSize.Y || destinationRectangle.Y + destinationRectangle.Height <= 0) return;
+
+        window.InternalGame.SpriteBatch.Draw(texture, destinationRectangle, null, color.ToMg(), rotation,
+            origin, effects, layerDepth);
     }
 
     public static void RenderTexture(Window window, Texture2D texture, Rect destinationRectangle, Color color, float layerDepth)
     {
         var windowSize = window.ScreenSize;
 
-        if (destinationRectangle.X >= windowSize.X || 
-            destinationRectangle.X + destinationRectangle.X <= 0 || 
-            destinationRectangle.Y >= windowSize.Y || 
-            destinationRectangle.Y + destinationRectangle.Y <= 0) return;
-        
-        window.InternalGame.SpriteBatch.Draw(texture, destinationRectangle.ToMg(), null, color.ToMg(), 0, Vector2.Zero, SpriteEffects.None, layerDepth);
+        if (destinationRectangle.X >= windowSize.X || destinationRectangle.X + destinationRectangle.Width <= 0 || 
+            destinationRectangle.Y >= windowSize.Y || destinationRectangle.Y + destinationRectangle.Height <= 0) return;
+
+        window.InternalGame.SpriteBatch.Draw(texture, destinationRectangle, null, color.ToMg(), 0, Vector2.Zero,
+            SpriteEffects.None, layerDepth);
     }
 
     public static void RenderText(Window window, SpriteFont font, string text, Vec2 position, Color color, float rotation, Vec2 origin, Vec2 scale, SpriteEffects effects, float layerDepth)
     {
-        var size = font.MeasureString(text) * scale;
+        var size = font.MeasureString(text);
         var windowSize = window.ScreenSize;
 
         if (position.X - origin.X - size.X * scale.X >= windowSize.X || position.X - origin.X + size.X * scale.X <= 0 ||
             position.Y - origin.Y - size.Y * scale.Y >= windowSize.Y || position.Y - origin.Y + size.Y * scale.Y <= 0) return;
-        
-        window.InternalGame.SpriteBatch.DrawString(font, text, position.ToMg(), color.ToMg(), rotation, origin.ToMg(), scale.ToMg(), effects, layerDepth);
+
+        window.InternalGame.SpriteBatch.DrawString(font, text, position, color.ToMg(), rotation, origin,
+            scale, effects, layerDepth);
     }
 
     public static void RenderText(Window window, SpriteFont font, string text, Vec2 position, Color color, float layerDepth)

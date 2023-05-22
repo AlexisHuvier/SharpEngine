@@ -2,10 +2,10 @@
 
 namespace SharpEngine.Utils.TileMap;
 
-public class Layer
+public readonly struct Layer
 {
-    public List<Chunk> Chunks { get; set; }
-    public List<Tile> Tiles { get; set; }
+    public readonly List<Chunk> Chunks;
+    public readonly List<Tile> Tiles;
 
     public Layer(List<Chunk> chunks, List<Tile> tiles)
     {

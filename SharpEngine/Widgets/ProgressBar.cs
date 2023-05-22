@@ -9,9 +9,9 @@ namespace SharpEngine.Widgets;
 /// </summary>
 public class ProgressBar : Widget
 {
-    public Color Color { get; set; }
-    public Vec2 Size { get; set; }
-    public int Value { get; set; }
+    public Color Color;
+    public Vec2 Size;
+    public int Value;
 
     /// <summary>
     /// Initialise le Widget.
@@ -20,7 +20,7 @@ public class ProgressBar : Widget
     /// <param name="color">Couleur de la barre (Color.GREEN)</param>
     /// <param name="size">Taille (Vec2(200, 30))</param>
     /// <param name="value">Valeur</param>
-    public ProgressBar(Vec2? position = null, Color color = null, Vec2? size = null, int value = 0) : base(position)
+    public ProgressBar(Vec2? position = null, Color? color = null, Vec2? size = null, int value = 0) : base(position)
     {
         Color = color ?? Color.Green;
         Size = size ?? new Vec2(200, 30);
@@ -36,11 +36,17 @@ public class ProgressBar : Widget
 
         var realPosition = Parent != null ? Position + Parent.GetRealPosition() : Position;
         var blankTexture = Scene.Window.TextureManager.GetTexture("blank");
-        var whiteSize = Size - 4;
-        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), Color.Black, LayerDepth);
-        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - whiteSize / 2, whiteSize), Color.White, LayerDepth + 0.00001f);
-        var barSize = Size - 8;
-        var realSize = new Vec2(barSize.X * Value / 100, barSize.Y);
-        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - barSize / 2, realSize), Color, LayerDepth + 0.00002f);
+        Renderer.RenderTexture(
+            Scene.Window, blankTexture,
+            new Rect(realPosition.X - Size.X / 2, realPosition.Y - Size.Y / 2, Size), 
+            Color.Black, LayerDepth);
+        Renderer.RenderTexture(
+            Scene.Window, blankTexture,
+            new Rect(realPosition.X - (Size.X - 4) / 2, realPosition.Y - (Size.Y - 4) / 2, Size.X - 4, Size.Y - 4),
+            Color.White, LayerDepth + 0.00001f);
+        Renderer.RenderTexture(
+            Scene.Window, blankTexture, 
+            new Rect(realPosition.X - (Size.X - 8) / 2, realPosition.Y - (Size.Y - 8) / 2, (Size.X - 8) * Value / 100, Size.Y - 8), 
+            Color, LayerDepth + 0.00002f);
     }
 }

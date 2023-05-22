@@ -7,7 +7,7 @@ using SharpEngine.Managers;
 using SharpEngine.Utils;
 using SharpEngine.Utils.Control;
 using SharpEngine.Utils.ImGui;
-using Color = SharpEngine.Utils.Color;
+using Color = Microsoft.Xna.Framework.Color;
 using GameTime = SharpEngine.Utils.Math.GameTime;
 
 namespace SharpEngine;
@@ -18,7 +18,7 @@ namespace SharpEngine;
 public class InternalGame : Game
 {
     public GraphicsDeviceManager Graphics { get; }
-    public SpriteBatch SpriteBatch { get; set; }
+    public SpriteBatch SpriteBatch { get; private set; }
     
     private readonly Window _window;
     private ImGuiRenderer _imGuiRenderer;
@@ -126,7 +126,7 @@ public class InternalGame : Game
         SpriteBatch = new SpriteBatch(GraphicsDevice);
 
         var blank = new Texture2D(GraphicsDevice, 1, 1);
-        blank.SetData(new[] { Color.White.ToMg() });
+        blank.SetData(new[] { Color.White });
         _window.TextureManager.AddTexture("blank", blank);
 
         foreach (var scene in _window.Scenes)

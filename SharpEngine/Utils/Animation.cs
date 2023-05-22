@@ -2,7 +2,7 @@
 
 namespace SharpEngine.Utils;
 
-public struct Animation
+public readonly struct Animation
 {
     public readonly string Name;
     public readonly List<uint> Indices;

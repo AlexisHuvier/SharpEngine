@@ -1,6 +1,4 @@
-﻿using System.Collections.Specialized;
-using SharpEngine.Utils;
-using SharpEngine.Utils.Math;
+﻿using SharpEngine.Utils.Math;
 
 namespace SharpEngine.Components;
 
@@ -9,8 +7,11 @@ namespace SharpEngine.Components;
 /// </summary>
 public class AutoMovementComponent : Component
 {
-    public Vec2 Direction { get; set; }
-    public int Rotation { get; set; }
+    public Vec2 Direction;
+    public int Rotation;
+
+    private TransformComponent _transformComponent;
+    private PhysicsComponent _physicsComponent;
 
     /// <summary>
     /// Initialise le Composant.
@@ -23,26 +24,34 @@ public class AutoMovementComponent : Component
         Rotation = rotation;
     }
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _transformComponent = Entity.GetComponent<TransformComponent>();
+        _physicsComponent = Entity.GetComponent<PhysicsComponent>();
+    }
+
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
 
 
-        if (Entity.GetComponent<TransformComponent>() is not { } tc) return;
+        if (_transformComponent == null) return;
         
-        if (Direction.Length() != 0)
+        if (Direction.Length != 0)
         {
-            var pos = new Vec2(tc.Position.X, tc.Position.Y) + Direction;
-            if (Entity.GetComponent<PhysicsComponent>() is { } pc)
-                pc.SetPosition(pos);
+            var pos = new Vec2(_transformComponent.Position.X, _transformComponent.Position.Y) + Direction;
+            if (_physicsComponent != null)
+                _physicsComponent.SetPosition(pos);
             else
-                tc.Position = pos;
+                _transformComponent.Position = pos;
         }
 
         if (Rotation == 0) return;
         
-        var rot = tc.Rotation + Rotation;
-        tc.Rotation = rot;
+        var rot = _transformComponent.Rotation + Rotation;
+        _transformComponent.Rotation = rot;
     }
 
     public override string ToString() => $"AutoMovementComponent(direction={Direction}, rotation={Rotation})";

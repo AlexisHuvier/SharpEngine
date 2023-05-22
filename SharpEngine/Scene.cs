@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using SharpEngine.Widgets;
-using SharpEngine.Components;
 using SharpEngine.Entities;
 using SharpEngine.Utils.Control;
 using tainicom.Aether.Physics2D.Diagnostics;

@@ -11,10 +11,11 @@ namespace SharpEngine.Widgets;
 /// </summary>
 public class Widget
 {
-    public Vec2 Position { get; set; }
-    public bool Displayed { get; set; }
-    public bool Active { get; set; }
-    public Widget Parent { get; set; }
+    public Vec2 Position;
+    public bool Displayed;
+    public bool Active;
+    public Widget Parent;
+    
     public int ZLayer
     {
         get => (int)(LayerDepth * 4096);

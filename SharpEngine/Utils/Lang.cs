@@ -6,8 +6,8 @@ namespace SharpEngine.Utils;
 
 public class Lang
 {
-    public string Name { get; set; }
-    public Dictionary<string, string> Translations { get; set; }
+    public string Name;
+    public Dictionary<string, string> Translations;
 
     public Lang(string name, Dictionary<string, string> translations)
     {

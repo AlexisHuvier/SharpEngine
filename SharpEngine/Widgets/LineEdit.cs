@@ -11,10 +11,10 @@ namespace SharpEngine.Widgets;
 /// </summary>
 public class LineEdit : Widget
 {
-    public string Text { get; set; }
-    public string Font { get; set; }
-    public Vec2 Size { get; set; }
-    public bool Focused { get; set; }
+    public string Text;
+    public string Font;
+    public Vec2 Size;
+    public bool Focused;
     
     private float _timer;
     private bool _cursor;
@@ -92,16 +92,27 @@ public class LineEdit : Widget
 
         var realPosition = Parent != null ? Position + Parent.GetRealPosition() : Position;
         var blankTexture = Scene.Window.TextureManager.GetTexture("blank");
-        var whiteSize = Size - 4;
-        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - Size / 2, Size), Color.Black, LayerDepth);
-        Renderer.RenderTexture(Scene.Window, blankTexture, new Rect(realPosition - whiteSize / 2, whiteSize), Color.White, LayerDepth + 0.00001f);
+        Renderer.RenderTexture(
+            Scene.Window, blankTexture, 
+            new Rect(realPosition.X - Size.X / 2, realPosition.Y - Size.Y / 2, Size), 
+            Color.Black, LayerDepth);
+        Renderer.RenderTexture(
+            Scene.Window, blankTexture,
+            new Rect(realPosition.X - (Size.X - 4) / 2, realPosition.Y - (Size.Y - 4) / 2, Size.X - 4, Size.Y - 4),
+            Color.White, LayerDepth + 0.00001f);
         
         if (Font.Length < 1) return;
         
         var spriteFont = Scene.Window.FontManager.GetFont(Font);
         if (_cursor)
-            Renderer.RenderText(Scene.Window, spriteFont, Text + "I", realPosition - Size / 2 + new Vec2(4, Size.Y / 2 - spriteFont.MeasureString(Text + "I").Y / 2), Color.Black, LayerDepth + 0.00002f);
+            Renderer.RenderText(Scene.Window, spriteFont, Text + "I",
+                new Vec2(
+                    realPosition.X - Size.X / 2 + 4, realPosition.Y - spriteFont.MeasureString(Text + "I").Y / 2),
+                Color.Black, LayerDepth + 0.00002f);
         else
-            Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition - Size / 2 + new Vec2(4, Size.Y / 2 - spriteFont.MeasureString(Text).Y / 2), Color.Black, LayerDepth + 0.00002f);
+            Renderer.RenderText(Scene.Window, spriteFont, Text,
+                new Vec2(
+                    realPosition.X - Size.X / 2 + 4, realPosition.Y - spriteFont.MeasureString(Text).Y / 2),
+                Color.Black, LayerDepth + 0.00002f);
     }
 }

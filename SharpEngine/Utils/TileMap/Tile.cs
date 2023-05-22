@@ -2,10 +2,10 @@
 
 namespace SharpEngine.Utils.TileMap;
 
-public class Tile
+public readonly struct Tile
 {
-    public Vec2 Position { get; }
-    public TileType? Type { get; }
+    public readonly Vec2 Position;
+    public readonly TileType? Type;
 
     public Tile(Vec2 position, TileType? type)
     {

@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using SharpEngine.Widgets;
 using SharpEngine.Entities;
+using SharpEngine.Utils;
 using SharpEngine.Utils.Control;
 using tainicom.Aether.Physics2D.Diagnostics;
 using tainicom.Aether.Physics2D.Dynamics;
@@ -16,13 +17,15 @@ namespace SharpEngine;
 /// </summary>
 public class Scene
 {
-    public Action<Scene> OpenScene { get; set; }
-    public Action<Scene> CloseScene { get; set; }
+    public Action<Scene> OpenScene;
+    public Action<Scene> CloseScene;
+    public bool Paused = false;
+    
     internal Window Window;
     protected readonly List<Entity> Entities;
     protected readonly List<Widget> Widgets;
-    internal World World;
-    private DebugView _debugView;
+    internal readonly World World;
+    private readonly DebugView _debugView;
 
     private readonly List<Entity> _entitiesToRemove;
     private readonly List<Widget> _widgetsToRemove;
@@ -155,16 +158,25 @@ public class Scene
         
         _entitiesToRemove.Clear();
         _widgetsToRemove.Clear();
-        
-        World.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
-        
-        if(Window.Debug)
-            _debugView.UpdatePerformanceGraph(World.UpdateTime);
+
+        if (!Paused)
+        {
+            World.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
+            if (Window.Debug)
+                _debugView.UpdatePerformanceGraph(World.UpdateTime);
+        }
 
         for (var i = Entities.Count - 1; i > -1; i--)
-            Entities[i].Update(gameTime);
+            if (Entities[i].PauseState is PauseState.Enabled ||
+                !Paused && Entities[i].PauseState is PauseState.Normal ||
+                Paused && Entities[i].PauseState is PauseState.WhenPaused)
+                Entities[i].Update(gameTime);
+
         for (var i = Widgets.Count - 1; i > -1; i--)
-            Widgets[i].Update(gameTime);
+            if (Widgets[i].PauseState is PauseState.Enabled ||
+                !Paused && Widgets[i].PauseState is PauseState.Normal ||
+                Paused && Widgets[i].PauseState is PauseState.WhenPaused)
+                Widgets[i].Update(gameTime);
     }
 
     public virtual void TextInput(object sender, Key key, char character)

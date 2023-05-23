@@ -80,14 +80,7 @@ internal sealed class MyScene : Scene
         base.Update(gameTime);
 
         if (InputManager.IsMouseButtonPressed(MouseButton.Left))
-        {
-            Entities[0].GetComponent<PhysicsComponent>().SetPosition(new Vec2(420, 100));
-            Entities[1].GetComponent<PhysicsComponent>().SetPosition(new Vec2(420, 50));
-            Entities[2].GetComponent<PhysicsComponent>().SetPosition(new Vec2(220, 100));
-            Entities[3].GetComponent<PhysicsComponent>().SetPosition(new Vec2(220, 50));
-            Entities[4].GetComponent<PhysicsComponent>().SetPosition(new Vec2(620, 100));
-            Entities[5].GetComponent<PhysicsComponent>().SetPosition(new Vec2(620, 50));
-        }
+            Paused = !Paused;
         
         
         if(InputManager.IsKeyPressed(Key.V))

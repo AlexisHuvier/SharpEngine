@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using SharpEngine.Components;
+using SharpEngine.Utils;
 using SharpEngine.Utils.Control;
 using SharpEngine.Utils.Math;
 
@@ -13,6 +14,7 @@ public class Entity
     internal Scene Scene;
     private readonly List<Component> _components;
     public string Tag;
+    public PauseState PauseState = PauseState.Normal;
 
     public Entity()
     {

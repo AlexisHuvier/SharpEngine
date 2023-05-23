@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
 using System.Linq;
+using SharpEngine.Utils;
 using SharpEngine.Utils.Control;
 using SharpEngine.Utils.Math;
 
@@ -15,6 +16,7 @@ public class Widget
     public bool Displayed;
     public bool Active;
     public Widget Parent;
+    public PauseState PauseState = PauseState.Normal;
     
     public int ZLayer
     {

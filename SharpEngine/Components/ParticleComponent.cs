@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using SharpEngine.Utils;
 using SharpEngine.Utils.Math;
+using SharpEngine.Utils.Particle;
 
 namespace SharpEngine.Components;
 

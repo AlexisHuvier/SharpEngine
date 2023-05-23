@@ -5,6 +5,7 @@ using SharpEngine.Managers;
 using SharpEngine.Utils;
 using SharpEngine.Utils.Control;
 using SharpEngine.Utils.Math;
+using SharpEngine.Utils.Particle;
 
 namespace SE_Particles;
 

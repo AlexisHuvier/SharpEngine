@@ -169,7 +169,7 @@ public class InternalGame : Game
         
         DebugManager.Draw();
 
-        GraphicsDevice.Clear(_window.BackgroundColor.ToMg());
+        GraphicsDevice.Clear(_window.BackgroundColor);
 
         SpriteBatch.Begin(SpriteSortMode.FrontToBack, samplerState: SamplerState.PointClamp);
         if (_window.IndexCurrentScene != -1)

@@ -18,10 +18,10 @@ public static class Renderer
             position.Y - origin.Y - sizeY * scale.Y >= windowSize.Y || position.Y - origin.Y + sizeY * scale.Y <= 0) return;
         
         if (sourceRectangle is null)
-            window.InternalGame.SpriteBatch.Draw(texture, position, null, color.ToMg(), rotation,
+            window.InternalGame.SpriteBatch.Draw(texture, position, null, color, rotation,
                 origin, scale, effects, layerDepth);
         else
-            window.InternalGame.SpriteBatch.Draw(texture, position, sourceRectangle.Value, color.ToMg(),
+            window.InternalGame.SpriteBatch.Draw(texture, position, sourceRectangle.Value, color,
                 rotation, origin, scale, effects, layerDepth);
     }
 
@@ -32,7 +32,7 @@ public static class Renderer
         if (destinationRectangle.X >= windowSize.X || destinationRectangle.X + destinationRectangle.Width <= 0 || 
             destinationRectangle.Y >= windowSize.Y || destinationRectangle.Y + destinationRectangle.Height <= 0) return;
 
-        window.InternalGame.SpriteBatch.Draw(texture, destinationRectangle, null, color.ToMg(), rotation,
+        window.InternalGame.SpriteBatch.Draw(texture, destinationRectangle, null, color, rotation,
             origin, effects, layerDepth);
     }
 
@@ -43,7 +43,7 @@ public static class Renderer
         if (destinationRectangle.X >= windowSize.X || destinationRectangle.X + destinationRectangle.Width <= 0 || 
             destinationRectangle.Y >= windowSize.Y || destinationRectangle.Y + destinationRectangle.Height <= 0) return;
 
-        window.InternalGame.SpriteBatch.Draw(texture, destinationRectangle, null, color.ToMg(), 0, Vector2.Zero,
+        window.InternalGame.SpriteBatch.Draw(texture, destinationRectangle, null, color, 0, Vector2.Zero,
             SpriteEffects.None, layerDepth);
     }
 
@@ -55,7 +55,7 @@ public static class Renderer
         if (position.X - origin.X - size.X * scale.X >= windowSize.X || position.X - origin.X + size.X * scale.X <= 0 ||
             position.Y - origin.Y - size.Y * scale.Y >= windowSize.Y || position.Y - origin.Y + size.Y * scale.Y <= 0) return;
 
-        window.InternalGame.SpriteBatch.DrawString(font, text, position, color.ToMg(), rotation, origin,
+        window.InternalGame.SpriteBatch.DrawString(font, text, position, color, rotation, origin,
             scale, effects, layerDepth);
     }
 

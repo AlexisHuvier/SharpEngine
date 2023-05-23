@@ -23,7 +23,7 @@ public class ColorTests
     }
 
     [TestMethod]
-    public void ToMg() => Assert.IsInstanceOfType(Color.Black.ToMg(), typeof(Microsoft.Xna.Framework.Color));
+    public void ToMg() => Assert.IsInstanceOfType((Microsoft.Xna.Framework.Color)Color.Black, typeof(Microsoft.Xna.Framework.Color));
 
     [TestMethod]
     public void ColorTransition()

@@ -50,8 +50,6 @@ public struct Color
         A = a;
     }
 
-    public Microsoft.Xna.Framework.Color ToMg() => new(R, G, B, A);
-
     public override bool Equals(object obj)
     {
         if (obj is Color color)
@@ -65,6 +63,7 @@ public struct Color
     public static bool operator !=(Color color, Color color2) => !(color == color2);
     public static bool operator ==(Color color, Color color2) =>
         color.R == color2.R && color.G == color2.G && color.B == color2.B && color.A == color2.A;
+    public static implicit operator Microsoft.Xna.Framework.Color(Color color) => new(color.R, color.G, color.B, color.A);
 
     public static Color GetColorBetween(Color startColor, Color endColor, float currentTime, float maxTime)
     {

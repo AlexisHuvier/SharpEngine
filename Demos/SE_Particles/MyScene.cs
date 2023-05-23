@@ -11,7 +11,7 @@ namespace SE_Particles;
 
 public sealed class MyScene : Scene
 {
-    private Entity _ent;
+    private readonly Entity _ent;
     
     public MyScene()
     {

@@ -136,6 +136,9 @@ public class Widget
 
     public virtual void Draw(GameTime gameTime)
     {
+        if (!Displayed)
+            return;
+        
         foreach (var child in _children)
             child.Draw(gameTime);
     }

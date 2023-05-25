@@ -110,18 +110,22 @@ public class PhysicsComponent : Component
     public virtual void RemoveBody()
     {
         Entity.Scene.World.Remove(Body);
+        Body = null;
     }
 
     public override void SetEntity(Entity entity)
     {
-        base.SetEntity(entity);
         if(entity == null && Body != null)
             RemoveBody();
+        base.SetEntity(entity);
     }
 
     public override void Update(GameTime gameTime)
     {
         base.Update(gameTime);
+        
+        if(Body == null)
+            return;
         
         foreach(var info in _fixtures)
         {

@@ -84,7 +84,7 @@ internal sealed class MyScene : Scene
         
         
         if(InputManager.IsKeyPressed(Key.V))
-            RemoveEntity(Entities[7]);
+            Entities[7].GetComponent<PhysicsComponent>().SetEntity(null);
 
         if(InputManager.GetGamePadJoyStickAxis(0, GamePadJoyStickAxis.LeftX) != 0)
             Entities[4].GetComponent<PhysicsComponent>().SetLinearVelocity(new Vec2(200 * InputManager.GetGamePadJoyStickAxis(0, GamePadJoyStickAxis.LeftX), 0));

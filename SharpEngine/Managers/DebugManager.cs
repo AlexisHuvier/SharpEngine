@@ -13,7 +13,7 @@ public static class DebugManager
     public static readonly string MonoGameVersion = System.Diagnostics.FileVersionInfo
         .GetVersionInfo(typeof(Microsoft.Xna.Framework.Game).Assembly.Location).FileVersion;
     public static long GcMemory => GC.GetTotalMemory(false);
-    public const string SharpEngineVersion = "0.19.3";
+    public const string SharpEngineVersion = "0.19.4";
 
 
     private static double _elapsedTime;

@@ -24,13 +24,10 @@ public static class InputManager
     {
         _oldMouseState = Mouse.GetState();
         _oldKeyboardState = Keyboard.GetState();
-        _oldGamePadStates = new[]
-        {
-            GamePad.GetState(PlayerIndex.One),
-            GamePad.GetState(PlayerIndex.Two),
-            GamePad.GetState(PlayerIndex.Three),
-            GamePad.GetState(PlayerIndex.Four)
-        };
+        _oldGamePadStates[0] = GamePad.GetState(PlayerIndex.One);
+        _oldGamePadStates[1] = GamePad.GetState(PlayerIndex.Two);
+        _oldGamePadStates[2] = GamePad.GetState(PlayerIndex.Three);
+        _oldGamePadStates[3] = GamePad.GetState(PlayerIndex.Four);
     }
 
     public static bool IsKeyDown(Key key) => Keyboard.GetState().IsKeyDown(GetKeys(key));

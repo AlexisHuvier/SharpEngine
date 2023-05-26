@@ -10,19 +10,15 @@ namespace SharpEngine.Managers;
 public static class DebugManager
 {
     public static int FrameRate { get; private set; }
-    public static readonly string MonoGameVersion = System.Diagnostics.FileVersionInfo
-        .GetVersionInfo(typeof(Microsoft.Xna.Framework.Game).Assembly.Location).FileVersion;
     public static long GcMemory => GC.GetTotalMemory(false);
-    public const string SharpEngineVersion = "0.19.5";
-
-
+    public const string SharpEngineVersion = "0.19.6";
+    
     private static double _elapsedTime;
     private static int _frameCounter;
 
     public static void CreateSharpEngineImGuiWindow()
     {
         ImGui.Begin("SharpEngine Debug");
-        ImGui.Text($"MonoGame Version : {MonoGameVersion}");
         ImGui.Text($"SharpEngine Version : {SharpEngineVersion}");
         ImGui.Separator();
         ImGui.Text($"FPS from ImGui : {1000.0/ImGui.GetIO().Framerate:.000}ms/frame ({ImGui.GetIO().Framerate} FPS)");

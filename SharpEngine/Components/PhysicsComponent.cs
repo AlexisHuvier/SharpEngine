@@ -109,13 +109,14 @@ public class PhysicsComponent : Component
 
     public virtual void RemoveBody()
     {
-        Entity.Scene.World.Remove(Body);
+        if(Body != null)
+            Entity?.Scene?.World?.Remove(Body);
         Body = null;
     }
 
     public override void SetEntity(Entity entity)
     {
-        if(entity == null && Body != null)
+        if(entity == null)
             RemoveBody();
         base.SetEntity(entity);
     }

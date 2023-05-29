@@ -17,6 +17,12 @@ public static class SoundManager
         SoundEffects.Clear();
     }
 
+    public static int Volume
+    {
+        get => (int)(SoundEffect.MasterVolume * 100f);
+        set => SoundEffect.MasterVolume = value / 100f;
+    }
+
     public static void AddSound(string name, string file)
     {
         if (!SoundEffects.ContainsKey(name))

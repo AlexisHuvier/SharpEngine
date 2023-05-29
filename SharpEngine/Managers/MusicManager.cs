@@ -18,6 +18,24 @@ public static class MusicManager
         Songs.Clear();
     }
 
+    public static bool Repeating
+    {
+        get => MediaPlayer.IsRepeating;
+        set => MediaPlayer.IsRepeating = value;
+    }
+
+    public static bool Muted
+    {
+        get => MediaPlayer.IsMuted;
+        set => MediaPlayer.IsMuted = value;
+    }
+
+    public static int Volume
+    {
+        get => (int)(MediaPlayer.Volume * 100f);
+        set => MediaPlayer.Volume = value / 100f;
+    }
+
     public static void AddSong(string name, Uri file)
     {
         if (!Songs.ContainsKey(name))
@@ -31,6 +49,4 @@ public static class MusicManager
     }
 
     public static void Stop() => MediaPlayer.Stop();
-    public static void SetRepeating(bool repeat) => MediaPlayer.IsRepeating = repeat;
-    public static void SetVolume(int volume) => MediaPlayer.Volume = volume / 100f;
 }

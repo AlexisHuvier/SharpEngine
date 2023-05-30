@@ -58,8 +58,8 @@ public readonly struct TileMap
                 {
                     for (var x = 0; x < nbXTile; x++)
                         _tiles.Add((uint)(id + x + y * nbXTile), new TileType((uint)(id + x + y * nbXTile), source,
-                            new Rect(x * (tileset.TileWidth + tileset.Spacing), y * (tileset.TileHeight + tileset.Spacing), tileset.TileWidth,
-                                tileset.TileHeight)));
+                            new Rect(x * (tileset.TileWidth + tileset.Spacing),
+                                y * (tileset.TileHeight + tileset.Spacing), tileset.TileWidth, tileset.TileHeight)));
                 }
             }
         }

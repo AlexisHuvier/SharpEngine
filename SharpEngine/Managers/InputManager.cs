@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
-using SharpEngine.Utils;
 using SharpEngine.Utils.Control;
 using SharpEngine.Utils.Math;
 
@@ -13,7 +12,7 @@ public static class InputManager
 {
     private static MouseState _oldMouseState = Mouse.GetState();
     private static KeyboardState _oldKeyboardState = Keyboard.GetState();
-    private static GamePadState[] _oldGamePadStates = {
+    private static readonly GamePadState[] OldGamePadStates = {
         GamePad.GetState(PlayerIndex.One),
         GamePad.GetState(PlayerIndex.Two),
         GamePad.GetState(PlayerIndex.Three),
@@ -24,10 +23,10 @@ public static class InputManager
     {
         _oldMouseState = Mouse.GetState();
         _oldKeyboardState = Keyboard.GetState();
-        _oldGamePadStates[0] = GamePad.GetState(PlayerIndex.One);
-        _oldGamePadStates[1] = GamePad.GetState(PlayerIndex.Two);
-        _oldGamePadStates[2] = GamePad.GetState(PlayerIndex.Three);
-        _oldGamePadStates[3] = GamePad.GetState(PlayerIndex.Four);
+        OldGamePadStates[0] = GamePad.GetState(PlayerIndex.One);
+        OldGamePadStates[1] = GamePad.GetState(PlayerIndex.Two);
+        OldGamePadStates[2] = GamePad.GetState(PlayerIndex.Three);
+        OldGamePadStates[3] = GamePad.GetState(PlayerIndex.Four);
     }
 
     public static bool IsKeyDown(Key key) => Keyboard.GetState().IsKeyDown(GetKeys(key));
@@ -66,7 +65,7 @@ public static class InputManager
     
     public static bool IsGamePadButtonDown(GamePadIndex index, GamePadButton button, bool useOldState = false)
     {
-        var state = useOldState ? _oldGamePadStates[(int)index] : GamePad.GetState((int)index);
+        var state = useOldState ? OldGamePadStates[(int)index] : GamePad.GetState((int)index);
 
         return button switch
         {

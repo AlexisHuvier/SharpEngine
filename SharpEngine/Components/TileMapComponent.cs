@@ -103,16 +103,17 @@ public class TileMapComponent: Component
             Map.TileSize.Y * _transformComponent.Scale.Y / 2
             );
 
+        var layerNb = 0;
         foreach (var layer in _layers)
         {
             foreach (var tile in layer.Tiles)
             {
                 if(tile.Type == null) continue;
                 
-                var texture = Entity.Scene.Window.TextureManager.GetTexture(tile.Type?.Source);
+                var texture = Entity.Scene.Window.TextureManager.GetTexture(tile.Type.Value.Source);
                 Renderer.RenderTexture(Entity.Scene.Window, texture, tile.Position - CameraManager.Position,
-                    tile.Type?.SourceRect, Color.White, 0, originPosition, _transformComponent.Scale,
-                    SpriteEffects.None, _transformComponent.LayerDepth);
+                    tile.Type.Value.SourceRect, Color.White, 0, originPosition, _transformComponent.Scale,
+                    SpriteEffects.None, _transformComponent.LayerDepth + 0.00001f * layerNb);
             }
 
             foreach (var chunk in layer.Chunks)
@@ -121,12 +122,14 @@ public class TileMapComponent: Component
                 {
                     if(tile.Type == null) continue;
                     
-                    var texture = Entity.Scene.Window.TextureManager.GetTexture(tile.Type?.Source);
+                    var texture = Entity.Scene.Window.TextureManager.GetTexture(tile.Type.Value.Source);
                     Renderer.RenderTexture(Entity.Scene.Window, texture, tile.Position - CameraManager.Position,
-                        tile.Type?.SourceRect, Color.White, 0, originPosition, _transformComponent.Scale,
-                        SpriteEffects.None, _transformComponent.LayerDepth);
+                        tile.Type.Value.SourceRect, Color.White, 0, originPosition, _transformComponent.Scale,
+                        SpriteEffects.None, _transformComponent.LayerDepth + 0.00001f * layerNb);
                 }
             }
+
+            layerNb++;
         }
 
     }

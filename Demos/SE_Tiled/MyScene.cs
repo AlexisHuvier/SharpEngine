@@ -16,22 +16,22 @@ public sealed class MyScene : Scene
         AddEntity(tilemap);
         
         var tilemapTileset = new Entity();
-        tilemapTileset.AddComponent(new TransformComponent(new Vec2(620, 300), scale: new Vec2(2)));
+        tilemapTileset.AddComponent(new TransformComponent(new Vec2(620, 300), scale: new Vec2(2), zLayer: 2));
         tilemapTileset.AddComponent(new TileMapComponent("map_tileset"));
         AddEntity(tilemapTileset);
 
         var tilemapInfinite = new Entity();
-        tilemapInfinite.AddComponent(new TransformComponent(new Vec2(420, 600)));
+        tilemapInfinite.AddComponent(new TransformComponent(new Vec2(420, 600), zLayer: 3));
         tilemapInfinite.AddComponent(new TileMapComponent("map_infinite"));
         AddEntity(tilemapInfinite);
         
         var ent = new Entity();
-        ent.AddComponent(new TransformComponent(new Vec2(320, 300)));
+        ent.AddComponent(new TransformComponent(new Vec2(320, 300), zLayer: 4));
         ent.AddComponent(new SpriteComponent("sprite0"));
         AddEntity(ent);
 
         var player = new Entity();
-        player.AddComponent(new TransformComponent(new Vec2(420, 300)));
+        player.AddComponent(new TransformComponent(new Vec2(420, 300), zLayer: 5));
         player.AddComponent(new SpriteComponent("sprite0"));
         player.AddComponent(new ControlComponent(ControlType.FourDirection));
         AddEntity(player);

@@ -31,6 +31,8 @@ public class InternalGame : Game
         IsMouseVisible = _window.MouseVisible;
     }
 
+    internal void SetResizable(bool resizable) => Window.AllowUserResizing = resizable;
+
     internal void SetVSync(bool vsync)
     {
         

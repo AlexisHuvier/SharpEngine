@@ -16,6 +16,7 @@ public class Window
     private bool _internalMouseVisible;
     private FullScreenType _internalFullScreen;
     private bool _internalVSync;
+    private bool _internalResizable;
     private int _internalIndexCurrentScene = -1;
     internal readonly List<Scene> Scenes = new();
     
@@ -61,6 +62,16 @@ public class Window
         {
             _internalVSync = value;
             InternalGame?.SetVSync(value);
+        }
+    }
+
+    public bool Resizable
+    {
+        get => _internalResizable;
+        set
+        {
+            _internalResizable = value;
+            InternalGame?.SetResizable(value);
         }
     }
 

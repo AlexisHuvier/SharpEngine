@@ -19,6 +19,7 @@ internal static class Program
                 {
                     ImGui.Begin("Basic Game Information");
                     ImGui.Text($"Player Position : {((MyScene)win.GetScene(0)).Player.GetComponent<TransformComponent>().Position}");
+                    ImGui.Text($"Downed Keys : {string.Join(", ", InputManager.GetDownedKeys().Select(x => x.ToString()))}");
                     ImGui.End();
                 }
             }

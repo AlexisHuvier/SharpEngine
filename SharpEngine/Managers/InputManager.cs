@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Linq;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using SharpEngine.Utils.Control;
 using SharpEngine.Utils.Math;
@@ -28,6 +29,8 @@ public static class InputManager
         OldGamePadStates[2] = GamePad.GetState(PlayerIndex.Three);
         OldGamePadStates[3] = GamePad.GetState(PlayerIndex.Four);
     }
+
+    public static Key[] GetDownedKeys() => Keyboard.GetState().GetPressedKeys().ToList().Select(x => (Key)x).ToArray();
 
     public static bool IsKeyDown(Key key) => Keyboard.GetState().IsKeyDown(GetKeys(key));
     public static bool IsKeyUp(Key key) => Keyboard.GetState().IsKeyUp(GetKeys(key));

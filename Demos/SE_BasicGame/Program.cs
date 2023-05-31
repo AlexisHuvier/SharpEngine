@@ -1,6 +1,5 @@
 ﻿using ImGuiNET;
 using SharpEngine;
-using SharpEngine.Components;
 using SharpEngine.Managers;
 using SharpEngine.Utils;
 using SharpEngine.Utils.Math;
@@ -13,18 +12,18 @@ internal static class Program
     {
         var win = new Window(new Vec2(900, 600), Color.CornflowerBlue, debug: true)
         {
-            RenderImGui = win =>
+            RenderImGui = _ =>
             {
                 DebugManager.CreateSharpEngineImGuiWindow();
                 {
                     ImGui.Begin("Basic Game Information");
-                    ImGui.Text($"Player Position : {((MyScene)win.GetScene(0)).Player.GetComponent<TransformComponent>().Position}");
                     ImGui.Text($"Downed Keys : {string.Join(", ", InputManager.GetDownedKeys().Select(x => x.ToString()))}");
                     ImGui.End();
                 }
             }
         };
         
+        win.FontManager.AddFont("basic", "Resources/basic.ttf");
         win.TextureManager.AddTexture("KnightM", "Resources/KnightM.png");
 
         win.AddScene(new MyScene());

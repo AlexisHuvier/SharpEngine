@@ -43,7 +43,7 @@ public class Widget
     protected Widget(Vec2? position = null, int zLayer = 1)
     {
         _children = new List<Widget>();
-        Position = position ?? new Vec2(0);
+        Position = position ?? Vec2.Zero;
         Displayed = true;
         Active = true;
         Parent = null;

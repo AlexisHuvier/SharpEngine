@@ -13,6 +13,9 @@ public class Label : Widget
     public string Text;
     public string Font;
     public Color Color;
+    public bool CenterAllLines;
+    public Vec2 Scale;
+    public int Rotation;
 
     /// <summary>
     /// Initialise le Widget.
@@ -21,11 +24,17 @@ public class Label : Widget
     /// <param name="text">Texte</param>
     /// <param name="font">Nom de la police</param>
     /// <param name="color">Couleur du texte (Color.BLACK)</param>
-    public Label(Vec2? position = null, string text = "", string font = "", Color? color = null) : base(position)
+    /// <param name="rotation">Rotation du texte</param>
+    /// <param name="scale">Scale du texte</param>
+    /// <param name="centerAllLines">Centrer toutes les lignes (false)</param>
+    public Label(Vec2? position = null, string text = "", string font = "", Color? color = null, int rotation = 0, Vec2? scale = null, bool centerAllLines = false) : base(position)
     {
         Text = text;
         Font = font;
         Color = color ?? Color.Black;
+        Scale = scale ?? Vec2.One;
+        Rotation = rotation;
+        CenterAllLines = centerAllLines;
     }
 
     public override void Draw(GameTime gameTime)
@@ -37,7 +46,24 @@ public class Label : Widget
         
         var realPosition = Parent != null ? Position + Parent.GetRealPosition() : Position;
         var spriteFont = Scene.Window.FontManager.GetFont(Font);
-        Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, Color, 0, spriteFont.MeasureString(Text) / 2,
-            new Vec2(1), SpriteEffects.None, LayerDepth);
+
+        if (!CenterAllLines)
+        {
+            Renderer.RenderText(Scene.Window, spriteFont, Text, realPosition, Color, Rotation,
+                spriteFont.MeasureString(Text) / 2, Scale, SpriteEffects.None, LayerDepth);
+        }
+        else
+        {
+            var fullTextSizeY = spriteFont.MeasureString(Text).Y * Scale.Y;
+            var lines = Text.Split("\n");
+            var nbLines = lines.Length;
+            for(var i = 0; i < nbLines; i++)
+            {
+                var finalPosition = new Vec2(realPosition.X,
+                    realPosition.Y - fullTextSizeY / 2 + i * fullTextSizeY / nbLines + fullTextSizeY / (2 * nbLines));
+                Renderer.RenderText(Scene.Window, spriteFont, lines[i], finalPosition, Color, Rotation,
+                    spriteFont.MeasureString(lines[i]) / 2, Scale, SpriteEffects.None, LayerDepth);
+            }
+        }
     }
 }

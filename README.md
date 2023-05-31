@@ -10,7 +10,7 @@ C# 2D Game Engine
 
 ## Dependencies
 
-- Net6
+- Net7
 - Monogame
 - Aether Physics
 - SpriteFontPlus

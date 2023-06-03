@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 
 namespace SharpEngine.Math;
 
@@ -39,8 +40,8 @@ public struct Vec2
 
     public float DistanceTo(Vec2 vec2)
     {
-        var x = System.Math.Abs(vec2.X - X);
-        var y = System.Math.Abs(vec2.Y - Y);
+        var x = vec2.X - X;
+        var y = vec2.Y - Y;
         return MathF.Sqrt(x * x + y * y);
     }
     
@@ -69,5 +70,6 @@ public struct Vec2
     public static Vec2 operator *(Vec2 vec, float factor) => new(vec.X * factor, vec.Y * factor);
     public static Vec2 operator /(Vec2 vec, Vec2 vec2) => new(vec.X / vec2.X, vec.Y / vec2.Y);
     public static Vec2 operator /(Vec2 vec, float factor) => new(vec.X / factor, vec.Y / factor);
+    public static implicit operator Vec2(Vector2 vec) => new(vec.X, vec.Y);
     public static implicit operator Vec2(Vec2I vec2I) => new(vec2I.X, vec2I.Y);
 }

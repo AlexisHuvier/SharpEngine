@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 
 namespace SharpEngine.Math;
 
@@ -20,7 +21,7 @@ public struct Vec2I
     {
         get
         {
-            var length = X * X + Y * Y;
+            var length = MathF.Sqrt(X * X + Y * Y);
             return length == 0 ? Vec2.Zero : new Vec2(X / length, Y / length);
         }
     }
@@ -39,8 +40,8 @@ public struct Vec2I
     
     public float DistanceTo(Vec2I vec2)
     {
-        var x = System.Math.Abs(vec2.X - X);
-        var y = System.Math.Abs(vec2.Y - Y);
+        var x = vec2.X - X;
+        var y = vec2.Y - Y;
         return MathF.Sqrt(x * x + y * y);
     }
     
@@ -50,9 +51,9 @@ public struct Vec2I
             return this == vec;
         return obj != null && obj.Equals(this);
     }
-    public bool Equals(Vec2 other) => X.Equals(other.X) && Y.Equals(other.Y);
+    public bool Equals(Vec2I other) => X.Equals(other.X) && Y.Equals(other.Y);
     public override int GetHashCode() => HashCode.Combine(X, Y);
-    public override string ToString() => $"Vec2(x={X}, y={Y})";
+    public override string ToString() => $"Vec2I(x={X}, y={Y})";
 
     public static bool operator !=(Vec2I vec1, Vec2I vec2) => !(vec1 == vec2);
 
@@ -67,4 +68,5 @@ public struct Vec2I
     public static Vec2I operator *(Vec2I vec, int factor) => new(vec.X * factor, vec.Y * factor);
     public static Vec2I operator /(Vec2I vec, Vec2I vec2) => new(vec.X / vec2.X, vec.Y / vec2.Y);
     public static Vec2I operator /(Vec2I vec, int factor) => new(vec.X / factor, vec.Y / factor);
+    public static implicit operator Vec2I(Vector2 vec) => new((int)vec.X, (int)vec.Y);
 }

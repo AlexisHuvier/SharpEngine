@@ -29,5 +29,4 @@ jobs:
     - name: Archive SharpEngine Nuget Package
       uses: actions/upload-artifact@v3
       with:
-        name: SharpEngine Nuget Package
-        path: SharpEngine/bin/Debug/*.nupkg
+        path: SharpEngine/bin/Debug/SharpEngine.*.nupkg

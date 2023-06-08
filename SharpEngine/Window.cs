@@ -1,6 +1,6 @@
 ﻿using System;
-using ImGuiNET;
 using Raylib_cs;
+using SharpEngine.Manager;
 using SharpEngine.Math;
 using SharpEngine.Utils;
 using Color = SharpEngine.Utils.Color;
@@ -41,10 +41,13 @@ public class Window
     public Action<Window> RenderImGui;
     public bool Debug;
 
+    public TextureManager TextureManager { get; }
+    public FontManager FontManager { get; }
+
     private Vec2I _screenSize;
     private string _title;
-    private SeImGui _seImGui;
-    private bool _closeWindow = false;
+    private readonly SeImGui _seImGui;
+    private bool _closeWindow;
 
     public Window(int width, int height, string title, Color? backgroundColor = null, bool debug = false) : 
         this(new Vec2I(width, height), title, backgroundColor, debug) {}
@@ -60,6 +63,11 @@ public class Window
         
         _seImGui = new SeImGui();
         _seImGui.Load(screenSize.X, screenSize.Y);
+
+        TextureManager = new TextureManager();
+        FontManager = new FontManager();
+        
+        TextureManager.AddTexture("knight", "Resources/KnightM.png");
     }
 
     public void TakeScreenshot(string path) => Raylib.TakeScreenshot(path);
@@ -69,17 +77,12 @@ public class Window
         if(StartCallback != null && !StartCallback())
             return;
         
+        // LOAD 
+        var texture = TextureManager.GetTexture("knight");
+        
         while (!Raylib.WindowShouldClose() && !_closeWindow)
         {
             // UPDATE
-            if (Raylib.IsKeyPressed(KeyboardKey.KEY_A))
-            {
-                BackgroundColor = Color.Black;
-                Title = "Ceci est un test";
-                Position = new Vec2I(150, 200);
-                ScreenSize = new Vec2I(600, 800);
-            }
-
             _seImGui.Update(Raylib.GetFrameTime());
             
             
@@ -90,12 +93,19 @@ public class Window
             // DRAW
             Raylib.BeginDrawing();
             Raylib.ClearBackground(BackgroundColor);
+
+            Raylib.DrawTexture(texture, _screenSize.X / 2 - texture.width / 2, _screenSize.Y / 2 - texture.height / 2, Color.White);
+            Raylib.DrawTextEx(FontManager.GetFont("RAYLIB_DEFAULT"), "SUPER TEST", new Vec2(100), 25, 2, Color.Black);
             
             if(Debug)
                 _seImGui.Draw();
             
             Raylib.EndDrawing();
         }
+        
+        // UNLOAD
+        TextureManager.Unload();
+        FontManager.Unload();
         
         Raylib.CloseWindow();
     }

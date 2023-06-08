@@ -71,5 +71,6 @@ public struct Vec2
     public static Vec2 operator /(Vec2 vec, Vec2 vec2) => new(vec.X / vec2.X, vec.Y / vec2.Y);
     public static Vec2 operator /(Vec2 vec, float factor) => new(vec.X / factor, vec.Y / factor);
     public static implicit operator Vec2(Vector2 vec) => new(vec.X, vec.Y);
+    public static implicit operator Vector2(Vec2 vec) => new(vec.X, vec.Y);
     public static implicit operator Vec2(Vec2I vec2I) => new(vec2I.X, vec2I.Y);
 }

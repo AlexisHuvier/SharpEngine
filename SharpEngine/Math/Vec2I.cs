@@ -69,4 +69,5 @@ public struct Vec2I
     public static Vec2I operator /(Vec2I vec, Vec2I vec2) => new(vec.X / vec2.X, vec.Y / vec2.Y);
     public static Vec2I operator /(Vec2I vec, int factor) => new(vec.X / factor, vec.Y / factor);
     public static implicit operator Vec2I(Vector2 vec) => new((int)vec.X, (int)vec.Y);
+    public static implicit operator Vector2(Vec2I vec) => new(vec.X, vec.Y);
 }

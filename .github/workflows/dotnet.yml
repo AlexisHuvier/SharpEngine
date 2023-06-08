@@ -26,3 +26,7 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Archive SharpEngine Nuget Package
+      uses: actions/upload-artifact@v3
+      with:
+        path: SharpEngine/bin/Debug/SharpEngine.*.nupkg

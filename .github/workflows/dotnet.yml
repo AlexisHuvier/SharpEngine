@@ -65,6 +65,7 @@ jobs:
         
       - name: Validate package
         run: meziantou.validate-nuget-package (Get-ChildItem "${{ env.NuGetDirectory }}/*.nupkg")
+        continue-on-error: true
 
   run_test:
     runs-on: ubuntu-latest

@@ -101,7 +101,7 @@ public struct Color
     }
 
     /// <inheritdoc />
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj is Color color)
             return this == color;

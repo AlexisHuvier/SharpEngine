@@ -67,7 +67,7 @@ public struct Rect
     }
 
     /// <inheritdoc />
-    public override bool Equals(object other)
+    public override bool Equals(object? other)
     {
         if (other is Rect rect)
             return this == rect;

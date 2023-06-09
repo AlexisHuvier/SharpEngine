@@ -85,7 +85,7 @@ public struct Vec2I
     }
     
     /// <inheritdoc />
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj is Vec2I vec)
             return this == vec;

@@ -114,6 +114,7 @@ public class Window
         Debug = debug;
         
         Raylib.InitWindow(screenSize.X, screenSize.Y, title);
+        Raylib.InitAudioDevice();
         
         _seImGui = new SeImGui();
         _seImGui.Load(screenSize.X, screenSize.Y);
@@ -129,6 +130,12 @@ public class Window
     /// </summary>
     /// <param name="path">Path of saved screenshot</param>
     public void TakeScreenshot(string path) => Raylib.TakeScreenshot(path);
+
+    /// <summary>
+    /// Set master volume
+    /// </summary>
+    /// <param name="volume">Volume (0 to 1)</param>
+    public void SetMasterVolume(float volume) => Raylib.SetMasterVolume(volume);
 
     /// <summary>
     /// Run Window
@@ -168,6 +175,7 @@ public class Window
         TextureManager.Unload();
         FontManager.Unload();
         
+        Raylib.CloseAudioDevice();
         Raylib.CloseWindow();
     }
 

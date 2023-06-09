@@ -10,16 +10,22 @@
     <Company>LavaPower</Company>
     <Copyright>Copyright (c) LavaPower 2021-2023</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/AlexisHuvier/SharpEngine</PackageProjectUrl>
     <PackageVersion>0.19.6</PackageVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
+    <EnablePackageValisation>true</EnablePackageValisation>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <RepositoryUrl>https://github.com/AlexisHuvier/SharpEngine</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Raylib,SharpEngine,Game,Engine</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="ImGui.NET" Version="1.89.5" />
     <PackageReference Include="Raylib-cs" Version="4.5.0" />
   </ItemGroup>

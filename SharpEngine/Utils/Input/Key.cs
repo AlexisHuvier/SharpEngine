@@ -1,7 +1,11 @@
 ﻿namespace SharpEngine.Utils.Input;
 
+/// <summary>
+/// Enum which represents Keys
+/// </summary>
 public enum Key
 {
+#pragma warning disable CS1591
     None = 0,
     Back = 4,
     VolumeUp = 24, // 0x00000018

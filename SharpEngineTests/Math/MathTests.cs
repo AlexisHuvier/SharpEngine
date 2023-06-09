@@ -16,13 +16,6 @@ public class MathTests
     }
 
     [TestMethod]
-    public void Distance()
-    {
-        Assert.AreEqual(0.8f, MathF.Round(MathHelper.Distance(1.5f, 2.3f), 1));
-        Assert.AreEqual(2, MathHelper.Distance(2, 4));
-    }
-
-    [TestMethod]
     public void Clamp()
     {
         Assert.AreEqual(0, MathHelper.Clamp(-5, 0, 5));

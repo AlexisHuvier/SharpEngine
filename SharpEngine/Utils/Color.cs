@@ -3,6 +3,9 @@ using SharpEngine.Math;
 
 namespace SharpEngine.Utils;
 
+/// <summary>
+/// Struct which represents Color
+/// </summary>
 public struct Color
 {
     private int _r;
@@ -10,30 +13,48 @@ public struct Color
     private int _b;
     private int _a;
     
+    /// <summary>
+    /// Get Red Component of Color
+    /// </summary>
     public int R
     {
         get => _r;
         set => _r = MathHelper.Clamp(value, 0, 255);
     }
     
+    /// <summary>
+    /// Get Green Component of Color
+    /// </summary>
     public int G
     {
         get => _g;
         set => _g = MathHelper.Clamp(value, 0, 255);
     }
     
+    /// <summary>
+    /// Get Blue Component of Color
+    /// </summary>
     public int B
     {
         get => _b;
         set => _b = MathHelper.Clamp(value, 0, 255);
     }
     
+    /// <summary>
+    /// Get Alpha Component of Color
+    /// </summary>
     public int A
     {
         get => _a;
         set => _a = MathHelper.Clamp(value, 0, 255);
     }
 
+    /// <summary>
+    /// Create Color with full opacity
+    /// </summary>
+    /// <param name="r">Red Component</param>
+    /// <param name="g">Green Component</param>
+    /// <param name="b">Blue Component</param>
     public Color(int r, int g, int b)
     {
         R = r;
@@ -42,6 +63,13 @@ public struct Color
         A = 255;
     }
 
+    /// <summary>
+    /// Create Color
+    /// </summary>
+    /// <param name="r">Red Component</param>
+    /// <param name="g">Green Component</param>
+    /// <param name="b">Blue Component</param>
+    /// <param name="a">Alpha Component</param>
     public Color(int r, int g, int b, int a)
     {
         R = r;
@@ -50,6 +78,13 @@ public struct Color
         A = a;
     }
 
+    /// <summary>
+    /// Transition Color to target color
+    /// </summary>
+    /// <param name="endColor">Target Color</param>
+    /// <param name="currentTime">Current Elapsed Time of Transition</param>
+    /// <param name="maxTime">Duration of Transition</param>
+    /// <returns>Transited Color</returns>
     public Color TranslateTo(Color endColor, float currentTime, float maxTime)
     {
         var stepR = (endColor.R - _r) * currentTime / maxTime;
@@ -65,21 +100,45 @@ public struct Color
         );
     }
 
+    /// <inheritdoc />
     public override bool Equals(object obj)
     {
         if (obj is Color color)
             return this == color;
         return obj != null && obj.Equals(this);
     }
+
+    /// <inheritdoc />
     public override int GetHashCode() => HashCode.Combine(_r, _g, _b, _a);
 
+    /// <inheritdoc />
     public override string ToString() => $"Color(r={R}, g={G}, b={B}, a={A})";
 
+    /// <summary>
+    /// Operator Inequality
+    /// </summary>
+    /// <param name="color">First Color</param>
+    /// <param name="color2">Second Color</param>
+    /// <returns>If first is not equals to second</returns>
     public static bool operator !=(Color color, Color color2) => !(color == color2);
+
+    /// <summary>
+    /// Operator Equality
+    /// </summary>
+    /// <param name="color">First Color</param>
+    /// <param name="color2">Second Color</param>
+    /// <returns>If first is equals to second</returns>
     public static bool operator ==(Color color, Color color2) =>
         color.R == color2.R && color.G == color2.G && color.B == color2.B && color.A == color2.A;
+    
+    /// <summary>
+    /// Convert SharpEngine Color to Raylib Color
+    /// </summary>
+    /// <param name="color">SharpEngine Color</param>
+    /// <returns>Raylib</returns>
     public static implicit operator Raylib_cs.Color(Color color) => new(color.R, color.G, color.B, color.A);
     
+#pragma warning disable CS1591
     public static readonly Color MediumAquamarine = new(102, 205, 170, 255);
     public static readonly Color MediumBlue = new(0, 0, 205, 255);
     public static readonly Color MediumOrquid = new(186, 85, 211, 255);

@@ -6,7 +6,7 @@ using Raylib_cs;
 namespace SharpEngine.Utils;
 
 /// <summary>
-/// ImGui controller using Raylib-cs
+/// Class which control ImGui
 /// </summary>
 public class SeImGui : IDisposable
 {
@@ -14,12 +14,13 @@ public class SeImGui : IDisposable
     private Texture2D _fontTexture;
     private readonly Vector2 _scaleFactor = Vector2.One;
 
-    public SeImGui()
+    internal SeImGui()
     {
         _context = ImGui.CreateContext();
         ImGui.SetCurrentContext(_context);
     }
 
+    /// <inheritdoc />
     public void Dispose()
     {
         ImGui.DestroyContext(_context);
@@ -32,8 +33,6 @@ public class SeImGui : IDisposable
     /// </summary>
     public void Load(int width, int height)
     {
-        var io = ImGui.GetIO();
-        var defaultFont = io.Fonts.AddFontDefault();
         Resize(width, height);
         LoadFontTexture();
         SetupInput();

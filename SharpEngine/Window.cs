@@ -7,8 +7,14 @@ using Color = SharpEngine.Utils.Color;
 
 namespace SharpEngine;
 
+/// <summary>
+/// Class which represents and create Window
+/// </summary>
 public class Window
 {
+    /// <summary>
+    /// Title of Window
+    /// </summary>
     public string Title
     {
         get => _title;
@@ -19,6 +25,9 @@ public class Window
         }
     }
 
+    /// <summary>
+    /// Size of Window
+    /// </summary>
     public Vec2I ScreenSize
     {
         get => _screenSize;
@@ -29,19 +38,49 @@ public class Window
         }
     }
 
+    /// <summary>
+    /// Position of Window
+    /// </summary>
     public Vec2I Position
     {
         get => Raylib.GetWindowPosition();
         set => Raylib.SetWindowPosition(value.X, value.Y);
     }
 
+    /// <summary>
+    /// Background Color used in Window
+    /// </summary>
     public Color BackgroundColor;
+    
+    /// <summary>
+    /// Function which be called in Start of Window (can stop start by return false)
+    /// </summary>
     public Func<bool> StartCallback;
+    
+    /// <summary>
+    /// Function which be called in Stop of Window (can stop stop by return false)
+    /// </summary>
     public Func<bool> StopCallback;
+    
+    /// <summary>
+    /// Function which be called to render something in ImGui
+    /// </summary>
     public Action<Window> RenderImGui;
+    
+    /// <summary>
+    /// Manage Debug Mode of Window
+    /// </summary>
     public bool Debug;
 
+    
+    /// <summary>
+    /// Texture Manager of Window
+    /// </summary>
     public TextureManager TextureManager { get; }
+    
+    /// <summary>
+    /// Font Manager of Window
+    /// </summary>
     public FontManager FontManager { get; }
 
     private Vec2I _screenSize;
@@ -49,9 +88,24 @@ public class Window
     private readonly SeImGui _seImGui;
     private bool _closeWindow;
 
+    /// <summary>
+    /// Create and Init Window
+    /// </summary>
+    /// <param name="width">Width of Window</param>
+    /// <param name="height">Height of Window</param>
+    /// <param name="title">Title of Window</param>
+    /// <param name="backgroundColor">Background Color of Window (Black)</param>
+    /// <param name="debug">Debug Mode (false)</param>
     public Window(int width, int height, string title, Color? backgroundColor = null, bool debug = false) : 
         this(new Vec2I(width, height), title, backgroundColor, debug) {}
-    
+
+    /// <summary>
+    /// Create and Init Window
+    /// </summary>
+    /// <param name="screenSize">Size of Window</param>
+    /// <param name="title">Title of Window</param>
+    /// <param name="backgroundColor">Background Color of Window (Black)</param>
+    /// <param name="debug">Debug Mode (false)</param>
     public Window(Vec2I screenSize, string title, Color? backgroundColor = null, bool debug = false)
     {
         _title = title;
@@ -70,8 +124,15 @@ public class Window
         TextureManager.AddTexture("knight", "Resources/KnightM.png");
     }
 
+    /// <summary>
+    /// Take a screenshot and save it
+    /// </summary>
+    /// <param name="path">Path of saved screenshot</param>
     public void TakeScreenshot(string path) => Raylib.TakeScreenshot(path);
 
+    /// <summary>
+    /// Run Window
+    /// </summary>
     public void Run()
     {
         if(StartCallback != null && !StartCallback())
@@ -110,6 +171,9 @@ public class Window
         Raylib.CloseWindow();
     }
 
+    /// <summary>
+    /// Stop Window
+    /// </summary>
     public void Stop()
     {
         if (StopCallback == null || StopCallback())

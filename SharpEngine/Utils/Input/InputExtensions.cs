@@ -2,7 +2,7 @@
 
 namespace SharpEngine.Utils.Input;
 
-public static class InputExtensions
+internal static class InputExtensions
 { 
     public static Raylib_cs.MouseButton ToRayLib(this MouseButton button) => (Raylib_cs.MouseButton)button;
     public static KeyboardKey ToRayLib(this Key key) => (KeyboardKey)key;

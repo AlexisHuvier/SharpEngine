@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Raylib_cs;
 using SharpEngine.Manager;
 using SharpEngine.Math;
@@ -55,17 +56,17 @@ public class Window
     /// <summary>
     /// Function which be called in Start of Window (can stop start by return false)
     /// </summary>
-    public Func<bool> StartCallback;
+    public Func<bool>? StartCallback;
     
     /// <summary>
     /// Function which be called in Stop of Window (can stop stop by return false)
     /// </summary>
-    public Func<bool> StopCallback;
+    public Func<bool>? StopCallback;
     
     /// <summary>
     /// Function which be called to render something in ImGui
     /// </summary>
-    public Action<Window> RenderImGui;
+    public Action<Window>? RenderImGui;
     
     /// <summary>
     /// Manage Debug Mode of Window
@@ -83,10 +84,42 @@ public class Window
     /// </summary>
     public FontManager FontManager { get; }
 
+    /// <summary>
+    /// Index of Current Scene
+    /// </summary>
+    public int IndexCurrentScene
+    {
+        get => _internalIndexCurrentScene;
+        set
+        {
+            if(_internalIndexCurrentScene != -1)
+                _scenes[_internalIndexCurrentScene].CloseScene?.Invoke(_scenes[_internalIndexCurrentScene]);
+            _internalIndexCurrentScene = value;
+            _scenes[_internalIndexCurrentScene].OpenScene?.Invoke(_scenes[_internalIndexCurrentScene]);
+        }
+    }
+
+    /// <summary>
+    /// Current Scene
+    /// </summary>
+    public Scene CurrentScene
+    {
+        get => _scenes[_internalIndexCurrentScene];
+        set
+        {
+            if(_internalIndexCurrentScene != 1)
+                _scenes[_internalIndexCurrentScene].CloseScene?.Invoke(_scenes[_internalIndexCurrentScene]);
+            _internalIndexCurrentScene = _scenes.IndexOf(value);
+            _scenes[_internalIndexCurrentScene].OpenScene?.Invoke(_scenes[_internalIndexCurrentScene]);
+        }
+    }
+
     private Vec2I _screenSize;
     private string _title;
     private readonly SeImGui _seImGui;
     private bool _closeWindow;
+    private readonly List<Scene> _scenes = new();
+    private int _internalIndexCurrentScene = -1;
 
     /// <summary>
     /// Create and Init Window
@@ -121,9 +154,6 @@ public class Window
 
         TextureManager = new TextureManager();
         FontManager = new FontManager();
-        
-        TextureManager.AddTexture("knight", "Resources/KnightM.png");
-        TextureManager.AddTexture("knight", "Resources/KnightM.png");
     }
 
     /// <summary>
@@ -139,6 +169,39 @@ public class Window
     public void SetMasterVolume(float volume) => Raylib.SetMasterVolume(volume);
 
     /// <summary>
+    /// Add Scene to Window and Set Current Scene to it
+    /// </summary>
+    /// <param name="scene">Scene which be added</param>
+    public void AddScene(Scene scene)
+    {
+        scene.Window = this;
+        _scenes.Add(scene);
+        _internalIndexCurrentScene = _scenes.Count - 1;
+    }
+
+    /// <summary>
+    /// Get Scene by Index
+    /// </summary>
+    /// <param name="index">Index of Scene</param>
+    /// <returns>Scene</returns>
+    public Scene GetScene(int index) => _scenes[index];
+
+    /// <summary>
+    /// Get Current Scene cast as T
+    /// </summary>
+    /// <typeparam name="T">Type as Scene</typeparam>
+    /// <returns>Current Scene cast as T</returns>
+    public T GetCurrentScene<T>() where T : Scene => (T)_scenes[_internalIndexCurrentScene];
+
+    /// <summary>
+    /// Get Scene cast as T
+    /// </summary>
+    /// <param name="index">Index of Scene</param>
+    /// <typeparam name="T">Type as Scene</typeparam>
+    /// <returns>Scene cast as T</returns>
+    public T GetScene<T>(int index) where T : Scene => (T)_scenes[index];
+
+    /// <summary>
     /// Run Window
     /// </summary>
     public void Run()
@@ -147,13 +210,16 @@ public class Window
             return;
         
         // LOAD 
-        var texture = TextureManager.GetTexture("knight");
-        
+        foreach (var scene in _scenes)
+            scene.Load();
+
         while (!Raylib.WindowShouldClose() && !_closeWindow)
         {
             // UPDATE
             _seImGui.Update(Raylib.GetFrameTime());
             
+            foreach (var scene in _scenes)
+                scene.Update(Raylib.GetFrameTime());
             
             // DRAW IMGUI
             if(Debug)
@@ -163,8 +229,8 @@ public class Window
             Raylib.BeginDrawing();
             Raylib.ClearBackground(BackgroundColor);
 
-            Raylib.DrawTexture(texture, _screenSize.X / 2 - texture.width / 2, _screenSize.Y / 2 - texture.height / 2, Color.White);
-            Raylib.DrawTextEx(FontManager.GetFont("RAYLIB_DEFAULT"), "SUPER TEST", new Vec2(100), 25, 2, Color.Black);
+            foreach (var scene in _scenes)
+                scene.Draw();
             
             if(Debug)
                 _seImGui.Draw();
@@ -173,6 +239,9 @@ public class Window
         }
         
         // UNLOAD
+        foreach (var scene in _scenes)
+            scene.Unload();
+        
         TextureManager.Unload();
         FontManager.Unload();
         

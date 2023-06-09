@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Raylib_cs;
+using SharpEngine.Utils;
 
 namespace SharpEngine.Manager;
 
@@ -18,7 +19,8 @@ public class TextureManager
     /// <param name="texture2D">Texture</param>
     public void AddTexture(string name, Texture2D texture2D)
     {
-        _texture2Ds.TryAdd(name, texture2D);
+        if(!_texture2Ds.TryAdd(name, texture2D))
+            DebugManager.Log(LogLevel.LogWarning, $"SE_TEXTUREMANAGER: Texture already exist : {name}");
     }
 
     /// <summary>
@@ -28,7 +30,8 @@ public class TextureManager
     /// <param name="file">Texture File</param>
     public void AddTexture(string name, string file)
     {
-        _texture2Ds.TryAdd(name, Raylib.LoadTexture(file));
+        if(!_texture2Ds.TryAdd(name, Raylib.LoadTexture(file)))
+            DebugManager.Log(LogLevel.LogWarning, $"SE_TEXTUREMANAGER: Texture already exist : {name}");
     }
 
     /// <summary>
@@ -41,6 +44,7 @@ public class TextureManager
     {
         if (_texture2Ds.TryGetValue(name, out var texture))
             return texture;
+        DebugManager.Log(LogLevel.LogError, $"SE_TEXTUREMANAGER: Texture not found : {name}");
         throw new Exception($"Texture not found : {name}");
     }
 

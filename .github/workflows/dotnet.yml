@@ -34,13 +34,11 @@ jobs:
     
     - name: Build
       run: dotnet build -c Release
-      
-    - uses: actions/upload-artifact@v3
+    
+    - name: Archive SharpEngine Nuget Package
+      uses: actions/upload-artifact@v3
       with:
-        name: nuget
-        if-no-files-found: error
-        retention-days: 7
-        path: ${{ env.NuGetDirectory }}/*.nupkg
+        path: SharpEngine/bin/Release/SharpEngine.*.nupkg
 
   validate_nuget:
     runs-on: ubuntu-latest

@@ -34,12 +34,15 @@ jobs:
     
     - name: Build
       run: dotnet build -c Release
+    - name: Pack nugets
+      run: dotnet pack -c Release --no-build --output ${{ env.NuGetDirectory }}
     
-    - name: Archive SharpEngine Nuget Package
-      uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v3
       with:
-        name: Nuget
-        path: SharpEngine/bin/Release/SharpEngine.*.nupkg
+        name: nuget
+        if-no-files-found: error
+        retention-days: 7
+        path: ${{ env.NuGetDirectory }}/*.nupkg
 
   validate_nuget:
     runs-on: ubuntu-latest
@@ -50,14 +53,14 @@ jobs:
 
       - uses: actions/download-artifact@v3
         with:
-          name: Nuget
-          path: SharpEngine/bin/Release/SharpEngine.*.nupkg
+          name: nuget
+          path: ${{ env.NuGetDirectory }}
 
       - name: Install nuget validator
         run: dotnet tool update Meziantou.Framework.NuGetPackageValidation.Tool --global
         
       - name: Validate package
-        run: meziantou.validate-nuget-package (Get-ChildItem "SharpEngine/bin/Release/SharpEngine.*.nupkg")
+        run: meziantou.validate-nuget-package (Get-ChildItem "${{ env.NuGetDirectory }}/*.nupkg")
 
   run_test:
     runs-on: ubuntu-latest
@@ -75,12 +78,14 @@ jobs:
     steps:
       - uses: actions/download-artifact@v3
         with:
-          name: Nuget
-          path: SharpEngine/bin/Release/SharpEngine.*.nupkg
+          name: nuget
+          path: ${{ env.NuGetDirectory }}
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
 
       - name: Publish NuGet package
-        run: dotnet nuget push "SharpEngine/bin/Release/SharpEngine.*.nupkg" --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
-    
+        run: |
+          foreach($file in (Get-ChildItem "${{ env.NuGetDirectory }}" -Recurse -Include *.nupkg)) {
+              dotnet nuget push $file --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+          }

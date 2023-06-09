@@ -1,8 +1,10 @@
 ﻿using Raylib_cs;
+using SharpEngine.Utils.Input;
+using MouseButton = SharpEngine.Utils.Input.MouseButton;
 
-namespace SharpEngine.Utils.Input;
+namespace SharpEngine.Utils;
 
-internal static class InputExtensions
+internal static class Extensions
 { 
     public static Raylib_cs.MouseButton ToRayLib(this MouseButton button) => (Raylib_cs.MouseButton)button;
     public static KeyboardKey ToRayLib(this Key key) => (KeyboardKey)key;

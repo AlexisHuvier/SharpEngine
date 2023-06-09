@@ -31,8 +31,11 @@ jobs:
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
+      
+    - name: Restore
+      run: dotnet restore
 
-    - name: Pack nugets
+    - name: Pack Nuget
       run: dotnet pack SharpEngine/SharpEngine.csproj -c Release --no-build --output ${{ env.NuGetDirectory }}
     
     - uses: actions/upload-artifact@v3

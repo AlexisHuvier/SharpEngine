@@ -1,6 +1,7 @@
 ﻿using System;
 using ImGuiNET;
 using Raylib_cs;
+using SharpEngine.Utils;
 
 namespace SharpEngine.Manager;
 
@@ -39,4 +40,17 @@ public static class DebugManager
         ImGui.Text($"GC Memory : {GcMemory/1000000.0:.000} mo");
         ImGui.End();
     }
+
+    /// <summary>
+    /// Log Message
+    /// </summary>
+    /// <param name="level">Level of Log</param>
+    /// <param name="message">Message</param>
+    public static void Log(LogLevel level, string message) => Raylib.TraceLog(level.ToRayLib(), message);
+
+    /// <summary>
+    /// Set Log Level
+    /// </summary>
+    /// <param name="level">Level of Log</param>
+    public static void SetLogLevel(LogLevel level) => Raylib.SetTraceLogLevel(level.ToRayLib());
 }

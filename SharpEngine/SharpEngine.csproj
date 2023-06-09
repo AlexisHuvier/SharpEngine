@@ -19,6 +19,7 @@
     <RepositoryUrl>https://github.com/AlexisHuvier/SharpEngine</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Raylib,SharpEngine,Game,Engine</PackageTags>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>

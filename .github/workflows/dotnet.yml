@@ -36,7 +36,7 @@ jobs:
       run: dotnet restore
 
     - name: Pack Nuget
-      run: dotnet pack SharpEngine/SharpEngine.csproj -c Release --no-build --output ${{ env.NuGetDirectory }}
+      run: dotnet pack SharpEngine/SharpEngine.csproj -c Release --output ${{ env.NuGetDirectory }}
     
     - uses: actions/upload-artifact@v3
       with:

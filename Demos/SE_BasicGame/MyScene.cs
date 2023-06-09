@@ -1,8 +1,16 @@
-﻿namespace SE_BasicWindow;
+﻿using SharpEngine;
+using SharpEngine.Component;
+using SharpEngine.Entity;
+using SharpEngine.Math;
 
-internal class MyScene
+namespace SE_BasicWindow;
+
+internal class MyScene: Scene
 {
     public MyScene()
     {
+        var e = AddEntity(new Entity());
+        e.AddComponent(new TransformComponent(new Vec2(400)));
+        e.AddComponent(new SpriteComponent("KnightM"));
     }
 }

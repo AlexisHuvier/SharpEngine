@@ -22,6 +22,11 @@ internal static class Program
                 ImGui.End();
             }
         };
+        
+        window.TextureManager.AddTexture("KnightM", "Resources/KnightM.png");
+        
+        window.AddScene(new MyScene());
+        
         window.Run();
     }
 }

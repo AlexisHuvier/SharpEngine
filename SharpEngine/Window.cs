@@ -123,6 +123,7 @@ public class Window
         FontManager = new FontManager();
         
         TextureManager.AddTexture("knight", "Resources/KnightM.png");
+        TextureManager.AddTexture("knight", "Resources/KnightM.png");
     }
 
     /// <summary>

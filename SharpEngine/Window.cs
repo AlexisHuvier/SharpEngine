@@ -221,6 +221,8 @@ public class Window
             foreach (var scene in _scenes)
                 scene.Update(Raylib.GetFrameTime());
             
+            CameraManager.Update(_screenSize);
+            
             // DRAW IMGUI
             if(Debug)
                 RenderImGui?.Invoke(this);

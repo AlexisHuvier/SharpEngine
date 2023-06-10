@@ -1,14 +1,35 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SharpEngine.Component;
+using SharpEngine.Entity;
 using SharpEngine.Manager;
+using SharpEngine.Math;
 using SharpEngine.Utils.File.Lang;
+using SharpEngine.Utils.File.Save;
 
 namespace SharpEngineTests;
 
 [TestClass]
 public class ManagerTests
 {
+    [TestMethod]
+    public void Save()
+    {
+        Assert.IsFalse(SaveManager.Saves.Any());
+
+        var bSave = new BinarySave();
+        var jSave = new JsonSave();
+        
+        SaveManager.AddSave("binary", bSave);
+        SaveManager.AddSave("json", jSave);
+
+        Assert.ThrowsException<Exception>(() => SaveManager.GetSave("test"));
+        Assert.AreEqual(SaveManager.GetSave("binary"), bSave);
+        Assert.AreEqual(SaveManager.GetSave("json"), jSave);
+    }
+    
     [TestMethod]
     public void Lang()
     {

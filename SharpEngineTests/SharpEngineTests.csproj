@@ -21,4 +21,19 @@
     <ProjectReference Include="..\SharpEngine\SharpEngine.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Resources\Lang\lang.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Lang\lang2.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Lang\mclang.lang">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Lang\mclang2.lang">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -15,6 +15,21 @@ namespace SharpEngineTests;
 public class ManagerTests
 {
     [TestMethod]
+    public void Camera()
+    {
+        Assert.AreEqual(CameraManager.Position, Vec2.Zero);
+        Assert.IsNull(CameraManager.FollowEntity);
+
+        var e = new Entity();
+        e.AddComponent(new TransformComponent(new Vec2(100)));
+        CameraManager.FollowEntity = e;
+        CameraManager.Update(new Vec2I(400));
+        
+        Assert.AreEqual(CameraManager.Position, new Vec2(-100));
+        Assert.AreEqual(e, CameraManager.FollowEntity);
+    }
+
+    [TestMethod]
     public void Save()
     {
         Assert.IsFalse(SaveManager.Saves.Any());

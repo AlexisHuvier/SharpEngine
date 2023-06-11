@@ -25,6 +25,7 @@ internal static class Program
         };
         
         window.TextureManager.AddTexture("KnightM", "Resources/KnightM.png");
+        window.FontManager.AddFont("basic", "Resources/basic.ttf", 50);
         
         window.AddScene(new MyScene());
         

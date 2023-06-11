@@ -1,4 +1,5 @@
-﻿using SharpEngine.Math;
+﻿using SharpEngine.Manager;
+using SharpEngine.Math;
 
 namespace SharpEngine.Component;
 
@@ -33,5 +34,25 @@ public class TransformComponent: Component
         Position = position ?? Vec2.Zero;
         Scale = scale ?? Vec2.One;
         Rotation = rotation;
+    }
+
+    /// <summary>
+    /// Get transformed Position
+    /// </summary>
+    /// <param name="offset">Offset (Vec2(0))</param>
+    /// <param name="useCameraPosition">Apply Camera Position (true)</param>
+    /// <returns>Transformed Position</returns>
+    public Vec2 GetTransformedPosition(Vec2? offset = null, bool useCameraPosition = true)
+    {
+        offset ??= Vec2.Zero;
+        if (useCameraPosition)
+            return new Vec2(
+                Position.X + offset.Value.X - CameraManager.Position.X,
+                Position.Y + offset.Value.Y - CameraManager.Position.Y
+            );
+        return new Vec2(
+            Position.X + offset.Value.X,
+            Position.Y + offset.Value.Y
+        );
     }
 }

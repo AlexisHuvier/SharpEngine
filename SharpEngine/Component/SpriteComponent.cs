@@ -55,10 +55,10 @@ public class SpriteComponent: Component
         var window = Entity?.Scene?.Window;
         
         if(_transformComponent == null || !Displayed || Texture.Length <= 0 || window == null) return;
-        
+
         var texture = window.TextureManager.GetTexture(Texture);
-        var screenSize = window.ScreenSize;
-        
-        Raylib.DrawTexture(texture, screenSize.X / 2 - texture.width / 2, screenSize.Y / 2 - texture.width / 2, Color.White);
+        var position = _transformComponent.GetTransformedPosition(Offset);
+        Raylib.DrawTexture(texture, (int)(position.X - texture.width / 2f), (int)(position.Y - texture.height / 2f),
+            Color.White);
     }
 }

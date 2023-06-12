@@ -35,6 +35,7 @@ public class Window
         set
         {
             _screenSize = value;
+            CameraManager.SetScreenSize(value);
             Raylib.SetWindowSize(value.X, value.Y);
         }
     }
@@ -72,6 +73,12 @@ public class Window
     /// Manage Debug Mode of Window
     /// </summary>
     public bool Debug;
+    
+    
+    /// <summary>
+    /// Camera Manager of Window
+    /// </summary>
+    public CameraManager CameraManager { get; }
 
     
     /// <summary>
@@ -154,6 +161,8 @@ public class Window
 
         TextureManager = new TextureManager();
         FontManager = new FontManager();
+        CameraManager = new CameraManager();
+        CameraManager.SetScreenSize(screenSize);
     }
 
     /// <summary>
@@ -221,7 +230,7 @@ public class Window
             foreach (var scene in _scenes)
                 scene.Update(Raylib.GetFrameTime());
             
-            CameraManager.Update(_screenSize);
+            CameraManager.Update(Raylib.GetFrameTime());
             
             // DRAW IMGUI
             if(Debug)
@@ -230,9 +239,14 @@ public class Window
             // DRAW
             Raylib.BeginDrawing();
             Raylib.ClearBackground(BackgroundColor);
+            
+            Raylib.BeginMode2D(CameraManager.Camera2D);
+            foreach (var scene in _scenes)
+                scene.DrawEntities();
+            Raylib.EndMode2D();
 
             foreach (var scene in _scenes)
-                scene.Draw();
+                scene.DrawWidgets();
             
             if(Debug)
                 _seImGui.Draw();

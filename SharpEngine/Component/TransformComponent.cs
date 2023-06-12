@@ -47,8 +47,8 @@ public class TransformComponent: Component
         offset ??= Vec2.Zero;
         if (useCameraPosition)
             return new Vec2(
-                Position.X + offset.Value.X - CameraManager.Position.X,
-                Position.Y + offset.Value.Y - CameraManager.Position.Y
+                Position.X + offset.Value.X,
+                Position.Y + offset.Value.Y
             );
         return new Vec2(
             Position.X + offset.Value.X,

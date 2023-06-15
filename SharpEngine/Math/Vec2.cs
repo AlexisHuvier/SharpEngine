@@ -202,6 +202,20 @@ public struct Vec2
     public static implicit operator Vector2(Vec2 vec) => new(vec.X, vec.Y);
     
     /// <summary>
+    /// Convert Aether Physics Vector2 to Vec2
+    /// </summary>
+    /// <param name="vec">Aether Physics Vector2</param>
+    /// <returns>Vec2</returns>
+    public static implicit operator Vec2(tainicom.Aether.Physics2D.Common.Vector2 vec) => new(vec.X, vec.Y);
+
+    /// <summary>
+    /// Convert Vec2 to Aether Physics Vector2
+    /// </summary>
+    /// <param name="vec2">Vec2</param>
+    /// <returns>Aether Physics Vector2</returns>
+    public static implicit operator tainicom.Aether.Physics2D.Common.Vector2(Vec2 vec2) => new(vec2.X, vec2.Y);
+    
+    /// <summary>
     /// Convert Vec2I to Vec2
     /// </summary>
     /// <param name="vec2I">Vec2I</param>

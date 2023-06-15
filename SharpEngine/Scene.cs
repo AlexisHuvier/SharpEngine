@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SharpEngine.Math;
 using SharpEngine.Utils;
+using tainicom.Aether.Physics2D.Common;
+using tainicom.Aether.Physics2D.Dynamics;
 
 namespace SharpEngine;
 
@@ -33,15 +36,32 @@ public class Scene
     /// <summary>
     /// All Widgets of Scene
     /// </summary>
-    public List<Widget.Widget> Widgets => _widgets;
-    
+    public List<Widget.Widget> Widgets { get; } = new();
+
     /// <summary>
     /// All Entities of Scene
     /// </summary>
-    public List<Entity.Entity> Entities => _entities;
+    public List<Entity.Entity> Entities { get; } = new();
 
-    private readonly List<Widget.Widget> _widgets = new();
-    private readonly List<Entity.Entity> _entities = new();
+    internal readonly World World;
+
+    /// <summary>
+    /// Create Scene
+    /// </summary>
+    /// <param name="gravity">Gravity (Vec2(0, 200))</param>
+    public Scene(Vec2? gravity = null)
+    {
+        var finalGrav = gravity ?? new Vec2(0, 200);
+        World = new World(finalGrav)
+        {
+            ContactManager =
+            {
+                VelocityConstraintsMultithreadThreshold = 256,
+                PositionConstraintsMultithreadThreshold = 256,
+                CollideMultithreadThreshold = 256
+            }
+        };
+    }
 
     /// <summary>
     /// Add Widget to Scene
@@ -52,7 +72,7 @@ public class Scene
     public T AddWidget<T>(T widget) where T : Widget.Widget
     {
         widget.Scene = this;
-        _widgets.Add(widget);
+        Widgets.Add(widget);
         return widget;
     }
 
@@ -62,7 +82,7 @@ public class Scene
     /// <typeparam name="T">Type of Widgets</typeparam>
     /// <returns>Widgets</returns>
     public List<T> GetWidgetsAs<T>() where T : Widget.Widget =>
-        _widgets.FindAll(w => w.GetType() == typeof(T)).Cast<T>().ToList();
+        Widgets.FindAll(w => w.GetType() == typeof(T)).Cast<T>().ToList();
 
     /// <summary>
     /// Remove Widget
@@ -71,7 +91,7 @@ public class Scene
     public void RemoveWidget(Widget.Widget widget)
     {
         widget.Scene = null;
-        _widgets.Remove(widget);
+        Widgets.Remove(widget);
     }
 
     /// <summary>
@@ -79,9 +99,9 @@ public class Scene
     /// </summary>
     public void RemoveAllWidgets()
     {
-        foreach (var widget in _widgets)
+        foreach (var widget in Widgets)
             widget.Scene = null;
-        _widgets.Clear();
+        Widgets.Clear();
     }
 
     /// <summary>
@@ -93,7 +113,7 @@ public class Scene
     public T AddEntity<T>(T entity) where T : Entity.Entity
     {
         entity.Scene = this;
-        _entities.Add(entity);
+        Entities.Add(entity);
         return entity;
     }
 
@@ -104,7 +124,7 @@ public class Scene
     public void RemoveEntity(Entity.Entity entity)
     {
         entity.Scene = null;
-        _entities.Remove(entity);
+        Entities.Remove(entity);
     }
 
     /// <summary>
@@ -112,9 +132,9 @@ public class Scene
     /// </summary>
     public void RemoveAllEntities()
     {
-        foreach (var entity in _entities)
+        foreach (var entity in Entities)
             entity.Scene = null;
-        _entities.Clear();
+        Entities.Clear();
     }
 
     /// <summary>
@@ -122,9 +142,9 @@ public class Scene
     /// </summary>
     public virtual void Load()
     {
-        foreach (var entity in _entities)
+        foreach (var entity in Entities)
             entity.Load();
-        foreach (var widget in _widgets)
+        foreach (var widget in Widgets)
             widget.Load();
     }
 
@@ -133,9 +153,9 @@ public class Scene
     /// </summary>
     public virtual void Unload()
     {
-        foreach (var entity in _entities)
+        foreach (var entity in Entities)
             entity.Unload();
-        foreach (var widget in _widgets)
+        foreach (var widget in Widgets)
             widget.Unload();
     }
 
@@ -145,17 +165,20 @@ public class Scene
     /// <param name="delta">Time since last frame</param>
     public virtual void Update(float delta)
     {
-        for (var i = _entities.Count - 1; i > -1; i--)
-            if(_entities[i].PauseState is PauseState.Enabled ||
-               !Paused && _entities[i].PauseState is PauseState.Normal ||
-               Paused && _entities[i].PauseState is PauseState.WhenPaused)
-                _entities[i].Update(delta);
+        if (!Paused)
+            World.Step(delta);
+            
+        for (var i = Entities.Count - 1; i > -1; i--)
+            if(Entities[i].PauseState is PauseState.Enabled ||
+               !Paused && Entities[i].PauseState is PauseState.Normal ||
+               Paused && Entities[i].PauseState is PauseState.WhenPaused)
+                Entities[i].Update(delta);
         
-        for(var i = _widgets.Count - 1; i > -1; i--)
-            if(_widgets[i].PauseState is PauseState.Enabled ||
-               !Paused && _widgets[i].PauseState is PauseState.Normal ||
-               Paused && _widgets[i].PauseState is PauseState.WhenPaused)
-                _widgets[i].Update(delta);
+        for(var i = Widgets.Count - 1; i > -1; i--)
+            if(Widgets[i].PauseState is PauseState.Enabled ||
+               !Paused && Widgets[i].PauseState is PauseState.Normal ||
+               Paused && Widgets[i].PauseState is PauseState.WhenPaused)
+                Widgets[i].Update(delta);
     }
 
     /// <summary>
@@ -163,7 +186,7 @@ public class Scene
     /// </summary>
     public virtual void DrawEntities()
     {
-        foreach (var ent in _entities)
+        foreach (var ent in Entities)
             ent.Draw();
     }
 
@@ -172,7 +195,7 @@ public class Scene
     /// </summary>
     public virtual void DrawWidgets()
     {
-        foreach (var widget in _widgets)
+        foreach (var widget in Widgets)
             widget.Draw();
     }
 }

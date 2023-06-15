@@ -1,4 +1,4 @@
-﻿namespace SharpEngine.Utils.File.Save;
+﻿namespace SharpEngine.File.Save;
 
 /// <summary>
 /// Interface which represents Save

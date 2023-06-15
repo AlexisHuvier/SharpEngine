@@ -1,4 +1,4 @@
-﻿namespace SharpEngine.Utils.File.Lang;
+﻿namespace SharpEngine.File.Lang;
 
 /// <summary>
 /// Interface which represents Lang File

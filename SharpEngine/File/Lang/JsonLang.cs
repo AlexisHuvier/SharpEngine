@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
-namespace SharpEngine.Utils.File.Lang;
+namespace SharpEngine.File.Lang;
 
 /// <summary>
 /// Class which represents Lang File with Json

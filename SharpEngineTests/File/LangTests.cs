@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SharpEngine.Utils.File.Lang;
+using SharpEngine.File.Lang;
 
 namespace SharpEngineTests.File;
 

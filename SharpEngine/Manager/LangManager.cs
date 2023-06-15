@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using SharpEngine.File.Lang;
 using SharpEngine.Utils;
-using SharpEngine.Utils.File.Lang;
 
 namespace SharpEngine.Manager;
 

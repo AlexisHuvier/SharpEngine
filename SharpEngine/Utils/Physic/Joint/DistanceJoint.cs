@@ -1,4 +1,7 @@
-﻿using SharpEngine.Math;
+﻿using SharpEngine.Component;
+using SharpEngine.Math;
+using tainicom.Aether.Physics2D.Dynamics;
+using DJoint = tainicom.Aether.Physics2D.Dynamics.Joints.DistanceJoint;
 
 namespace SharpEngine.Utils.Physic.Joint;
 
@@ -39,6 +42,16 @@ public class DistanceJoint: Joint
         Frequency = frequency;
         DampingRatio = dampingRatio;
     }
-    
-    // TODO: Create ToAetherPhysics
+
+    public DJoint ToAetherPhysics(Body from)
+    {
+        var joint = new DJoint(from, Target.GetComponentAs<PhysicsComponent>()?.Body, FromPosition, TargetPosition);
+        if (System.Math.Abs(Length + 1) > Internal.FloatTolerance)
+            joint.Length = Length;
+        if (System.Math.Abs(Frequency + 1) > Internal.FloatTolerance)
+            joint.Frequency = Frequency;
+        if (System.Math.Abs(DampingRatio + 1) > Internal.FloatTolerance)
+            joint.DampingRatio = DampingRatio;
+        return joint;
+    }
 }

@@ -1,4 +1,5 @@
-﻿using SharpEngine.Math;
+﻿using SharpEngine.Component;
+using SharpEngine.Math;
 using tainicom.Aether.Physics2D.Dynamics;
 using RJoint = tainicom.Aether.Physics2D.Dynamics.Joints.RevoluteJoint;
 
@@ -16,6 +17,6 @@ public class RevoluteJoint: Joint
     /// <param name="fromPosition">Joint From Position</param>
     public RevoluteJoint(Entity.Entity target, Vec2? fromPosition) : base(target, JointType.Revolute, fromPosition ?? Vec2.Zero, fromPosition ?? Vec2.Zero)
     {}
-    
-    // TODO: Create ToAetherPhysics
+
+    public RJoint ToAetherPhysics(Body from) => new(from, Target.GetComponentAs<PhysicsComponent>()?.Body, FromPosition);
 }

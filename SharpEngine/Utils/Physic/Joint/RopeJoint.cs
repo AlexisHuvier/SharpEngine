@@ -1,4 +1,7 @@
-﻿using SharpEngine.Math;
+﻿using SharpEngine.Component;
+using SharpEngine.Math;
+using tainicom.Aether.Physics2D.Dynamics;
+using RJoint = tainicom.Aether.Physics2D.Dynamics.Joints.RopeJoint;
 
 namespace SharpEngine.Utils.Physic.Joint;
 
@@ -24,6 +27,12 @@ public class RopeJoint: Joint
     {
         MaxLength = maxLength;
     }
-    
-    // TODO: Create ToAetherPhysics
+
+    public RJoint ToAetherPhysics(Body from)
+    {
+        var joint = new RJoint(from, Target.GetComponentAs<PhysicsComponent>()?.Body, FromPosition, TargetPosition);
+        if (System.Math.Abs(MaxLength + 1) > Internal.FloatTolerance)
+            joint.MaxLength = MaxLength;
+        return joint;
+    }
 }

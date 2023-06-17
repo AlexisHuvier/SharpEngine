@@ -63,13 +63,15 @@ public class CameraManager
     /// </summary>
     public CameraManager()
     {
-        Camera2D = new Camera2D();
+        Camera2D = new Camera2D(Vector2.Zero, Vector2.Zero, 0, 1);
         Mode = CameraMode.Basic;
     }
 
     internal void SetScreenSize(Vec2 screenSize)
     {
         Camera2D.offset = screenSize / 2;
+        if(Mode == CameraMode.Basic)
+            Camera2D.target = Camera2D.offset;
     }
 
     /// <summary>

@@ -40,19 +40,12 @@ public class TransformComponent: Component
     /// Get transformed Position
     /// </summary>
     /// <param name="offset">Offset (Vec2(0))</param>
-    /// <param name="useCameraPosition">Apply Camera Position (true)</param>
     /// <returns>Transformed Position</returns>
-    public Vec2 GetTransformedPosition(Vec2? offset = null, bool useCameraPosition = true)
+    public Vec2 GetTransformedPosition(Vec2? offset = null)
     {
-        offset ??= Vec2.Zero;
-        if (useCameraPosition)
-            return new Vec2(
-                Position.X + offset.Value.X,
-                Position.Y + offset.Value.Y
-            );
         return new Vec2(
-            Position.X + offset.Value.X,
-            Position.Y + offset.Value.Y
+            Position.X + (offset?.X ?? 0),
+            Position.Y + (offset?.Y ?? 0)
         );
     }
 }

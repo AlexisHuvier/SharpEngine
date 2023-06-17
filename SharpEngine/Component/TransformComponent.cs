@@ -21,7 +21,7 @@ public class TransformComponent: Component
     /// <summary>
     /// Rotation of Component
     /// </summary>
-    public int Rotation;
+    public float Rotation;
 
     /// <summary>
     /// Create TransformComponent
@@ -29,7 +29,7 @@ public class TransformComponent: Component
     /// <param name="position">Position (Vec2(0))</param>
     /// <param name="scale">Scale (Vec2(1))</param>
     /// <param name="rotation">Rotation (0)</param>
-    public TransformComponent(Vec2? position = null, Vec2? scale = null, int rotation = 0)
+    public TransformComponent(Vec2? position = null, Vec2? scale = null, float rotation = 0)
     {
         Position = position ?? Vec2.Zero;
         Scale = scale ?? Vec2.One;

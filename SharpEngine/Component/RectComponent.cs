@@ -1,4 +1,5 @@
-﻿using Raylib_cs;
+﻿using System.Numerics;
+using Raylib_cs;
 using SharpEngine.Math;
 using Color = SharpEngine.Utils.Color;
 
@@ -61,10 +62,9 @@ public class RectComponent: Component
         if(_transform == null || !Displayed) return;
 
         var size = Size * _transform.Scale;
-        Raylib.DrawRectangle(
-            (int)(_transform.Position.X + Offset.X - size.X / 2),
-            (int)(_transform.Position.Y + Offset.Y - size.Y / 2),
-            (int)size.X, (int)size.Y, Color
-            );
+        var position = _transform.GetTransformedPosition(Offset);
+
+        Raylib.DrawRectanglePro(new Rectangle(position.X, position.Y, size.X, size.Y), new Vector2(size.X, size.Y),
+            _transform.Rotation, Color);
     }
 }

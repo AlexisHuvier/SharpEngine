@@ -1,4 +1,5 @@
-﻿using Raylib_cs;
+﻿using System.Numerics;
+using Raylib_cs;
 using SharpEngine.Math;
 using Color = SharpEngine.Utils.Color;
 
@@ -58,7 +59,13 @@ public class SpriteComponent: Component
 
         var texture = window.TextureManager.GetTexture(Texture);
         var position = _transformComponent.GetTransformedPosition(Offset);
-        Raylib.DrawTexture(texture, (int)(position.X - texture.width / 2f), (int)(position.Y - texture.height / 2f),
-            Color.White);
+        Raylib.DrawTexturePro(
+            texture,
+            new Rectangle(0, 0, texture.width, texture.height),
+            new Rectangle(position.X, position.Y, texture.width * _transformComponent.Scale.X,
+                texture.height * _transformComponent.Scale.Y),
+            new Vector2(texture.width / 2f * _transformComponent.Scale.X,
+                texture.height / 2f * _transformComponent.Scale.Y),
+            _transformComponent.Rotation, Color.White);
     }
 }

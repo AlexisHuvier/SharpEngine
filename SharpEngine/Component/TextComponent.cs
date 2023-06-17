@@ -83,7 +83,7 @@ public class TextComponent: Component
         var fontSize = FontSize ?? font.baseSize;
         var position = _transformComponent.GetTransformedPosition(Offset);
         var textSize = Raylib.MeasureTextEx(font, Text, fontSize, 2);
-        Raylib.DrawTextEx(font, Text, new Vector2(position.X - textSize.X / 2, position.Y - textSize.Y / 2),
-            fontSize, 2, Color);
+        
+        Raylib.DrawTextPro(font, Text, position, textSize / 2, _transformComponent.Rotation, fontSize, 2, Color.White);
     }
 }

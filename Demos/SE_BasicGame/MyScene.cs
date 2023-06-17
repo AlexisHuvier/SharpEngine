@@ -13,6 +13,7 @@ internal class MyScene: Scene
         var e = AddEntity(new Entity());
         e.AddComponent(new TransformComponent(new Vec2(400)));
         e.AddComponent(new SpriteComponent("KnightM"));
+        e.AddComponent(new RectComponent(Color.Black, new Vec2(300), true, new Vec2(-100, -200)));
         e.AddComponent(new TextComponent("test", color: Color.Red, fontSize: 50, offset: new Vec2(-100)));
         e.AddComponent(new TextComponent("test", "basic", color: Color.Blue, fontSize: 50, offset: new Vec2(100)));
     }

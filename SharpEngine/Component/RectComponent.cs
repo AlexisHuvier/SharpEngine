@@ -64,7 +64,7 @@ public class RectComponent: Component
         var size = Size * _transform.Scale;
         var position = _transform.GetTransformedPosition(Offset);
 
-        Raylib.DrawRectanglePro(new Rectangle(position.X, position.Y, size.X, size.Y), new Vector2(size.X, size.Y),
+        Raylib.DrawRectanglePro(new Rectangle(position.X, position.Y, size.X, size.Y), new Vector2(size.X / 2, size.Y / 2),
             _transform.Rotation, Color);
     }
 }

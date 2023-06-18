@@ -219,8 +219,10 @@ public class Window
             return;
         
         // LOAD 
+        DebugManager.Log(LogLevel.LogInfo, "Loading Scenes...");
         foreach (var scene in _scenes)
             scene.Load();
+        DebugManager.Log(LogLevel.LogInfo, "Scenes loaded !");
 
         while (!Raylib.WindowShouldClose() && !_closeWindow)
         {
@@ -255,12 +257,19 @@ public class Window
         }
         
         // UNLOAD
+        DebugManager.Log(LogLevel.LogInfo, "Unloading Scenes...");
         foreach (var scene in _scenes)
             scene.Unload();
+        DebugManager.Log(LogLevel.LogInfo, "Scenes unloaded !");
         
+        DebugManager.Log(LogLevel.LogInfo, "Unloading Textures...");
         TextureManager.Unload();
+        DebugManager.Log(LogLevel.LogInfo, "Textures unloaded !");
+        DebugManager.Log(LogLevel.LogInfo, "Unloading Fonts...");
         FontManager.Unload();
+        DebugManager.Log(LogLevel.LogInfo, "Fonts unloaded !");
         
+        DebugManager.Log(LogLevel.LogInfo, "Closing Window.");
         Raylib.CloseAudioDevice();
         Raylib.CloseWindow();
     }

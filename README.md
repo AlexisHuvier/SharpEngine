@@ -20,14 +20,14 @@ C# 2D Game Engine
 - Sprite and Text rendering
 - Utility Classes
 - Managers : Font, Textures, Input, Sound, Music, Camera, Debug, Sabe, Lang
+- Physics
+- Particles
+- SpriteSheet
 
 ## Uncoming Features
 
 *Warning : This is a non-exhaustive list and subject to change.*
 
-- Physics
-- Particles
-- SpriteSheet
 - Basic Tilemap
 - UI
 - Transitions

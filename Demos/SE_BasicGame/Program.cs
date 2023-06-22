@@ -1,8 +1,7 @@
 ﻿using ImGuiNET;
 using SharpEngine;
-using SharpEngine.Managers;
+using SharpEngine.Manager;
 using SharpEngine.Utils;
-using SharpEngine.Utils.Math;
 
 namespace SE_BasicWindow;
 
@@ -10,23 +9,25 @@ internal static class Program
 {
     private static void Main()
     {
-        var win = new Window(new Vec2(900, 600), Color.CornflowerBlue, debug: true)
+        var window = new Window(800, 600, "SE Raylib", Color.CornflowerBlue, true)
         {
-            RenderImGui = _ =>
+            RenderImGui = win =>
             {
-                DebugManager.CreateSharpEngineImGuiWindow();
-                {
-                    ImGui.Begin("Basic Game Information");
-                    ImGui.Text($"Downed Keys : {string.Join(", ", InputManager.GetDownedKeys().Select(x => x.ToString()))}");
-                    ImGui.End();
-                }
+                DebugManager.CreateSeImGuiWindow();
+                ImGui.Begin("Basic Game Debug");
+                if(ImGui.Button("Stop Window"))
+                    win.Stop();
+                if(ImGui.Button("Screenshot"))
+                    win.TakeScreenshot("test.png");
+                ImGui.End();
             }
         };
         
-        win.FontManager.AddFont("basic", "Resources/basic.ttf");
-        win.TextureManager.AddTexture("KnightM", "Resources/KnightM.png");
-
-        win.AddScene(new MyScene());
-        win.Run();
+        window.TextureManager.AddTexture("KnightM", "Resources/KnightM.png");
+        window.FontManager.AddFont("basic", "Resources/basic.ttf", 50);
+        
+        window.AddScene(new MyScene());
+        
+        window.Run();
     }
 }

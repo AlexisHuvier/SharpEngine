@@ -1,57 +1,195 @@
 ﻿using System;
 using System.Collections.Generic;
-using SharpEngine.Utils.Math;
+using SharpEngine.Math;
 
 namespace SharpEngine.Utils.Particle;
 
+/// <summary>
+/// Class which represents Particle Emitter
+/// </summary>
 public class ParticleEmitter
 {
-    
+    /// <summary>
+    /// new() of Particle Emitter
+    /// </summary>
     public readonly List<Particle> Particles = new();
+
+    /// <summary>
+    /// BeginColors of Particle Emitter
+    /// </summary>
     public Color[] BeginColors;
-    public Color[] EndColors;
+
+    /// <summary>
+    /// EndColors of Particle Emitter
+    /// </summary>
+    public Color[]? EndColors;
+
+    /// <summary>
+    /// Offset of Particle Emitter
+    /// </summary>
     public Vec2 Offset;
+
+    /// <summary>
+    /// MinVelocity of Particle Emitter
+    /// </summary>
     public float MinVelocity;
+
+    /// <summary>
+    /// MaxVelocity of Particle Emitter
+    /// </summary>
     public float MaxVelocity;
+
+    /// <summary>
+    /// MinAcceleration of Particle Emitter
+    /// </summary>
     public float MinAcceleration;
+
+    /// <summary>
+    /// MaxAcceleration of Particle Emitter
+    /// </summary>
     public float MaxAcceleration;
+
+    /// <summary>
+    /// MinRotationSpeed of Particle Emitter
+    /// </summary>
     public float MinRotationSpeed;
+
+    /// <summary>
+    /// MaxRotationSpeed of Particle Emitter
+    /// </summary>
     public float MaxRotationSpeed;
+
+    /// <summary>
+    /// MinRotation of Particle Emitter
+    /// </summary>
     public float MinRotation;
+
+    /// <summary>
+    /// MaxRotation of Particle Emitter
+    /// </summary>
     public float MaxRotation;
+
+    /// <summary>
+    /// MinLifetime of Particle Emitter
+    /// </summary>
     public float MinLifetime;
+
+    /// <summary>
+    /// MaxLifetime of Particle Emitter
+    /// </summary>
     public float MaxLifetime;
+
+    /// <summary>
+    /// MinDirection of Particle Emitter
+    /// </summary>
     public float MinDirection;
+
+    /// <summary>
+    /// MaxDirection of Particle Emitter
+    /// </summary>
     public float MaxDirection;
+
+    /// <summary>
+    /// MinTimerBeforeSpawn of Particle Emitter
+    /// </summary>
     public float MinTimerBeforeSpawn;
+
+    /// <summary>
+    /// MaxTimerBeforeSpawn of Particle Emitter
+    /// </summary>
     public float MaxTimerBeforeSpawn;
+
+    /// <summary>
+    /// MinNbParticlesPerSpawn of Particle Emitter
+    /// </summary>
     public int MinNbParticlesPerSpawn;
+
+    /// <summary>
+    /// MaxNbParticlesPerSpawn of Particle Emitter
+    /// </summary>
     public int MaxNbParticlesPerSpawn;
+
+    /// <summary>
+    /// MinSize of Particle Emitter
+    /// </summary>
     public float MinSize;
+
+    /// <summary>
+    /// MaxSize of Particle Emitter
+    /// </summary>
     public float MaxSize;
+
+    /// <summary>
+    /// SizeFunction of Particle Emitter
+    /// </summary>
     public ParticleParametersFunction SizeFunction;
+
+    /// <summary>
+    /// SizeFunctionValue of Particle Emitter
+    /// </summary>
     public float SizeFunctionValue;
+
+    /// <summary>
+    /// SpawnSize of Particle Emitter
+    /// </summary>
     public Vec2 SpawnSize;
 
+
+    /// <summary>
+    /// MaxParticles of Particle Emitter
+    /// </summary>
     public int MaxParticles;
+
+    /// <summary>
+    /// Active of Particle Emitter
+    /// </summary>
     public bool Active;
-    public int ZLayer { 
-        get => (int)(_internalLayerDepth * 4096);
-        set => _internalLayerDepth = value / 4096f;
-    }
 
     private List<Particle> _mustBeDeleted = new();
     private float _timerBeforeSpawn;
-    private float _internalLayerDepth;
 
-    public ParticleEmitter(Color[] beginColors, Color[] endColors = null, Vec2? spawnSize = null, Vec2? offset = null,
+    /// <summary>
+    /// Number of Particles
+    /// </summary>
+    public int ParticlesCount => Particles.Count;
+
+    /// <summary>
+    /// Create Emitter
+    /// </summary>
+    /// <param name="beginColors">Particle Emitter BeginColors</param>
+    /// <param name="endColors">Particle Emitter EndColors</param>
+    /// <param name="spawnSize">Particle Emitter SpawnSize</param>
+    /// <param name="offset">Particle Emitter Offset</param>
+    /// <param name="minVelocity">Particle Emitter MinVelocity</param>
+    /// <param name="maxVelocity">Particle Emitter MaxVelocity</param>
+    /// <param name="minAcceleration">Particle Emitter MinAcceleration</param>
+    /// <param name="maxAcceleration">Particle Emitter MaxAcceleration</param>
+    /// <param name="minRotationSpeed">Particle Emitter MinRotationSpeed</param>
+    /// <param name="maxRotationSpeed">Particle Emitter MaxRotationSpeed</param>
+    /// <param name="minRotation">Particle Emitter MinRotation</param>
+    /// <param name="maxRotation">Particle Emitter MaxRotation</param>
+    /// <param name="minLifetime">Particle Emitter MinLifetime</param>
+    /// <param name="maxLifetime">Particle Emitter MaxLifetime</param>
+    /// <param name="minDirection">Particle Emitter MinDirection</param>
+    /// <param name="maxDirection">Particle Emitter MaxDirection</param>
+    /// <param name="minTimerBeforeSpawn">Particle Emitter MinTimerBeforeSpawn</param>
+    /// <param name="maxTimerBeforeSpawn">Particle Emitter MaxTimerBeforeSpawn</param>
+    /// <param name="minSize">Particle Emitter MinSize</param>
+    /// <param name="maxSize">Particle Emitter MaxSize</param>
+    /// <param name="minNbParticlesPerSpawn">Particle Emitter MinNbParticlesPerSpawn</param>
+    /// <param name="maxNbParticlesPerSpawn">Particle Emitter MaxNbParticlesPerSpawn</param>
+    /// <param name="maxParticles">Particle Emitter MaxParticles</param>
+    /// <param name="active">Particle Emitter Active</param>
+    /// <param name="sizeFunction">Particle Emitter SizeFunction</param>
+    /// <param name="sizeFunctionValue">Particle Emitter SizeFunctionValue</param>
+    public ParticleEmitter(Color[] beginColors, Color[]? endColors = null, Vec2? spawnSize = null, Vec2? offset = null,
         float minVelocity = 20, float maxVelocity = 20,
         float minAcceleration = 0, float maxAcceleration = 0, float minRotationSpeed = 0, float maxRotationSpeed = 0,
         float minRotation = 0, float maxRotation = 0,
         float minLifetime = 2, float maxLifetime = 2, float minDirection = 0, float maxDirection = 0,
         float minTimerBeforeSpawn = 0.3f, float maxTimerBeforeSpawn = 0.3f,
         float minSize = 5, float maxSize = 5, int minNbParticlesPerSpawn = 4, int maxNbParticlesPerSpawn = 4,
-        int maxParticles = -1, bool active = false, int zLayer = 4096,
+        int maxParticles = -1, bool active = false,
         ParticleParametersFunction sizeFunction = ParticleParametersFunction.Normal, float sizeFunctionValue = 0)
     {
         BeginColors = beginColors;
@@ -77,14 +215,15 @@ public class ParticleEmitter
         MinNbParticlesPerSpawn = minNbParticlesPerSpawn;
         MaxNbParticlesPerSpawn = maxNbParticlesPerSpawn;
         MaxParticles = maxParticles;
-        ZLayer = zLayer;
         SizeFunction = sizeFunction;
         SizeFunctionValue = sizeFunctionValue;
         SpawnSize = spawnSize ?? Vec2.Zero;
     }
 
-    public int GetParticlesCount() => Particles.Count;
-
+    /// <summary>
+    /// Spawn Particle
+    /// </summary>
+    /// <param name="objectPosition">Particle Position</param>
     public void SpawnParticle(Vec2 objectPosition)
     {
         Vec2 position;
@@ -92,33 +231,38 @@ public class ParticleEmitter
             position = new Vec2(Offset.X + objectPosition.X, Offset.Y + objectPosition.Y);
         else
             position = new Vec2(
-                MathUtils.RandomBetween(-SpawnSize.X / 2, SpawnSize.X / 2) + Offset.X + objectPosition.X,
-                MathUtils.RandomBetween(-SpawnSize.Y / 2, SpawnSize.Y / 2) + Offset.Y + objectPosition.Y);
-        var angle = MathUtils.RandomBetween(MinDirection, MaxDirection);
-        var velocity = new Vec2(MathF.Cos(MathUtils.ToRadians(angle)), MathF.Sin(MathUtils.ToRadians(angle))) *
-                       MathUtils.RandomBetween(MinVelocity, MaxVelocity);
-        var acceleration = new Vec2(MathF.Cos(MathUtils.ToRadians(angle)), MathF.Sin(MathUtils.ToRadians(angle))) *
-                           MathUtils.RandomBetween(MinAcceleration, MaxAcceleration);
-        var rotation = MathUtils.RandomBetween(MinRotation, MaxRotation);
-        var rotationSpeed = MathUtils.RandomBetween(MinRotationSpeed, MaxRotationSpeed);
-        var lifetime = MathUtils.RandomBetween(MinLifetime, MaxLifetime);
-        var size = MathUtils.RandomBetween(MinSize, MaxSize);
-        var beginColor = BeginColors[MathUtils.RandomBetween(0, BeginColors.Length - 1)];
+                Rand.GetRandF(-SpawnSize.X / 2, SpawnSize.X / 2) + Offset.X + objectPosition.X,
+                Rand.GetRandF(-SpawnSize.Y / 2, SpawnSize.Y / 2) + Offset.Y + objectPosition.Y);
+        var angle = Rand.GetRandF(MinDirection, MaxDirection);
+        var velocity = new Vec2(MathF.Cos(MathHelper.ToRadians(angle)), MathF.Sin(MathHelper.ToRadians(angle))) *
+                       Rand.GetRandF(MinVelocity, MaxVelocity);
+        var acceleration = new Vec2(MathF.Cos(MathHelper.ToRadians(angle)), MathF.Sin(MathHelper.ToRadians(angle))) *
+                           Rand.GetRandF(MinAcceleration, MaxAcceleration);
+        var rotation = Rand.GetRandF(MinRotation, MaxRotation);
+        var rotationSpeed = Rand.GetRandF(MinRotationSpeed, MaxRotationSpeed);
+        var lifetime = Rand.GetRandF(MinLifetime, MaxLifetime);
+        var size = Rand.GetRandF(MinSize, MaxSize);
+        var beginColor = BeginColors[Rand.GetRand(0, BeginColors.Length - 1)];
         var endColor = beginColor;
         if (EndColors != null)
-            endColor = EndColors[MathUtils.RandomBetween(0, EndColors.Length - 1)];
+            endColor = EndColors[Rand.GetRand(0, EndColors.Length - 1)];
 
         var particle = new Particle(position, velocity, acceleration, lifetime, size, rotation,
-            rotationSpeed, beginColor, endColor, _internalLayerDepth, SizeFunction, SizeFunctionValue);
+            rotationSpeed, beginColor, endColor, SizeFunction, SizeFunctionValue);
         Particles.Add(particle);
     }
 
-    public void Update(GameTime gameTime, Vec2 objectPosition)
+    /// <summary>
+    /// Update Emitter
+    /// </summary>
+    /// <param name="delta">Frame Time</param>
+    /// <param name="objectPosition">Emitter Position</param>
+    public void Update(float delta, Vec2 objectPosition)
     {
         _mustBeDeleted = new List<Particle>();
         foreach (var particle in Particles)
         {
-            particle.Update(gameTime);
+            particle.Update(delta);
             if (particle.TimeSinceStart >= particle.Lifetime)
                 _mustBeDeleted.Add(particle);
         }
@@ -134,20 +278,23 @@ public class ParticleEmitter
         {
             if (MaxParticles == -1 || MaxParticles > Particles.Count)
             {
-                var nbParticles = MathUtils.RandomBetween(MinNbParticlesPerSpawn, MaxNbParticlesPerSpawn);
+                var nbParticles = Rand.GetRand(MinNbParticlesPerSpawn, MaxNbParticlesPerSpawn);
                 for (var i = 0; i < nbParticles; i++)
                     SpawnParticle(objectPosition);
             }
 
-            _timerBeforeSpawn = MathUtils.RandomBetween(MinTimerBeforeSpawn, MaxTimerBeforeSpawn);
+            _timerBeforeSpawn = Rand.GetRandF(MinTimerBeforeSpawn, MaxTimerBeforeSpawn);
         }
 
-        _timerBeforeSpawn -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+        _timerBeforeSpawn -= delta;
     }
 
-    public void Draw(Window window)
+    /// <summary>
+    /// Draw Particles of Emitter
+    /// </summary>
+    public void Draw()
     {
         foreach (var particle in Particles)
-            particle.Draw(window);
+            particle.Draw();
     }
 }

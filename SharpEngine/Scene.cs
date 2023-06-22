@@ -1,44 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Xna.Framework;
-using SharpEngine.Widgets;
-using SharpEngine.Entities;
+using SharpEngine.Math;
 using SharpEngine.Utils;
-using SharpEngine.Utils.Control;
-using tainicom.Aether.Physics2D.Diagnostics;
+using tainicom.Aether.Physics2D.Common;
 using tainicom.Aether.Physics2D.Dynamics;
-using GameTime = SharpEngine.Utils.Math.GameTime;
 
 namespace SharpEngine;
 
 /// <summary>
-/// Scène
+/// Class which represents a Scene
 /// </summary>
 public class Scene
 {
-    public Action<Scene> OpenScene;
-    public Action<Scene> CloseScene;
-    public bool Paused = false;
+    /// <summary>
+    /// Function which will be launched when Scene is opened
+    /// </summary>
+    public Action<Scene>? OpenScene = null;
     
-    internal Window Window;
-    protected readonly List<Entity> Entities;
-    protected readonly List<Widget> Widgets;
+    /// <summary>
+    /// Function which will be launched when Scene is closed
+    /// </summary>
+    public Action<Scene>? CloseScene = null;
+    
+    /// <summary>
+    /// Define if Scene is paused
+    /// </summary>
+    public bool Paused = false;
+
+    /// <summary>
+    /// Window which have this scene
+    /// </summary>
+    public Window? Window;
+
+    /// <summary>
+    /// All Widgets of Scene
+    /// </summary>
+    public List<Widget.Widget> Widgets { get; } = new();
+
+    /// <summary>
+    /// All Entities of Scene
+    /// </summary>
+    public List<Entity.Entity> Entities { get; } = new();
+
     internal readonly World World;
-    private readonly DebugView _debugView;
 
-    private readonly List<Entity> _entitiesToRemove;
-    private readonly List<Widget> _widgetsToRemove;
-
-    public Scene(int gravity = 200)
+    /// <summary>
+    /// Create Scene
+    /// </summary>
+    /// <param name="gravity">Gravity (Vec2(0, 200))</param>
+    public Scene(Vec2? gravity = null)
     {
-        Window = null;
-        Entities = new List<Entity>();
-        Widgets = new List<Widget>();
-        _entitiesToRemove = new List<Entity>();
-        _widgetsToRemove = new List<Widget>();
-
-        World = new World(new Vector2(0, gravity))
+        var finalGrav = gravity ?? new Vec2(0, 200);
+        World = new World(finalGrav)
         {
             ContactManager =
             {
@@ -47,158 +61,141 @@ public class Scene
                 CollideMultithreadThreshold = 256
             }
         };
-        _debugView = new DebugView(World);
-        _debugView.AppendFlags(DebugViewFlags.Shape);
-        _debugView.AppendFlags(DebugViewFlags.CenterOfMass);
-        _debugView.AppendFlags(DebugViewFlags.DebugPanel);
-        _debugView.AppendFlags(DebugViewFlags.PerformanceGraph);
     }
 
-    public List<Widget> GetWidgets() => Widgets;
-
-    public T AddWidget<T>(T widget) where T : Widget
+    /// <summary>
+    /// Add Widget to Scene
+    /// </summary>
+    /// <param name="widget">Widget which be added</param>
+    /// <typeparam name="T">Type of Widget</typeparam>
+    /// <returns>Widget</returns>
+    public T AddWidget<T>(T widget) where T : Widget.Widget
     {
-        widget.SetScene(this);
+        widget.Scene = this;
         Widgets.Add(widget);
         return widget;
     }
 
-    public List<T> GetWidgets<T>() where T : Widget
+    /// <summary>
+    /// Get All Widgets of one Type
+    /// </summary>
+    /// <typeparam name="T">Type of Widgets</typeparam>
+    /// <returns>Widgets</returns>
+    public List<T> GetWidgetsAs<T>() where T : Widget.Widget =>
+        Widgets.FindAll(w => w.GetType() == typeof(T)).Cast<T>().ToList();
+
+    /// <summary>
+    /// Remove Widget
+    /// </summary>
+    /// <param name="widget">Widget which be removed</param>
+    public void RemoveWidget(Widget.Widget widget)
     {
-        return Widgets.FindAll(w => w.GetType() == typeof(T)).Cast<T>().ToList();
+        widget.Scene = null;
+        Widgets.Remove(widget);
     }
 
-    public void RemoveWidget(Widget widget, bool delay = false)
-    {
-        if(delay)
-            _widgetsToRemove.Add(widget);
-        else
-        {
-            widget.SetScene(null);
-            Widgets.Remove(widget);
-        }
-    }
-
+    /// <summary>
+    /// Remove All Widgets
+    /// </summary>
     public void RemoveAllWidgets()
     {
         foreach (var widget in Widgets)
-            widget.SetScene(null);
+            widget.Scene = null;
         Widgets.Clear();
     }
 
-    public List<Entity> GetEntities() => Entities;
-
-    public virtual T AddEntity<T>(T ent) where T: Entity
+    /// <summary>
+    /// Add Entity To Scene
+    /// </summary>
+    /// <param name="entity">Entity to be added</param>
+    /// <typeparam name="T">Type of Widgets</typeparam>
+    /// <returns>Entity</returns>
+    public T AddEntity<T>(T entity) where T : Entity.Entity
     {
-        ent.SetScene(this);
-        Entities.Add(ent);
-        return ent;
+        entity.Scene = this;
+        Entities.Add(entity);
+        return entity;
     }
 
-    public virtual void RemoveEntity(Entity ent, bool delay = false)
+    /// <summary>
+    /// Remove Entity From Scene
+    /// </summary>
+    /// <param name="entity">Entity to be removed</param>
+    public void RemoveEntity(Entity.Entity entity)
     {
-        if(delay)
-            _entitiesToRemove.Add(ent);
-        else
-        {
-            ent.SetScene(null);
-            Entities.Remove(ent);
-        }
+        entity.Scene = null;
+        Entities.Remove(entity);
     }
-    
+
+    /// <summary>
+    /// Remove all Entities
+    /// </summary>
     public void RemoveAllEntities()
     {
         foreach (var entity in Entities)
-            entity.SetScene(null);
+            entity.Scene = null;
         Entities.Clear();
     }
 
-    public virtual void SetWindow(Window window) => Window = window;
-    
-    public Window GetWindow() => Window;
-
-    public virtual void Initialize()
+    /// <summary>
+    /// Load Scene
+    /// </summary>
+    public virtual void Load()
     {
-        foreach (var ent in Entities)
-            ent.Initialize();
+        foreach (var entity in Entities)
+            entity.Load();
         foreach (var widget in Widgets)
-            widget.Initialize();
+            widget.Load();
     }
 
-    public virtual void LoadContent()
+    /// <summary>
+    /// Unload Scene
+    /// </summary>
+    public virtual void Unload()
     {
-        _debugView.LoadContent(Window.InternalGame.GraphicsDevice, Window.InternalGame.Content);
-        foreach (var ent in Entities)
-            ent.LoadContent();
+        foreach (var entity in Entities)
+            entity.Unload();
         foreach (var widget in Widgets)
-            widget.LoadContent();
+            widget.Unload();
     }
 
-    public virtual void UnloadContent()
+    /// <summary>
+    /// Update Scene
+    /// </summary>
+    /// <param name="delta">Time since last frame</param>
+    public virtual void Update(float delta)
     {
-        foreach (var ent in Entities)
-            ent.UnloadContent();
-        foreach (var widget in Widgets)
-            widget.UnloadContent();
-    }
-
-    public virtual void Update(GameTime gameTime)
-    {
-        foreach (var ent in _entitiesToRemove)
-        {
-            ent.SetScene(null);
-            Entities.Remove(ent);
-        }
-
-        foreach (var widget in _widgetsToRemove)
-        {
-            widget.SetScene(null);
-            Widgets.Remove(widget);
-        }
-        
-        _entitiesToRemove.Clear();
-        _widgetsToRemove.Clear();
-
         if (!Paused)
-        {
-            World.Step((float)gameTime.ElapsedGameTime.TotalSeconds);
-            if (Window.Debug)
-                _debugView.UpdatePerformanceGraph(World.UpdateTime);
-        }
-
+            World.Step(delta);
+            
         for (var i = Entities.Count - 1; i > -1; i--)
-            if (Entities[i].PauseState is PauseState.Enabled ||
-                !Paused && Entities[i].PauseState is PauseState.Normal ||
-                Paused && Entities[i].PauseState is PauseState.WhenPaused)
-                Entities[i].Update(gameTime);
-
-        for (var i = Widgets.Count - 1; i > -1; i--)
-            if (Widgets[i].PauseState is PauseState.Enabled ||
-                !Paused && Widgets[i].PauseState is PauseState.Normal ||
-                Paused && Widgets[i].PauseState is PauseState.WhenPaused)
-                Widgets[i].Update(gameTime);
+            if(Entities[i].PauseState is PauseState.Enabled ||
+               !Paused && Entities[i].PauseState is PauseState.Normal ||
+               Paused && Entities[i].PauseState is PauseState.WhenPaused)
+                Entities[i].Update(delta);
+        
+        for(var i = Widgets.Count - 1; i > -1; i--)
+            if(Widgets[i].PauseState is PauseState.Enabled ||
+               !Paused && Widgets[i].PauseState is PauseState.Normal ||
+               Paused && Widgets[i].PauseState is PauseState.WhenPaused)
+                Widgets[i].Update(delta);
     }
 
-    public virtual void TextInput(object sender, Key key, char character)
-    {
-        foreach (var e in Entities)
-            e.TextInput(sender, key, character);
-        foreach (var widget in Widgets)
-            widget.TextInput(sender, key, character);
-    }
-
-    public virtual void Draw(GameTime gameTime)
+    /// <summary>
+    /// Draw all Entities Scene
+    /// </summary>
+    public virtual void DrawEntities()
     {
         foreach (var ent in Entities)
-            ent.Draw(gameTime);
+            ent.Draw();
+    }
+
+    /// <summary>
+    /// Draw all Widgets Scene
+    /// </summary>
+    public virtual void DrawWidgets()
+    {
         foreach (var widget in Widgets)
-            widget.Draw(gameTime);
-        
-        if (Window.Debug && Window.ShowPhysicDebugView)
-        {
-            var i = Matrix.CreateOrthographicOffCenter(0, Window.ScreenSize.X, Window.ScreenSize.Y, 0, -100, 10);
-            var view = Matrix.CreateScale(1);
-            _debugView.RenderDebugData(ref i, ref view);
-        }
+            widget.Draw();
     }
 }

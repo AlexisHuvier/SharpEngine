@@ -23,14 +23,14 @@ public class ColorTests
     }
 
     [TestMethod]
-    public void ToMg() => Assert.IsInstanceOfType((Microsoft.Xna.Framework.Color)Color.Black, typeof(Microsoft.Xna.Framework.Color));
+    public void ToRayLib() => Assert.IsInstanceOfType<Raylib_cs.Color>((Raylib_cs.Color)Color.Black);
 
     [TestMethod]
-    public void ColorTransition()
+    public void TranslateTo()
     {
-        var color = new Color(200, 200, 200);
-        var color2 = new Color(100, 100, 100);
-        Assert.AreEqual(new Color(150, 150, 150), Color.GetColorBetween(color2, color, 0.5f, 1f));
-        Assert.AreEqual(new Color(125, 125, 125), Color.GetColorBetween(color, color2, 0.75f, 1f));
+        var startColor = new Color(200, 200, 200);
+        var endColor = new Color(100, 100, 100);
+        Assert.AreEqual(new Color(150, 150, 150), startColor.TranslateTo(endColor, .5f, 1f));
+        Assert.AreEqual(new Color(125, 125, 125), startColor.TranslateTo(endColor, .75f, 1f));
     }
 }

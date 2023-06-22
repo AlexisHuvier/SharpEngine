@@ -4,37 +4,32 @@ C# 2D Game Engine
 
 ## Installation, Download, Usage
 
-- Version 0.7.X : <https://lycos-novation.github.io/SharpEngine-Docs/0.7/>
-- Version 0.8.X : <https://lycos-novation.github.io/SharpEngine-Docs/0.8/>
-- Version Indev (NOT UPDATED) : <https://lycos-novation.github.io/SharpEngine-Docs/indev/>
+*Coming Soon*
 
 ## Dependencies
 
 - Net7
-- Monogame
+- Raylib.cs
 - Aether Physics
-- SpriteFontPlus
 - ImGui.NET
 
 ## Features
 
 *Warning : This is a non-exhaustive list, go to documentation for all features.*
 
-- Tilemap
-- Animation, Sprite, Spritesheet and Text rendering
-- Sound and Music playing
-- Physics
-- Basic UI
+- Sprite and Text rendering
 - Utility Classes
-- Save System
-- Managers : Font, Textures, Input, Sound, Music
-- Particles
+- Managers : Font, Textures, Input, Sound, Music, Camera, Debug, Sabe, Lang
 
 ## Uncoming Features
 
 *Warning : This is a non-exhaustive list and subject to change.*
 
-- More UI
+- Physics
+- Particles
+- SpriteSheet
+- Basic Tilemap
+- UI
 - Transitions
 - Network
 - Sprite Packer

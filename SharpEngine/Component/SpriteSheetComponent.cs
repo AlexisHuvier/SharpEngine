@@ -137,7 +137,7 @@ public class SpriteSheetComponent: Component
             texture,
             new Rectangle(
                 SpriteSize.X * (anim.Value.Indices[_currentImage] % (texture.width / SpriteSize.X)), 
-                SpriteSize.Y * (anim.Value.Indices[_currentImage] / (int)(texture.width / SpriteSize.X)), 
+                SpriteSize.Y * (int)(anim.Value.Indices[_currentImage] / (int)(texture.width / SpriteSize.X)), 
                 SpriteSize.X, SpriteSize.Y),
             new Rectangle(position.X, position.Y, SpriteSize.X * _transform.Scale.X,SpriteSize.Y * _transform.Scale.Y),
             new Vector2(SpriteSize.X / 2f * _transform.Scale.X, SpriteSize.Y / 2f * _transform.Scale.Y),

@@ -68,9 +68,9 @@ public abstract class Widget
     /// Widget
     /// </summary>
     /// <param name="position">Position Widget</param>
-    protected Widget(Vec2? position)
+    protected Widget(Vec2 position)
     {
-        Position = position ?? Vec2.Zero;
+        Position = position;
     }
     
     /// <summary>

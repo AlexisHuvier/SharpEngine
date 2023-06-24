@@ -49,7 +49,7 @@ public class Label: Widget
     /// <param name="rotation">Label Rotation</param>
     /// <param name="centerAllLines">If Label Lines is Centered</param>
     /// <param name="fontSize">Label Font Size (or null)</param>
-    public Label(Vec2? position = null, string text = "", string font = "", Color? color = null, int rotation = 0,
+    public Label(Vec2 position, string text = "", string font = "", Color? color = null, int rotation = 0,
         bool centerAllLines = false, int? fontSize = null) : base(position)
     {
         Text = text;

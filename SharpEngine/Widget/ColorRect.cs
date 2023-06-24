@@ -31,7 +31,7 @@ public class ColorRect: Widget
     /// <param name="size">Color Rect Size</param>
     /// <param name="color">Color Rect Color</param>
     /// <param name="rotation">Color Rect Rotation</param>
-    public ColorRect(Vec2? position = null, Vec2? size = null, Color? color = null, int rotation = 0) : base(position)
+    public ColorRect(Vec2 position, Vec2? size = null, Color? color = null, int rotation = 0) : base(position)
     {
         Color = color ?? Color.Black;
         Size = size ?? Vec2.One;

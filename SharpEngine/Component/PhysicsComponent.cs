@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using SharpEngine.Math;
+using SharpEngine.Utils.EventArgs;
 using SharpEngine.Utils.Physic;
 using SharpEngine.Utils.Physic.Joint;
 using tainicom.Aether.Physics2D.Dynamics;
@@ -20,14 +21,14 @@ public class PhysicsComponent: Component
     public Body? Body;
 
     /// <summary>
-    /// Func which be called when collision
+    /// Event which be called when collision
     /// </summary>
-    public Func<Fixture, Fixture, Contact, bool>? CollisionCallback;
+    public EventHandler<PhysicsEventArgs>? CollisionCallback;
     
     /// <summary>
-    /// Func which be called when separation
+    /// Event which be called when separation
     /// </summary>
-    public Action<Fixture, Fixture, Contact>? SeparationCallback;
+    public EventHandler<PhysicsEventArgs>? SeparationCallback;
 
     private readonly BodyType _bodyType;
     private readonly List<FixtureInfo> _fixtures = new();
@@ -102,9 +103,8 @@ public class PhysicsComponent: Component
     /// <param name="restitution">Collision Restitution</param>
     /// <param name="friction">Collision Friction</param>
     /// <param name="tag">Collision Tag</param>
-    /// <param name="onCollision">Function when collision</param>
     public void AddRectangleCollision(Vec2 size, Vec2? offset = null, float density = 1f, float restitution = 0.5f, 
-        float friction = 0.5f, FixtureTag tag = FixtureTag.Normal, Func<Fixture, Fixture, Contact, bool>? onCollision = null)
+        float friction = 0.5f, FixtureTag tag = FixtureTag.Normal)
     {
         var fixture = new FixtureInfo()
         {
@@ -114,8 +114,7 @@ public class PhysicsComponent: Component
             Type = FixtureType.Rectangle,
             Parameter = size,
             Offset = offset ?? Vec2.Zero,
-            Tag = tag,
-            OnCollision = onCollision
+            Tag = tag
         };
         _fixtures.Add(fixture);
     }
@@ -129,9 +128,8 @@ public class PhysicsComponent: Component
     /// <param name="restitution">Collision Restitution</param>
     /// <param name="friction">Collision Friction</param>
     /// <param name="tag">Collision Tag</param>
-    /// <param name="onCollision">Function when collision</param>
     public void AddCircleCollision(float radius, Vec2? offset = null, float density = 1f, float restitution = 0.5f, 
-        float friction = 0.5f, FixtureTag tag = FixtureTag.Normal, Func<Fixture, Fixture, Contact, bool>? onCollision = null)
+        float friction = 0.5f, FixtureTag tag = FixtureTag.Normal)
     {
         var fixture = new FixtureInfo()
         {
@@ -141,8 +139,7 @@ public class PhysicsComponent: Component
             Type = FixtureType.Circle,
             Parameter = radius,
             Offset = offset ?? Vec2.Zero,
-            Tag = tag,
-            OnCollision = onCollision
+            Tag = tag
         };
         _fixtures.Add(fixture);
     }
@@ -209,7 +206,6 @@ public class PhysicsComponent: Component
                     throw new Exception($"Unknown Type of Fixture : {info.Type}");
             }
 
-            fixture.OnCollision += (sender, other, contact) => info.OnCollision?.Invoke(sender, other, contact) ?? true;
             fixture.Tag = info.Tag;
             fixture.Restitution = info.Restitution;
             fixture.Friction = info.Friction;
@@ -244,16 +240,32 @@ public class PhysicsComponent: Component
 
     private bool OnCollision(Fixture sender, Fixture other, Contact contact)
     {
-        var result = true;
-        if (CollisionCallback != null)
-            result = CollisionCallback(sender, other, contact);
+        var eventArgs = new PhysicsEventArgs()
+        {
+            Sender = sender,
+            Other = other,
+            Contact = contact,
+            Result = true
+        };
+
+        CollisionCallback?.Invoke(this, eventArgs);
 
         if ((FixtureTag)sender.Tag == FixtureTag.IgnoreCollisions || (FixtureTag)other.Tag == FixtureTag.IgnoreCollisions)
-            result = false;
-        return result;
+            eventArgs.Result = false;
+        return eventArgs.Result;
     }
-    
-    private void OnSeparation(Fixture sender, Fixture other, Contact contact) => SeparationCallback?.Invoke(sender, other, contact);
+
+    private void OnSeparation(Fixture sender, Fixture other, Contact contact)
+    {
+        var eventArgs = new PhysicsEventArgs()
+        {
+            Sender = sender,
+            Other = other,
+            Contact = contact,
+            Result = true
+        };
+        SeparationCallback?.Invoke(this, eventArgs);
+    }
 
     /// <inheritdoc />
     public override string ToString() => $"PhysicsComponent(body={Body}, nbFixtures={_fixtures.Count})";

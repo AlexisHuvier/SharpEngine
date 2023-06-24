@@ -44,9 +44,4 @@ public struct FixtureInfo
     /// Tag of Fixture
     /// </summary>
     public FixtureTag Tag;
-    
-    /// <summary>
-    /// Function which define if Collision must block fixture
-    /// </summary>
-    public Func<Fixture, Fixture, Contact, bool>? OnCollision;
 }

@@ -4,6 +4,7 @@ using Raylib_cs;
 using SharpEngine.Manager;
 using SharpEngine.Math;
 using SharpEngine.Utils;
+using SharpEngine.Utils.EventArgs;
 using Color = SharpEngine.Utils.Color;
 
 namespace SharpEngine;
@@ -55,24 +56,32 @@ public class Window
     public Color BackgroundColor;
     
     /// <summary>
-    /// Function which be called in Start of Window (can stop start by return false)
+    /// Event which be called in Start of Window (can stop start by set result to false)
     /// </summary>
-    public Func<bool>? StartCallback;
+    public event EventHandler<BoolEventArgs>? StartCallback;
     
     /// <summary>
-    /// Function which be called in Stop of Window (can stop stop by return false)
+    /// Event which be called in Stop of Window (can stop stop by set result to false)
     /// </summary>
-    public Func<bool>? StopCallback;
+    public event EventHandler<BoolEventArgs>? StopCallback;
     
     /// <summary>
     /// Function which be called to render something in ImGui
     /// </summary>
     public Action<Window>? RenderImGui;
-    
+
     /// <summary>
     /// Manage Debug Mode of Window
     /// </summary>
-    public bool Debug;
+    public bool Debug
+    {
+        get => _debug;
+        set
+        {
+            _debug = value;
+            DebugManager.SetLogLevel(value ? LogLevel.LogAll : LogLevel.LogInfo);
+        }
+    }
     
     
     /// <summary>
@@ -100,9 +109,9 @@ public class Window
         set
         {
             if(_internalIndexCurrentScene != -1)
-                _scenes[_internalIndexCurrentScene].CloseScene?.Invoke(_scenes[_internalIndexCurrentScene]);
+                _scenes[_internalIndexCurrentScene].CloseScene();
             _internalIndexCurrentScene = value;
-            _scenes[_internalIndexCurrentScene].OpenScene?.Invoke(_scenes[_internalIndexCurrentScene]);
+            _scenes[_internalIndexCurrentScene].OpenScene();
         }
     }
 
@@ -115,9 +124,9 @@ public class Window
         set
         {
             if(_internalIndexCurrentScene != 1)
-                _scenes[_internalIndexCurrentScene].CloseScene?.Invoke(_scenes[_internalIndexCurrentScene]);
+                _scenes[_internalIndexCurrentScene].CloseScene();
             _internalIndexCurrentScene = _scenes.IndexOf(value);
-            _scenes[_internalIndexCurrentScene].OpenScene?.Invoke(_scenes[_internalIndexCurrentScene]);
+            _scenes[_internalIndexCurrentScene].OpenScene();
         }
     }
 
@@ -127,6 +136,7 @@ public class Window
     private bool _closeWindow;
     private readonly List<Scene> _scenes = new();
     private int _internalIndexCurrentScene = -1;
+    private bool _debug;
 
     /// <summary>
     /// Create and Init Window
@@ -215,7 +225,9 @@ public class Window
     /// </summary>
     public void Run()
     {
-        if(StartCallback != null && !StartCallback())
+        var args = new BoolEventArgs();
+        StartCallback?.Invoke(this, args);
+        if(!args.Result)
             return;
         
         // LOAD 
@@ -279,7 +291,9 @@ public class Window
     /// </summary>
     public void Stop()
     {
-        if (StopCallback == null || StopCallback())
+        var args = new BoolEventArgs();
+        StopCallback?.Invoke(this, args);
+        if(args.Result)
             _closeWindow = true;
     }
 }

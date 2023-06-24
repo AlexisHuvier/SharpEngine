@@ -14,16 +14,6 @@ namespace SharpEngine;
 public class Scene
 {
     /// <summary>
-    /// Function which will be launched when Scene is opened
-    /// </summary>
-    public Action<Scene>? OpenScene = null;
-    
-    /// <summary>
-    /// Function which will be launched when Scene is closed
-    /// </summary>
-    public Action<Scene>? CloseScene = null;
-    
-    /// <summary>
     /// Define if Scene is paused
     /// </summary>
     public bool Paused = false;
@@ -198,4 +188,14 @@ public class Scene
         foreach (var widget in Widgets)
             widget.Draw();
     }
+
+    /// <summary>
+    /// Function call when Scene is opened
+    /// </summary>
+    public virtual void OpenScene() { }
+
+    /// <summary>
+    /// Function call when Scene is closed
+    /// </summary>
+    public virtual void CloseScene() { }
 }

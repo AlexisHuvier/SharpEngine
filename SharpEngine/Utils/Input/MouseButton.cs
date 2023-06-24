@@ -8,35 +8,35 @@ public enum MouseButton
     /// <summary>
     /// Left Button
     /// </summary>
-    Left,
-
-    /// <summary>
-    /// Middle Button
-    /// </summary>
-    Middle,
+    Left = 0,
 
     /// <summary>
     /// Right Button
     /// </summary>
-    Right,
+    Right = 1,
+
+    /// <summary>
+    /// Middle Button
+    /// </summary>
+    Middle = 2,
 
     /// <summary>
     /// Side Button
     /// </summary>
-    Side,
+    Side = 3,
 
     /// <summary>
     /// Extra Button
     /// </summary>
-    Extra,
+    Extra = 4,
 
     /// <summary>
     /// Forward Button
     /// </summary>
-    Forward,
+    Forward = 5,
 
     /// <summary>
     /// Back Button
     /// </summary>
-    Back
+    Back = 6
 }

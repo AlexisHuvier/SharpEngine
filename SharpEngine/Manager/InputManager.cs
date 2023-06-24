@@ -58,6 +58,13 @@ public static class InputManager
     public static bool IsKeyReleased(Key key) => Raylib.IsKeyReleased(key.ToRayLib());
 
     /// <summary>
+    /// Check if Mouse is in Rect
+    /// </summary>
+    /// <param name="rect">Rectangle</param>
+    /// <returns>If Mouse is in Rect</returns>
+    public static bool IsMouseInRectangle(Rect rect) => rect.Contains(Raylib.GetMousePosition());
+
+    /// <summary>
     /// Check if mouse button is down
     /// </summary>
     /// <param name="button">Mouse button</param>

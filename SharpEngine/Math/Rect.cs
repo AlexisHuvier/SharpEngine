@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Numerics;
+using Raylib_cs;
 
 namespace SharpEngine.Math;
 
@@ -66,6 +68,14 @@ public struct Rect
         Height = height;
     }
 
+    /// <summary>
+    /// Return if position is in Rect
+    /// </summary>
+    /// <param name="position">Position</param>
+    /// <returns>if Position is in Rect</returns>
+    public bool Contains(Vec2 position) => X <= position.X && position.X <= X + Width &&
+                                           Y <= position.Y && position.Y <= Y + Height;
+
     /// <inheritdoc />
     public override bool Equals(object? other)
     {
@@ -98,6 +108,7 @@ public struct Rect
                                                         System.Math.Abs(r1.Y - r2.Y) < Internal.FloatTolerance &&
                                                         System.Math.Abs(r1.Width - r2.Width) < Internal.FloatTolerance &&
                                                         System.Math.Abs(r1.Height - r2.Height) < Internal.FloatTolerance;
+    
     /// <summary>
     /// Convert RectI to Rect
     /// </summary>

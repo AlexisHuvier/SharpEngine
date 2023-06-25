@@ -241,9 +241,7 @@ public class Window
             // UPDATE
             _seImGui.Update(Raylib.GetFrameTime());
             
-            foreach (var scene in _scenes)
-                scene.Update(Raylib.GetFrameTime());
-            
+            CurrentScene.Update(Raylib.GetFrameTime());
             CameraManager.Update(Raylib.GetFrameTime());
             
             // DRAW IMGUI
@@ -255,12 +253,10 @@ public class Window
             Raylib.ClearBackground(BackgroundColor);
             
             Raylib.BeginMode2D(CameraManager.Camera2D);
-            foreach (var scene in _scenes)
-                scene.DrawEntities();
+            CurrentScene.DrawEntities();
             Raylib.EndMode2D();
 
-            foreach (var scene in _scenes)
-                scene.DrawWidgets();
+            CurrentScene.DrawWidgets();
             
             if(Debug)
                 _seImGui.Draw();

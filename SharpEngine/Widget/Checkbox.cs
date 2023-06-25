@@ -2,6 +2,7 @@
 using Raylib_cs;
 using SharpEngine.Manager;
 using SharpEngine.Math;
+using SharpEngine.Utils.EventArgs;
 using Color = SharpEngine.Utils.Color;
 using MouseButton = SharpEngine.Utils.Input.MouseButton;
 
@@ -25,7 +26,7 @@ public class Checkbox: Widget
     /// <summary>
     /// Event trigger when value is changed
     /// </summary>
-    public event EventHandler? ValueChanged; 
+    public event EventHandler<ValueEventArgs<bool>>? ValueChanged; 
 
     /// <summary>
     /// Create Checkbox
@@ -49,8 +50,12 @@ public class Checkbox: Widget
         if (InputManager.IsMouseButtonPressed(MouseButton.Left) &&
             InputManager.IsMouseInRectangle(new Rect(RealPosition - Size / 2, Size)))
         {
-            ValueChanged?.Invoke(this, EventArgs.Empty);
             IsChecked = !IsChecked;
+            ValueChanged?.Invoke(this, new ValueEventArgs<bool>()
+            {
+                OldValue = !IsChecked,
+                NewValue = IsChecked
+            });
         }
     }
 

@@ -2,6 +2,7 @@
 using System.Numerics;
 using ImGuiNET;
 using Raylib_cs;
+using SharpEngine.Manager;
 
 namespace SharpEngine.Utils;
 
@@ -146,10 +147,10 @@ public class SeImGui : IDisposable
         }
 
         // Key input
-        var keyPressed = Raylib.GetCharPressed();
-        if (keyPressed != 0)
+        foreach (var charGot in InputManager.InternalPressedChars)
         {
-            io.AddInputCharacter((uint)keyPressed);
+            if(charGot != 0)
+                io.AddInputCharacter((uint)charGot);
         }
     }
 

@@ -229,15 +229,39 @@ public class Window
         StartCallback?.Invoke(this, args);
         if(!args.Result)
             return;
-        
-        // LOAD 
+
+        #region Load
+
         DebugManager.Log(LogLevel.LogInfo, "Loading Scenes...");
         foreach (var scene in _scenes)
             scene.Load();
         DebugManager.Log(LogLevel.LogInfo, "Scenes loaded !");
 
+        #endregion
+
         while (!Raylib.WindowShouldClose() && !_closeWindow)
         {
+            #region Update Pressed Keys and Chars
+            
+            InputManager.InternalPressedChars.Clear();
+            InputManager.InternalPressedKeys.Clear();
+
+            var key = Raylib.GetKeyPressed();
+            while (key > 0)
+            {
+                InputManager.InternalPressedKeys.Add(key);
+                key = Raylib.GetKeyPressed();
+            }
+            
+            var charGot = Raylib.GetCharPressed();
+            while (charGot > 0)
+            {
+                InputManager.InternalPressedChars.Add(charGot);
+                charGot = Raylib.GetCharPressed();
+            }
+
+            #endregion
+            
             // UPDATE
             _seImGui.Update(Raylib.GetFrameTime());
             

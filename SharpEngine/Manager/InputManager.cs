@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Raylib_cs;
 using SharpEngine.Math;
 using SharpEngine.Utils;
@@ -12,22 +13,19 @@ namespace SharpEngine.Manager;
 /// </summary>
 public static class InputManager
 {
-    /// <summary>
-    /// Return all pressed keys
-    /// </summary>
-    /// <returns>Pressed Key Array</returns>
-    public static Key[] GetPressedKeys()
-    {
-        var keys = new List<Key>();
-        var key = Raylib.GetKeyPressed();
-        while (key > 0)
-        {
-            keys.Add((Key)key);
-            key = Raylib.GetKeyPressed();
-        }
+    internal static List<int> InternalPressedChars { get; } = new();
+    internal static List<int> InternalPressedKeys { get; set; } = new();
 
-        return keys.ToArray();
-    }
+    /// <summary>
+    /// List of Pressed Chars in Frame
+    /// </summary>
+    public static List<char> PressedChars => InternalPressedChars.Select(x => (char)x).ToList();
+    
+    /// <summary>
+    /// List of Pressed Keys in Frame
+    /// </summary>
+    public static List<Key> PressedKeys => InternalPressedKeys.Cast<Key>().ToList();
+    
     
     /// <summary>
     /// Check if key is down

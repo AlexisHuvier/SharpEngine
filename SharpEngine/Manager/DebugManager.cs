@@ -25,7 +25,7 @@ public static class DebugManager
     /// <summary>
     /// SharpEngine Version
     /// </summary>
-    public const string SeVersion = "1.2.0";
+    public const string SeVersion = "1.2.1";
 
     /// <summary>
     /// Create ImGui Window for SharpEngine

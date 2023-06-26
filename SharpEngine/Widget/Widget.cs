@@ -156,6 +156,8 @@ public abstract class Widget
     /// </summary>
     public virtual void Draw()
     {
+        if(!Displayed) return;
+        
         foreach (var child in _children)
             child.Draw();
     }

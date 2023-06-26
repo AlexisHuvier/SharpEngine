@@ -77,7 +77,7 @@ public class LineInput: Widget
 
         if (InputManager.IsMouseButtonPressed(MouseButton.Left))
         {
-            Focused = InputManager.IsMouseInRectangle(new Rect(Position - Size / 2, Size));
+            Focused = InputManager.IsMouseInRectangle(new Rect(RealPosition - Size / 2, Size));
             if (!Focused && _cursor)
                 _cursor = false;
         }

@@ -1,5 +1,7 @@
-﻿using Raylib_cs;
+﻿using System.Numerics;
+using Raylib_cs;
 using SharpEngine.Math;
+using SharpEngine.Utils.Widget;
 using Color = SharpEngine.Utils.Color;
 
 namespace SharpEngine.Widget;
@@ -40,17 +42,24 @@ public class Label: Widget
     public int? FontSize;
 
     /// <summary>
+    /// Style of Label
+    /// </summary>
+    public LabelStyle Style;
+
+    /// <summary>
     /// Create Label
     /// </summary>
     /// <param name="position">Label Position</param>
     /// <param name="text">Label Text</param>
     /// <param name="font">Label Font</param>
     /// <param name="color">Label Color</param>
+    /// <param name="style">Label Style</param>
     /// <param name="rotation">Label Rotation</param>
     /// <param name="centerAllLines">If Label Lines is Centered</param>
     /// <param name="fontSize">Label Font Size (or null)</param>
-    public Label(Vec2 position, string text = "", string font = "", Color? color = null, int rotation = 0,
-        bool centerAllLines = false, int? fontSize = null) : base(position)
+    public Label(Vec2 position, string text = "", string font = "", Color? color = null,
+        LabelStyle style = LabelStyle.None, int rotation = 0, bool centerAllLines = false,
+        int? fontSize = null) : base(position)
     {
         Text = text;
         Font = font;
@@ -58,6 +67,7 @@ public class Label: Widget
         Rotation = rotation;
         CenterAllLines = centerAllLines;
         FontSize = fontSize;
+        Style = style;
     }
 
     /// <inheritdoc />
@@ -71,7 +81,6 @@ public class Label: Widget
 
         var realPosition = RealPosition;
         var fontSize = FontSize ?? font.Value.baseSize;
-        var textSize = Raylib.MeasureTextEx(font.Value, Text, fontSize, 2);
         
         var textSize = Raylib.MeasureTextEx(font.Value, Text, fontSize, 2);
 
@@ -83,6 +92,11 @@ public class Label: Widget
                 CenterAllLines ? realPosition.X - lineSize.X / 2 : realPosition.X - textSize.X / 2,
                 realPosition.Y - textSize.Y / 2 + i * lineSize.Y);
             Raylib.DrawTextPro(font.Value, lines[i], finalPosition, Vector2.Zero, Rotation, fontSize, 2, Color);
+            
+            if(Style.HasFlag(LabelStyle.Strike))
+                Raylib.DrawRectangle((int)finalPosition.X, (int)(finalPosition.Y + lineSize.Y / 2), (int)lineSize.X, 2, Color.Black);
+            if(Style.HasFlag(LabelStyle.Underline))
+                Raylib.DrawRectangle((int)finalPosition.X, (int)(finalPosition.Y + lineSize.Y), (int)lineSize.X, 2, Color.Black);
         }
     }
 }

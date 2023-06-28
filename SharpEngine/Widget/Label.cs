@@ -73,20 +73,16 @@ public class Label: Widget
         var fontSize = FontSize ?? font.Value.baseSize;
         var textSize = Raylib.MeasureTextEx(font.Value, Text, fontSize, 2);
         
-        if(!CenterAllLines)
-            Raylib.DrawTextPro(font.Value, Text, realPosition, textSize / 2, Rotation, fontSize, 2, Color);
-        else
-        {
-            var lines = Text.Split("\n");
-            for (var i = 0; i < lines.Length; i++)
-            {
-                var finalPosition = new Vec2(
-                    realPosition.X,
-                    realPosition.Y - textSize.Y / 2 + i * textSize.Y / lines.Length + textSize.Y / (2 * lines.Length));
-                Raylib.DrawTextPro(font.Value, lines[i], finalPosition,
-                    Raylib.MeasureTextEx(font.Value, lines[i], fontSize, 2) / 2, Rotation, fontSize, 2, Color);
+        var textSize = Raylib.MeasureTextEx(font.Value, Text, fontSize, 2);
 
-            }
+        var lines = Text.Split("\n");
+        for (var i = 0; i < lines.Length; i++)
+        {
+            var lineSize = Raylib.MeasureTextEx(font.Value, lines[i], fontSize, 2);
+            var finalPosition = new Vec2(
+                CenterAllLines ? realPosition.X - lineSize.X / 2 : realPosition.X - textSize.X / 2,
+                realPosition.Y - textSize.Y / 2 + i * lineSize.Y);
+            Raylib.DrawTextPro(font.Value, lines[i], finalPosition, Vector2.Zero, Rotation, fontSize, 2, Color);
         }
     }
 }

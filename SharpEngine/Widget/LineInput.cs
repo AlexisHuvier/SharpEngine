@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Text;
 using Raylib_cs;
 using SharpEngine.Manager;
 using SharpEngine.Math;
-using SharpEngine.Utils;
 using SharpEngine.Utils.EventArgs;
 using SharpEngine.Utils.Input;
 using Color = SharpEngine.Utils.Color;
@@ -47,6 +47,7 @@ public class LineInput: Widget
 
     private float _timer;
     private bool _cursor;
+    private string? _displayText;
 
     /// <summary>
     /// Create Line Input
@@ -64,6 +65,8 @@ public class LineInput: Widget
         FontSize = fontSize;
         Focused = false;
         _timer = 0.5f;
+
+        ValueChanged += (_, _) => UpdateDisplayText();
     }
 
     /// <inheritdoc />
@@ -87,24 +90,29 @@ public class LineInput: Widget
         #region Text Processing
 
         if (InputManager.IsKeyPressed(Key.Backspace) && Text.Length >= 1)
+        {
+            var old = Text;
             Text = Text[..^1];
+            ValueChanged?.Invoke(this, new ValueEventArgs<string>
+            {
+                OldValue = old,
+                NewValue = Text
+            });
+        }
 
         var font = Scene?.Window?.FontManager.GetFont(Font);
         if (font != null)
         {
-            var fontSize = FontSize ?? font.Value.baseSize;
             foreach (var pressedChar in InputManager.PressedChars)
             {
-                if ((char.IsSymbol(pressedChar) || char.IsWhiteSpace(pressedChar) ||
-                    char.IsLetterOrDigit(pressedChar) || char.IsPunctuation(pressedChar)) &&
-                    Raylib.MeasureTextEx(font.Value, Text + pressedChar, fontSize, 2).X < Size.X - 8)
+                if (char.IsSymbol(pressedChar) || char.IsWhiteSpace(pressedChar) ||
+                    char.IsLetterOrDigit(pressedChar) || char.IsPunctuation(pressedChar))
                 {
-                    var old = Text;
                     Text += pressedChar;
-                    ValueChanged?.Invoke(this, new ValueEventArgs<string>()
+                    ValueChanged?.Invoke(this, new ValueEventArgs<string>
                     {
-                        OldValue = old,
-                        NewValue = Text
+                        OldValue = Text,
+                        NewValue = Text[..^1]
                     });
                 }
             }
@@ -139,18 +147,44 @@ public class LineInput: Widget
         if(Text.Length <= 0 || Font.Length <= 0 || font == null) return;
 
         var fontSize = FontSize ?? font.Value.baseSize;
+        
+        if(_displayText == null)
+            UpdateDisplayText();
+
+        var textSize = Raylib.MeasureTextEx(font.Value, _displayText, fontSize, 2);
+        
+        var finalPosition = new Vec2(position.X - Size.X / 2 + 4, position.Y - textSize.Y / 2);
+        
+        Raylib.DrawTextEx(font.Value, _displayText, finalPosition, fontSize, 2, Color.Black);
+
         if (_cursor)
+            Raylib.DrawRectangle((int)(position.X - Size.X / 2 + 10 + textSize.X), (int)(position.Y - textSize.Y / 2),
+                5, (int)Size.Y, Color.Black);
+    }
+
+    /// <summary>
+    /// Update Displayed Text
+    /// </summary>
+    public void UpdateDisplayText()
+    {
+        var fontLocal = Scene?.Window?.FontManager.GetFont(Font);
+        if (fontLocal == null) return;
+            
+        var fontSizeLocal = FontSize ?? fontLocal.Value.baseSize;
+        _displayText = GetDisplayedText(fontLocal, fontSizeLocal, Size.X - 18, Text);
+    }
+
+    private string GetDisplayedText(Font? font, int fontSize, float sizeX, string text)
+    {
+        var current = new StringBuilder();
+        var index = text.Length - 1;
+
+        while (index >= 0 && Raylib.MeasureTextEx(font.Value, current.ToString(), fontSize, 2).X <= sizeX)
         {
-            var textSize = Raylib.MeasureTextEx(font.Value, Text + "I", fontSize, 2);
-            Raylib.DrawTextEx(font.Value, Text + "I", new Vec2(position.X - Size.X / 2 + 4, position.Y - textSize.Y / 2),
-                fontSize, 2, Color.Black);
-        }
-        else
-        {
-            var textSize = Raylib.MeasureTextEx(font.Value, Text, fontSize, 2);
-            Raylib.DrawTextEx(font.Value, Text, new Vec2(position.X - Size.X / 2 + 4, position.Y - textSize.Y / 2),
-                fontSize, 2, Color.Black);
+            current.Insert(0, text[index]);
+            index--;
         }
 
+        return index == -1 ? text : current.Remove(0, 1).ToString();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Text;
 using Raylib_cs;
 using SharpEngine.Manager;
@@ -43,11 +44,7 @@ public class LineInput: Widget
     /// <summary>
     /// Event trigger when value is changed
     /// </summary>
-    public event EventHandler<ValueEventArgs<string>>? ValueChanged; 
-
-    private float _timer;
-    private bool _cursor;
-    private string? _displayText;
+    public event EventHandler<ValueEventArgs<string>>? ValueChanged;
 
     /// <summary>
     /// Create Line Input
@@ -64,9 +61,6 @@ public class LineInput: Widget
         Size = size ?? new Vec2(300, 50);
         FontSize = fontSize;
         Focused = false;
-        _timer = 0.5f;
-
-        ValueChanged += (_, _) => UpdateDisplayText();
     }
 
     /// <inheritdoc />
@@ -74,17 +68,13 @@ public class LineInput: Widget
     {
         if (!Active)
         {
-            _cursor = false;
+            Focused = false;
             return;
         }
 
         if (InputManager.IsMouseButtonPressed(MouseButton.Left))
-        {
             Focused = InputManager.IsMouseInRectangle(new Rect(RealPosition - Size / 2, Size));
-            if (!Focused && _cursor)
-                _cursor = false;
-        }
-        
+
         if(!Focused) return;
 
         #region Text Processing
@@ -119,14 +109,6 @@ public class LineInput: Widget
         }
 
         #endregion
-
-        if (_timer <= 0)
-        {
-            _cursor = !_cursor;
-            _timer = 0.5f;
-        }
-
-        _timer -= delta;
     }
 
     /// <inheritdoc />
@@ -144,47 +126,24 @@ public class LineInput: Widget
         
         var font = Scene?.Window?.FontManager.GetFont(Font);
         
-        if(Text.Length <= 0 || Font.Length <= 0 || font == null) return;
-
+        if(Font.Length <= 0 || font == null) return;
+        
         var fontSize = FontSize ?? font.Value.baseSize;
-        
-        if(_displayText == null)
-            UpdateDisplayText();
+        var textSize = Raylib.MeasureTextEx(font.Value, Text, fontSize, 2);
+        var offset = textSize.X - (Size.X - 20);
 
-        var textSize = Raylib.MeasureTextEx(font.Value, _displayText, fontSize, 2);
-        
-        var finalPosition = new Vec2(position.X - Size.X / 2 + 4, position.Y - textSize.Y / 2);
-        
-        Raylib.DrawTextEx(font.Value, _displayText, finalPosition, fontSize, 2, Color.Black);
-
-        if (_cursor)
-            Raylib.DrawRectangle((int)(position.X - Size.X / 2 + 10 + textSize.X), (int)(position.Y - textSize.Y / 2),
-                5, (int)Size.Y, Color.Black);
-    }
-
-    /// <summary>
-    /// Update Displayed Text
-    /// </summary>
-    public void UpdateDisplayText()
-    {
-        var fontLocal = Scene?.Window?.FontManager.GetFont(Font);
-        if (fontLocal == null) return;
-            
-        var fontSizeLocal = FontSize ?? fontLocal.Value.baseSize;
-        _displayText = GetDisplayedText(fontLocal, fontSizeLocal, Size.X - 18, Text);
-    }
-
-    private string GetDisplayedText(Font? font, int fontSize, float sizeX, string text)
-    {
-        var current = new StringBuilder();
-        var index = text.Length - 1;
-
-        while (index >= 0 && Raylib.MeasureTextEx(font.Value, current.ToString(), fontSize, 2).X <= sizeX)
+        if (Text.Length > 0)
         {
-            current.Insert(0, text[index]);
-            index--;
+            var finalPosition = new Vec2(position.X - Size.X / 2 + 4, position.Y - textSize.Y / 2);
+
+            Raylib.BeginScissorMode((int)finalPosition.X, (int)finalPosition.Y, (int)Size.X - 8, (int)textSize.Y);
+            Raylib.DrawTextEx(font.Value, Text, new Vec2(finalPosition.X - (offset > 0 ? offset : 0), finalPosition.Y),
+                fontSize, 2, Color.Black);
+            Raylib.EndScissorMode();
         }
 
-        return index == -1 ? text : current.Remove(0, 1).ToString();
+        if (Focused)
+            Raylib.DrawRectangle((int)(position.X - Size.X / 2 + 10 + textSize.X - (offset > 0 ? offset : 0)), (int)(position.Y - textSize.Y / 2 + 4),
+                5, (int)textSize.Y - 8, Color.Black);
     }
 }

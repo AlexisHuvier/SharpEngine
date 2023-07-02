@@ -74,6 +74,35 @@ public abstract class Widget
     }
     
     /// <summary>
+    /// Return Displayed Rect for Widget
+    /// </summary>
+    /// <returns>Rect</returns>
+    public abstract Rect GetDisplayedRect();
+
+    /// <summary>
+    /// Return Displayed Rect for Widget and Children
+    /// </summary>
+    /// <returns>Rect</returns>
+    public Rect GetTotalDisplayedRect()
+    {
+        var rect = GetDisplayedRect();
+        foreach (var child in Children)
+        {
+            var childRect = child.GetDisplayedRect();
+            if (childRect.X < rect.X)
+                rect.X = childRect.X;
+            if (childRect.Y < rect.Y)
+                rect.Y = childRect.Y;
+            if (childRect.X + childRect.Width > rect.X + rect.Width)
+                rect.Width = childRect.X + childRect.Width - rect.X;
+            if (childRect.Y + childRect.Height > rect.Y + rect.Height)
+                rect.Height = childRect.Y + childRect.Height - rect.Y;
+        }
+
+        return rect;
+    }
+    
+    /// <summary>
     /// Get All Children of one Type
     /// </summary>
     /// <typeparam name="T">Type of Children</typeparam>

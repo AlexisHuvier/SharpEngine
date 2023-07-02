@@ -45,6 +45,9 @@ public class Frame: Widget
         BorderSize = borderSize;
         BackgroundColor = backgroundColor;
     }
+    
+    /// <inheritdoc />
+    public override Rect GetDisplayedRect() => new (RealPosition - Size / 2, Size);
 
     /// <inheritdoc />
     public override void Draw()

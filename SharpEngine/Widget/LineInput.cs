@@ -60,6 +60,9 @@ public class LineInput: Widget
         FontSize = fontSize;
         Focused = false;
     }
+    
+    /// <inheritdoc />
+    public override Rect GetDisplayedRect() => new (RealPosition - Size / 2, Size);
 
     /// <inheritdoc />
     public override void Update(float delta)

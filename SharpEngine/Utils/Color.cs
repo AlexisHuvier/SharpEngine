@@ -79,6 +79,20 @@ public struct Color
     }
 
     /// <summary>
+    /// Return Darker Color
+    /// </summary>
+    /// <param name="force">Force of Darker Color</param>
+    /// <returns>Darker Color</returns>
+    public Color Darker(int force = 1) => new(_r - 10 * force, _g - 10 * force, _b - 10 * force, _a);
+
+    /// <summary>
+    /// Return Lighter Color
+    /// </summary>
+    /// <param name="force">Force of Lighter Color</param>
+    /// <returns>Lighter Color</returns>
+    public Color Lighter(int force = 1) => new(_r + 10 * force, _g + 10 * force, _b + 10 * force, _a);
+
+    /// <summary>
     /// Transition Color to target color
     /// </summary>
     /// <param name="endColor">Target Color</param>

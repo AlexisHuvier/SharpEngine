@@ -1,7 +1,4 @@
-﻿using System;
-using SharpEngine.Math;
-using tainicom.Aether.Physics2D.Dynamics;
-using tainicom.Aether.Physics2D.Dynamics.Contacts;
+﻿using SharpEngine.Math;
 
 namespace SharpEngine.Utils.Physic;
 

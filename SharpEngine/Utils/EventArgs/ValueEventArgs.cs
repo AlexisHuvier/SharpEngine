@@ -10,7 +10,7 @@ public class ValueEventArgs<T>: System.EventArgs
     /// Old Value
     /// </summary>
     public T OldValue { get; init; }
-    
+
     /// <summary>
     /// New Value
     /// </summary>

@@ -1,5 +1,4 @@
-﻿using SharpEngine.Manager;
-using SharpEngine.Math;
+﻿using SharpEngine.Math;
 
 namespace SharpEngine.Component;
 

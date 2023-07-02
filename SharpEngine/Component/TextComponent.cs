@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-using Raylib_cs;
+﻿using Raylib_cs;
 using SharpEngine.Math;
 using Color = SharpEngine.Utils.Color;
 
@@ -46,7 +45,7 @@ public class TextComponent: Component
     /// Create TextComponent
     /// </summary>
     /// <param name="text">Text</param>
-/// <param name="font">Font Name (RAYLIB_DEFAULT)</param>
+    /// <param name="font">Font Name (RAYLIB_DEFAULT)</param>
     /// <param name="color">Color (Color.Black)</param>
     /// <param name="displayed">If Text is Displayed (true)</param>
     /// <param name="fontSize">Font Size (null)</param>

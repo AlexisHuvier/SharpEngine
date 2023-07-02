@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Numerics;
-using System.Text;
 using Raylib_cs;
 using SharpEngine.Manager;
 using SharpEngine.Math;

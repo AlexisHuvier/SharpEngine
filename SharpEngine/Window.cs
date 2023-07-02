@@ -261,18 +261,21 @@ public class Window
             }
 
             #endregion
+
+            #region Update
             
-            // UPDATE
             _seImGui.Update(Raylib.GetFrameTime());
             
             CurrentScene.Update(Raylib.GetFrameTime());
             CameraManager.Update(Raylib.GetFrameTime());
-            
-            // DRAW IMGUI
+
+            #endregion
+
+            #region Draw
+
             if(Debug)
                 RenderImGui?.Invoke(this);
             
-            // DRAW
             Raylib.BeginDrawing();
             Raylib.ClearBackground(BackgroundColor);
             
@@ -286,7 +289,11 @@ public class Window
                 _seImGui.Draw();
             
             Raylib.EndDrawing();
+
+            #endregion
         }
+
+        #region Unload
         
         // UNLOAD
         DebugManager.Log(LogLevel.LogInfo, "Unloading Scenes...");
@@ -304,6 +311,8 @@ public class Window
         DebugManager.Log(LogLevel.LogInfo, "Closing Window.");
         Raylib.CloseAudioDevice();
         Raylib.CloseWindow();
+
+        #endregion
     }
 
     /// <summary>

@@ -127,7 +127,7 @@ public class SeImGui : IDisposable
     {
         var io = ImGui.GetIO();
         io.DisplaySize = new Vector2(width, height) / _scaleFactor;
-        Console.WriteLine($"Imgui displaysize: {io.DisplaySize}");
+        DebugManager.Log(LogLevel.LogInfo, $"IMGUI: Display size {io.DisplaySize}");
     }
 
     private void UpdateKeyboard()

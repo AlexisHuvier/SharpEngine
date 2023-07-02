@@ -232,10 +232,10 @@ public class Window
 
         #region Load
 
-        DebugManager.Log(LogLevel.LogInfo, "Loading Scenes...");
+        DebugManager.Log(LogLevel.LogInfo, "SE: Loading Scenes...");
         foreach (var scene in _scenes)
             scene.Load();
-        DebugManager.Log(LogLevel.LogInfo, "Scenes loaded !");
+        DebugManager.Log(LogLevel.LogInfo, "SE: Scenes loaded !");
 
         #endregion
 
@@ -295,20 +295,19 @@ public class Window
 
         #region Unload
         
-        // UNLOAD
-        DebugManager.Log(LogLevel.LogInfo, "Unloading Scenes...");
+        DebugManager.Log(LogLevel.LogInfo, "SE: Unloading Scenes...");
         foreach (var scene in _scenes)
             scene.Unload();
-        DebugManager.Log(LogLevel.LogInfo, "Scenes unloaded !");
+        DebugManager.Log(LogLevel.LogInfo, "SE: Scenes unloaded !");
         
-        DebugManager.Log(LogLevel.LogInfo, "Unloading Textures...");
+        DebugManager.Log(LogLevel.LogInfo, "SE: Unloading Textures...");
         TextureManager.Unload();
-        DebugManager.Log(LogLevel.LogInfo, "Textures unloaded !");
-        DebugManager.Log(LogLevel.LogInfo, "Unloading Fonts...");
+        DebugManager.Log(LogLevel.LogInfo, "SE: Textures unloaded !");
+        DebugManager.Log(LogLevel.LogInfo, "SE: Unloading Fonts...");
         FontManager.Unload();
-        DebugManager.Log(LogLevel.LogInfo, "Fonts unloaded !");
+        DebugManager.Log(LogLevel.LogInfo, "SE: Fonts unloaded !");
         
-        DebugManager.Log(LogLevel.LogInfo, "Closing Window.");
+        DebugManager.Log(LogLevel.LogInfo, "SE: Closing Window.");
         Raylib.CloseAudioDevice();
         Raylib.CloseWindow();
 

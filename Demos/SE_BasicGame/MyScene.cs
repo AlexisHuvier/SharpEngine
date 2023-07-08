@@ -8,6 +8,9 @@ internal class MyScene : Scene
 {
     public MyScene()
     {
-        AddWidget(new MultiLineInput(new Vec2(300), "", "basic"));
+        var scrollFrame = AddWidget(new ScrollFrame(new Vec2(300), new Vec2(200)));
+
+        for (int i = 0; i < 500; i += 50)
+            scrollFrame.AddChild(new Label(new Vec2(0, i), $"Test {i}", "basic"));
     }
 }

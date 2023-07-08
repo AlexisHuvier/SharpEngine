@@ -8,7 +8,10 @@ using MouseButton = SharpEngine.Utils.Input.MouseButton;
 using Color = SharpEngine.Utils.Color;
 
 namespace SharpEngine.Widget;
-
+    
+/// <summary>
+/// Class which represents Multi Line Input
+/// </summary>
 public class MultiLineInput: Widget
 {
     /// <summary>

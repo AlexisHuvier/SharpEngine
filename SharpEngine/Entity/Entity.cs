@@ -38,7 +38,7 @@ public class Entity
     /// <typeparam name="T">Type of Component</typeparam>
     /// <returns>Components of type T</returns>
     public List<T> GetComponentsAs<T>() where T : Component.Component =>
-        _components.FindAll(w => w.GetType() == typeof(T)).Cast<T>().ToList();
+        _components.OfType<T>().ToList();
     
     /// <summary>
     /// Get Component of one Type
@@ -46,7 +46,7 @@ public class Entity
     /// <typeparam name="T">Type of Component</typeparam>
     /// <returns>Component of type T</returns>
     public T? GetComponentAs<T>() where T: Component.Component =>
-        (T?)_components.Find(w => w.GetType() == typeof(T));
+        _components.OfType<T>().FirstOrDefault();
 
     /// <summary>
     /// Get Scene as T

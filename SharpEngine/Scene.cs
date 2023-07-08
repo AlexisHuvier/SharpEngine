@@ -70,7 +70,7 @@ public class Scene
     /// <typeparam name="T">Type of Widgets</typeparam>
     /// <returns>Widgets</returns>
     public List<T> GetWidgetsAs<T>() where T : Widget.Widget =>
-        Widgets.FindAll(w => w.GetType() == typeof(T)).Cast<T>().ToList();
+        Widgets.OfType<T>().ToList();
 
     /// <summary>
     /// Remove Widget

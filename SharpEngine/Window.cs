@@ -99,6 +99,16 @@ public class Window
     /// Font Manager of Window
     /// </summary>
     public FontManager FontManager { get; }
+    
+    /// <summary>
+    /// Sound Manager of Window
+    /// </summary>
+    public SoundManager SoundManager { get; }
+
+    /// <summary>
+    /// Music Manager of Window
+    /// </summary>
+    public MusicManager MusicManager { get; }
 
     /// <summary>
     /// Index of Current Scene
@@ -172,6 +182,8 @@ public class Window
         TextureManager = new TextureManager();
         FontManager = new FontManager();
         CameraManager = new CameraManager();
+        SoundManager = new SoundManager();
+        MusicManager = new MusicManager();
         CameraManager.SetScreenSize(screenSize);
     }
 

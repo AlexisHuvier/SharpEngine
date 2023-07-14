@@ -119,9 +119,9 @@ public class Window
         set
         {
             if(_internalIndexCurrentScene != -1)
-                _scenes[_internalIndexCurrentScene].CloseScene();
+                Scenes[_internalIndexCurrentScene].CloseScene();
             _internalIndexCurrentScene = value;
-            _scenes[_internalIndexCurrentScene].OpenScene();
+            Scenes[_internalIndexCurrentScene].OpenScene();
         }
     }
 
@@ -130,21 +130,25 @@ public class Window
     /// </summary>
     public Scene CurrentScene
     {
-        get => _scenes[_internalIndexCurrentScene];
+        get => Scenes[_internalIndexCurrentScene];
         set
         {
             if(_internalIndexCurrentScene != 1)
-                _scenes[_internalIndexCurrentScene].CloseScene();
-            _internalIndexCurrentScene = _scenes.IndexOf(value);
-            _scenes[_internalIndexCurrentScene].OpenScene();
+                Scenes[_internalIndexCurrentScene].CloseScene();
+            _internalIndexCurrentScene = Scenes.IndexOf(value);
+            Scenes[_internalIndexCurrentScene].OpenScene();
         }
     }
 
+    /// <summary>
+    /// Get All Scenes
+    /// </summary>
+    public List<Scene> Scenes { get; } = new();
+    
     private Vec2I _screenSize;
     private string _title;
     private readonly SeImGui _seImGui;
     private bool _closeWindow;
-    private readonly List<Scene> _scenes = new();
     private int _internalIndexCurrentScene = -1;
     private bool _debug;
 
@@ -206,8 +210,8 @@ public class Window
     public void AddScene(Scene scene)
     {
         scene.Window = this;
-        _scenes.Add(scene);
-        _internalIndexCurrentScene = _scenes.Count - 1;
+        Scenes.Add(scene);
+        _internalIndexCurrentScene = Scenes.Count - 1;
     }
 
     /// <summary>
@@ -215,14 +219,14 @@ public class Window
     /// </summary>
     /// <param name="index">Index of Scene</param>
     /// <returns>Scene</returns>
-    public Scene GetScene(int index) => _scenes[index];
+    public Scene GetScene(int index) => Scenes[index];
 
     /// <summary>
     /// Get Current Scene cast as T
     /// </summary>
     /// <typeparam name="T">Type as Scene</typeparam>
     /// <returns>Current Scene cast as T</returns>
-    public T GetCurrentScene<T>() where T : Scene => (T)_scenes[_internalIndexCurrentScene];
+    public T GetCurrentScene<T>() where T : Scene => (T)Scenes[_internalIndexCurrentScene];
 
     /// <summary>
     /// Get Scene cast as T
@@ -230,7 +234,7 @@ public class Window
     /// <param name="index">Index of Scene</param>
     /// <typeparam name="T">Type as Scene</typeparam>
     /// <returns>Scene cast as T</returns>
-    public T GetScene<T>(int index) where T : Scene => (T)_scenes[index];
+    public T GetScene<T>(int index) where T : Scene => (T)Scenes[index];
 
     /// <summary>
     /// Run Window
@@ -245,7 +249,7 @@ public class Window
         #region Load
 
         DebugManager.Log(LogLevel.LogInfo, "SE: Loading Scenes...");
-        foreach (var scene in _scenes)
+        foreach (var scene in Scenes)
             scene.Load();
         DebugManager.Log(LogLevel.LogInfo, "SE: Scenes loaded !");
 
@@ -296,10 +300,10 @@ public class Window
             Raylib.EndMode2D();
 
             CurrentScene.DrawWidgets();
-            
-            if(Debug)
+
+            if (Debug)
                 _seImGui.Draw();
-            
+
             Raylib.EndDrawing();
 
             #endregion
@@ -308,7 +312,7 @@ public class Window
         #region Unload
         
         DebugManager.Log(LogLevel.LogInfo, "SE: Unloading Scenes...");
-        foreach (var scene in _scenes)
+        foreach (var scene in Scenes)
             scene.Unload();
         DebugManager.Log(LogLevel.LogInfo, "SE: Scenes unloaded !");
         

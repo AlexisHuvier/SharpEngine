@@ -25,7 +25,7 @@ public class FontManager
     /// <param name="fontSize">Font Size (25)</param>
     public void AddFont(string name, string file, int fontSize = 25)
     {
-        if(!_fonts.TryAdd(name, Raylib.LoadFontEx(file, fontSize, null, 0)))
+        if(!_fonts.TryAdd(name, Raylib.LoadFontEx(file, fontSize, null, 300)))
             DebugManager.Log(LogLevel.LogWarning, $"SE_FONTMANAGER: Font already exist : {name}");
     }
 

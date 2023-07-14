@@ -152,6 +152,9 @@ public class Window
     private int _internalIndexCurrentScene = -1;
     private bool _debug;
 
+    private float _updateStepTimer;
+    private const float UpdateStep = 1 / 60f;
+
     /// <summary>
     /// Create and Init Window
     /// </summary>
@@ -279,11 +282,19 @@ public class Window
             #endregion
 
             #region Update
-            
-            _seImGui.Update(Raylib.GetFrameTime());
-            
-            CurrentScene.Update(Raylib.GetFrameTime());
-            CameraManager.Update(Raylib.GetFrameTime());
+
+            var delta = Raylib.GetFrameTime();
+
+            _updateStepTimer += delta;
+
+            if (_updateStepTimer >= UpdateStep)
+            {
+                _seImGui.Update(UpdateStep);
+
+                CurrentScene.Update(UpdateStep);
+                CameraManager.Update(UpdateStep);
+                _updateStepTimer -= UpdateStep;
+            }
 
             #endregion
 

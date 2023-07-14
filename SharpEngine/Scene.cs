@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SharpEngine.Component;
 using SharpEngine.Math;
 using SharpEngine.Utils;
 using tainicom.Aether.Physics2D.Dynamics;
@@ -111,6 +112,8 @@ public class Scene
     /// <param name="entity">Entity to be removed</param>
     public void RemoveEntity(Entity.Entity entity)
     {
+        if(entity.GetComponentAs<PhysicsComponent>() is { } physics)
+            physics.RemoveBody();
         entity.Scene = null;
         Entities.Remove(entity);
     }

@@ -74,6 +74,8 @@ public class Entity
     /// <param name="component">Component will be removed</param>
     public void RemoveComponent(Component.Component component)
     {
+        if(component is PhysicsComponent physicsComponent)
+            physicsComponent.RemoveBody();
         component.Entity = null;
         _components.Remove(component);
     }

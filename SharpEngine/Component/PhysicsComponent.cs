@@ -106,7 +106,7 @@ public class PhysicsComponent: Component
     public void AddRectangleCollision(Vec2 size, Vec2? offset = null, float density = 1f, float restitution = 0.5f, 
         float friction = 0.5f, FixtureTag tag = FixtureTag.Normal)
     {
-        var fixture = new FixtureInfo()
+        var fixture = new FixtureInfo
         {
             Density = density,
             Restitution = restitution,
@@ -131,7 +131,7 @@ public class PhysicsComponent: Component
     public void AddCircleCollision(float radius, Vec2? offset = null, float density = 1f, float restitution = 0.5f, 
         float friction = 0.5f, FixtureTag tag = FixtureTag.Normal)
     {
-        var fixture = new FixtureInfo()
+        var fixture = new FixtureInfo
         {
             Density = density,
             Restitution = restitution,

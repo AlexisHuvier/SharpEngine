@@ -162,9 +162,10 @@ public class Window
     /// <param name="height">Height of Window</param>
     /// <param name="title">Title of Window</param>
     /// <param name="backgroundColor">Background Color of Window (Black)</param>
+    /// <param name="fps">Number of FPS (60)</param>
     /// <param name="debug">Debug Mode (false)</param>
-    public Window(int width, int height, string title, Color? backgroundColor = null, bool debug = false) : 
-        this(new Vec2I(width, height), title, backgroundColor, debug) {}
+    public Window(int width, int height, string title, Color? backgroundColor = null, int? fps = 60, bool debug = false) : 
+        this(new Vec2I(width, height), title, backgroundColor, fps, debug) {}
 
     /// <summary>
     /// Create and Init Window
@@ -172,8 +173,9 @@ public class Window
     /// <param name="screenSize">Size of Window</param>
     /// <param name="title">Title of Window</param>
     /// <param name="backgroundColor">Background Color of Window (Black)</param>
+    /// <param name="fps">Number of FPS (60)</param>
     /// <param name="debug">Debug Mode (false)</param>
-    public Window(Vec2I screenSize, string title, Color? backgroundColor = null, bool debug = false)
+    public Window(Vec2I screenSize, string title, Color? backgroundColor = null, int? fps = 60, bool debug = false)
     {
         _title = title;
         _screenSize = screenSize;
@@ -192,6 +194,9 @@ public class Window
         SoundManager = new SoundManager();
         MusicManager = new MusicManager();
         CameraManager.SetScreenSize(screenSize);
+        
+        if(fps != null)
+            Raylib.SetTargetFPS(fps.Value);
     }
 
     /// <summary>

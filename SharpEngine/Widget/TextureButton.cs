@@ -77,9 +77,6 @@ public class TextureButton: Widget
         FontSize = fontSize;
         _state = ButtonState.Idle;
     }
-    
-    /// <inheritdoc />
-    public override Rect GetDisplayedRect() => new (RealPosition - Size / 2, Size);
 
     /// <inheritdoc />
     public override void Update(float delta)

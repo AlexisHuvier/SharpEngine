@@ -79,9 +79,6 @@ public class Button: Widget
     }
 
     /// <inheritdoc />
-    public override Rect GetDisplayedRect() => new (RealPosition - Size / 2, Size);
-
-    /// <inheritdoc />
     public override void Update(float delta)
     {
         base.Update(delta);

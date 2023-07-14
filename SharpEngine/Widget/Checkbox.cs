@@ -39,9 +39,6 @@ public class Checkbox: Widget
         Size = size ?? new Vec2(20);
         IsChecked = isChecked;
     }
-    
-    /// <inheritdoc />
-    public override Rect GetDisplayedRect() => new (RealPosition - Size / 2, Size);
 
     /// <inheritdoc />
     public override void Update(float delta)

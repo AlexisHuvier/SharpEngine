@@ -37,9 +37,6 @@ public class ColorRect: Widget
         Size = size ?? Vec2.One;
         Rotation = rotation;
     }
-    
-    /// <inheritdoc />
-    public override Rect GetDisplayedRect() => new (RealPosition - Size / 2, Size);
 
     /// <inheritdoc />
     public override void Draw()

@@ -71,21 +71,6 @@ public class Label: Widget
     }
 
     /// <inheritdoc />
-    public override Rect GetDisplayedRect()
-    {
-        
-        var font = Scene?.Window?.FontManager.GetFont(Font);
-        
-        if(!Displayed || Scene == null || Text.Length <= 0 || Font.Length <= 0 || font == null) return new Rect();
-
-        var fontSize = FontSize ?? font.Value.baseSize;
-        
-        var textSize = Raylib.MeasureTextEx(font.Value, Text, fontSize, 2);
-
-        return new Rect(RealPosition - (Vec2)textSize / 2, textSize);
-    }
-
-    /// <inheritdoc />
     public override void Draw()
     {
         base.Draw();

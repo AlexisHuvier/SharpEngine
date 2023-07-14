@@ -39,18 +39,6 @@ public class Image: Widget
     }
 
     /// <inheritdoc />
-    public override Rect GetDisplayedRect()
-    {
-        var window = Scene?.Window;
-        
-        if(!Displayed || Texture.Length <= 0 || window == null) return new Rect();
-
-        var texture = window.TextureManager.GetTexture(Texture);
-        var size = new Vec2(texture.width * Scale.X, texture.height * Scale.Y);
-        return new Rect(RealPosition - size / 2, size);
-    }
-
-    /// <inheritdoc />
     public override void Draw()
     {
         base.Draw();

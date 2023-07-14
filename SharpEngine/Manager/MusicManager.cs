@@ -13,6 +13,11 @@ public class MusicManager
     private readonly Dictionary<string, Music> _musics = new();
 
     /// <summary>
+    /// Get All Musics
+    /// </summary>
+    public List<Music> Musics => new(_musics.Values);
+
+    /// <summary>
     /// Add music to manager
     /// </summary>
     /// <param name="name">Music Name</param>

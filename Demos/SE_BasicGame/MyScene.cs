@@ -5,6 +5,7 @@ using SharpEngine.Manager;
 using SharpEngine.Math;
 using SharpEngine.Utils;
 using SharpEngine.Utils.Input;
+using SharpEngine.Widget;
 using tainicom.Aether.Physics2D.Dynamics;
 
 namespace SE_BasicWindow;
@@ -25,7 +26,10 @@ internal class MyScene : Scene
         e2.AddComponent(new RectComponent(Color.Red, new Vec2(50)));
         e2.AddComponent(new PhysicsComponent(BodyType.Static, ignoreGravity: true, fixedRotation: true)).AddRectangleCollision(new Vec2(50));
         AddEntity(e2);
-    }
+
+        AddWidget(new Label(new Vec2(400), "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHI\nJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmn\nopqrstuvwxyz{|}~¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓ\nÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷\nøùúûüýþÿ", "basic"));
+        AddWidget(new Label(new Vec2(400, 100), "&é-è_àçù", "basic"));
+        }
 
     public override void Update(float delta)
     {

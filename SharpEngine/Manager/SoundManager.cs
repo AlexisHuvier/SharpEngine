@@ -13,6 +13,11 @@ public class SoundManager
     private readonly Dictionary<string, Sound> _sounds = new();
 
     /// <summary>
+    /// Get All Sounds
+    /// </summary>
+    public List<Sound> Sounds => new(_sounds.Values);
+
+    /// <summary>
     /// Add sound to manager
     /// </summary>
     /// <param name="name">Sound Name</param>

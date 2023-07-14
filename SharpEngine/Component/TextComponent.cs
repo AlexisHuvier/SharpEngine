@@ -12,27 +12,27 @@ public class TextComponent: Component
     /// <summary>
     /// Text which be displayed
     /// </summary>
-    public string Text;
+    public string Text { get; set; }
     
     /// <summary>
     /// Name of Font
     /// </summary>
-    public string Font;
+    public string Font { get; set; }
     
     /// <summary>
     /// Color of Text
     /// </summary>
-    public Color Color;
+    public Color Color { get; set; }
     
     /// <summary>
     /// Define if Text is displayed
     /// </summary>
-    public bool Displayed;
+    public bool Displayed { get; set; }
     
     /// <summary>
     /// Offset of Text
     /// </summary>
-    public Vec2 Offset;
+    public Vec2 Offset { get; set; }
     
     /// <summary>
     /// Font Size (can be null and use basic size of Font)

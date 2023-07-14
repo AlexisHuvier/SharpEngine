@@ -10,12 +10,12 @@ public class AutoComponent: Component
     /// <summary>
     /// Automatic Direction
     /// </summary>
-    public Vec2 Direction;
+    public Vec2 Direction { get; set; }
     
     /// <summary>
     /// Automatic Rotation
     /// </summary>
-    public int Rotation;
+    public int Rotation { get; set; }
 
     private TransformComponent? _transform;
     private PhysicsComponent? _physics;
@@ -47,7 +47,7 @@ public class AutoComponent: Component
         
         if(_transform == null) return;
 
-        if (Direction.Length != 0)
+        if (Direction.Length() != 0)
         {
             if (_physics != null)
                 _physics.SetLinearVelocity(Direction);

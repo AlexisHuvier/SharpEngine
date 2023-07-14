@@ -16,12 +16,12 @@ public class Checkbox: Widget
     /// <summary>
     /// Size of Checkbox
     /// </summary>
-    public Vec2 Size;
+    public Vec2 Size { get; set; }
     
     /// <summary>
     /// If Checkbox is Checked
     /// </summary>
-    public bool IsChecked;
+    public bool IsChecked { get; set; }
     
     /// <summary>
     /// Event trigger when value is changed

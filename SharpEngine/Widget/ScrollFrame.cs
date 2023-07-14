@@ -13,27 +13,27 @@ public class ScrollFrame: Widget
     /// <summary>
     /// Color of Scroll Frame Border
     /// </summary>
-    public Color BorderColor;
+    public Color BorderColor { get; set; }
     
     /// <summary>
     /// Size of Scroll Frame
     /// </summary>
-    public Vec2 Size;
+    public Vec2 Size { get; set; }
     
     /// <summary>
     /// Size of Scroll Frame Border 
     /// </summary>
-    public int BorderSize;
+    public int BorderSize { get; set; }
     
     /// <summary>
     /// Color of Scroll Frame Background
     /// </summary>
-    public Color? BackgroundColor;
+    public Color? BackgroundColor { get; set; }
 
     /// <summary>
     /// Scroll Factor of Scroll Frame
     /// </summary>
-    public int ScrollFactor;
+    public int ScrollFactor { get; set; }
     
     /// <summary>
     /// Create Scroll Frame

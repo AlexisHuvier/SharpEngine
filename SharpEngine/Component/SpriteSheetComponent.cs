@@ -15,27 +15,27 @@ public class SpriteSheetComponent: Component
     /// <summary>
     /// Name of Texture
     /// </summary>
-    public string Texture;
+    public string Texture { get; set; }
     
     /// <summary>
     /// Size of one frame
     /// </summary>
-    public Vec2 SpriteSize;
+    public Vec2 SpriteSize { get; set; }
     
     /// <summary>
     /// List of Animations
     /// </summary>
-    public List<Animation> Animations;
+    public List<Animation> Animations { get; set; }
     
     /// <summary>
     /// If component is displayed
     /// </summary>
-    public bool Displayed;
+    public bool Displayed { get; set; }
     
     /// <summary>
     /// Offset
     /// </summary>
-    public Vec2 Offset;
+    public Vec2 Offset { get; set; }
 
     /// <summary>
     /// Current animation

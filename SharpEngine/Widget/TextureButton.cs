@@ -22,32 +22,32 @@ public class TextureButton: Widget
     /// <summary>
     /// Text of Texture Button
     /// </summary>
-    public string Text;
+    public string Text { get; set; }
     
     /// <summary>
     /// Texture of Texture Button
     /// </summary>
-    public string Texture;
+    public string Texture { get; set; }
     
     /// <summary>
     /// Font of Button
     /// </summary>
-    public string Font;
+    public string Font { get; set; }
     
     /// <summary>
     /// Size of Button
     /// </summary>
-    public Vec2 Size;
+    public Vec2 Size { get; set; }
     
     /// <summary>
     /// Color of Button Font
     /// </summary>
-    public Color FontColor;
+    public Color FontColor { get; set; }
 
     /// <summary>
     /// Font Size of Button (or Null)
     /// </summary>
-    public int? FontSize;
+    public int? FontSize { get; set; }
     
     /// <summary>
     /// Event which trigger when button is clicked

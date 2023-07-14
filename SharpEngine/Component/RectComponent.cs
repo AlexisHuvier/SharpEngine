@@ -13,22 +13,22 @@ public class RectComponent: Component
     /// <summary>
     /// Color of Rectangle
     /// </summary>
-    public Color Color;
+    public Color Color { get; set; }
     
     /// <summary>
     /// Size of Rectangle
     /// </summary>
-    public Vec2 Size;
+    public Vec2 Size { get; set; }
     
     /// <summary>
     /// If Rectangle is displayed
     /// </summary>
-    public bool Displayed;
+    public bool Displayed { get; set; }
     
     /// <summary>
     /// Offset of Rectangle
     /// </summary>
-    public Vec2 Offset;
+    public Vec2 Offset { get; set; }
 
     private TransformComponent? _transform;
 

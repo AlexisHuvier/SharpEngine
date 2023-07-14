@@ -10,22 +10,22 @@ public struct RectI
     /// <summary>
     /// X Position
     /// </summary>
-    public int X;
+    public int X { get; set; }
     
     /// <summary>
     /// Y Position
     /// </summary>
-    public int Y;
+    public int Y { get; set; }
     
     /// <summary>
     /// Width Size
     /// </summary>
-    public int Width;
+    public int Width { get; set; }
     
     /// <summary>
     /// Height Size
     /// </summary>
-    public int Height;
+    public int Height { get; set; }
 
 
     /// <summary>

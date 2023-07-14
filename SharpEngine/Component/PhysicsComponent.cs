@@ -18,17 +18,17 @@ public class PhysicsComponent: Component
     /// <summary>
     /// Body Physics
     /// </summary>
-    public Body? Body;
+    public Body? Body { get; set; }
 
     /// <summary>
     /// Event which be called when collision
     /// </summary>
-    public EventHandler<PhysicsEventArgs>? CollisionCallback;
+    public EventHandler<PhysicsEventArgs>? CollisionCallback { get; set; }
     
     /// <summary>
     /// Event which be called when separation
     /// </summary>
-    public EventHandler<PhysicsEventArgs>? SeparationCallback;
+    public EventHandler<PhysicsEventArgs>? SeparationCallback { get; set; }
 
     private readonly BodyType _bodyType;
     private readonly List<FixtureInfo> _fixtures = new();

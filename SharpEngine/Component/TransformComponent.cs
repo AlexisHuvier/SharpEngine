@@ -10,17 +10,17 @@ public class TransformComponent: Component
     /// <summary>
     /// Position of Component
     /// </summary>
-    public Vec2 Position;
+    public Vec2 Position { get; set; }
     
     /// <summary>
     /// Scale of Component
     /// </summary>
-    public Vec2 Scale;
+    public Vec2 Scale { get; set; }
     
     /// <summary>
     /// Rotation of Component
     /// </summary>
-    public float Rotation;
+    public float Rotation { get; set; }
 
     /// <summary>
     /// Create TransformComponent

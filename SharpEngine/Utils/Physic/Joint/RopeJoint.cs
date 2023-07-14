@@ -13,7 +13,7 @@ public class RopeJoint: Joint
     /// <summary>
     /// Max Length of Joint
     /// </summary>
-    public float MaxLength;
+    public float MaxLength { get; set; }
 
     /// <summary>
     /// Create Rope Joint

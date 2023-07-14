@@ -10,22 +10,22 @@ public abstract class Joint
     /// <summary>
     /// Target of Joint
     /// </summary>
-    public Entity.Entity Target;
+    public Entity.Entity Target { get; set; }
     
     /// <summary>
     /// Type of Joint
     /// </summary>
-    public JointType Type;
+    public JointType Type { get; set; }
     
     /// <summary>
     /// From position of Joint
     /// </summary>
-    public Vec2 FromPosition;
+    public Vec2 FromPosition { get; set; }
     
     /// <summary>
     /// Target Position of Joint
     /// </summary>
-    public Vec2 TargetPosition;
+    public Vec2 TargetPosition { get; set; }
 
     /// <summary>
     /// Create Joint

@@ -17,17 +17,17 @@ public class LineInput: Widget
     /// <summary>
     /// Current Text of Line Input
     /// </summary>
-    public string Text;
+    public string Text { get; set; }
     
     /// <summary>
     /// Font of Line Input
     /// </summary>
-    public string Font;
+    public string Font { get; set; }
     
     /// <summary>
     /// Size of Line Input
     /// </summary>
-    public Vec2 Size;
+    public Vec2 Size { get; set; }
     
     /// <summary>
     /// If Line Input is Focused
@@ -37,7 +37,7 @@ public class LineInput: Widget
     /// <summary>
     /// Font Size of Line Input (or null)
     /// </summary>
-    public int? FontSize;
+    public int? FontSize { get; set; }
     
     /// <summary>
     /// Event trigger when value is changed

@@ -10,35 +10,35 @@ public struct FixtureInfo
     /// <summary>
     /// Density of Fixture
     /// </summary>
-    public float Density;
+    public float Density { get; set; }
     
     /// <summary>
     /// Restitution of Fixture
     /// </summary>
-    public float Restitution;
+    public float Restitution { get; set; }
     
     /// <summary>
     /// Friction of Fixture
     /// </summary>
-    public float Friction;
+    public float Friction { get; set; }
     
     /// <summary>
     /// Type of Fixture
     /// </summary>
-    public FixtureType Type;
+    public FixtureType Type { get; set; }
     
     /// <summary>
     /// Additional parameter of Fixture
     /// </summary>
-    public object Parameter;
+    public object Parameter { get; set; }
     
     /// <summary>
     /// Offset of Fixture
     /// </summary>
-    public Vec2 Offset;
+    public Vec2 Offset { get; set; }
     
     /// <summary>
     /// Tag of Fixture
     /// </summary>
-    public FixtureTag Tag;
+    public FixtureTag Tag { get; set; }
 }

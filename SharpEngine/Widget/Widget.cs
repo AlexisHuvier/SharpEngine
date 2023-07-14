@@ -13,27 +13,27 @@ public abstract class Widget
     /// <summary>
     /// Position of Widget
     /// </summary>
-    public Vec2 Position;
+    public Vec2 Position { get; set; }
     
     /// <summary>
     /// If Widget is Display
     /// </summary>
-    public bool Displayed = true;
+    public bool Displayed { get; set; } = true;
     
     /// <summary>
     /// If Widget is Active
     /// </summary>
-    public bool Active = true;
+    public bool Active { get; set; } = true;
     
     /// <summary>
     /// Parent of Widget (can be null)
     /// </summary>
-    public Widget? Parent;
+    public Widget? Parent { get; set; }
     
     /// <summary>
     /// How Widget must be updated when paused
     /// </summary>
-    public PauseState PauseState = PauseState.Normal;
+    public PauseState PauseState { get; set; } = PauseState.Normal;
 
     
     /// <summary>
@@ -44,9 +44,9 @@ public abstract class Widget
     /// <summary>
     /// Get All Children of Widget
     /// </summary>
-    public List<Widget> Children => _children;
+    public List<Widget> Children { get; } = new();
 
-    
+
     /// <summary>
     /// Scene of Widget
     /// </summary>
@@ -56,12 +56,11 @@ public abstract class Widget
         set
         {
             _scene = value;
-            foreach (var child in _children)
+            foreach (var child in Children)
                 child.Scene = value;
         }
     }
 
-    private readonly List<Widget> _children = new();
     private Scene? _scene;
 
     /// <summary>
@@ -108,7 +107,7 @@ public abstract class Widget
     /// <typeparam name="T">Type of Children</typeparam>
     /// <returns>Children of type T</returns>
     public List<T> GetChildrenAs<T>() where T : Widget =>
-        _children.FindAll(w => w.GetType() == typeof(T)).Cast<T>().ToList();
+        Children.FindAll(w => w.GetType() == typeof(T)).Cast<T>().ToList();
 
     /// <summary>
     /// Get Scene as T
@@ -128,7 +127,7 @@ public abstract class Widget
         if (_scene != null)
             widget.Scene = _scene;
         widget.Parent = this;
-        _children.Add(widget);
+        Children.Add(widget);
         return widget;
     }
 
@@ -139,7 +138,7 @@ public abstract class Widget
     public void RemoveChild(Widget widget)
     {
         widget.Scene = null;
-        _children.Remove(widget);
+        Children.Remove(widget);
     }
 
     /// <summary>
@@ -147,9 +146,9 @@ public abstract class Widget
     /// </summary>
     public void RemoveAllChildren()
     {
-        foreach (var child in _children)
+        foreach (var child in Children)
             child.Scene = null;
-        _children.Clear();
+        Children.Clear();
     }
 
     /// <summary>
@@ -157,7 +156,7 @@ public abstract class Widget
     /// </summary>
     public virtual void Load()
     {
-        foreach (var child in _children)
+        foreach (var child in Children)
             child.Load();
     }
 
@@ -166,7 +165,7 @@ public abstract class Widget
     /// </summary>
     public virtual void Unload()
     {
-        foreach (var child in _children)
+        foreach (var child in Children)
             child.Unload();
     }
 
@@ -176,7 +175,7 @@ public abstract class Widget
     /// <param name="delta">Time since last frame</param>
     public virtual void Update(float delta)
     {
-        foreach (var child in _children)
+        foreach (var child in Children)
             child.Update(delta);
     }
 
@@ -187,7 +186,7 @@ public abstract class Widget
     {
         if(!Displayed) return;
         
-        foreach (var child in _children)
+        foreach (var child in Children)
             child.Draw();
     }
 }

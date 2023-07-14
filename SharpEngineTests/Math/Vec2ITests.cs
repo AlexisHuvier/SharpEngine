@@ -25,8 +25,8 @@ public class Vec2ITests
     {
         var vec = new Vec2I(3, 4);
 
-        Assert.AreEqual(5, vec.Length);
-        Assert.AreEqual(25, vec.LengthSquared);
+        Assert.AreEqual(5, vec.Length());
+        Assert.AreEqual(25, vec.LengthSquared());
     }
 
     [TestMethod]
@@ -36,9 +36,9 @@ public class Vec2ITests
         var vec2 = new Vec2I(0, 5);
         var vec3 = new Vec2I(3, 4);
 
-        Assert.AreEqual(new Vec2(1, 0), vec.Normalized);
-        Assert.AreEqual(new Vec2(0, 1), vec2.Normalized);
-        Assert.AreEqual(new Vec2(.6f, .8f), vec3.Normalized);
+        Assert.AreEqual(new Vec2(1, 0), vec.Normalized());
+        Assert.AreEqual(new Vec2(0, 1), vec2.Normalized());
+        Assert.AreEqual(new Vec2(.6f, .8f), vec3.Normalized());
     }
 
     [TestMethod]

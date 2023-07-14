@@ -22,34 +22,12 @@ public struct Vec2I
     /// <summary>
     /// X Position
     /// </summary>
-    public int X;
+    public int X { get; set; }
     
     /// <summary>
     /// Y Position
     /// </summary>
-    public int Y;
-    
-    /// <summary>
-    /// Length of Vector 2D
-    /// </summary>
-    public float Length => MathF.Sqrt(X * X + Y * Y);
-    
-    /// <summary>
-    /// Squared Length of Vector 2D
-    /// </summary>
-    public float LengthSquared => X * X + Y * Y;
-
-    /// <summary>
-    /// Normalized Vector 2D
-    /// </summary>
-    public Vec2 Normalized
-    {
-        get
-        {
-            var length = MathF.Sqrt(X * X + Y * Y);
-            return length == 0 ? Vec2.Zero : new Vec2(X / length, Y / length);
-        }
-    }
+    public int Y { get; set; }
 
     /// <summary>
     /// Vector 2D
@@ -70,6 +48,25 @@ public struct Vec2I
     {
         X = x;
         Y = y;
+    }
+    
+    /// <summary>
+    /// Length of Vector 2D
+    /// </summary>
+    public float Length() => MathF.Sqrt(X * X + Y * Y);
+    
+    /// <summary>
+    /// Squared Length of Vector 2D
+    /// </summary>
+    public float LengthSquared() => X * X + Y * Y;
+
+    /// <summary>
+    /// Normalized Vector 2D
+    /// </summary>
+    public Vec2 Normalized()
+    {
+        var length = MathF.Sqrt(X * X + Y * Y);
+        return length == 0 ? Vec2.Zero : new Vec2(X / length, Y / length);
     }
 
     /// <summary>

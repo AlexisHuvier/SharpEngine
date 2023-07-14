@@ -13,17 +13,17 @@ public class DistanceJoint: Joint
     /// <summary>
     /// Length of Joint
     /// </summary>
-    public float Length;
+    public float Length { get; set; }
     
     /// <summary>
     /// Frequency of Joint
     /// </summary>
-    public float Frequency;
+    public float Frequency { get; set; }
     
     /// <summary>
     /// Damping Ratio of Joint
     /// </summary>
-    public float DampingRatio;
+    public float DampingRatio { get; set; }
 
     /// <summary>
     /// Create Distance Joint

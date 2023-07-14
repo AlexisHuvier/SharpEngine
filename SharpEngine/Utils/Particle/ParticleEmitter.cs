@@ -12,138 +12,137 @@ public class ParticleEmitter
     /// <summary>
     /// new() of Particle Emitter
     /// </summary>
-    public readonly List<Particle> Particles = new();
+    public List<Particle> Particles { get; } = new();
 
     /// <summary>
     /// BeginColors of Particle Emitter
     /// </summary>
-    public Color[] BeginColors;
+    public Color[] BeginColors { get; set; }
 
     /// <summary>
     /// EndColors of Particle Emitter
     /// </summary>
-    public Color[]? EndColors;
+    public Color[]? EndColors { get; set; }
 
     /// <summary>
     /// Offset of Particle Emitter
     /// </summary>
-    public Vec2 Offset;
+    public Vec2 Offset { get; set; }
 
     /// <summary>
     /// MinVelocity of Particle Emitter
     /// </summary>
-    public float MinVelocity;
+    public float MinVelocity { get; set; }
 
     /// <summary>
     /// MaxVelocity of Particle Emitter
     /// </summary>
-    public float MaxVelocity;
+    public float MaxVelocity { get; set; }
 
     /// <summary>
     /// MinAcceleration of Particle Emitter
     /// </summary>
-    public float MinAcceleration;
+    public float MinAcceleration { get; set; }
 
     /// <summary>
     /// MaxAcceleration of Particle Emitter
     /// </summary>
-    public float MaxAcceleration;
+    public float MaxAcceleration { get; set; }
 
     /// <summary>
     /// MinRotationSpeed of Particle Emitter
     /// </summary>
-    public float MinRotationSpeed;
+    public float MinRotationSpeed { get; set; }
 
     /// <summary>
     /// MaxRotationSpeed of Particle Emitter
     /// </summary>
-    public float MaxRotationSpeed;
+    public float MaxRotationSpeed { get; set; }
 
     /// <summary>
     /// MinRotation of Particle Emitter
     /// </summary>
-    public float MinRotation;
+    public float MinRotation { get; set; }
 
     /// <summary>
     /// MaxRotation of Particle Emitter
     /// </summary>
-    public float MaxRotation;
+    public float MaxRotation { get; set; }
 
     /// <summary>
     /// MinLifetime of Particle Emitter
     /// </summary>
-    public float MinLifetime;
+    public float MinLifetime { get; set; }
 
     /// <summary>
     /// MaxLifetime of Particle Emitter
     /// </summary>
-    public float MaxLifetime;
+    public float MaxLifetime { get; set; }
 
     /// <summary>
     /// MinDirection of Particle Emitter
     /// </summary>
-    public float MinDirection;
+    public float MinDirection { get; set; }
 
     /// <summary>
     /// MaxDirection of Particle Emitter
     /// </summary>
-    public float MaxDirection;
+    public float MaxDirection { get; set; }
 
     /// <summary>
     /// MinTimerBeforeSpawn of Particle Emitter
     /// </summary>
-    public float MinTimerBeforeSpawn;
+    public float MinTimerBeforeSpawn { get; set; }
 
     /// <summary>
     /// MaxTimerBeforeSpawn of Particle Emitter
     /// </summary>
-    public float MaxTimerBeforeSpawn;
+    public float MaxTimerBeforeSpawn { get; set; }
 
     /// <summary>
     /// MinNbParticlesPerSpawn of Particle Emitter
     /// </summary>
-    public int MinNbParticlesPerSpawn;
+    public int MinNbParticlesPerSpawn { get; set; }
 
     /// <summary>
     /// MaxNbParticlesPerSpawn of Particle Emitter
     /// </summary>
-    public int MaxNbParticlesPerSpawn;
+    public int MaxNbParticlesPerSpawn { get; set; }
 
     /// <summary>
     /// MinSize of Particle Emitter
     /// </summary>
-    public float MinSize;
+    public float MinSize { get; set; }
 
     /// <summary>
     /// MaxSize of Particle Emitter
     /// </summary>
-    public float MaxSize;
+    public float MaxSize { get; set; }
 
     /// <summary>
     /// SizeFunction of Particle Emitter
     /// </summary>
-    public ParticleParametersFunction SizeFunction;
+    public ParticleParametersFunction SizeFunction { get; set; }
 
     /// <summary>
     /// SizeFunctionValue of Particle Emitter
     /// </summary>
-    public float SizeFunctionValue;
+    public float SizeFunctionValue { get; set; }
 
     /// <summary>
     /// SpawnSize of Particle Emitter
     /// </summary>
-    public Vec2 SpawnSize;
-
-
+    public Vec2 SpawnSize { get; set; }
+    
     /// <summary>
     /// MaxParticles of Particle Emitter
     /// </summary>
-    public int MaxParticles;
+    public int MaxParticles { get; set; }
 
     /// <summary>
     /// Active of Particle Emitter
     /// </summary>
-    public bool Active;
+    public bool Active { get; set; }
 
     private List<Particle> _mustBeDeleted = new();
     private float _timerBeforeSpawn;

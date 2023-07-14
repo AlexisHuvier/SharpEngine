@@ -11,7 +11,8 @@ public class ParticleComponent: Component
     /// <summary>
     /// Particle Emitters
     /// </summary>
-    public readonly List<ParticleEmitter> ParticleEmitters = new();
+    public List<ParticleEmitter> ParticleEmitters { get; } = new();
+    
     private TransformComponent? _transform;
 
     /// <inheritdoc />

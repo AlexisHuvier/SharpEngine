@@ -10,17 +10,17 @@ public readonly struct Animation
     /// <summary>
     /// Name of Animation
     /// </summary>
-    public readonly string Name;
+    public string Name { get; }
     
     /// <summary>
     /// Indices of frames
     /// </summary>
-    public readonly List<uint> Indices;
+    public List<uint> Indices  { get; }
     
     /// <summary>
     /// Timer between frames
     /// </summary>
-    public readonly float Timer;
+    public float Timer { get; }
 
     /// <summary>
     /// Create Animation

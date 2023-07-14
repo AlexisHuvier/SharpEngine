@@ -13,17 +13,17 @@ public class SpriteComponent: Component
     /// <summary>
     /// Name of Texture which be displayed
     /// </summary>
-    public string Texture;
+    public string Texture { get; set; }
     
     /// <summary>
     /// Define if Sprite is displayed
     /// </summary>
-    public bool Displayed;
+    public bool Displayed { get; set; }
     
     /// <summary>
     /// Offset of Sprite
     /// </summary>
-    public Vec2 Offset;
+    public Vec2 Offset { get; set; }
 
     private TransformComponent? _transformComponent;
 

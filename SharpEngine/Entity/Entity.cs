@@ -13,24 +13,22 @@ public class Entity
     /// <summary>
     /// How Entity must be updated when paused
     /// </summary>
-    public PauseState PauseState = PauseState.Normal;
+    public PauseState PauseState  { get; set; } = PauseState.Normal;
 
     /// <summary>
     /// Tag of Entity
     /// </summary>
-    public string Tag = "";
+    public string Tag  { get; set; } = "";
 
     /// <summary>
     /// Scene of Entity
     /// </summary>
-    public Scene? Scene = null;
-    
+    public Scene? Scene { get; set; }
+
     /// <summary>
     /// Get All Components of Entity
     /// </summary>
-    public List<Component.Component> Components => _components;
-    
-    private readonly List<Component.Component> _components = new();
+    public List<Component.Component> Components { get; } = new();
 
     /// <summary>
     /// Get All Components of one Type
@@ -38,7 +36,7 @@ public class Entity
     /// <typeparam name="T">Type of Component</typeparam>
     /// <returns>Components of type T</returns>
     public List<T> GetComponentsAs<T>() where T : Component.Component =>
-        _components.OfType<T>().ToList();
+        Components.OfType<T>().ToList();
     
     /// <summary>
     /// Get Component of one Type
@@ -46,7 +44,7 @@ public class Entity
     /// <typeparam name="T">Type of Component</typeparam>
     /// <returns>Component of type T</returns>
     public T? GetComponentAs<T>() where T: Component.Component =>
-        _components.OfType<T>().FirstOrDefault();
+        Components.OfType<T>().FirstOrDefault();
 
     /// <summary>
     /// Get Scene as T
@@ -63,7 +61,7 @@ public class Entity
     /// <returns>Component</returns>
     public T AddComponent<T>(T component) where T : Component.Component
     {
-        _components.Add(component);
+        Components.Add(component);
         component.Entity = this;
         return component;
     }
@@ -77,7 +75,7 @@ public class Entity
         if(component is PhysicsComponent physicsComponent)
             physicsComponent.RemoveBody();
         component.Entity = null;
-        _components.Remove(component);
+        Components.Remove(component);
     }
 
     /// <summary>
@@ -85,7 +83,7 @@ public class Entity
     /// </summary>
     public virtual void Load()
     {
-        foreach (var component in _components)
+        foreach (var component in Components)
             component.Load();
     }
 
@@ -94,7 +92,7 @@ public class Entity
     /// </summary>
     public virtual void Unload()
     {
-        foreach (var component in _components)
+        foreach (var component in Components)
             component.Unload();
     }
 
@@ -104,7 +102,7 @@ public class Entity
     /// <param name="delta">Time since last frame</param>
     public virtual void Update(float delta)
     {
-        foreach (var component in _components)
+        foreach (var component in Components)
             component.Update(delta);
     }
 
@@ -113,7 +111,7 @@ public class Entity
     /// </summary>
     public virtual void Draw()
     {
-        foreach (var component in _components)
+        foreach (var component in Components)
             component.Draw();
     }
 }

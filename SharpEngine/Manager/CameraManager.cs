@@ -16,27 +16,27 @@ public class CameraManager
     /// Entity followed on mode Follow and FollowSmooth
     /// <seealso cref="Mode"/>
     /// </summary>
-    public Entity.Entity? FollowEntity;
+    public Entity.Entity? FollowEntity { get; set; }
     
     /// <summary>
     /// Camera Mode
     /// </summary>
-    public CameraMode Mode;
+    public CameraMode Mode { get; set; }
 
     /// <summary>
     /// Minimum Speed used when mode is FollowSmooth
     /// </summary>
-    public float MinSpeed = 30;
+    public float MinSpeed { get; set; } = 30;
 
     /// <summary>
     /// Minimum Effect Length used when mode is FollowSmooth
     /// </summary>
-    public float MinEffectLength = 10;
+    public float MinEffectLength { get; set; } = 10;
 
     /// <summary>
     /// Fraction Speed used when mode is FollowSmooth
     /// </summary>
-    public float FractionSpeed = 0.8f;
+    public float FractionSpeed { get; set; } = 0.8f;
     
     internal Camera2D Camera2D;
 
@@ -90,7 +90,7 @@ public class CameraManager
                 if (FollowEntity?.GetComponentAs<TransformComponent>() is { } transformSmooth)
                 {
                     var diff = transformSmooth.Position - (Vec2)Camera2D.target;
-                    var length = diff.Length;
+                    var length = diff.Length();
                     if (length > MinEffectLength)
                     {
                         var speed = MathF.Max(FractionSpeed * length, MinSpeed);

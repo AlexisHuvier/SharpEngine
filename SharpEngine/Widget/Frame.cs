@@ -12,22 +12,22 @@ public class Frame: Widget
     /// <summary>
     /// Color of Frame Border
     /// </summary>
-    public Color BorderColor;
+    public Color BorderColor { get; set; }
     
     /// <summary>
     /// Size of Frame
     /// </summary>
-    public Vec2 Size;
+    public Vec2 Size { get; set; }
     
     /// <summary>
     /// Size of Frame Border 
     /// </summary>
-    public int BorderSize;
+    public int BorderSize { get; set; }
     
     /// <summary>
     /// Color of Frame Background
     /// </summary>
-    public Color? BackgroundColor;
+    public Color? BackgroundColor { get; set; }
 
     /// <summary>
     /// Create Frame

@@ -12,17 +12,17 @@ public class ColorRect: Widget
     /// <summary>
     /// Color of Rect
     /// </summary>
-    public Color Color;
+    public Color Color { get; set; }
     
     /// <summary>
     /// Size of Rect
     /// </summary>
-    public Vec2 Size;
+    public Vec2 Size { get; set; }
     
     /// <summary>
     /// Rotation of Rect
     /// </summary>
-    public int Rotation;
+    public int Rotation { get; set; }
     
     /// <summary>
     /// Create ColorRect

@@ -14,37 +14,37 @@ public class Label: Widget
     /// <summary>
     /// Text of Label
     /// </summary>
-    public string Text;
+    public string Text { get; set; }
     
     /// <summary>
     /// Font of Label
     /// </summary>
-    public string Font;
+    public string Font { get; set; }
     
     /// <summary>
     /// Color of Label
     /// </summary>
-    public Color Color;
+    public Color Color { get; set; }
     
     /// <summary>
     /// If Lines is Centered
     /// </summary>
-    public bool CenterAllLines;
+    public bool CenterAllLines { get; set; }
     
     /// <summary>
     /// Rotation of Label
     /// </summary>
-    public int Rotation;
+    public int Rotation { get; set; }
 
     /// <summary>
     /// Font Size of Label (or Null)
     /// </summary>
-    public int? FontSize;
+    public int? FontSize { get; set; }
 
     /// <summary>
     /// Style of Label
     /// </summary>
-    public LabelStyle Style;
+    public LabelStyle Style { get; set; }
 
     /// <summary>
     /// Create Label

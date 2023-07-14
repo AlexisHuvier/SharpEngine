@@ -12,17 +12,17 @@ public class Image: Widget
     /// <summary>
     /// Name of Texture which be displayed
     /// </summary>
-    public string Texture;
+    public string Texture { get; set; }
 
     /// <summary>
     /// Scale of Image
     /// </summary>
-    public Vec2 Scale;
+    public Vec2 Scale { get; set; }
     
     /// <summary>
     /// Rotation of Image
     /// </summary>
-    public int Rotation;
+    public int Rotation { get; set; }
 
     /// <summary>
     /// Create Image

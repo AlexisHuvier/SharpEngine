@@ -8,7 +8,7 @@ public abstract class Component
     /// <summary>
     /// Entity to which the component is attached 
     /// </summary>
-    public Entity.Entity? Entity;
+    public Entity.Entity? Entity { get; set; }
 
     /// <summary>
     /// Load Component

@@ -17,17 +17,17 @@ public class MultiLineInput: Widget
     /// <summary>
     /// Current Text of Multi Line Input
     /// </summary>
-    public string Text;
+    public string Text { get; set; }
     
     /// <summary>
     /// Font of Multi Line Input
     /// </summary>
-    public string Font;
+    public string Font { get; set; }
     
     /// <summary>
     /// Size of Multi Line Input
     /// </summary>
-    public Vec2 Size;
+    public Vec2 Size { get; set; }
     
     /// <summary>
     /// If Multi Line Input is Focused
@@ -37,7 +37,7 @@ public class MultiLineInput: Widget
     /// <summary>
     /// Font Size of Multi Line Input (or null)
     /// </summary>
-    public int? FontSize;
+    public int? FontSize { get; set; }
     
     /// <summary>
     /// Event trigger when value is changed

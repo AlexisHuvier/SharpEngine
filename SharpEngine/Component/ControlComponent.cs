@@ -14,22 +14,22 @@ public class ControlComponent: Component
     /// <summary>
     /// Type of Control
     /// </summary>
-    public ControlType ControlType;
+    public ControlType ControlType { get; set; }
     
     /// <summary>
     /// Speed of Control
     /// </summary>
-    public int Speed;
+    public int Speed { get; set; }
     
     /// <summary>
     /// If Control use GamePad
     /// </summary>
-    public bool UseGamePad;
+    public bool UseGamePad { get; set; }
     
     /// <summary>
     /// Index of GamePad
     /// </summary>
-    public int GamePadIndex;
+    public int GamePadIndex { get; set; }
     
     /// <summary>
     /// If Entity is moving
@@ -187,7 +187,7 @@ public class ControlComponent: Component
         if (posX == 0 && posY == 0) return;
 
         IsMoving = true;
-        Direction = new Vec2(posX, posY).Normalized;
+        Direction = new Vec2(posX, posY).Normalized();
         if (_physics != null)
             _physics.SetLinearVelocity(Direction * Speed);
         else

@@ -13,6 +13,11 @@ public class FontManager
     private readonly Dictionary<string, Font> _fonts = new();
 
     /// <summary>
+    /// Get All Fonts
+    /// </summary>
+    public List<Font> Fonts => new(_fonts.Values);
+
+    /// <summary>
     /// Add font to manager
     /// </summary>
     /// <param name="name">Font Name</param>

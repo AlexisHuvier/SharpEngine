@@ -27,14 +27,9 @@ internal class MyScene : Scene
         e2.AddComponent(new PhysicsComponent(BodyType.Static, ignoreGravity: true, fixedRotation: true)).AddRectangleCollision(new Vec2(50));
         AddEntity(e2);
 
-        AddWidget(new Label(new Vec2(400), "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHI\nJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmn\nopqrstuvwxyz{|}~¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓ\nÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷\nøùúûüýþÿ", "basic"));
-        AddWidget(new Label(new Vec2(400, 100), "&é-è_àçù", "basic"));
-        }
-
-    public override void Update(float delta)
-    {
-        base.Update(delta);
-
-        Window!.CameraManager.Rotation += 10 * delta;
+        AddWidget(new Label(new Vec2(400),
+                "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHI\nJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmn\nopqrstuvwxyz{|}~¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓ\nÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷\nøùúûüýþÿ",
+                "basic"))
+            .AddChild(new Label(new Vec2(0, -300), "&é-è_àçù", "basic"));
     }
 }

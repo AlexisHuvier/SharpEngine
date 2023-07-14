@@ -289,24 +289,24 @@ public class Window
             #region Update
 
             var delta = Raylib.GetFrameTime();
-
+            
             _updateStepTimer += delta;
 
             if (_updateStepTimer >= UpdateStep)
             {
                 _seImGui.Update(UpdateStep);
-
+                
                 CurrentScene.Update(UpdateStep);
                 CameraManager.Update(UpdateStep);
                 _updateStepTimer -= UpdateStep;
+
+                if(Debug)
+                    RenderImGui?.Invoke(this);
             }
 
             #endregion
 
             #region Draw
-
-            if(Debug)
-                RenderImGui?.Invoke(this);
             
             Raylib.BeginDrawing();
             Raylib.ClearBackground(BackgroundColor);

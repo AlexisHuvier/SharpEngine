@@ -13,7 +13,7 @@ internal static class Program
         {
             RenderImGui = win =>
             {
-                DebugManager.CreateSeImGuiWindow();
+                DebugManager.CreateSeImGuiWindow(win);
                 ImGui.Begin("Basic Game Debug");
                 if(ImGui.Button("Stop Window"))
                     win.Stop();

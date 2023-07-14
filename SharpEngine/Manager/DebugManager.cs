@@ -36,8 +36,8 @@ public static class DebugManager
         ImGui.Begin("SharpEngine Debug");
         ImGui.Text($"SharpEngine Version : {SeVersion}");
         ImGui.Separator();
-        ImGui.Text($"FPS from ImGui : {1000.0/ImGui.GetIO().Framerate:.000}ms/frame ({ImGui.GetIO().Framerate} FPS)");
-        ImGui.Text($"FPS from SE : {1000.0/FrameRate:.000}ms/frame ({FrameRate} FPS)");
+        ImGui.Text($"UPS (from ImGui) : {1000.0/ImGui.GetIO().Framerate:.000}ms/frame ({ImGui.GetIO().Framerate} UPS)");
+        ImGui.Text($"FPS (from SE) : {1000.0/FrameRate:.000}ms/frame ({FrameRate} FPS)");
         ImGui.Text($"GC Memory : {GcMemory/1000000.0:.000} mo");
         ImGui.Separator();
         ImGui.Text($"Textures Number : {window.TextureManager.Textures.Count}");
@@ -48,6 +48,9 @@ public static class DebugManager
         ImGui.Text($"Saves Number : {SaveManager.Saves.Count}");
         ImGui.Text($"Scenes Number : {window.Scenes.Count}");
         ImGui.Text($"Entities Number : {window.Scenes.Select(x => x.Entities.Count).Sum()}");
+        ImGui.Text($"Widgets (Without Child) Number : {window.Scenes.Select(x => x.Widgets.Count).Sum()}");
+        ImGui.Text(
+            $"Widgets (With Child) Number : {window.Scenes.Select(x => x.Widgets.Count).Sum() + window.Scenes.Select(x => x.Widgets).SelectMany(x => x).Select(x => x.GetAllChildren()).SelectMany(x => x).Count()}");
         ImGui.Separator();
         ImGui.Text($"Camera Mode : {window.CameraManager.Mode}");
         ImGui.Text($"Camera Position : {window.CameraManager.Camera2D.target}");

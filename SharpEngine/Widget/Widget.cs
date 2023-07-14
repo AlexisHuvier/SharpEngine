@@ -42,10 +42,9 @@ public abstract class Widget
     public Vec2 RealPosition => Parent != null ? Position + Parent.RealPosition : Position;
     
     /// <summary>
-    /// Get All Children of Widget
+    /// Get All Direct Children of Widget
     /// </summary>
     public List<Widget> Children { get; } = new();
-
 
     /// <summary>
     /// Scene of Widget
@@ -73,12 +72,23 @@ public abstract class Widget
     }
     
     /// <summary>
-    /// Get All Children of one Type
+    /// Get All Direct Children of one Type
     /// </summary>
     /// <typeparam name="T">Type of Children</typeparam>
     /// <returns>Children of type T</returns>
     public List<T> GetChildrenAs<T>() where T : Widget =>
         Children.FindAll(w => w.GetType() == typeof(T)).Cast<T>().ToList();
+
+    /// <summary>
+    /// Get All Recursive Children 
+    /// </summary>
+    /// <returns>All Children</returns>
+    public List<Widget> GetAllChildren()
+    {
+        var children = new List<Widget>(Children);
+        children.AddRange(Children.Select(x => x.GetAllChildren()).SelectMany(x => x));
+        return children;
+    }
 
     /// <summary>
     /// Get Scene as T

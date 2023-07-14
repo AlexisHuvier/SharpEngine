@@ -153,12 +153,12 @@ public class Scene
     /// <summary>
     /// Update Scene
     /// </summary>
-    /// <param name="delta">Time since last frame</param>
+    /// <param name="delta">Time since last update</param>
     public virtual void Update(float delta)
     {
         if (!Paused)
             World.Step(delta);
-            
+
         for (var i = Entities.Count - 1; i > -1; i--)
             if(Entities[i].PauseState is PauseState.Enabled ||
                !Paused && Entities[i].PauseState is PauseState.Normal ||

@@ -13,6 +13,11 @@ public class TextureManager
     private readonly Dictionary<string, Texture2D> _texture2Ds = new();
 
     /// <summary>
+    /// Get All Textures
+    /// </summary>
+    public List<Texture2D> Textures => new(_texture2Ds.Values);
+    
+    /// <summary>
     /// Add texture to manager
     /// </summary>
     /// <param name="name">Texture Name</param>

@@ -33,6 +33,8 @@ public class Scene
     public List<Entity.Entity> Entities { get; } = new();
 
     internal readonly World World;
+    private float _worldStepTimer;
+    private const float WorldStep = 1 / 60f;
 
     /// <summary>
     /// Create Scene
@@ -157,7 +159,14 @@ public class Scene
     public virtual void Update(float delta)
     {
         if (!Paused)
-            World.Step(delta);
+        {
+            _worldStepTimer += delta;
+            if (_worldStepTimer >= WorldStep)
+            {
+                World.Step(WorldStep);
+                _worldStepTimer -= WorldStep;
+            }
+        }
 
         for (var i = Entities.Count - 1; i > -1; i--)
             if(Entities[i].PauseState is PauseState.Enabled ||

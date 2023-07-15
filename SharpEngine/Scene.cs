@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SharpEngine.Component;
+using SharpEngine.Manager;
 using SharpEngine.Math;
 using SharpEngine.Utils;
 using tainicom.Aether.Physics2D.Dynamics;
@@ -161,11 +162,13 @@ public class Scene
         if (!Paused)
         {
             _worldStepTimer += delta;
-            if (_worldStepTimer >= WorldStep)
+
+            while (_worldStepTimer >= WorldStep)
             {
                 World.Step(WorldStep);
                 _worldStepTimer -= WorldStep;
             }
+            World.ClearForces();
         }
 
         for (var i = Entities.Count - 1; i > -1; i--)

@@ -30,6 +30,7 @@ internal class MyScene : Scene
         AddWidget(new Label(new Vec2(400),
                 "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHI\nJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmn\nopqrstuvwxyz{|}~¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓ\nÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷\nøùúûüýþÿ",
                 "basic"))
-            .AddChild(new Label(new Vec2(0, -300), "&é-è_àçù", "basic"));
+            .AddChild(new Label(new Vec2(0, -300), "&é-è_àçù", "basic"))
+            .AddChild(new LineInput(new Vec2(0, 100), "Test", "basic"));
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using SharpEngine.Manager;
 using SharpEngine.Math;
+using SharpEngine.Utils;
 using SharpEngine.Utils.EventArgs;
 using SharpEngine.Utils.Physic;
 using SharpEngine.Utils.Physic.Joint;
@@ -56,31 +58,31 @@ public class PhysicsComponent: Component
     /// Return Position of Body
     /// </summary>
     /// <returns>Body Position</returns>
-    public Vec2 GetPosition() => new(Body.Position.X, Body.Position.Y);
+    public Vec2 GetPosition() => new(Body.Position.X * 50, Body.Position.Y / 50);
     
     /// <summary>
     /// Define Position of Body
     /// </summary>
     /// <param name="position">Body Position</param>
-    public void SetPosition(Vec2 position) => Body.Position = position;
+    public void SetPosition(Vec2 position) => Body.Position = position * 0.02f;
     
     /// <summary>
     /// Return Linear Velocity of Body
     /// </summary>
     /// <returns>Body Linear Velocity</returns>
-    public Vec2 GetLinearVelocity() => new(Body.LinearVelocity.X, Body.LinearVelocity.Y);
+    public Vec2 GetLinearVelocity() => new(Body.LinearVelocity.X * 50, Body.LinearVelocity.Y * 50);
     
     /// <summary>
     /// Define Linear Velocity of Body
     /// </summary>
     /// <param name="velocity">Body Linear Velocity</param>
-    public void SetLinearVelocity(Vec2 velocity) => Body.LinearVelocity = velocity;
+    public void SetLinearVelocity(Vec2 velocity) => Body.LinearVelocity = velocity * 0.02f;
 
     /// <summary>
     /// Apply Impulse to Body
     /// </summary>
     /// <param name="impulse">Linear Impulse</param>
-    public void ApplyLinearImpulse(Vec2 impulse) => Body.ApplyLinearImpulse(impulse);
+    public void ApplyLinearImpulse(Vec2 impulse) => Body.ApplyLinearImpulse(impulse * 0.02f);
     
     /// <summary>
     /// Return Rotation of Body
@@ -112,8 +114,8 @@ public class PhysicsComponent: Component
             Restitution = restitution,
             Friction = friction,
             Type = FixtureType.Rectangle,
-            Parameter = size,
-            Offset = offset ?? Vec2.Zero,
+            Parameter = size * 0.02f,
+            Offset = offset * 0.02f ?? Vec2.Zero,
             Tag = tag
         };
         _fixtures.Add(fixture);
@@ -137,8 +139,8 @@ public class PhysicsComponent: Component
             Restitution = restitution,
             Friction = friction,
             Type = FixtureType.Circle,
-            Parameter = radius,
-            Offset = offset ?? Vec2.Zero,
+            Parameter = radius * 0.02f,
+            Offset = offset * 0.02f ?? Vec2.Zero,
             Tag = tag
         };
         _fixtures.Add(fixture);
@@ -169,7 +171,7 @@ public class PhysicsComponent: Component
         
         if(Entity == null || _transform == null ) return;
 
-        var body = Entity.Scene?.World.CreateBody(_transform.Position, MathHelper.ToRadians(_transform.Rotation), _bodyType);
+        var body = Entity.Scene?.World.CreateBody(_transform.Position * 0.02f, MathHelper.ToRadians(_transform.Rotation), _bodyType);
         
         if(body == null) return;
         Body = body;
@@ -234,7 +236,7 @@ public class PhysicsComponent: Component
         
         if(_transform == null) return;
 
-        _transform.Position = Body.Position;
+        _transform.Position = Body.Position * 50f;
         _transform.Rotation = (int)MathHelper.ToDegrees(Body.Rotation);
     }
 

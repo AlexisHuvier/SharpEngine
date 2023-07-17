@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Numerics;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpEngine.Math;
 
 namespace SharpEngineTests.Math;
@@ -12,12 +13,27 @@ public class Vec2ITests
     {
         var vec = new Vec2I(2);
         var vec2 = new Vec2I(2, 2);
+        var vec3 = new Vec2I();
 
+        Assert.AreEqual(0, vec3.X);
+        Assert.AreEqual(0, vec3.Y);
         Assert.AreEqual(2, vec.X);
         Assert.AreEqual(2, vec.Y);
         Assert.AreEqual(2, vec2.X);
         Assert.AreEqual(2, vec2.Y);
         Assert.AreEqual(vec2, vec);
+    }
+
+    [TestMethod]
+    public void StaticProperties()
+    {
+        var vec = Vec2I.Zero;
+        var vec2 = Vec2I.One;
+
+        Assert.AreEqual(0, vec.X);
+        Assert.AreEqual(0, vec.Y);
+        Assert.AreEqual(1, vec2.X);
+        Assert.AreEqual(1, vec2.Y);
     }
 
     [TestMethod]
@@ -52,10 +68,12 @@ public class Vec2ITests
     }
 
     [TestMethod]
-    public void Convert() => Assert.IsInstanceOfType<Vec2>((Vec2)new Vec2I(0));
-
-    [TestMethod]
-    public void Vec2ToString() => Assert.AreEqual($"Vec2I(x=1, y=1)", new Vec2I(1).ToString());
+    public void Convert()
+    {
+        Assert.IsInstanceOfType<Vec2>((Vec2)new Vec2I(0));
+        Assert.IsInstanceOfType<Vector2>((Vector2)new Vec2I(0));
+        Assert.IsInstanceOfType<Vec2I>((Vec2I)new Vector2(0));
+    }
 
     [TestMethod]
     public void ArithmeticOperations()
@@ -80,6 +98,18 @@ public class Vec2ITests
         Assert.AreEqual(new Vec2I(15, 3), vec);
         vec = -vec;
         Assert.AreEqual(new Vec2I(-15, -3), vec);
+    }
+    
+    [TestMethod]
+    public void OtherMethods()
+    {
+        var v = new Vec2I(0, 1);
+        var v2 = new Vec2I(0, 1);
+        
+        Assert.IsFalse(v.Equals(null));
+        Assert.IsFalse(v != v2);
+        Assert.AreEqual(v.GetHashCode(), v2.GetHashCode());
+        Assert.AreEqual(v.ToString(), "Vec2I(X=0, Y=1)");
     }
     
 }

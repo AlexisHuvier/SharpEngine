@@ -96,7 +96,7 @@ public struct Vec2
     public override int GetHashCode() => HashCode.Combine(X, Y);
 
     /// <inheritdoc />
-    public override string ToString() => $"Vec2(x={X}, y={Y})";
+    public override string ToString() => $"Vec2(X={X}, Y={Y})";
 
     /// <summary>
     /// Operator inequality

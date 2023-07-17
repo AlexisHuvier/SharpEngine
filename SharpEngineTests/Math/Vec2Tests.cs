@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Numerics;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpEngine.Math;
 
 namespace SharpEngineTests.Math;
@@ -17,6 +18,18 @@ public class Vec2Tests
         Assert.AreEqual(2, vec2.X);
         Assert.AreEqual(2, vec2.Y);
         Assert.AreEqual(vec2, vec);
+    }
+
+    [TestMethod]
+    public void StaticProperties()
+    {
+        var vec = Vec2.Zero;
+        var vec2 = Vec2.One;
+
+        Assert.AreEqual(0, vec.X);
+        Assert.AreEqual(0, vec.Y);
+        Assert.AreEqual(1, vec2.X);
+        Assert.AreEqual(1, vec2.Y);
     }
 
     [TestMethod]
@@ -51,9 +64,6 @@ public class Vec2Tests
     }
 
     [TestMethod]
-    public void Vec2ToString() => Assert.AreEqual($"Vec2(x=1, y=1)", new Vec2(1).ToString());
-
-    [TestMethod]
     public void ArithmeticOperations()
     {
         var vec = new Vec2(2, 3);
@@ -76,5 +86,26 @@ public class Vec2Tests
         Assert.AreEqual(new Vec2(9, 3), vec);
         vec = -vec;
         Assert.AreEqual(new Vec2(-9, -3), vec);
+    }
+
+    [TestMethod]
+    public void Convert()
+    {
+        Assert.IsInstanceOfType<Vector2>((Vector2)new Vec2(0));
+        Assert.IsInstanceOfType<tainicom.Aether.Physics2D.Common.Vector2>((tainicom.Aether.Physics2D.Common.Vector2)new Vec2(0));
+        Assert.IsInstanceOfType<Vec2>((Vec2)new Vector2(0));
+        Assert.IsInstanceOfType<Vec2>((Vec2)new tainicom.Aether.Physics2D.Common.Vector2(0));
+    }
+    
+    [TestMethod]
+    public void OtherMethods()
+    {
+        var v = new Vec2(0, 1);
+        var v2 = new Vec2(0, 1);
+        
+        Assert.IsFalse(v.Equals(null));
+        Assert.IsFalse(v != v2);
+        Assert.AreEqual(v.GetHashCode(), v2.GetHashCode());
+        Assert.AreEqual(v.ToString(), "Vec2(X=0, Y=1)");
     }
 }

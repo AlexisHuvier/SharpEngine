@@ -24,4 +24,16 @@ public class RectITests
     
     [TestMethod]
     public void Convert() => Assert.IsInstanceOfType<Rect>((Rect)new RectI(0, 0, 0, 0));
+
+    [TestMethod]
+    public void OtherMethods()
+    {
+        var r = new RectI(0, 1, 2, 3);
+        var r2 = new RectI(0, 1, 2, 3);
+        
+        Assert.IsFalse(r.Equals(null));
+        Assert.IsFalse(r != r2);
+        Assert.AreEqual(r.GetHashCode(), r2.GetHashCode());
+        Assert.AreEqual(r.ToString(), "RectI(X=0, Y=1, Width=2, Height=3)");
+    }
 }

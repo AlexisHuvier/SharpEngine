@@ -126,7 +126,7 @@ public struct Color
     public override int GetHashCode() => HashCode.Combine(_r, _g, _b, _a);
 
     /// <inheritdoc />
-    public override string ToString() => $"Color(r={R}, g={G}, b={B}, a={A})";
+    public override string ToString() => $"Color(R={R}, G={G}, B={B}, A={A})";
 
     /// <summary>
     /// Operator Inequality

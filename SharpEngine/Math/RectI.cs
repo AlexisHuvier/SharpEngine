@@ -79,7 +79,7 @@ public struct RectI
     public override int GetHashCode() => HashCode.Combine(X, Y, Width, Height);
 
     /// <inheritdoc />
-    public override string ToString() => $"Rect(X={X}, Y={Y}, Width={Width}, Height={Height})";
+    public override string ToString() => $"RectI(X={X}, Y={Y}, Width={Width}, Height={Height})";
     
     /// <summary>
     /// Operator inequality

@@ -21,5 +21,9 @@ public class MathTests
         Assert.AreEqual(0, MathHelper.Clamp(-5, 0, 5));
         Assert.AreEqual(2, MathHelper.Clamp(2, 0, 5));
         Assert.AreEqual(5, MathHelper.Clamp(10, 0, 5));
+        
+        Assert.AreEqual(0f, MathHelper.Clamp(-5f, 0f, 5f));
+        Assert.AreEqual(2f, MathHelper.Clamp(2f, 0f, 5f));
+        Assert.AreEqual(5f, MathHelper.Clamp(10f, 0f, 5f));
     }
 }

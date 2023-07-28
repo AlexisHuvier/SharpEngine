@@ -23,15 +23,16 @@ C# 2D Game Engine
 - Physics
 - Particles
 - SpriteSheet
+- Network (With SharpEngine Network)
+- UI
 
 ## Uncoming Features
 
 *Warning : This is a non-exhaustive list and subject to change.*
 
 - Basic Tilemap
-- UI
+- More UI
 - Transitions
-- Network
 - Sprite Packer
 - Lights
 - Infinite tilemaps

@@ -10,13 +10,13 @@ internal static class Program
 {
     private static void Main()
     {
-        var window = new Window(800, 600, "SE Raylib", Color.CornflowerBlue, null, true)
+        var window = new Window(1280, 920, "SE Raylib", Color.CornflowerBlue, null, true)
         {
             RenderImGui = DebugManager.CreateSeImGuiWindow
         };
         
         window.TextureManager.AddTexture("KnightM", "Resources/KnightM.png");
-        window.FontManager.AddFont("basic", "Resources/basic.ttf", 40);
+        window.FontManager.AddFont("basic", "Resources/basic_font.ttf", 40);
         
         window.AddScene(new MyScene());
         

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using Raylib_cs;
 using SharpEngine.Utils;
 
@@ -25,6 +26,12 @@ public class FontManager
     /// <param name="fontSize">Font Size (25)</param>
     public void AddFont(string name, string file, int fontSize = 25)
     {
+        if (!System.IO.File.Exists(file))
+        {
+            DebugManager.Log(LogLevel.LogFatal, $"SE_FONTMANAGER: Font not found : {name}");
+            throw new FileNotFoundException($"Font not found : {file}");
+        }
+
         if(!_fonts.TryAdd(name, Raylib.LoadFontEx(file, fontSize, null, 300)))
             DebugManager.Log(LogLevel.LogWarning, $"SE_FONTMANAGER: Font already exist : {name}");
     }

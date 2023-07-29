@@ -32,9 +32,19 @@ public class ControlComponent: Component
     public int GamePadIndex { get; set; }
     
     /// <summary>
+    /// Jump force
+    /// </summary>
+    public float JumpForce { get; set; }
+    
+    /// <summary>
     /// If Entity is moving
     /// </summary>
     public bool IsMoving { get; private set; }
+    
+    /// <summary>
+    /// If Entity can jump
+    /// </summary>
+    public bool CanJump { get; private set; }
     
     /// <summary>
     /// Direction of Control

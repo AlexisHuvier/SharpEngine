@@ -18,7 +18,7 @@ public class Entity
     /// <summary>
     /// Tag of Entity
     /// </summary>
-    public string Tag  { get; set; } = "";
+    public string Tag { get; set; } = "";
 
     /// <summary>
     /// Scene of Entity

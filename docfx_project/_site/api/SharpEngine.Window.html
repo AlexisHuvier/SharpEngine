@@ -1,0 +1,1063 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Window
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Window
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="http://github.com/AlexisHuvier/SharpEngine/new/master/apiSpec/new?filename=SharpEngine_Window.md&amp;value=---%0Auid%3A%20SharpEngine.Window%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SharpEngine.Window">
+
+
+
+  <h1 id="SharpEngine_Window" data-uid="SharpEngine.Window" class="text-break">
+    Class Window
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpEngine.html">SharpEngine</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SharpEngine.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Class which represents and create Window</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Window</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Window</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="SharpEngine_Window__ctor_" data-uid="SharpEngine.Window.#ctor*"></a>
+
+  <h3 id="SharpEngine_Window__ctor_SharpEngine_Math_Vec2I_System_String_System_Nullable_SharpEngine_Utils_Color__System_Nullable_System_Int32__System_Boolean_" data-uid="SharpEngine.Window.#ctor(SharpEngine.Math.Vec2I,System.String,System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Boolean)">
+  Window(Vec2I, string, Color?, int?, bool)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L175"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create and Init Window</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Window(Vec2I screenSize, string title, Color? backgroundColor = null, int? fps = 60, bool debug = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>screenSize</code> <a class="xref" href="SharpEngine.Math.Vec2I.html">Vec2I</a></dt>
+    <dd><p>Size of Window</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Title of Window</p>
+</dd>
+    <dt><code>backgroundColor</code> <a class="xref" href="SharpEngine.Utils.Color.html">Color</a>?</dt>
+    <dd><p>Background Color of Window (Black)</p>
+</dd>
+    <dt><code>fps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Number of FPS (60)</p>
+</dd>
+    <dt><code>debug</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Debug Mode (false)</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window__ctor_" data-uid="SharpEngine.Window.#ctor*"></a>
+
+  <h3 id="SharpEngine_Window__ctor_System_Int32_System_Int32_System_String_System_Nullable_SharpEngine_Utils_Color__System_Nullable_System_Int32__System_Boolean_" data-uid="SharpEngine.Window.#ctor(System.Int32,System.Int32,System.String,System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Boolean)">
+  Window(int, int, string, Color?, int?, bool)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create and Init Window</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Window(int width, int height, string title, Color? backgroundColor = null, int? fps = 60, bool debug = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>width</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Width of Window</p>
+</dd>
+    <dt><code>height</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Height of Window</p>
+</dd>
+    <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Title of Window</p>
+</dd>
+    <dt><code>backgroundColor</code> <a class="xref" href="SharpEngine.Utils.Color.html">Color</a>?</dt>
+    <dd><p>Background Color of Window (Black)</p>
+</dd>
+    <dt><code>fps</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
+    <dd><p>Number of FPS (60)</p>
+</dd>
+    <dt><code>debug</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Debug Mode (false)</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="SharpEngine_Window_BackgroundColor" data-uid="SharpEngine.Window.BackgroundColor">
+  BackgroundColor
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Background Color used in Window</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Color BackgroundColor</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Utils.Color.html">Color</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="SharpEngine_Window_RenderImGui" data-uid="SharpEngine.Window.RenderImGui">
+  RenderImGui
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Function which be called to render something in ImGui</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;Window&gt;? RenderImGui</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="SharpEngine.Window.html">Window</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="SharpEngine_Window_CameraManager_" data-uid="SharpEngine.Window.CameraManager*"></a>
+
+  <h3 id="SharpEngine_Window_CameraManager" data-uid="SharpEngine.Window.CameraManager">
+  CameraManager
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Camera Manager of Window</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CameraManager CameraManager { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Manager.CameraManager.html">CameraManager</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_CurrentScene_" data-uid="SharpEngine.Window.CurrentScene*"></a>
+
+  <h3 id="SharpEngine_Window_CurrentScene" data-uid="SharpEngine.Window.CurrentScene">
+  CurrentScene
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Current Scene</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Scene CurrentScene { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Scene.html">Scene</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_Debug_" data-uid="SharpEngine.Window.Debug*"></a>
+
+  <h3 id="SharpEngine_Window_Debug" data-uid="SharpEngine.Window.Debug">
+  Debug
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Manage Debug Mode of Window</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Debug { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_FontManager_" data-uid="SharpEngine.Window.FontManager*"></a>
+
+  <h3 id="SharpEngine_Window_FontManager" data-uid="SharpEngine.Window.FontManager">
+  FontManager
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Font Manager of Window</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FontManager FontManager { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Manager.FontManager.html">FontManager</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_IndexCurrentScene_" data-uid="SharpEngine.Window.IndexCurrentScene*"></a>
+
+  <h3 id="SharpEngine_Window_IndexCurrentScene" data-uid="SharpEngine.Window.IndexCurrentScene">
+  IndexCurrentScene
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Index of Current Scene</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IndexCurrentScene { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_MusicManager_" data-uid="SharpEngine.Window.MusicManager*"></a>
+
+  <h3 id="SharpEngine_Window_MusicManager" data-uid="SharpEngine.Window.MusicManager">
+  MusicManager
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Music Manager of Window</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MusicManager MusicManager { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Manager.MusicManager.html">MusicManager</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_Position_" data-uid="SharpEngine.Window.Position*"></a>
+
+  <h3 id="SharpEngine_Window_Position" data-uid="SharpEngine.Window.Position">
+  Position
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Position of Window</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec2I Position { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Math.Vec2I.html">Vec2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_Scenes_" data-uid="SharpEngine.Window.Scenes*"></a>
+
+  <h3 id="SharpEngine_Window_Scenes" data-uid="SharpEngine.Window.Scenes">
+  Scenes
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get All Scenes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Scene&gt; Scenes { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SharpEngine.Scene.html">Scene</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_ScreenSize_" data-uid="SharpEngine.Window.ScreenSize*"></a>
+
+  <h3 id="SharpEngine_Window_ScreenSize" data-uid="SharpEngine.Window.ScreenSize">
+  ScreenSize
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Size of Window</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec2I ScreenSize { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Math.Vec2I.html">Vec2I</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_SoundManager_" data-uid="SharpEngine.Window.SoundManager*"></a>
+
+  <h3 id="SharpEngine_Window_SoundManager" data-uid="SharpEngine.Window.SoundManager">
+  SoundManager
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sound Manager of Window</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SoundManager SoundManager { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Manager.SoundManager.html">SoundManager</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_TextureManager_" data-uid="SharpEngine.Window.TextureManager*"></a>
+
+  <h3 id="SharpEngine_Window_TextureManager" data-uid="SharpEngine.Window.TextureManager">
+  TextureManager
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Texture Manager of Window</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextureManager TextureManager { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Manager.TextureManager.html">TextureManager</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_Title_" data-uid="SharpEngine.Window.Title*"></a>
+
+  <h3 id="SharpEngine_Window_Title" data-uid="SharpEngine.Window.Title">
+  Title
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Title of Window</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Title { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SharpEngine_Window_AddScene_" data-uid="SharpEngine.Window.AddScene*"></a>
+
+  <h3 id="SharpEngine_Window_AddScene_SharpEngine_Scene_" data-uid="SharpEngine.Window.AddScene(SharpEngine.Scene)">
+  AddScene(Scene)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L215"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add Scene to Window and Set Current Scene to it</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddScene(Scene scene)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>scene</code> <a class="xref" href="SharpEngine.Scene.html">Scene</a></dt>
+    <dd><p>Scene which be added</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_GetCurrentScene_" data-uid="SharpEngine.Window.GetCurrentScene*"></a>
+
+  <h3 id="SharpEngine_Window_GetCurrentScene__1" data-uid="SharpEngine.Window.GetCurrentScene``1">
+  GetCurrentScene&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L234"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get Current Scene cast as T</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T GetCurrentScene&lt;T&gt;() where T : Scene</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>Current Scene cast as T</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type as Scene</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_GetScene_" data-uid="SharpEngine.Window.GetScene*"></a>
+
+  <h3 id="SharpEngine_Window_GetScene_System_Int32_" data-uid="SharpEngine.Window.GetScene(System.Int32)">
+  GetScene(int)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L227"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get Scene by Index</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Scene GetScene(int index)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Index of Scene</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Scene.html">Scene</a></dt>
+    <dd><p>Scene</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_GetScene_" data-uid="SharpEngine.Window.GetScene*"></a>
+
+  <h3 id="SharpEngine_Window_GetScene__1_System_Int32_" data-uid="SharpEngine.Window.GetScene``1(System.Int32)">
+  GetScene&lt;T&gt;(int)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L242"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get Scene cast as T</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T GetScene&lt;T&gt;(int index) where T : Scene</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>index</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Index of Scene</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>Scene cast as T</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type as Scene</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_Run_" data-uid="SharpEngine.Window.Run*"></a>
+
+  <h3 id="SharpEngine_Window_Run" data-uid="SharpEngine.Window.Run">
+  Run()
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L247"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Run Window</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Run()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_SetMasterVolume_" data-uid="SharpEngine.Window.SetMasterVolume*"></a>
+
+  <h3 id="SharpEngine_Window_SetMasterVolume_System_Single_" data-uid="SharpEngine.Window.SetMasterVolume(System.Single)">
+  SetMasterVolume(float)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set master volume</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetMasterVolume(float volume)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>volume</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Volume (0 to 1)</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_Stop_" data-uid="SharpEngine.Window.Stop*"></a>
+
+  <h3 id="SharpEngine_Window_Stop" data-uid="SharpEngine.Window.Stop">
+  Stop()
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L343"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stop Window</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Stop()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Window_TakeScreenshot_" data-uid="SharpEngine.Window.TakeScreenshot*"></a>
+
+  <h3 id="SharpEngine_Window_TakeScreenshot_System_String_" data-uid="SharpEngine.Window.TakeScreenshot(System.String)">
+  TakeScreenshot(string)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L203"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Take a screenshot and save it</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void TakeScreenshot(string path)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Path of saved screenshot</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="SharpEngine_Window_StartCallback" data-uid="SharpEngine.Window.StartCallback">
+  StartCallback
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Event which be called in Start of Window (can stop start by set result to false)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;BoolEventArgs&gt;? StartCallback</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpEngine.Utils.EventArgs.BoolEventArgs.html">BoolEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h3 id="SharpEngine_Window_StopCallback" data-uid="SharpEngine.Window.StopCallback">
+  StopCallback
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Event which be called in Stop of Window (can stop stop by set result to false)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;BoolEventArgs&gt;? StopCallback</code></pre>
+  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpEngine.Utils.EventArgs.BoolEventArgs.html">BoolEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L15" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

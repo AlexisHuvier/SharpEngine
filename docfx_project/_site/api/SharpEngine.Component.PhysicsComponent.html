@@ -1,0 +1,800 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class PhysicsComponent
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class PhysicsComponent
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="http://github.com/AlexisHuvier/SharpEngine/new/master/apiSpec/new?filename=SharpEngine_Component_PhysicsComponent.md&amp;value=---%0Auid%3A%20SharpEngine.Component.PhysicsComponent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SharpEngine.Component.PhysicsComponent">
+
+
+
+  <h1 id="SharpEngine_Component_PhysicsComponent" data-uid="SharpEngine.Component.PhysicsComponent" class="text-break">
+    Class PhysicsComponent
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpEngine.html">SharpEngine</a>.<a class="xref" href="SharpEngine.Component.html">Component</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SharpEngine.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Components which add physics</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class PhysicsComponent : Component</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="SharpEngine.Component.Component.html">Component</a></div>
+      <div><span class="xref">PhysicsComponent</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="SharpEngine.Component.Component.html#SharpEngine_Component_Component_Entity">Component.Entity</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpEngine.Component.Component.html#SharpEngine_Component_Component_Unload">Component.Unload()</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpEngine.Component.Component.html#SharpEngine_Component_Component_Draw">Component.Draw()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="SharpEngine_Component_PhysicsComponent__ctor_" data-uid="SharpEngine.Component.PhysicsComponent.#ctor*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent__ctor_tainicom_Aether_Physics2D_Dynamics_BodyType_System_Boolean_System_Boolean_" data-uid="SharpEngine.Component.PhysicsComponent.#ctor(tainicom.Aether.Physics2D.Dynamics.BodyType,System.Boolean,System.Boolean)">
+  PhysicsComponent(BodyType, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create PhysicsComponent</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PhysicsComponent(BodyType bodyType = BodyType.Dynamic, bool ignoreGravity = false, bool fixedRotation = false)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bodyType</code> <span class="xref">BodyType</span></dt>
+    <dd><p>Type of Body</p>
+</dd>
+    <dt><code>ignoreGravity</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Ignore Gravity</p>
+</dd>
+    <dt><code>fixedRotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Rotation fixed</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="SharpEngine_Component_PhysicsComponent_Body_" data-uid="SharpEngine.Component.PhysicsComponent.Body*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent_Body" data-uid="SharpEngine.Component.PhysicsComponent.Body">
+  Body
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Body Physics</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Body? Body { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Body</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_PhysicsComponent_CollisionCallback_" data-uid="SharpEngine.Component.PhysicsComponent.CollisionCallback*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent_CollisionCallback" data-uid="SharpEngine.Component.PhysicsComponent.CollisionCallback">
+  CollisionCallback
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Event which be called when collision</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EventHandler&lt;PhysicsEventArgs&gt;? CollisionCallback { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpEngine.Utils.EventArgs.PhysicsEventArgs.html">PhysicsEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_PhysicsComponent_SeparationCallback_" data-uid="SharpEngine.Component.PhysicsComponent.SeparationCallback*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent_SeparationCallback" data-uid="SharpEngine.Component.PhysicsComponent.SeparationCallback">
+  SeparationCallback
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Event which be called when separation</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EventHandler&lt;PhysicsEventArgs&gt;? SeparationCallback { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpEngine.Utils.EventArgs.PhysicsEventArgs.html">PhysicsEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SharpEngine_Component_PhysicsComponent_AddCircleCollision_" data-uid="SharpEngine.Component.PhysicsComponent.AddCircleCollision*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent_AddCircleCollision_System_Single_System_Nullable_SharpEngine_Math_Vec2__System_Single_System_Single_System_Single_SharpEngine_Utils_Physic_FixtureTag_" data-uid="SharpEngine.Component.PhysicsComponent.AddCircleCollision(System.Single,System.Nullable{SharpEngine.Math.Vec2},System.Single,System.Single,System.Single,SharpEngine.Utils.Physic.FixtureTag)">
+  AddCircleCollision(float, Vec2?, float, float, float, FixtureTag)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L133"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add Circle Collision</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddCircleCollision(float radius, Vec2? offset = null, float density = 1, float restitution = 0.5, float friction = 0.5, FixtureTag tag = FixtureTag.Normal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>radius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Collision Radius</p>
+</dd>
+    <dt><code>offset</code> <a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a>?</dt>
+    <dd><p>Collision Offset</p>
+</dd>
+    <dt><code>density</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Collision Density</p>
+</dd>
+    <dt><code>restitution</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Collision Restitution</p>
+</dd>
+    <dt><code>friction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Collision Friction</p>
+</dd>
+    <dt><code>tag</code> <a class="xref" href="SharpEngine.Utils.Physic.FixtureTag.html">FixtureTag</a></dt>
+    <dd><p>Collision Tag</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_PhysicsComponent_AddJoint_" data-uid="SharpEngine.Component.PhysicsComponent.AddJoint*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent_AddJoint_SharpEngine_Utils_Physic_Joint_Joint_" data-uid="SharpEngine.Component.PhysicsComponent.AddJoint(SharpEngine.Utils.Physic.Joint.Joint)">
+  AddJoint(Joint)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add joint</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddJoint(Joint joint)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>joint</code> <a class="xref" href="SharpEngine.Utils.Physic.Joint.Joint.html">Joint</a></dt>
+    <dd><p>Joint</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_PhysicsComponent_AddRectangleCollision_" data-uid="SharpEngine.Component.PhysicsComponent.AddRectangleCollision*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent_AddRectangleCollision_SharpEngine_Math_Vec2_System_Nullable_SharpEngine_Math_Vec2__System_Single_System_Single_System_Single_SharpEngine_Utils_Physic_FixtureTag_" data-uid="SharpEngine.Component.PhysicsComponent.AddRectangleCollision(SharpEngine.Math.Vec2,System.Nullable{SharpEngine.Math.Vec2},System.Single,System.Single,System.Single,SharpEngine.Utils.Physic.FixtureTag)">
+  AddRectangleCollision(Vec2, Vec2?, float, float, float, FixtureTag)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add Rectangle Collision</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddRectangleCollision(Vec2 size, Vec2? offset = null, float density = 1, float restitution = 0.5, float friction = 0.5, FixtureTag tag = FixtureTag.Normal)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>size</code> <a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a></dt>
+    <dd><p>Collision Size</p>
+</dd>
+    <dt><code>offset</code> <a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a>?</dt>
+    <dd><p>Collision Offset</p>
+</dd>
+    <dt><code>density</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Collision Density</p>
+</dd>
+    <dt><code>restitution</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Collision Restitution</p>
+</dd>
+    <dt><code>friction</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Collision Friction</p>
+</dd>
+    <dt><code>tag</code> <a class="xref" href="SharpEngine.Utils.Physic.FixtureTag.html">FixtureTag</a></dt>
+    <dd><p>Collision Tag</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_PhysicsComponent_ApplyLinearImpulse_" data-uid="SharpEngine.Component.PhysicsComponent.ApplyLinearImpulse*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent_ApplyLinearImpulse_SharpEngine_Math_Vec2_" data-uid="SharpEngine.Component.PhysicsComponent.ApplyLinearImpulse(SharpEngine.Math.Vec2)">
+  ApplyLinearImpulse(Vec2)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Apply Impulse to Body</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ApplyLinearImpulse(Vec2 impulse)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>impulse</code> <a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a></dt>
+    <dd><p>Linear Impulse</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_PhysicsComponent_GetLinearVelocity_" data-uid="SharpEngine.Component.PhysicsComponent.GetLinearVelocity*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent_GetLinearVelocity" data-uid="SharpEngine.Component.PhysicsComponent.GetLinearVelocity">
+  GetLinearVelocity()
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return Linear Velocity of Body</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec2 GetLinearVelocity()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a></dt>
+    <dd><p>Body Linear Velocity</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_PhysicsComponent_GetPosition_" data-uid="SharpEngine.Component.PhysicsComponent.GetPosition*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent_GetPosition" data-uid="SharpEngine.Component.PhysicsComponent.GetPosition">
+  GetPosition()
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return Position of Body</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec2 GetPosition()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a></dt>
+    <dd><p>Body Position</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_PhysicsComponent_GetRotation_" data-uid="SharpEngine.Component.PhysicsComponent.GetRotation*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent_GetRotation" data-uid="SharpEngine.Component.PhysicsComponent.GetRotation">
+  GetRotation()
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return Rotation of Body</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetRotation()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Body Rotation</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_PhysicsComponent_Load_" data-uid="SharpEngine.Component.PhysicsComponent.Load*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent_Load" data-uid="SharpEngine.Component.PhysicsComponent.Load">
+  Load()
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Load Component</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Load()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_PhysicsComponent_RemoveBody_" data-uid="SharpEngine.Component.PhysicsComponent.RemoveBody*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent_RemoveBody" data-uid="SharpEngine.Component.PhysicsComponent.RemoveBody">
+  RemoveBody()
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Remove Body</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveBody()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_PhysicsComponent_SetLinearVelocity_" data-uid="SharpEngine.Component.PhysicsComponent.SetLinearVelocity*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent_SetLinearVelocity_SharpEngine_Math_Vec2_" data-uid="SharpEngine.Component.PhysicsComponent.SetLinearVelocity(SharpEngine.Math.Vec2)">
+  SetLinearVelocity(Vec2)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Define Linear Velocity of Body</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetLinearVelocity(Vec2 velocity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>velocity</code> <a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a></dt>
+    <dd><p>Body Linear Velocity</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_PhysicsComponent_SetPosition_" data-uid="SharpEngine.Component.PhysicsComponent.SetPosition*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent_SetPosition_SharpEngine_Math_Vec2_" data-uid="SharpEngine.Component.PhysicsComponent.SetPosition(SharpEngine.Math.Vec2)">
+  SetPosition(Vec2)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Define Position of Body</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetPosition(Vec2 position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a></dt>
+    <dd><p>Body Position</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_PhysicsComponent_SetRotation_" data-uid="SharpEngine.Component.PhysicsComponent.SetRotation*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent_SetRotation_System_Int32_" data-uid="SharpEngine.Component.PhysicsComponent.SetRotation(System.Int32)">
+  SetRotation(int)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Define Rotation of Body</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetRotation(int rotation)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Body Rotation</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_PhysicsComponent_ToString_" data-uid="SharpEngine.Component.PhysicsComponent.ToString*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent_ToString" data-uid="SharpEngine.Component.PhysicsComponent.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L273"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns a string that represents the current object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string that represents the current object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_PhysicsComponent_Update_" data-uid="SharpEngine.Component.PhysicsComponent.Update*"></a>
+
+  <h3 id="SharpEngine_Component_PhysicsComponent_Update_System_Single_" data-uid="SharpEngine.Component.PhysicsComponent.Update(System.Single)">
+  Update(float)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L185"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Update Component</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Update(float delta)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>delta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Time since last frame</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/PhysicsComponent.cs/#L18" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

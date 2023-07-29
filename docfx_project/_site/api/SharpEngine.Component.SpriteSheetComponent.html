@@ -1,0 +1,551 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class SpriteSheetComponent
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class SpriteSheetComponent
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="http://github.com/AlexisHuvier/SharpEngine/new/master/apiSpec/new?filename=SharpEngine_Component_SpriteSheetComponent.md&amp;value=---%0Auid%3A%20SharpEngine.Component.SpriteSheetComponent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SharpEngine.Component.SpriteSheetComponent">
+
+
+
+  <h1 id="SharpEngine_Component_SpriteSheetComponent" data-uid="SharpEngine.Component.SpriteSheetComponent" class="text-break">
+    Class SpriteSheetComponent
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpEngine.html">SharpEngine</a>.<a class="xref" href="SharpEngine.Component.html">Component</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SharpEngine.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Component which draw animations with sprite sheet</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SpriteSheetComponent : Component</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="SharpEngine.Component.Component.html">Component</a></div>
+      <div><span class="xref">SpriteSheetComponent</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="SharpEngine.Component.Component.html#SharpEngine_Component_Component_Entity">Component.Entity</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpEngine.Component.Component.html#SharpEngine_Component_Component_Unload">Component.Unload()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="SharpEngine_Component_SpriteSheetComponent__ctor_" data-uid="SharpEngine.Component.SpriteSheetComponent.#ctor*"></a>
+
+  <h3 id="SharpEngine_Component_SpriteSheetComponent__ctor_System_String_SharpEngine_Math_Vec2_System_Collections_Generic_List_SharpEngine_Utils_Animation__System_String_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__" data-uid="SharpEngine.Component.SpriteSheetComponent.#ctor(System.String,SharpEngine.Math.Vec2,System.Collections.Generic.List{SharpEngine.Utils.Animation},System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2})">
+  SpriteSheetComponent(string, Vec2, List&lt;Animation&gt;, string, bool, Vec2?)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Create Sprite Sheet Component</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpriteSheetComponent(string texture, Vec2 spriteSize, List&lt;Animation&gt; animations, string currentAnim = &quot;&quot;, bool displayed = true, Vec2? offset = null)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>texture</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Texture Name</p>
+</dd>
+    <dt><code>spriteSize</code> <a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a></dt>
+    <dd><p>Frame Size</p>
+</dd>
+    <dt><code>animations</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SharpEngine.Utils.Animation.html">Animation</a>&gt;</dt>
+    <dd><p>Animation List</p>
+</dd>
+    <dt><code>currentAnim</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Current Animation</p>
+</dd>
+    <dt><code>displayed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If Displayed</p>
+</dd>
+    <dt><code>offset</code> <a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a>?</dt>
+    <dd><p>Offset</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="SharpEngine_Component_SpriteSheetComponent_Anim_" data-uid="SharpEngine.Component.SpriteSheetComponent.Anim*"></a>
+
+  <h3 id="SharpEngine_Component_SpriteSheetComponent_Anim" data-uid="SharpEngine.Component.SpriteSheetComponent.Anim">
+  Anim
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Current animation</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Anim { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_SpriteSheetComponent_Animations_" data-uid="SharpEngine.Component.SpriteSheetComponent.Animations*"></a>
+
+  <h3 id="SharpEngine_Component_SpriteSheetComponent_Animations" data-uid="SharpEngine.Component.SpriteSheetComponent.Animations">
+  Animations
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>List of Animations</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Animation&gt; Animations { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SharpEngine.Utils.Animation.html">Animation</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_SpriteSheetComponent_Displayed_" data-uid="SharpEngine.Component.SpriteSheetComponent.Displayed*"></a>
+
+  <h3 id="SharpEngine_Component_SpriteSheetComponent_Displayed" data-uid="SharpEngine.Component.SpriteSheetComponent.Displayed">
+  Displayed
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If component is displayed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Displayed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_SpriteSheetComponent_Offset_" data-uid="SharpEngine.Component.SpriteSheetComponent.Offset*"></a>
+
+  <h3 id="SharpEngine_Component_SpriteSheetComponent_Offset" data-uid="SharpEngine.Component.SpriteSheetComponent.Offset">
+  Offset
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Offset</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec2 Offset { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_SpriteSheetComponent_SpriteSize_" data-uid="SharpEngine.Component.SpriteSheetComponent.SpriteSize*"></a>
+
+  <h3 id="SharpEngine_Component_SpriteSheetComponent_SpriteSize" data-uid="SharpEngine.Component.SpriteSheetComponent.SpriteSize">
+  SpriteSize
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Size of one frame</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec2 SpriteSize { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_SpriteSheetComponent_Texture_" data-uid="SharpEngine.Component.SpriteSheetComponent.Texture*"></a>
+
+  <h3 id="SharpEngine_Component_SpriteSheetComponent_Texture" data-uid="SharpEngine.Component.SpriteSheetComponent.Texture">
+  Texture
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Name of Texture</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Texture { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SharpEngine_Component_SpriteSheetComponent_Draw_" data-uid="SharpEngine.Component.SpriteSheetComponent.Draw*"></a>
+
+  <h3 id="SharpEngine_Component_SpriteSheetComponent_Draw" data-uid="SharpEngine.Component.SpriteSheetComponent.Draw">
+  Draw()
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Draw Component</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Draw()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_SpriteSheetComponent_GetAnimation_" data-uid="SharpEngine.Component.SpriteSheetComponent.GetAnimation*"></a>
+
+  <h3 id="SharpEngine_Component_SpriteSheetComponent_GetAnimation_System_String_" data-uid="SharpEngine.Component.SpriteSheetComponent.GetAnimation(System.String)">
+  GetAnimation(string)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Return Animation by name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Animation? GetAnimation(string name)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>name</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>Animation Name</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Utils.Animation.html">Animation</a>?</dt>
+    <dd><p>Animation or null</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_SpriteSheetComponent_Load_" data-uid="SharpEngine.Component.SpriteSheetComponent.Load*"></a>
+
+  <h3 id="SharpEngine_Component_SpriteSheetComponent_Load" data-uid="SharpEngine.Component.SpriteSheetComponent.Load">
+  Load()
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Load Component</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Load()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_SpriteSheetComponent_Update_" data-uid="SharpEngine.Component.SpriteSheetComponent.Update*"></a>
+
+  <h3 id="SharpEngine_Component_SpriteSheetComponent_Update_System_Single_" data-uid="SharpEngine.Component.SpriteSheetComponent.Update(System.Single)">
+  Update(float)
+  <a class="header-action link-secondary" title="View source" href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Update Component</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Update(float delta)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>delta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Time since last frame</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="http://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

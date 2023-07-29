@@ -7,6 +7,9 @@
 [#] Bug Fixes<br>
 [.] Others
 
+### V 1.6.0 - 29/07/2023
+[+] Selector
+
 ### V 1.5.0 - 29/07/2023
 [+] Docs<br>
 [+] Changelog<br>

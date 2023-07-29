@@ -43,7 +43,7 @@ public class Scene
     /// <param name="gravity">Gravity (Vec2(0, 200))</param>
     public Scene(Vec2? gravity = null)
     {
-        var finalGrav = gravity ?? new Vec2(0, 200);
+        var finalGrav = gravity ?? new Vec2(0, 25);
         World = new World(finalGrav)
         {
             ContactManager =

@@ -26,5 +26,8 @@ internal class MyScene : Scene
         e2.AddComponent(new RectComponent(Color.Red, new Vec2(50)));
         e2.AddComponent(new PhysicsComponent(BodyType.Static, ignoreGravity: true, fixedRotation: true)).AddRectangleCollision(new Vec2(50), restitution: 0f);
         AddEntity(e2);
+
+        AddWidget(new Selector(new Vec2(500), new List<string> { "Un", "Deux", "SUPPPPERRR TROIS !" }, "basic")).ValueChanged += 
+            (_, args) => Console.WriteLine(args.OldValue + " => " + args.NewValue);
     }
 }

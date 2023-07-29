@@ -825,6 +825,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Widget.Selector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Widget.Selector.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpEngine.Widget.TextureButton.yml",
       "output": {
         ".html": {

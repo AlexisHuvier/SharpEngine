@@ -7,6 +7,13 @@
 [#] Bug Fixes<br>
 [.] Others
 
+### V 1.5.0 - 29/07/2023
+[+] Docs<br>
+[+] Changelog<br>
+[+] PhysicsComponent : IsOnGround<br>
+[+] ControlComponent : CanJump, JumpForce, Implement Jump<br>
+[#] Scene : Wrong Gravity
+
 ### V 1.4.8 - 28/07/2023
 [\~] FontManager : Check if font file exists<br>
 [.] Tests : Improve tests coverage

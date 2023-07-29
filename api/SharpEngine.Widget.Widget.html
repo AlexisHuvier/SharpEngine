@@ -1,0 +1,812 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Widget
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Widget
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/AlexisHuvier/SharpEngine/new/master/apiSpec/new?filename=SharpEngine_Widget_Widget.md&amp;value=---%0Auid%3A%20SharpEngine.Widget.Widget%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SharpEngine.Widget.Widget">
+
+
+
+  <h1 id="SharpEngine_Widget_Widget" data-uid="SharpEngine.Widget.Widget" class="text-break">
+    Class Widget
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpEngine.html">SharpEngine</a>.<a class="xref" href="SharpEngine.Widget.html">Widget</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SharpEngine.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Abstract Class which represents Widget</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class Widget</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Widget</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="SharpEngine.Widget.Button.html">Button</a></div>
+      <div><a class="xref" href="SharpEngine.Widget.Checkbox.html">Checkbox</a></div>
+      <div><a class="xref" href="SharpEngine.Widget.ColorRect.html">ColorRect</a></div>
+      <div><a class="xref" href="SharpEngine.Widget.Frame.html">Frame</a></div>
+      <div><a class="xref" href="SharpEngine.Widget.Image.html">Image</a></div>
+      <div><a class="xref" href="SharpEngine.Widget.Label.html">Label</a></div>
+      <div><a class="xref" href="SharpEngine.Widget.LineInput.html">LineInput</a></div>
+      <div><a class="xref" href="SharpEngine.Widget.MultiLineInput.html">MultiLineInput</a></div>
+      <div><a class="xref" href="SharpEngine.Widget.ScrollFrame.html">ScrollFrame</a></div>
+      <div><a class="xref" href="SharpEngine.Widget.TextureButton.html">TextureButton</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="SharpEngine_Widget_Widget__ctor_" data-uid="SharpEngine.Widget.Widget.#ctor*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget__ctor_SharpEngine_Math_Vec2_" data-uid="SharpEngine.Widget.Widget.#ctor(SharpEngine.Math.Vec2)">
+  Widget(Vec2)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Widget</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Widget(Vec2 position)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>position</code> <a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a></dt>
+    <dd><p>Position Widget</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="SharpEngine_Widget_Widget_Active_" data-uid="SharpEngine.Widget.Widget.Active*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_Active" data-uid="SharpEngine.Widget.Widget.Active">
+  Active
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If Widget is Active</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Active { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Widget_Widget_Children_" data-uid="SharpEngine.Widget.Widget.Children*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_Children" data-uid="SharpEngine.Widget.Widget.Children">
+  Children
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get All Direct Children of Widget</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Widget&gt; Children { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SharpEngine.Widget.Widget.html">Widget</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Widget_Widget_Displayed_" data-uid="SharpEngine.Widget.Widget.Displayed*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_Displayed" data-uid="SharpEngine.Widget.Widget.Displayed">
+  Displayed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If Widget is Display</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Displayed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Widget_Widget_Parent_" data-uid="SharpEngine.Widget.Widget.Parent*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_Parent" data-uid="SharpEngine.Widget.Widget.Parent">
+  Parent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Parent of Widget (can be null)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Widget? Parent { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Widget.Widget.html">Widget</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Widget_Widget_PauseState_" data-uid="SharpEngine.Widget.Widget.PauseState*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_PauseState" data-uid="SharpEngine.Widget.Widget.PauseState">
+  PauseState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How Widget must be updated when paused</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PauseState PauseState { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Utils.PauseState.html">PauseState</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Widget_Widget_Position_" data-uid="SharpEngine.Widget.Widget.Position*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_Position" data-uid="SharpEngine.Widget.Widget.Position">
+  Position
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Position of Widget</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec2 Position { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Widget_Widget_RealPosition_" data-uid="SharpEngine.Widget.Widget.RealPosition*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_RealPosition" data-uid="SharpEngine.Widget.Widget.RealPosition">
+  RealPosition
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get Real Position (Position + Parent RealPostion if widget has Parent)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vec2 RealPosition { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Widget_Widget_Scene_" data-uid="SharpEngine.Widget.Widget.Scene*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_Scene" data-uid="SharpEngine.Widget.Widget.Scene">
+  Scene
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Scene of Widget</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Scene? Scene { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpEngine.Scene.html">Scene</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SharpEngine_Widget_Widget_AddChild_" data-uid="SharpEngine.Widget.Widget.AddChild*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_AddChild__1___0_" data-uid="SharpEngine.Widget.Widget.AddChild``1(``0)">
+  AddChild&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add Child and return it</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T AddChild&lt;T&gt;(T widget) where T : Widget</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>widget</code> <span class="xref">T</span></dt>
+    <dd><p>Widget which be added</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>Child</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of Widget</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Widget_Widget_Draw_" data-uid="SharpEngine.Widget.Widget.Draw*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_Draw" data-uid="SharpEngine.Widget.Widget.Draw">
+  Draw()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Draw Widget</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Draw()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Widget_Widget_GetAllChildren_" data-uid="SharpEngine.Widget.Widget.GetAllChildren*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_GetAllChildren" data-uid="SharpEngine.Widget.Widget.GetAllChildren">
+  GetAllChildren()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get All Recursive Children</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;Widget&gt; GetAllChildren()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="SharpEngine.Widget.Widget.html">Widget</a>&gt;</dt>
+    <dd><p>All Children</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Widget_Widget_GetChildrenAs_" data-uid="SharpEngine.Widget.Widget.GetChildrenAs*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_GetChildrenAs__1" data-uid="SharpEngine.Widget.Widget.GetChildrenAs``1">
+  GetChildrenAs&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L79"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get All Direct Children of one Type</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;T&gt; GetChildrenAs&lt;T&gt;() where T : Widget</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;T&gt;</dt>
+    <dd><p>Children of type T</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of Children</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Widget_Widget_GetSceneAs_" data-uid="SharpEngine.Widget.Widget.GetSceneAs*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_GetSceneAs__1" data-uid="SharpEngine.Widget.Widget.GetSceneAs``1">
+  GetSceneAs&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get Scene as T</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T? GetSceneAs&lt;T&gt;() where T : Scene</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>Scene casted as T</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Scene Type</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Widget_Widget_Load_" data-uid="SharpEngine.Widget.Widget.Load*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_Load" data-uid="SharpEngine.Widget.Widget.Load">
+  Load()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L138"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Load Widget</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Load()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Widget_Widget_RemoveAllChildren_" data-uid="SharpEngine.Widget.Widget.RemoveAllChildren*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_RemoveAllChildren" data-uid="SharpEngine.Widget.Widget.RemoveAllChildren">
+  RemoveAllChildren()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Remove All Children</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveAllChildren()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Widget_Widget_RemoveChild_" data-uid="SharpEngine.Widget.Widget.RemoveChild*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_RemoveChild_SharpEngine_Widget_Widget_" data-uid="SharpEngine.Widget.Widget.RemoveChild(SharpEngine.Widget.Widget)">
+  RemoveChild(Widget)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Remove Child</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveChild(Widget widget)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>widget</code> <a class="xref" href="SharpEngine.Widget.Widget.html">Widget</a></dt>
+    <dd><p>Child will be removed</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Widget_Widget_Unload_" data-uid="SharpEngine.Widget.Widget.Unload*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_Unload" data-uid="SharpEngine.Widget.Widget.Unload">
+  Unload()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unload Widget</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Unload()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Widget_Widget_Update_" data-uid="SharpEngine.Widget.Widget.Update*"></a>
+
+  <h3 id="SharpEngine_Widget_Widget_Update_System_Single_" data-uid="SharpEngine.Widget.Widget.Update(System.Single)">
+  Update(float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Update Widget</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Update(float delta)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>delta</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Time since last frame</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Widget/Widget.cs/#L11" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

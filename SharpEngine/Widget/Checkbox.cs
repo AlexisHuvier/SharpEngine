@@ -51,7 +51,7 @@ public class Checkbox: Widget
             InputManager.IsMouseInRectangle(new Rect(RealPosition - Size / 2, Size)))
         {
             IsChecked = !IsChecked;
-            ValueChanged?.Invoke(this, new ValueEventArgs<bool>()
+            ValueChanged?.Invoke(this, new ValueEventArgs<bool>
             {
                 OldValue = !IsChecked,
                 NewValue = IsChecked

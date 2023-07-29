@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using SharpEngine.Manager;
 using SharpEngine.Math;
+using SharpEngine.Utils;
 using SharpEngine.Utils.Input;
 
 namespace SharpEngine.Component;
@@ -60,9 +62,10 @@ public class ControlComponent: Component
     /// </summary>
     /// <param name="controlType">Control Type (FourDirection)</param>
     /// <param name="speed">Speed (300)</param>
+    /// <param name="jumpForce">Jump Force (3)</param>
     /// <param name="useGamePad">Use Game Pad (false)</param>
     /// <param name="gamePadIndex">Game Pad Index (1)</param>
-    public ControlComponent(ControlType controlType = ControlType.FourDirection, int speed = 300,
+    public ControlComponent(ControlType controlType = ControlType.FourDirection, int speed = 300, float jumpForce = 2,
         bool useGamePad = false, int gamePadIndex = 1)
     {
         ControlType = controlType;
@@ -70,6 +73,8 @@ public class ControlComponent: Component
         IsMoving = false;
         UseGamePad = useGamePad;
         GamePadIndex = gamePadIndex;
+        JumpForce = jumpForce;
+        CanJump = true;
         _keys = new Dictionary<ControlKey, Key>
         {
             { ControlKey.Up, Key.Up },
@@ -108,12 +113,14 @@ public class ControlComponent: Component
         base.Update(delta);
 
         IsMoving = false;
-        _physics?.SetLinearVelocity(Vec2.Zero);
-        
+
+        _physics?.SetLinearVelocity(new Vec2(0, _physics.GetLinearVelocity().Y));
+
         if(_transform == null) return;
 
         var posX = 0f;
         var posY = 0f;
+        var jump = false;
 
         switch (ControlType)
         {
@@ -186,7 +193,11 @@ public class ControlComponent: Component
                 if (InputManager.IsKeyPressed(_keys[ControlKey.Up]) ||
                     (UseGamePad && InputManager.IsGamePadButtonPressed(GamePadIndex, GamePadButton.A)))
                 {
-                    throw new NotImplementedException();
+                    if (_physics?.IsOnGround() ?? false)
+                    {
+                        posY -= JumpForce;
+                        jump = true;
+                    }
                 }
 
                 break;
@@ -197,9 +208,12 @@ public class ControlComponent: Component
         if (posX == 0 && posY == 0) return;
 
         IsMoving = true;
-        Direction = new Vec2(posX, posY).Normalized();
+        Direction = jump ? new Vec2(posX, posY) : new Vec2(posX, posY).Normalized();
         if (_physics != null)
-            _physics.SetLinearVelocity(Direction * Speed);
+        {
+            var velocity = Direction * Speed;
+            _physics.SetLinearVelocity(new Vec2(velocity.X, velocity.Y == 0 ? _physics.GetLinearVelocity().Y : velocity.Y));
+        }
         else
             _transform.Position += new Vec2(Direction.X * Speed * delta, Direction.Y * Speed * delta);
     }

@@ -2,21 +2,21 @@
 
 ### Légende 
 [+] Add<br>
-[~] Modification<br>
+[\~] Modification<br>
 [-] Suppression<br>
 [#] Bug Fixes<br>
 [.] Others
 
 ### V 1.4.8 - 28/07/2023
-[~] FontManager : Check if font file exists<br>
+[\~] FontManager : Check if font file exists<br>
 [.] Tests : Improve tests coverage
 
 ### V 1.4.7 - 15/07/2023
-[~] Physics : 1 meter is 50 pixels<br>
+[\~] Physics : 1 meter is 50 pixels<br>
 [#] Scene : Fix world step
 
 ### V 1.4.6 - 14/07/2023
-[~] Physics : Fixed World Step<br>
+[\~] Physics : Fixed World Step<br>
 [-] Window : Fixed Update
 
 ### V 1.4.5 - 14/07/2023
@@ -24,7 +24,7 @@
 
 ### V 1.4.4 - 14/07/2023
 [+] Window : FPS Parameter<br>
-[~] DebugManager : Update SharpEngine ImGui Window
+[\~] DebugManager : Update SharpEngine ImGui Window
 
 ### V 1.4.3 - 14/07/2023
 [#] FontManager : Loading Error<br>
@@ -40,8 +40,8 @@
 [+] SoundManager : Sounds<br>
 [+] TextureManager : Textures<br>
 [+] Window : SoundManager, MusicManager<br>
-[~] Window : Make scenes property public<br>
-[~] DebugManager : Upgrade CreateSeImGuiWindow<br>
+[\~] Window : Make scenes property public<br>
+[\~] DebugManager : Upgrade CreateSeImGuiWindow<br>
 [#] Physics : Remove entity doesn't remove Body
 
 ### V 1.4.0 - 08/07/2023
@@ -51,19 +51,19 @@
 ### V 1.3.2 - 02/07/2023
 [+] Color : Darker, Lighter<br>
 [+] Widget : GetDisplayRect, GetTotalDisplayedRect<br>
-[~] Logs
+[\~] Logs
 
 ### V 1.3.1 - 01/07/2023
-[~] Frame : Use DrawRectangleLinesEx<br>
-[~] LineInput : Use Scissor<br>
-[~] MultiLineInput : Use Scissor<br>
+[\~] Frame : Use DrawRectangleLinesEx<br>
+[\~] LineInput : Use Scissor<br>
+[\~] MultiLineInput : Use Scissor<br>
 [-] LineInput : Remove Cursor<br>
 [-] MultiLineInput : Remove Cursor
 
 ### V 1.3.0 - 28/06/2023
 [+] Label Style<br>
 [+] MultiLineInput<br>
-[~] LineInput : Unlimited Characters<br>
+[\~] LineInput : Unlimited Characters<br>
 [#] Label : Render
 
 ### V 1.2.2 - 26/06/2023
@@ -88,8 +88,8 @@
 [+] TextureButton<br>
 [+] Rect : Contains<br>
 [+] InputManager : IsMouseInRectangle<br>
-[~] Widget : Position is required<br>
-[~] SharpEngine : Use C# Events<br>
+[\~] Widget : Position is required<br>
+[\~] SharpEngine : Use C# Events<br>
 [#] InputManager : Values of MouseButton<br>
 [#] TextComponent : Color
 
@@ -105,7 +105,7 @@
 [#] TileMapComponent : LayerDepth
 
 ### V 0.19.6 - 26/05/2023
-[~] InputManager : Optimize<br>
+[\~] InputManager : Optimize<br>
 [-] MonoGameVersion
 
 ### V 0.19.5 - 26/05/2023
@@ -133,7 +133,7 @@
 ### V 0.18.3 - 21/05/2023
 [+] Particle : ZLayer<br>
 [+] ParticleEmitter : ZLayer<br>
-[~] Rect : Optimize
+[\~] Rect : Optimize
 
 ### V 0.18.2 - 21/05/2023
 [+] Widget : RemoveAllChildren<br>
@@ -154,14 +154,14 @@
 [.] Optimization
 
 ### V 0.17.3 - 16/05/2023
-[~] Internal Layer System<br>
+[\~] Internal Layer System<br>
 [.] Optimization
 
 ### V 0.17.2 - 15/05/2023
-[~] Scene : Optimize Entity Sorting
+[\~] Scene : Optimize Entity Sorting
 
 ### V 0.17.1 - 13/05/2023
-[~] Save : Define default value
+[\~] Save : Define default value
 
 ### V 0.17.0 - 13/05/2023
 [+] Animation<br>
@@ -170,12 +170,12 @@
 [+] Window : ShowPhysicDebugView<br>
 [+] DebugManager : CreateSharpEngineImGuiWindow<br>
 [+] Scene : RemoveAllWidgets, RemoveAllEntities<br>
-[~] DebugManager : Optimize<br>
-[~] TileMap : Optimize<br>
-[~] Vec2 : Transform to Struct<br>
-[~] Rect : Transform to Struct<br>
-[~] FixtureInfo : Transform to Struct<br>
-[~] TileType : Transform to Struct<br>
+[\~] DebugManager : Optimize<br>
+[\~] TileMap : Optimize<br>
+[\~] Vec2 : Transform to Struct<br>
+[\~] Rect : Transform to Struct<br>
+[\~] FixtureInfo : Transform to Struct<br>
+[\~] TileType : Transform to Struct<br>
 [#] TileMap : Spacing<br>
 [.] Update to Net 7<br>
 [.] Refactor
@@ -184,7 +184,7 @@
 [#] Widget : GetRealPosition
 
 ### V 0.16.10 - 27/09/2022
-[~] Widget : Don't update when not displayed
+[\~] Widget : Don't update when not displayed
 
 ### V 0.16.9 - 22/09/2022
 [#] Scene : RemoveEntity, RemoveWidget
@@ -197,10 +197,10 @@
 [#] Entity : Fix removing
 
 ### V 0.16.6 - 21/09/2022
-[~] Scene : Optimize
+[\~] Scene : Optimize
 
 ### V 0.16.5 - 16/09/2022
-[~] Widgets : Propagate ZLayer to Children<br>
+[\~] Widgets : Propagate ZLayer to Children<br>
 [#] Scene : Fix Order of Widgets
 
 ### V 0.16.4 - 16/09/2022
@@ -216,7 +216,7 @@
 
 ### V 0.16.1 - 14/09/2022
 [+] Frame : BackgroundColor<br>
-[~] Widget : Don't draw children if not displayed
+[\~] Widget : Don't draw children if not displayed
 
 ### V 0.16.0 - 11/09/2022
 [+] FixtureTag<br>
@@ -226,7 +226,7 @@
 *No changelog*
 
 ### V 0.15.5 - 08/09/2022
-[~] PhysicsComponent : Remove Body when Removed
+[\~] PhysicsComponent : Remove Body when Removed
 
 ### V 0.15.4 - 07/09/2022
 *No changelog*
@@ -235,10 +235,10 @@
 [#] Scene : AddEntity
 
 ### V 0.15.2 - 07/09/2022
-[~] Scene : Return Entity when added 
+[\~] Scene : Return Entity when added 
 
 ### V 0.15.1 - 07/09/2022
-[~] Selector : Optimize<br>
+[\~] Selector : Optimize<br>
 [#] Widgets : Real Position<br>
 [#] Widget : Deleting Child in Update
 
@@ -247,8 +247,8 @@
 [+] Frame<br>
 [+] Widget : GetRealPosition<br>
 [+] Image : SourceRect, FlipX, FlipY, Scale<br>
-[~] Widgets : Optimize<br>
-[~] Selector : Rework with Child system<br>
+[\~] Widgets : Optimize<br>
+[\~] Selector : Rework with Child system<br>
 [#] Slider<br>
 [#] Button<br>
 [#] Checkbox
@@ -258,18 +258,18 @@
 
 ### V 0.13.0 - 06/09/2022
 [+] DebugView<br>
-[~] Aether.Physics2D : Use Monogame Version
+[\~] Aether.Physics2D : Use Monogame Version
 
 ### V 0.12.0 - 06/09/2022
 [+] AnimSpriteSheetComponent : FlipX, FlipY, Offset<br>
 [+] SpriteComponent : FlipX, FlipY
 
 ### V 0.11.4 - 05/09/2022
-[~] SamplerState set to PointClamp<br>
-[~] Renderer : Optimize
+[\~] SamplerState set to PointClamp<br>
+[\~] Renderer : Optimize
 
 ### V 0.11.3 - 04/09/2022
-[~] TileMapComponent : Optimize
+[\~] TileMapComponent : Optimize
 
 ### V 0.11.2 - 03/09/2022
 [#] Renderer
@@ -279,7 +279,7 @@
 
 ### V 0.11.0 - 03/09/2022
 [+] Scene : CloseScene, OpenScene<br>
-[~] SpriteSheetComponent : Rename to AnimSpriteSheetComponent
+[\~] SpriteSheetComponent : Rename to AnimSpriteSheetComponent
 
 ### V 0.10.2 - 02/09/2022
 [#] TileMapComponent : Scale
@@ -302,7 +302,7 @@
 [+] Slider<br>
 [+] Gamepad Support<br>
 [+] ImGui<br>
-[~] ControlComponent : Improve Physics<br>
+[\~] ControlComponent : Improve Physics<br>
 [#] Window : ExitWithEscape<br>
 [#] ControlComponent : MouseFollow ControlType<br>
 [#] TileMapComponent<br>
@@ -323,10 +323,10 @@
 [+] Vec2 : ToAetherPhysics<br>
 [+] Physics Engine<br>
 [+] Docs<br>
-[~] PhysicsComponent : Allow Multiple fixtures<br>
-[~] Change components creation system<br>
-[~] Change widget creation system<br>
-[~] Make Math public<br>
+[\~] PhysicsComponent : Allow Multiple fixtures<br>
+[\~] Change components creation system<br>
+[\~] Change widget creation system<br>
+[\~] Make Math public<br>
 [#] TransformComponent : Fix comment<br>
 [.] Window : Refactor
 
@@ -345,8 +345,8 @@
 
 ### V 0.7.0 - 12/10/2021
 [+] TexturedButton<br>
-[~] FontManager : Throw error on getting unknown font<br>
-[~] TextureManager : Throw error on getting unknown texture<br>
+[\~] FontManager : Throw error on getting unknown font<br>
+[\~] TextureManager : Throw error on getting unknown texture<br>
 [#] Rect<br>
 [#] Vec2
 

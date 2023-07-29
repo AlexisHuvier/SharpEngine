@@ -79,7 +79,7 @@
 
   <h1 id="SharpEngine_Component_ControlComponent" data-uid="SharpEngine.Component.ControlComponent" class="text-break">
     Class ControlComponent
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -155,9 +155,9 @@
 
   <a id="SharpEngine_Component_ControlComponent__ctor_" data-uid="SharpEngine.Component.ControlComponent.#ctor*"></a>
 
-  <h3 id="SharpEngine_Component_ControlComponent__ctor_SharpEngine_Utils_Input_ControlType_System_Int32_System_Boolean_System_Int32_" data-uid="SharpEngine.Component.ControlComponent.#ctor(SharpEngine.Utils.Input.ControlType,System.Int32,System.Boolean,System.Int32)">
-  ControlComponent(ControlType, int, bool, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpEngine_Component_ControlComponent__ctor_SharpEngine_Utils_Input_ControlType_System_Int32_System_Single_System_Boolean_System_Int32_" data-uid="SharpEngine.Component.ControlComponent.#ctor(SharpEngine.Utils.Input.ControlType,System.Int32,System.Single,System.Boolean,System.Int32)">
+  ControlComponent(ControlType, int, float, bool, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L68"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create Control Component</p>
@@ -165,7 +165,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ControlComponent(ControlType controlType = ControlType.FourDirection, int speed = 300, bool useGamePad = false, int gamePadIndex = 1)</code></pre>
+    <pre><code class="lang-csharp hljs">public ControlComponent(ControlType controlType = ControlType.FourDirection, int speed = 300, float jumpForce = 2, bool useGamePad = false, int gamePadIndex = 1)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -175,6 +175,9 @@
 </dd>
     <dt><code>speed</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>Speed (300)</p>
+</dd>
+    <dt><code>jumpForce</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Jump Force (3)</p>
 </dd>
     <dt><code>useGamePad</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Use Game Pad (false)</p>
@@ -199,11 +202,43 @@
 </h2>
 
 
+  <a id="SharpEngine_Component_ControlComponent_CanJump_" data-uid="SharpEngine.Component.ControlComponent.CanJump*"></a>
+
+  <h3 id="SharpEngine_Component_ControlComponent_CanJump" data-uid="SharpEngine.Component.ControlComponent.CanJump">
+  CanJump
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If Entity can jump</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanJump { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SharpEngine_Component_ControlComponent_ControlType_" data-uid="SharpEngine.Component.ControlComponent.ControlType*"></a>
 
   <h3 id="SharpEngine_Component_ControlComponent_ControlType" data-uid="SharpEngine.Component.ControlComponent.ControlType">
   ControlType
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Type of Control</p>
@@ -235,7 +270,7 @@
 
   <h3 id="SharpEngine_Component_ControlComponent_Direction" data-uid="SharpEngine.Component.ControlComponent.Direction">
   Direction
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L54"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Direction of Control</p>
@@ -267,7 +302,7 @@
 
   <h3 id="SharpEngine_Component_ControlComponent_GamePadIndex" data-uid="SharpEngine.Component.ControlComponent.GamePadIndex">
   GamePadIndex
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L34"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Index of GamePad</p>
@@ -299,7 +334,7 @@
 
   <h3 id="SharpEngine_Component_ControlComponent_IsMoving" data-uid="SharpEngine.Component.ControlComponent.IsMoving">
   IsMoving
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>If Entity is moving</p>
@@ -327,11 +362,43 @@
 
 
 
+  <a id="SharpEngine_Component_ControlComponent_JumpForce_" data-uid="SharpEngine.Component.ControlComponent.JumpForce*"></a>
+
+  <h3 id="SharpEngine_Component_ControlComponent_JumpForce" data-uid="SharpEngine.Component.ControlComponent.JumpForce">
+  JumpForce
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Jump force</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float JumpForce { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SharpEngine_Component_ControlComponent_Speed_" data-uid="SharpEngine.Component.ControlComponent.Speed*"></a>
 
   <h3 id="SharpEngine_Component_ControlComponent_Speed" data-uid="SharpEngine.Component.ControlComponent.Speed">
   Speed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Speed of Control</p>
@@ -363,7 +430,7 @@
 
   <h3 id="SharpEngine_Component_ControlComponent_UseGamePad" data-uid="SharpEngine.Component.ControlComponent.UseGamePad">
   UseGamePad
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>If Control use GamePad</p>
@@ -399,7 +466,7 @@
 
   <h3 id="SharpEngine_Component_ControlComponent_GetKey_SharpEngine_Utils_Input_ControlKey_" data-uid="SharpEngine.Component.ControlComponent.GetKey(SharpEngine.Utils.Input.ControlKey)">
   GetKey(ControlKey)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L92"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get Key for a Control</p>
@@ -438,7 +505,7 @@
 
   <h3 id="SharpEngine_Component_ControlComponent_Load" data-uid="SharpEngine.Component.ControlComponent.Load">
   Load()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L102"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Load Component</p>
@@ -465,7 +532,7 @@
 
   <h3 id="SharpEngine_Component_ControlComponent_SetKey_SharpEngine_Utils_Input_ControlKey_SharpEngine_Utils_Input_Key_" data-uid="SharpEngine.Component.ControlComponent.SetKey(SharpEngine.Utils.Input.ControlKey,SharpEngine.Utils.Input.Key)">
   SetKey(ControlKey, Key)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L84"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L99"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set Key for a Control</p>
@@ -501,7 +568,7 @@
 
   <h3 id="SharpEngine_Component_ControlComponent_Update_System_Single_" data-uid="SharpEngine.Component.ControlComponent.Update(System.Single)">
   Update(float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L96"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L111"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Update Component</p>
@@ -534,7 +601,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L12" class="edit-link">Edit this page</a>
+          <a href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/ControlComponent.cs/#L14" class="edit-link">Edit this page</a>
         </div>
 
         

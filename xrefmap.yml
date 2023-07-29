@@ -173,15 +173,15 @@ references:
   commentId: T:SharpEngine.Component.ControlComponent
   fullName: SharpEngine.Component.ControlComponent
   nameWithType: ControlComponent
-- uid: SharpEngine.Component.ControlComponent.#ctor(SharpEngine.Utils.Input.ControlType,System.Int32,System.Boolean,System.Int32)
-  name: ControlComponent(ControlType, int, bool, int)
-  href: api/SharpEngine.Component.ControlComponent.html#SharpEngine_Component_ControlComponent__ctor_SharpEngine_Utils_Input_ControlType_System_Int32_System_Boolean_System_Int32_
-  commentId: M:SharpEngine.Component.ControlComponent.#ctor(SharpEngine.Utils.Input.ControlType,System.Int32,System.Boolean,System.Int32)
-  name.vb: New(ControlType, Integer, Boolean, Integer)
-  fullName: SharpEngine.Component.ControlComponent.ControlComponent(SharpEngine.Utils.Input.ControlType, int, bool, int)
-  fullName.vb: SharpEngine.Component.ControlComponent.New(SharpEngine.Utils.Input.ControlType, Integer, Boolean, Integer)
-  nameWithType: ControlComponent.ControlComponent(ControlType, int, bool, int)
-  nameWithType.vb: ControlComponent.New(ControlType, Integer, Boolean, Integer)
+- uid: SharpEngine.Component.ControlComponent.#ctor(SharpEngine.Utils.Input.ControlType,System.Int32,System.Single,System.Boolean,System.Int32)
+  name: ControlComponent(ControlType, int, float, bool, int)
+  href: api/SharpEngine.Component.ControlComponent.html#SharpEngine_Component_ControlComponent__ctor_SharpEngine_Utils_Input_ControlType_System_Int32_System_Single_System_Boolean_System_Int32_
+  commentId: M:SharpEngine.Component.ControlComponent.#ctor(SharpEngine.Utils.Input.ControlType,System.Int32,System.Single,System.Boolean,System.Int32)
+  name.vb: New(ControlType, Integer, Single, Boolean, Integer)
+  fullName: SharpEngine.Component.ControlComponent.ControlComponent(SharpEngine.Utils.Input.ControlType, int, float, bool, int)
+  fullName.vb: SharpEngine.Component.ControlComponent.New(SharpEngine.Utils.Input.ControlType, Integer, Single, Boolean, Integer)
+  nameWithType: ControlComponent.ControlComponent(ControlType, int, float, bool, int)
+  nameWithType.vb: ControlComponent.New(ControlType, Integer, Single, Boolean, Integer)
 - uid: SharpEngine.Component.ControlComponent.#ctor*
   name: ControlComponent
   href: api/SharpEngine.Component.ControlComponent.html#SharpEngine_Component_ControlComponent__ctor_
@@ -192,6 +192,19 @@ references:
   fullName.vb: SharpEngine.Component.ControlComponent.New
   nameWithType: ControlComponent.ControlComponent
   nameWithType.vb: ControlComponent.New
+- uid: SharpEngine.Component.ControlComponent.CanJump
+  name: CanJump
+  href: api/SharpEngine.Component.ControlComponent.html#SharpEngine_Component_ControlComponent_CanJump
+  commentId: P:SharpEngine.Component.ControlComponent.CanJump
+  fullName: SharpEngine.Component.ControlComponent.CanJump
+  nameWithType: ControlComponent.CanJump
+- uid: SharpEngine.Component.ControlComponent.CanJump*
+  name: CanJump
+  href: api/SharpEngine.Component.ControlComponent.html#SharpEngine_Component_ControlComponent_CanJump_
+  commentId: Overload:SharpEngine.Component.ControlComponent.CanJump
+  isSpec: "True"
+  fullName: SharpEngine.Component.ControlComponent.CanJump
+  nameWithType: ControlComponent.CanJump
 - uid: SharpEngine.Component.ControlComponent.ControlType
   name: ControlType
   href: api/SharpEngine.Component.ControlComponent.html#SharpEngine_Component_ControlComponent_ControlType
@@ -257,6 +270,19 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Component.ControlComponent.IsMoving
   nameWithType: ControlComponent.IsMoving
+- uid: SharpEngine.Component.ControlComponent.JumpForce
+  name: JumpForce
+  href: api/SharpEngine.Component.ControlComponent.html#SharpEngine_Component_ControlComponent_JumpForce
+  commentId: P:SharpEngine.Component.ControlComponent.JumpForce
+  fullName: SharpEngine.Component.ControlComponent.JumpForce
+  nameWithType: ControlComponent.JumpForce
+- uid: SharpEngine.Component.ControlComponent.JumpForce*
+  name: JumpForce
+  href: api/SharpEngine.Component.ControlComponent.html#SharpEngine_Component_ControlComponent_JumpForce_
+  commentId: Overload:SharpEngine.Component.ControlComponent.JumpForce
+  isSpec: "True"
+  fullName: SharpEngine.Component.ControlComponent.JumpForce
+  nameWithType: ControlComponent.JumpForce
 - uid: SharpEngine.Component.ControlComponent.Load
   name: Load()
   href: api/SharpEngine.Component.ControlComponent.html#SharpEngine_Component_ControlComponent_Load
@@ -534,6 +560,19 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Component.PhysicsComponent.GetRotation
   nameWithType: PhysicsComponent.GetRotation
+- uid: SharpEngine.Component.PhysicsComponent.IsOnGround
+  name: IsOnGround()
+  href: api/SharpEngine.Component.PhysicsComponent.html#SharpEngine_Component_PhysicsComponent_IsOnGround
+  commentId: M:SharpEngine.Component.PhysicsComponent.IsOnGround
+  fullName: SharpEngine.Component.PhysicsComponent.IsOnGround()
+  nameWithType: PhysicsComponent.IsOnGround()
+- uid: SharpEngine.Component.PhysicsComponent.IsOnGround*
+  name: IsOnGround
+  href: api/SharpEngine.Component.PhysicsComponent.html#SharpEngine_Component_PhysicsComponent_IsOnGround_
+  commentId: Overload:SharpEngine.Component.PhysicsComponent.IsOnGround
+  isSpec: "True"
+  fullName: SharpEngine.Component.PhysicsComponent.IsOnGround
+  nameWithType: PhysicsComponent.IsOnGround
 - uid: SharpEngine.Component.PhysicsComponent.Load
   name: Load()
   href: api/SharpEngine.Component.PhysicsComponent.html#SharpEngine_Component_PhysicsComponent_Load

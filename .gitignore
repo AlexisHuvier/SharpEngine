@@ -3,6 +3,8 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+docfx_project/_site/
+
 puml/
 
 # User-specific files

@@ -37,6 +37,7 @@ public class PhysicsComponent: Component
     private readonly List<Joint> _joints = new();
     private readonly bool _fixedRotation;
     private readonly bool _ignoreGravity;
+    private readonly List<Contact> _contacts = new();
 
     private TransformComponent? _transform;
 
@@ -146,6 +147,19 @@ public class PhysicsComponent: Component
         _fixtures.Add(fixture);
     }
 
+    public bool IsOnGround()
+    {
+        if (GetLinearVelocity().Y != 0)
+            return false;
+        foreach (var contact in _contacts)
+        {
+            contact.GetWorldManifold(out var normal, out _);
+            if (normal.X == 0 && System.Math.Abs(normal.Y + 1) < Internal.FloatTolerance)
+                return true;
+        }
+        return false;
+    }
+    
     /// <summary>
     /// Add joint
     /// </summary>
@@ -242,7 +256,7 @@ public class PhysicsComponent: Component
 
     private bool OnCollision(Fixture sender, Fixture other, Contact contact)
     {
-        var eventArgs = new PhysicsEventArgs()
+        var eventArgs = new PhysicsEventArgs
         {
             Sender = sender,
             Other = other,
@@ -254,19 +268,25 @@ public class PhysicsComponent: Component
 
         if ((FixtureTag)sender.Tag == FixtureTag.IgnoreCollisions || (FixtureTag)other.Tag == FixtureTag.IgnoreCollisions)
             eventArgs.Result = false;
+        
+        if(eventArgs.Result)
+            _contacts.Add(contact);
+
         return eventArgs.Result;
     }
 
     private void OnSeparation(Fixture sender, Fixture other, Contact contact)
     {
-        var eventArgs = new PhysicsEventArgs()
+        var eventArgs = new PhysicsEventArgs
         {
             Sender = sender,
             Other = other,
             Contact = contact,
             Result = true
         };
+        
         SeparationCallback?.Invoke(this, eventArgs);
+        _contacts.Remove(contact);
     }
 
     /// <inheritdoc />

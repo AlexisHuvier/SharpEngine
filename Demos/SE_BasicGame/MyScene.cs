@@ -17,20 +17,14 @@ internal class MyScene : Scene
         var e1 = new Entity();
         e1.AddComponent(new TransformComponent(new Vec2(100)));
         e1.AddComponent(new RectComponent(Color.Blue, new Vec2(50)));
-        e1.AddComponent(new PhysicsComponent(ignoreGravity: true, fixedRotation: true)).AddRectangleCollision(new Vec2(50));
-        e1.AddComponent(new ControlComponent(speed: 300));
+        e1.AddComponent(new PhysicsComponent(fixedRotation: true)).AddRectangleCollision(new Vec2(50), restitution: 0f);
+        e1.AddComponent(new ControlComponent(ControlType.ClassicJump, speed: 300));
         AddEntity(e1);
         
         var e2 = new Entity();
-        e2.AddComponent(new TransformComponent(new Vec2(200)));
+        e2.AddComponent(new TransformComponent(new Vec2(100, 300)));
         e2.AddComponent(new RectComponent(Color.Red, new Vec2(50)));
-        e2.AddComponent(new PhysicsComponent(BodyType.Static, ignoreGravity: true, fixedRotation: true)).AddRectangleCollision(new Vec2(50));
+        e2.AddComponent(new PhysicsComponent(BodyType.Static, ignoreGravity: true, fixedRotation: true)).AddRectangleCollision(new Vec2(50), restitution: 0f);
         AddEntity(e2);
-
-        AddWidget(new Label(new Vec2(400),
-                "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHI\nJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmn\nopqrstuvwxyz{|}~¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓ\nÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷\nøùúûüýþÿ",
-                "basic"))
-            .AddChild(new Label(new Vec2(0, -300), "&é-è_àçù", "basic"))
-            .AddChild(new LineInput(new Vec2(0, 100), "Test", "basic"));
     }
 }

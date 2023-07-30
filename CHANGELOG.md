@@ -7,6 +7,10 @@
 [#] Bug Fixes<br>
 [.] Others
 
+### V 1.6.1 - 30/07/2023
+[+] SpriteComponent : FlipX, FlipY
+[+] SpriteSheetComponent : FlipX, FlipY
+
 ### V 1.6.0 - 29/07/2023
 [+] Selector
 

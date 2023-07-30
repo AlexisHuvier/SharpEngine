@@ -29,5 +29,13 @@ internal class MyScene : Scene
 
         AddWidget(new Selector(new Vec2(500), new List<string> { "Un", "Deux", "SUPPPPERRR TROIS !" }, "basic")).ValueChanged += 
             (_, args) => Console.WriteLine(args.OldValue + " => " + args.NewValue);
+
+        var e3 = new Entity();
+        e3.AddComponent(new TransformComponent(new Vec2(100, 500), new Vec2(3)));
+        e3.AddComponent(new SpriteSheetComponent("KnightM", new Vec2(16, 28), new List<Animation>
+        {
+            new("idle", new List<uint> { 1, 2, 3, 4 }, 0.1f)
+        }, "idle", flipX: true));
+        AddEntity(e3);
     }
 }

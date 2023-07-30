@@ -155,9 +155,9 @@
 
   <a id="SharpEngine_Component_SpriteComponent__ctor_" data-uid="SharpEngine.Component.SpriteComponent.#ctor*"></a>
 
-  <h3 id="SharpEngine_Component_SpriteComponent__ctor_System_String_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__" data-uid="SharpEngine.Component.SpriteComponent.#ctor(System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2})">
-  SpriteComponent(string, bool, Vec2?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteComponent.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpEngine_Component_SpriteComponent__ctor_System_String_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__System_Boolean_System_Boolean_" data-uid="SharpEngine.Component.SpriteComponent.#ctor(System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Boolean)">
+  SpriteComponent(string, bool, Vec2?, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteComponent.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create SpriteComponent</p>
@@ -165,7 +165,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SpriteComponent(string texture, bool displayed = true, Vec2? offset = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public SpriteComponent(string texture, bool displayed = true, Vec2? offset = null, bool flipX = false, bool flipY = false)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -178,6 +178,12 @@
 </dd>
     <dt><code>offset</code> <a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a>?</dt>
     <dd><p>Offset (Vec2(0))</p>
+</dd>
+    <dt><code>flipX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If Sprite is Flip Horizontally</p>
+</dd>
+    <dt><code>flipY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If Sprite is Flip Vertically</p>
 </dd>
   </dl>
 
@@ -209,6 +215,70 @@
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Displayed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_SpriteComponent_FlipX_" data-uid="SharpEngine.Component.SpriteComponent.FlipX*"></a>
+
+  <h3 id="SharpEngine_Component_SpriteComponent_FlipX" data-uid="SharpEngine.Component.SpriteComponent.FlipX">
+  FlipX
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteComponent.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If Sprite is Flip Horizontally</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FlipX { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_SpriteComponent_FlipY_" data-uid="SharpEngine.Component.SpriteComponent.FlipY*"></a>
+
+  <h3 id="SharpEngine_Component_SpriteComponent_FlipY" data-uid="SharpEngine.Component.SpriteComponent.FlipY">
+  FlipY
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteComponent.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If Sprite is Flip Vertically</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FlipY { get; set; }</code></pre>
   </div>
 
 
@@ -300,7 +370,7 @@
 
   <h3 id="SharpEngine_Component_SpriteComponent_Draw" data-uid="SharpEngine.Component.SpriteComponent.Draw">
   Draw()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteComponent.cs/#L52"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteComponent.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Draw Component</p>
@@ -327,7 +397,7 @@
 
   <h3 id="SharpEngine_Component_SpriteComponent_Load" data-uid="SharpEngine.Component.SpriteComponent.Load">
   Load()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteComponent.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteComponent.cs/#L58"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Load Component</p>

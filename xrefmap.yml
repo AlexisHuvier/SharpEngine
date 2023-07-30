@@ -792,15 +792,15 @@ references:
   commentId: T:SharpEngine.Component.SpriteComponent
   fullName: SharpEngine.Component.SpriteComponent
   nameWithType: SpriteComponent
-- uid: SharpEngine.Component.SpriteComponent.#ctor(System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2})
-  name: SpriteComponent(string, bool, Vec2?)
-  href: api/SharpEngine.Component.SpriteComponent.html#SharpEngine_Component_SpriteComponent__ctor_System_String_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__
-  commentId: M:SharpEngine.Component.SpriteComponent.#ctor(System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2})
-  name.vb: New(String, Boolean, Vec2?)
-  fullName: SharpEngine.Component.SpriteComponent.SpriteComponent(string, bool, SharpEngine.Math.Vec2?)
-  fullName.vb: SharpEngine.Component.SpriteComponent.New(String, Boolean, SharpEngine.Math.Vec2?)
-  nameWithType: SpriteComponent.SpriteComponent(string, bool, Vec2?)
-  nameWithType.vb: SpriteComponent.New(String, Boolean, Vec2?)
+- uid: SharpEngine.Component.SpriteComponent.#ctor(System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Boolean)
+  name: SpriteComponent(string, bool, Vec2?, bool, bool)
+  href: api/SharpEngine.Component.SpriteComponent.html#SharpEngine_Component_SpriteComponent__ctor_System_String_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__System_Boolean_System_Boolean_
+  commentId: M:SharpEngine.Component.SpriteComponent.#ctor(System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Boolean)
+  name.vb: New(String, Boolean, Vec2?, Boolean, Boolean)
+  fullName: SharpEngine.Component.SpriteComponent.SpriteComponent(string, bool, SharpEngine.Math.Vec2?, bool, bool)
+  fullName.vb: SharpEngine.Component.SpriteComponent.New(String, Boolean, SharpEngine.Math.Vec2?, Boolean, Boolean)
+  nameWithType: SpriteComponent.SpriteComponent(string, bool, Vec2?, bool, bool)
+  nameWithType.vb: SpriteComponent.New(String, Boolean, Vec2?, Boolean, Boolean)
 - uid: SharpEngine.Component.SpriteComponent.#ctor*
   name: SpriteComponent
   href: api/SharpEngine.Component.SpriteComponent.html#SharpEngine_Component_SpriteComponent__ctor_
@@ -837,6 +837,32 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Component.SpriteComponent.Draw
   nameWithType: SpriteComponent.Draw
+- uid: SharpEngine.Component.SpriteComponent.FlipX
+  name: FlipX
+  href: api/SharpEngine.Component.SpriteComponent.html#SharpEngine_Component_SpriteComponent_FlipX
+  commentId: P:SharpEngine.Component.SpriteComponent.FlipX
+  fullName: SharpEngine.Component.SpriteComponent.FlipX
+  nameWithType: SpriteComponent.FlipX
+- uid: SharpEngine.Component.SpriteComponent.FlipX*
+  name: FlipX
+  href: api/SharpEngine.Component.SpriteComponent.html#SharpEngine_Component_SpriteComponent_FlipX_
+  commentId: Overload:SharpEngine.Component.SpriteComponent.FlipX
+  isSpec: "True"
+  fullName: SharpEngine.Component.SpriteComponent.FlipX
+  nameWithType: SpriteComponent.FlipX
+- uid: SharpEngine.Component.SpriteComponent.FlipY
+  name: FlipY
+  href: api/SharpEngine.Component.SpriteComponent.html#SharpEngine_Component_SpriteComponent_FlipY
+  commentId: P:SharpEngine.Component.SpriteComponent.FlipY
+  fullName: SharpEngine.Component.SpriteComponent.FlipY
+  nameWithType: SpriteComponent.FlipY
+- uid: SharpEngine.Component.SpriteComponent.FlipY*
+  name: FlipY
+  href: api/SharpEngine.Component.SpriteComponent.html#SharpEngine_Component_SpriteComponent_FlipY_
+  commentId: Overload:SharpEngine.Component.SpriteComponent.FlipY
+  isSpec: "True"
+  fullName: SharpEngine.Component.SpriteComponent.FlipY
+  nameWithType: SpriteComponent.FlipY
 - uid: SharpEngine.Component.SpriteComponent.Load
   name: Load()
   href: api/SharpEngine.Component.SpriteComponent.html#SharpEngine_Component_SpriteComponent_Load
@@ -882,15 +908,15 @@ references:
   commentId: T:SharpEngine.Component.SpriteSheetComponent
   fullName: SharpEngine.Component.SpriteSheetComponent
   nameWithType: SpriteSheetComponent
-- uid: SharpEngine.Component.SpriteSheetComponent.#ctor(System.String,SharpEngine.Math.Vec2,System.Collections.Generic.List{SharpEngine.Utils.Animation},System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2})
-  name: SpriteSheetComponent(string, Vec2, List<Animation>, string, bool, Vec2?)
-  href: api/SharpEngine.Component.SpriteSheetComponent.html#SharpEngine_Component_SpriteSheetComponent__ctor_System_String_SharpEngine_Math_Vec2_System_Collections_Generic_List_SharpEngine_Utils_Animation__System_String_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__
-  commentId: M:SharpEngine.Component.SpriteSheetComponent.#ctor(System.String,SharpEngine.Math.Vec2,System.Collections.Generic.List{SharpEngine.Utils.Animation},System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2})
-  name.vb: New(String, Vec2, List(Of Animation), String, Boolean, Vec2?)
-  fullName: SharpEngine.Component.SpriteSheetComponent.SpriteSheetComponent(string, SharpEngine.Math.Vec2, System.Collections.Generic.List<SharpEngine.Utils.Animation>, string, bool, SharpEngine.Math.Vec2?)
-  fullName.vb: SharpEngine.Component.SpriteSheetComponent.New(String, SharpEngine.Math.Vec2, System.Collections.Generic.List(Of SharpEngine.Utils.Animation), String, Boolean, SharpEngine.Math.Vec2?)
-  nameWithType: SpriteSheetComponent.SpriteSheetComponent(string, Vec2, List<Animation>, string, bool, Vec2?)
-  nameWithType.vb: SpriteSheetComponent.New(String, Vec2, List(Of Animation), String, Boolean, Vec2?)
+- uid: SharpEngine.Component.SpriteSheetComponent.#ctor(System.String,SharpEngine.Math.Vec2,System.Collections.Generic.List{SharpEngine.Utils.Animation},System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Boolean)
+  name: SpriteSheetComponent(string, Vec2, List<Animation>, string, bool, Vec2?, bool, bool)
+  href: api/SharpEngine.Component.SpriteSheetComponent.html#SharpEngine_Component_SpriteSheetComponent__ctor_System_String_SharpEngine_Math_Vec2_System_Collections_Generic_List_SharpEngine_Utils_Animation__System_String_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__System_Boolean_System_Boolean_
+  commentId: M:SharpEngine.Component.SpriteSheetComponent.#ctor(System.String,SharpEngine.Math.Vec2,System.Collections.Generic.List{SharpEngine.Utils.Animation},System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Boolean)
+  name.vb: New(String, Vec2, List(Of Animation), String, Boolean, Vec2?, Boolean, Boolean)
+  fullName: SharpEngine.Component.SpriteSheetComponent.SpriteSheetComponent(string, SharpEngine.Math.Vec2, System.Collections.Generic.List<SharpEngine.Utils.Animation>, string, bool, SharpEngine.Math.Vec2?, bool, bool)
+  fullName.vb: SharpEngine.Component.SpriteSheetComponent.New(String, SharpEngine.Math.Vec2, System.Collections.Generic.List(Of SharpEngine.Utils.Animation), String, Boolean, SharpEngine.Math.Vec2?, Boolean, Boolean)
+  nameWithType: SpriteSheetComponent.SpriteSheetComponent(string, Vec2, List<Animation>, string, bool, Vec2?, bool, bool)
+  nameWithType.vb: SpriteSheetComponent.New(String, Vec2, List(Of Animation), String, Boolean, Vec2?, Boolean, Boolean)
 - uid: SharpEngine.Component.SpriteSheetComponent.#ctor*
   name: SpriteSheetComponent
   href: api/SharpEngine.Component.SpriteSheetComponent.html#SharpEngine_Component_SpriteSheetComponent__ctor_
@@ -953,6 +979,32 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Component.SpriteSheetComponent.Draw
   nameWithType: SpriteSheetComponent.Draw
+- uid: SharpEngine.Component.SpriteSheetComponent.FlipX
+  name: FlipX
+  href: api/SharpEngine.Component.SpriteSheetComponent.html#SharpEngine_Component_SpriteSheetComponent_FlipX
+  commentId: P:SharpEngine.Component.SpriteSheetComponent.FlipX
+  fullName: SharpEngine.Component.SpriteSheetComponent.FlipX
+  nameWithType: SpriteSheetComponent.FlipX
+- uid: SharpEngine.Component.SpriteSheetComponent.FlipX*
+  name: FlipX
+  href: api/SharpEngine.Component.SpriteSheetComponent.html#SharpEngine_Component_SpriteSheetComponent_FlipX_
+  commentId: Overload:SharpEngine.Component.SpriteSheetComponent.FlipX
+  isSpec: "True"
+  fullName: SharpEngine.Component.SpriteSheetComponent.FlipX
+  nameWithType: SpriteSheetComponent.FlipX
+- uid: SharpEngine.Component.SpriteSheetComponent.FlipY
+  name: FlipY
+  href: api/SharpEngine.Component.SpriteSheetComponent.html#SharpEngine_Component_SpriteSheetComponent_FlipY
+  commentId: P:SharpEngine.Component.SpriteSheetComponent.FlipY
+  fullName: SharpEngine.Component.SpriteSheetComponent.FlipY
+  nameWithType: SpriteSheetComponent.FlipY
+- uid: SharpEngine.Component.SpriteSheetComponent.FlipY*
+  name: FlipY
+  href: api/SharpEngine.Component.SpriteSheetComponent.html#SharpEngine_Component_SpriteSheetComponent_FlipY_
+  commentId: Overload:SharpEngine.Component.SpriteSheetComponent.FlipY
+  isSpec: "True"
+  fullName: SharpEngine.Component.SpriteSheetComponent.FlipY
+  nameWithType: SpriteSheetComponent.FlipY
 - uid: SharpEngine.Component.SpriteSheetComponent.GetAnimation(System.String)
   name: GetAnimation(string)
   href: api/SharpEngine.Component.SpriteSheetComponent.html#SharpEngine_Component_SpriteSheetComponent_GetAnimation_System_String_

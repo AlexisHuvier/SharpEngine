@@ -152,9 +152,9 @@
 
   <a id="SharpEngine_Component_SpriteSheetComponent__ctor_" data-uid="SharpEngine.Component.SpriteSheetComponent.#ctor*"></a>
 
-  <h3 id="SharpEngine_Component_SpriteSheetComponent__ctor_System_String_SharpEngine_Math_Vec2_System_Collections_Generic_List_SharpEngine_Utils_Animation__System_String_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__" data-uid="SharpEngine.Component.SpriteSheetComponent.#ctor(System.String,SharpEngine.Math.Vec2,System.Collections.Generic.List{SharpEngine.Utils.Animation},System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2})">
-  SpriteSheetComponent(string, Vec2, List&lt;Animation&gt;, string, bool, Vec2?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpEngine_Component_SpriteSheetComponent__ctor_System_String_SharpEngine_Math_Vec2_System_Collections_Generic_List_SharpEngine_Utils_Animation__System_String_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__System_Boolean_System_Boolean_" data-uid="SharpEngine.Component.SpriteSheetComponent.#ctor(System.String,SharpEngine.Math.Vec2,System.Collections.Generic.List{SharpEngine.Utils.Animation},System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Boolean)">
+  SpriteSheetComponent(string, Vec2, List&lt;Animation&gt;, string, bool, Vec2?, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L81"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create Sprite Sheet Component</p>
@@ -162,7 +162,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SpriteSheetComponent(string texture, Vec2 spriteSize, List&lt;Animation&gt; animations, string currentAnim = &quot;&quot;, bool displayed = true, Vec2? offset = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public SpriteSheetComponent(string texture, Vec2 spriteSize, List&lt;Animation&gt; animations, string currentAnim = &quot;&quot;, bool displayed = true, Vec2? offset = null, bool flipX = false, bool flipY = false)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -185,6 +185,12 @@
     <dt><code>offset</code> <a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a>?</dt>
     <dd><p>Offset</p>
 </dd>
+    <dt><code>flipX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If Sprite is Flip Horizontally</p>
+</dd>
+    <dt><code>flipY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If Sprite is Flip Vertically</p>
+</dd>
   </dl>
 
 
@@ -206,7 +212,7 @@
 
   <h3 id="SharpEngine_Component_SpriteSheetComponent_Anim" data-uid="SharpEngine.Component.SpriteSheetComponent.Anim">
   Anim
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L53"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Current animation</p>
@@ -279,6 +285,70 @@
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool Displayed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_SpriteSheetComponent_FlipX_" data-uid="SharpEngine.Component.SpriteSheetComponent.FlipX*"></a>
+
+  <h3 id="SharpEngine_Component_SpriteSheetComponent_FlipX" data-uid="SharpEngine.Component.SpriteSheetComponent.FlipX">
+  FlipX
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If Sprite is Flip Horizontally</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FlipX { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpEngine_Component_SpriteSheetComponent_FlipY_" data-uid="SharpEngine.Component.SpriteSheetComponent.FlipY*"></a>
+
+  <h3 id="SharpEngine_Component_SpriteSheetComponent_FlipY" data-uid="SharpEngine.Component.SpriteSheetComponent.FlipY">
+  FlipY
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>If Sprite is Flip Vertically</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FlipY { get; set; }</code></pre>
   </div>
 
 
@@ -402,7 +472,7 @@
 
   <h3 id="SharpEngine_Component_SpriteSheetComponent_Draw" data-uid="SharpEngine.Component.SpriteSheetComponent.Draw">
   Draw()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L137"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Draw Component</p>
@@ -429,7 +499,7 @@
 
   <h3 id="SharpEngine_Component_SpriteSheetComponent_GetAnimation_System_String_" data-uid="SharpEngine.Component.SpriteSheetComponent.GetAnimation(System.String)">
   GetAnimation(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L85"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L99"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Return Animation by name</p>
@@ -468,7 +538,7 @@
 
   <h3 id="SharpEngine_Component_SpriteSheetComponent_Load" data-uid="SharpEngine.Component.SpriteSheetComponent.Load">
   Load()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L111"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Load Component</p>
@@ -495,7 +565,7 @@
 
   <h3 id="SharpEngine_Component_SpriteSheetComponent_Update_System_Single_" data-uid="SharpEngine.Component.SpriteSheetComponent.Update(System.Single)">
   Update(float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Component/SpriteSheetComponent.cs/#L118"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Update Component</p>

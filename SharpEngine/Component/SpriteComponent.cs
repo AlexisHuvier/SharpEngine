@@ -24,6 +24,16 @@ public class SpriteComponent: Component
     /// Offset of Sprite
     /// </summary>
     public Vec2 Offset { get; set; }
+    
+    /// <summary>
+    /// If Sprite is Flip Horizontally
+    /// </summary>
+    public bool FlipX { get; set; }
+    
+    /// <summary>
+    /// If Sprite is Flip Vertically
+    /// </summary>
+    public bool FlipY { get; set; }
 
     private TransformComponent? _transformComponent;
 
@@ -33,11 +43,15 @@ public class SpriteComponent: Component
     /// <param name="texture">Name Texture Displayed</param>
     /// <param name="displayed">If Texture is Displayed (true)</param>
     /// <param name="offset">Offset (Vec2(0))</param>
-    public SpriteComponent(string texture, bool displayed = true, Vec2? offset = null)
+    /// <param name="flipX">If Sprite is Flip Horizontally</param>
+    /// <param name="flipY">If Sprite is Flip Vertically</param>
+    public SpriteComponent(string texture, bool displayed = true, Vec2? offset = null, bool flipX = false, bool flipY = false)
     {
         Texture = texture;
         Displayed = displayed;
         Offset = offset ?? Vec2.Zero;
+        FlipX = flipX;
+        FlipY = flipY;
     }
 
     /// <inheritdoc />
@@ -61,7 +75,7 @@ public class SpriteComponent: Component
         var position = _transformComponent.GetTransformedPosition(Offset);
         Raylib.DrawTexturePro(
             texture,
-            new Rectangle(0, 0, texture.width, texture.height),
+            new Rectangle(0, 0, FlipX ? -texture.width : texture.width, FlipY ? -texture.height : texture.height),
             new Rectangle(position.X, position.Y, texture.width * _transformComponent.Scale.X,
                 texture.height * _transformComponent.Scale.Y),
             new Vector2(texture.width / 2f * _transformComponent.Scale.X,

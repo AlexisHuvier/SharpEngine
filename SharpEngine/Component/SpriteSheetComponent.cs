@@ -36,6 +36,16 @@ public class SpriteSheetComponent: Component
     /// Offset
     /// </summary>
     public Vec2 Offset { get; set; }
+    
+    /// <summary>
+    /// If Sprite is Flip Horizontally
+    /// </summary>
+    public bool FlipX { get; set; }
+    
+    /// <summary>
+    /// If Sprite is Flip Vertically
+    /// </summary>
+    public bool FlipY { get; set; }
 
     /// <summary>
     /// Current animation
@@ -66,8 +76,10 @@ public class SpriteSheetComponent: Component
     /// <param name="currentAnim">Current Animation</param>
     /// <param name="displayed">If Displayed</param>
     /// <param name="offset">Offset</param>
+    /// <param name="flipX">If Sprite is Flip Horizontally</param>
+    /// <param name="flipY">If Sprite is Flip Vertically</param>
     public SpriteSheetComponent(string texture, Vec2 spriteSize, List<Animation> animations, string currentAnim = "",
-        bool displayed = true, Vec2? offset = null)
+        bool displayed = true, Vec2? offset = null, bool flipX = false, bool flipY = false)
     {
         Texture = texture;
         SpriteSize = spriteSize;
@@ -75,6 +87,8 @@ public class SpriteSheetComponent: Component
         _currentAnim = currentAnim;
         Displayed = displayed;
         Offset = offset ?? Vec2.Zero;
+        FlipX = flipX;
+        FlipY = flipY;
     }
 
     /// <summary>
@@ -138,7 +152,7 @@ public class SpriteSheetComponent: Component
             new Rectangle(
                 SpriteSize.X * (anim.Value.Indices[_currentImage] % (texture.width / SpriteSize.X)), 
                 SpriteSize.Y * (int)(anim.Value.Indices[_currentImage] / (int)(texture.width / SpriteSize.X)), 
-                SpriteSize.X, SpriteSize.Y),
+                FlipX ? -SpriteSize.X : SpriteSize.X, FlipY ? -SpriteSize.Y : SpriteSize.Y),
             new Rectangle(position.X, position.Y, SpriteSize.X * _transform.Scale.X,SpriteSize.Y * _transform.Scale.Y),
             new Vector2(SpriteSize.X / 2f * _transform.Scale.X, SpriteSize.Y / 2f * _transform.Scale.Y),
             _transform.Rotation, Color.White);

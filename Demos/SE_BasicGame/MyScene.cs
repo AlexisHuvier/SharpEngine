@@ -17,8 +17,8 @@ internal class MyScene : Scene
         var e1 = new Entity();
         e1.AddComponent(new TransformComponent(new Vec2(100)));
         e1.AddComponent(new RectComponent(Color.Blue, new Vec2(50)));
-        e1.AddComponent(new PhysicsComponent(fixedRotation: true)).AddRectangleCollision(new Vec2(50), restitution: 0f);
-        e1.AddComponent(new ControlComponent(ControlType.ClassicJump, speed: 300));
+        e1.AddComponent(new PhysicsComponent(fixedRotation: true, ignoreGravity: true)).AddRectangleCollision(new Vec2(50), restitution: 0f);
+        e1.AddComponent(new ControlComponent(ControlType.FourDirection, speed: 300));
         AddEntity(e1);
         
         var e2 = new Entity();

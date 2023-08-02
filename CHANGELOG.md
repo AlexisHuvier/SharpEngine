@@ -7,6 +7,9 @@
 [#] Bug Fixes<br>
 [.] Others
 
+### V 1.6.2 - 02/08/2023
+[#] ControlComponent : Velocity has problems
+
 ### V 1.6.1 - 30/07/2023
 [+] SpriteComponent : FlipX, FlipY
 [+] SpriteSheetComponent : FlipX, FlipY

@@ -2105,6 +2105,12 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Manager.DebugManager.Log
   nameWithType: DebugManager.Log
+- uid: SharpEngine.Manager.DebugManager.SeVersion
+  name: SeVersion
+  href: api/SharpEngine.Manager.DebugManager.html#SharpEngine_Manager_DebugManager_SeVersion
+  commentId: F:SharpEngine.Manager.DebugManager.SeVersion
+  fullName: SharpEngine.Manager.DebugManager.SeVersion
+  nameWithType: DebugManager.SeVersion
 - uid: SharpEngine.Manager.DebugManager.SetLogLevel(SharpEngine.Utils.LogLevel)
   name: SetLogLevel(LogLevel)
   href: api/SharpEngine.Manager.DebugManager.html#SharpEngine_Manager_DebugManager_SetLogLevel_SharpEngine_Utils_LogLevel_
@@ -2118,12 +2124,6 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Manager.DebugManager.SetLogLevel
   nameWithType: DebugManager.SetLogLevel
-- uid: SharpEngine.Manager.DebugManager.SeVersion
-  name: SeVersion
-  href: api/SharpEngine.Manager.DebugManager.html#SharpEngine_Manager_DebugManager_SeVersion
-  commentId: F:SharpEngine.Manager.DebugManager.SeVersion
-  fullName: SharpEngine.Manager.DebugManager.SeVersion
-  nameWithType: DebugManager.SeVersion
 - uid: SharpEngine.Manager.FontManager
   name: FontManager
   href: api/SharpEngine.Manager.FontManager.html
@@ -2487,15 +2487,6 @@ references:
   commentId: F:SharpEngine.Manager.LangManager.CurrentLang
   fullName: SharpEngine.Manager.LangManager.CurrentLang
   nameWithType: LangManager.CurrentLang
-- uid: SharpEngine.Manager.LangManager.GetTranslation(System.String,System.String,System.String)
-  name: GetTranslation(string, string, string)
-  href: api/SharpEngine.Manager.LangManager.html#SharpEngine_Manager_LangManager_GetTranslation_System_String_System_String_System_String_
-  commentId: M:SharpEngine.Manager.LangManager.GetTranslation(System.String,System.String,System.String)
-  name.vb: GetTranslation(String, String, String)
-  fullName: SharpEngine.Manager.LangManager.GetTranslation(string, string, string)
-  fullName.vb: SharpEngine.Manager.LangManager.GetTranslation(String, String, String)
-  nameWithType: LangManager.GetTranslation(string, string, string)
-  nameWithType.vb: LangManager.GetTranslation(String, String, String)
 - uid: SharpEngine.Manager.LangManager.GetTranslation(System.String,System.String)
   name: GetTranslation(string, string)
   href: api/SharpEngine.Manager.LangManager.html#SharpEngine_Manager_LangManager_GetTranslation_System_String_System_String_
@@ -2505,6 +2496,15 @@ references:
   fullName.vb: SharpEngine.Manager.LangManager.GetTranslation(String, String)
   nameWithType: LangManager.GetTranslation(string, string)
   nameWithType.vb: LangManager.GetTranslation(String, String)
+- uid: SharpEngine.Manager.LangManager.GetTranslation(System.String,System.String,System.String)
+  name: GetTranslation(string, string, string)
+  href: api/SharpEngine.Manager.LangManager.html#SharpEngine_Manager_LangManager_GetTranslation_System_String_System_String_System_String_
+  commentId: M:SharpEngine.Manager.LangManager.GetTranslation(System.String,System.String,System.String)
+  name.vb: GetTranslation(String, String, String)
+  fullName: SharpEngine.Manager.LangManager.GetTranslation(string, string, string)
+  fullName.vb: SharpEngine.Manager.LangManager.GetTranslation(String, String, String)
+  nameWithType: LangManager.GetTranslation(string, string, string)
+  nameWithType.vb: LangManager.GetTranslation(String, String, String)
 - uid: SharpEngine.Manager.LangManager.GetTranslation*
   name: GetTranslation
   href: api/SharpEngine.Manager.LangManager.html#SharpEngine_Manager_LangManager_GetTranslation_
@@ -3043,15 +3043,6 @@ references:
   commentId: M:SharpEngine.Math.Rand.GetRand
   fullName: SharpEngine.Math.Rand.GetRand()
   nameWithType: Rand.GetRand()
-- uid: SharpEngine.Math.Rand.GetRand(System.Int32,System.Int32)
-  name: GetRand(int, int)
-  href: api/SharpEngine.Math.Rand.html#SharpEngine_Math_Rand_GetRand_System_Int32_System_Int32_
-  commentId: M:SharpEngine.Math.Rand.GetRand(System.Int32,System.Int32)
-  name.vb: GetRand(Integer, Integer)
-  fullName: SharpEngine.Math.Rand.GetRand(int, int)
-  fullName.vb: SharpEngine.Math.Rand.GetRand(Integer, Integer)
-  nameWithType: Rand.GetRand(int, int)
-  nameWithType.vb: Rand.GetRand(Integer, Integer)
 - uid: SharpEngine.Math.Rand.GetRand(System.Int32)
   name: GetRand(int)
   href: api/SharpEngine.Math.Rand.html#SharpEngine_Math_Rand_GetRand_System_Int32_
@@ -3061,6 +3052,15 @@ references:
   fullName.vb: SharpEngine.Math.Rand.GetRand(Integer)
   nameWithType: Rand.GetRand(int)
   nameWithType.vb: Rand.GetRand(Integer)
+- uid: SharpEngine.Math.Rand.GetRand(System.Int32,System.Int32)
+  name: GetRand(int, int)
+  href: api/SharpEngine.Math.Rand.html#SharpEngine_Math_Rand_GetRand_System_Int32_System_Int32_
+  commentId: M:SharpEngine.Math.Rand.GetRand(System.Int32,System.Int32)
+  name.vb: GetRand(Integer, Integer)
+  fullName: SharpEngine.Math.Rand.GetRand(int, int)
+  fullName.vb: SharpEngine.Math.Rand.GetRand(Integer, Integer)
+  nameWithType: Rand.GetRand(int, int)
+  nameWithType.vb: Rand.GetRand(Integer, Integer)
 - uid: SharpEngine.Math.Rand.GetRand*
   name: GetRand
   href: api/SharpEngine.Math.Rand.html#SharpEngine_Math_Rand_GetRand_
@@ -3074,15 +3074,6 @@ references:
   commentId: M:SharpEngine.Math.Rand.GetRandF
   fullName: SharpEngine.Math.Rand.GetRandF()
   nameWithType: Rand.GetRandF()
-- uid: SharpEngine.Math.Rand.GetRandF(System.Single,System.Single)
-  name: GetRandF(float, float)
-  href: api/SharpEngine.Math.Rand.html#SharpEngine_Math_Rand_GetRandF_System_Single_System_Single_
-  commentId: M:SharpEngine.Math.Rand.GetRandF(System.Single,System.Single)
-  name.vb: GetRandF(Single, Single)
-  fullName: SharpEngine.Math.Rand.GetRandF(float, float)
-  fullName.vb: SharpEngine.Math.Rand.GetRandF(Single, Single)
-  nameWithType: Rand.GetRandF(float, float)
-  nameWithType.vb: Rand.GetRandF(Single, Single)
 - uid: SharpEngine.Math.Rand.GetRandF(System.Single)
   name: GetRandF(float)
   href: api/SharpEngine.Math.Rand.html#SharpEngine_Math_Rand_GetRandF_System_Single_
@@ -3092,6 +3083,15 @@ references:
   fullName.vb: SharpEngine.Math.Rand.GetRandF(Single)
   nameWithType: Rand.GetRandF(float)
   nameWithType.vb: Rand.GetRandF(Single)
+- uid: SharpEngine.Math.Rand.GetRandF(System.Single,System.Single)
+  name: GetRandF(float, float)
+  href: api/SharpEngine.Math.Rand.html#SharpEngine_Math_Rand_GetRandF_System_Single_System_Single_
+  commentId: M:SharpEngine.Math.Rand.GetRandF(System.Single,System.Single)
+  name.vb: GetRandF(Single, Single)
+  fullName: SharpEngine.Math.Rand.GetRandF(float, float)
+  fullName.vb: SharpEngine.Math.Rand.GetRandF(Single, Single)
+  nameWithType: Rand.GetRandF(float, float)
+  nameWithType.vb: Rand.GetRandF(Single, Single)
 - uid: SharpEngine.Math.Rand.GetRandF*
   name: GetRandF
   href: api/SharpEngine.Math.Rand.html#SharpEngine_Math_Rand_GetRandF_
@@ -3206,6 +3206,58 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Math.Rect.Height
   nameWithType: Rect.Height
+- uid: SharpEngine.Math.Rect.ToString
+  name: ToString()
+  href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_ToString
+  commentId: M:SharpEngine.Math.Rect.ToString
+  fullName: SharpEngine.Math.Rect.ToString()
+  nameWithType: Rect.ToString()
+- uid: SharpEngine.Math.Rect.ToString*
+  name: ToString
+  href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_ToString_
+  commentId: Overload:SharpEngine.Math.Rect.ToString
+  isSpec: "True"
+  fullName: SharpEngine.Math.Rect.ToString
+  nameWithType: Rect.ToString
+- uid: SharpEngine.Math.Rect.Width
+  name: Width
+  href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_Width
+  commentId: P:SharpEngine.Math.Rect.Width
+  fullName: SharpEngine.Math.Rect.Width
+  nameWithType: Rect.Width
+- uid: SharpEngine.Math.Rect.Width*
+  name: Width
+  href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_Width_
+  commentId: Overload:SharpEngine.Math.Rect.Width
+  isSpec: "True"
+  fullName: SharpEngine.Math.Rect.Width
+  nameWithType: Rect.Width
+- uid: SharpEngine.Math.Rect.X
+  name: X
+  href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_X
+  commentId: P:SharpEngine.Math.Rect.X
+  fullName: SharpEngine.Math.Rect.X
+  nameWithType: Rect.X
+- uid: SharpEngine.Math.Rect.X*
+  name: X
+  href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_X_
+  commentId: Overload:SharpEngine.Math.Rect.X
+  isSpec: "True"
+  fullName: SharpEngine.Math.Rect.X
+  nameWithType: Rect.X
+- uid: SharpEngine.Math.Rect.Y
+  name: Y
+  href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_Y
+  commentId: P:SharpEngine.Math.Rect.Y
+  fullName: SharpEngine.Math.Rect.Y
+  nameWithType: Rect.Y
+- uid: SharpEngine.Math.Rect.Y*
+  name: Y
+  href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_Y_
+  commentId: Overload:SharpEngine.Math.Rect.Y
+  isSpec: "True"
+  fullName: SharpEngine.Math.Rect.Y
+  nameWithType: Rect.Y
 - uid: SharpEngine.Math.Rect.op_Equality(SharpEngine.Math.Rect,SharpEngine.Math.Rect)
   name: operator ==(Rect, Rect)
   href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_op_Equality_SharpEngine_Math_Rect_SharpEngine_Math_Rect_
@@ -3263,58 +3315,6 @@ references:
   fullName.vb: SharpEngine.Math.Rect.<>
   nameWithType: Rect.operator !=
   nameWithType.vb: Rect.<>
-- uid: SharpEngine.Math.Rect.ToString
-  name: ToString()
-  href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_ToString
-  commentId: M:SharpEngine.Math.Rect.ToString
-  fullName: SharpEngine.Math.Rect.ToString()
-  nameWithType: Rect.ToString()
-- uid: SharpEngine.Math.Rect.ToString*
-  name: ToString
-  href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_ToString_
-  commentId: Overload:SharpEngine.Math.Rect.ToString
-  isSpec: "True"
-  fullName: SharpEngine.Math.Rect.ToString
-  nameWithType: Rect.ToString
-- uid: SharpEngine.Math.Rect.Width
-  name: Width
-  href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_Width
-  commentId: P:SharpEngine.Math.Rect.Width
-  fullName: SharpEngine.Math.Rect.Width
-  nameWithType: Rect.Width
-- uid: SharpEngine.Math.Rect.Width*
-  name: Width
-  href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_Width_
-  commentId: Overload:SharpEngine.Math.Rect.Width
-  isSpec: "True"
-  fullName: SharpEngine.Math.Rect.Width
-  nameWithType: Rect.Width
-- uid: SharpEngine.Math.Rect.X
-  name: X
-  href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_X
-  commentId: P:SharpEngine.Math.Rect.X
-  fullName: SharpEngine.Math.Rect.X
-  nameWithType: Rect.X
-- uid: SharpEngine.Math.Rect.X*
-  name: X
-  href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_X_
-  commentId: Overload:SharpEngine.Math.Rect.X
-  isSpec: "True"
-  fullName: SharpEngine.Math.Rect.X
-  nameWithType: Rect.X
-- uid: SharpEngine.Math.Rect.Y
-  name: Y
-  href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_Y
-  commentId: P:SharpEngine.Math.Rect.Y
-  fullName: SharpEngine.Math.Rect.Y
-  nameWithType: Rect.Y
-- uid: SharpEngine.Math.Rect.Y*
-  name: Y
-  href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_Y_
-  commentId: Overload:SharpEngine.Math.Rect.Y
-  isSpec: "True"
-  fullName: SharpEngine.Math.Rect.Y
-  nameWithType: Rect.Y
 - uid: SharpEngine.Math.RectI
   name: RectI
   href: api/SharpEngine.Math.RectI.html
@@ -3409,44 +3409,6 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Math.RectI.Height
   nameWithType: RectI.Height
-- uid: SharpEngine.Math.RectI.op_Equality(SharpEngine.Math.RectI,SharpEngine.Math.RectI)
-  name: operator ==(RectI, RectI)
-  href: api/SharpEngine.Math.RectI.html#SharpEngine_Math_RectI_op_Equality_SharpEngine_Math_RectI_SharpEngine_Math_RectI_
-  commentId: M:SharpEngine.Math.RectI.op_Equality(SharpEngine.Math.RectI,SharpEngine.Math.RectI)
-  name.vb: =(RectI, RectI)
-  fullName: SharpEngine.Math.RectI.operator ==(SharpEngine.Math.RectI, SharpEngine.Math.RectI)
-  fullName.vb: SharpEngine.Math.RectI.=(SharpEngine.Math.RectI, SharpEngine.Math.RectI)
-  nameWithType: RectI.operator ==(RectI, RectI)
-  nameWithType.vb: RectI.=(RectI, RectI)
-- uid: SharpEngine.Math.RectI.op_Equality*
-  name: operator ==
-  href: api/SharpEngine.Math.RectI.html#SharpEngine_Math_RectI_op_Equality_
-  commentId: Overload:SharpEngine.Math.RectI.op_Equality
-  isSpec: "True"
-  name.vb: =
-  fullName: SharpEngine.Math.RectI.operator ==
-  fullName.vb: SharpEngine.Math.RectI.=
-  nameWithType: RectI.operator ==
-  nameWithType.vb: RectI.=
-- uid: SharpEngine.Math.RectI.op_Inequality(SharpEngine.Math.RectI,SharpEngine.Math.RectI)
-  name: operator !=(RectI, RectI)
-  href: api/SharpEngine.Math.RectI.html#SharpEngine_Math_RectI_op_Inequality_SharpEngine_Math_RectI_SharpEngine_Math_RectI_
-  commentId: M:SharpEngine.Math.RectI.op_Inequality(SharpEngine.Math.RectI,SharpEngine.Math.RectI)
-  name.vb: <>(RectI, RectI)
-  fullName: SharpEngine.Math.RectI.operator !=(SharpEngine.Math.RectI, SharpEngine.Math.RectI)
-  fullName.vb: SharpEngine.Math.RectI.<>(SharpEngine.Math.RectI, SharpEngine.Math.RectI)
-  nameWithType: RectI.operator !=(RectI, RectI)
-  nameWithType.vb: RectI.<>(RectI, RectI)
-- uid: SharpEngine.Math.RectI.op_Inequality*
-  name: operator !=
-  href: api/SharpEngine.Math.RectI.html#SharpEngine_Math_RectI_op_Inequality_
-  commentId: Overload:SharpEngine.Math.RectI.op_Inequality
-  isSpec: "True"
-  name.vb: <>
-  fullName: SharpEngine.Math.RectI.operator !=
-  fullName.vb: SharpEngine.Math.RectI.<>
-  nameWithType: RectI.operator !=
-  nameWithType.vb: RectI.<>
 - uid: SharpEngine.Math.RectI.ToString
   name: ToString()
   href: api/SharpEngine.Math.RectI.html#SharpEngine_Math_RectI_ToString
@@ -3499,21 +3461,50 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Math.RectI.Y
   nameWithType: RectI.Y
+- uid: SharpEngine.Math.RectI.op_Equality(SharpEngine.Math.RectI,SharpEngine.Math.RectI)
+  name: operator ==(RectI, RectI)
+  href: api/SharpEngine.Math.RectI.html#SharpEngine_Math_RectI_op_Equality_SharpEngine_Math_RectI_SharpEngine_Math_RectI_
+  commentId: M:SharpEngine.Math.RectI.op_Equality(SharpEngine.Math.RectI,SharpEngine.Math.RectI)
+  name.vb: =(RectI, RectI)
+  fullName: SharpEngine.Math.RectI.operator ==(SharpEngine.Math.RectI, SharpEngine.Math.RectI)
+  fullName.vb: SharpEngine.Math.RectI.=(SharpEngine.Math.RectI, SharpEngine.Math.RectI)
+  nameWithType: RectI.operator ==(RectI, RectI)
+  nameWithType.vb: RectI.=(RectI, RectI)
+- uid: SharpEngine.Math.RectI.op_Equality*
+  name: operator ==
+  href: api/SharpEngine.Math.RectI.html#SharpEngine_Math_RectI_op_Equality_
+  commentId: Overload:SharpEngine.Math.RectI.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: SharpEngine.Math.RectI.operator ==
+  fullName.vb: SharpEngine.Math.RectI.=
+  nameWithType: RectI.operator ==
+  nameWithType.vb: RectI.=
+- uid: SharpEngine.Math.RectI.op_Inequality(SharpEngine.Math.RectI,SharpEngine.Math.RectI)
+  name: operator !=(RectI, RectI)
+  href: api/SharpEngine.Math.RectI.html#SharpEngine_Math_RectI_op_Inequality_SharpEngine_Math_RectI_SharpEngine_Math_RectI_
+  commentId: M:SharpEngine.Math.RectI.op_Inequality(SharpEngine.Math.RectI,SharpEngine.Math.RectI)
+  name.vb: <>(RectI, RectI)
+  fullName: SharpEngine.Math.RectI.operator !=(SharpEngine.Math.RectI, SharpEngine.Math.RectI)
+  fullName.vb: SharpEngine.Math.RectI.<>(SharpEngine.Math.RectI, SharpEngine.Math.RectI)
+  nameWithType: RectI.operator !=(RectI, RectI)
+  nameWithType.vb: RectI.<>(RectI, RectI)
+- uid: SharpEngine.Math.RectI.op_Inequality*
+  name: operator !=
+  href: api/SharpEngine.Math.RectI.html#SharpEngine_Math_RectI_op_Inequality_
+  commentId: Overload:SharpEngine.Math.RectI.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: SharpEngine.Math.RectI.operator !=
+  fullName.vb: SharpEngine.Math.RectI.<>
+  nameWithType: RectI.operator !=
+  nameWithType.vb: RectI.<>
 - uid: SharpEngine.Math.Vec2
   name: Vec2
   href: api/SharpEngine.Math.Vec2.html
   commentId: T:SharpEngine.Math.Vec2
   fullName: SharpEngine.Math.Vec2
   nameWithType: Vec2
-- uid: SharpEngine.Math.Vec2.#ctor(System.Single,System.Single)
-  name: Vec2(float, float)
-  href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2__ctor_System_Single_System_Single_
-  commentId: M:SharpEngine.Math.Vec2.#ctor(System.Single,System.Single)
-  name.vb: New(Single, Single)
-  fullName: SharpEngine.Math.Vec2.Vec2(float, float)
-  fullName.vb: SharpEngine.Math.Vec2.New(Single, Single)
-  nameWithType: Vec2.Vec2(float, float)
-  nameWithType.vb: Vec2.New(Single, Single)
 - uid: SharpEngine.Math.Vec2.#ctor(System.Single)
   name: Vec2(float)
   href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2__ctor_System_Single_
@@ -3523,6 +3514,15 @@ references:
   fullName.vb: SharpEngine.Math.Vec2.New(Single)
   nameWithType: Vec2.Vec2(float)
   nameWithType.vb: Vec2.New(Single)
+- uid: SharpEngine.Math.Vec2.#ctor(System.Single,System.Single)
+  name: Vec2(float, float)
+  href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2__ctor_System_Single_System_Single_
+  commentId: M:SharpEngine.Math.Vec2.#ctor(System.Single,System.Single)
+  name.vb: New(Single, Single)
+  fullName: SharpEngine.Math.Vec2.Vec2(float, float)
+  fullName.vb: SharpEngine.Math.Vec2.New(Single, Single)
+  nameWithType: Vec2.Vec2(float, float)
+  nameWithType.vb: Vec2.New(Single, Single)
 - uid: SharpEngine.Math.Vec2.#ctor*
   name: Vec2
   href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2__ctor_
@@ -3620,6 +3620,51 @@ references:
   commentId: F:SharpEngine.Math.Vec2.One
   fullName: SharpEngine.Math.Vec2.One
   nameWithType: Vec2.One
+- uid: SharpEngine.Math.Vec2.ToString
+  name: ToString()
+  href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2_ToString
+  commentId: M:SharpEngine.Math.Vec2.ToString
+  fullName: SharpEngine.Math.Vec2.ToString()
+  nameWithType: Vec2.ToString()
+- uid: SharpEngine.Math.Vec2.ToString*
+  name: ToString
+  href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2_ToString_
+  commentId: Overload:SharpEngine.Math.Vec2.ToString
+  isSpec: "True"
+  fullName: SharpEngine.Math.Vec2.ToString
+  nameWithType: Vec2.ToString
+- uid: SharpEngine.Math.Vec2.X
+  name: X
+  href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2_X
+  commentId: P:SharpEngine.Math.Vec2.X
+  fullName: SharpEngine.Math.Vec2.X
+  nameWithType: Vec2.X
+- uid: SharpEngine.Math.Vec2.X*
+  name: X
+  href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2_X_
+  commentId: Overload:SharpEngine.Math.Vec2.X
+  isSpec: "True"
+  fullName: SharpEngine.Math.Vec2.X
+  nameWithType: Vec2.X
+- uid: SharpEngine.Math.Vec2.Y
+  name: Y
+  href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2_Y
+  commentId: P:SharpEngine.Math.Vec2.Y
+  fullName: SharpEngine.Math.Vec2.Y
+  nameWithType: Vec2.Y
+- uid: SharpEngine.Math.Vec2.Y*
+  name: Y
+  href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2_Y_
+  commentId: Overload:SharpEngine.Math.Vec2.Y
+  isSpec: "True"
+  fullName: SharpEngine.Math.Vec2.Y
+  nameWithType: Vec2.Y
+- uid: SharpEngine.Math.Vec2.Zero
+  name: Zero
+  href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2_Zero
+  commentId: F:SharpEngine.Math.Vec2.Zero
+  fullName: SharpEngine.Math.Vec2.Zero
+  nameWithType: Vec2.Zero
 - uid: SharpEngine.Math.Vec2.op_Addition(SharpEngine.Math.Vec2,SharpEngine.Math.Vec2)
   name: operator +(Vec2, Vec2)
   href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2_op_Addition_SharpEngine_Math_Vec2_SharpEngine_Math_Vec2_
@@ -3844,66 +3889,12 @@ references:
   fullName.vb: SharpEngine.Math.Vec2.-
   nameWithType: Vec2.operator -
   nameWithType.vb: Vec2.-
-- uid: SharpEngine.Math.Vec2.ToString
-  name: ToString()
-  href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2_ToString
-  commentId: M:SharpEngine.Math.Vec2.ToString
-  fullName: SharpEngine.Math.Vec2.ToString()
-  nameWithType: Vec2.ToString()
-- uid: SharpEngine.Math.Vec2.ToString*
-  name: ToString
-  href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2_ToString_
-  commentId: Overload:SharpEngine.Math.Vec2.ToString
-  isSpec: "True"
-  fullName: SharpEngine.Math.Vec2.ToString
-  nameWithType: Vec2.ToString
-- uid: SharpEngine.Math.Vec2.X
-  name: X
-  href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2_X
-  commentId: P:SharpEngine.Math.Vec2.X
-  fullName: SharpEngine.Math.Vec2.X
-  nameWithType: Vec2.X
-- uid: SharpEngine.Math.Vec2.X*
-  name: X
-  href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2_X_
-  commentId: Overload:SharpEngine.Math.Vec2.X
-  isSpec: "True"
-  fullName: SharpEngine.Math.Vec2.X
-  nameWithType: Vec2.X
-- uid: SharpEngine.Math.Vec2.Y
-  name: Y
-  href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2_Y
-  commentId: P:SharpEngine.Math.Vec2.Y
-  fullName: SharpEngine.Math.Vec2.Y
-  nameWithType: Vec2.Y
-- uid: SharpEngine.Math.Vec2.Y*
-  name: Y
-  href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2_Y_
-  commentId: Overload:SharpEngine.Math.Vec2.Y
-  isSpec: "True"
-  fullName: SharpEngine.Math.Vec2.Y
-  nameWithType: Vec2.Y
-- uid: SharpEngine.Math.Vec2.Zero
-  name: Zero
-  href: api/SharpEngine.Math.Vec2.html#SharpEngine_Math_Vec2_Zero
-  commentId: F:SharpEngine.Math.Vec2.Zero
-  fullName: SharpEngine.Math.Vec2.Zero
-  nameWithType: Vec2.Zero
 - uid: SharpEngine.Math.Vec2I
   name: Vec2I
   href: api/SharpEngine.Math.Vec2I.html
   commentId: T:SharpEngine.Math.Vec2I
   fullName: SharpEngine.Math.Vec2I
   nameWithType: Vec2I
-- uid: SharpEngine.Math.Vec2I.#ctor(System.Int32,System.Int32)
-  name: Vec2I(int, int)
-  href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I__ctor_System_Int32_System_Int32_
-  commentId: M:SharpEngine.Math.Vec2I.#ctor(System.Int32,System.Int32)
-  name.vb: New(Integer, Integer)
-  fullName: SharpEngine.Math.Vec2I.Vec2I(int, int)
-  fullName.vb: SharpEngine.Math.Vec2I.New(Integer, Integer)
-  nameWithType: Vec2I.Vec2I(int, int)
-  nameWithType.vb: Vec2I.New(Integer, Integer)
 - uid: SharpEngine.Math.Vec2I.#ctor(System.Int32)
   name: Vec2I(int)
   href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I__ctor_System_Int32_
@@ -3913,6 +3904,15 @@ references:
   fullName.vb: SharpEngine.Math.Vec2I.New(Integer)
   nameWithType: Vec2I.Vec2I(int)
   nameWithType.vb: Vec2I.New(Integer)
+- uid: SharpEngine.Math.Vec2I.#ctor(System.Int32,System.Int32)
+  name: Vec2I(int, int)
+  href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I__ctor_System_Int32_System_Int32_
+  commentId: M:SharpEngine.Math.Vec2I.#ctor(System.Int32,System.Int32)
+  name.vb: New(Integer, Integer)
+  fullName: SharpEngine.Math.Vec2I.Vec2I(int, int)
+  fullName.vb: SharpEngine.Math.Vec2I.New(Integer, Integer)
+  nameWithType: Vec2I.Vec2I(int, int)
+  nameWithType.vb: Vec2I.New(Integer, Integer)
 - uid: SharpEngine.Math.Vec2I.#ctor*
   name: Vec2I
   href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I__ctor_
@@ -4010,6 +4010,51 @@ references:
   commentId: F:SharpEngine.Math.Vec2I.One
   fullName: SharpEngine.Math.Vec2I.One
   nameWithType: Vec2I.One
+- uid: SharpEngine.Math.Vec2I.ToString
+  name: ToString()
+  href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I_ToString
+  commentId: M:SharpEngine.Math.Vec2I.ToString
+  fullName: SharpEngine.Math.Vec2I.ToString()
+  nameWithType: Vec2I.ToString()
+- uid: SharpEngine.Math.Vec2I.ToString*
+  name: ToString
+  href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I_ToString_
+  commentId: Overload:SharpEngine.Math.Vec2I.ToString
+  isSpec: "True"
+  fullName: SharpEngine.Math.Vec2I.ToString
+  nameWithType: Vec2I.ToString
+- uid: SharpEngine.Math.Vec2I.X
+  name: X
+  href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I_X
+  commentId: P:SharpEngine.Math.Vec2I.X
+  fullName: SharpEngine.Math.Vec2I.X
+  nameWithType: Vec2I.X
+- uid: SharpEngine.Math.Vec2I.X*
+  name: X
+  href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I_X_
+  commentId: Overload:SharpEngine.Math.Vec2I.X
+  isSpec: "True"
+  fullName: SharpEngine.Math.Vec2I.X
+  nameWithType: Vec2I.X
+- uid: SharpEngine.Math.Vec2I.Y
+  name: Y
+  href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I_Y
+  commentId: P:SharpEngine.Math.Vec2I.Y
+  fullName: SharpEngine.Math.Vec2I.Y
+  nameWithType: Vec2I.Y
+- uid: SharpEngine.Math.Vec2I.Y*
+  name: Y
+  href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I_Y_
+  commentId: Overload:SharpEngine.Math.Vec2I.Y
+  isSpec: "True"
+  fullName: SharpEngine.Math.Vec2I.Y
+  nameWithType: Vec2I.Y
+- uid: SharpEngine.Math.Vec2I.Zero
+  name: Zero
+  href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I_Zero
+  commentId: F:SharpEngine.Math.Vec2I.Zero
+  fullName: SharpEngine.Math.Vec2I.Zero
+  nameWithType: Vec2I.Zero
 - uid: SharpEngine.Math.Vec2I.op_Addition(SharpEngine.Math.Vec2I,SharpEngine.Math.Vec2I)
   name: operator +(Vec2I, Vec2I)
   href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I_op_Addition_SharpEngine_Math_Vec2I_SharpEngine_Math_Vec2I_
@@ -4207,51 +4252,6 @@ references:
   fullName.vb: SharpEngine.Math.Vec2I.-
   nameWithType: Vec2I.operator -
   nameWithType.vb: Vec2I.-
-- uid: SharpEngine.Math.Vec2I.ToString
-  name: ToString()
-  href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I_ToString
-  commentId: M:SharpEngine.Math.Vec2I.ToString
-  fullName: SharpEngine.Math.Vec2I.ToString()
-  nameWithType: Vec2I.ToString()
-- uid: SharpEngine.Math.Vec2I.ToString*
-  name: ToString
-  href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I_ToString_
-  commentId: Overload:SharpEngine.Math.Vec2I.ToString
-  isSpec: "True"
-  fullName: SharpEngine.Math.Vec2I.ToString
-  nameWithType: Vec2I.ToString
-- uid: SharpEngine.Math.Vec2I.X
-  name: X
-  href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I_X
-  commentId: P:SharpEngine.Math.Vec2I.X
-  fullName: SharpEngine.Math.Vec2I.X
-  nameWithType: Vec2I.X
-- uid: SharpEngine.Math.Vec2I.X*
-  name: X
-  href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I_X_
-  commentId: Overload:SharpEngine.Math.Vec2I.X
-  isSpec: "True"
-  fullName: SharpEngine.Math.Vec2I.X
-  nameWithType: Vec2I.X
-- uid: SharpEngine.Math.Vec2I.Y
-  name: Y
-  href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I_Y
-  commentId: P:SharpEngine.Math.Vec2I.Y
-  fullName: SharpEngine.Math.Vec2I.Y
-  nameWithType: Vec2I.Y
-- uid: SharpEngine.Math.Vec2I.Y*
-  name: Y
-  href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I_Y_
-  commentId: Overload:SharpEngine.Math.Vec2I.Y
-  isSpec: "True"
-  fullName: SharpEngine.Math.Vec2I.Y
-  nameWithType: Vec2I.Y
-- uid: SharpEngine.Math.Vec2I.Zero
-  name: Zero
-  href: api/SharpEngine.Math.Vec2I.html#SharpEngine_Math_Vec2I_Zero
-  commentId: F:SharpEngine.Math.Vec2I.Zero
-  fullName: SharpEngine.Math.Vec2I.Zero
-  nameWithType: Vec2I.Zero
 - uid: SharpEngine.Scene
   name: Scene
   href: api/SharpEngine.Scene.html
@@ -4609,15 +4609,6 @@ references:
   commentId: T:SharpEngine.Utils.Color
   fullName: SharpEngine.Utils.Color
   nameWithType: Color
-- uid: SharpEngine.Utils.Color.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)
-  name: Color(int, int, int, int)
-  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color__ctor_System_Int32_System_Int32_System_Int32_System_Int32_
-  commentId: M:SharpEngine.Utils.Color.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)
-  name.vb: New(Integer, Integer, Integer, Integer)
-  fullName: SharpEngine.Utils.Color.Color(int, int, int, int)
-  fullName.vb: SharpEngine.Utils.Color.New(Integer, Integer, Integer, Integer)
-  nameWithType: Color.Color(int, int, int, int)
-  nameWithType.vb: Color.New(Integer, Integer, Integer, Integer)
 - uid: SharpEngine.Utils.Color.#ctor(System.Int32,System.Int32,System.Int32)
   name: Color(int, int, int)
   href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color__ctor_System_Int32_System_Int32_System_Int32_
@@ -4627,6 +4618,15 @@ references:
   fullName.vb: SharpEngine.Utils.Color.New(Integer, Integer, Integer)
   nameWithType: Color.Color(int, int, int)
   nameWithType.vb: Color.New(Integer, Integer, Integer)
+- uid: SharpEngine.Utils.Color.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+  name: Color(int, int, int, int)
+  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color__ctor_System_Int32_System_Int32_System_Int32_System_Int32_
+  commentId: M:SharpEngine.Utils.Color.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)
+  name.vb: New(Integer, Integer, Integer, Integer)
+  fullName: SharpEngine.Utils.Color.Color(int, int, int, int)
+  fullName.vb: SharpEngine.Utils.Color.New(Integer, Integer, Integer, Integer)
+  nameWithType: Color.Color(int, int, int, int)
+  nameWithType.vb: Color.New(Integer, Integer, Integer, Integer)
 - uid: SharpEngine.Utils.Color.#ctor*
   name: Color
   href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color__ctor_
@@ -4801,22 +4801,6 @@ references:
   commentId: F:SharpEngine.Utils.Color.DarkCyan
   fullName: SharpEngine.Utils.Color.DarkCyan
   nameWithType: Color.DarkCyan
-- uid: SharpEngine.Utils.Color.Darker(System.Int32)
-  name: Darker(int)
-  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_Darker_System_Int32_
-  commentId: M:SharpEngine.Utils.Color.Darker(System.Int32)
-  name.vb: Darker(Integer)
-  fullName: SharpEngine.Utils.Color.Darker(int)
-  fullName.vb: SharpEngine.Utils.Color.Darker(Integer)
-  nameWithType: Color.Darker(int)
-  nameWithType.vb: Color.Darker(Integer)
-- uid: SharpEngine.Utils.Color.Darker*
-  name: Darker
-  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_Darker_
-  commentId: Overload:SharpEngine.Utils.Color.Darker
-  isSpec: "True"
-  fullName: SharpEngine.Utils.Color.Darker
-  nameWithType: Color.Darker
 - uid: SharpEngine.Utils.Color.DarkGoldenrod
   name: DarkGoldenrod
   href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_DarkGoldenrod
@@ -4907,6 +4891,22 @@ references:
   commentId: F:SharpEngine.Utils.Color.DarkViolet
   fullName: SharpEngine.Utils.Color.DarkViolet
   nameWithType: Color.DarkViolet
+- uid: SharpEngine.Utils.Color.Darker(System.Int32)
+  name: Darker(int)
+  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_Darker_System_Int32_
+  commentId: M:SharpEngine.Utils.Color.Darker(System.Int32)
+  name.vb: Darker(Integer)
+  fullName: SharpEngine.Utils.Color.Darker(int)
+  fullName.vb: SharpEngine.Utils.Color.Darker(Integer)
+  nameWithType: Color.Darker(int)
+  nameWithType.vb: Color.Darker(Integer)
+- uid: SharpEngine.Utils.Color.Darker*
+  name: Darker
+  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_Darker_
+  commentId: Overload:SharpEngine.Utils.Color.Darker
+  isSpec: "True"
+  fullName: SharpEngine.Utils.Color.Darker
+  nameWithType: Color.Darker
 - uid: SharpEngine.Utils.Color.DeepPink
   name: DeepPink
   href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_DeepPink
@@ -5117,22 +5117,6 @@ references:
   commentId: F:SharpEngine.Utils.Color.LightCyan
   fullName: SharpEngine.Utils.Color.LightCyan
   nameWithType: Color.LightCyan
-- uid: SharpEngine.Utils.Color.Lighter(System.Int32)
-  name: Lighter(int)
-  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_Lighter_System_Int32_
-  commentId: M:SharpEngine.Utils.Color.Lighter(System.Int32)
-  name.vb: Lighter(Integer)
-  fullName: SharpEngine.Utils.Color.Lighter(int)
-  fullName.vb: SharpEngine.Utils.Color.Lighter(Integer)
-  nameWithType: Color.Lighter(int)
-  nameWithType.vb: Color.Lighter(Integer)
-- uid: SharpEngine.Utils.Color.Lighter*
-  name: Lighter
-  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_Lighter_
-  commentId: Overload:SharpEngine.Utils.Color.Lighter
-  isSpec: "True"
-  fullName: SharpEngine.Utils.Color.Lighter
-  nameWithType: Color.Lighter
 - uid: SharpEngine.Utils.Color.LightGoldenrodYellow
   name: LightGoldenrodYellow
   href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_LightGoldenrodYellow
@@ -5193,6 +5177,22 @@ references:
   commentId: F:SharpEngine.Utils.Color.LightYellow
   fullName: SharpEngine.Utils.Color.LightYellow
   nameWithType: Color.LightYellow
+- uid: SharpEngine.Utils.Color.Lighter(System.Int32)
+  name: Lighter(int)
+  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_Lighter_System_Int32_
+  commentId: M:SharpEngine.Utils.Color.Lighter(System.Int32)
+  name.vb: Lighter(Integer)
+  fullName: SharpEngine.Utils.Color.Lighter(int)
+  fullName.vb: SharpEngine.Utils.Color.Lighter(Integer)
+  nameWithType: Color.Lighter(int)
+  nameWithType.vb: Color.Lighter(Integer)
+- uid: SharpEngine.Utils.Color.Lighter*
+  name: Lighter
+  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_Lighter_
+  commentId: Overload:SharpEngine.Utils.Color.Lighter
+  isSpec: "True"
+  fullName: SharpEngine.Utils.Color.Lighter
+  nameWithType: Color.Lighter
 - uid: SharpEngine.Utils.Color.Lime
   name: Lime
   href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_Lime
@@ -5331,63 +5331,6 @@ references:
   commentId: F:SharpEngine.Utils.Color.OliveDrab
   fullName: SharpEngine.Utils.Color.OliveDrab
   nameWithType: Color.OliveDrab
-- uid: SharpEngine.Utils.Color.op_Equality(SharpEngine.Utils.Color,SharpEngine.Utils.Color)
-  name: operator ==(Color, Color)
-  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_op_Equality_SharpEngine_Utils_Color_SharpEngine_Utils_Color_
-  commentId: M:SharpEngine.Utils.Color.op_Equality(SharpEngine.Utils.Color,SharpEngine.Utils.Color)
-  name.vb: =(Color, Color)
-  fullName: SharpEngine.Utils.Color.operator ==(SharpEngine.Utils.Color, SharpEngine.Utils.Color)
-  fullName.vb: SharpEngine.Utils.Color.=(SharpEngine.Utils.Color, SharpEngine.Utils.Color)
-  nameWithType: Color.operator ==(Color, Color)
-  nameWithType.vb: Color.=(Color, Color)
-- uid: SharpEngine.Utils.Color.op_Equality*
-  name: operator ==
-  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_op_Equality_
-  commentId: Overload:SharpEngine.Utils.Color.op_Equality
-  isSpec: "True"
-  name.vb: =
-  fullName: SharpEngine.Utils.Color.operator ==
-  fullName.vb: SharpEngine.Utils.Color.=
-  nameWithType: Color.operator ==
-  nameWithType.vb: Color.=
-- uid: SharpEngine.Utils.Color.op_Implicit(SharpEngine.Utils.Color)~Raylib_cs.Color
-  name: implicit operator Color(Color)
-  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_op_Implicit_SharpEngine_Utils_Color__Raylib_cs_Color
-  commentId: M:SharpEngine.Utils.Color.op_Implicit(SharpEngine.Utils.Color)~Raylib_cs.Color
-  name.vb: CType(Color)
-  fullName: SharpEngine.Utils.Color.implicit operator Raylib_cs.Color(SharpEngine.Utils.Color)
-  fullName.vb: SharpEngine.Utils.Color.CType(SharpEngine.Utils.Color)
-  nameWithType: Color.implicit operator Color(Color)
-  nameWithType.vb: Color.CType(Color)
-- uid: SharpEngine.Utils.Color.op_Implicit*
-  name: implicit operator
-  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_op_Implicit_
-  commentId: Overload:SharpEngine.Utils.Color.op_Implicit
-  isSpec: "True"
-  name.vb: CType
-  fullName: SharpEngine.Utils.Color.implicit operator
-  fullName.vb: SharpEngine.Utils.Color.CType
-  nameWithType: Color.implicit operator
-  nameWithType.vb: Color.CType
-- uid: SharpEngine.Utils.Color.op_Inequality(SharpEngine.Utils.Color,SharpEngine.Utils.Color)
-  name: operator !=(Color, Color)
-  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_op_Inequality_SharpEngine_Utils_Color_SharpEngine_Utils_Color_
-  commentId: M:SharpEngine.Utils.Color.op_Inequality(SharpEngine.Utils.Color,SharpEngine.Utils.Color)
-  name.vb: <>(Color, Color)
-  fullName: SharpEngine.Utils.Color.operator !=(SharpEngine.Utils.Color, SharpEngine.Utils.Color)
-  fullName.vb: SharpEngine.Utils.Color.<>(SharpEngine.Utils.Color, SharpEngine.Utils.Color)
-  nameWithType: Color.operator !=(Color, Color)
-  nameWithType.vb: Color.<>(Color, Color)
-- uid: SharpEngine.Utils.Color.op_Inequality*
-  name: operator !=
-  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_op_Inequality_
-  commentId: Overload:SharpEngine.Utils.Color.op_Inequality
-  isSpec: "True"
-  name.vb: <>
-  fullName: SharpEngine.Utils.Color.operator !=
-  fullName.vb: SharpEngine.Utils.Color.<>
-  nameWithType: Color.operator !=
-  nameWithType.vb: Color.<>
 - uid: SharpEngine.Utils.Color.Orange
   name: Orange
   href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_Orange
@@ -5605,12 +5548,6 @@ references:
   commentId: F:SharpEngine.Utils.Color.Thistle
   fullName: SharpEngine.Utils.Color.Thistle
   nameWithType: Color.Thistle
-- uid: SharpEngine.Utils.Color.Tomato
-  name: Tomato
-  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_Tomato
-  commentId: F:SharpEngine.Utils.Color.Tomato
-  fullName: SharpEngine.Utils.Color.Tomato
-  nameWithType: Color.Tomato
 - uid: SharpEngine.Utils.Color.ToString
   name: ToString()
   href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_ToString
@@ -5624,6 +5561,12 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Utils.Color.ToString
   nameWithType: Color.ToString
+- uid: SharpEngine.Utils.Color.Tomato
+  name: Tomato
+  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_Tomato
+  commentId: F:SharpEngine.Utils.Color.Tomato
+  fullName: SharpEngine.Utils.Color.Tomato
+  nameWithType: Color.Tomato
 - uid: SharpEngine.Utils.Color.TranslateTo(SharpEngine.Utils.Color,System.Single,System.Single)
   name: TranslateTo(Color, float, float)
   href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_TranslateTo_SharpEngine_Utils_Color_System_Single_System_Single_
@@ -5688,6 +5631,63 @@ references:
   commentId: F:SharpEngine.Utils.Color.YellowGreen
   fullName: SharpEngine.Utils.Color.YellowGreen
   nameWithType: Color.YellowGreen
+- uid: SharpEngine.Utils.Color.op_Equality(SharpEngine.Utils.Color,SharpEngine.Utils.Color)
+  name: operator ==(Color, Color)
+  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_op_Equality_SharpEngine_Utils_Color_SharpEngine_Utils_Color_
+  commentId: M:SharpEngine.Utils.Color.op_Equality(SharpEngine.Utils.Color,SharpEngine.Utils.Color)
+  name.vb: =(Color, Color)
+  fullName: SharpEngine.Utils.Color.operator ==(SharpEngine.Utils.Color, SharpEngine.Utils.Color)
+  fullName.vb: SharpEngine.Utils.Color.=(SharpEngine.Utils.Color, SharpEngine.Utils.Color)
+  nameWithType: Color.operator ==(Color, Color)
+  nameWithType.vb: Color.=(Color, Color)
+- uid: SharpEngine.Utils.Color.op_Equality*
+  name: operator ==
+  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_op_Equality_
+  commentId: Overload:SharpEngine.Utils.Color.op_Equality
+  isSpec: "True"
+  name.vb: =
+  fullName: SharpEngine.Utils.Color.operator ==
+  fullName.vb: SharpEngine.Utils.Color.=
+  nameWithType: Color.operator ==
+  nameWithType.vb: Color.=
+- uid: SharpEngine.Utils.Color.op_Implicit(SharpEngine.Utils.Color)~Raylib_cs.Color
+  name: implicit operator Color(Color)
+  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_op_Implicit_SharpEngine_Utils_Color__Raylib_cs_Color
+  commentId: M:SharpEngine.Utils.Color.op_Implicit(SharpEngine.Utils.Color)~Raylib_cs.Color
+  name.vb: CType(Color)
+  fullName: SharpEngine.Utils.Color.implicit operator Raylib_cs.Color(SharpEngine.Utils.Color)
+  fullName.vb: SharpEngine.Utils.Color.CType(SharpEngine.Utils.Color)
+  nameWithType: Color.implicit operator Color(Color)
+  nameWithType.vb: Color.CType(Color)
+- uid: SharpEngine.Utils.Color.op_Implicit*
+  name: implicit operator
+  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_op_Implicit_
+  commentId: Overload:SharpEngine.Utils.Color.op_Implicit
+  isSpec: "True"
+  name.vb: CType
+  fullName: SharpEngine.Utils.Color.implicit operator
+  fullName.vb: SharpEngine.Utils.Color.CType
+  nameWithType: Color.implicit operator
+  nameWithType.vb: Color.CType
+- uid: SharpEngine.Utils.Color.op_Inequality(SharpEngine.Utils.Color,SharpEngine.Utils.Color)
+  name: operator !=(Color, Color)
+  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_op_Inequality_SharpEngine_Utils_Color_SharpEngine_Utils_Color_
+  commentId: M:SharpEngine.Utils.Color.op_Inequality(SharpEngine.Utils.Color,SharpEngine.Utils.Color)
+  name.vb: <>(Color, Color)
+  fullName: SharpEngine.Utils.Color.operator !=(SharpEngine.Utils.Color, SharpEngine.Utils.Color)
+  fullName.vb: SharpEngine.Utils.Color.<>(SharpEngine.Utils.Color, SharpEngine.Utils.Color)
+  nameWithType: Color.operator !=(Color, Color)
+  nameWithType.vb: Color.<>(Color, Color)
+- uid: SharpEngine.Utils.Color.op_Inequality*
+  name: operator !=
+  href: api/SharpEngine.Utils.Color.html#SharpEngine_Utils_Color_op_Inequality_
+  commentId: Overload:SharpEngine.Utils.Color.op_Inequality
+  isSpec: "True"
+  name.vb: <>
+  fullName: SharpEngine.Utils.Color.operator !=
+  fullName.vb: SharpEngine.Utils.Color.<>
+  nameWithType: Color.operator !=
+  nameWithType.vb: Color.<>
 - uid: SharpEngine.Utils.EventArgs
   name: SharpEngine.Utils.EventArgs
   href: api/SharpEngine.Utils.EventArgs.html

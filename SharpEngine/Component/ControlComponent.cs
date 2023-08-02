@@ -114,7 +114,9 @@ public class ControlComponent: Component
 
         IsMoving = false;
 
-        _physics?.SetLinearVelocity(new Vec2(0, _physics.GetLinearVelocity().Y));
+        _physics?.SetLinearVelocity(ControlType == ControlType.ClassicJump
+            ? new Vec2(0, _physics.GetLinearVelocity().Y)
+            : Vec2.Zero);
 
         if(_transform == null) return;
 
@@ -212,7 +214,9 @@ public class ControlComponent: Component
         if (_physics != null)
         {
             var velocity = Direction * Speed;
-            _physics.SetLinearVelocity(new Vec2(velocity.X, velocity.Y == 0 ? _physics.GetLinearVelocity().Y : velocity.Y));
+            _physics.SetLinearVelocity(ControlType == ControlType.ClassicJump
+                ? new Vec2(velocity.X, velocity.Y == 0 ? _physics.GetLinearVelocity().Y : velocity.Y)
+                : velocity);
         }
         else
             _transform.Position += new Vec2(Direction.X * Speed * delta, Direction.Y * Speed * delta);

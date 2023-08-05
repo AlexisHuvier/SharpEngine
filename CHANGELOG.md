@@ -7,11 +7,26 @@
 [#] Bug Fixes<br>
 [.] Others
 
+### V 1.7.0 - 05/08/2023
+[+] DMRender<br>
+[+] Instruction<br>
+[+] InstructionType<br>
+[+] InstructionSource<br>
+[+] TransformComponent : ZLayer<br>
+[+] ParticleEmitter : ZLayer<br>
+[+] Particle : ZLayer<br>
+[+] SpriteComponent : ZLayerOffset<br>
+[+] SpriteSheetComponent : ZLayerOffset<br>
+[+] TextComponent : ZLayerOffset<br>
+[+] RectComponent : ZLayerOffset<br>
+[+] Widget : ZLayer<br>
+[\~] All : Use DMRender
+
 ### V 1.6.2 - 02/08/2023
 [#] ControlComponent : Velocity has problems
 
 ### V 1.6.1 - 30/07/2023
-[+] SpriteComponent : FlipX, FlipY
+[+] SpriteComponent : FlipX, FlipY<br>
 [+] SpriteSheetComponent : FlipX, FlipY
 
 ### V 1.6.0 - 29/07/2023

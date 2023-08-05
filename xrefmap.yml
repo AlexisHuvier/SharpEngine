@@ -3277,6 +3277,15 @@ references:
   fullName.vb: SharpEngine.Math.Rect.=
   nameWithType: Rect.operator ==
   nameWithType.vb: Rect.=
+- uid: SharpEngine.Math.Rect.op_Implicit(SharpEngine.Math.Rect)~Raylib_cs.Rectangle
+  name: implicit operator Rectangle(Rect)
+  href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_op_Implicit_SharpEngine_Math_Rect__Raylib_cs_Rectangle
+  commentId: M:SharpEngine.Math.Rect.op_Implicit(SharpEngine.Math.Rect)~Raylib_cs.Rectangle
+  name.vb: CType(Rect)
+  fullName: SharpEngine.Math.Rect.implicit operator Raylib_cs.Rectangle(SharpEngine.Math.Rect)
+  fullName.vb: SharpEngine.Math.Rect.CType(SharpEngine.Math.Rect)
+  nameWithType: Rect.implicit operator Rectangle(Rect)
+  nameWithType.vb: Rect.CType(Rect)
 - uid: SharpEngine.Math.Rect.op_Implicit(SharpEngine.Math.RectI)~SharpEngine.Math.Rect
   name: implicit operator Rect(RectI)
   href: api/SharpEngine.Math.Rect.html#SharpEngine_Math_Rect_op_Implicit_SharpEngine_Math_RectI__SharpEngine_Math_Rect
@@ -4252,6 +4261,231 @@ references:
   fullName.vb: SharpEngine.Math.Vec2I.-
   nameWithType: Vec2I.operator -
   nameWithType.vb: Vec2I.-
+- uid: SharpEngine.Renderer
+  name: SharpEngine.Renderer
+  href: api/SharpEngine.Renderer.html
+  commentId: N:SharpEngine.Renderer
+  fullName: SharpEngine.Renderer
+  nameWithType: SharpEngine.Renderer
+- uid: SharpEngine.Renderer.DMRender
+  name: DMRender
+  href: api/SharpEngine.Renderer.DMRender.html
+  commentId: T:SharpEngine.Renderer.DMRender
+  fullName: SharpEngine.Renderer.DMRender
+  nameWithType: DMRender
+- uid: SharpEngine.Renderer.DMRender.Draw
+  name: Draw()
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_Draw
+  commentId: M:SharpEngine.Renderer.DMRender.Draw
+  fullName: SharpEngine.Renderer.DMRender.Draw()
+  nameWithType: DMRender.Draw()
+- uid: SharpEngine.Renderer.DMRender.Draw*
+  name: Draw
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_Draw_
+  commentId: Overload:SharpEngine.Renderer.DMRender.Draw
+  isSpec: "True"
+  fullName: SharpEngine.Renderer.DMRender.Draw
+  nameWithType: DMRender.Draw
+- uid: SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
+  name: DrawRectangle(Rect, Vec2, float, Color, InstructionDestination, int)
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangle_SharpEngine_Math_Rect_SharpEngine_Math_Vec2_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionDestination_System_Int32_
+  commentId: M:SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
+  name.vb: DrawRectangle(Rect, Vec2, Single, Color, InstructionDestination, Integer)
+  fullName: SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect, SharpEngine.Math.Vec2, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, int)
+  fullName.vb: SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect, SharpEngine.Math.Vec2, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, Integer)
+  nameWithType: DMRender.DrawRectangle(Rect, Vec2, float, Color, InstructionDestination, int)
+  nameWithType.vb: DMRender.DrawRectangle(Rect, Vec2, Single, Color, InstructionDestination, Integer)
+- uid: SharpEngine.Renderer.DMRender.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
+  name: DrawRectangle(int, int, int, int, Color, InstructionDestination, int)
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangle_System_Int32_System_Int32_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionDestination_System_Int32_
+  commentId: M:SharpEngine.Renderer.DMRender.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
+  name.vb: DrawRectangle(Integer, Integer, Integer, Integer, Color, InstructionDestination, Integer)
+  fullName: SharpEngine.Renderer.DMRender.DrawRectangle(int, int, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, int)
+  fullName.vb: SharpEngine.Renderer.DMRender.DrawRectangle(Integer, Integer, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, Integer)
+  nameWithType: DMRender.DrawRectangle(int, int, int, int, Color, InstructionDestination, int)
+  nameWithType.vb: DMRender.DrawRectangle(Integer, Integer, Integer, Integer, Color, InstructionDestination, Integer)
+- uid: SharpEngine.Renderer.DMRender.DrawRectangle*
+  name: DrawRectangle
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangle_
+  commentId: Overload:SharpEngine.Renderer.DMRender.DrawRectangle
+  isSpec: "True"
+  fullName: SharpEngine.Renderer.DMRender.DrawRectangle
+  nameWithType: DMRender.DrawRectangle
+- uid: SharpEngine.Renderer.DMRender.DrawRectanglesLines(Raylib_cs.Rectangle,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
+  name: DrawRectanglesLines(Rectangle, int, Color, InstructionDestination, int)
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectanglesLines_Raylib_cs_Rectangle_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionDestination_System_Int32_
+  commentId: M:SharpEngine.Renderer.DMRender.DrawRectanglesLines(Raylib_cs.Rectangle,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
+  name.vb: DrawRectanglesLines(Rectangle, Integer, Color, InstructionDestination, Integer)
+  fullName: SharpEngine.Renderer.DMRender.DrawRectanglesLines(Raylib_cs.Rectangle, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, int)
+  fullName.vb: SharpEngine.Renderer.DMRender.DrawRectanglesLines(Raylib_cs.Rectangle, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, Integer)
+  nameWithType: DMRender.DrawRectanglesLines(Rectangle, int, Color, InstructionDestination, int)
+  nameWithType.vb: DMRender.DrawRectanglesLines(Rectangle, Integer, Color, InstructionDestination, Integer)
+- uid: SharpEngine.Renderer.DMRender.DrawRectanglesLines*
+  name: DrawRectanglesLines
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectanglesLines_
+  commentId: Overload:SharpEngine.Renderer.DMRender.DrawRectanglesLines
+  isSpec: "True"
+  fullName: SharpEngine.Renderer.DMRender.DrawRectanglesLines
+  nameWithType: DMRender.DrawRectanglesLines
+- uid: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
+  name: DrawText(Font, string, Vec2, Vec2, float, int, int, Color, InstructionDestination, int)
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawText_Raylib_cs_Font_System_String_SharpEngine_Math_Vec2_SharpEngine_Math_Vec2_System_Single_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionDestination_System_Int32_
+  commentId: M:SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
+  name.vb: DrawText(Font, String, Vec2, Vec2, Single, Integer, Integer, Color, InstructionDestination, Integer)
+  fullName: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font, string, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, float, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, int)
+  fullName.vb: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font, String, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, Single, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, Integer)
+  nameWithType: DMRender.DrawText(Font, string, Vec2, Vec2, float, int, int, Color, InstructionDestination, int)
+  nameWithType.vb: DMRender.DrawText(Font, String, Vec2, Vec2, Single, Integer, Integer, Color, InstructionDestination, Integer)
+- uid: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
+  name: DrawText(Font, string, Vec2, int, int, Color, InstructionDestination, int)
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawText_Raylib_cs_Font_System_String_SharpEngine_Math_Vec2_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionDestination_System_Int32_
+  commentId: M:SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
+  name.vb: DrawText(Font, String, Vec2, Integer, Integer, Color, InstructionDestination, Integer)
+  fullName: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font, string, SharpEngine.Math.Vec2, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, int)
+  fullName.vb: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font, String, SharpEngine.Math.Vec2, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, Integer)
+  nameWithType: DMRender.DrawText(Font, string, Vec2, int, int, Color, InstructionDestination, int)
+  nameWithType.vb: DMRender.DrawText(Font, String, Vec2, Integer, Integer, Color, InstructionDestination, Integer)
+- uid: SharpEngine.Renderer.DMRender.DrawText*
+  name: DrawText
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawText_
+  commentId: Overload:SharpEngine.Renderer.DMRender.DrawText
+  isSpec: "True"
+  fullName: SharpEngine.Renderer.DMRender.DrawText
+  nameWithType: DMRender.DrawText
+- uid: SharpEngine.Renderer.DMRender.DrawTexture(Raylib_cs.Texture2D,SharpEngine.Math.Rect,SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
+  name: DrawTexture(Texture2D, Rect, Rect, Vec2, float, Color, InstructionDestination, int)
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawTexture_Raylib_cs_Texture2D_SharpEngine_Math_Rect_SharpEngine_Math_Rect_SharpEngine_Math_Vec2_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionDestination_System_Int32_
+  commentId: M:SharpEngine.Renderer.DMRender.DrawTexture(Raylib_cs.Texture2D,SharpEngine.Math.Rect,SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
+  name.vb: DrawTexture(Texture2D, Rect, Rect, Vec2, Single, Color, InstructionDestination, Integer)
+  fullName: SharpEngine.Renderer.DMRender.DrawTexture(Raylib_cs.Texture2D, SharpEngine.Math.Rect, SharpEngine.Math.Rect, SharpEngine.Math.Vec2, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, int)
+  fullName.vb: SharpEngine.Renderer.DMRender.DrawTexture(Raylib_cs.Texture2D, SharpEngine.Math.Rect, SharpEngine.Math.Rect, SharpEngine.Math.Vec2, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, Integer)
+  nameWithType: DMRender.DrawTexture(Texture2D, Rect, Rect, Vec2, float, Color, InstructionDestination, int)
+  nameWithType.vb: DMRender.DrawTexture(Texture2D, Rect, Rect, Vec2, Single, Color, InstructionDestination, Integer)
+- uid: SharpEngine.Renderer.DMRender.DrawTexture*
+  name: DrawTexture
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawTexture_
+  commentId: Overload:SharpEngine.Renderer.DMRender.DrawTexture
+  isSpec: "True"
+  fullName: SharpEngine.Renderer.DMRender.DrawTexture
+  nameWithType: DMRender.DrawTexture
+- uid: SharpEngine.Renderer.DMRender.Instructions
+  name: Instructions
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_Instructions
+  commentId: F:SharpEngine.Renderer.DMRender.Instructions
+  fullName: SharpEngine.Renderer.DMRender.Instructions
+  nameWithType: DMRender.Instructions
+- uid: SharpEngine.Renderer.DMRender.ScissorMode(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Renderer.InstructionDestination,System.Int32,System.Action)
+  name: ScissorMode(int, int, int, int, InstructionDestination, int, Action)
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_ScissorMode_System_Int32_System_Int32_System_Int32_System_Int32_SharpEngine_Renderer_InstructionDestination_System_Int32_System_Action_
+  commentId: M:SharpEngine.Renderer.DMRender.ScissorMode(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Renderer.InstructionDestination,System.Int32,System.Action)
+  name.vb: ScissorMode(Integer, Integer, Integer, Integer, InstructionDestination, Integer, Action)
+  fullName: SharpEngine.Renderer.DMRender.ScissorMode(int, int, int, int, SharpEngine.Renderer.InstructionDestination, int, System.Action)
+  fullName.vb: SharpEngine.Renderer.DMRender.ScissorMode(Integer, Integer, Integer, Integer, SharpEngine.Renderer.InstructionDestination, Integer, System.Action)
+  nameWithType: DMRender.ScissorMode(int, int, int, int, InstructionDestination, int, Action)
+  nameWithType.vb: DMRender.ScissorMode(Integer, Integer, Integer, Integer, InstructionDestination, Integer, Action)
+- uid: SharpEngine.Renderer.DMRender.ScissorMode*
+  name: ScissorMode
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_ScissorMode_
+  commentId: Overload:SharpEngine.Renderer.DMRender.ScissorMode
+  isSpec: "True"
+  fullName: SharpEngine.Renderer.DMRender.ScissorMode
+  nameWithType: DMRender.ScissorMode
+- uid: SharpEngine.Renderer.Instruction
+  name: Instruction
+  href: api/SharpEngine.Renderer.Instruction.html
+  commentId: T:SharpEngine.Renderer.Instruction
+  fullName: SharpEngine.Renderer.Instruction
+  nameWithType: Instruction
+- uid: SharpEngine.Renderer.Instruction.Destination
+  name: Destination
+  href: api/SharpEngine.Renderer.Instruction.html#SharpEngine_Renderer_Instruction_Destination
+  commentId: F:SharpEngine.Renderer.Instruction.Destination
+  fullName: SharpEngine.Renderer.Instruction.Destination
+  nameWithType: Instruction.Destination
+- uid: SharpEngine.Renderer.Instruction.Parameters
+  name: Parameters
+  href: api/SharpEngine.Renderer.Instruction.html#SharpEngine_Renderer_Instruction_Parameters
+  commentId: F:SharpEngine.Renderer.Instruction.Parameters
+  fullName: SharpEngine.Renderer.Instruction.Parameters
+  nameWithType: Instruction.Parameters
+- uid: SharpEngine.Renderer.Instruction.Type
+  name: Type
+  href: api/SharpEngine.Renderer.Instruction.html#SharpEngine_Renderer_Instruction_Type
+  commentId: F:SharpEngine.Renderer.Instruction.Type
+  fullName: SharpEngine.Renderer.Instruction.Type
+  nameWithType: Instruction.Type
+- uid: SharpEngine.Renderer.Instruction.ZLayer
+  name: ZLayer
+  href: api/SharpEngine.Renderer.Instruction.html#SharpEngine_Renderer_Instruction_ZLayer
+  commentId: F:SharpEngine.Renderer.Instruction.ZLayer
+  fullName: SharpEngine.Renderer.Instruction.ZLayer
+  nameWithType: Instruction.ZLayer
+- uid: SharpEngine.Renderer.InstructionDestination
+  name: InstructionDestination
+  href: api/SharpEngine.Renderer.InstructionDestination.html
+  commentId: T:SharpEngine.Renderer.InstructionDestination
+  fullName: SharpEngine.Renderer.InstructionDestination
+  nameWithType: InstructionDestination
+- uid: SharpEngine.Renderer.InstructionDestination.Entity
+  name: Entity
+  href: api/SharpEngine.Renderer.InstructionDestination.html#SharpEngine_Renderer_InstructionDestination_Entity
+  commentId: F:SharpEngine.Renderer.InstructionDestination.Entity
+  fullName: SharpEngine.Renderer.InstructionDestination.Entity
+  nameWithType: InstructionDestination.Entity
+- uid: SharpEngine.Renderer.InstructionDestination.UI
+  name: UI
+  href: api/SharpEngine.Renderer.InstructionDestination.html#SharpEngine_Renderer_InstructionDestination_UI
+  commentId: F:SharpEngine.Renderer.InstructionDestination.UI
+  fullName: SharpEngine.Renderer.InstructionDestination.UI
+  nameWithType: InstructionDestination.UI
+- uid: SharpEngine.Renderer.InstructionType
+  name: InstructionType
+  href: api/SharpEngine.Renderer.InstructionType.html
+  commentId: T:SharpEngine.Renderer.InstructionType
+  fullName: SharpEngine.Renderer.InstructionType
+  nameWithType: InstructionType
+- uid: SharpEngine.Renderer.InstructionType.DrawRectangle
+  name: DrawRectangle
+  href: api/SharpEngine.Renderer.InstructionType.html#SharpEngine_Renderer_InstructionType_DrawRectangle
+  commentId: F:SharpEngine.Renderer.InstructionType.DrawRectangle
+  fullName: SharpEngine.Renderer.InstructionType.DrawRectangle
+  nameWithType: InstructionType.DrawRectangle
+- uid: SharpEngine.Renderer.InstructionType.DrawRectangleLinesEx
+  name: DrawRectangleLinesEx
+  href: api/SharpEngine.Renderer.InstructionType.html#SharpEngine_Renderer_InstructionType_DrawRectangleLinesEx
+  commentId: F:SharpEngine.Renderer.InstructionType.DrawRectangleLinesEx
+  fullName: SharpEngine.Renderer.InstructionType.DrawRectangleLinesEx
+  nameWithType: InstructionType.DrawRectangleLinesEx
+- uid: SharpEngine.Renderer.InstructionType.DrawRectanglePro
+  name: DrawRectanglePro
+  href: api/SharpEngine.Renderer.InstructionType.html#SharpEngine_Renderer_InstructionType_DrawRectanglePro
+  commentId: F:SharpEngine.Renderer.InstructionType.DrawRectanglePro
+  fullName: SharpEngine.Renderer.InstructionType.DrawRectanglePro
+  nameWithType: InstructionType.DrawRectanglePro
+- uid: SharpEngine.Renderer.InstructionType.DrawTextEx
+  name: DrawTextEx
+  href: api/SharpEngine.Renderer.InstructionType.html#SharpEngine_Renderer_InstructionType_DrawTextEx
+  commentId: F:SharpEngine.Renderer.InstructionType.DrawTextEx
+  fullName: SharpEngine.Renderer.InstructionType.DrawTextEx
+  nameWithType: InstructionType.DrawTextEx
+- uid: SharpEngine.Renderer.InstructionType.DrawTextPro
+  name: DrawTextPro
+  href: api/SharpEngine.Renderer.InstructionType.html#SharpEngine_Renderer_InstructionType_DrawTextPro
+  commentId: F:SharpEngine.Renderer.InstructionType.DrawTextPro
+  fullName: SharpEngine.Renderer.InstructionType.DrawTextPro
+  nameWithType: InstructionType.DrawTextPro
+- uid: SharpEngine.Renderer.InstructionType.DrawTexturePro
+  name: DrawTexturePro
+  href: api/SharpEngine.Renderer.InstructionType.html#SharpEngine_Renderer_InstructionType_DrawTexturePro
+  commentId: F:SharpEngine.Renderer.InstructionType.DrawTexturePro
+  fullName: SharpEngine.Renderer.InstructionType.DrawTexturePro
+  nameWithType: InstructionType.DrawTexturePro
+- uid: SharpEngine.Renderer.InstructionType.ScissorMode
+  name: ScissorMode
+  href: api/SharpEngine.Renderer.InstructionType.html#SharpEngine_Renderer_InstructionType_ScissorMode
+  commentId: F:SharpEngine.Renderer.InstructionType.ScissorMode
+  fullName: SharpEngine.Renderer.InstructionType.ScissorMode
+  nameWithType: InstructionType.ScissorMode
 - uid: SharpEngine.Scene
   name: Scene
   href: api/SharpEngine.Scene.html

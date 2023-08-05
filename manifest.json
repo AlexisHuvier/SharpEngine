@@ -385,6 +385,56 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Renderer.DMRender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Renderer.DMRender.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Renderer.Instruction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Renderer.Instruction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Renderer.InstructionDestination.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Renderer.InstructionDestination.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Renderer.InstructionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Renderer.InstructionType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Renderer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Renderer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpEngine.Scene.yml",
       "output": {
         ".html": {

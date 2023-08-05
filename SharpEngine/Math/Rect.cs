@@ -1,4 +1,5 @@
 ﻿using System;
+using Raylib_cs;
 
 namespace SharpEngine.Math;
 
@@ -113,4 +114,11 @@ public struct Rect
     /// <param name="rectI">RectI</param>
     /// <returns>Rect</returns>
     public static implicit operator Rect(RectI rectI) => new(rectI.X, rectI.Y, rectI.Width, rectI.Height);
+    
+    /// <summary>
+    /// Convert Rect to Rectangle
+    /// </summary>
+    /// <param name="rect">Rect</param>
+    /// <returns>Rect</returns>
+    public static implicit operator Rectangle(Rect rect) => new(rect.X, rect.Y, rect.Width, rect.Height);
 }

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using Newtonsoft.Json.Linq;
 
 namespace SharpEngine.File.Save;
@@ -25,7 +27,9 @@ public class JsonSave: ISave
 
     /// <inheritdoc />
     public T GetObjectAs<T>(string key, T defaultValue) =>
-        _data.TryGetValue(key, out var value) ? (T)value : defaultValue;
+        _data.TryGetValue(key, out var value)
+            ? (T)Convert.ChangeType(value, typeof(T), CultureInfo.InvariantCulture)
+            : defaultValue;
 
     /// <inheritdoc />
     public void SetObject(string key, object value) => _data[key] = value;

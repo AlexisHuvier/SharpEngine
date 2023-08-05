@@ -1,5 +1,6 @@
 ﻿using Raylib_cs;
 using SharpEngine.Math;
+using SharpEngine.Renderer;
 using Color = SharpEngine.Utils.Color;
 
 namespace SharpEngine.Widget;
@@ -23,7 +24,7 @@ public class ColorRect: Widget
     /// Rotation of Rect
     /// </summary>
     public int Rotation { get; set; }
-    
+
     /// <summary>
     /// Create ColorRect
     /// </summary>
@@ -31,7 +32,9 @@ public class ColorRect: Widget
     /// <param name="size">Color Rect Size</param>
     /// <param name="color">Color Rect Color</param>
     /// <param name="rotation">Color Rect Rotation</param>
-    public ColorRect(Vec2 position, Vec2? size = null, Color? color = null, int rotation = 0) : base(position)
+    /// <param name="zLayer">Z Layer</param>
+    public ColorRect(Vec2 position, Vec2? size = null, Color? color = null, int rotation = 0, int zLayer = 0) : base(
+        position, zLayer)
     {
         Color = color ?? Color.Black;
         Size = size ?? Vec2.One;
@@ -46,6 +49,7 @@ public class ColorRect: Widget
         if(!Displayed || Size == Vec2.Zero) return;
 
         var position = RealPosition;
-        Raylib.DrawRectanglePro(new Rectangle(position.X, position.Y, Size.X, Size.Y), Size / 2, Rotation, Color);
+        DMRender.DrawRectangle(new Rect(position.X, position.Y, Size.X, Size.Y), Size / 2, Rotation, Color,
+            InstructionSource.UI, ZLayer);
     }
 }

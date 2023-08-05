@@ -1,6 +1,7 @@
 ﻿using System.Numerics;
 using Raylib_cs;
 using SharpEngine.Math;
+using SharpEngine.Renderer;
 using SharpEngine.Utils.Widget;
 using Color = SharpEngine.Utils.Color;
 
@@ -57,9 +58,10 @@ public class Label: Widget
     /// <param name="rotation">Label Rotation</param>
     /// <param name="centerAllLines">If Label Lines is Centered</param>
     /// <param name="fontSize">Label Font Size (or null)</param>
+    /// <param name="zLayer">Z Layer</param>
     public Label(Vec2 position, string text = "", string font = "", Color? color = null,
         LabelStyle style = LabelStyle.None, int rotation = 0, bool centerAllLines = false,
-        int? fontSize = null) : base(position)
+        int? fontSize = null, int zLayer = 0) : base(position, zLayer)
     {
         Text = text;
         Font = font;
@@ -91,12 +93,15 @@ public class Label: Widget
             var finalPosition = new Vec2(
                 CenterAllLines ? realPosition.X - lineSize.X / 2 : realPosition.X - textSize.X / 2,
                 realPosition.Y - textSize.Y / 2 + i * lineSize.Y);
-            Raylib.DrawTextPro(font.Value, lines[i], finalPosition, Vector2.Zero, Rotation, fontSize, 2, Color);
-            
-            if(Style.HasFlag(LabelStyle.Strike))
-                Raylib.DrawRectangle((int)finalPosition.X, (int)(finalPosition.Y + lineSize.Y / 2), (int)lineSize.X, 2, Color.Black);
-            if(Style.HasFlag(LabelStyle.Underline))
-                Raylib.DrawRectangle((int)finalPosition.X, (int)(finalPosition.Y + lineSize.Y), (int)lineSize.X, 2, Color.Black);
+            DMRender.DrawText(font.Value, lines[i], finalPosition, Vec2.Zero, Rotation, fontSize, 2, Color,
+                InstructionSource.UI, ZLayer);
+
+            if (Style.HasFlag(LabelStyle.Strike))
+                DMRender.DrawRectangle((int)finalPosition.X, (int)(finalPosition.Y + lineSize.Y / 2), (int)lineSize.X,
+                    2, Color.Black, InstructionSource.UI, ZLayer);
+            if (Style.HasFlag(LabelStyle.Underline))
+                DMRender.DrawRectangle((int)finalPosition.X, (int)(finalPosition.Y + lineSize.Y), (int)lineSize.X, 2,
+                    Color.Black, InstructionSource.UI, ZLayer);
         }
     }
 }

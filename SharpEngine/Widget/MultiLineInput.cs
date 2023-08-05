@@ -2,6 +2,7 @@
 using Raylib_cs;
 using SharpEngine.Manager;
 using SharpEngine.Math;
+using SharpEngine.Renderer;
 using SharpEngine.Utils.EventArgs;
 using SharpEngine.Utils.Input;
 using MouseButton = SharpEngine.Utils.Input.MouseButton;
@@ -52,7 +53,9 @@ public class MultiLineInput: Widget
     /// <param name="font">Multi Line Edit Font ("")</param>
     /// <param name="size">Multi Line Edit Size (Vec2(500, 200))</param>
     /// <param name="fontSize">Multi Line Edit Font Size (null)</param>
-    public MultiLineInput(Vec2 position, string text = "", string font = "", Vec2? size = null, int? fontSize = null) : base(position)
+    /// <param name="zLayer">Z Layer</param>
+    public MultiLineInput(Vec2 position, string text = "", string font = "", Vec2? size = null, int? fontSize = null,
+        int zLayer = 0) : base(position, zLayer)
     {
         Text = text;
         Font = font;
@@ -128,9 +131,10 @@ public class MultiLineInput: Widget
 
         var position = RealPosition;
 
-        Raylib.DrawRectanglePro(new Rectangle(position.X, position.Y, Size.X, Size.Y), Size / 2, 0, Color.Black);
-        Raylib.DrawRectanglePro(new Rectangle(position.X + 2, position.Y + 2, Size.X - 4, Size.Y - 4), Size / 2, 0,
-            Color.White);
+        DMRender.DrawRectangle(new Rect(position.X, position.Y, Size.X, Size.Y), Size / 2, 0, Color.Black,
+            InstructionSource.UI, ZLayer);
+        DMRender.DrawRectangle(new Rect(position.X + 2, position.Y + 2, Size.X - 4, Size.Y - 4), Size / 2, 0,
+            Color.White, InstructionSource.UI, ZLayer);
         
         var font = Scene?.Window?.FontManager.GetFont(Font);
         
@@ -145,20 +149,22 @@ public class MultiLineInput: Widget
         var lines = Text.Split("\n");
         var offsetX = textSize.X - (Size.X - 20);
         var offsetY = textSize.Y * lines.Length - (Size.Y - 8);
-        
-        Raylib.BeginScissorMode((int)finalPosition.X, (int)finalPosition.Y, (int)Size.X - 8, (int)Size.Y - 8);
-        for (var i = 0; i < lines.Length; i++)
-        {
-            var lineSize = Raylib.MeasureTextEx(font.Value, lines[i], fontSize, 2);
-            var pos = new Vec2(finalPosition.X - (offsetX > 0 ? offsetX : 0),finalPosition.Y + i * lineSize.Y - (offsetY > 0 ? offsetY : 0));
-            Raylib.DrawTextEx(font.Value, lines[i], pos, fontSize, 2, Color.Black);
 
-        }
-        Raylib.EndScissorMode();
+        DMRender.ScissorMode((int)finalPosition.X, (int)finalPosition.Y, (int)Size.X - 8, (int)Size.Y - 8,
+            InstructionSource.UI, ZLayer, () =>
+            {
+                for (var i = 0; i < lines.Length; i++)
+                {
+                    var lineSize = Raylib.MeasureTextEx(font.Value, lines[i], fontSize, 2);
+                    var pos = new Vec2(finalPosition.X - (offsetX > 0 ? offsetX : 0),
+                        finalPosition.Y + i * lineSize.Y - (offsetY > 0 ? offsetY : 0));
+                    DMRender.DrawText(font.Value, lines[i], pos, fontSize, 2, Color.Black, InstructionSource.UI, 0);
+                }
+            });
 
         if (Focused)
-            Raylib.DrawRectangle((int)(finalPosition.X + 6 + textSize.X - (offsetX > 0 ? offsetX : 0)),
+            DMRender.DrawRectangle((int)(finalPosition.X + 6 + textSize.X - (offsetX > 0 ? offsetX : 0)),
                 (int)(finalPosition.Y + textSize.Y * (lines.Length - 1)  - (offsetY > 0 ? offsetY : 0)),
-                5, (int)textSize.Y, Color.Black);
+                5, (int)textSize.Y, Color.Black, InstructionSource.UI, ZLayer);
     }
 }

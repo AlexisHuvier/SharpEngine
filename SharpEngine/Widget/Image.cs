@@ -1,6 +1,6 @@
-﻿using System.Numerics;
-using Raylib_cs;
-using SharpEngine.Math;
+﻿using SharpEngine.Math;
+using SharpEngine.Renderer;
+using Color = SharpEngine.Utils.Color;
 
 namespace SharpEngine.Widget;
 
@@ -31,7 +31,9 @@ public class Image: Widget
     /// <param name="texture">Image Texture ("")</param>
     /// <param name="scale">Image Scale (Vec2(1))</param>
     /// <param name="rotation">Image Rotation (0)</param>
-    public Image(Vec2 position, string texture = "", Vec2? scale = null, int rotation = 0) : base(position)
+    /// <param name="zLayer">Z Layer</param>
+    public Image(Vec2 position, string texture = "", Vec2? scale = null, int rotation = 0, int zLayer = 0) : base(
+        position, zLayer)
     {
         Texture = texture;
         Scale = scale ?? Vec2.One;
@@ -49,8 +51,9 @@ public class Image: Widget
 
         var texture = window.TextureManager.GetTexture(Texture);
         var position = RealPosition;
-        Raylib.DrawTexturePro(texture, new Rectangle(0, 0, texture.width, texture.height),
-            new Rectangle(position.X, position.Y, texture.width * Scale.X, texture.height * Scale.Y),
-            new Vector2(texture.width / 2f * Scale.X, texture.height / 2f * Scale.Y), Rotation, Color.WHITE);
+        DMRender.DrawTexture(texture, new Rect(0, 0, texture.width, texture.height),
+            new Rect(position.X, position.Y, texture.width * Scale.X, texture.height * Scale.Y),
+            new Vec2(texture.width / 2f * Scale.X, texture.height / 2f * Scale.Y), Rotation, Color.White,
+            InstructionSource.UI, ZLayer);
     }
 }

@@ -14,6 +14,11 @@ public abstract class Widget
     /// Position of Widget
     /// </summary>
     public Vec2 Position { get; set; }
+
+    /// <summary>
+    /// Z Layer of Widget
+    /// </summary>
+    public int ZLayer { get; set; } = 0;
     
     /// <summary>
     /// If Widget is Display
@@ -66,9 +71,11 @@ public abstract class Widget
     /// Widget
     /// </summary>
     /// <param name="position">Position Widget</param>
-    protected Widget(Vec2 position)
+    /// <param name="zLayer">ZLayer</param>
+    protected Widget(Vec2 position, int zLayer = 0)
     {
         Position = position;
+        ZLayer = zLayer;
     }
     
     /// <summary>

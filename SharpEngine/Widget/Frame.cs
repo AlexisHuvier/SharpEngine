@@ -1,5 +1,6 @@
 ﻿using Raylib_cs;
 using SharpEngine.Math;
+using SharpEngine.Renderer;
 using Color = SharpEngine.Utils.Color;
 
 namespace SharpEngine.Widget;
@@ -37,8 +38,9 @@ public class Frame: Widget
     /// <param name="borderSize">Frame Border Size (3)</param>
     /// <param name="borderColor">Frame Border Color (Color.Black)</param>
     /// <param name="backgroundColor">Frame Background Color (null)</param>
+    /// <param name="zLayer">Z Layer</param>
     public Frame(Vec2 position, Vec2 size, int borderSize = 3, Color? borderColor = null,
-        Color? backgroundColor = null) : base(position)
+        Color? backgroundColor = null, int zLayer = 0) : base(position, zLayer)
     {
         BorderColor = borderColor ?? Color.Black;
         Size = size;
@@ -55,7 +57,9 @@ public class Frame: Widget
 
         var position = RealPosition;
         if (BackgroundColor != null)
-            Raylib.DrawRectanglePro(new Rectangle(position.X, position.Y, Size.X, Size.Y), Size / 2, 0, BackgroundColor.Value);
-        Raylib.DrawRectangleLinesEx(new Rectangle(position.X - Size.X / 2, position.Y - Size.Y / 2, Size.X,Size.Y), BorderSize, BorderColor);
+            DMRender.DrawRectangle(new Rect(position.X, position.Y, Size.X, Size.Y), Size / 2, 0, BackgroundColor.Value,
+                InstructionSource.UI, ZLayer);
+        DMRender.DrawRectangleLines(new Rectangle(position.X - Size.X / 2, position.Y - Size.Y / 2, Size.X, Size.Y),
+            BorderSize, BorderColor, InstructionSource.UI, ZLayer);
     }
 }

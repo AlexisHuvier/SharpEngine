@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Raylib_cs;
 using SharpEngine.Manager;
 using SharpEngine.Math;
+using SharpEngine.Renderer;
 using SharpEngine.Utils;
 using SharpEngine.Utils.EventArgs;
 using Color = SharpEngine.Utils.Color;
@@ -259,6 +260,8 @@ public class Window
         DebugManager.Log(LogLevel.LogInfo, "SE: Scenes loaded !");
 
         #endregion
+        
+        CurrentScene.OpenScene();
 
         while (!Raylib.WindowShouldClose() && !_closeWindow)
         {
@@ -299,14 +302,12 @@ public class Window
             if(Debug)
                 RenderImGui?.Invoke(this);
             
+            CurrentScene.Draw();
+            
             Raylib.BeginDrawing();
             Raylib.ClearBackground(BackgroundColor);
             
-            Raylib.BeginMode2D(CameraManager.Camera2D);
-            CurrentScene.DrawEntities();
-            Raylib.EndMode2D();
-
-            CurrentScene.DrawWidgets();
+            DMRender.Draw(this);
 
             if (Debug)
                 _seImGui.Draw();

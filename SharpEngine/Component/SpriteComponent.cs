@@ -1,6 +1,7 @@
 ﻿using System.Numerics;
 using Raylib_cs;
 using SharpEngine.Math;
+using SharpEngine.Renderer;
 using Color = SharpEngine.Utils.Color;
 
 namespace SharpEngine.Component;
@@ -34,6 +35,11 @@ public class SpriteComponent: Component
     /// If Sprite is Flip Vertically
     /// </summary>
     public bool FlipY { get; set; }
+    
+    /// <summary>
+    /// Offset of ZLayer of Sprite
+    /// </summary>
+    public int ZLayerOffset { get; set; }
 
     private TransformComponent? _transformComponent;
 
@@ -45,13 +51,16 @@ public class SpriteComponent: Component
     /// <param name="offset">Offset (Vec2(0))</param>
     /// <param name="flipX">If Sprite is Flip Horizontally</param>
     /// <param name="flipY">If Sprite is Flip Vertically</param>
-    public SpriteComponent(string texture, bool displayed = true, Vec2? offset = null, bool flipX = false, bool flipY = false)
+    /// <param name="zLayerOffset">Offset of zLayer</param>
+    public SpriteComponent(string texture, bool displayed = true, Vec2? offset = null, bool flipX = false,
+        bool flipY = false, int zLayerOffset = 0)
     {
         Texture = texture;
         Displayed = displayed;
         Offset = offset ?? Vec2.Zero;
         FlipX = flipX;
         FlipY = flipY;
+        ZLayerOffset = zLayerOffset;
     }
 
     /// <inheritdoc />
@@ -73,13 +82,14 @@ public class SpriteComponent: Component
 
         var texture = window.TextureManager.GetTexture(Texture);
         var position = _transformComponent.GetTransformedPosition(Offset);
-        Raylib.DrawTexturePro(
+        DMRender.DrawTexture(
             texture,
-            new Rectangle(0, 0, FlipX ? -texture.width : texture.width, FlipY ? -texture.height : texture.height),
-            new Rectangle(position.X, position.Y, texture.width * _transformComponent.Scale.X,
+            new Rect(0, 0, FlipX ? -texture.width : texture.width, FlipY ? -texture.height : texture.height),
+            new Rect(position.X, position.Y, texture.width * _transformComponent.Scale.X,
                 texture.height * _transformComponent.Scale.Y),
-            new Vector2(texture.width / 2f * _transformComponent.Scale.X,
+            new Vec2(texture.width / 2f * _transformComponent.Scale.X,
                 texture.height / 2f * _transformComponent.Scale.Y),
-            _transformComponent.Rotation, Color.White);
+            _transformComponent.Rotation, Color.White, InstructionSource.Entity,
+            _transformComponent.ZLayer + ZLayerOffset);
     }
 }

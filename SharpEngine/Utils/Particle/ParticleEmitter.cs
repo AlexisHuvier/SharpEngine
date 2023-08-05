@@ -143,6 +143,11 @@ public class ParticleEmitter
     /// Active of Particle Emitter
     /// </summary>
     public bool Active { get; set; }
+    
+    /// <summary>
+    /// ZLayer of Particle Emitter
+    /// </summary>
+    public int ZLayer { get; set; }
 
     private List<Particle> _mustBeDeleted = new();
     private float _timerBeforeSpawn;
@@ -181,6 +186,7 @@ public class ParticleEmitter
     /// <param name="active">Particle Emitter Active</param>
     /// <param name="sizeFunction">Particle Emitter SizeFunction</param>
     /// <param name="sizeFunctionValue">Particle Emitter SizeFunctionValue</param>
+    /// <param name="zLayer">Particle Emitter ZLayer</param>
     public ParticleEmitter(Color[] beginColors, Color[]? endColors = null, Vec2? spawnSize = null, Vec2? offset = null,
         float minVelocity = 20, float maxVelocity = 20,
         float minAcceleration = 0, float maxAcceleration = 0, float minRotationSpeed = 0, float maxRotationSpeed = 0,
@@ -189,7 +195,7 @@ public class ParticleEmitter
         float minTimerBeforeSpawn = 0.3f, float maxTimerBeforeSpawn = 0.3f,
         float minSize = 5, float maxSize = 5, int minNbParticlesPerSpawn = 4, int maxNbParticlesPerSpawn = 4,
         int maxParticles = -1, bool active = false,
-        ParticleParametersFunction sizeFunction = ParticleParametersFunction.Normal, float sizeFunctionValue = 0)
+        ParticleParametersFunction sizeFunction = ParticleParametersFunction.Normal, float sizeFunctionValue = 0, int zLayer = 0)
     {
         BeginColors = beginColors;
         EndColors = endColors;
@@ -217,6 +223,7 @@ public class ParticleEmitter
         SizeFunction = sizeFunction;
         SizeFunctionValue = sizeFunctionValue;
         SpawnSize = spawnSize ?? Vec2.Zero;
+        ZLayer = zLayer;
     }
 
     /// <summary>
@@ -247,7 +254,7 @@ public class ParticleEmitter
             endColor = EndColors[Rand.GetRand(0, EndColors.Length - 1)];
 
         var particle = new Particle(position, velocity, acceleration, lifetime, size, rotation,
-            rotationSpeed, beginColor, endColor, SizeFunction, SizeFunctionValue);
+            rotationSpeed, beginColor, endColor, SizeFunction, SizeFunctionValue, ZLayer);
         Particles.Add(particle);
     }
 

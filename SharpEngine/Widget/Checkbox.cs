@@ -2,6 +2,7 @@
 using Raylib_cs;
 using SharpEngine.Manager;
 using SharpEngine.Math;
+using SharpEngine.Renderer;
 using SharpEngine.Utils.EventArgs;
 using Color = SharpEngine.Utils.Color;
 using MouseButton = SharpEngine.Utils.Input.MouseButton;
@@ -34,7 +35,8 @@ public class Checkbox: Widget
     /// <param name="position">Checkbox Position</param>
     /// <param name="size">Checkbox Size</param>
     /// <param name="isChecked">If Checkbox is Checked</param>
-    public Checkbox(Vec2 position, Vec2? size = null, bool isChecked = false) : base(position)
+    /// <param name="zLayer">Z Layer</param>
+    public Checkbox(Vec2 position, Vec2? size = null, bool isChecked = false, int zLayer = 0) : base(position, zLayer)
     {
         Size = size ?? new Vec2(20);
         IsChecked = isChecked;
@@ -67,12 +69,13 @@ public class Checkbox: Widget
         if(!Displayed || Size == Vec2.Zero) return;
         
         var position = RealPosition;
-        Raylib.DrawRectanglePro(new Rectangle(position.X, position.Y, Size.X, Size.Y), Size / 2, 0, Color.Black);
-        Raylib.DrawRectanglePro(new Rectangle(position.X, position.Y, Size.X - 4, Size.Y - 4), (Size - 4) / 2,
-            0, Color.White);
+        DMRender.DrawRectangle(new Rect(position.X, position.Y, Size.X, Size.Y), Size / 2, 0, Color.Black,
+            InstructionSource.UI, ZLayer);
+        DMRender.DrawRectangle(new Rect(position.X, position.Y, Size.X - 4, Size.Y - 4), (Size - 4) / 2,
+            0, Color.White, InstructionSource.UI, ZLayer);
         
         if(IsChecked)
-            Raylib.DrawRectanglePro(new Rectangle(position.X, position.Y, Size.X - 6, Size.Y - 6), (Size - 6) / 2,
-            0, Color.Black);
+            DMRender.DrawRectangle(new Rect(position.X, position.Y, Size.X - 6, Size.Y - 6), (Size - 6) / 2,
+            0, Color.Black, InstructionSource.UI, ZLayer);
     }
 }

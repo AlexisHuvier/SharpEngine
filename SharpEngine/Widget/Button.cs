@@ -2,6 +2,7 @@
 using Raylib_cs;
 using SharpEngine.Manager;
 using SharpEngine.Math;
+using SharpEngine.Renderer;
 using Color = SharpEngine.Utils.Color;
 using MouseButton = SharpEngine.Utils.Input.MouseButton;
 
@@ -66,8 +67,9 @@ public class Button: Widget
     /// <param name="fontColor">Button Font Color</param>
     /// <param name="backgroundColor">Button Background Color</param>
     /// <param name="fontSize">Button Font Size</param>
+    /// <param name="zLayer">Z Layer</param>
     public Button(Vec2 position, string text = "", string font = "", Vec2? size = null, Color? fontColor = null,
-        Color? backgroundColor = null, int? fontSize = null) : base(position)
+        Color? backgroundColor = null, int? fontSize = null, int zLayer = 0) : base(position, zLayer)
     {
         Text = text;
         Font = font;
@@ -109,20 +111,21 @@ public class Button: Widget
         var position = RealPosition;
 
         if (_state == ButtonState.Hover && Active)
-            Raylib.DrawRectangle((int)(position.X - (Size.X + 4) / 2), (int)(position.Y - (Size.Y + 4) / 2),
-                (int)(Size.X + 4),(int)(Size.Y + 4), Color.White);
+            DMRender.DrawRectangle((int)(position.X - (Size.X + 4) / 2), (int)(position.Y - (Size.Y + 4) / 2),
+                (int)(Size.X + 4), (int)(Size.Y + 4), Color.White, InstructionSource.UI, ZLayer); 
 
-        Raylib.DrawRectangle((int)(position.X - Size.X / 2), (int)(position.Y - Size.Y / 2), (int)Size.X,
-            (int)Size.Y, Color.Black);
-        Raylib.DrawRectangle((int)(position.X - (Size.X - 4) / 2), (int)(position.Y - (Size.Y - 4) / 2),
-            (int)(Size.X - 4), (int)(Size.Y - 4), BackgroundColor);
+        DMRender.DrawRectangle((int)(position.X - Size.X / 2), (int)(position.Y - Size.Y / 2), (int)Size.X,
+            (int)Size.Y, Color.Black, InstructionSource.UI, ZLayer);
+        DMRender.DrawRectangle((int)(position.X - (Size.X - 4) / 2), (int)(position.Y - (Size.Y - 4) / 2),
+            (int)(Size.X - 4), (int)(Size.Y - 4), BackgroundColor, InstructionSource.UI, ZLayer);
         
         var fontSize = FontSize ?? font.Value.baseSize;
         var textSize = Raylib.MeasureTextEx(font.Value, Text, fontSize, 2);
-        Raylib.DrawTextPro(font.Value, Text, position, textSize / 2, 0, fontSize, 2, FontColor);
+        DMRender.DrawText(font.Value, Text, position, textSize / 2, 0, fontSize, 2, FontColor, InstructionSource.UI,
+            ZLayer);
         
         if(_state == ButtonState.Down || !Active)
-            Raylib.DrawRectangle((int)(position.X - Size.X / 2), (int)(position.Y - Size.Y / 2), (int)Size.X,
-                (int)Size.Y, new Color(0, 0, 0, 128));
+            DMRender.DrawRectangle((int)(position.X - Size.X / 2), (int)(position.Y - Size.Y / 2), (int)Size.X,
+                (int)Size.Y, new Color(0, 0, 0, 128), InstructionSource.UI, ZLayer);
     }
 }

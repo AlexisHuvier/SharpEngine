@@ -20,12 +20,18 @@ internal class MyScene : Scene
         e1.AddComponent(new PhysicsComponent(fixedRotation: true, ignoreGravity: true)).AddRectangleCollision(new Vec2(50), restitution: 0f);
         e1.AddComponent(new ControlComponent(ControlType.FourDirection, speed: 300));
         AddEntity(e1);
-        
-        var e2 = new Entity();
-        e2.AddComponent(new TransformComponent(new Vec2(100, 300)));
-        e2.AddComponent(new RectComponent(Color.Red, new Vec2(50)));
-        e2.AddComponent(new PhysicsComponent(BodyType.Static, ignoreGravity: true, fixedRotation: true)).AddRectangleCollision(new Vec2(50), restitution: 0f);
-        AddEntity(e2);
+
+        for (var x = 0; x < 20; x++)
+        {
+            for (var y = 0; y < 20; y++)
+            {
+                var e2 = new Entity();
+                e2.AddComponent(new TransformComponent(new Vec2(240 + 120*x, 80 + 120*y)));
+                e2.AddComponent(new RectComponent(Color.Red, new Vec2(50)));
+                e2.AddComponent(new PhysicsComponent(BodyType.Static, ignoreGravity: true, fixedRotation: true)).AddRectangleCollision(new Vec2(50), restitution: 0f);
+                AddEntity(e2);
+            }
+        }
 
         AddWidget(new Selector(new Vec2(500), new List<string> { "Un", "Deux", "SUPPPPERRR TROIS !" }, "basic")).ValueChanged += 
             (_, args) => Console.WriteLine(args.OldValue + " => " + args.NewValue);
@@ -37,5 +43,20 @@ internal class MyScene : Scene
             new("idle", new List<uint> { 1, 2, 3, 4 }, 0.1f)
         }, "idle", flipX: true));
         AddEntity(e3);
+    }
+
+    public override void OpenScene()
+    {
+        base.OpenScene();
+        Window!.CameraManager.FollowEntity = Entities[0];
+    }
+
+    public override void Update(float delta)
+    {
+        base.Update(delta);
+
+        if (InputManager.IsKeyPressed(Key.A))
+            Window!.CameraManager.Mode =
+                Window!.CameraManager.Mode == CameraMode.Follow ? CameraMode.Basic : CameraMode.Follow;
     }
 }

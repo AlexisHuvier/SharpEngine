@@ -185,19 +185,12 @@ public class Scene
     }
 
     /// <summary>
-    /// Draw all Entities Scene
+    /// Draw Scene
     /// </summary>
-    public virtual void DrawEntities()
+    public virtual void Draw()
     {
         foreach (var ent in Entities)
             ent.Draw();
-    }
-
-    /// <summary>
-    /// Draw all Widgets Scene
-    /// </summary>
-    public virtual void DrawWidgets()
-    {
         foreach (var widget in Widgets)
             widget.Draw();
     }

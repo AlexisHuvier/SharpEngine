@@ -55,16 +55,18 @@ public class Selector: Widget
     /// Selected Value
     /// </summary>
     public string Selected => Values[SelectedIndex];
-    
+
     /// <summary>
     /// Create Selector
     /// </summary>
-    /// <param name="position"></param>
-    /// <param name="values"></param>
-    /// <param name="font"></param>
-    /// <param name="currentIndex"></param>
-    /// <param name="fontSize"></param>
-    public Selector(Vec2 position, List<string>? values = null, string font = "", int currentIndex = 0, int? fontSize = null) : base(position)
+    /// <param name="position">Position</param>
+    /// <param name="values">Values of Selector</param>
+    /// <param name="font">Font of Selector</param>
+    /// <param name="currentIndex">Current Index of Selector</param>
+    /// <param name="fontSize">Font Size of Selector</param>
+    /// <param name="zLayer">Z Layer</param>
+    public Selector(Vec2 position, List<string>? values = null, string font = "", int currentIndex = 0,
+        int? fontSize = null, int zLayer = 0) : base(position, zLayer)
     {
         Values = values ?? new List<string>();
         SelectedIndex = currentIndex;

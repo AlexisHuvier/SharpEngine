@@ -1,5 +1,6 @@
 ﻿using Raylib_cs;
 using SharpEngine.Math;
+using SharpEngine.Renderer;
 using Color = SharpEngine.Utils.Color;
 
 namespace SharpEngine.Component;
@@ -39,6 +40,11 @@ public class TextComponent: Component
     /// </summary>
     public int? FontSize;
     
+    /// <summary>
+    /// Offset of ZLayer of Text
+    /// </summary>
+    public int ZLayerOffset { get; set; }
+    
     private TransformComponent? _transformComponent;
 
     /// <summary>
@@ -50,8 +56,9 @@ public class TextComponent: Component
     /// <param name="displayed">If Text is Displayed (true)</param>
     /// <param name="fontSize">Font Size (null)</param>
     /// <param name="offset">Offset (Vec2(0))</param>
+    /// <param name="zLayerOffset">Offset of zLayer</param>
     public TextComponent(string text, string font = "RAYLIB_DEFAULT", Color? color = null, bool displayed = true,
-        int? fontSize = null, Vec2? offset = null)
+        int? fontSize = null, Vec2? offset = null, int zLayerOffset = 0)
     {
         Text = text;
         Font = font;
@@ -59,6 +66,7 @@ public class TextComponent: Component
         Displayed = displayed;
         Offset = offset ?? Vec2.Zero;
         FontSize = fontSize;
+        ZLayerOffset = zLayerOffset;
     }
 
     /// <inheritdoc />
@@ -82,7 +90,8 @@ public class TextComponent: Component
         var fontSize = FontSize ?? font.baseSize;
         var position = _transformComponent.GetTransformedPosition(Offset);
         var textSize = Raylib.MeasureTextEx(font, Text, fontSize, 2);
-        
-        Raylib.DrawTextPro(font, Text, position, textSize / 2, _transformComponent.Rotation, fontSize, 2, Color);
+
+        DMRender.DrawText(font, Text, position, textSize / 2, _transformComponent.Rotation, fontSize, 2, Color,
+            InstructionSource.Entity, _transformComponent.ZLayer + ZLayerOffset);
     }
 }

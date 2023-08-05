@@ -2,6 +2,7 @@
 using System.Numerics;
 using Raylib_cs;
 using SharpEngine.Math;
+using SharpEngine.Renderer;
 using SharpEngine.Utils;
 using Color = SharpEngine.Utils.Color;
 
@@ -46,6 +47,11 @@ public class SpriteSheetComponent: Component
     /// If Sprite is Flip Vertically
     /// </summary>
     public bool FlipY { get; set; }
+    
+    /// <summary>
+    /// Offset of ZLayer of Sprite Sheet
+    /// </summary>
+    public int ZLayerOffset { get; set; }
 
     /// <summary>
     /// Current animation
@@ -78,8 +84,9 @@ public class SpriteSheetComponent: Component
     /// <param name="offset">Offset</param>
     /// <param name="flipX">If Sprite is Flip Horizontally</param>
     /// <param name="flipY">If Sprite is Flip Vertically</param>
+    /// <param name="zLayerOffset">Offset of zLayer</param>
     public SpriteSheetComponent(string texture, Vec2 spriteSize, List<Animation> animations, string currentAnim = "",
-        bool displayed = true, Vec2? offset = null, bool flipX = false, bool flipY = false)
+        bool displayed = true, Vec2? offset = null, bool flipX = false, bool flipY = false, int zLayerOffset = 0)
     {
         Texture = texture;
         SpriteSize = spriteSize;
@@ -89,6 +96,7 @@ public class SpriteSheetComponent: Component
         Offset = offset ?? Vec2.Zero;
         FlipX = flipX;
         FlipY = flipY;
+        ZLayerOffset = zLayerOffset;
     }
 
     /// <summary>
@@ -147,14 +155,14 @@ public class SpriteSheetComponent: Component
         
         var texture = window.TextureManager.GetTexture(Texture);
         var position = _transform.GetTransformedPosition(Offset);
-        Raylib.DrawTexturePro(
+        DMRender.DrawTexture(
             texture,
-            new Rectangle(
-                SpriteSize.X * (anim.Value.Indices[_currentImage] % (texture.width / SpriteSize.X)), 
-                SpriteSize.Y * (int)(anim.Value.Indices[_currentImage] / (int)(texture.width / SpriteSize.X)), 
+            new Rect(
+                SpriteSize.X * (anim.Value.Indices[_currentImage] % (texture.width / SpriteSize.X)),
+                SpriteSize.Y * (int)(anim.Value.Indices[_currentImage] / (int)(texture.width / SpriteSize.X)),
                 FlipX ? -SpriteSize.X : SpriteSize.X, FlipY ? -SpriteSize.Y : SpriteSize.Y),
-            new Rectangle(position.X, position.Y, SpriteSize.X * _transform.Scale.X,SpriteSize.Y * _transform.Scale.Y),
-            new Vector2(SpriteSize.X / 2f * _transform.Scale.X, SpriteSize.Y / 2f * _transform.Scale.Y),
-            _transform.Rotation, Color.White);
+            new Rect(position.X, position.Y, SpriteSize.X * _transform.Scale.X, SpriteSize.Y * _transform.Scale.Y),
+            new Vec2(SpriteSize.X / 2f * _transform.Scale.X, SpriteSize.Y / 2f * _transform.Scale.Y),
+            _transform.Rotation, Color.White, InstructionSource.Entity, _transform.ZLayer + ZLayerOffset);
     }
 }

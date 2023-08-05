@@ -2,6 +2,7 @@
 using System.Numerics;
 using Raylib_cs;
 using SharpEngine.Math;
+using SharpEngine.Renderer;
 
 namespace SharpEngine.Utils.Particle;
 
@@ -14,7 +15,7 @@ public class Particle
     /// Position of Particle
     /// </summary>
     public Vec2 Position { get; set; }
-    
+
     /// <summary>
     /// Velocity of Particle
     /// </summary>
@@ -81,6 +82,11 @@ public class Particle
     public float SizeFunctionValue { get; set; }
 
     /// <summary>
+    /// ZLayer of Particle
+    /// </summary>
+    public int ZLayer { get; set; }
+
+    /// <summary>
     /// Create Particle
     /// </summary>
     /// <param name="position">Particle Position</param>
@@ -94,9 +100,11 @@ public class Particle
     /// <param name="endColor">Particle End Color</param>
     /// <param name="sizeFunction">Particle Size Function</param>
     /// <param name="sizeFunctionValue">Particle Size Function Value</param>
+    /// <param name="zLayer">ZLayer</param>
     public Particle(Vec2 position, Vec2 velocity, Vec2 acceleration, float lifetime, float size, float rotation,
         float rotationSpeed, Color beginColor, Color endColor,
-        ParticleParametersFunction sizeFunction = ParticleParametersFunction.Normal, float sizeFunctionValue = 0)
+        ParticleParametersFunction sizeFunction = ParticleParametersFunction.Normal, float sizeFunctionValue = 0,
+        int zLayer = 0)
     {
         Position = position;
         Velocity = velocity;
@@ -115,6 +123,7 @@ public class Particle
         EndColor = endColor;
         SizeFunction = sizeFunction;
         SizeFunctionValue = sizeFunctionValue;
+        ZLayer = zLayer;
     }
 
     /// <summary>
@@ -164,7 +173,7 @@ public class Particle
     {
         if (Size == 0) return;
 
-        Raylib.DrawRectanglePro(new Rectangle(Position.X, Position.Y, Size, Size), new Vector2(Size / 2, Size / 2),
-            Rotation, CurrentColor);
+        DMRender.DrawRectangle(new Rect(Position.X, Position.Y, Size, Size), new Vec2(Size / 2, Size / 2),
+            Rotation, CurrentColor, InstructionSource.Entity, ZLayer);
     }
 }

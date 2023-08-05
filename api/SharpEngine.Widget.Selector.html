@@ -116,6 +116,9 @@
       <a class="xref" href="SharpEngine.Widget.Widget.html#SharpEngine_Widget_Widget_Position">Widget.Position</a>
     </div>
     <div>
+      <a class="xref" href="SharpEngine.Widget.Widget.html#SharpEngine_Widget_Widget_ZLayer">Widget.ZLayer</a>
+    </div>
+    <div>
       <a class="xref" href="SharpEngine.Widget.Widget.html#SharpEngine_Widget_Widget_Displayed">Widget.Displayed</a>
     </div>
     <div>
@@ -197,9 +200,9 @@
 
   <a id="SharpEngine_Widget_Selector__ctor_" data-uid="SharpEngine.Widget.Selector.#ctor*"></a>
 
-  <h3 id="SharpEngine_Widget_Selector__ctor_SharpEngine_Math_Vec2_System_Collections_Generic_List_System_String__System_String_System_Int32_System_Nullable_System_Int32__" data-uid="SharpEngine.Widget.Selector.#ctor(SharpEngine.Math.Vec2,System.Collections.Generic.List{System.String},System.String,System.Int32,System.Nullable{System.Int32})">
-  Selector(Vec2, List&lt;string&gt;?, string, int, int?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Widget/Selector.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpEngine_Widget_Selector__ctor_SharpEngine_Math_Vec2_System_Collections_Generic_List_System_String__System_String_System_Int32_System_Nullable_System_Int32__System_Int32_" data-uid="SharpEngine.Widget.Selector.#ctor(SharpEngine.Math.Vec2,System.Collections.Generic.List{System.String},System.String,System.Int32,System.Nullable{System.Int32},System.Int32)">
+  Selector(Vec2, List&lt;string&gt;?, string, int, int?, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Widget/Selector.cs/#L68"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create Selector</p>
@@ -207,21 +210,29 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Selector(Vec2 position, List&lt;string&gt;? values = null, string font = &quot;&quot;, int currentIndex = 0, int? fontSize = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Selector(Vec2 position, List&lt;string&gt;? values = null, string font = &quot;&quot;, int currentIndex = 0, int? fontSize = null, int zLayer = 0)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>position</code> <a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a></dt>
-    <dd></dd>
+    <dd><p>Position</p>
+</dd>
     <dt><code>values</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>Values of Selector</p>
+</dd>
     <dt><code>font</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>Font of Selector</p>
+</dd>
     <dt><code>currentIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>Current Index of Selector</p>
+</dd>
     <dt><code>fontSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</dt>
-    <dd></dd>
+    <dd><p>Font Size of Selector</p>
+</dd>
+    <dt><code>zLayer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Z Layer</p>
+</dd>
   </dl>
 
 
@@ -503,7 +514,7 @@
 
   <h3 id="SharpEngine_Widget_Selector_Load" data-uid="SharpEngine.Widget.Selector.Load">
   Load()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Widget/Selector.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Widget/Selector.cs/#L118"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Load Widget</p>

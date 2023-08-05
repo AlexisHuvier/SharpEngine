@@ -79,7 +79,7 @@
 
   <h1 id="SharpEngine_Component_RectComponent" data-uid="SharpEngine.Component.RectComponent" class="text-break">
     Class RectComponent
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -155,9 +155,9 @@
 
   <a id="SharpEngine_Component_RectComponent__ctor_" data-uid="SharpEngine.Component.RectComponent.#ctor*"></a>
 
-  <h3 id="SharpEngine_Component_RectComponent__ctor_SharpEngine_Utils_Color_SharpEngine_Math_Vec2_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__" data-uid="SharpEngine.Component.RectComponent.#ctor(SharpEngine.Utils.Color,SharpEngine.Math.Vec2,System.Boolean,System.Nullable{SharpEngine.Math.Vec2})">
-  RectComponent(Color, Vec2, bool, Vec2?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpEngine_Component_RectComponent__ctor_SharpEngine_Utils_Color_SharpEngine_Math_Vec2_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__System_Int32_" data-uid="SharpEngine.Component.RectComponent.#ctor(SharpEngine.Utils.Color,SharpEngine.Math.Vec2,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Int32)">
+  RectComponent(Color, Vec2, bool, Vec2?, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L49"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create Rect Component</p>
@@ -165,7 +165,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RectComponent(Color color, Vec2 size, bool displayed = true, Vec2? offset = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public RectComponent(Color color, Vec2 size, bool displayed = true, Vec2? offset = null, int zLayerOffset = 0)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -181,6 +181,9 @@
 </dd>
     <dt><code>offset</code> <a class="xref" href="SharpEngine.Math.Vec2.html">Vec2</a>?</dt>
     <dd><p>Rectangle Offset</p>
+</dd>
+    <dt><code>zLayerOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Offset of zLayer</p>
 </dd>
   </dl>
 
@@ -203,7 +206,7 @@
 
   <h3 id="SharpEngine_Component_RectComponent_Color" data-uid="SharpEngine.Component.RectComponent.Color">
   Color
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Color of Rectangle</p>
@@ -235,7 +238,7 @@
 
   <h3 id="SharpEngine_Component_RectComponent_Displayed" data-uid="SharpEngine.Component.RectComponent.Displayed">
   Displayed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>If Rectangle is displayed</p>
@@ -267,7 +270,7 @@
 
   <h3 id="SharpEngine_Component_RectComponent_Offset" data-uid="SharpEngine.Component.RectComponent.Offset">
   Offset
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Offset of Rectangle</p>
@@ -299,7 +302,7 @@
 
   <h3 id="SharpEngine_Component_RectComponent_Size" data-uid="SharpEngine.Component.RectComponent.Size">
   Size
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Size of Rectangle</p>
@@ -327,6 +330,38 @@
 
 
 
+  <a id="SharpEngine_Component_RectComponent_ZLayerOffset_" data-uid="SharpEngine.Component.RectComponent.ZLayerOffset*"></a>
+
+  <h3 id="SharpEngine_Component_RectComponent_ZLayerOffset" data-uid="SharpEngine.Component.RectComponent.ZLayerOffset">
+  ZLayerOffset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Offset of ZLayer of Rectangle</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ZLayerOffset { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -335,7 +370,7 @@
 
   <h3 id="SharpEngine_Component_RectComponent_Draw" data-uid="SharpEngine.Component.RectComponent.Draw">
   Draw()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Draw Component</p>
@@ -362,7 +397,7 @@
 
   <h3 id="SharpEngine_Component_RectComponent_Load" data-uid="SharpEngine.Component.RectComponent.Load">
   Load()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L59"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Load Component</p>
@@ -389,7 +424,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L11" class="edit-link">Edit this page</a>
+          <a href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/RectComponent.cs/#L12" class="edit-link">Edit this page</a>
         </div>
 
         

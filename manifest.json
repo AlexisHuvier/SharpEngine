@@ -405,10 +405,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SharpEngine.Renderer.InstructionDestination.yml",
+      "source_relative_path": "api/SharpEngine.Renderer.InstructionSource.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpEngine.Renderer.InstructionDestination.html"
+          "relative_path": "api/SharpEngine.Renderer.InstructionSource.html"
         }
       },
       "version": ""

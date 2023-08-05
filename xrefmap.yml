@@ -689,15 +689,15 @@ references:
   commentId: T:SharpEngine.Component.RectComponent
   fullName: SharpEngine.Component.RectComponent
   nameWithType: RectComponent
-- uid: SharpEngine.Component.RectComponent.#ctor(SharpEngine.Utils.Color,SharpEngine.Math.Vec2,System.Boolean,System.Nullable{SharpEngine.Math.Vec2})
-  name: RectComponent(Color, Vec2, bool, Vec2?)
-  href: api/SharpEngine.Component.RectComponent.html#SharpEngine_Component_RectComponent__ctor_SharpEngine_Utils_Color_SharpEngine_Math_Vec2_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__
-  commentId: M:SharpEngine.Component.RectComponent.#ctor(SharpEngine.Utils.Color,SharpEngine.Math.Vec2,System.Boolean,System.Nullable{SharpEngine.Math.Vec2})
-  name.vb: New(Color, Vec2, Boolean, Vec2?)
-  fullName: SharpEngine.Component.RectComponent.RectComponent(SharpEngine.Utils.Color, SharpEngine.Math.Vec2, bool, SharpEngine.Math.Vec2?)
-  fullName.vb: SharpEngine.Component.RectComponent.New(SharpEngine.Utils.Color, SharpEngine.Math.Vec2, Boolean, SharpEngine.Math.Vec2?)
-  nameWithType: RectComponent.RectComponent(Color, Vec2, bool, Vec2?)
-  nameWithType.vb: RectComponent.New(Color, Vec2, Boolean, Vec2?)
+- uid: SharpEngine.Component.RectComponent.#ctor(SharpEngine.Utils.Color,SharpEngine.Math.Vec2,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Int32)
+  name: RectComponent(Color, Vec2, bool, Vec2?, int)
+  href: api/SharpEngine.Component.RectComponent.html#SharpEngine_Component_RectComponent__ctor_SharpEngine_Utils_Color_SharpEngine_Math_Vec2_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__System_Int32_
+  commentId: M:SharpEngine.Component.RectComponent.#ctor(SharpEngine.Utils.Color,SharpEngine.Math.Vec2,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Int32)
+  name.vb: New(Color, Vec2, Boolean, Vec2?, Integer)
+  fullName: SharpEngine.Component.RectComponent.RectComponent(SharpEngine.Utils.Color, SharpEngine.Math.Vec2, bool, SharpEngine.Math.Vec2?, int)
+  fullName.vb: SharpEngine.Component.RectComponent.New(SharpEngine.Utils.Color, SharpEngine.Math.Vec2, Boolean, SharpEngine.Math.Vec2?, Integer)
+  nameWithType: RectComponent.RectComponent(Color, Vec2, bool, Vec2?, int)
+  nameWithType.vb: RectComponent.New(Color, Vec2, Boolean, Vec2?, Integer)
 - uid: SharpEngine.Component.RectComponent.#ctor*
   name: RectComponent
   href: api/SharpEngine.Component.RectComponent.html#SharpEngine_Component_RectComponent__ctor_
@@ -786,21 +786,34 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Component.RectComponent.Size
   nameWithType: RectComponent.Size
+- uid: SharpEngine.Component.RectComponent.ZLayerOffset
+  name: ZLayerOffset
+  href: api/SharpEngine.Component.RectComponent.html#SharpEngine_Component_RectComponent_ZLayerOffset
+  commentId: P:SharpEngine.Component.RectComponent.ZLayerOffset
+  fullName: SharpEngine.Component.RectComponent.ZLayerOffset
+  nameWithType: RectComponent.ZLayerOffset
+- uid: SharpEngine.Component.RectComponent.ZLayerOffset*
+  name: ZLayerOffset
+  href: api/SharpEngine.Component.RectComponent.html#SharpEngine_Component_RectComponent_ZLayerOffset_
+  commentId: Overload:SharpEngine.Component.RectComponent.ZLayerOffset
+  isSpec: "True"
+  fullName: SharpEngine.Component.RectComponent.ZLayerOffset
+  nameWithType: RectComponent.ZLayerOffset
 - uid: SharpEngine.Component.SpriteComponent
   name: SpriteComponent
   href: api/SharpEngine.Component.SpriteComponent.html
   commentId: T:SharpEngine.Component.SpriteComponent
   fullName: SharpEngine.Component.SpriteComponent
   nameWithType: SpriteComponent
-- uid: SharpEngine.Component.SpriteComponent.#ctor(System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Boolean)
-  name: SpriteComponent(string, bool, Vec2?, bool, bool)
-  href: api/SharpEngine.Component.SpriteComponent.html#SharpEngine_Component_SpriteComponent__ctor_System_String_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__System_Boolean_System_Boolean_
-  commentId: M:SharpEngine.Component.SpriteComponent.#ctor(System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Boolean)
-  name.vb: New(String, Boolean, Vec2?, Boolean, Boolean)
-  fullName: SharpEngine.Component.SpriteComponent.SpriteComponent(string, bool, SharpEngine.Math.Vec2?, bool, bool)
-  fullName.vb: SharpEngine.Component.SpriteComponent.New(String, Boolean, SharpEngine.Math.Vec2?, Boolean, Boolean)
-  nameWithType: SpriteComponent.SpriteComponent(string, bool, Vec2?, bool, bool)
-  nameWithType.vb: SpriteComponent.New(String, Boolean, Vec2?, Boolean, Boolean)
+- uid: SharpEngine.Component.SpriteComponent.#ctor(System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Boolean,System.Int32)
+  name: SpriteComponent(string, bool, Vec2?, bool, bool, int)
+  href: api/SharpEngine.Component.SpriteComponent.html#SharpEngine_Component_SpriteComponent__ctor_System_String_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__System_Boolean_System_Boolean_System_Int32_
+  commentId: M:SharpEngine.Component.SpriteComponent.#ctor(System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Boolean,System.Int32)
+  name.vb: New(String, Boolean, Vec2?, Boolean, Boolean, Integer)
+  fullName: SharpEngine.Component.SpriteComponent.SpriteComponent(string, bool, SharpEngine.Math.Vec2?, bool, bool, int)
+  fullName.vb: SharpEngine.Component.SpriteComponent.New(String, Boolean, SharpEngine.Math.Vec2?, Boolean, Boolean, Integer)
+  nameWithType: SpriteComponent.SpriteComponent(string, bool, Vec2?, bool, bool, int)
+  nameWithType.vb: SpriteComponent.New(String, Boolean, Vec2?, Boolean, Boolean, Integer)
 - uid: SharpEngine.Component.SpriteComponent.#ctor*
   name: SpriteComponent
   href: api/SharpEngine.Component.SpriteComponent.html#SharpEngine_Component_SpriteComponent__ctor_
@@ -902,21 +915,34 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Component.SpriteComponent.Texture
   nameWithType: SpriteComponent.Texture
+- uid: SharpEngine.Component.SpriteComponent.ZLayerOffset
+  name: ZLayerOffset
+  href: api/SharpEngine.Component.SpriteComponent.html#SharpEngine_Component_SpriteComponent_ZLayerOffset
+  commentId: P:SharpEngine.Component.SpriteComponent.ZLayerOffset
+  fullName: SharpEngine.Component.SpriteComponent.ZLayerOffset
+  nameWithType: SpriteComponent.ZLayerOffset
+- uid: SharpEngine.Component.SpriteComponent.ZLayerOffset*
+  name: ZLayerOffset
+  href: api/SharpEngine.Component.SpriteComponent.html#SharpEngine_Component_SpriteComponent_ZLayerOffset_
+  commentId: Overload:SharpEngine.Component.SpriteComponent.ZLayerOffset
+  isSpec: "True"
+  fullName: SharpEngine.Component.SpriteComponent.ZLayerOffset
+  nameWithType: SpriteComponent.ZLayerOffset
 - uid: SharpEngine.Component.SpriteSheetComponent
   name: SpriteSheetComponent
   href: api/SharpEngine.Component.SpriteSheetComponent.html
   commentId: T:SharpEngine.Component.SpriteSheetComponent
   fullName: SharpEngine.Component.SpriteSheetComponent
   nameWithType: SpriteSheetComponent
-- uid: SharpEngine.Component.SpriteSheetComponent.#ctor(System.String,SharpEngine.Math.Vec2,System.Collections.Generic.List{SharpEngine.Utils.Animation},System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Boolean)
-  name: SpriteSheetComponent(string, Vec2, List<Animation>, string, bool, Vec2?, bool, bool)
-  href: api/SharpEngine.Component.SpriteSheetComponent.html#SharpEngine_Component_SpriteSheetComponent__ctor_System_String_SharpEngine_Math_Vec2_System_Collections_Generic_List_SharpEngine_Utils_Animation__System_String_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__System_Boolean_System_Boolean_
-  commentId: M:SharpEngine.Component.SpriteSheetComponent.#ctor(System.String,SharpEngine.Math.Vec2,System.Collections.Generic.List{SharpEngine.Utils.Animation},System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Boolean)
-  name.vb: New(String, Vec2, List(Of Animation), String, Boolean, Vec2?, Boolean, Boolean)
-  fullName: SharpEngine.Component.SpriteSheetComponent.SpriteSheetComponent(string, SharpEngine.Math.Vec2, System.Collections.Generic.List<SharpEngine.Utils.Animation>, string, bool, SharpEngine.Math.Vec2?, bool, bool)
-  fullName.vb: SharpEngine.Component.SpriteSheetComponent.New(String, SharpEngine.Math.Vec2, System.Collections.Generic.List(Of SharpEngine.Utils.Animation), String, Boolean, SharpEngine.Math.Vec2?, Boolean, Boolean)
-  nameWithType: SpriteSheetComponent.SpriteSheetComponent(string, Vec2, List<Animation>, string, bool, Vec2?, bool, bool)
-  nameWithType.vb: SpriteSheetComponent.New(String, Vec2, List(Of Animation), String, Boolean, Vec2?, Boolean, Boolean)
+- uid: SharpEngine.Component.SpriteSheetComponent.#ctor(System.String,SharpEngine.Math.Vec2,System.Collections.Generic.List{SharpEngine.Utils.Animation},System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Boolean,System.Int32)
+  name: SpriteSheetComponent(string, Vec2, List<Animation>, string, bool, Vec2?, bool, bool, int)
+  href: api/SharpEngine.Component.SpriteSheetComponent.html#SharpEngine_Component_SpriteSheetComponent__ctor_System_String_SharpEngine_Math_Vec2_System_Collections_Generic_List_SharpEngine_Utils_Animation__System_String_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__System_Boolean_System_Boolean_System_Int32_
+  commentId: M:SharpEngine.Component.SpriteSheetComponent.#ctor(System.String,SharpEngine.Math.Vec2,System.Collections.Generic.List{SharpEngine.Utils.Animation},System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Boolean,System.Int32)
+  name.vb: New(String, Vec2, List(Of Animation), String, Boolean, Vec2?, Boolean, Boolean, Integer)
+  fullName: SharpEngine.Component.SpriteSheetComponent.SpriteSheetComponent(string, SharpEngine.Math.Vec2, System.Collections.Generic.List<SharpEngine.Utils.Animation>, string, bool, SharpEngine.Math.Vec2?, bool, bool, int)
+  fullName.vb: SharpEngine.Component.SpriteSheetComponent.New(String, SharpEngine.Math.Vec2, System.Collections.Generic.List(Of SharpEngine.Utils.Animation), String, Boolean, SharpEngine.Math.Vec2?, Boolean, Boolean, Integer)
+  nameWithType: SpriteSheetComponent.SpriteSheetComponent(string, Vec2, List<Animation>, string, bool, Vec2?, bool, bool, int)
+  nameWithType.vb: SpriteSheetComponent.New(String, Vec2, List(Of Animation), String, Boolean, Vec2?, Boolean, Boolean, Integer)
 - uid: SharpEngine.Component.SpriteSheetComponent.#ctor*
   name: SpriteSheetComponent
   href: api/SharpEngine.Component.SpriteSheetComponent.html#SharpEngine_Component_SpriteSheetComponent__ctor_
@@ -1089,21 +1115,34 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Component.SpriteSheetComponent.Update
   nameWithType: SpriteSheetComponent.Update
+- uid: SharpEngine.Component.SpriteSheetComponent.ZLayerOffset
+  name: ZLayerOffset
+  href: api/SharpEngine.Component.SpriteSheetComponent.html#SharpEngine_Component_SpriteSheetComponent_ZLayerOffset
+  commentId: P:SharpEngine.Component.SpriteSheetComponent.ZLayerOffset
+  fullName: SharpEngine.Component.SpriteSheetComponent.ZLayerOffset
+  nameWithType: SpriteSheetComponent.ZLayerOffset
+- uid: SharpEngine.Component.SpriteSheetComponent.ZLayerOffset*
+  name: ZLayerOffset
+  href: api/SharpEngine.Component.SpriteSheetComponent.html#SharpEngine_Component_SpriteSheetComponent_ZLayerOffset_
+  commentId: Overload:SharpEngine.Component.SpriteSheetComponent.ZLayerOffset
+  isSpec: "True"
+  fullName: SharpEngine.Component.SpriteSheetComponent.ZLayerOffset
+  nameWithType: SpriteSheetComponent.ZLayerOffset
 - uid: SharpEngine.Component.TextComponent
   name: TextComponent
   href: api/SharpEngine.Component.TextComponent.html
   commentId: T:SharpEngine.Component.TextComponent
   fullName: SharpEngine.Component.TextComponent
   nameWithType: TextComponent
-- uid: SharpEngine.Component.TextComponent.#ctor(System.String,System.String,System.Nullable{SharpEngine.Utils.Color},System.Boolean,System.Nullable{System.Int32},System.Nullable{SharpEngine.Math.Vec2})
-  name: TextComponent(string, string, Color?, bool, int?, Vec2?)
-  href: api/SharpEngine.Component.TextComponent.html#SharpEngine_Component_TextComponent__ctor_System_String_System_String_System_Nullable_SharpEngine_Utils_Color__System_Boolean_System_Nullable_System_Int32__System_Nullable_SharpEngine_Math_Vec2__
-  commentId: M:SharpEngine.Component.TextComponent.#ctor(System.String,System.String,System.Nullable{SharpEngine.Utils.Color},System.Boolean,System.Nullable{System.Int32},System.Nullable{SharpEngine.Math.Vec2})
-  name.vb: New(String, String, Color?, Boolean, Integer?, Vec2?)
-  fullName: SharpEngine.Component.TextComponent.TextComponent(string, string, SharpEngine.Utils.Color?, bool, int?, SharpEngine.Math.Vec2?)
-  fullName.vb: SharpEngine.Component.TextComponent.New(String, String, SharpEngine.Utils.Color?, Boolean, Integer?, SharpEngine.Math.Vec2?)
-  nameWithType: TextComponent.TextComponent(string, string, Color?, bool, int?, Vec2?)
-  nameWithType.vb: TextComponent.New(String, String, Color?, Boolean, Integer?, Vec2?)
+- uid: SharpEngine.Component.TextComponent.#ctor(System.String,System.String,System.Nullable{SharpEngine.Utils.Color},System.Boolean,System.Nullable{System.Int32},System.Nullable{SharpEngine.Math.Vec2},System.Int32)
+  name: TextComponent(string, string, Color?, bool, int?, Vec2?, int)
+  href: api/SharpEngine.Component.TextComponent.html#SharpEngine_Component_TextComponent__ctor_System_String_System_String_System_Nullable_SharpEngine_Utils_Color__System_Boolean_System_Nullable_System_Int32__System_Nullable_SharpEngine_Math_Vec2__System_Int32_
+  commentId: M:SharpEngine.Component.TextComponent.#ctor(System.String,System.String,System.Nullable{SharpEngine.Utils.Color},System.Boolean,System.Nullable{System.Int32},System.Nullable{SharpEngine.Math.Vec2},System.Int32)
+  name.vb: New(String, String, Color?, Boolean, Integer?, Vec2?, Integer)
+  fullName: SharpEngine.Component.TextComponent.TextComponent(string, string, SharpEngine.Utils.Color?, bool, int?, SharpEngine.Math.Vec2?, int)
+  fullName.vb: SharpEngine.Component.TextComponent.New(String, String, SharpEngine.Utils.Color?, Boolean, Integer?, SharpEngine.Math.Vec2?, Integer)
+  nameWithType: TextComponent.TextComponent(string, string, Color?, bool, int?, Vec2?, int)
+  nameWithType.vb: TextComponent.New(String, String, Color?, Boolean, Integer?, Vec2?, Integer)
 - uid: SharpEngine.Component.TextComponent.#ctor*
   name: TextComponent
   href: api/SharpEngine.Component.TextComponent.html#SharpEngine_Component_TextComponent__ctor_
@@ -1211,21 +1250,34 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Component.TextComponent.Text
   nameWithType: TextComponent.Text
+- uid: SharpEngine.Component.TextComponent.ZLayerOffset
+  name: ZLayerOffset
+  href: api/SharpEngine.Component.TextComponent.html#SharpEngine_Component_TextComponent_ZLayerOffset
+  commentId: P:SharpEngine.Component.TextComponent.ZLayerOffset
+  fullName: SharpEngine.Component.TextComponent.ZLayerOffset
+  nameWithType: TextComponent.ZLayerOffset
+- uid: SharpEngine.Component.TextComponent.ZLayerOffset*
+  name: ZLayerOffset
+  href: api/SharpEngine.Component.TextComponent.html#SharpEngine_Component_TextComponent_ZLayerOffset_
+  commentId: Overload:SharpEngine.Component.TextComponent.ZLayerOffset
+  isSpec: "True"
+  fullName: SharpEngine.Component.TextComponent.ZLayerOffset
+  nameWithType: TextComponent.ZLayerOffset
 - uid: SharpEngine.Component.TransformComponent
   name: TransformComponent
   href: api/SharpEngine.Component.TransformComponent.html
   commentId: T:SharpEngine.Component.TransformComponent
   fullName: SharpEngine.Component.TransformComponent
   nameWithType: TransformComponent
-- uid: SharpEngine.Component.TransformComponent.#ctor(System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Math.Vec2},System.Single)
-  name: TransformComponent(Vec2?, Vec2?, float)
-  href: api/SharpEngine.Component.TransformComponent.html#SharpEngine_Component_TransformComponent__ctor_System_Nullable_SharpEngine_Math_Vec2__System_Nullable_SharpEngine_Math_Vec2__System_Single_
-  commentId: M:SharpEngine.Component.TransformComponent.#ctor(System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Math.Vec2},System.Single)
-  name.vb: New(Vec2?, Vec2?, Single)
-  fullName: SharpEngine.Component.TransformComponent.TransformComponent(SharpEngine.Math.Vec2?, SharpEngine.Math.Vec2?, float)
-  fullName.vb: SharpEngine.Component.TransformComponent.New(SharpEngine.Math.Vec2?, SharpEngine.Math.Vec2?, Single)
-  nameWithType: TransformComponent.TransformComponent(Vec2?, Vec2?, float)
-  nameWithType.vb: TransformComponent.New(Vec2?, Vec2?, Single)
+- uid: SharpEngine.Component.TransformComponent.#ctor(System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Math.Vec2},System.Single,System.Int32)
+  name: TransformComponent(Vec2?, Vec2?, float, int)
+  href: api/SharpEngine.Component.TransformComponent.html#SharpEngine_Component_TransformComponent__ctor_System_Nullable_SharpEngine_Math_Vec2__System_Nullable_SharpEngine_Math_Vec2__System_Single_System_Int32_
+  commentId: M:SharpEngine.Component.TransformComponent.#ctor(System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Math.Vec2},System.Single,System.Int32)
+  name.vb: New(Vec2?, Vec2?, Single, Integer)
+  fullName: SharpEngine.Component.TransformComponent.TransformComponent(SharpEngine.Math.Vec2?, SharpEngine.Math.Vec2?, float, int)
+  fullName.vb: SharpEngine.Component.TransformComponent.New(SharpEngine.Math.Vec2?, SharpEngine.Math.Vec2?, Single, Integer)
+  nameWithType: TransformComponent.TransformComponent(Vec2?, Vec2?, float, int)
+  nameWithType.vb: TransformComponent.New(Vec2?, Vec2?, Single, Integer)
 - uid: SharpEngine.Component.TransformComponent.#ctor*
   name: TransformComponent
   href: api/SharpEngine.Component.TransformComponent.html#SharpEngine_Component_TransformComponent__ctor_
@@ -1288,6 +1340,19 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Component.TransformComponent.Scale
   nameWithType: TransformComponent.Scale
+- uid: SharpEngine.Component.TransformComponent.ZLayer
+  name: ZLayer
+  href: api/SharpEngine.Component.TransformComponent.html#SharpEngine_Component_TransformComponent_ZLayer
+  commentId: P:SharpEngine.Component.TransformComponent.ZLayer
+  fullName: SharpEngine.Component.TransformComponent.ZLayer
+  nameWithType: TransformComponent.ZLayer
+- uid: SharpEngine.Component.TransformComponent.ZLayer*
+  name: ZLayer
+  href: api/SharpEngine.Component.TransformComponent.html#SharpEngine_Component_TransformComponent_ZLayer_
+  commentId: Overload:SharpEngine.Component.TransformComponent.ZLayer
+  isSpec: "True"
+  fullName: SharpEngine.Component.TransformComponent.ZLayer
+  nameWithType: TransformComponent.ZLayer
 - uid: SharpEngine.Entity
   name: SharpEngine.Entity
   href: api/SharpEngine.Entity.html
@@ -4273,12 +4338,12 @@ references:
   commentId: T:SharpEngine.Renderer.DMRender
   fullName: SharpEngine.Renderer.DMRender
   nameWithType: DMRender
-- uid: SharpEngine.Renderer.DMRender.Draw
-  name: Draw()
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_Draw
-  commentId: M:SharpEngine.Renderer.DMRender.Draw
-  fullName: SharpEngine.Renderer.DMRender.Draw()
-  nameWithType: DMRender.Draw()
+- uid: SharpEngine.Renderer.DMRender.Draw(SharpEngine.Window)
+  name: Draw(Window)
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_Draw_SharpEngine_Window_
+  commentId: M:SharpEngine.Renderer.DMRender.Draw(SharpEngine.Window)
+  fullName: SharpEngine.Renderer.DMRender.Draw(SharpEngine.Window)
+  nameWithType: DMRender.Draw(Window)
 - uid: SharpEngine.Renderer.DMRender.Draw*
   name: Draw
   href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_Draw_
@@ -4286,24 +4351,24 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Renderer.DMRender.Draw
   nameWithType: DMRender.Draw
-- uid: SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
-  name: DrawRectangle(Rect, Vec2, float, Color, InstructionDestination, int)
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangle_SharpEngine_Math_Rect_SharpEngine_Math_Vec2_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionDestination_System_Int32_
-  commentId: M:SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
-  name.vb: DrawRectangle(Rect, Vec2, Single, Color, InstructionDestination, Integer)
-  fullName: SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect, SharpEngine.Math.Vec2, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, int)
-  fullName.vb: SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect, SharpEngine.Math.Vec2, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, Integer)
-  nameWithType: DMRender.DrawRectangle(Rect, Vec2, float, Color, InstructionDestination, int)
-  nameWithType.vb: DMRender.DrawRectangle(Rect, Vec2, Single, Color, InstructionDestination, Integer)
-- uid: SharpEngine.Renderer.DMRender.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
-  name: DrawRectangle(int, int, int, int, Color, InstructionDestination, int)
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangle_System_Int32_System_Int32_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionDestination_System_Int32_
-  commentId: M:SharpEngine.Renderer.DMRender.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
-  name.vb: DrawRectangle(Integer, Integer, Integer, Integer, Color, InstructionDestination, Integer)
-  fullName: SharpEngine.Renderer.DMRender.DrawRectangle(int, int, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, int)
-  fullName.vb: SharpEngine.Renderer.DMRender.DrawRectangle(Integer, Integer, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, Integer)
-  nameWithType: DMRender.DrawRectangle(int, int, int, int, Color, InstructionDestination, int)
-  nameWithType.vb: DMRender.DrawRectangle(Integer, Integer, Integer, Integer, Color, InstructionDestination, Integer)
+- uid: SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name: DrawRectangle(Rect, Vec2, float, Color, InstructionSource, int)
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangle_SharpEngine_Math_Rect_SharpEngine_Math_Vec2_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
+  commentId: M:SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name.vb: DrawRectangle(Rect, Vec2, Single, Color, InstructionSource, Integer)
+  fullName: SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect, SharpEngine.Math.Vec2, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
+  fullName.vb: SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect, SharpEngine.Math.Vec2, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
+  nameWithType: DMRender.DrawRectangle(Rect, Vec2, float, Color, InstructionSource, int)
+  nameWithType.vb: DMRender.DrawRectangle(Rect, Vec2, Single, Color, InstructionSource, Integer)
+- uid: SharpEngine.Renderer.DMRender.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name: DrawRectangle(int, int, int, int, Color, InstructionSource, int)
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangle_System_Int32_System_Int32_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
+  commentId: M:SharpEngine.Renderer.DMRender.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name.vb: DrawRectangle(Integer, Integer, Integer, Integer, Color, InstructionSource, Integer)
+  fullName: SharpEngine.Renderer.DMRender.DrawRectangle(int, int, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
+  fullName.vb: SharpEngine.Renderer.DMRender.DrawRectangle(Integer, Integer, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
+  nameWithType: DMRender.DrawRectangle(int, int, int, int, Color, InstructionSource, int)
+  nameWithType.vb: DMRender.DrawRectangle(Integer, Integer, Integer, Integer, Color, InstructionSource, Integer)
 - uid: SharpEngine.Renderer.DMRender.DrawRectangle*
   name: DrawRectangle
   href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangle_
@@ -4311,40 +4376,40 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Renderer.DMRender.DrawRectangle
   nameWithType: DMRender.DrawRectangle
-- uid: SharpEngine.Renderer.DMRender.DrawRectanglesLines(Raylib_cs.Rectangle,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
-  name: DrawRectanglesLines(Rectangle, int, Color, InstructionDestination, int)
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectanglesLines_Raylib_cs_Rectangle_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionDestination_System_Int32_
-  commentId: M:SharpEngine.Renderer.DMRender.DrawRectanglesLines(Raylib_cs.Rectangle,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
-  name.vb: DrawRectanglesLines(Rectangle, Integer, Color, InstructionDestination, Integer)
-  fullName: SharpEngine.Renderer.DMRender.DrawRectanglesLines(Raylib_cs.Rectangle, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, int)
-  fullName.vb: SharpEngine.Renderer.DMRender.DrawRectanglesLines(Raylib_cs.Rectangle, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, Integer)
-  nameWithType: DMRender.DrawRectanglesLines(Rectangle, int, Color, InstructionDestination, int)
-  nameWithType.vb: DMRender.DrawRectanglesLines(Rectangle, Integer, Color, InstructionDestination, Integer)
-- uid: SharpEngine.Renderer.DMRender.DrawRectanglesLines*
-  name: DrawRectanglesLines
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectanglesLines_
-  commentId: Overload:SharpEngine.Renderer.DMRender.DrawRectanglesLines
+- uid: SharpEngine.Renderer.DMRender.DrawRectangleLines(Raylib_cs.Rectangle,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name: DrawRectangleLines(Rectangle, int, Color, InstructionSource, int)
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangleLines_Raylib_cs_Rectangle_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
+  commentId: M:SharpEngine.Renderer.DMRender.DrawRectangleLines(Raylib_cs.Rectangle,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name.vb: DrawRectangleLines(Rectangle, Integer, Color, InstructionSource, Integer)
+  fullName: SharpEngine.Renderer.DMRender.DrawRectangleLines(Raylib_cs.Rectangle, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
+  fullName.vb: SharpEngine.Renderer.DMRender.DrawRectangleLines(Raylib_cs.Rectangle, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
+  nameWithType: DMRender.DrawRectangleLines(Rectangle, int, Color, InstructionSource, int)
+  nameWithType.vb: DMRender.DrawRectangleLines(Rectangle, Integer, Color, InstructionSource, Integer)
+- uid: SharpEngine.Renderer.DMRender.DrawRectangleLines*
+  name: DrawRectangleLines
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangleLines_
+  commentId: Overload:SharpEngine.Renderer.DMRender.DrawRectangleLines
   isSpec: "True"
-  fullName: SharpEngine.Renderer.DMRender.DrawRectanglesLines
-  nameWithType: DMRender.DrawRectanglesLines
-- uid: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
-  name: DrawText(Font, string, Vec2, Vec2, float, int, int, Color, InstructionDestination, int)
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawText_Raylib_cs_Font_System_String_SharpEngine_Math_Vec2_SharpEngine_Math_Vec2_System_Single_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionDestination_System_Int32_
-  commentId: M:SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
-  name.vb: DrawText(Font, String, Vec2, Vec2, Single, Integer, Integer, Color, InstructionDestination, Integer)
-  fullName: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font, string, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, float, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, int)
-  fullName.vb: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font, String, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, Single, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, Integer)
-  nameWithType: DMRender.DrawText(Font, string, Vec2, Vec2, float, int, int, Color, InstructionDestination, int)
-  nameWithType.vb: DMRender.DrawText(Font, String, Vec2, Vec2, Single, Integer, Integer, Color, InstructionDestination, Integer)
-- uid: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
-  name: DrawText(Font, string, Vec2, int, int, Color, InstructionDestination, int)
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawText_Raylib_cs_Font_System_String_SharpEngine_Math_Vec2_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionDestination_System_Int32_
-  commentId: M:SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
-  name.vb: DrawText(Font, String, Vec2, Integer, Integer, Color, InstructionDestination, Integer)
-  fullName: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font, string, SharpEngine.Math.Vec2, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, int)
-  fullName.vb: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font, String, SharpEngine.Math.Vec2, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, Integer)
-  nameWithType: DMRender.DrawText(Font, string, Vec2, int, int, Color, InstructionDestination, int)
-  nameWithType.vb: DMRender.DrawText(Font, String, Vec2, Integer, Integer, Color, InstructionDestination, Integer)
+  fullName: SharpEngine.Renderer.DMRender.DrawRectangleLines
+  nameWithType: DMRender.DrawRectangleLines
+- uid: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name: DrawText(Font, string, Vec2, Vec2, float, int, int, Color, InstructionSource, int)
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawText_Raylib_cs_Font_System_String_SharpEngine_Math_Vec2_SharpEngine_Math_Vec2_System_Single_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
+  commentId: M:SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name.vb: DrawText(Font, String, Vec2, Vec2, Single, Integer, Integer, Color, InstructionSource, Integer)
+  fullName: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font, string, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, float, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
+  fullName.vb: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font, String, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, Single, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
+  nameWithType: DMRender.DrawText(Font, string, Vec2, Vec2, float, int, int, Color, InstructionSource, int)
+  nameWithType.vb: DMRender.DrawText(Font, String, Vec2, Vec2, Single, Integer, Integer, Color, InstructionSource, Integer)
+- uid: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name: DrawText(Font, string, Vec2, int, int, Color, InstructionSource, int)
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawText_Raylib_cs_Font_System_String_SharpEngine_Math_Vec2_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
+  commentId: M:SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name.vb: DrawText(Font, String, Vec2, Integer, Integer, Color, InstructionSource, Integer)
+  fullName: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font, string, SharpEngine.Math.Vec2, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
+  fullName.vb: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font, String, SharpEngine.Math.Vec2, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
+  nameWithType: DMRender.DrawText(Font, string, Vec2, int, int, Color, InstructionSource, int)
+  nameWithType.vb: DMRender.DrawText(Font, String, Vec2, Integer, Integer, Color, InstructionSource, Integer)
 - uid: SharpEngine.Renderer.DMRender.DrawText*
   name: DrawText
   href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawText_
@@ -4352,15 +4417,15 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Renderer.DMRender.DrawText
   nameWithType: DMRender.DrawText
-- uid: SharpEngine.Renderer.DMRender.DrawTexture(Raylib_cs.Texture2D,SharpEngine.Math.Rect,SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
-  name: DrawTexture(Texture2D, Rect, Rect, Vec2, float, Color, InstructionDestination, int)
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawTexture_Raylib_cs_Texture2D_SharpEngine_Math_Rect_SharpEngine_Math_Rect_SharpEngine_Math_Vec2_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionDestination_System_Int32_
-  commentId: M:SharpEngine.Renderer.DMRender.DrawTexture(Raylib_cs.Texture2D,SharpEngine.Math.Rect,SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionDestination,System.Int32)
-  name.vb: DrawTexture(Texture2D, Rect, Rect, Vec2, Single, Color, InstructionDestination, Integer)
-  fullName: SharpEngine.Renderer.DMRender.DrawTexture(Raylib_cs.Texture2D, SharpEngine.Math.Rect, SharpEngine.Math.Rect, SharpEngine.Math.Vec2, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, int)
-  fullName.vb: SharpEngine.Renderer.DMRender.DrawTexture(Raylib_cs.Texture2D, SharpEngine.Math.Rect, SharpEngine.Math.Rect, SharpEngine.Math.Vec2, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionDestination, Integer)
-  nameWithType: DMRender.DrawTexture(Texture2D, Rect, Rect, Vec2, float, Color, InstructionDestination, int)
-  nameWithType.vb: DMRender.DrawTexture(Texture2D, Rect, Rect, Vec2, Single, Color, InstructionDestination, Integer)
+- uid: SharpEngine.Renderer.DMRender.DrawTexture(Raylib_cs.Texture2D,SharpEngine.Math.Rect,SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name: DrawTexture(Texture2D, Rect, Rect, Vec2, float, Color, InstructionSource, int)
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawTexture_Raylib_cs_Texture2D_SharpEngine_Math_Rect_SharpEngine_Math_Rect_SharpEngine_Math_Vec2_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
+  commentId: M:SharpEngine.Renderer.DMRender.DrawTexture(Raylib_cs.Texture2D,SharpEngine.Math.Rect,SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name.vb: DrawTexture(Texture2D, Rect, Rect, Vec2, Single, Color, InstructionSource, Integer)
+  fullName: SharpEngine.Renderer.DMRender.DrawTexture(Raylib_cs.Texture2D, SharpEngine.Math.Rect, SharpEngine.Math.Rect, SharpEngine.Math.Vec2, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
+  fullName.vb: SharpEngine.Renderer.DMRender.DrawTexture(Raylib_cs.Texture2D, SharpEngine.Math.Rect, SharpEngine.Math.Rect, SharpEngine.Math.Vec2, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
+  nameWithType: DMRender.DrawTexture(Texture2D, Rect, Rect, Vec2, float, Color, InstructionSource, int)
+  nameWithType.vb: DMRender.DrawTexture(Texture2D, Rect, Rect, Vec2, Single, Color, InstructionSource, Integer)
 - uid: SharpEngine.Renderer.DMRender.DrawTexture*
   name: DrawTexture
   href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawTexture_
@@ -4374,15 +4439,15 @@ references:
   commentId: F:SharpEngine.Renderer.DMRender.Instructions
   fullName: SharpEngine.Renderer.DMRender.Instructions
   nameWithType: DMRender.Instructions
-- uid: SharpEngine.Renderer.DMRender.ScissorMode(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Renderer.InstructionDestination,System.Int32,System.Action)
-  name: ScissorMode(int, int, int, int, InstructionDestination, int, Action)
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_ScissorMode_System_Int32_System_Int32_System_Int32_System_Int32_SharpEngine_Renderer_InstructionDestination_System_Int32_System_Action_
-  commentId: M:SharpEngine.Renderer.DMRender.ScissorMode(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Renderer.InstructionDestination,System.Int32,System.Action)
-  name.vb: ScissorMode(Integer, Integer, Integer, Integer, InstructionDestination, Integer, Action)
-  fullName: SharpEngine.Renderer.DMRender.ScissorMode(int, int, int, int, SharpEngine.Renderer.InstructionDestination, int, System.Action)
-  fullName.vb: SharpEngine.Renderer.DMRender.ScissorMode(Integer, Integer, Integer, Integer, SharpEngine.Renderer.InstructionDestination, Integer, System.Action)
-  nameWithType: DMRender.ScissorMode(int, int, int, int, InstructionDestination, int, Action)
-  nameWithType.vb: DMRender.ScissorMode(Integer, Integer, Integer, Integer, InstructionDestination, Integer, Action)
+- uid: SharpEngine.Renderer.DMRender.ScissorMode(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Renderer.InstructionSource,System.Int32,System.Action)
+  name: ScissorMode(int, int, int, int, InstructionSource, int, Action)
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_ScissorMode_System_Int32_System_Int32_System_Int32_System_Int32_SharpEngine_Renderer_InstructionSource_System_Int32_System_Action_
+  commentId: M:SharpEngine.Renderer.DMRender.ScissorMode(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Renderer.InstructionSource,System.Int32,System.Action)
+  name.vb: ScissorMode(Integer, Integer, Integer, Integer, InstructionSource, Integer, Action)
+  fullName: SharpEngine.Renderer.DMRender.ScissorMode(int, int, int, int, SharpEngine.Renderer.InstructionSource, int, System.Action)
+  fullName.vb: SharpEngine.Renderer.DMRender.ScissorMode(Integer, Integer, Integer, Integer, SharpEngine.Renderer.InstructionSource, Integer, System.Action)
+  nameWithType: DMRender.ScissorMode(int, int, int, int, InstructionSource, int, Action)
+  nameWithType.vb: DMRender.ScissorMode(Integer, Integer, Integer, Integer, InstructionSource, Integer, Action)
 - uid: SharpEngine.Renderer.DMRender.ScissorMode*
   name: ScissorMode
   href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_ScissorMode_
@@ -4396,18 +4461,18 @@ references:
   commentId: T:SharpEngine.Renderer.Instruction
   fullName: SharpEngine.Renderer.Instruction
   nameWithType: Instruction
-- uid: SharpEngine.Renderer.Instruction.Destination
-  name: Destination
-  href: api/SharpEngine.Renderer.Instruction.html#SharpEngine_Renderer_Instruction_Destination
-  commentId: F:SharpEngine.Renderer.Instruction.Destination
-  fullName: SharpEngine.Renderer.Instruction.Destination
-  nameWithType: Instruction.Destination
 - uid: SharpEngine.Renderer.Instruction.Parameters
   name: Parameters
   href: api/SharpEngine.Renderer.Instruction.html#SharpEngine_Renderer_Instruction_Parameters
   commentId: F:SharpEngine.Renderer.Instruction.Parameters
   fullName: SharpEngine.Renderer.Instruction.Parameters
   nameWithType: Instruction.Parameters
+- uid: SharpEngine.Renderer.Instruction.Source
+  name: Source
+  href: api/SharpEngine.Renderer.Instruction.html#SharpEngine_Renderer_Instruction_Source
+  commentId: F:SharpEngine.Renderer.Instruction.Source
+  fullName: SharpEngine.Renderer.Instruction.Source
+  nameWithType: Instruction.Source
 - uid: SharpEngine.Renderer.Instruction.Type
   name: Type
   href: api/SharpEngine.Renderer.Instruction.html#SharpEngine_Renderer_Instruction_Type
@@ -4420,24 +4485,24 @@ references:
   commentId: F:SharpEngine.Renderer.Instruction.ZLayer
   fullName: SharpEngine.Renderer.Instruction.ZLayer
   nameWithType: Instruction.ZLayer
-- uid: SharpEngine.Renderer.InstructionDestination
-  name: InstructionDestination
-  href: api/SharpEngine.Renderer.InstructionDestination.html
-  commentId: T:SharpEngine.Renderer.InstructionDestination
-  fullName: SharpEngine.Renderer.InstructionDestination
-  nameWithType: InstructionDestination
-- uid: SharpEngine.Renderer.InstructionDestination.Entity
+- uid: SharpEngine.Renderer.InstructionSource
+  name: InstructionSource
+  href: api/SharpEngine.Renderer.InstructionSource.html
+  commentId: T:SharpEngine.Renderer.InstructionSource
+  fullName: SharpEngine.Renderer.InstructionSource
+  nameWithType: InstructionSource
+- uid: SharpEngine.Renderer.InstructionSource.Entity
   name: Entity
-  href: api/SharpEngine.Renderer.InstructionDestination.html#SharpEngine_Renderer_InstructionDestination_Entity
-  commentId: F:SharpEngine.Renderer.InstructionDestination.Entity
-  fullName: SharpEngine.Renderer.InstructionDestination.Entity
-  nameWithType: InstructionDestination.Entity
-- uid: SharpEngine.Renderer.InstructionDestination.UI
+  href: api/SharpEngine.Renderer.InstructionSource.html#SharpEngine_Renderer_InstructionSource_Entity
+  commentId: F:SharpEngine.Renderer.InstructionSource.Entity
+  fullName: SharpEngine.Renderer.InstructionSource.Entity
+  nameWithType: InstructionSource.Entity
+- uid: SharpEngine.Renderer.InstructionSource.UI
   name: UI
-  href: api/SharpEngine.Renderer.InstructionDestination.html#SharpEngine_Renderer_InstructionDestination_UI
-  commentId: F:SharpEngine.Renderer.InstructionDestination.UI
-  fullName: SharpEngine.Renderer.InstructionDestination.UI
-  nameWithType: InstructionDestination.UI
+  href: api/SharpEngine.Renderer.InstructionSource.html#SharpEngine_Renderer_InstructionSource_UI
+  commentId: F:SharpEngine.Renderer.InstructionSource.UI
+  fullName: SharpEngine.Renderer.InstructionSource.UI
+  nameWithType: InstructionSource.UI
 - uid: SharpEngine.Renderer.InstructionType
   name: InstructionType
   href: api/SharpEngine.Renderer.InstructionType.html
@@ -4556,32 +4621,19 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Scene.CloseScene
   nameWithType: Scene.CloseScene
-- uid: SharpEngine.Scene.DrawEntities
-  name: DrawEntities()
-  href: api/SharpEngine.Scene.html#SharpEngine_Scene_DrawEntities
-  commentId: M:SharpEngine.Scene.DrawEntities
-  fullName: SharpEngine.Scene.DrawEntities()
-  nameWithType: Scene.DrawEntities()
-- uid: SharpEngine.Scene.DrawEntities*
-  name: DrawEntities
-  href: api/SharpEngine.Scene.html#SharpEngine_Scene_DrawEntities_
-  commentId: Overload:SharpEngine.Scene.DrawEntities
+- uid: SharpEngine.Scene.Draw
+  name: Draw()
+  href: api/SharpEngine.Scene.html#SharpEngine_Scene_Draw
+  commentId: M:SharpEngine.Scene.Draw
+  fullName: SharpEngine.Scene.Draw()
+  nameWithType: Scene.Draw()
+- uid: SharpEngine.Scene.Draw*
+  name: Draw
+  href: api/SharpEngine.Scene.html#SharpEngine_Scene_Draw_
+  commentId: Overload:SharpEngine.Scene.Draw
   isSpec: "True"
-  fullName: SharpEngine.Scene.DrawEntities
-  nameWithType: Scene.DrawEntities
-- uid: SharpEngine.Scene.DrawWidgets
-  name: DrawWidgets()
-  href: api/SharpEngine.Scene.html#SharpEngine_Scene_DrawWidgets
-  commentId: M:SharpEngine.Scene.DrawWidgets
-  fullName: SharpEngine.Scene.DrawWidgets()
-  nameWithType: Scene.DrawWidgets()
-- uid: SharpEngine.Scene.DrawWidgets*
-  name: DrawWidgets
-  href: api/SharpEngine.Scene.html#SharpEngine_Scene_DrawWidgets_
-  commentId: Overload:SharpEngine.Scene.DrawWidgets
-  isSpec: "True"
-  fullName: SharpEngine.Scene.DrawWidgets
-  nameWithType: Scene.DrawWidgets
+  fullName: SharpEngine.Scene.Draw
+  nameWithType: Scene.Draw
 - uid: SharpEngine.Scene.Entities
   name: Entities
   href: api/SharpEngine.Scene.html#SharpEngine_Scene_Entities
@@ -7043,15 +7095,15 @@ references:
   commentId: T:SharpEngine.Utils.Particle.Particle
   fullName: SharpEngine.Utils.Particle.Particle
   nameWithType: Particle
-- uid: SharpEngine.Utils.Particle.Particle.#ctor(SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Single,System.Single,System.Single,SharpEngine.Utils.Color,SharpEngine.Utils.Color,SharpEngine.Utils.Particle.ParticleParametersFunction,System.Single)
-  name: Particle(Vec2, Vec2, Vec2, float, float, float, float, Color, Color, ParticleParametersFunction, float)
-  href: api/SharpEngine.Utils.Particle.Particle.html#SharpEngine_Utils_Particle_Particle__ctor_SharpEngine_Math_Vec2_SharpEngine_Math_Vec2_SharpEngine_Math_Vec2_System_Single_System_Single_System_Single_System_Single_SharpEngine_Utils_Color_SharpEngine_Utils_Color_SharpEngine_Utils_Particle_ParticleParametersFunction_System_Single_
-  commentId: M:SharpEngine.Utils.Particle.Particle.#ctor(SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Single,System.Single,System.Single,SharpEngine.Utils.Color,SharpEngine.Utils.Color,SharpEngine.Utils.Particle.ParticleParametersFunction,System.Single)
-  name.vb: New(Vec2, Vec2, Vec2, Single, Single, Single, Single, Color, Color, ParticleParametersFunction, Single)
-  fullName: SharpEngine.Utils.Particle.Particle.Particle(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, float, float, float, float, SharpEngine.Utils.Color, SharpEngine.Utils.Color, SharpEngine.Utils.Particle.ParticleParametersFunction, float)
-  fullName.vb: SharpEngine.Utils.Particle.Particle.New(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, Single, Single, Single, Single, SharpEngine.Utils.Color, SharpEngine.Utils.Color, SharpEngine.Utils.Particle.ParticleParametersFunction, Single)
-  nameWithType: Particle.Particle(Vec2, Vec2, Vec2, float, float, float, float, Color, Color, ParticleParametersFunction, float)
-  nameWithType.vb: Particle.New(Vec2, Vec2, Vec2, Single, Single, Single, Single, Color, Color, ParticleParametersFunction, Single)
+- uid: SharpEngine.Utils.Particle.Particle.#ctor(SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Single,System.Single,System.Single,SharpEngine.Utils.Color,SharpEngine.Utils.Color,SharpEngine.Utils.Particle.ParticleParametersFunction,System.Single,System.Int32)
+  name: Particle(Vec2, Vec2, Vec2, float, float, float, float, Color, Color, ParticleParametersFunction, float, int)
+  href: api/SharpEngine.Utils.Particle.Particle.html#SharpEngine_Utils_Particle_Particle__ctor_SharpEngine_Math_Vec2_SharpEngine_Math_Vec2_SharpEngine_Math_Vec2_System_Single_System_Single_System_Single_System_Single_SharpEngine_Utils_Color_SharpEngine_Utils_Color_SharpEngine_Utils_Particle_ParticleParametersFunction_System_Single_System_Int32_
+  commentId: M:SharpEngine.Utils.Particle.Particle.#ctor(SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Single,System.Single,System.Single,SharpEngine.Utils.Color,SharpEngine.Utils.Color,SharpEngine.Utils.Particle.ParticleParametersFunction,System.Single,System.Int32)
+  name.vb: New(Vec2, Vec2, Vec2, Single, Single, Single, Single, Color, Color, ParticleParametersFunction, Single, Integer)
+  fullName: SharpEngine.Utils.Particle.Particle.Particle(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, float, float, float, float, SharpEngine.Utils.Color, SharpEngine.Utils.Color, SharpEngine.Utils.Particle.ParticleParametersFunction, float, int)
+  fullName.vb: SharpEngine.Utils.Particle.Particle.New(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, Single, Single, Single, Single, SharpEngine.Utils.Color, SharpEngine.Utils.Color, SharpEngine.Utils.Particle.ParticleParametersFunction, Single, Integer)
+  nameWithType: Particle.Particle(Vec2, Vec2, Vec2, float, float, float, float, Color, Color, ParticleParametersFunction, float, int)
+  nameWithType.vb: Particle.New(Vec2, Vec2, Vec2, Single, Single, Single, Single, Color, Color, ParticleParametersFunction, Single, Integer)
 - uid: SharpEngine.Utils.Particle.Particle.#ctor*
   name: Particle
   href: api/SharpEngine.Utils.Particle.Particle.html#SharpEngine_Utils_Particle_Particle__ctor_
@@ -7273,21 +7325,34 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Utils.Particle.Particle.Velocity
   nameWithType: Particle.Velocity
+- uid: SharpEngine.Utils.Particle.Particle.ZLayer
+  name: ZLayer
+  href: api/SharpEngine.Utils.Particle.Particle.html#SharpEngine_Utils_Particle_Particle_ZLayer
+  commentId: P:SharpEngine.Utils.Particle.Particle.ZLayer
+  fullName: SharpEngine.Utils.Particle.Particle.ZLayer
+  nameWithType: Particle.ZLayer
+- uid: SharpEngine.Utils.Particle.Particle.ZLayer*
+  name: ZLayer
+  href: api/SharpEngine.Utils.Particle.Particle.html#SharpEngine_Utils_Particle_Particle_ZLayer_
+  commentId: Overload:SharpEngine.Utils.Particle.Particle.ZLayer
+  isSpec: "True"
+  fullName: SharpEngine.Utils.Particle.Particle.ZLayer
+  nameWithType: Particle.ZLayer
 - uid: SharpEngine.Utils.Particle.ParticleEmitter
   name: ParticleEmitter
   href: api/SharpEngine.Utils.Particle.ParticleEmitter.html
   commentId: T:SharpEngine.Utils.Particle.ParticleEmitter
   fullName: SharpEngine.Utils.Particle.ParticleEmitter
   nameWithType: ParticleEmitter
-- uid: SharpEngine.Utils.Particle.ParticleEmitter.#ctor(SharpEngine.Utils.Color[],SharpEngine.Utils.Color[],System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Math.Vec2},System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Int32,System.Boolean,SharpEngine.Utils.Particle.ParticleParametersFunction,System.Single)
-  name: ParticleEmitter(Color[], Color[]?, Vec2?, Vec2?, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, int, int, int, bool, ParticleParametersFunction, float)
-  href: api/SharpEngine.Utils.Particle.ParticleEmitter.html#SharpEngine_Utils_Particle_ParticleEmitter__ctor_SharpEngine_Utils_Color___SharpEngine_Utils_Color___System_Nullable_SharpEngine_Math_Vec2__System_Nullable_SharpEngine_Math_Vec2__System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Int32_System_Int32_System_Int32_System_Boolean_SharpEngine_Utils_Particle_ParticleParametersFunction_System_Single_
-  commentId: M:SharpEngine.Utils.Particle.ParticleEmitter.#ctor(SharpEngine.Utils.Color[],SharpEngine.Utils.Color[],System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Math.Vec2},System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Int32,System.Boolean,SharpEngine.Utils.Particle.ParticleParametersFunction,System.Single)
-  name.vb: New(Color(), Color(), Vec2?, Vec2?, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Integer, Integer, Integer, Boolean, ParticleParametersFunction, Single)
-  fullName: SharpEngine.Utils.Particle.ParticleEmitter.ParticleEmitter(SharpEngine.Utils.Color[], SharpEngine.Utils.Color[]?, SharpEngine.Math.Vec2?, SharpEngine.Math.Vec2?, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, int, int, int, bool, SharpEngine.Utils.Particle.ParticleParametersFunction, float)
-  fullName.vb: SharpEngine.Utils.Particle.ParticleEmitter.New(SharpEngine.Utils.Color(), SharpEngine.Utils.Color(), SharpEngine.Math.Vec2?, SharpEngine.Math.Vec2?, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Integer, Integer, Integer, Boolean, SharpEngine.Utils.Particle.ParticleParametersFunction, Single)
-  nameWithType: ParticleEmitter.ParticleEmitter(Color[], Color[]?, Vec2?, Vec2?, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, int, int, int, bool, ParticleParametersFunction, float)
-  nameWithType.vb: ParticleEmitter.New(Color(), Color(), Vec2?, Vec2?, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Integer, Integer, Integer, Boolean, ParticleParametersFunction, Single)
+- uid: SharpEngine.Utils.Particle.ParticleEmitter.#ctor(SharpEngine.Utils.Color[],SharpEngine.Utils.Color[],System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Math.Vec2},System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Int32,System.Boolean,SharpEngine.Utils.Particle.ParticleParametersFunction,System.Single,System.Int32)
+  name: ParticleEmitter(Color[], Color[]?, Vec2?, Vec2?, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, int, int, int, bool, ParticleParametersFunction, float, int)
+  href: api/SharpEngine.Utils.Particle.ParticleEmitter.html#SharpEngine_Utils_Particle_ParticleEmitter__ctor_SharpEngine_Utils_Color___SharpEngine_Utils_Color___System_Nullable_SharpEngine_Math_Vec2__System_Nullable_SharpEngine_Math_Vec2__System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Int32_System_Int32_System_Int32_System_Boolean_SharpEngine_Utils_Particle_ParticleParametersFunction_System_Single_System_Int32_
+  commentId: M:SharpEngine.Utils.Particle.ParticleEmitter.#ctor(SharpEngine.Utils.Color[],SharpEngine.Utils.Color[],System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Math.Vec2},System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Int32,System.Boolean,SharpEngine.Utils.Particle.ParticleParametersFunction,System.Single,System.Int32)
+  name.vb: New(Color(), Color(), Vec2?, Vec2?, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Integer, Integer, Integer, Boolean, ParticleParametersFunction, Single, Integer)
+  fullName: SharpEngine.Utils.Particle.ParticleEmitter.ParticleEmitter(SharpEngine.Utils.Color[], SharpEngine.Utils.Color[]?, SharpEngine.Math.Vec2?, SharpEngine.Math.Vec2?, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, int, int, int, bool, SharpEngine.Utils.Particle.ParticleParametersFunction, float, int)
+  fullName.vb: SharpEngine.Utils.Particle.ParticleEmitter.New(SharpEngine.Utils.Color(), SharpEngine.Utils.Color(), SharpEngine.Math.Vec2?, SharpEngine.Math.Vec2?, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Integer, Integer, Integer, Boolean, SharpEngine.Utils.Particle.ParticleParametersFunction, Single, Integer)
+  nameWithType: ParticleEmitter.ParticleEmitter(Color[], Color[]?, Vec2?, Vec2?, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, int, int, int, bool, ParticleParametersFunction, float, int)
+  nameWithType.vb: ParticleEmitter.New(Color(), Color(), Vec2?, Vec2?, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Single, Integer, Integer, Integer, Boolean, ParticleParametersFunction, Single, Integer)
 - uid: SharpEngine.Utils.Particle.ParticleEmitter.#ctor*
   name: ParticleEmitter
   href: api/SharpEngine.Utils.Particle.ParticleEmitter.html#SharpEngine_Utils_Particle_ParticleEmitter__ctor_
@@ -7704,6 +7769,19 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Utils.Particle.ParticleEmitter.Update
   nameWithType: ParticleEmitter.Update
+- uid: SharpEngine.Utils.Particle.ParticleEmitter.ZLayer
+  name: ZLayer
+  href: api/SharpEngine.Utils.Particle.ParticleEmitter.html#SharpEngine_Utils_Particle_ParticleEmitter_ZLayer
+  commentId: P:SharpEngine.Utils.Particle.ParticleEmitter.ZLayer
+  fullName: SharpEngine.Utils.Particle.ParticleEmitter.ZLayer
+  nameWithType: ParticleEmitter.ZLayer
+- uid: SharpEngine.Utils.Particle.ParticleEmitter.ZLayer*
+  name: ZLayer
+  href: api/SharpEngine.Utils.Particle.ParticleEmitter.html#SharpEngine_Utils_Particle_ParticleEmitter_ZLayer_
+  commentId: Overload:SharpEngine.Utils.Particle.ParticleEmitter.ZLayer
+  isSpec: "True"
+  fullName: SharpEngine.Utils.Particle.ParticleEmitter.ZLayer
+  nameWithType: ParticleEmitter.ZLayer
 - uid: SharpEngine.Utils.Particle.ParticleParametersFunction
   name: ParticleParametersFunction
   href: api/SharpEngine.Utils.Particle.ParticleParametersFunction.html
@@ -8292,15 +8370,15 @@ references:
   commentId: T:SharpEngine.Widget.Button
   fullName: SharpEngine.Widget.Button
   nameWithType: Button
-- uid: SharpEngine.Widget.Button.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Utils.Color},System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32})
-  name: Button(Vec2, string, string, Vec2?, Color?, Color?, int?)
-  href: api/SharpEngine.Widget.Button.html#SharpEngine_Widget_Button__ctor_SharpEngine_Math_Vec2_System_String_System_String_System_Nullable_SharpEngine_Math_Vec2__System_Nullable_SharpEngine_Utils_Color__System_Nullable_SharpEngine_Utils_Color__System_Nullable_System_Int32__
-  commentId: M:SharpEngine.Widget.Button.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Utils.Color},System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32})
-  name.vb: New(Vec2, String, String, Vec2?, Color?, Color?, Integer?)
-  fullName: SharpEngine.Widget.Button.Button(SharpEngine.Math.Vec2, string, string, SharpEngine.Math.Vec2?, SharpEngine.Utils.Color?, SharpEngine.Utils.Color?, int?)
-  fullName.vb: SharpEngine.Widget.Button.New(SharpEngine.Math.Vec2, String, String, SharpEngine.Math.Vec2?, SharpEngine.Utils.Color?, SharpEngine.Utils.Color?, Integer?)
-  nameWithType: Button.Button(Vec2, string, string, Vec2?, Color?, Color?, int?)
-  nameWithType.vb: Button.New(Vec2, String, String, Vec2?, Color?, Color?, Integer?)
+- uid: SharpEngine.Widget.Button.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Utils.Color},System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Int32)
+  name: Button(Vec2, string, string, Vec2?, Color?, Color?, int?, int)
+  href: api/SharpEngine.Widget.Button.html#SharpEngine_Widget_Button__ctor_SharpEngine_Math_Vec2_System_String_System_String_System_Nullable_SharpEngine_Math_Vec2__System_Nullable_SharpEngine_Utils_Color__System_Nullable_SharpEngine_Utils_Color__System_Nullable_System_Int32__System_Int32_
+  commentId: M:SharpEngine.Widget.Button.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Utils.Color},System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Int32)
+  name.vb: New(Vec2, String, String, Vec2?, Color?, Color?, Integer?, Integer)
+  fullName: SharpEngine.Widget.Button.Button(SharpEngine.Math.Vec2, string, string, SharpEngine.Math.Vec2?, SharpEngine.Utils.Color?, SharpEngine.Utils.Color?, int?, int)
+  fullName.vb: SharpEngine.Widget.Button.New(SharpEngine.Math.Vec2, String, String, SharpEngine.Math.Vec2?, SharpEngine.Utils.Color?, SharpEngine.Utils.Color?, Integer?, Integer)
+  nameWithType: Button.Button(Vec2, string, string, Vec2?, Color?, Color?, int?, int)
+  nameWithType.vb: Button.New(Vec2, String, String, Vec2?, Color?, Color?, Integer?, Integer)
 - uid: SharpEngine.Widget.Button.#ctor*
   name: Button
   href: api/SharpEngine.Widget.Button.html#SharpEngine_Widget_Button__ctor_
@@ -8430,15 +8508,15 @@ references:
   commentId: T:SharpEngine.Widget.Checkbox
   fullName: SharpEngine.Widget.Checkbox
   nameWithType: Checkbox
-- uid: SharpEngine.Widget.Checkbox.#ctor(SharpEngine.Math.Vec2,System.Nullable{SharpEngine.Math.Vec2},System.Boolean)
-  name: Checkbox(Vec2, Vec2?, bool)
-  href: api/SharpEngine.Widget.Checkbox.html#SharpEngine_Widget_Checkbox__ctor_SharpEngine_Math_Vec2_System_Nullable_SharpEngine_Math_Vec2__System_Boolean_
-  commentId: M:SharpEngine.Widget.Checkbox.#ctor(SharpEngine.Math.Vec2,System.Nullable{SharpEngine.Math.Vec2},System.Boolean)
-  name.vb: New(Vec2, Vec2?, Boolean)
-  fullName: SharpEngine.Widget.Checkbox.Checkbox(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2?, bool)
-  fullName.vb: SharpEngine.Widget.Checkbox.New(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2?, Boolean)
-  nameWithType: Checkbox.Checkbox(Vec2, Vec2?, bool)
-  nameWithType.vb: Checkbox.New(Vec2, Vec2?, Boolean)
+- uid: SharpEngine.Widget.Checkbox.#ctor(SharpEngine.Math.Vec2,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Int32)
+  name: Checkbox(Vec2, Vec2?, bool, int)
+  href: api/SharpEngine.Widget.Checkbox.html#SharpEngine_Widget_Checkbox__ctor_SharpEngine_Math_Vec2_System_Nullable_SharpEngine_Math_Vec2__System_Boolean_System_Int32_
+  commentId: M:SharpEngine.Widget.Checkbox.#ctor(SharpEngine.Math.Vec2,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Int32)
+  name.vb: New(Vec2, Vec2?, Boolean, Integer)
+  fullName: SharpEngine.Widget.Checkbox.Checkbox(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2?, bool, int)
+  fullName.vb: SharpEngine.Widget.Checkbox.New(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2?, Boolean, Integer)
+  nameWithType: Checkbox.Checkbox(Vec2, Vec2?, bool, int)
+  nameWithType.vb: Checkbox.New(Vec2, Vec2?, Boolean, Integer)
 - uid: SharpEngine.Widget.Checkbox.#ctor*
   name: Checkbox
   href: api/SharpEngine.Widget.Checkbox.html#SharpEngine_Widget_Checkbox__ctor_
@@ -8516,15 +8594,15 @@ references:
   commentId: T:SharpEngine.Widget.ColorRect
   fullName: SharpEngine.Widget.ColorRect
   nameWithType: ColorRect
-- uid: SharpEngine.Widget.ColorRect.#ctor(SharpEngine.Math.Vec2,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Utils.Color},System.Int32)
-  name: ColorRect(Vec2, Vec2?, Color?, int)
-  href: api/SharpEngine.Widget.ColorRect.html#SharpEngine_Widget_ColorRect__ctor_SharpEngine_Math_Vec2_System_Nullable_SharpEngine_Math_Vec2__System_Nullable_SharpEngine_Utils_Color__System_Int32_
-  commentId: M:SharpEngine.Widget.ColorRect.#ctor(SharpEngine.Math.Vec2,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Utils.Color},System.Int32)
-  name.vb: New(Vec2, Vec2?, Color?, Integer)
-  fullName: SharpEngine.Widget.ColorRect.ColorRect(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2?, SharpEngine.Utils.Color?, int)
-  fullName.vb: SharpEngine.Widget.ColorRect.New(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2?, SharpEngine.Utils.Color?, Integer)
-  nameWithType: ColorRect.ColorRect(Vec2, Vec2?, Color?, int)
-  nameWithType.vb: ColorRect.New(Vec2, Vec2?, Color?, Integer)
+- uid: SharpEngine.Widget.ColorRect.#ctor(SharpEngine.Math.Vec2,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Utils.Color},System.Int32,System.Int32)
+  name: ColorRect(Vec2, Vec2?, Color?, int, int)
+  href: api/SharpEngine.Widget.ColorRect.html#SharpEngine_Widget_ColorRect__ctor_SharpEngine_Math_Vec2_System_Nullable_SharpEngine_Math_Vec2__System_Nullable_SharpEngine_Utils_Color__System_Int32_System_Int32_
+  commentId: M:SharpEngine.Widget.ColorRect.#ctor(SharpEngine.Math.Vec2,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Utils.Color},System.Int32,System.Int32)
+  name.vb: New(Vec2, Vec2?, Color?, Integer, Integer)
+  fullName: SharpEngine.Widget.ColorRect.ColorRect(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2?, SharpEngine.Utils.Color?, int, int)
+  fullName.vb: SharpEngine.Widget.ColorRect.New(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2?, SharpEngine.Utils.Color?, Integer, Integer)
+  nameWithType: ColorRect.ColorRect(Vec2, Vec2?, Color?, int, int)
+  nameWithType.vb: ColorRect.New(Vec2, Vec2?, Color?, Integer, Integer)
 - uid: SharpEngine.Widget.ColorRect.#ctor*
   name: ColorRect
   href: api/SharpEngine.Widget.ColorRect.html#SharpEngine_Widget_ColorRect__ctor_
@@ -8593,15 +8671,15 @@ references:
   commentId: T:SharpEngine.Widget.Frame
   fullName: SharpEngine.Widget.Frame
   nameWithType: Frame
-- uid: SharpEngine.Widget.Frame.#ctor(SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Int32,System.Nullable{SharpEngine.Utils.Color},System.Nullable{SharpEngine.Utils.Color})
-  name: Frame(Vec2, Vec2, int, Color?, Color?)
-  href: api/SharpEngine.Widget.Frame.html#SharpEngine_Widget_Frame__ctor_SharpEngine_Math_Vec2_SharpEngine_Math_Vec2_System_Int32_System_Nullable_SharpEngine_Utils_Color__System_Nullable_SharpEngine_Utils_Color__
-  commentId: M:SharpEngine.Widget.Frame.#ctor(SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Int32,System.Nullable{SharpEngine.Utils.Color},System.Nullable{SharpEngine.Utils.Color})
-  name.vb: New(Vec2, Vec2, Integer, Color?, Color?)
-  fullName: SharpEngine.Widget.Frame.Frame(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, int, SharpEngine.Utils.Color?, SharpEngine.Utils.Color?)
-  fullName.vb: SharpEngine.Widget.Frame.New(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, Integer, SharpEngine.Utils.Color?, SharpEngine.Utils.Color?)
-  nameWithType: Frame.Frame(Vec2, Vec2, int, Color?, Color?)
-  nameWithType.vb: Frame.New(Vec2, Vec2, Integer, Color?, Color?)
+- uid: SharpEngine.Widget.Frame.#ctor(SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Int32,System.Nullable{SharpEngine.Utils.Color},System.Nullable{SharpEngine.Utils.Color},System.Int32)
+  name: Frame(Vec2, Vec2, int, Color?, Color?, int)
+  href: api/SharpEngine.Widget.Frame.html#SharpEngine_Widget_Frame__ctor_SharpEngine_Math_Vec2_SharpEngine_Math_Vec2_System_Int32_System_Nullable_SharpEngine_Utils_Color__System_Nullable_SharpEngine_Utils_Color__System_Int32_
+  commentId: M:SharpEngine.Widget.Frame.#ctor(SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Int32,System.Nullable{SharpEngine.Utils.Color},System.Nullable{SharpEngine.Utils.Color},System.Int32)
+  name.vb: New(Vec2, Vec2, Integer, Color?, Color?, Integer)
+  fullName: SharpEngine.Widget.Frame.Frame(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, int, SharpEngine.Utils.Color?, SharpEngine.Utils.Color?, int)
+  fullName.vb: SharpEngine.Widget.Frame.New(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, Integer, SharpEngine.Utils.Color?, SharpEngine.Utils.Color?, Integer)
+  nameWithType: Frame.Frame(Vec2, Vec2, int, Color?, Color?, int)
+  nameWithType.vb: Frame.New(Vec2, Vec2, Integer, Color?, Color?, Integer)
 - uid: SharpEngine.Widget.Frame.#ctor*
   name: Frame
   href: api/SharpEngine.Widget.Frame.html#SharpEngine_Widget_Frame__ctor_
@@ -8683,15 +8761,15 @@ references:
   commentId: T:SharpEngine.Widget.Image
   fullName: SharpEngine.Widget.Image
   nameWithType: Image
-- uid: SharpEngine.Widget.Image.#ctor(SharpEngine.Math.Vec2,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Int32)
-  name: Image(Vec2, string, Vec2?, int)
-  href: api/SharpEngine.Widget.Image.html#SharpEngine_Widget_Image__ctor_SharpEngine_Math_Vec2_System_String_System_Nullable_SharpEngine_Math_Vec2__System_Int32_
-  commentId: M:SharpEngine.Widget.Image.#ctor(SharpEngine.Math.Vec2,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Int32)
-  name.vb: New(Vec2, String, Vec2?, Integer)
-  fullName: SharpEngine.Widget.Image.Image(SharpEngine.Math.Vec2, string, SharpEngine.Math.Vec2?, int)
-  fullName.vb: SharpEngine.Widget.Image.New(SharpEngine.Math.Vec2, String, SharpEngine.Math.Vec2?, Integer)
-  nameWithType: Image.Image(Vec2, string, Vec2?, int)
-  nameWithType.vb: Image.New(Vec2, String, Vec2?, Integer)
+- uid: SharpEngine.Widget.Image.#ctor(SharpEngine.Math.Vec2,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Int32,System.Int32)
+  name: Image(Vec2, string, Vec2?, int, int)
+  href: api/SharpEngine.Widget.Image.html#SharpEngine_Widget_Image__ctor_SharpEngine_Math_Vec2_System_String_System_Nullable_SharpEngine_Math_Vec2__System_Int32_System_Int32_
+  commentId: M:SharpEngine.Widget.Image.#ctor(SharpEngine.Math.Vec2,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Int32,System.Int32)
+  name.vb: New(Vec2, String, Vec2?, Integer, Integer)
+  fullName: SharpEngine.Widget.Image.Image(SharpEngine.Math.Vec2, string, SharpEngine.Math.Vec2?, int, int)
+  fullName.vb: SharpEngine.Widget.Image.New(SharpEngine.Math.Vec2, String, SharpEngine.Math.Vec2?, Integer, Integer)
+  nameWithType: Image.Image(Vec2, string, Vec2?, int, int)
+  nameWithType.vb: Image.New(Vec2, String, Vec2?, Integer, Integer)
 - uid: SharpEngine.Widget.Image.#ctor*
   name: Image
   href: api/SharpEngine.Widget.Image.html#SharpEngine_Widget_Image__ctor_
@@ -8760,15 +8838,15 @@ references:
   commentId: T:SharpEngine.Widget.Label
   fullName: SharpEngine.Widget.Label
   nameWithType: Label
-- uid: SharpEngine.Widget.Label.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.Nullable{SharpEngine.Utils.Color},SharpEngine.Utils.Widget.LabelStyle,System.Int32,System.Boolean,System.Nullable{System.Int32})
-  name: Label(Vec2, string, string, Color?, LabelStyle, int, bool, int?)
-  href: api/SharpEngine.Widget.Label.html#SharpEngine_Widget_Label__ctor_SharpEngine_Math_Vec2_System_String_System_String_System_Nullable_SharpEngine_Utils_Color__SharpEngine_Utils_Widget_LabelStyle_System_Int32_System_Boolean_System_Nullable_System_Int32__
-  commentId: M:SharpEngine.Widget.Label.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.Nullable{SharpEngine.Utils.Color},SharpEngine.Utils.Widget.LabelStyle,System.Int32,System.Boolean,System.Nullable{System.Int32})
-  name.vb: New(Vec2, String, String, Color?, LabelStyle, Integer, Boolean, Integer?)
-  fullName: SharpEngine.Widget.Label.Label(SharpEngine.Math.Vec2, string, string, SharpEngine.Utils.Color?, SharpEngine.Utils.Widget.LabelStyle, int, bool, int?)
-  fullName.vb: SharpEngine.Widget.Label.New(SharpEngine.Math.Vec2, String, String, SharpEngine.Utils.Color?, SharpEngine.Utils.Widget.LabelStyle, Integer, Boolean, Integer?)
-  nameWithType: Label.Label(Vec2, string, string, Color?, LabelStyle, int, bool, int?)
-  nameWithType.vb: Label.New(Vec2, String, String, Color?, LabelStyle, Integer, Boolean, Integer?)
+- uid: SharpEngine.Widget.Label.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.Nullable{SharpEngine.Utils.Color},SharpEngine.Utils.Widget.LabelStyle,System.Int32,System.Boolean,System.Nullable{System.Int32},System.Int32)
+  name: Label(Vec2, string, string, Color?, LabelStyle, int, bool, int?, int)
+  href: api/SharpEngine.Widget.Label.html#SharpEngine_Widget_Label__ctor_SharpEngine_Math_Vec2_System_String_System_String_System_Nullable_SharpEngine_Utils_Color__SharpEngine_Utils_Widget_LabelStyle_System_Int32_System_Boolean_System_Nullable_System_Int32__System_Int32_
+  commentId: M:SharpEngine.Widget.Label.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.Nullable{SharpEngine.Utils.Color},SharpEngine.Utils.Widget.LabelStyle,System.Int32,System.Boolean,System.Nullable{System.Int32},System.Int32)
+  name.vb: New(Vec2, String, String, Color?, LabelStyle, Integer, Boolean, Integer?, Integer)
+  fullName: SharpEngine.Widget.Label.Label(SharpEngine.Math.Vec2, string, string, SharpEngine.Utils.Color?, SharpEngine.Utils.Widget.LabelStyle, int, bool, int?, int)
+  fullName.vb: SharpEngine.Widget.Label.New(SharpEngine.Math.Vec2, String, String, SharpEngine.Utils.Color?, SharpEngine.Utils.Widget.LabelStyle, Integer, Boolean, Integer?, Integer)
+  nameWithType: Label.Label(Vec2, string, string, Color?, LabelStyle, int, bool, int?, int)
+  nameWithType.vb: Label.New(Vec2, String, String, Color?, LabelStyle, Integer, Boolean, Integer?, Integer)
 - uid: SharpEngine.Widget.Label.#ctor*
   name: Label
   href: api/SharpEngine.Widget.Label.html#SharpEngine_Widget_Label__ctor_
@@ -8889,15 +8967,15 @@ references:
   commentId: T:SharpEngine.Widget.LineInput
   fullName: SharpEngine.Widget.LineInput
   nameWithType: LineInput
-- uid: SharpEngine.Widget.LineInput.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{System.Int32})
-  name: LineInput(Vec2, string, string, Vec2?, int?)
-  href: api/SharpEngine.Widget.LineInput.html#SharpEngine_Widget_LineInput__ctor_SharpEngine_Math_Vec2_System_String_System_String_System_Nullable_SharpEngine_Math_Vec2__System_Nullable_System_Int32__
-  commentId: M:SharpEngine.Widget.LineInput.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{System.Int32})
-  name.vb: New(Vec2, String, String, Vec2?, Integer?)
-  fullName: SharpEngine.Widget.LineInput.LineInput(SharpEngine.Math.Vec2, string, string, SharpEngine.Math.Vec2?, int?)
-  fullName.vb: SharpEngine.Widget.LineInput.New(SharpEngine.Math.Vec2, String, String, SharpEngine.Math.Vec2?, Integer?)
-  nameWithType: LineInput.LineInput(Vec2, string, string, Vec2?, int?)
-  nameWithType.vb: LineInput.New(Vec2, String, String, Vec2?, Integer?)
+- uid: SharpEngine.Widget.LineInput.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{System.Int32},System.Int32)
+  name: LineInput(Vec2, string, string, Vec2?, int?, int)
+  href: api/SharpEngine.Widget.LineInput.html#SharpEngine_Widget_LineInput__ctor_SharpEngine_Math_Vec2_System_String_System_String_System_Nullable_SharpEngine_Math_Vec2__System_Nullable_System_Int32__System_Int32_
+  commentId: M:SharpEngine.Widget.LineInput.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{System.Int32},System.Int32)
+  name.vb: New(Vec2, String, String, Vec2?, Integer?, Integer)
+  fullName: SharpEngine.Widget.LineInput.LineInput(SharpEngine.Math.Vec2, string, string, SharpEngine.Math.Vec2?, int?, int)
+  fullName.vb: SharpEngine.Widget.LineInput.New(SharpEngine.Math.Vec2, String, String, SharpEngine.Math.Vec2?, Integer?, Integer)
+  nameWithType: LineInput.LineInput(Vec2, string, string, Vec2?, int?, int)
+  nameWithType.vb: LineInput.New(Vec2, String, String, Vec2?, Integer?, Integer)
 - uid: SharpEngine.Widget.LineInput.#ctor*
   name: LineInput
   href: api/SharpEngine.Widget.LineInput.html#SharpEngine_Widget_LineInput__ctor_
@@ -9014,15 +9092,15 @@ references:
   commentId: T:SharpEngine.Widget.MultiLineInput
   fullName: SharpEngine.Widget.MultiLineInput
   nameWithType: MultiLineInput
-- uid: SharpEngine.Widget.MultiLineInput.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{System.Int32})
-  name: MultiLineInput(Vec2, string, string, Vec2?, int?)
-  href: api/SharpEngine.Widget.MultiLineInput.html#SharpEngine_Widget_MultiLineInput__ctor_SharpEngine_Math_Vec2_System_String_System_String_System_Nullable_SharpEngine_Math_Vec2__System_Nullable_System_Int32__
-  commentId: M:SharpEngine.Widget.MultiLineInput.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{System.Int32})
-  name.vb: New(Vec2, String, String, Vec2?, Integer?)
-  fullName: SharpEngine.Widget.MultiLineInput.MultiLineInput(SharpEngine.Math.Vec2, string, string, SharpEngine.Math.Vec2?, int?)
-  fullName.vb: SharpEngine.Widget.MultiLineInput.New(SharpEngine.Math.Vec2, String, String, SharpEngine.Math.Vec2?, Integer?)
-  nameWithType: MultiLineInput.MultiLineInput(Vec2, string, string, Vec2?, int?)
-  nameWithType.vb: MultiLineInput.New(Vec2, String, String, Vec2?, Integer?)
+- uid: SharpEngine.Widget.MultiLineInput.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{System.Int32},System.Int32)
+  name: MultiLineInput(Vec2, string, string, Vec2?, int?, int)
+  href: api/SharpEngine.Widget.MultiLineInput.html#SharpEngine_Widget_MultiLineInput__ctor_SharpEngine_Math_Vec2_System_String_System_String_System_Nullable_SharpEngine_Math_Vec2__System_Nullable_System_Int32__System_Int32_
+  commentId: M:SharpEngine.Widget.MultiLineInput.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{System.Int32},System.Int32)
+  name.vb: New(Vec2, String, String, Vec2?, Integer?, Integer)
+  fullName: SharpEngine.Widget.MultiLineInput.MultiLineInput(SharpEngine.Math.Vec2, string, string, SharpEngine.Math.Vec2?, int?, int)
+  fullName.vb: SharpEngine.Widget.MultiLineInput.New(SharpEngine.Math.Vec2, String, String, SharpEngine.Math.Vec2?, Integer?, Integer)
+  nameWithType: MultiLineInput.MultiLineInput(Vec2, string, string, Vec2?, int?, int)
+  nameWithType.vb: MultiLineInput.New(Vec2, String, String, Vec2?, Integer?, Integer)
 - uid: SharpEngine.Widget.MultiLineInput.#ctor*
   name: MultiLineInput
   href: api/SharpEngine.Widget.MultiLineInput.html#SharpEngine_Widget_MultiLineInput__ctor_
@@ -9139,15 +9217,15 @@ references:
   commentId: T:SharpEngine.Widget.ScrollFrame
   fullName: SharpEngine.Widget.ScrollFrame
   nameWithType: ScrollFrame
-- uid: SharpEngine.Widget.ScrollFrame.#ctor(SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Int32,System.Int32,System.Nullable{SharpEngine.Utils.Color},System.Nullable{SharpEngine.Utils.Color})
-  name: ScrollFrame(Vec2, Vec2, int, int, Color?, Color?)
-  href: api/SharpEngine.Widget.ScrollFrame.html#SharpEngine_Widget_ScrollFrame__ctor_SharpEngine_Math_Vec2_SharpEngine_Math_Vec2_System_Int32_System_Int32_System_Nullable_SharpEngine_Utils_Color__System_Nullable_SharpEngine_Utils_Color__
-  commentId: M:SharpEngine.Widget.ScrollFrame.#ctor(SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Int32,System.Int32,System.Nullable{SharpEngine.Utils.Color},System.Nullable{SharpEngine.Utils.Color})
-  name.vb: New(Vec2, Vec2, Integer, Integer, Color?, Color?)
-  fullName: SharpEngine.Widget.ScrollFrame.ScrollFrame(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, int, int, SharpEngine.Utils.Color?, SharpEngine.Utils.Color?)
-  fullName.vb: SharpEngine.Widget.ScrollFrame.New(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, Integer, Integer, SharpEngine.Utils.Color?, SharpEngine.Utils.Color?)
-  nameWithType: ScrollFrame.ScrollFrame(Vec2, Vec2, int, int, Color?, Color?)
-  nameWithType.vb: ScrollFrame.New(Vec2, Vec2, Integer, Integer, Color?, Color?)
+- uid: SharpEngine.Widget.ScrollFrame.#ctor(SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Int32,System.Int32,System.Nullable{SharpEngine.Utils.Color},System.Nullable{SharpEngine.Utils.Color},System.Int32)
+  name: ScrollFrame(Vec2, Vec2, int, int, Color?, Color?, int)
+  href: api/SharpEngine.Widget.ScrollFrame.html#SharpEngine_Widget_ScrollFrame__ctor_SharpEngine_Math_Vec2_SharpEngine_Math_Vec2_System_Int32_System_Int32_System_Nullable_SharpEngine_Utils_Color__System_Nullable_SharpEngine_Utils_Color__System_Int32_
+  commentId: M:SharpEngine.Widget.ScrollFrame.#ctor(SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Int32,System.Int32,System.Nullable{SharpEngine.Utils.Color},System.Nullable{SharpEngine.Utils.Color},System.Int32)
+  name.vb: New(Vec2, Vec2, Integer, Integer, Color?, Color?, Integer)
+  fullName: SharpEngine.Widget.ScrollFrame.ScrollFrame(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, int, int, SharpEngine.Utils.Color?, SharpEngine.Utils.Color?, int)
+  fullName.vb: SharpEngine.Widget.ScrollFrame.New(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, Integer, Integer, SharpEngine.Utils.Color?, SharpEngine.Utils.Color?, Integer)
+  nameWithType: ScrollFrame.ScrollFrame(Vec2, Vec2, int, int, Color?, Color?, int)
+  nameWithType.vb: ScrollFrame.New(Vec2, Vec2, Integer, Integer, Color?, Color?, Integer)
 - uid: SharpEngine.Widget.ScrollFrame.#ctor*
   name: ScrollFrame
   href: api/SharpEngine.Widget.ScrollFrame.html#SharpEngine_Widget_ScrollFrame__ctor_
@@ -9258,15 +9336,15 @@ references:
   commentId: T:SharpEngine.Widget.Selector
   fullName: SharpEngine.Widget.Selector
   nameWithType: Selector
-- uid: SharpEngine.Widget.Selector.#ctor(SharpEngine.Math.Vec2,System.Collections.Generic.List{System.String},System.String,System.Int32,System.Nullable{System.Int32})
-  name: Selector(Vec2, List<string>?, string, int, int?)
-  href: api/SharpEngine.Widget.Selector.html#SharpEngine_Widget_Selector__ctor_SharpEngine_Math_Vec2_System_Collections_Generic_List_System_String__System_String_System_Int32_System_Nullable_System_Int32__
-  commentId: M:SharpEngine.Widget.Selector.#ctor(SharpEngine.Math.Vec2,System.Collections.Generic.List{System.String},System.String,System.Int32,System.Nullable{System.Int32})
-  name.vb: New(Vec2, List(Of String), String, Integer, Integer?)
-  fullName: SharpEngine.Widget.Selector.Selector(SharpEngine.Math.Vec2, System.Collections.Generic.List<string>?, string, int, int?)
-  fullName.vb: SharpEngine.Widget.Selector.New(SharpEngine.Math.Vec2, System.Collections.Generic.List(Of String), String, Integer, Integer?)
-  nameWithType: Selector.Selector(Vec2, List<string>?, string, int, int?)
-  nameWithType.vb: Selector.New(Vec2, List(Of String), String, Integer, Integer?)
+- uid: SharpEngine.Widget.Selector.#ctor(SharpEngine.Math.Vec2,System.Collections.Generic.List{System.String},System.String,System.Int32,System.Nullable{System.Int32},System.Int32)
+  name: Selector(Vec2, List<string>?, string, int, int?, int)
+  href: api/SharpEngine.Widget.Selector.html#SharpEngine_Widget_Selector__ctor_SharpEngine_Math_Vec2_System_Collections_Generic_List_System_String__System_String_System_Int32_System_Nullable_System_Int32__System_Int32_
+  commentId: M:SharpEngine.Widget.Selector.#ctor(SharpEngine.Math.Vec2,System.Collections.Generic.List{System.String},System.String,System.Int32,System.Nullable{System.Int32},System.Int32)
+  name.vb: New(Vec2, List(Of String), String, Integer, Integer?, Integer)
+  fullName: SharpEngine.Widget.Selector.Selector(SharpEngine.Math.Vec2, System.Collections.Generic.List<string>?, string, int, int?, int)
+  fullName.vb: SharpEngine.Widget.Selector.New(SharpEngine.Math.Vec2, System.Collections.Generic.List(Of String), String, Integer, Integer?, Integer)
+  nameWithType: Selector.Selector(Vec2, List<string>?, string, int, int?, int)
+  nameWithType.vb: Selector.New(Vec2, List(Of String), String, Integer, Integer?, Integer)
 - uid: SharpEngine.Widget.Selector.#ctor*
   name: Selector
   href: api/SharpEngine.Widget.Selector.html#SharpEngine_Widget_Selector__ctor_
@@ -9406,15 +9484,15 @@ references:
   commentId: T:SharpEngine.Widget.TextureButton
   fullName: SharpEngine.Widget.TextureButton
   nameWithType: TextureButton
-- uid: SharpEngine.Widget.TextureButton.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32})
-  name: TextureButton(Vec2, string, string, string, Vec2?, Color?, int?)
-  href: api/SharpEngine.Widget.TextureButton.html#SharpEngine_Widget_TextureButton__ctor_SharpEngine_Math_Vec2_System_String_System_String_System_String_System_Nullable_SharpEngine_Math_Vec2__System_Nullable_SharpEngine_Utils_Color__System_Nullable_System_Int32__
-  commentId: M:SharpEngine.Widget.TextureButton.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32})
-  name.vb: New(Vec2, String, String, String, Vec2?, Color?, Integer?)
-  fullName: SharpEngine.Widget.TextureButton.TextureButton(SharpEngine.Math.Vec2, string, string, string, SharpEngine.Math.Vec2?, SharpEngine.Utils.Color?, int?)
-  fullName.vb: SharpEngine.Widget.TextureButton.New(SharpEngine.Math.Vec2, String, String, String, SharpEngine.Math.Vec2?, SharpEngine.Utils.Color?, Integer?)
-  nameWithType: TextureButton.TextureButton(Vec2, string, string, string, Vec2?, Color?, int?)
-  nameWithType.vb: TextureButton.New(Vec2, String, String, String, Vec2?, Color?, Integer?)
+- uid: SharpEngine.Widget.TextureButton.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Int32)
+  name: TextureButton(Vec2, string, string, string, Vec2?, Color?, int?, int)
+  href: api/SharpEngine.Widget.TextureButton.html#SharpEngine_Widget_TextureButton__ctor_SharpEngine_Math_Vec2_System_String_System_String_System_String_System_Nullable_SharpEngine_Math_Vec2__System_Nullable_SharpEngine_Utils_Color__System_Nullable_System_Int32__System_Int32_
+  commentId: M:SharpEngine.Widget.TextureButton.#ctor(SharpEngine.Math.Vec2,System.String,System.String,System.String,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Int32)
+  name.vb: New(Vec2, String, String, String, Vec2?, Color?, Integer?, Integer)
+  fullName: SharpEngine.Widget.TextureButton.TextureButton(SharpEngine.Math.Vec2, string, string, string, SharpEngine.Math.Vec2?, SharpEngine.Utils.Color?, int?, int)
+  fullName.vb: SharpEngine.Widget.TextureButton.New(SharpEngine.Math.Vec2, String, String, String, SharpEngine.Math.Vec2?, SharpEngine.Utils.Color?, Integer?, Integer)
+  nameWithType: TextureButton.TextureButton(Vec2, string, string, string, Vec2?, Color?, int?, int)
+  nameWithType.vb: TextureButton.New(Vec2, String, String, String, Vec2?, Color?, Integer?, Integer)
 - uid: SharpEngine.Widget.TextureButton.#ctor*
   name: TextureButton
   href: api/SharpEngine.Widget.TextureButton.html#SharpEngine_Widget_TextureButton__ctor_
@@ -9544,15 +9622,15 @@ references:
   commentId: T:SharpEngine.Widget.Widget
   fullName: SharpEngine.Widget.Widget
   nameWithType: Widget
-- uid: SharpEngine.Widget.Widget.#ctor(SharpEngine.Math.Vec2)
-  name: Widget(Vec2)
-  href: api/SharpEngine.Widget.Widget.html#SharpEngine_Widget_Widget__ctor_SharpEngine_Math_Vec2_
-  commentId: M:SharpEngine.Widget.Widget.#ctor(SharpEngine.Math.Vec2)
-  name.vb: New(Vec2)
-  fullName: SharpEngine.Widget.Widget.Widget(SharpEngine.Math.Vec2)
-  fullName.vb: SharpEngine.Widget.Widget.New(SharpEngine.Math.Vec2)
-  nameWithType: Widget.Widget(Vec2)
-  nameWithType.vb: Widget.New(Vec2)
+- uid: SharpEngine.Widget.Widget.#ctor(SharpEngine.Math.Vec2,System.Int32)
+  name: Widget(Vec2, int)
+  href: api/SharpEngine.Widget.Widget.html#SharpEngine_Widget_Widget__ctor_SharpEngine_Math_Vec2_System_Int32_
+  commentId: M:SharpEngine.Widget.Widget.#ctor(SharpEngine.Math.Vec2,System.Int32)
+  name.vb: New(Vec2, Integer)
+  fullName: SharpEngine.Widget.Widget.Widget(SharpEngine.Math.Vec2, int)
+  fullName.vb: SharpEngine.Widget.Widget.New(SharpEngine.Math.Vec2, Integer)
+  nameWithType: Widget.Widget(Vec2, int)
+  nameWithType.vb: Widget.New(Vec2, Integer)
 - uid: SharpEngine.Widget.Widget.#ctor*
   name: Widget
   href: api/SharpEngine.Widget.Widget.html#SharpEngine_Widget_Widget__ctor_
@@ -9809,6 +9887,19 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Widget.Widget.Update
   nameWithType: Widget.Update
+- uid: SharpEngine.Widget.Widget.ZLayer
+  name: ZLayer
+  href: api/SharpEngine.Widget.Widget.html#SharpEngine_Widget_Widget_ZLayer
+  commentId: P:SharpEngine.Widget.Widget.ZLayer
+  fullName: SharpEngine.Widget.Widget.ZLayer
+  nameWithType: Widget.ZLayer
+- uid: SharpEngine.Widget.Widget.ZLayer*
+  name: ZLayer
+  href: api/SharpEngine.Widget.Widget.html#SharpEngine_Widget_Widget_ZLayer_
+  commentId: Overload:SharpEngine.Widget.Widget.ZLayer
+  isSpec: "True"
+  fullName: SharpEngine.Widget.Widget.ZLayer
+  nameWithType: Widget.ZLayer
 - uid: SharpEngine.Window
   name: Window
   href: api/SharpEngine.Window.html

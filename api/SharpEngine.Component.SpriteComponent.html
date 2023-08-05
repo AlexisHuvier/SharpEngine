@@ -79,7 +79,7 @@
 
   <h1 id="SharpEngine_Component_SpriteComponent" data-uid="SharpEngine.Component.SpriteComponent" class="text-break">
     Class SpriteComponent
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -155,9 +155,9 @@
 
   <a id="SharpEngine_Component_SpriteComponent__ctor_" data-uid="SharpEngine.Component.SpriteComponent.#ctor*"></a>
 
-  <h3 id="SharpEngine_Component_SpriteComponent__ctor_System_String_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__System_Boolean_System_Boolean_" data-uid="SharpEngine.Component.SpriteComponent.#ctor(System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Boolean)">
-  SpriteComponent(string, bool, Vec2?, bool, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpEngine_Component_SpriteComponent__ctor_System_String_System_Boolean_System_Nullable_SharpEngine_Math_Vec2__System_Boolean_System_Boolean_System_Int32_" data-uid="SharpEngine.Component.SpriteComponent.#ctor(System.String,System.Boolean,System.Nullable{SharpEngine.Math.Vec2},System.Boolean,System.Boolean,System.Int32)">
+  SpriteComponent(string, bool, Vec2?, bool, bool, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L55"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create SpriteComponent</p>
@@ -165,7 +165,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SpriteComponent(string texture, bool displayed = true, Vec2? offset = null, bool flipX = false, bool flipY = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public SpriteComponent(string texture, bool displayed = true, Vec2? offset = null, bool flipX = false, bool flipY = false, int zLayerOffset = 0)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -184,6 +184,9 @@
 </dd>
     <dt><code>flipY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>If Sprite is Flip Vertically</p>
+</dd>
+    <dt><code>zLayerOffset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Offset of zLayer</p>
 </dd>
   </dl>
 
@@ -206,7 +209,7 @@
 
   <h3 id="SharpEngine_Component_SpriteComponent_Displayed" data-uid="SharpEngine.Component.SpriteComponent.Displayed">
   Displayed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Define if Sprite is displayed</p>
@@ -238,7 +241,7 @@
 
   <h3 id="SharpEngine_Component_SpriteComponent_FlipX" data-uid="SharpEngine.Component.SpriteComponent.FlipX">
   FlipX
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L32"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>If Sprite is Flip Horizontally</p>
@@ -270,7 +273,7 @@
 
   <h3 id="SharpEngine_Component_SpriteComponent_FlipY" data-uid="SharpEngine.Component.SpriteComponent.FlipY">
   FlipY
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>If Sprite is Flip Vertically</p>
@@ -302,7 +305,7 @@
 
   <h3 id="SharpEngine_Component_SpriteComponent_Offset" data-uid="SharpEngine.Component.SpriteComponent.Offset">
   Offset
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Offset of Sprite</p>
@@ -334,7 +337,7 @@
 
   <h3 id="SharpEngine_Component_SpriteComponent_Texture" data-uid="SharpEngine.Component.SpriteComponent.Texture">
   Texture
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Name of Texture which be displayed</p>
@@ -362,6 +365,38 @@
 
 
 
+  <a id="SharpEngine_Component_SpriteComponent_ZLayerOffset_" data-uid="SharpEngine.Component.SpriteComponent.ZLayerOffset*"></a>
+
+  <h3 id="SharpEngine_Component_SpriteComponent_ZLayerOffset" data-uid="SharpEngine.Component.SpriteComponent.ZLayerOffset">
+  ZLayerOffset
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Offset of ZLayer of Sprite</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ZLayerOffset { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -370,7 +405,7 @@
 
   <h3 id="SharpEngine_Component_SpriteComponent_Draw" data-uid="SharpEngine.Component.SpriteComponent.Draw">
   Draw()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L66"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Draw Component</p>
@@ -397,7 +432,7 @@
 
   <h3 id="SharpEngine_Component_SpriteComponent_Load" data-uid="SharpEngine.Component.SpriteComponent.Load">
   Load()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L67"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Load Component</p>
@@ -424,7 +459,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L11" class="edit-link">Edit this page</a>
+          <a href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/SpriteComponent.cs/#L12" class="edit-link">Edit this page</a>
         </div>
 
         

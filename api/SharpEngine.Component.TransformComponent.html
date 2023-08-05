@@ -161,9 +161,9 @@
 
   <a id="SharpEngine_Component_TransformComponent__ctor_" data-uid="SharpEngine.Component.TransformComponent.#ctor*"></a>
 
-  <h3 id="SharpEngine_Component_TransformComponent__ctor_System_Nullable_SharpEngine_Math_Vec2__System_Nullable_SharpEngine_Math_Vec2__System_Single_" data-uid="SharpEngine.Component.TransformComponent.#ctor(System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Math.Vec2},System.Single)">
-  TransformComponent(Vec2?, Vec2?, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/TransformComponent.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpEngine_Component_TransformComponent__ctor_System_Nullable_SharpEngine_Math_Vec2__System_Nullable_SharpEngine_Math_Vec2__System_Single_System_Int32_" data-uid="SharpEngine.Component.TransformComponent.#ctor(System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Math.Vec2},System.Single,System.Int32)">
+  TransformComponent(Vec2?, Vec2?, float, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/TransformComponent.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create TransformComponent</p>
@@ -171,7 +171,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TransformComponent(Vec2? position = null, Vec2? scale = null, float rotation = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public TransformComponent(Vec2? position = null, Vec2? scale = null, float rotation = 0, int zLayer = 0)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -184,6 +184,9 @@
 </dd>
     <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd><p>Rotation (0)</p>
+</dd>
+    <dt><code>zLayer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>ZLayer (0)</p>
 </dd>
   </dl>
 
@@ -298,6 +301,38 @@
 
 
 
+  <a id="SharpEngine_Component_TransformComponent_ZLayer_" data-uid="SharpEngine.Component.TransformComponent.ZLayer*"></a>
+
+  <h3 id="SharpEngine_Component_TransformComponent_ZLayer" data-uid="SharpEngine.Component.TransformComponent.ZLayer">
+  ZLayer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/TransformComponent.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>ZLayer of Component</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ZLayer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -306,7 +341,7 @@
 
   <h3 id="SharpEngine_Component_TransformComponent_GetTransformedPosition_System_Nullable_SharpEngine_Math_Vec2__" data-uid="SharpEngine.Component.TransformComponent.GetTransformedPosition(System.Nullable{SharpEngine.Math.Vec2})">
   GetTransformedPosition(Vec2?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/TransformComponent.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Component/TransformComponent.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get transformed Position</p>

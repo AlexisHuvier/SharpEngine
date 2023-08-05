@@ -145,9 +145,9 @@
 
   <a id="SharpEngine_Utils_Particle_ParticleEmitter__ctor_" data-uid="SharpEngine.Utils.Particle.ParticleEmitter.#ctor*"></a>
 
-  <h3 id="SharpEngine_Utils_Particle_ParticleEmitter__ctor_SharpEngine_Utils_Color___SharpEngine_Utils_Color___System_Nullable_SharpEngine_Math_Vec2__System_Nullable_SharpEngine_Math_Vec2__System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Int32_System_Int32_System_Int32_System_Boolean_SharpEngine_Utils_Particle_ParticleParametersFunction_System_Single_" data-uid="SharpEngine.Utils.Particle.ParticleEmitter.#ctor(SharpEngine.Utils.Color[],SharpEngine.Utils.Color[],System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Math.Vec2},System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Int32,System.Boolean,SharpEngine.Utils.Particle.ParticleParametersFunction,System.Single)">
-  ParticleEmitter(Color[], Color[]?, Vec2?, Vec2?, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, int, int, int, bool, ParticleParametersFunction, float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Utils/Particle/ParticleEmitter.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpEngine_Utils_Particle_ParticleEmitter__ctor_SharpEngine_Utils_Color___SharpEngine_Utils_Color___System_Nullable_SharpEngine_Math_Vec2__System_Nullable_SharpEngine_Math_Vec2__System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Single_System_Int32_System_Int32_System_Int32_System_Boolean_SharpEngine_Utils_Particle_ParticleParametersFunction_System_Single_System_Int32_" data-uid="SharpEngine.Utils.Particle.ParticleEmitter.#ctor(SharpEngine.Utils.Color[],SharpEngine.Utils.Color[],System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Math.Vec2},System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Int32,System.Boolean,SharpEngine.Utils.Particle.ParticleParametersFunction,System.Single,System.Int32)">
+  ParticleEmitter(Color[], Color[]?, Vec2?, Vec2?, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, int, int, int, bool, ParticleParametersFunction, float, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Utils/Particle/ParticleEmitter.cs/#L190"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create Emitter</p>
@@ -155,7 +155,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ParticleEmitter(Color[] beginColors, Color[]? endColors = null, Vec2? spawnSize = null, Vec2? offset = null, float minVelocity = 20, float maxVelocity = 20, float minAcceleration = 0, float maxAcceleration = 0, float minRotationSpeed = 0, float maxRotationSpeed = 0, float minRotation = 0, float maxRotation = 0, float minLifetime = 2, float maxLifetime = 2, float minDirection = 0, float maxDirection = 0, float minTimerBeforeSpawn = 0.3, float maxTimerBeforeSpawn = 0.3, float minSize = 5, float maxSize = 5, int minNbParticlesPerSpawn = 4, int maxNbParticlesPerSpawn = 4, int maxParticles = -1, bool active = false, ParticleParametersFunction sizeFunction = ParticleParametersFunction.Normal, float sizeFunctionValue = 0)</code></pre>
+    <pre><code class="lang-csharp hljs">public ParticleEmitter(Color[] beginColors, Color[]? endColors = null, Vec2? spawnSize = null, Vec2? offset = null, float minVelocity = 20, float maxVelocity = 20, float minAcceleration = 0, float maxAcceleration = 0, float minRotationSpeed = 0, float maxRotationSpeed = 0, float minRotation = 0, float maxRotation = 0, float minLifetime = 2, float maxLifetime = 2, float minDirection = 0, float maxDirection = 0, float minTimerBeforeSpawn = 0.3, float maxTimerBeforeSpawn = 0.3, float minSize = 5, float maxSize = 5, int minNbParticlesPerSpawn = 4, int maxNbParticlesPerSpawn = 4, int maxParticles = -1, bool active = false, ParticleParametersFunction sizeFunction = ParticleParametersFunction.Normal, float sizeFunctionValue = 0, int zLayer = 0)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -237,6 +237,9 @@
 </dd>
     <dt><code>sizeFunctionValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
     <dd><p>Particle Emitter SizeFunctionValue</p>
+</dd>
+    <dt><code>zLayer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Particle Emitter ZLayer</p>
 </dd>
   </dl>
 
@@ -1027,7 +1030,7 @@
 
   <h3 id="SharpEngine_Utils_Particle_ParticleEmitter_ParticlesCount" data-uid="SharpEngine.Utils.Particle.ParticleEmitter.ParticlesCount">
   ParticlesCount
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Utils/Particle/ParticleEmitter.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Utils/Particle/ParticleEmitter.cs/#L158"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Number of Particles</p>
@@ -1151,6 +1154,38 @@
 
 
 
+  <a id="SharpEngine_Utils_Particle_ParticleEmitter_ZLayer_" data-uid="SharpEngine.Utils.Particle.ParticleEmitter.ZLayer*"></a>
+
+  <h3 id="SharpEngine_Utils_Particle_ParticleEmitter_ZLayer" data-uid="SharpEngine.Utils.Particle.ParticleEmitter.ZLayer">
+  ZLayer
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Utils/Particle/ParticleEmitter.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>ZLayer of Particle Emitter</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ZLayer { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -1159,7 +1194,7 @@
 
   <h3 id="SharpEngine_Utils_Particle_ParticleEmitter_Draw" data-uid="SharpEngine.Utils.Particle.ParticleEmitter.Draw">
   Draw()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Utils/Particle/ParticleEmitter.cs/#L294"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Utils/Particle/ParticleEmitter.cs/#L301"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Draw Particles of Emitter</p>
@@ -1186,7 +1221,7 @@
 
   <h3 id="SharpEngine_Utils_Particle_ParticleEmitter_SpawnParticle_SharpEngine_Math_Vec2_" data-uid="SharpEngine.Utils.Particle.ParticleEmitter.SpawnParticle(SharpEngine.Math.Vec2)">
   SpawnParticle(Vec2)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Utils/Particle/ParticleEmitter.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Utils/Particle/ParticleEmitter.cs/#L233"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Spawn Particle</p>
@@ -1219,7 +1254,7 @@
 
   <h3 id="SharpEngine_Utils_Particle_ParticleEmitter_Update_System_Single_SharpEngine_Math_Vec2_" data-uid="SharpEngine.Utils.Particle.ParticleEmitter.Update(System.Single,SharpEngine.Math.Vec2)">
   Update(float, Vec2)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Utils/Particle/ParticleEmitter.cs/#L259"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/feat/renderer/SharpEngine/Utils/Particle/ParticleEmitter.cs/#L266"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Update Emitter</p>

@@ -4481,6 +4481,12 @@ references:
   commentId: F:SharpEngine.Renderer.DMRender.Instructions
   fullName: SharpEngine.Renderer.DMRender.Instructions
   nameWithType: DMRender.Instructions
+- uid: SharpEngine.Renderer.DMRender.LastInstructionsNumber
+  name: LastInstructionsNumber
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_LastInstructionsNumber
+  commentId: F:SharpEngine.Renderer.DMRender.LastInstructionsNumber
+  fullName: SharpEngine.Renderer.DMRender.LastInstructionsNumber
+  nameWithType: DMRender.LastInstructionsNumber
 - uid: SharpEngine.Renderer.DMRender.ScissorMode(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Renderer.InstructionSource,System.Int32,System.Action)
   name: ScissorMode(int, int, int, int, InstructionSource, int, Action)
   href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_ScissorMode_System_Int32_System_Int32_System_Int32_System_Int32_SharpEngine_Renderer_InstructionSource_System_Int32_System_Action_
@@ -4769,12 +4775,15 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Scene.RemoveAllWidgets
   nameWithType: Scene.RemoveAllWidgets
-- uid: SharpEngine.Scene.RemoveEntity(SharpEngine.Entity.Entity)
-  name: RemoveEntity(Entity)
-  href: api/SharpEngine.Scene.html#SharpEngine_Scene_RemoveEntity_SharpEngine_Entity_Entity_
-  commentId: M:SharpEngine.Scene.RemoveEntity(SharpEngine.Entity.Entity)
-  fullName: SharpEngine.Scene.RemoveEntity(SharpEngine.Entity.Entity)
-  nameWithType: Scene.RemoveEntity(Entity)
+- uid: SharpEngine.Scene.RemoveEntity(SharpEngine.Entity.Entity,System.Boolean)
+  name: RemoveEntity(Entity, bool)
+  href: api/SharpEngine.Scene.html#SharpEngine_Scene_RemoveEntity_SharpEngine_Entity_Entity_System_Boolean_
+  commentId: M:SharpEngine.Scene.RemoveEntity(SharpEngine.Entity.Entity,System.Boolean)
+  name.vb: RemoveEntity(Entity, Boolean)
+  fullName: SharpEngine.Scene.RemoveEntity(SharpEngine.Entity.Entity, bool)
+  fullName.vb: SharpEngine.Scene.RemoveEntity(SharpEngine.Entity.Entity, Boolean)
+  nameWithType: Scene.RemoveEntity(Entity, bool)
+  nameWithType.vb: Scene.RemoveEntity(Entity, Boolean)
 - uid: SharpEngine.Scene.RemoveEntity*
   name: RemoveEntity
   href: api/SharpEngine.Scene.html#SharpEngine_Scene_RemoveEntity_
@@ -4782,12 +4791,15 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Scene.RemoveEntity
   nameWithType: Scene.RemoveEntity
-- uid: SharpEngine.Scene.RemoveWidget(SharpEngine.Widget.Widget)
-  name: RemoveWidget(Widget)
-  href: api/SharpEngine.Scene.html#SharpEngine_Scene_RemoveWidget_SharpEngine_Widget_Widget_
-  commentId: M:SharpEngine.Scene.RemoveWidget(SharpEngine.Widget.Widget)
-  fullName: SharpEngine.Scene.RemoveWidget(SharpEngine.Widget.Widget)
-  nameWithType: Scene.RemoveWidget(Widget)
+- uid: SharpEngine.Scene.RemoveWidget(SharpEngine.Widget.Widget,System.Boolean)
+  name: RemoveWidget(Widget, bool)
+  href: api/SharpEngine.Scene.html#SharpEngine_Scene_RemoveWidget_SharpEngine_Widget_Widget_System_Boolean_
+  commentId: M:SharpEngine.Scene.RemoveWidget(SharpEngine.Widget.Widget,System.Boolean)
+  name.vb: RemoveWidget(Widget, Boolean)
+  fullName: SharpEngine.Scene.RemoveWidget(SharpEngine.Widget.Widget, bool)
+  fullName.vb: SharpEngine.Scene.RemoveWidget(SharpEngine.Widget.Widget, Boolean)
+  nameWithType: Scene.RemoveWidget(Widget, bool)
+  nameWithType.vb: Scene.RemoveWidget(Widget, Boolean)
 - uid: SharpEngine.Scene.RemoveWidget*
   name: RemoveWidget
   href: api/SharpEngine.Scene.html#SharpEngine_Scene_RemoveWidget_

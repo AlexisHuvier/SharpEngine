@@ -418,15 +418,15 @@ references:
   commentId: T:SharpEngine.Component.PhysicsComponent
   fullName: SharpEngine.Component.PhysicsComponent
   nameWithType: PhysicsComponent
-- uid: SharpEngine.Component.PhysicsComponent.#ctor(tainicom.Aether.Physics2D.Dynamics.BodyType,System.Boolean,System.Boolean)
-  name: PhysicsComponent(BodyType, bool, bool)
-  href: api/SharpEngine.Component.PhysicsComponent.html#SharpEngine_Component_PhysicsComponent__ctor_tainicom_Aether_Physics2D_Dynamics_BodyType_System_Boolean_System_Boolean_
-  commentId: M:SharpEngine.Component.PhysicsComponent.#ctor(tainicom.Aether.Physics2D.Dynamics.BodyType,System.Boolean,System.Boolean)
-  name.vb: New(BodyType, Boolean, Boolean)
-  fullName: SharpEngine.Component.PhysicsComponent.PhysicsComponent(tainicom.Aether.Physics2D.Dynamics.BodyType, bool, bool)
-  fullName.vb: SharpEngine.Component.PhysicsComponent.New(tainicom.Aether.Physics2D.Dynamics.BodyType, Boolean, Boolean)
-  nameWithType: PhysicsComponent.PhysicsComponent(BodyType, bool, bool)
-  nameWithType.vb: PhysicsComponent.New(BodyType, Boolean, Boolean)
+- uid: SharpEngine.Component.PhysicsComponent.#ctor(tainicom.Aether.Physics2D.Dynamics.BodyType,System.Boolean,System.Boolean,System.Boolean)
+  name: PhysicsComponent(BodyType, bool, bool, bool)
+  href: api/SharpEngine.Component.PhysicsComponent.html#SharpEngine_Component_PhysicsComponent__ctor_tainicom_Aether_Physics2D_Dynamics_BodyType_System_Boolean_System_Boolean_System_Boolean_
+  commentId: M:SharpEngine.Component.PhysicsComponent.#ctor(tainicom.Aether.Physics2D.Dynamics.BodyType,System.Boolean,System.Boolean,System.Boolean)
+  name.vb: New(BodyType, Boolean, Boolean, Boolean)
+  fullName: SharpEngine.Component.PhysicsComponent.PhysicsComponent(tainicom.Aether.Physics2D.Dynamics.BodyType, bool, bool, bool)
+  fullName.vb: SharpEngine.Component.PhysicsComponent.New(tainicom.Aether.Physics2D.Dynamics.BodyType, Boolean, Boolean, Boolean)
+  nameWithType: PhysicsComponent.PhysicsComponent(BodyType, bool, bool, bool)
+  nameWithType.vb: PhysicsComponent.New(BodyType, Boolean, Boolean, Boolean)
 - uid: SharpEngine.Component.PhysicsComponent.#ctor*
   name: PhysicsComponent
   href: api/SharpEngine.Component.PhysicsComponent.html#SharpEngine_Component_PhysicsComponent__ctor_
@@ -521,6 +521,32 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Component.PhysicsComponent.CollisionCallback
   nameWithType: PhysicsComponent.CollisionCallback
+- uid: SharpEngine.Component.PhysicsComponent.DebugDraw
+  name: DebugDraw
+  href: api/SharpEngine.Component.PhysicsComponent.html#SharpEngine_Component_PhysicsComponent_DebugDraw
+  commentId: P:SharpEngine.Component.PhysicsComponent.DebugDraw
+  fullName: SharpEngine.Component.PhysicsComponent.DebugDraw
+  nameWithType: PhysicsComponent.DebugDraw
+- uid: SharpEngine.Component.PhysicsComponent.DebugDraw*
+  name: DebugDraw
+  href: api/SharpEngine.Component.PhysicsComponent.html#SharpEngine_Component_PhysicsComponent_DebugDraw_
+  commentId: Overload:SharpEngine.Component.PhysicsComponent.DebugDraw
+  isSpec: "True"
+  fullName: SharpEngine.Component.PhysicsComponent.DebugDraw
+  nameWithType: PhysicsComponent.DebugDraw
+- uid: SharpEngine.Component.PhysicsComponent.Draw
+  name: Draw()
+  href: api/SharpEngine.Component.PhysicsComponent.html#SharpEngine_Component_PhysicsComponent_Draw
+  commentId: M:SharpEngine.Component.PhysicsComponent.Draw
+  fullName: SharpEngine.Component.PhysicsComponent.Draw()
+  nameWithType: PhysicsComponent.Draw()
+- uid: SharpEngine.Component.PhysicsComponent.Draw*
+  name: Draw
+  href: api/SharpEngine.Component.PhysicsComponent.html#SharpEngine_Component_PhysicsComponent_Draw_
+  commentId: Overload:SharpEngine.Component.PhysicsComponent.Draw
+  isSpec: "True"
+  fullName: SharpEngine.Component.PhysicsComponent.Draw
+  nameWithType: PhysicsComponent.Draw
 - uid: SharpEngine.Component.PhysicsComponent.GetLinearVelocity
   name: GetLinearVelocity()
   href: api/SharpEngine.Component.PhysicsComponent.html#SharpEngine_Component_PhysicsComponent_GetLinearVelocity
@@ -4351,6 +4377,22 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Renderer.DMRender.Draw
   nameWithType: DMRender.Draw
+- uid: SharpEngine.Renderer.DMRender.DrawCircleLines(System.Int32,System.Int32,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name: DrawCircleLines(int, int, float, Color, InstructionSource, int)
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawCircleLines_System_Int32_System_Int32_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
+  commentId: M:SharpEngine.Renderer.DMRender.DrawCircleLines(System.Int32,System.Int32,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name.vb: DrawCircleLines(Integer, Integer, Single, Color, InstructionSource, Integer)
+  fullName: SharpEngine.Renderer.DMRender.DrawCircleLines(int, int, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
+  fullName.vb: SharpEngine.Renderer.DMRender.DrawCircleLines(Integer, Integer, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
+  nameWithType: DMRender.DrawCircleLines(int, int, float, Color, InstructionSource, int)
+  nameWithType.vb: DMRender.DrawCircleLines(Integer, Integer, Single, Color, InstructionSource, Integer)
+- uid: SharpEngine.Renderer.DMRender.DrawCircleLines*
+  name: DrawCircleLines
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawCircleLines_
+  commentId: Overload:SharpEngine.Renderer.DMRender.DrawCircleLines
+  isSpec: "True"
+  fullName: SharpEngine.Renderer.DMRender.DrawCircleLines
+  nameWithType: DMRender.DrawCircleLines
 - uid: SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
   name: DrawRectangle(Rect, Vec2, float, Color, InstructionSource, int)
   href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangle_SharpEngine_Math_Rect_SharpEngine_Math_Vec2_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
@@ -4376,15 +4418,15 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Renderer.DMRender.DrawRectangle
   nameWithType: DMRender.DrawRectangle
-- uid: SharpEngine.Renderer.DMRender.DrawRectangleLines(Raylib_cs.Rectangle,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name: DrawRectangleLines(Rectangle, int, Color, InstructionSource, int)
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangleLines_Raylib_cs_Rectangle_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
-  commentId: M:SharpEngine.Renderer.DMRender.DrawRectangleLines(Raylib_cs.Rectangle,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name.vb: DrawRectangleLines(Rectangle, Integer, Color, InstructionSource, Integer)
-  fullName: SharpEngine.Renderer.DMRender.DrawRectangleLines(Raylib_cs.Rectangle, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
-  fullName.vb: SharpEngine.Renderer.DMRender.DrawRectangleLines(Raylib_cs.Rectangle, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
-  nameWithType: DMRender.DrawRectangleLines(Rectangle, int, Color, InstructionSource, int)
-  nameWithType.vb: DMRender.DrawRectangleLines(Rectangle, Integer, Color, InstructionSource, Integer)
+- uid: SharpEngine.Renderer.DMRender.DrawRectangleLines(SharpEngine.Math.Rect,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name: DrawRectangleLines(Rect, int, Color, InstructionSource, int)
+  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangleLines_SharpEngine_Math_Rect_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
+  commentId: M:SharpEngine.Renderer.DMRender.DrawRectangleLines(SharpEngine.Math.Rect,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name.vb: DrawRectangleLines(Rect, Integer, Color, InstructionSource, Integer)
+  fullName: SharpEngine.Renderer.DMRender.DrawRectangleLines(SharpEngine.Math.Rect, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
+  fullName.vb: SharpEngine.Renderer.DMRender.DrawRectangleLines(SharpEngine.Math.Rect, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
+  nameWithType: DMRender.DrawRectangleLines(Rect, int, Color, InstructionSource, int)
+  nameWithType.vb: DMRender.DrawRectangleLines(Rect, Integer, Color, InstructionSource, Integer)
 - uid: SharpEngine.Renderer.DMRender.DrawRectangleLines*
   name: DrawRectangleLines
   href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangleLines_
@@ -4509,6 +4551,12 @@ references:
   commentId: T:SharpEngine.Renderer.InstructionType
   fullName: SharpEngine.Renderer.InstructionType
   nameWithType: InstructionType
+- uid: SharpEngine.Renderer.InstructionType.DrawCircleLines
+  name: DrawCircleLines
+  href: api/SharpEngine.Renderer.InstructionType.html#SharpEngine_Renderer_InstructionType_DrawCircleLines
+  commentId: F:SharpEngine.Renderer.InstructionType.DrawCircleLines
+  fullName: SharpEngine.Renderer.InstructionType.DrawCircleLines
+  nameWithType: InstructionType.DrawCircleLines
 - uid: SharpEngine.Renderer.InstructionType.DrawRectangle
   name: DrawRectangle
   href: api/SharpEngine.Renderer.InstructionType.html#SharpEngine_Renderer_InstructionType_DrawRectangle

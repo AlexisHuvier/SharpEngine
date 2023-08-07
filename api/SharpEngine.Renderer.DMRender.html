@@ -182,7 +182,7 @@
 
   <h3 id="SharpEngine_Renderer_DMRender_Draw_SharpEngine_Window_" data-uid="SharpEngine.Renderer.DMRender.Draw(SharpEngine.Window)">
   Draw(Window)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Renderer/DMRender.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Renderer/DMRender.cs/#L76"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Draw all instructions in Window</p>
@@ -211,11 +211,59 @@
 
 
 
+  <a id="SharpEngine_Renderer_DMRender_DrawCircleLines_" data-uid="SharpEngine.Renderer.DMRender.DrawCircleLines*"></a>
+
+  <h3 id="SharpEngine_Renderer_DMRender_DrawCircleLines_System_Int32_System_Int32_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_" data-uid="SharpEngine.Renderer.DMRender.DrawCircleLines(System.Int32,System.Int32,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)">
+  DrawCircleLines(int, int, float, Color, InstructionSource, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Renderer/DMRender.cs/#L191"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Add Draw Circle Lines Instruction</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DrawCircleLines(int posX, int posY, float radius, Color borderColor, InstructionSource source, int zLayer)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>posX</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Position X</p>
+</dd>
+    <dt><code>posY</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Position Y</p>
+</dd>
+    <dt><code>radius</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Radius</p>
+</dd>
+    <dt><code>borderColor</code> <a class="xref" href="SharpEngine.Utils.Color.html">Color</a></dt>
+    <dd><p>Border Color</p>
+</dd>
+    <dt><code>source</code> <a class="xref" href="SharpEngine.Renderer.InstructionSource.html">InstructionSource</a></dt>
+    <dd><p>Instruction Source</p>
+</dd>
+    <dt><code>zLayer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>Z Layer</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="SharpEngine_Renderer_DMRender_DrawRectangle_" data-uid="SharpEngine.Renderer.DMRender.DrawRectangle*"></a>
 
   <h3 id="SharpEngine_Renderer_DMRender_DrawRectangle_SharpEngine_Math_Rect_SharpEngine_Math_Vec2_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_" data-uid="SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)">
   DrawRectangle(Rect, Vec2, float, Color, InstructionSource, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Renderer/DMRender.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Renderer/DMRender.cs/#L129"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Add Draw Rectangle Pro Instruction</p>
@@ -263,7 +311,7 @@
 
   <h3 id="SharpEngine_Renderer_DMRender_DrawRectangle_System_Int32_System_Int32_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_" data-uid="SharpEngine.Renderer.DMRender.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)">
   DrawRectangle(int, int, int, int, Color, InstructionSource, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Renderer/DMRender.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Renderer/DMRender.cs/#L150"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Add Draw Rectangle Instruction</p>
@@ -312,9 +360,9 @@
 
   <a id="SharpEngine_Renderer_DMRender_DrawRectangleLines_" data-uid="SharpEngine.Renderer.DMRender.DrawRectangleLines*"></a>
 
-  <h3 id="SharpEngine_Renderer_DMRender_DrawRectangleLines_Raylib_cs_Rectangle_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_" data-uid="SharpEngine.Renderer.DMRender.DrawRectangleLines(Raylib_cs.Rectangle,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)">
-  DrawRectangleLines(Rectangle, int, Color, InstructionSource, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Renderer/DMRender.cs/#L166"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpEngine_Renderer_DMRender_DrawRectangleLines_SharpEngine_Math_Rect_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_" data-uid="SharpEngine.Renderer.DMRender.DrawRectangleLines(SharpEngine.Math.Rect,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)">
+  DrawRectangleLines(Rect, int, Color, InstructionSource, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Renderer/DMRender.cs/#L170"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Add Draw Rectangle Lines Ex Instruction</p>
@@ -322,12 +370,12 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void DrawRectangleLines(Rectangle rect, int borderSize, Color borderColor, InstructionSource source, int zLayer)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void DrawRectangleLines(Rect rect, int borderSize, Color borderColor, InstructionSource source, int zLayer)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>rect</code> <span class="xref">Rectangle</span></dt>
+    <dt><code>rect</code> <a class="xref" href="SharpEngine.Math.Rect.html">Rect</a></dt>
     <dd><p>Rectangle</p>
 </dd>
     <dt><code>borderSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
@@ -359,7 +407,7 @@
 
   <h3 id="SharpEngine_Renderer_DMRender_DrawText_Raylib_cs_Font_System_String_SharpEngine_Math_Vec2_SharpEngine_Math_Vec2_System_Single_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_" data-uid="SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)">
   DrawText(Font, string, Vec2, Vec2, float, int, int, Color, InstructionSource, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Renderer/DMRender.cs/#L214"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Renderer/DMRender.cs/#L239"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Add Draw Text Pro Instruction</p>
@@ -419,7 +467,7 @@
 
   <h3 id="SharpEngine_Renderer_DMRender_DrawText_Raylib_cs_Font_System_String_SharpEngine_Math_Vec2_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_" data-uid="SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)">
   DrawText(Font, string, Vec2, int, int, Color, InstructionSource, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Renderer/DMRender.cs/#L237"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Renderer/DMRender.cs/#L262"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Add Draw Text Ex Instruction</p>
@@ -473,7 +521,7 @@
 
   <h3 id="SharpEngine_Renderer_DMRender_DrawTexture_Raylib_cs_Texture2D_SharpEngine_Math_Rect_SharpEngine_Math_Rect_SharpEngine_Math_Vec2_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_" data-uid="SharpEngine.Renderer.DMRender.DrawTexture(Raylib_cs.Texture2D,SharpEngine.Math.Rect,SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)">
   DrawTexture(Texture2D, Rect, Rect, Vec2, float, Color, InstructionSource, int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Renderer/DMRender.cs/#L189"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Renderer/DMRender.cs/#L214"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Add Draw Texture Pro Instruction</p>
@@ -527,7 +575,7 @@
 
   <h3 id="SharpEngine_Renderer_DMRender_ScissorMode_System_Int32_System_Int32_System_Int32_System_Int32_SharpEngine_Renderer_InstructionSource_System_Int32_System_Action_" data-uid="SharpEngine.Renderer.DMRender.ScissorMode(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Renderer.InstructionSource,System.Int32,System.Action)">
   ScissorMode(int, int, int, int, InstructionSource, int, Action)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Renderer/DMRender.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Renderer/DMRender.cs/#L103"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Add Scissor Mode Instructions</p>

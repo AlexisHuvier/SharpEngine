@@ -7,8 +7,13 @@
 [#] Bug Fixes<br>
 [.] Others
 
+### V 1.7.2 - 07/08/2023
+[+] PhysicsComponent : DebugDraw<br>
+[+] DMRender : DrawCircleLines<br>
+[#] DMRender : DrawRectangleLines must use Rect
+
 ### V 1.7.1 - 05/08/2023
-[#] BinarySave : Fix cast in GetObjectAs
+[#] BinarySave : Fix cast in GetObjectAs<br>
 [#] JsonSave : Fix cast in GetObjectAs
 
 ### V 1.7.0 - 05/08/2023

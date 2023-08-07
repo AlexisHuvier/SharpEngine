@@ -17,8 +17,9 @@ internal class MyScene : Scene
         var e1 = new Entity();
         e1.AddComponent(new TransformComponent(new Vec2(100)));
         e1.AddComponent(new RectComponent(Color.Blue, new Vec2(50)));
-        e1.AddComponent(new PhysicsComponent(fixedRotation: true, ignoreGravity: true)).AddRectangleCollision(new Vec2(50), restitution: 0f);
-        e1.AddComponent(new ControlComponent(ControlType.FourDirection, speed: 300));
+        e1.AddComponent(new PhysicsComponent(fixedRotation: true, ignoreGravity: true, debugDraw: true))
+            .AddCircleCollision(50, restitution: 0f);
+        e1.AddComponent(new ControlComponent(speed: 300));
         AddEntity(e1);
 
         for (var x = 0; x < 20; x++)
@@ -28,7 +29,8 @@ internal class MyScene : Scene
                 var e2 = new Entity();
                 e2.AddComponent(new TransformComponent(new Vec2(240 + 120*x, 80 + 120*y)));
                 e2.AddComponent(new RectComponent(Color.Red, new Vec2(50)));
-                e2.AddComponent(new PhysicsComponent(BodyType.Static, ignoreGravity: true, fixedRotation: true)).AddRectangleCollision(new Vec2(50), restitution: 0f);
+                e2.AddComponent(new PhysicsComponent(BodyType.Static, true, true, true))
+                    .AddRectangleCollision(new Vec2(50), restitution: 0f);
                 AddEntity(e2);
             }
         }

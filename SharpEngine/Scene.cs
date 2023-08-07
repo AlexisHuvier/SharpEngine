@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SharpEngine.Component;
-using SharpEngine.Manager;
 using SharpEngine.Math;
 using SharpEngine.Utils;
 using tainicom.Aether.Physics2D.Dynamics;
@@ -36,6 +35,8 @@ public class Scene
     internal readonly World World;
     private float _worldStepTimer;
     private const float WorldStep = 1 / 60f;
+    private List<Entity.Entity> _removeEntities = new();
+    private List<Widget.Widget> _removeWidgets = new();
 
     /// <summary>
     /// Create Scene
@@ -80,10 +81,16 @@ public class Scene
     /// Remove Widget
     /// </summary>
     /// <param name="widget">Widget which be removed</param>
-    public void RemoveWidget(Widget.Widget widget)
+    /// <param name="delay">If remove must be delayed</param>
+    public void RemoveWidget(Widget.Widget widget, bool delay = false)
     {
-        widget.Scene = null;
-        Widgets.Remove(widget);
+        if(delay)
+            _removeWidgets.Add(widget);
+        else
+        {
+            widget.Scene = null;
+            Widgets.Remove(widget);
+        }
     }
 
     /// <summary>
@@ -113,12 +120,18 @@ public class Scene
     /// Remove Entity From Scene
     /// </summary>
     /// <param name="entity">Entity to be removed</param>
-    public void RemoveEntity(Entity.Entity entity)
+    /// <param name="delay">If remove must be delayed</param>
+    public void RemoveEntity(Entity.Entity entity, bool delay = false)
     {
-        if(entity.GetComponentAs<PhysicsComponent>() is { } physics)
-            physics.RemoveBody();
-        entity.Scene = null;
-        Entities.Remove(entity);
+        if(delay)
+            _removeEntities.Add(entity);
+        else
+        {
+            if (entity.GetComponentAs<PhysicsComponent>() is { } physics)
+                physics.RemoveBody();
+            entity.Scene = null;
+            Entities.Remove(entity);
+        }
     }
 
     /// <summary>
@@ -170,6 +183,11 @@ public class Scene
             }
             World.ClearForces();
         }
+
+        foreach (var removeEntity in _removeEntities)
+            RemoveEntity(removeEntity);
+        foreach (var removeWidget in _removeWidgets)
+            RemoveWidget(removeWidget);
 
         for (var i = Entities.Count - 1; i > -1; i--)
             if(Entities[i].PauseState is PauseState.Enabled ||

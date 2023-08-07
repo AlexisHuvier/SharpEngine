@@ -54,6 +54,10 @@ public static class DMRender
                     Raylib.DrawRectangleLinesEx((Rect)instruction.Parameters[0], (int)instruction.Parameters[1],
                         (Color)instruction.Parameters[2]);
                     break;
+                case InstructionType.DrawCircleLines:
+                    Raylib.DrawCircleLines((int)instruction.Parameters[0], (int)instruction.Parameters[1],
+                        (float)instruction.Parameters[2], (Color)instruction.Parameters[3]);
+                    break;
                 case InstructionType.DrawTextEx:
                     Raylib.DrawTextEx((Font)instruction.Parameters[0], (string)instruction.Parameters[1],
                         (Vec2)instruction.Parameters[2], (int)instruction.Parameters[3],
@@ -172,6 +176,27 @@ public static class DMRender
             Source = source,
             ZLayer = zLayer,
             Parameters = new List<object> { rect, borderSize, borderColor }
+        });
+    }
+
+    /// <summary>
+    /// Add Draw Circle Lines Instruction
+    /// </summary>
+    /// <param name="posX">Position X</param>
+    /// <param name="posY">Position Y</param>
+    /// <param name="radius">Radius</param>
+    /// <param name="borderColor">Border Color</param>
+    /// <param name="source">Instruction Source</param>
+    /// <param name="zLayer">Z Layer</param>
+    public static void DrawCircleLines(int posX, int posY, float radius, Color borderColor, InstructionSource source,
+        int zLayer)
+    {
+        Instructions.Add(new Instruction
+        {
+            Type = InstructionType.DrawCircleLines,
+            Source = source,
+            ZLayer = zLayer,
+            Parameters = new List<object> { posX, posY, radius, borderColor }
         });
     }
 

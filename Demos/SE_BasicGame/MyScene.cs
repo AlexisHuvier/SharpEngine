@@ -22,9 +22,9 @@ internal class MyScene : Scene
         e1.AddComponent(new ControlComponent(speed: 300));
         AddEntity(e1);
 
-        for (var x = 0; x < 20; x++)
+        for (var x = 0; x < 2; x++)
         {
-            for (var y = 0; y < 20; y++)
+            for (var y = 0; y < 2; y++)
             {
                 var e2 = new Entity();
                 e2.AddComponent(new TransformComponent(new Vec2(240 + 120*x, 80 + 120*y)));

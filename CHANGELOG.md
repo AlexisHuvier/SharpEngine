@@ -7,6 +7,11 @@
 [#] Bug Fixes<br>
 [.] Others
 
+### V 1.7.3 - 07/08/2023
+[+] Scene : delay parameter in RemoveWidget and RemoveEntity<br>
+[+] DMRender : LastInstructionsNumber<br>
+[\~] DebugManager : Add LastInstructionsNumber line in SharpEngine ImGui Window
+
 ### V 1.7.2 - 07/08/2023
 [+] PhysicsComponent : DebugDraw<br>
 [+] DMRender : DrawCircleLines<br>

@@ -31,6 +31,11 @@ public enum InstructionType
     DrawRectangleLinesEx,
     
     /// <summary>
+    /// Draw Circle Lines
+    /// </summary>
+    DrawCircleLines,
+    
+    /// <summary>
     /// Draw Text Ex
     /// </summary>
     DrawTextEx,

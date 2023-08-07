@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using SharpEngine.Manager;
+using Raylib_cs;
 using SharpEngine.Math;
-using SharpEngine.Utils;
+using SharpEngine.Renderer;
 using SharpEngine.Utils.EventArgs;
 using SharpEngine.Utils.Physic;
 using SharpEngine.Utils.Physic.Joint;
 using tainicom.Aether.Physics2D.Dynamics;
 using tainicom.Aether.Physics2D.Dynamics.Contacts;
+using Color = SharpEngine.Utils.Color;
 
 namespace SharpEngine.Component;
 
@@ -21,6 +22,11 @@ public class PhysicsComponent: Component
     /// Body Physics
     /// </summary>
     public Body? Body { get; set; }
+    
+    /// <summary>
+    /// Draw debug information
+    /// </summary>
+    public bool DebugDraw { get; set; }
 
     /// <summary>
     /// Event which be called when collision
@@ -37,6 +43,7 @@ public class PhysicsComponent: Component
     private readonly List<Joint> _joints = new();
     private readonly bool _fixedRotation;
     private readonly bool _ignoreGravity;
+    private readonly List<List<object>> _debugDrawings = new();
     private readonly List<Contact> _contacts = new();
 
     private TransformComponent? _transform;
@@ -47,12 +54,14 @@ public class PhysicsComponent: Component
     /// <param name="bodyType">Type of Body</param>
     /// <param name="ignoreGravity">Ignore Gravity</param>
     /// <param name="fixedRotation">Rotation fixed</param>
+    /// <param name="debugDraw">Debug Draw</param>
     public PhysicsComponent(BodyType bodyType = BodyType.Dynamic, bool ignoreGravity = false,
-        bool fixedRotation = false)
+        bool fixedRotation = false, bool debugDraw = false)
     {
         _bodyType = bodyType;
         _ignoreGravity = ignoreGravity;
         _fixedRotation = fixedRotation;
+        DebugDraw = debugDraw;
     }
 
     /// <summary>
@@ -119,6 +128,7 @@ public class PhysicsComponent: Component
             Offset = offset * 0.02f ?? Vec2.Zero,
             Tag = tag
         };
+        _debugDrawings.Add(new List<object> { "rectangle", size, offset ?? Vec2.Zero});
         _fixtures.Add(fixture);
     }
 
@@ -144,9 +154,14 @@ public class PhysicsComponent: Component
             Offset = offset * 0.02f ?? Vec2.Zero,
             Tag = tag
         };
+        _debugDrawings.Add(new List<object> { "circle", radius, offset ?? Vec2.Zero});
         _fixtures.Add(fixture);
     }
 
+    /// <summary>
+    /// Return if entity is on ground
+    /// </summary>
+    /// <returns>If is on ground</returns>
     public bool IsOnGround()
     {
         if (GetLinearVelocity().Y != 0)
@@ -252,6 +267,42 @@ public class PhysicsComponent: Component
 
         _transform.Position = Body.Position * 50f;
         _transform.Rotation = (int)MathHelper.ToDegrees(Body.Rotation);
+    }
+
+    /// <inheritdoc />
+    public override void Draw()
+    {
+        base.Draw();
+        
+        if(_transform == null) return;
+
+        if (DebugDraw)
+        {
+            foreach (var drawing in _debugDrawings)
+            {
+                switch ((string)drawing[0])
+                {
+                    case "rectangle":
+                        var size = (Vec2)drawing[1];
+                        var offset = (Vec2)drawing[2];
+                        var rect = new Rect(
+                            _transform.Position.X + offset.X - size.X / 2,
+                            _transform.Position.Y + offset.Y - size.Y / 2,
+                            size.X, size.Y
+                        );
+                        DMRender.DrawRectangleLines(rect, 2, Color.DarkRed, InstructionSource.Entity, int.MaxValue);
+                        break;
+                    case "circle":
+                        var radius = (float)drawing[1];
+                        var offsetCirc = (Vec2)drawing[2];
+                        DMRender.DrawCircleLines(
+                            (int)(_transform.Position.X + offsetCirc.X),
+                            (int)(_transform.Position.Y + offsetCirc.Y), radius, Color.DarkRed,
+                            InstructionSource.Entity, int.MaxValue);
+                        break;
+                }
+            }
+        }
     }
 
     private bool OnCollision(Fixture sender, Fixture other, Contact contact)

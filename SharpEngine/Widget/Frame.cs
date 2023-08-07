@@ -59,7 +59,7 @@ public class Frame: Widget
         if (BackgroundColor != null)
             DMRender.DrawRectangle(new Rect(position.X, position.Y, Size.X, Size.Y), Size / 2, 0, BackgroundColor.Value,
                 InstructionSource.UI, ZLayer);
-        DMRender.DrawRectangleLines(new Rectangle(position.X - Size.X / 2, position.Y - Size.Y / 2, Size.X, Size.Y),
+        DMRender.DrawRectangleLines(new Rect(position.X - Size.X / 2, position.Y - Size.Y / 2, Size.X, Size.Y),
             BorderSize, BorderColor, InstructionSource.UI, ZLayer);
     }
 }

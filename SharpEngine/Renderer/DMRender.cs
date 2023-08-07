@@ -163,7 +163,7 @@ public static class DMRender
     /// <param name="borderColor">Border Color</param>
     /// <param name="source">Instruction Source</param>
     /// <param name="zLayer">Z Layer</param>
-    public static void DrawRectangleLines(Rectangle rect, int borderSize, Color borderColor,
+    public static void DrawRectangleLines(Rect rect, int borderSize, Color borderColor,
         InstructionSource source, int zLayer)
     {
         Instructions.Add(new Instruction

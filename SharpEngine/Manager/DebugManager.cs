@@ -2,6 +2,7 @@
 using System.Linq;
 using ImGuiNET;
 using Raylib_cs;
+using SharpEngine.Renderer;
 using SharpEngine.Utils;
 
 namespace SharpEngine.Manager;
@@ -55,6 +56,8 @@ public static class DebugManager
         ImGui.Text($"Camera Mode : {window.CameraManager.Mode}");
         ImGui.Text($"Camera Position : {window.CameraManager.Camera2D.target}");
         ImGui.Text($"Camera Rotation : {window.CameraManager.Rotation}");
+        ImGui.Separator();
+        ImGui.Text($"Number of Render Instructions : {DMRender.LastInstructionsNumber}");
         ImGui.End();
     }
 

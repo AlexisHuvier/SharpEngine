@@ -13,6 +13,11 @@ namespace SharpEngine.Renderer;
 public static class DMRender
 {
     /// <summary>
+    /// Number of Last Instructions
+    /// </summary>
+    public static int LastInstructionsNumber = 0;
+    
+    /// <summary>
     /// Current Instructions to be rendered
     /// </summary>
     public static List<Instruction> Instructions = new();
@@ -21,6 +26,7 @@ public static class DMRender
     {
         foreach (var instruction in instructions)
         {
+            LastInstructionsNumber++;
             switch (instruction.Type)
             {
                 case InstructionType.ScissorMode:
@@ -75,6 +81,7 @@ public static class DMRender
     /// <param name="window">Window</param>
     public static void Draw(Window window)
     {
+        LastInstructionsNumber = 0;
         var entityInstructions = Instructions.Where(x => x.Source == InstructionSource.Entity).ToList();
         var uiInstructions = Instructions.Where(x => x.Source == InstructionSource.UI).ToList();
         

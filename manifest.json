@@ -115,6 +115,126 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Data.DataTable.IDataTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Data.DataTable.IDataTable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Data.DataTable.JsonDataTable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Data.DataTable.JsonDataTable-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Data.DataTable.SQLiteDataTable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Data.DataTable.SQLiteDataTable-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Data.DataTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Data.DataTable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Data.Lang.ILang.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Data.Lang.ILang.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Data.Lang.JsonLang.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Data.Lang.JsonLang.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Data.Lang.McLang.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Data.Lang.McLang.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Data.Lang.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Data.Lang.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Data.Save.BinarySave.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Data.Save.BinarySave.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Data.Save.ISave.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Data.Save.ISave.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Data.Save.JsonSave.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Data.Save.JsonSave.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Data.Save.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Data.Save.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpEngine.Entity.Entity.yml",
       "output": {
         ".html": {
@@ -135,90 +255,20 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SharpEngine.File.Lang.ILang.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpEngine.File.Lang.ILang.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpEngine.File.Lang.JsonLang.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpEngine.File.Lang.JsonLang.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpEngine.File.Lang.McLang.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpEngine.File.Lang.McLang.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpEngine.File.Lang.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpEngine.File.Lang.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpEngine.File.Save.BinarySave.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpEngine.File.Save.BinarySave.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpEngine.File.Save.ISave.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpEngine.File.Save.ISave.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpEngine.File.Save.JsonSave.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpEngine.File.Save.JsonSave.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpEngine.File.Save.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpEngine.File.Save.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/SharpEngine.Manager.CameraManager.yml",
       "output": {
         ".html": {
           "relative_path": "api/SharpEngine.Manager.CameraManager.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Manager.DataTableManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Manager.DataTableManager.html"
         }
       },
       "version": ""
@@ -385,16 +435,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SharpEngine.Renderer.DMRender.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpEngine.Renderer.DMRender.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/SharpEngine.Renderer.Instruction.yml",
       "output": {
         ".html": {
@@ -419,6 +459,16 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpEngine.Renderer.InstructionType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Renderer.SERender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Renderer.SERender.html"
         }
       },
       "version": ""

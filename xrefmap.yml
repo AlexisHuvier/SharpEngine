@@ -1379,6 +1379,548 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Component.TransformComponent.ZLayer
   nameWithType: TransformComponent.ZLayer
+- uid: SharpEngine.Data.DataTable
+  name: SharpEngine.Data.DataTable
+  href: api/SharpEngine.Data.DataTable.html
+  commentId: N:SharpEngine.Data.DataTable
+  fullName: SharpEngine.Data.DataTable
+  nameWithType: SharpEngine.Data.DataTable
+- uid: SharpEngine.Data.DataTable.IDataTable
+  name: IDataTable
+  href: api/SharpEngine.Data.DataTable.IDataTable.html
+  commentId: T:SharpEngine.Data.DataTable.IDataTable
+  fullName: SharpEngine.Data.DataTable.IDataTable
+  nameWithType: IDataTable
+- uid: SharpEngine.Data.DataTable.IDataTable.Get(System.Predicate{System.Object})
+  name: Get(Predicate<dynamic>)
+  href: api/SharpEngine.Data.DataTable.IDataTable.html#SharpEngine_Data_DataTable_IDataTable_Get_System_Predicate_System_Object__
+  commentId: M:SharpEngine.Data.DataTable.IDataTable.Get(System.Predicate{System.Object})
+  name.vb: Get(Predicate(Of Object))
+  fullName: SharpEngine.Data.DataTable.IDataTable.Get(System.Predicate<dynamic>)
+  fullName.vb: SharpEngine.Data.DataTable.IDataTable.Get(System.Predicate(Of Object))
+  nameWithType: IDataTable.Get(Predicate<dynamic>)
+  nameWithType.vb: IDataTable.Get(Predicate(Of Object))
+- uid: SharpEngine.Data.DataTable.IDataTable.Get*
+  name: Get
+  href: api/SharpEngine.Data.DataTable.IDataTable.html#SharpEngine_Data_DataTable_IDataTable_Get_
+  commentId: Overload:SharpEngine.Data.DataTable.IDataTable.Get
+  isSpec: "True"
+  fullName: SharpEngine.Data.DataTable.IDataTable.Get
+  nameWithType: IDataTable.Get
+- uid: SharpEngine.Data.DataTable.JsonDataTable`1
+  name: JsonDataTable<T>
+  href: api/SharpEngine.Data.DataTable.JsonDataTable-1.html
+  commentId: T:SharpEngine.Data.DataTable.JsonDataTable`1
+  name.vb: JsonDataTable(Of T)
+  fullName: SharpEngine.Data.DataTable.JsonDataTable<T>
+  fullName.vb: SharpEngine.Data.DataTable.JsonDataTable(Of T)
+  nameWithType: JsonDataTable<T>
+  nameWithType.vb: JsonDataTable(Of T)
+- uid: SharpEngine.Data.DataTable.JsonDataTable`1.#ctor(System.String)
+  name: JsonDataTable(string)
+  href: api/SharpEngine.Data.DataTable.JsonDataTable-1.html#SharpEngine_Data_DataTable_JsonDataTable_1__ctor_System_String_
+  commentId: M:SharpEngine.Data.DataTable.JsonDataTable`1.#ctor(System.String)
+  name.vb: New(String)
+  fullName: SharpEngine.Data.DataTable.JsonDataTable<T>.JsonDataTable(string)
+  fullName.vb: SharpEngine.Data.DataTable.JsonDataTable(Of T).New(String)
+  nameWithType: JsonDataTable<T>.JsonDataTable(string)
+  nameWithType.vb: JsonDataTable(Of T).New(String)
+- uid: SharpEngine.Data.DataTable.JsonDataTable`1.#ctor*
+  name: JsonDataTable
+  href: api/SharpEngine.Data.DataTable.JsonDataTable-1.html#SharpEngine_Data_DataTable_JsonDataTable_1__ctor_
+  commentId: Overload:SharpEngine.Data.DataTable.JsonDataTable`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: SharpEngine.Data.DataTable.JsonDataTable<T>.JsonDataTable
+  fullName.vb: SharpEngine.Data.DataTable.JsonDataTable(Of T).New
+  nameWithType: JsonDataTable<T>.JsonDataTable
+  nameWithType.vb: JsonDataTable(Of T).New
+- uid: SharpEngine.Data.DataTable.JsonDataTable`1.Get(System.Predicate{System.Object})
+  name: Get(Predicate<dynamic>)
+  href: api/SharpEngine.Data.DataTable.JsonDataTable-1.html#SharpEngine_Data_DataTable_JsonDataTable_1_Get_System_Predicate_System_Object__
+  commentId: M:SharpEngine.Data.DataTable.JsonDataTable`1.Get(System.Predicate{System.Object})
+  name.vb: Get(Predicate(Of Object))
+  fullName: SharpEngine.Data.DataTable.JsonDataTable<T>.Get(System.Predicate<dynamic>)
+  fullName.vb: SharpEngine.Data.DataTable.JsonDataTable(Of T).Get(System.Predicate(Of Object))
+  nameWithType: JsonDataTable<T>.Get(Predicate<dynamic>)
+  nameWithType.vb: JsonDataTable(Of T).Get(Predicate(Of Object))
+- uid: SharpEngine.Data.DataTable.JsonDataTable`1.Get*
+  name: Get
+  href: api/SharpEngine.Data.DataTable.JsonDataTable-1.html#SharpEngine_Data_DataTable_JsonDataTable_1_Get_
+  commentId: Overload:SharpEngine.Data.DataTable.JsonDataTable`1.Get
+  isSpec: "True"
+  fullName: SharpEngine.Data.DataTable.JsonDataTable<T>.Get
+  fullName.vb: SharpEngine.Data.DataTable.JsonDataTable(Of T).Get
+  nameWithType: JsonDataTable<T>.Get
+  nameWithType.vb: JsonDataTable(Of T).Get
+- uid: SharpEngine.Data.DataTable.SQLiteDataTable`1
+  name: SQLiteDataTable<T>
+  href: api/SharpEngine.Data.DataTable.SQLiteDataTable-1.html
+  commentId: T:SharpEngine.Data.DataTable.SQLiteDataTable`1
+  name.vb: SQLiteDataTable(Of T)
+  fullName: SharpEngine.Data.DataTable.SQLiteDataTable<T>
+  fullName.vb: SharpEngine.Data.DataTable.SQLiteDataTable(Of T)
+  nameWithType: SQLiteDataTable<T>
+  nameWithType.vb: SQLiteDataTable(Of T)
+- uid: SharpEngine.Data.DataTable.SQLiteDataTable`1.#ctor(System.String,System.String)
+  name: SQLiteDataTable(string, string)
+  href: api/SharpEngine.Data.DataTable.SQLiteDataTable-1.html#SharpEngine_Data_DataTable_SQLiteDataTable_1__ctor_System_String_System_String_
+  commentId: M:SharpEngine.Data.DataTable.SQLiteDataTable`1.#ctor(System.String,System.String)
+  name.vb: New(String, String)
+  fullName: SharpEngine.Data.DataTable.SQLiteDataTable<T>.SQLiteDataTable(string, string)
+  fullName.vb: SharpEngine.Data.DataTable.SQLiteDataTable(Of T).New(String, String)
+  nameWithType: SQLiteDataTable<T>.SQLiteDataTable(string, string)
+  nameWithType.vb: SQLiteDataTable(Of T).New(String, String)
+- uid: SharpEngine.Data.DataTable.SQLiteDataTable`1.#ctor*
+  name: SQLiteDataTable
+  href: api/SharpEngine.Data.DataTable.SQLiteDataTable-1.html#SharpEngine_Data_DataTable_SQLiteDataTable_1__ctor_
+  commentId: Overload:SharpEngine.Data.DataTable.SQLiteDataTable`1.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: SharpEngine.Data.DataTable.SQLiteDataTable<T>.SQLiteDataTable
+  fullName.vb: SharpEngine.Data.DataTable.SQLiteDataTable(Of T).New
+  nameWithType: SQLiteDataTable<T>.SQLiteDataTable
+  nameWithType.vb: SQLiteDataTable(Of T).New
+- uid: SharpEngine.Data.DataTable.SQLiteDataTable`1.Get(System.Predicate{System.Object})
+  name: Get(Predicate<dynamic>)
+  href: api/SharpEngine.Data.DataTable.SQLiteDataTable-1.html#SharpEngine_Data_DataTable_SQLiteDataTable_1_Get_System_Predicate_System_Object__
+  commentId: M:SharpEngine.Data.DataTable.SQLiteDataTable`1.Get(System.Predicate{System.Object})
+  name.vb: Get(Predicate(Of Object))
+  fullName: SharpEngine.Data.DataTable.SQLiteDataTable<T>.Get(System.Predicate<dynamic>)
+  fullName.vb: SharpEngine.Data.DataTable.SQLiteDataTable(Of T).Get(System.Predicate(Of Object))
+  nameWithType: SQLiteDataTable<T>.Get(Predicate<dynamic>)
+  nameWithType.vb: SQLiteDataTable(Of T).Get(Predicate(Of Object))
+- uid: SharpEngine.Data.DataTable.SQLiteDataTable`1.Get*
+  name: Get
+  href: api/SharpEngine.Data.DataTable.SQLiteDataTable-1.html#SharpEngine_Data_DataTable_SQLiteDataTable_1_Get_
+  commentId: Overload:SharpEngine.Data.DataTable.SQLiteDataTable`1.Get
+  isSpec: "True"
+  fullName: SharpEngine.Data.DataTable.SQLiteDataTable<T>.Get
+  fullName.vb: SharpEngine.Data.DataTable.SQLiteDataTable(Of T).Get
+  nameWithType: SQLiteDataTable<T>.Get
+  nameWithType.vb: SQLiteDataTable(Of T).Get
+- uid: SharpEngine.Data.Lang
+  name: SharpEngine.Data.Lang
+  href: api/SharpEngine.Data.Lang.html
+  commentId: N:SharpEngine.Data.Lang
+  fullName: SharpEngine.Data.Lang
+  nameWithType: SharpEngine.Data.Lang
+- uid: SharpEngine.Data.Lang.ILang
+  name: ILang
+  href: api/SharpEngine.Data.Lang.ILang.html
+  commentId: T:SharpEngine.Data.Lang.ILang
+  fullName: SharpEngine.Data.Lang.ILang
+  nameWithType: ILang
+- uid: SharpEngine.Data.Lang.ILang.GetTranslation(System.String,System.String)
+  name: GetTranslation(string, string)
+  href: api/SharpEngine.Data.Lang.ILang.html#SharpEngine_Data_Lang_ILang_GetTranslation_System_String_System_String_
+  commentId: M:SharpEngine.Data.Lang.ILang.GetTranslation(System.String,System.String)
+  name.vb: GetTranslation(String, String)
+  fullName: SharpEngine.Data.Lang.ILang.GetTranslation(string, string)
+  fullName.vb: SharpEngine.Data.Lang.ILang.GetTranslation(String, String)
+  nameWithType: ILang.GetTranslation(string, string)
+  nameWithType.vb: ILang.GetTranslation(String, String)
+- uid: SharpEngine.Data.Lang.ILang.GetTranslation*
+  name: GetTranslation
+  href: api/SharpEngine.Data.Lang.ILang.html#SharpEngine_Data_Lang_ILang_GetTranslation_
+  commentId: Overload:SharpEngine.Data.Lang.ILang.GetTranslation
+  isSpec: "True"
+  fullName: SharpEngine.Data.Lang.ILang.GetTranslation
+  nameWithType: ILang.GetTranslation
+- uid: SharpEngine.Data.Lang.ILang.Reload(System.String)
+  name: Reload(string)
+  href: api/SharpEngine.Data.Lang.ILang.html#SharpEngine_Data_Lang_ILang_Reload_System_String_
+  commentId: M:SharpEngine.Data.Lang.ILang.Reload(System.String)
+  name.vb: Reload(String)
+  fullName: SharpEngine.Data.Lang.ILang.Reload(string)
+  fullName.vb: SharpEngine.Data.Lang.ILang.Reload(String)
+  nameWithType: ILang.Reload(string)
+  nameWithType.vb: ILang.Reload(String)
+- uid: SharpEngine.Data.Lang.ILang.Reload*
+  name: Reload
+  href: api/SharpEngine.Data.Lang.ILang.html#SharpEngine_Data_Lang_ILang_Reload_
+  commentId: Overload:SharpEngine.Data.Lang.ILang.Reload
+  isSpec: "True"
+  fullName: SharpEngine.Data.Lang.ILang.Reload
+  nameWithType: ILang.Reload
+- uid: SharpEngine.Data.Lang.JsonLang
+  name: JsonLang
+  href: api/SharpEngine.Data.Lang.JsonLang.html
+  commentId: T:SharpEngine.Data.Lang.JsonLang
+  fullName: SharpEngine.Data.Lang.JsonLang
+  nameWithType: JsonLang
+- uid: SharpEngine.Data.Lang.JsonLang.#ctor(System.String)
+  name: JsonLang(string)
+  href: api/SharpEngine.Data.Lang.JsonLang.html#SharpEngine_Data_Lang_JsonLang__ctor_System_String_
+  commentId: M:SharpEngine.Data.Lang.JsonLang.#ctor(System.String)
+  name.vb: New(String)
+  fullName: SharpEngine.Data.Lang.JsonLang.JsonLang(string)
+  fullName.vb: SharpEngine.Data.Lang.JsonLang.New(String)
+  nameWithType: JsonLang.JsonLang(string)
+  nameWithType.vb: JsonLang.New(String)
+- uid: SharpEngine.Data.Lang.JsonLang.#ctor*
+  name: JsonLang
+  href: api/SharpEngine.Data.Lang.JsonLang.html#SharpEngine_Data_Lang_JsonLang__ctor_
+  commentId: Overload:SharpEngine.Data.Lang.JsonLang.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: SharpEngine.Data.Lang.JsonLang.JsonLang
+  fullName.vb: SharpEngine.Data.Lang.JsonLang.New
+  nameWithType: JsonLang.JsonLang
+  nameWithType.vb: JsonLang.New
+- uid: SharpEngine.Data.Lang.JsonLang.GetTranslation(System.String,System.String)
+  name: GetTranslation(string, string)
+  href: api/SharpEngine.Data.Lang.JsonLang.html#SharpEngine_Data_Lang_JsonLang_GetTranslation_System_String_System_String_
+  commentId: M:SharpEngine.Data.Lang.JsonLang.GetTranslation(System.String,System.String)
+  name.vb: GetTranslation(String, String)
+  fullName: SharpEngine.Data.Lang.JsonLang.GetTranslation(string, string)
+  fullName.vb: SharpEngine.Data.Lang.JsonLang.GetTranslation(String, String)
+  nameWithType: JsonLang.GetTranslation(string, string)
+  nameWithType.vb: JsonLang.GetTranslation(String, String)
+- uid: SharpEngine.Data.Lang.JsonLang.GetTranslation*
+  name: GetTranslation
+  href: api/SharpEngine.Data.Lang.JsonLang.html#SharpEngine_Data_Lang_JsonLang_GetTranslation_
+  commentId: Overload:SharpEngine.Data.Lang.JsonLang.GetTranslation
+  isSpec: "True"
+  fullName: SharpEngine.Data.Lang.JsonLang.GetTranslation
+  nameWithType: JsonLang.GetTranslation
+- uid: SharpEngine.Data.Lang.JsonLang.Reload(System.String)
+  name: Reload(string)
+  href: api/SharpEngine.Data.Lang.JsonLang.html#SharpEngine_Data_Lang_JsonLang_Reload_System_String_
+  commentId: M:SharpEngine.Data.Lang.JsonLang.Reload(System.String)
+  name.vb: Reload(String)
+  fullName: SharpEngine.Data.Lang.JsonLang.Reload(string)
+  fullName.vb: SharpEngine.Data.Lang.JsonLang.Reload(String)
+  nameWithType: JsonLang.Reload(string)
+  nameWithType.vb: JsonLang.Reload(String)
+- uid: SharpEngine.Data.Lang.JsonLang.Reload*
+  name: Reload
+  href: api/SharpEngine.Data.Lang.JsonLang.html#SharpEngine_Data_Lang_JsonLang_Reload_
+  commentId: Overload:SharpEngine.Data.Lang.JsonLang.Reload
+  isSpec: "True"
+  fullName: SharpEngine.Data.Lang.JsonLang.Reload
+  nameWithType: JsonLang.Reload
+- uid: SharpEngine.Data.Lang.McLang
+  name: McLang
+  href: api/SharpEngine.Data.Lang.McLang.html
+  commentId: T:SharpEngine.Data.Lang.McLang
+  fullName: SharpEngine.Data.Lang.McLang
+  nameWithType: McLang
+- uid: SharpEngine.Data.Lang.McLang.#ctor(System.String)
+  name: McLang(string)
+  href: api/SharpEngine.Data.Lang.McLang.html#SharpEngine_Data_Lang_McLang__ctor_System_String_
+  commentId: M:SharpEngine.Data.Lang.McLang.#ctor(System.String)
+  name.vb: New(String)
+  fullName: SharpEngine.Data.Lang.McLang.McLang(string)
+  fullName.vb: SharpEngine.Data.Lang.McLang.New(String)
+  nameWithType: McLang.McLang(string)
+  nameWithType.vb: McLang.New(String)
+- uid: SharpEngine.Data.Lang.McLang.#ctor*
+  name: McLang
+  href: api/SharpEngine.Data.Lang.McLang.html#SharpEngine_Data_Lang_McLang__ctor_
+  commentId: Overload:SharpEngine.Data.Lang.McLang.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: SharpEngine.Data.Lang.McLang.McLang
+  fullName.vb: SharpEngine.Data.Lang.McLang.New
+  nameWithType: McLang.McLang
+  nameWithType.vb: McLang.New
+- uid: SharpEngine.Data.Lang.McLang.GetTranslation(System.String,System.String)
+  name: GetTranslation(string, string)
+  href: api/SharpEngine.Data.Lang.McLang.html#SharpEngine_Data_Lang_McLang_GetTranslation_System_String_System_String_
+  commentId: M:SharpEngine.Data.Lang.McLang.GetTranslation(System.String,System.String)
+  name.vb: GetTranslation(String, String)
+  fullName: SharpEngine.Data.Lang.McLang.GetTranslation(string, string)
+  fullName.vb: SharpEngine.Data.Lang.McLang.GetTranslation(String, String)
+  nameWithType: McLang.GetTranslation(string, string)
+  nameWithType.vb: McLang.GetTranslation(String, String)
+- uid: SharpEngine.Data.Lang.McLang.GetTranslation*
+  name: GetTranslation
+  href: api/SharpEngine.Data.Lang.McLang.html#SharpEngine_Data_Lang_McLang_GetTranslation_
+  commentId: Overload:SharpEngine.Data.Lang.McLang.GetTranslation
+  isSpec: "True"
+  fullName: SharpEngine.Data.Lang.McLang.GetTranslation
+  nameWithType: McLang.GetTranslation
+- uid: SharpEngine.Data.Lang.McLang.Reload(System.String)
+  name: Reload(string)
+  href: api/SharpEngine.Data.Lang.McLang.html#SharpEngine_Data_Lang_McLang_Reload_System_String_
+  commentId: M:SharpEngine.Data.Lang.McLang.Reload(System.String)
+  name.vb: Reload(String)
+  fullName: SharpEngine.Data.Lang.McLang.Reload(string)
+  fullName.vb: SharpEngine.Data.Lang.McLang.Reload(String)
+  nameWithType: McLang.Reload(string)
+  nameWithType.vb: McLang.Reload(String)
+- uid: SharpEngine.Data.Lang.McLang.Reload*
+  name: Reload
+  href: api/SharpEngine.Data.Lang.McLang.html#SharpEngine_Data_Lang_McLang_Reload_
+  commentId: Overload:SharpEngine.Data.Lang.McLang.Reload
+  isSpec: "True"
+  fullName: SharpEngine.Data.Lang.McLang.Reload
+  nameWithType: McLang.Reload
+- uid: SharpEngine.Data.Save
+  name: SharpEngine.Data.Save
+  href: api/SharpEngine.Data.Save.html
+  commentId: N:SharpEngine.Data.Save
+  fullName: SharpEngine.Data.Save
+  nameWithType: SharpEngine.Data.Save
+- uid: SharpEngine.Data.Save.BinarySave
+  name: BinarySave
+  href: api/SharpEngine.Data.Save.BinarySave.html
+  commentId: T:SharpEngine.Data.Save.BinarySave
+  fullName: SharpEngine.Data.Save.BinarySave
+  nameWithType: BinarySave
+- uid: SharpEngine.Data.Save.BinarySave.GetObject(System.String,System.Object)
+  name: GetObject(string, object)
+  href: api/SharpEngine.Data.Save.BinarySave.html#SharpEngine_Data_Save_BinarySave_GetObject_System_String_System_Object_
+  commentId: M:SharpEngine.Data.Save.BinarySave.GetObject(System.String,System.Object)
+  name.vb: GetObject(String, Object)
+  fullName: SharpEngine.Data.Save.BinarySave.GetObject(string, object)
+  fullName.vb: SharpEngine.Data.Save.BinarySave.GetObject(String, Object)
+  nameWithType: BinarySave.GetObject(string, object)
+  nameWithType.vb: BinarySave.GetObject(String, Object)
+- uid: SharpEngine.Data.Save.BinarySave.GetObject*
+  name: GetObject
+  href: api/SharpEngine.Data.Save.BinarySave.html#SharpEngine_Data_Save_BinarySave_GetObject_
+  commentId: Overload:SharpEngine.Data.Save.BinarySave.GetObject
+  isSpec: "True"
+  fullName: SharpEngine.Data.Save.BinarySave.GetObject
+  nameWithType: BinarySave.GetObject
+- uid: SharpEngine.Data.Save.BinarySave.GetObjectAs*
+  name: GetObjectAs
+  href: api/SharpEngine.Data.Save.BinarySave.html#SharpEngine_Data_Save_BinarySave_GetObjectAs_
+  commentId: Overload:SharpEngine.Data.Save.BinarySave.GetObjectAs
+  isSpec: "True"
+  fullName: SharpEngine.Data.Save.BinarySave.GetObjectAs
+  nameWithType: BinarySave.GetObjectAs
+- uid: SharpEngine.Data.Save.BinarySave.GetObjectAs``1(System.String,``0)
+  name: GetObjectAs<T>(string, T)
+  href: api/SharpEngine.Data.Save.BinarySave.html#SharpEngine_Data_Save_BinarySave_GetObjectAs__1_System_String___0_
+  commentId: M:SharpEngine.Data.Save.BinarySave.GetObjectAs``1(System.String,``0)
+  name.vb: GetObjectAs(Of T)(String, T)
+  fullName: SharpEngine.Data.Save.BinarySave.GetObjectAs<T>(string, T)
+  fullName.vb: SharpEngine.Data.Save.BinarySave.GetObjectAs(Of T)(String, T)
+  nameWithType: BinarySave.GetObjectAs<T>(string, T)
+  nameWithType.vb: BinarySave.GetObjectAs(Of T)(String, T)
+- uid: SharpEngine.Data.Save.BinarySave.Read(System.String)
+  name: Read(string)
+  href: api/SharpEngine.Data.Save.BinarySave.html#SharpEngine_Data_Save_BinarySave_Read_System_String_
+  commentId: M:SharpEngine.Data.Save.BinarySave.Read(System.String)
+  name.vb: Read(String)
+  fullName: SharpEngine.Data.Save.BinarySave.Read(string)
+  fullName.vb: SharpEngine.Data.Save.BinarySave.Read(String)
+  nameWithType: BinarySave.Read(string)
+  nameWithType.vb: BinarySave.Read(String)
+- uid: SharpEngine.Data.Save.BinarySave.Read*
+  name: Read
+  href: api/SharpEngine.Data.Save.BinarySave.html#SharpEngine_Data_Save_BinarySave_Read_
+  commentId: Overload:SharpEngine.Data.Save.BinarySave.Read
+  isSpec: "True"
+  fullName: SharpEngine.Data.Save.BinarySave.Read
+  nameWithType: BinarySave.Read
+- uid: SharpEngine.Data.Save.BinarySave.SetObject(System.String,System.Object)
+  name: SetObject(string, object)
+  href: api/SharpEngine.Data.Save.BinarySave.html#SharpEngine_Data_Save_BinarySave_SetObject_System_String_System_Object_
+  commentId: M:SharpEngine.Data.Save.BinarySave.SetObject(System.String,System.Object)
+  name.vb: SetObject(String, Object)
+  fullName: SharpEngine.Data.Save.BinarySave.SetObject(string, object)
+  fullName.vb: SharpEngine.Data.Save.BinarySave.SetObject(String, Object)
+  nameWithType: BinarySave.SetObject(string, object)
+  nameWithType.vb: BinarySave.SetObject(String, Object)
+- uid: SharpEngine.Data.Save.BinarySave.SetObject*
+  name: SetObject
+  href: api/SharpEngine.Data.Save.BinarySave.html#SharpEngine_Data_Save_BinarySave_SetObject_
+  commentId: Overload:SharpEngine.Data.Save.BinarySave.SetObject
+  isSpec: "True"
+  fullName: SharpEngine.Data.Save.BinarySave.SetObject
+  nameWithType: BinarySave.SetObject
+- uid: SharpEngine.Data.Save.BinarySave.Write(System.String)
+  name: Write(string)
+  href: api/SharpEngine.Data.Save.BinarySave.html#SharpEngine_Data_Save_BinarySave_Write_System_String_
+  commentId: M:SharpEngine.Data.Save.BinarySave.Write(System.String)
+  name.vb: Write(String)
+  fullName: SharpEngine.Data.Save.BinarySave.Write(string)
+  fullName.vb: SharpEngine.Data.Save.BinarySave.Write(String)
+  nameWithType: BinarySave.Write(string)
+  nameWithType.vb: BinarySave.Write(String)
+- uid: SharpEngine.Data.Save.BinarySave.Write*
+  name: Write
+  href: api/SharpEngine.Data.Save.BinarySave.html#SharpEngine_Data_Save_BinarySave_Write_
+  commentId: Overload:SharpEngine.Data.Save.BinarySave.Write
+  isSpec: "True"
+  fullName: SharpEngine.Data.Save.BinarySave.Write
+  nameWithType: BinarySave.Write
+- uid: SharpEngine.Data.Save.ISave
+  name: ISave
+  href: api/SharpEngine.Data.Save.ISave.html
+  commentId: T:SharpEngine.Data.Save.ISave
+  fullName: SharpEngine.Data.Save.ISave
+  nameWithType: ISave
+- uid: SharpEngine.Data.Save.ISave.GetObject(System.String,System.Object)
+  name: GetObject(string, object)
+  href: api/SharpEngine.Data.Save.ISave.html#SharpEngine_Data_Save_ISave_GetObject_System_String_System_Object_
+  commentId: M:SharpEngine.Data.Save.ISave.GetObject(System.String,System.Object)
+  name.vb: GetObject(String, Object)
+  fullName: SharpEngine.Data.Save.ISave.GetObject(string, object)
+  fullName.vb: SharpEngine.Data.Save.ISave.GetObject(String, Object)
+  nameWithType: ISave.GetObject(string, object)
+  nameWithType.vb: ISave.GetObject(String, Object)
+- uid: SharpEngine.Data.Save.ISave.GetObject*
+  name: GetObject
+  href: api/SharpEngine.Data.Save.ISave.html#SharpEngine_Data_Save_ISave_GetObject_
+  commentId: Overload:SharpEngine.Data.Save.ISave.GetObject
+  isSpec: "True"
+  fullName: SharpEngine.Data.Save.ISave.GetObject
+  nameWithType: ISave.GetObject
+- uid: SharpEngine.Data.Save.ISave.GetObjectAs*
+  name: GetObjectAs
+  href: api/SharpEngine.Data.Save.ISave.html#SharpEngine_Data_Save_ISave_GetObjectAs_
+  commentId: Overload:SharpEngine.Data.Save.ISave.GetObjectAs
+  isSpec: "True"
+  fullName: SharpEngine.Data.Save.ISave.GetObjectAs
+  nameWithType: ISave.GetObjectAs
+- uid: SharpEngine.Data.Save.ISave.GetObjectAs``1(System.String,``0)
+  name: GetObjectAs<T>(string, T)
+  href: api/SharpEngine.Data.Save.ISave.html#SharpEngine_Data_Save_ISave_GetObjectAs__1_System_String___0_
+  commentId: M:SharpEngine.Data.Save.ISave.GetObjectAs``1(System.String,``0)
+  name.vb: GetObjectAs(Of T)(String, T)
+  fullName: SharpEngine.Data.Save.ISave.GetObjectAs<T>(string, T)
+  fullName.vb: SharpEngine.Data.Save.ISave.GetObjectAs(Of T)(String, T)
+  nameWithType: ISave.GetObjectAs<T>(string, T)
+  nameWithType.vb: ISave.GetObjectAs(Of T)(String, T)
+- uid: SharpEngine.Data.Save.ISave.Read(System.String)
+  name: Read(string)
+  href: api/SharpEngine.Data.Save.ISave.html#SharpEngine_Data_Save_ISave_Read_System_String_
+  commentId: M:SharpEngine.Data.Save.ISave.Read(System.String)
+  name.vb: Read(String)
+  fullName: SharpEngine.Data.Save.ISave.Read(string)
+  fullName.vb: SharpEngine.Data.Save.ISave.Read(String)
+  nameWithType: ISave.Read(string)
+  nameWithType.vb: ISave.Read(String)
+- uid: SharpEngine.Data.Save.ISave.Read*
+  name: Read
+  href: api/SharpEngine.Data.Save.ISave.html#SharpEngine_Data_Save_ISave_Read_
+  commentId: Overload:SharpEngine.Data.Save.ISave.Read
+  isSpec: "True"
+  fullName: SharpEngine.Data.Save.ISave.Read
+  nameWithType: ISave.Read
+- uid: SharpEngine.Data.Save.ISave.SetObject(System.String,System.Object)
+  name: SetObject(string, object)
+  href: api/SharpEngine.Data.Save.ISave.html#SharpEngine_Data_Save_ISave_SetObject_System_String_System_Object_
+  commentId: M:SharpEngine.Data.Save.ISave.SetObject(System.String,System.Object)
+  name.vb: SetObject(String, Object)
+  fullName: SharpEngine.Data.Save.ISave.SetObject(string, object)
+  fullName.vb: SharpEngine.Data.Save.ISave.SetObject(String, Object)
+  nameWithType: ISave.SetObject(string, object)
+  nameWithType.vb: ISave.SetObject(String, Object)
+- uid: SharpEngine.Data.Save.ISave.SetObject*
+  name: SetObject
+  href: api/SharpEngine.Data.Save.ISave.html#SharpEngine_Data_Save_ISave_SetObject_
+  commentId: Overload:SharpEngine.Data.Save.ISave.SetObject
+  isSpec: "True"
+  fullName: SharpEngine.Data.Save.ISave.SetObject
+  nameWithType: ISave.SetObject
+- uid: SharpEngine.Data.Save.ISave.Write(System.String)
+  name: Write(string)
+  href: api/SharpEngine.Data.Save.ISave.html#SharpEngine_Data_Save_ISave_Write_System_String_
+  commentId: M:SharpEngine.Data.Save.ISave.Write(System.String)
+  name.vb: Write(String)
+  fullName: SharpEngine.Data.Save.ISave.Write(string)
+  fullName.vb: SharpEngine.Data.Save.ISave.Write(String)
+  nameWithType: ISave.Write(string)
+  nameWithType.vb: ISave.Write(String)
+- uid: SharpEngine.Data.Save.ISave.Write*
+  name: Write
+  href: api/SharpEngine.Data.Save.ISave.html#SharpEngine_Data_Save_ISave_Write_
+  commentId: Overload:SharpEngine.Data.Save.ISave.Write
+  isSpec: "True"
+  fullName: SharpEngine.Data.Save.ISave.Write
+  nameWithType: ISave.Write
+- uid: SharpEngine.Data.Save.JsonSave
+  name: JsonSave
+  href: api/SharpEngine.Data.Save.JsonSave.html
+  commentId: T:SharpEngine.Data.Save.JsonSave
+  fullName: SharpEngine.Data.Save.JsonSave
+  nameWithType: JsonSave
+- uid: SharpEngine.Data.Save.JsonSave.GetObject(System.String,System.Object)
+  name: GetObject(string, object)
+  href: api/SharpEngine.Data.Save.JsonSave.html#SharpEngine_Data_Save_JsonSave_GetObject_System_String_System_Object_
+  commentId: M:SharpEngine.Data.Save.JsonSave.GetObject(System.String,System.Object)
+  name.vb: GetObject(String, Object)
+  fullName: SharpEngine.Data.Save.JsonSave.GetObject(string, object)
+  fullName.vb: SharpEngine.Data.Save.JsonSave.GetObject(String, Object)
+  nameWithType: JsonSave.GetObject(string, object)
+  nameWithType.vb: JsonSave.GetObject(String, Object)
+- uid: SharpEngine.Data.Save.JsonSave.GetObject*
+  name: GetObject
+  href: api/SharpEngine.Data.Save.JsonSave.html#SharpEngine_Data_Save_JsonSave_GetObject_
+  commentId: Overload:SharpEngine.Data.Save.JsonSave.GetObject
+  isSpec: "True"
+  fullName: SharpEngine.Data.Save.JsonSave.GetObject
+  nameWithType: JsonSave.GetObject
+- uid: SharpEngine.Data.Save.JsonSave.GetObjectAs*
+  name: GetObjectAs
+  href: api/SharpEngine.Data.Save.JsonSave.html#SharpEngine_Data_Save_JsonSave_GetObjectAs_
+  commentId: Overload:SharpEngine.Data.Save.JsonSave.GetObjectAs
+  isSpec: "True"
+  fullName: SharpEngine.Data.Save.JsonSave.GetObjectAs
+  nameWithType: JsonSave.GetObjectAs
+- uid: SharpEngine.Data.Save.JsonSave.GetObjectAs``1(System.String,``0)
+  name: GetObjectAs<T>(string, T)
+  href: api/SharpEngine.Data.Save.JsonSave.html#SharpEngine_Data_Save_JsonSave_GetObjectAs__1_System_String___0_
+  commentId: M:SharpEngine.Data.Save.JsonSave.GetObjectAs``1(System.String,``0)
+  name.vb: GetObjectAs(Of T)(String, T)
+  fullName: SharpEngine.Data.Save.JsonSave.GetObjectAs<T>(string, T)
+  fullName.vb: SharpEngine.Data.Save.JsonSave.GetObjectAs(Of T)(String, T)
+  nameWithType: JsonSave.GetObjectAs<T>(string, T)
+  nameWithType.vb: JsonSave.GetObjectAs(Of T)(String, T)
+- uid: SharpEngine.Data.Save.JsonSave.Read(System.String)
+  name: Read(string)
+  href: api/SharpEngine.Data.Save.JsonSave.html#SharpEngine_Data_Save_JsonSave_Read_System_String_
+  commentId: M:SharpEngine.Data.Save.JsonSave.Read(System.String)
+  name.vb: Read(String)
+  fullName: SharpEngine.Data.Save.JsonSave.Read(string)
+  fullName.vb: SharpEngine.Data.Save.JsonSave.Read(String)
+  nameWithType: JsonSave.Read(string)
+  nameWithType.vb: JsonSave.Read(String)
+- uid: SharpEngine.Data.Save.JsonSave.Read*
+  name: Read
+  href: api/SharpEngine.Data.Save.JsonSave.html#SharpEngine_Data_Save_JsonSave_Read_
+  commentId: Overload:SharpEngine.Data.Save.JsonSave.Read
+  isSpec: "True"
+  fullName: SharpEngine.Data.Save.JsonSave.Read
+  nameWithType: JsonSave.Read
+- uid: SharpEngine.Data.Save.JsonSave.SetObject(System.String,System.Object)
+  name: SetObject(string, object)
+  href: api/SharpEngine.Data.Save.JsonSave.html#SharpEngine_Data_Save_JsonSave_SetObject_System_String_System_Object_
+  commentId: M:SharpEngine.Data.Save.JsonSave.SetObject(System.String,System.Object)
+  name.vb: SetObject(String, Object)
+  fullName: SharpEngine.Data.Save.JsonSave.SetObject(string, object)
+  fullName.vb: SharpEngine.Data.Save.JsonSave.SetObject(String, Object)
+  nameWithType: JsonSave.SetObject(string, object)
+  nameWithType.vb: JsonSave.SetObject(String, Object)
+- uid: SharpEngine.Data.Save.JsonSave.SetObject*
+  name: SetObject
+  href: api/SharpEngine.Data.Save.JsonSave.html#SharpEngine_Data_Save_JsonSave_SetObject_
+  commentId: Overload:SharpEngine.Data.Save.JsonSave.SetObject
+  isSpec: "True"
+  fullName: SharpEngine.Data.Save.JsonSave.SetObject
+  nameWithType: JsonSave.SetObject
+- uid: SharpEngine.Data.Save.JsonSave.Write(System.String)
+  name: Write(string)
+  href: api/SharpEngine.Data.Save.JsonSave.html#SharpEngine_Data_Save_JsonSave_Write_System_String_
+  commentId: M:SharpEngine.Data.Save.JsonSave.Write(System.String)
+  name.vb: Write(String)
+  fullName: SharpEngine.Data.Save.JsonSave.Write(string)
+  fullName.vb: SharpEngine.Data.Save.JsonSave.Write(String)
+  nameWithType: JsonSave.Write(string)
+  nameWithType.vb: JsonSave.Write(String)
+- uid: SharpEngine.Data.Save.JsonSave.Write*
+  name: Write
+  href: api/SharpEngine.Data.Save.JsonSave.html#SharpEngine_Data_Save_JsonSave_Write_
+  commentId: Overload:SharpEngine.Data.Save.JsonSave.Write
+  isSpec: "True"
+  fullName: SharpEngine.Data.Save.JsonSave.Write
+  nameWithType: JsonSave.Write
 - uid: SharpEngine.Entity
   name: SharpEngine.Entity
   href: api/SharpEngine.Entity.html
@@ -1575,428 +2117,6 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Entity.Entity.Update
   nameWithType: Entity.Update
-- uid: SharpEngine.File.Lang
-  name: SharpEngine.File.Lang
-  href: api/SharpEngine.File.Lang.html
-  commentId: N:SharpEngine.File.Lang
-  fullName: SharpEngine.File.Lang
-  nameWithType: SharpEngine.File.Lang
-- uid: SharpEngine.File.Lang.ILang
-  name: ILang
-  href: api/SharpEngine.File.Lang.ILang.html
-  commentId: T:SharpEngine.File.Lang.ILang
-  fullName: SharpEngine.File.Lang.ILang
-  nameWithType: ILang
-- uid: SharpEngine.File.Lang.ILang.GetTranslation(System.String,System.String)
-  name: GetTranslation(string, string)
-  href: api/SharpEngine.File.Lang.ILang.html#SharpEngine_File_Lang_ILang_GetTranslation_System_String_System_String_
-  commentId: M:SharpEngine.File.Lang.ILang.GetTranslation(System.String,System.String)
-  name.vb: GetTranslation(String, String)
-  fullName: SharpEngine.File.Lang.ILang.GetTranslation(string, string)
-  fullName.vb: SharpEngine.File.Lang.ILang.GetTranslation(String, String)
-  nameWithType: ILang.GetTranslation(string, string)
-  nameWithType.vb: ILang.GetTranslation(String, String)
-- uid: SharpEngine.File.Lang.ILang.GetTranslation*
-  name: GetTranslation
-  href: api/SharpEngine.File.Lang.ILang.html#SharpEngine_File_Lang_ILang_GetTranslation_
-  commentId: Overload:SharpEngine.File.Lang.ILang.GetTranslation
-  isSpec: "True"
-  fullName: SharpEngine.File.Lang.ILang.GetTranslation
-  nameWithType: ILang.GetTranslation
-- uid: SharpEngine.File.Lang.ILang.Reload(System.String)
-  name: Reload(string)
-  href: api/SharpEngine.File.Lang.ILang.html#SharpEngine_File_Lang_ILang_Reload_System_String_
-  commentId: M:SharpEngine.File.Lang.ILang.Reload(System.String)
-  name.vb: Reload(String)
-  fullName: SharpEngine.File.Lang.ILang.Reload(string)
-  fullName.vb: SharpEngine.File.Lang.ILang.Reload(String)
-  nameWithType: ILang.Reload(string)
-  nameWithType.vb: ILang.Reload(String)
-- uid: SharpEngine.File.Lang.ILang.Reload*
-  name: Reload
-  href: api/SharpEngine.File.Lang.ILang.html#SharpEngine_File_Lang_ILang_Reload_
-  commentId: Overload:SharpEngine.File.Lang.ILang.Reload
-  isSpec: "True"
-  fullName: SharpEngine.File.Lang.ILang.Reload
-  nameWithType: ILang.Reload
-- uid: SharpEngine.File.Lang.JsonLang
-  name: JsonLang
-  href: api/SharpEngine.File.Lang.JsonLang.html
-  commentId: T:SharpEngine.File.Lang.JsonLang
-  fullName: SharpEngine.File.Lang.JsonLang
-  nameWithType: JsonLang
-- uid: SharpEngine.File.Lang.JsonLang.#ctor(System.String)
-  name: JsonLang(string)
-  href: api/SharpEngine.File.Lang.JsonLang.html#SharpEngine_File_Lang_JsonLang__ctor_System_String_
-  commentId: M:SharpEngine.File.Lang.JsonLang.#ctor(System.String)
-  name.vb: New(String)
-  fullName: SharpEngine.File.Lang.JsonLang.JsonLang(string)
-  fullName.vb: SharpEngine.File.Lang.JsonLang.New(String)
-  nameWithType: JsonLang.JsonLang(string)
-  nameWithType.vb: JsonLang.New(String)
-- uid: SharpEngine.File.Lang.JsonLang.#ctor*
-  name: JsonLang
-  href: api/SharpEngine.File.Lang.JsonLang.html#SharpEngine_File_Lang_JsonLang__ctor_
-  commentId: Overload:SharpEngine.File.Lang.JsonLang.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: SharpEngine.File.Lang.JsonLang.JsonLang
-  fullName.vb: SharpEngine.File.Lang.JsonLang.New
-  nameWithType: JsonLang.JsonLang
-  nameWithType.vb: JsonLang.New
-- uid: SharpEngine.File.Lang.JsonLang.GetTranslation(System.String,System.String)
-  name: GetTranslation(string, string)
-  href: api/SharpEngine.File.Lang.JsonLang.html#SharpEngine_File_Lang_JsonLang_GetTranslation_System_String_System_String_
-  commentId: M:SharpEngine.File.Lang.JsonLang.GetTranslation(System.String,System.String)
-  name.vb: GetTranslation(String, String)
-  fullName: SharpEngine.File.Lang.JsonLang.GetTranslation(string, string)
-  fullName.vb: SharpEngine.File.Lang.JsonLang.GetTranslation(String, String)
-  nameWithType: JsonLang.GetTranslation(string, string)
-  nameWithType.vb: JsonLang.GetTranslation(String, String)
-- uid: SharpEngine.File.Lang.JsonLang.GetTranslation*
-  name: GetTranslation
-  href: api/SharpEngine.File.Lang.JsonLang.html#SharpEngine_File_Lang_JsonLang_GetTranslation_
-  commentId: Overload:SharpEngine.File.Lang.JsonLang.GetTranslation
-  isSpec: "True"
-  fullName: SharpEngine.File.Lang.JsonLang.GetTranslation
-  nameWithType: JsonLang.GetTranslation
-- uid: SharpEngine.File.Lang.JsonLang.Reload(System.String)
-  name: Reload(string)
-  href: api/SharpEngine.File.Lang.JsonLang.html#SharpEngine_File_Lang_JsonLang_Reload_System_String_
-  commentId: M:SharpEngine.File.Lang.JsonLang.Reload(System.String)
-  name.vb: Reload(String)
-  fullName: SharpEngine.File.Lang.JsonLang.Reload(string)
-  fullName.vb: SharpEngine.File.Lang.JsonLang.Reload(String)
-  nameWithType: JsonLang.Reload(string)
-  nameWithType.vb: JsonLang.Reload(String)
-- uid: SharpEngine.File.Lang.JsonLang.Reload*
-  name: Reload
-  href: api/SharpEngine.File.Lang.JsonLang.html#SharpEngine_File_Lang_JsonLang_Reload_
-  commentId: Overload:SharpEngine.File.Lang.JsonLang.Reload
-  isSpec: "True"
-  fullName: SharpEngine.File.Lang.JsonLang.Reload
-  nameWithType: JsonLang.Reload
-- uid: SharpEngine.File.Lang.McLang
-  name: McLang
-  href: api/SharpEngine.File.Lang.McLang.html
-  commentId: T:SharpEngine.File.Lang.McLang
-  fullName: SharpEngine.File.Lang.McLang
-  nameWithType: McLang
-- uid: SharpEngine.File.Lang.McLang.#ctor(System.String)
-  name: McLang(string)
-  href: api/SharpEngine.File.Lang.McLang.html#SharpEngine_File_Lang_McLang__ctor_System_String_
-  commentId: M:SharpEngine.File.Lang.McLang.#ctor(System.String)
-  name.vb: New(String)
-  fullName: SharpEngine.File.Lang.McLang.McLang(string)
-  fullName.vb: SharpEngine.File.Lang.McLang.New(String)
-  nameWithType: McLang.McLang(string)
-  nameWithType.vb: McLang.New(String)
-- uid: SharpEngine.File.Lang.McLang.#ctor*
-  name: McLang
-  href: api/SharpEngine.File.Lang.McLang.html#SharpEngine_File_Lang_McLang__ctor_
-  commentId: Overload:SharpEngine.File.Lang.McLang.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: SharpEngine.File.Lang.McLang.McLang
-  fullName.vb: SharpEngine.File.Lang.McLang.New
-  nameWithType: McLang.McLang
-  nameWithType.vb: McLang.New
-- uid: SharpEngine.File.Lang.McLang.GetTranslation(System.String,System.String)
-  name: GetTranslation(string, string)
-  href: api/SharpEngine.File.Lang.McLang.html#SharpEngine_File_Lang_McLang_GetTranslation_System_String_System_String_
-  commentId: M:SharpEngine.File.Lang.McLang.GetTranslation(System.String,System.String)
-  name.vb: GetTranslation(String, String)
-  fullName: SharpEngine.File.Lang.McLang.GetTranslation(string, string)
-  fullName.vb: SharpEngine.File.Lang.McLang.GetTranslation(String, String)
-  nameWithType: McLang.GetTranslation(string, string)
-  nameWithType.vb: McLang.GetTranslation(String, String)
-- uid: SharpEngine.File.Lang.McLang.GetTranslation*
-  name: GetTranslation
-  href: api/SharpEngine.File.Lang.McLang.html#SharpEngine_File_Lang_McLang_GetTranslation_
-  commentId: Overload:SharpEngine.File.Lang.McLang.GetTranslation
-  isSpec: "True"
-  fullName: SharpEngine.File.Lang.McLang.GetTranslation
-  nameWithType: McLang.GetTranslation
-- uid: SharpEngine.File.Lang.McLang.Reload(System.String)
-  name: Reload(string)
-  href: api/SharpEngine.File.Lang.McLang.html#SharpEngine_File_Lang_McLang_Reload_System_String_
-  commentId: M:SharpEngine.File.Lang.McLang.Reload(System.String)
-  name.vb: Reload(String)
-  fullName: SharpEngine.File.Lang.McLang.Reload(string)
-  fullName.vb: SharpEngine.File.Lang.McLang.Reload(String)
-  nameWithType: McLang.Reload(string)
-  nameWithType.vb: McLang.Reload(String)
-- uid: SharpEngine.File.Lang.McLang.Reload*
-  name: Reload
-  href: api/SharpEngine.File.Lang.McLang.html#SharpEngine_File_Lang_McLang_Reload_
-  commentId: Overload:SharpEngine.File.Lang.McLang.Reload
-  isSpec: "True"
-  fullName: SharpEngine.File.Lang.McLang.Reload
-  nameWithType: McLang.Reload
-- uid: SharpEngine.File.Save
-  name: SharpEngine.File.Save
-  href: api/SharpEngine.File.Save.html
-  commentId: N:SharpEngine.File.Save
-  fullName: SharpEngine.File.Save
-  nameWithType: SharpEngine.File.Save
-- uid: SharpEngine.File.Save.BinarySave
-  name: BinarySave
-  href: api/SharpEngine.File.Save.BinarySave.html
-  commentId: T:SharpEngine.File.Save.BinarySave
-  fullName: SharpEngine.File.Save.BinarySave
-  nameWithType: BinarySave
-- uid: SharpEngine.File.Save.BinarySave.GetObject(System.String,System.Object)
-  name: GetObject(string, object)
-  href: api/SharpEngine.File.Save.BinarySave.html#SharpEngine_File_Save_BinarySave_GetObject_System_String_System_Object_
-  commentId: M:SharpEngine.File.Save.BinarySave.GetObject(System.String,System.Object)
-  name.vb: GetObject(String, Object)
-  fullName: SharpEngine.File.Save.BinarySave.GetObject(string, object)
-  fullName.vb: SharpEngine.File.Save.BinarySave.GetObject(String, Object)
-  nameWithType: BinarySave.GetObject(string, object)
-  nameWithType.vb: BinarySave.GetObject(String, Object)
-- uid: SharpEngine.File.Save.BinarySave.GetObject*
-  name: GetObject
-  href: api/SharpEngine.File.Save.BinarySave.html#SharpEngine_File_Save_BinarySave_GetObject_
-  commentId: Overload:SharpEngine.File.Save.BinarySave.GetObject
-  isSpec: "True"
-  fullName: SharpEngine.File.Save.BinarySave.GetObject
-  nameWithType: BinarySave.GetObject
-- uid: SharpEngine.File.Save.BinarySave.GetObjectAs*
-  name: GetObjectAs
-  href: api/SharpEngine.File.Save.BinarySave.html#SharpEngine_File_Save_BinarySave_GetObjectAs_
-  commentId: Overload:SharpEngine.File.Save.BinarySave.GetObjectAs
-  isSpec: "True"
-  fullName: SharpEngine.File.Save.BinarySave.GetObjectAs
-  nameWithType: BinarySave.GetObjectAs
-- uid: SharpEngine.File.Save.BinarySave.GetObjectAs``1(System.String,``0)
-  name: GetObjectAs<T>(string, T)
-  href: api/SharpEngine.File.Save.BinarySave.html#SharpEngine_File_Save_BinarySave_GetObjectAs__1_System_String___0_
-  commentId: M:SharpEngine.File.Save.BinarySave.GetObjectAs``1(System.String,``0)
-  name.vb: GetObjectAs(Of T)(String, T)
-  fullName: SharpEngine.File.Save.BinarySave.GetObjectAs<T>(string, T)
-  fullName.vb: SharpEngine.File.Save.BinarySave.GetObjectAs(Of T)(String, T)
-  nameWithType: BinarySave.GetObjectAs<T>(string, T)
-  nameWithType.vb: BinarySave.GetObjectAs(Of T)(String, T)
-- uid: SharpEngine.File.Save.BinarySave.Read(System.String)
-  name: Read(string)
-  href: api/SharpEngine.File.Save.BinarySave.html#SharpEngine_File_Save_BinarySave_Read_System_String_
-  commentId: M:SharpEngine.File.Save.BinarySave.Read(System.String)
-  name.vb: Read(String)
-  fullName: SharpEngine.File.Save.BinarySave.Read(string)
-  fullName.vb: SharpEngine.File.Save.BinarySave.Read(String)
-  nameWithType: BinarySave.Read(string)
-  nameWithType.vb: BinarySave.Read(String)
-- uid: SharpEngine.File.Save.BinarySave.Read*
-  name: Read
-  href: api/SharpEngine.File.Save.BinarySave.html#SharpEngine_File_Save_BinarySave_Read_
-  commentId: Overload:SharpEngine.File.Save.BinarySave.Read
-  isSpec: "True"
-  fullName: SharpEngine.File.Save.BinarySave.Read
-  nameWithType: BinarySave.Read
-- uid: SharpEngine.File.Save.BinarySave.SetObject(System.String,System.Object)
-  name: SetObject(string, object)
-  href: api/SharpEngine.File.Save.BinarySave.html#SharpEngine_File_Save_BinarySave_SetObject_System_String_System_Object_
-  commentId: M:SharpEngine.File.Save.BinarySave.SetObject(System.String,System.Object)
-  name.vb: SetObject(String, Object)
-  fullName: SharpEngine.File.Save.BinarySave.SetObject(string, object)
-  fullName.vb: SharpEngine.File.Save.BinarySave.SetObject(String, Object)
-  nameWithType: BinarySave.SetObject(string, object)
-  nameWithType.vb: BinarySave.SetObject(String, Object)
-- uid: SharpEngine.File.Save.BinarySave.SetObject*
-  name: SetObject
-  href: api/SharpEngine.File.Save.BinarySave.html#SharpEngine_File_Save_BinarySave_SetObject_
-  commentId: Overload:SharpEngine.File.Save.BinarySave.SetObject
-  isSpec: "True"
-  fullName: SharpEngine.File.Save.BinarySave.SetObject
-  nameWithType: BinarySave.SetObject
-- uid: SharpEngine.File.Save.BinarySave.Write(System.String)
-  name: Write(string)
-  href: api/SharpEngine.File.Save.BinarySave.html#SharpEngine_File_Save_BinarySave_Write_System_String_
-  commentId: M:SharpEngine.File.Save.BinarySave.Write(System.String)
-  name.vb: Write(String)
-  fullName: SharpEngine.File.Save.BinarySave.Write(string)
-  fullName.vb: SharpEngine.File.Save.BinarySave.Write(String)
-  nameWithType: BinarySave.Write(string)
-  nameWithType.vb: BinarySave.Write(String)
-- uid: SharpEngine.File.Save.BinarySave.Write*
-  name: Write
-  href: api/SharpEngine.File.Save.BinarySave.html#SharpEngine_File_Save_BinarySave_Write_
-  commentId: Overload:SharpEngine.File.Save.BinarySave.Write
-  isSpec: "True"
-  fullName: SharpEngine.File.Save.BinarySave.Write
-  nameWithType: BinarySave.Write
-- uid: SharpEngine.File.Save.ISave
-  name: ISave
-  href: api/SharpEngine.File.Save.ISave.html
-  commentId: T:SharpEngine.File.Save.ISave
-  fullName: SharpEngine.File.Save.ISave
-  nameWithType: ISave
-- uid: SharpEngine.File.Save.ISave.GetObject(System.String,System.Object)
-  name: GetObject(string, object)
-  href: api/SharpEngine.File.Save.ISave.html#SharpEngine_File_Save_ISave_GetObject_System_String_System_Object_
-  commentId: M:SharpEngine.File.Save.ISave.GetObject(System.String,System.Object)
-  name.vb: GetObject(String, Object)
-  fullName: SharpEngine.File.Save.ISave.GetObject(string, object)
-  fullName.vb: SharpEngine.File.Save.ISave.GetObject(String, Object)
-  nameWithType: ISave.GetObject(string, object)
-  nameWithType.vb: ISave.GetObject(String, Object)
-- uid: SharpEngine.File.Save.ISave.GetObject*
-  name: GetObject
-  href: api/SharpEngine.File.Save.ISave.html#SharpEngine_File_Save_ISave_GetObject_
-  commentId: Overload:SharpEngine.File.Save.ISave.GetObject
-  isSpec: "True"
-  fullName: SharpEngine.File.Save.ISave.GetObject
-  nameWithType: ISave.GetObject
-- uid: SharpEngine.File.Save.ISave.GetObjectAs*
-  name: GetObjectAs
-  href: api/SharpEngine.File.Save.ISave.html#SharpEngine_File_Save_ISave_GetObjectAs_
-  commentId: Overload:SharpEngine.File.Save.ISave.GetObjectAs
-  isSpec: "True"
-  fullName: SharpEngine.File.Save.ISave.GetObjectAs
-  nameWithType: ISave.GetObjectAs
-- uid: SharpEngine.File.Save.ISave.GetObjectAs``1(System.String,``0)
-  name: GetObjectAs<T>(string, T)
-  href: api/SharpEngine.File.Save.ISave.html#SharpEngine_File_Save_ISave_GetObjectAs__1_System_String___0_
-  commentId: M:SharpEngine.File.Save.ISave.GetObjectAs``1(System.String,``0)
-  name.vb: GetObjectAs(Of T)(String, T)
-  fullName: SharpEngine.File.Save.ISave.GetObjectAs<T>(string, T)
-  fullName.vb: SharpEngine.File.Save.ISave.GetObjectAs(Of T)(String, T)
-  nameWithType: ISave.GetObjectAs<T>(string, T)
-  nameWithType.vb: ISave.GetObjectAs(Of T)(String, T)
-- uid: SharpEngine.File.Save.ISave.Read(System.String)
-  name: Read(string)
-  href: api/SharpEngine.File.Save.ISave.html#SharpEngine_File_Save_ISave_Read_System_String_
-  commentId: M:SharpEngine.File.Save.ISave.Read(System.String)
-  name.vb: Read(String)
-  fullName: SharpEngine.File.Save.ISave.Read(string)
-  fullName.vb: SharpEngine.File.Save.ISave.Read(String)
-  nameWithType: ISave.Read(string)
-  nameWithType.vb: ISave.Read(String)
-- uid: SharpEngine.File.Save.ISave.Read*
-  name: Read
-  href: api/SharpEngine.File.Save.ISave.html#SharpEngine_File_Save_ISave_Read_
-  commentId: Overload:SharpEngine.File.Save.ISave.Read
-  isSpec: "True"
-  fullName: SharpEngine.File.Save.ISave.Read
-  nameWithType: ISave.Read
-- uid: SharpEngine.File.Save.ISave.SetObject(System.String,System.Object)
-  name: SetObject(string, object)
-  href: api/SharpEngine.File.Save.ISave.html#SharpEngine_File_Save_ISave_SetObject_System_String_System_Object_
-  commentId: M:SharpEngine.File.Save.ISave.SetObject(System.String,System.Object)
-  name.vb: SetObject(String, Object)
-  fullName: SharpEngine.File.Save.ISave.SetObject(string, object)
-  fullName.vb: SharpEngine.File.Save.ISave.SetObject(String, Object)
-  nameWithType: ISave.SetObject(string, object)
-  nameWithType.vb: ISave.SetObject(String, Object)
-- uid: SharpEngine.File.Save.ISave.SetObject*
-  name: SetObject
-  href: api/SharpEngine.File.Save.ISave.html#SharpEngine_File_Save_ISave_SetObject_
-  commentId: Overload:SharpEngine.File.Save.ISave.SetObject
-  isSpec: "True"
-  fullName: SharpEngine.File.Save.ISave.SetObject
-  nameWithType: ISave.SetObject
-- uid: SharpEngine.File.Save.ISave.Write(System.String)
-  name: Write(string)
-  href: api/SharpEngine.File.Save.ISave.html#SharpEngine_File_Save_ISave_Write_System_String_
-  commentId: M:SharpEngine.File.Save.ISave.Write(System.String)
-  name.vb: Write(String)
-  fullName: SharpEngine.File.Save.ISave.Write(string)
-  fullName.vb: SharpEngine.File.Save.ISave.Write(String)
-  nameWithType: ISave.Write(string)
-  nameWithType.vb: ISave.Write(String)
-- uid: SharpEngine.File.Save.ISave.Write*
-  name: Write
-  href: api/SharpEngine.File.Save.ISave.html#SharpEngine_File_Save_ISave_Write_
-  commentId: Overload:SharpEngine.File.Save.ISave.Write
-  isSpec: "True"
-  fullName: SharpEngine.File.Save.ISave.Write
-  nameWithType: ISave.Write
-- uid: SharpEngine.File.Save.JsonSave
-  name: JsonSave
-  href: api/SharpEngine.File.Save.JsonSave.html
-  commentId: T:SharpEngine.File.Save.JsonSave
-  fullName: SharpEngine.File.Save.JsonSave
-  nameWithType: JsonSave
-- uid: SharpEngine.File.Save.JsonSave.GetObject(System.String,System.Object)
-  name: GetObject(string, object)
-  href: api/SharpEngine.File.Save.JsonSave.html#SharpEngine_File_Save_JsonSave_GetObject_System_String_System_Object_
-  commentId: M:SharpEngine.File.Save.JsonSave.GetObject(System.String,System.Object)
-  name.vb: GetObject(String, Object)
-  fullName: SharpEngine.File.Save.JsonSave.GetObject(string, object)
-  fullName.vb: SharpEngine.File.Save.JsonSave.GetObject(String, Object)
-  nameWithType: JsonSave.GetObject(string, object)
-  nameWithType.vb: JsonSave.GetObject(String, Object)
-- uid: SharpEngine.File.Save.JsonSave.GetObject*
-  name: GetObject
-  href: api/SharpEngine.File.Save.JsonSave.html#SharpEngine_File_Save_JsonSave_GetObject_
-  commentId: Overload:SharpEngine.File.Save.JsonSave.GetObject
-  isSpec: "True"
-  fullName: SharpEngine.File.Save.JsonSave.GetObject
-  nameWithType: JsonSave.GetObject
-- uid: SharpEngine.File.Save.JsonSave.GetObjectAs*
-  name: GetObjectAs
-  href: api/SharpEngine.File.Save.JsonSave.html#SharpEngine_File_Save_JsonSave_GetObjectAs_
-  commentId: Overload:SharpEngine.File.Save.JsonSave.GetObjectAs
-  isSpec: "True"
-  fullName: SharpEngine.File.Save.JsonSave.GetObjectAs
-  nameWithType: JsonSave.GetObjectAs
-- uid: SharpEngine.File.Save.JsonSave.GetObjectAs``1(System.String,``0)
-  name: GetObjectAs<T>(string, T)
-  href: api/SharpEngine.File.Save.JsonSave.html#SharpEngine_File_Save_JsonSave_GetObjectAs__1_System_String___0_
-  commentId: M:SharpEngine.File.Save.JsonSave.GetObjectAs``1(System.String,``0)
-  name.vb: GetObjectAs(Of T)(String, T)
-  fullName: SharpEngine.File.Save.JsonSave.GetObjectAs<T>(string, T)
-  fullName.vb: SharpEngine.File.Save.JsonSave.GetObjectAs(Of T)(String, T)
-  nameWithType: JsonSave.GetObjectAs<T>(string, T)
-  nameWithType.vb: JsonSave.GetObjectAs(Of T)(String, T)
-- uid: SharpEngine.File.Save.JsonSave.Read(System.String)
-  name: Read(string)
-  href: api/SharpEngine.File.Save.JsonSave.html#SharpEngine_File_Save_JsonSave_Read_System_String_
-  commentId: M:SharpEngine.File.Save.JsonSave.Read(System.String)
-  name.vb: Read(String)
-  fullName: SharpEngine.File.Save.JsonSave.Read(string)
-  fullName.vb: SharpEngine.File.Save.JsonSave.Read(String)
-  nameWithType: JsonSave.Read(string)
-  nameWithType.vb: JsonSave.Read(String)
-- uid: SharpEngine.File.Save.JsonSave.Read*
-  name: Read
-  href: api/SharpEngine.File.Save.JsonSave.html#SharpEngine_File_Save_JsonSave_Read_
-  commentId: Overload:SharpEngine.File.Save.JsonSave.Read
-  isSpec: "True"
-  fullName: SharpEngine.File.Save.JsonSave.Read
-  nameWithType: JsonSave.Read
-- uid: SharpEngine.File.Save.JsonSave.SetObject(System.String,System.Object)
-  name: SetObject(string, object)
-  href: api/SharpEngine.File.Save.JsonSave.html#SharpEngine_File_Save_JsonSave_SetObject_System_String_System_Object_
-  commentId: M:SharpEngine.File.Save.JsonSave.SetObject(System.String,System.Object)
-  name.vb: SetObject(String, Object)
-  fullName: SharpEngine.File.Save.JsonSave.SetObject(string, object)
-  fullName.vb: SharpEngine.File.Save.JsonSave.SetObject(String, Object)
-  nameWithType: JsonSave.SetObject(string, object)
-  nameWithType.vb: JsonSave.SetObject(String, Object)
-- uid: SharpEngine.File.Save.JsonSave.SetObject*
-  name: SetObject
-  href: api/SharpEngine.File.Save.JsonSave.html#SharpEngine_File_Save_JsonSave_SetObject_
-  commentId: Overload:SharpEngine.File.Save.JsonSave.SetObject
-  isSpec: "True"
-  fullName: SharpEngine.File.Save.JsonSave.SetObject
-  nameWithType: JsonSave.SetObject
-- uid: SharpEngine.File.Save.JsonSave.Write(System.String)
-  name: Write(string)
-  href: api/SharpEngine.File.Save.JsonSave.html#SharpEngine_File_Save_JsonSave_Write_System_String_
-  commentId: M:SharpEngine.File.Save.JsonSave.Write(System.String)
-  name.vb: Write(String)
-  fullName: SharpEngine.File.Save.JsonSave.Write(string)
-  fullName.vb: SharpEngine.File.Save.JsonSave.Write(String)
-  nameWithType: JsonSave.Write(string)
-  nameWithType.vb: JsonSave.Write(String)
-- uid: SharpEngine.File.Save.JsonSave.Write*
-  name: Write
-  href: api/SharpEngine.File.Save.JsonSave.html#SharpEngine_File_Save_JsonSave_Write_
-  commentId: Overload:SharpEngine.File.Save.JsonSave.Write
-  isSpec: "True"
-  fullName: SharpEngine.File.Save.JsonSave.Write
-  nameWithType: JsonSave.Write
 - uid: SharpEngine.Manager
   name: SharpEngine.Manager
   href: api/SharpEngine.Manager.html
@@ -2135,6 +2255,57 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Manager.CameraManager.Zoom
   nameWithType: CameraManager.Zoom
+- uid: SharpEngine.Manager.DataTableManager
+  name: DataTableManager
+  href: api/SharpEngine.Manager.DataTableManager.html
+  commentId: T:SharpEngine.Manager.DataTableManager
+  fullName: SharpEngine.Manager.DataTableManager
+  nameWithType: DataTableManager
+- uid: SharpEngine.Manager.DataTableManager.AddDataTable(System.String,SharpEngine.Data.DataTable.IDataTable)
+  name: AddDataTable(string, IDataTable)
+  href: api/SharpEngine.Manager.DataTableManager.html#SharpEngine_Manager_DataTableManager_AddDataTable_System_String_SharpEngine_Data_DataTable_IDataTable_
+  commentId: M:SharpEngine.Manager.DataTableManager.AddDataTable(System.String,SharpEngine.Data.DataTable.IDataTable)
+  name.vb: AddDataTable(String, IDataTable)
+  fullName: SharpEngine.Manager.DataTableManager.AddDataTable(string, SharpEngine.Data.DataTable.IDataTable)
+  fullName.vb: SharpEngine.Manager.DataTableManager.AddDataTable(String, SharpEngine.Data.DataTable.IDataTable)
+  nameWithType: DataTableManager.AddDataTable(string, IDataTable)
+  nameWithType.vb: DataTableManager.AddDataTable(String, IDataTable)
+- uid: SharpEngine.Manager.DataTableManager.AddDataTable*
+  name: AddDataTable
+  href: api/SharpEngine.Manager.DataTableManager.html#SharpEngine_Manager_DataTableManager_AddDataTable_
+  commentId: Overload:SharpEngine.Manager.DataTableManager.AddDataTable
+  isSpec: "True"
+  fullName: SharpEngine.Manager.DataTableManager.AddDataTable
+  nameWithType: DataTableManager.AddDataTable
+- uid: SharpEngine.Manager.DataTableManager.DataTableNames
+  name: DataTableNames
+  href: api/SharpEngine.Manager.DataTableManager.html#SharpEngine_Manager_DataTableManager_DataTableNames
+  commentId: P:SharpEngine.Manager.DataTableManager.DataTableNames
+  fullName: SharpEngine.Manager.DataTableManager.DataTableNames
+  nameWithType: DataTableManager.DataTableNames
+- uid: SharpEngine.Manager.DataTableManager.DataTableNames*
+  name: DataTableNames
+  href: api/SharpEngine.Manager.DataTableManager.html#SharpEngine_Manager_DataTableManager_DataTableNames_
+  commentId: Overload:SharpEngine.Manager.DataTableManager.DataTableNames
+  isSpec: "True"
+  fullName: SharpEngine.Manager.DataTableManager.DataTableNames
+  nameWithType: DataTableManager.DataTableNames
+- uid: SharpEngine.Manager.DataTableManager.Get*
+  name: Get
+  href: api/SharpEngine.Manager.DataTableManager.html#SharpEngine_Manager_DataTableManager_Get_
+  commentId: Overload:SharpEngine.Manager.DataTableManager.Get
+  isSpec: "True"
+  fullName: SharpEngine.Manager.DataTableManager.Get
+  nameWithType: DataTableManager.Get
+- uid: SharpEngine.Manager.DataTableManager.Get``1(System.String,System.Predicate{System.Object})
+  name: Get<T>(string, Predicate<dynamic>)
+  href: api/SharpEngine.Manager.DataTableManager.html#SharpEngine_Manager_DataTableManager_Get__1_System_String_System_Predicate_System_Object__
+  commentId: M:SharpEngine.Manager.DataTableManager.Get``1(System.String,System.Predicate{System.Object})
+  name.vb: Get(Of T)(String, Predicate(Of Object))
+  fullName: SharpEngine.Manager.DataTableManager.Get<T>(string, System.Predicate<dynamic>)
+  fullName.vb: SharpEngine.Manager.DataTableManager.Get(Of T)(String, System.Predicate(Of Object))
+  nameWithType: DataTableManager.Get<T>(string, Predicate<dynamic>)
+  nameWithType.vb: DataTableManager.Get(Of T)(String, Predicate(Of Object))
 - uid: SharpEngine.Manager.DebugManager
   name: DebugManager
   href: api/SharpEngine.Manager.DebugManager.html
@@ -2556,13 +2727,13 @@ references:
   commentId: T:SharpEngine.Manager.LangManager
   fullName: SharpEngine.Manager.LangManager
   nameWithType: LangManager
-- uid: SharpEngine.Manager.LangManager.AddLang(System.String,SharpEngine.File.Lang.ILang)
+- uid: SharpEngine.Manager.LangManager.AddLang(System.String,SharpEngine.Data.Lang.ILang)
   name: AddLang(string, ILang)
-  href: api/SharpEngine.Manager.LangManager.html#SharpEngine_Manager_LangManager_AddLang_System_String_SharpEngine_File_Lang_ILang_
-  commentId: M:SharpEngine.Manager.LangManager.AddLang(System.String,SharpEngine.File.Lang.ILang)
+  href: api/SharpEngine.Manager.LangManager.html#SharpEngine_Manager_LangManager_AddLang_System_String_SharpEngine_Data_Lang_ILang_
+  commentId: M:SharpEngine.Manager.LangManager.AddLang(System.String,SharpEngine.Data.Lang.ILang)
   name.vb: AddLang(String, ILang)
-  fullName: SharpEngine.Manager.LangManager.AddLang(string, SharpEngine.File.Lang.ILang)
-  fullName.vb: SharpEngine.Manager.LangManager.AddLang(String, SharpEngine.File.Lang.ILang)
+  fullName: SharpEngine.Manager.LangManager.AddLang(string, SharpEngine.Data.Lang.ILang)
+  fullName.vb: SharpEngine.Manager.LangManager.AddLang(String, SharpEngine.Data.Lang.ILang)
   nameWithType: LangManager.AddLang(string, ILang)
   nameWithType.vb: LangManager.AddLang(String, ILang)
 - uid: SharpEngine.Manager.LangManager.AddLang*
@@ -2785,13 +2956,13 @@ references:
   commentId: T:SharpEngine.Manager.SaveManager
   fullName: SharpEngine.Manager.SaveManager
   nameWithType: SaveManager
-- uid: SharpEngine.Manager.SaveManager.AddSave(System.String,SharpEngine.File.Save.ISave)
+- uid: SharpEngine.Manager.SaveManager.AddSave(System.String,SharpEngine.Data.Save.ISave)
   name: AddSave(string, ISave)
-  href: api/SharpEngine.Manager.SaveManager.html#SharpEngine_Manager_SaveManager_AddSave_System_String_SharpEngine_File_Save_ISave_
-  commentId: M:SharpEngine.Manager.SaveManager.AddSave(System.String,SharpEngine.File.Save.ISave)
+  href: api/SharpEngine.Manager.SaveManager.html#SharpEngine_Manager_SaveManager_AddSave_System_String_SharpEngine_Data_Save_ISave_
+  commentId: M:SharpEngine.Manager.SaveManager.AddSave(System.String,SharpEngine.Data.Save.ISave)
   name.vb: AddSave(String, ISave)
-  fullName: SharpEngine.Manager.SaveManager.AddSave(string, SharpEngine.File.Save.ISave)
-  fullName.vb: SharpEngine.Manager.SaveManager.AddSave(String, SharpEngine.File.Save.ISave)
+  fullName: SharpEngine.Manager.SaveManager.AddSave(string, SharpEngine.Data.Save.ISave)
+  fullName.vb: SharpEngine.Manager.SaveManager.AddSave(String, SharpEngine.Data.Save.ISave)
   nameWithType: SaveManager.AddSave(string, ISave)
   nameWithType.vb: SaveManager.AddSave(String, ISave)
 - uid: SharpEngine.Manager.SaveManager.AddSave*
@@ -4358,151 +4529,6 @@ references:
   commentId: N:SharpEngine.Renderer
   fullName: SharpEngine.Renderer
   nameWithType: SharpEngine.Renderer
-- uid: SharpEngine.Renderer.DMRender
-  name: DMRender
-  href: api/SharpEngine.Renderer.DMRender.html
-  commentId: T:SharpEngine.Renderer.DMRender
-  fullName: SharpEngine.Renderer.DMRender
-  nameWithType: DMRender
-- uid: SharpEngine.Renderer.DMRender.Draw(SharpEngine.Window)
-  name: Draw(Window)
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_Draw_SharpEngine_Window_
-  commentId: M:SharpEngine.Renderer.DMRender.Draw(SharpEngine.Window)
-  fullName: SharpEngine.Renderer.DMRender.Draw(SharpEngine.Window)
-  nameWithType: DMRender.Draw(Window)
-- uid: SharpEngine.Renderer.DMRender.Draw*
-  name: Draw
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_Draw_
-  commentId: Overload:SharpEngine.Renderer.DMRender.Draw
-  isSpec: "True"
-  fullName: SharpEngine.Renderer.DMRender.Draw
-  nameWithType: DMRender.Draw
-- uid: SharpEngine.Renderer.DMRender.DrawCircleLines(System.Int32,System.Int32,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name: DrawCircleLines(int, int, float, Color, InstructionSource, int)
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawCircleLines_System_Int32_System_Int32_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
-  commentId: M:SharpEngine.Renderer.DMRender.DrawCircleLines(System.Int32,System.Int32,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name.vb: DrawCircleLines(Integer, Integer, Single, Color, InstructionSource, Integer)
-  fullName: SharpEngine.Renderer.DMRender.DrawCircleLines(int, int, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
-  fullName.vb: SharpEngine.Renderer.DMRender.DrawCircleLines(Integer, Integer, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
-  nameWithType: DMRender.DrawCircleLines(int, int, float, Color, InstructionSource, int)
-  nameWithType.vb: DMRender.DrawCircleLines(Integer, Integer, Single, Color, InstructionSource, Integer)
-- uid: SharpEngine.Renderer.DMRender.DrawCircleLines*
-  name: DrawCircleLines
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawCircleLines_
-  commentId: Overload:SharpEngine.Renderer.DMRender.DrawCircleLines
-  isSpec: "True"
-  fullName: SharpEngine.Renderer.DMRender.DrawCircleLines
-  nameWithType: DMRender.DrawCircleLines
-- uid: SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name: DrawRectangle(Rect, Vec2, float, Color, InstructionSource, int)
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangle_SharpEngine_Math_Rect_SharpEngine_Math_Vec2_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
-  commentId: M:SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name.vb: DrawRectangle(Rect, Vec2, Single, Color, InstructionSource, Integer)
-  fullName: SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect, SharpEngine.Math.Vec2, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
-  fullName.vb: SharpEngine.Renderer.DMRender.DrawRectangle(SharpEngine.Math.Rect, SharpEngine.Math.Vec2, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
-  nameWithType: DMRender.DrawRectangle(Rect, Vec2, float, Color, InstructionSource, int)
-  nameWithType.vb: DMRender.DrawRectangle(Rect, Vec2, Single, Color, InstructionSource, Integer)
-- uid: SharpEngine.Renderer.DMRender.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name: DrawRectangle(int, int, int, int, Color, InstructionSource, int)
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangle_System_Int32_System_Int32_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
-  commentId: M:SharpEngine.Renderer.DMRender.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name.vb: DrawRectangle(Integer, Integer, Integer, Integer, Color, InstructionSource, Integer)
-  fullName: SharpEngine.Renderer.DMRender.DrawRectangle(int, int, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
-  fullName.vb: SharpEngine.Renderer.DMRender.DrawRectangle(Integer, Integer, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
-  nameWithType: DMRender.DrawRectangle(int, int, int, int, Color, InstructionSource, int)
-  nameWithType.vb: DMRender.DrawRectangle(Integer, Integer, Integer, Integer, Color, InstructionSource, Integer)
-- uid: SharpEngine.Renderer.DMRender.DrawRectangle*
-  name: DrawRectangle
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangle_
-  commentId: Overload:SharpEngine.Renderer.DMRender.DrawRectangle
-  isSpec: "True"
-  fullName: SharpEngine.Renderer.DMRender.DrawRectangle
-  nameWithType: DMRender.DrawRectangle
-- uid: SharpEngine.Renderer.DMRender.DrawRectangleLines(SharpEngine.Math.Rect,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name: DrawRectangleLines(Rect, int, Color, InstructionSource, int)
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangleLines_SharpEngine_Math_Rect_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
-  commentId: M:SharpEngine.Renderer.DMRender.DrawRectangleLines(SharpEngine.Math.Rect,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name.vb: DrawRectangleLines(Rect, Integer, Color, InstructionSource, Integer)
-  fullName: SharpEngine.Renderer.DMRender.DrawRectangleLines(SharpEngine.Math.Rect, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
-  fullName.vb: SharpEngine.Renderer.DMRender.DrawRectangleLines(SharpEngine.Math.Rect, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
-  nameWithType: DMRender.DrawRectangleLines(Rect, int, Color, InstructionSource, int)
-  nameWithType.vb: DMRender.DrawRectangleLines(Rect, Integer, Color, InstructionSource, Integer)
-- uid: SharpEngine.Renderer.DMRender.DrawRectangleLines*
-  name: DrawRectangleLines
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawRectangleLines_
-  commentId: Overload:SharpEngine.Renderer.DMRender.DrawRectangleLines
-  isSpec: "True"
-  fullName: SharpEngine.Renderer.DMRender.DrawRectangleLines
-  nameWithType: DMRender.DrawRectangleLines
-- uid: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name: DrawText(Font, string, Vec2, Vec2, float, int, int, Color, InstructionSource, int)
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawText_Raylib_cs_Font_System_String_SharpEngine_Math_Vec2_SharpEngine_Math_Vec2_System_Single_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
-  commentId: M:SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name.vb: DrawText(Font, String, Vec2, Vec2, Single, Integer, Integer, Color, InstructionSource, Integer)
-  fullName: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font, string, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, float, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
-  fullName.vb: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font, String, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, Single, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
-  nameWithType: DMRender.DrawText(Font, string, Vec2, Vec2, float, int, int, Color, InstructionSource, int)
-  nameWithType.vb: DMRender.DrawText(Font, String, Vec2, Vec2, Single, Integer, Integer, Color, InstructionSource, Integer)
-- uid: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name: DrawText(Font, string, Vec2, int, int, Color, InstructionSource, int)
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawText_Raylib_cs_Font_System_String_SharpEngine_Math_Vec2_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
-  commentId: M:SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name.vb: DrawText(Font, String, Vec2, Integer, Integer, Color, InstructionSource, Integer)
-  fullName: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font, string, SharpEngine.Math.Vec2, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
-  fullName.vb: SharpEngine.Renderer.DMRender.DrawText(Raylib_cs.Font, String, SharpEngine.Math.Vec2, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
-  nameWithType: DMRender.DrawText(Font, string, Vec2, int, int, Color, InstructionSource, int)
-  nameWithType.vb: DMRender.DrawText(Font, String, Vec2, Integer, Integer, Color, InstructionSource, Integer)
-- uid: SharpEngine.Renderer.DMRender.DrawText*
-  name: DrawText
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawText_
-  commentId: Overload:SharpEngine.Renderer.DMRender.DrawText
-  isSpec: "True"
-  fullName: SharpEngine.Renderer.DMRender.DrawText
-  nameWithType: DMRender.DrawText
-- uid: SharpEngine.Renderer.DMRender.DrawTexture(Raylib_cs.Texture2D,SharpEngine.Math.Rect,SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name: DrawTexture(Texture2D, Rect, Rect, Vec2, float, Color, InstructionSource, int)
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawTexture_Raylib_cs_Texture2D_SharpEngine_Math_Rect_SharpEngine_Math_Rect_SharpEngine_Math_Vec2_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
-  commentId: M:SharpEngine.Renderer.DMRender.DrawTexture(Raylib_cs.Texture2D,SharpEngine.Math.Rect,SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name.vb: DrawTexture(Texture2D, Rect, Rect, Vec2, Single, Color, InstructionSource, Integer)
-  fullName: SharpEngine.Renderer.DMRender.DrawTexture(Raylib_cs.Texture2D, SharpEngine.Math.Rect, SharpEngine.Math.Rect, SharpEngine.Math.Vec2, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
-  fullName.vb: SharpEngine.Renderer.DMRender.DrawTexture(Raylib_cs.Texture2D, SharpEngine.Math.Rect, SharpEngine.Math.Rect, SharpEngine.Math.Vec2, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
-  nameWithType: DMRender.DrawTexture(Texture2D, Rect, Rect, Vec2, float, Color, InstructionSource, int)
-  nameWithType.vb: DMRender.DrawTexture(Texture2D, Rect, Rect, Vec2, Single, Color, InstructionSource, Integer)
-- uid: SharpEngine.Renderer.DMRender.DrawTexture*
-  name: DrawTexture
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_DrawTexture_
-  commentId: Overload:SharpEngine.Renderer.DMRender.DrawTexture
-  isSpec: "True"
-  fullName: SharpEngine.Renderer.DMRender.DrawTexture
-  nameWithType: DMRender.DrawTexture
-- uid: SharpEngine.Renderer.DMRender.Instructions
-  name: Instructions
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_Instructions
-  commentId: F:SharpEngine.Renderer.DMRender.Instructions
-  fullName: SharpEngine.Renderer.DMRender.Instructions
-  nameWithType: DMRender.Instructions
-- uid: SharpEngine.Renderer.DMRender.LastInstructionsNumber
-  name: LastInstructionsNumber
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_LastInstructionsNumber
-  commentId: F:SharpEngine.Renderer.DMRender.LastInstructionsNumber
-  fullName: SharpEngine.Renderer.DMRender.LastInstructionsNumber
-  nameWithType: DMRender.LastInstructionsNumber
-- uid: SharpEngine.Renderer.DMRender.ScissorMode(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Renderer.InstructionSource,System.Int32,System.Action)
-  name: ScissorMode(int, int, int, int, InstructionSource, int, Action)
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_ScissorMode_System_Int32_System_Int32_System_Int32_System_Int32_SharpEngine_Renderer_InstructionSource_System_Int32_System_Action_
-  commentId: M:SharpEngine.Renderer.DMRender.ScissorMode(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Renderer.InstructionSource,System.Int32,System.Action)
-  name.vb: ScissorMode(Integer, Integer, Integer, Integer, InstructionSource, Integer, Action)
-  fullName: SharpEngine.Renderer.DMRender.ScissorMode(int, int, int, int, SharpEngine.Renderer.InstructionSource, int, System.Action)
-  fullName.vb: SharpEngine.Renderer.DMRender.ScissorMode(Integer, Integer, Integer, Integer, SharpEngine.Renderer.InstructionSource, Integer, System.Action)
-  nameWithType: DMRender.ScissorMode(int, int, int, int, InstructionSource, int, Action)
-  nameWithType.vb: DMRender.ScissorMode(Integer, Integer, Integer, Integer, InstructionSource, Integer, Action)
-- uid: SharpEngine.Renderer.DMRender.ScissorMode*
-  name: ScissorMode
-  href: api/SharpEngine.Renderer.DMRender.html#SharpEngine_Renderer_DMRender_ScissorMode_
-  commentId: Overload:SharpEngine.Renderer.DMRender.ScissorMode
-  isSpec: "True"
-  fullName: SharpEngine.Renderer.DMRender.ScissorMode
-  nameWithType: DMRender.ScissorMode
 - uid: SharpEngine.Renderer.Instruction
   name: Instruction
   href: api/SharpEngine.Renderer.Instruction.html
@@ -4605,6 +4631,163 @@ references:
   commentId: F:SharpEngine.Renderer.InstructionType.ScissorMode
   fullName: SharpEngine.Renderer.InstructionType.ScissorMode
   nameWithType: InstructionType.ScissorMode
+- uid: SharpEngine.Renderer.SERender
+  name: SERender
+  href: api/SharpEngine.Renderer.SERender.html
+  commentId: T:SharpEngine.Renderer.SERender
+  fullName: SharpEngine.Renderer.SERender
+  nameWithType: SERender
+- uid: SharpEngine.Renderer.SERender.Draw(SharpEngine.Window)
+  name: Draw(Window)
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_Draw_SharpEngine_Window_
+  commentId: M:SharpEngine.Renderer.SERender.Draw(SharpEngine.Window)
+  fullName: SharpEngine.Renderer.SERender.Draw(SharpEngine.Window)
+  nameWithType: SERender.Draw(Window)
+- uid: SharpEngine.Renderer.SERender.Draw*
+  name: Draw
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_Draw_
+  commentId: Overload:SharpEngine.Renderer.SERender.Draw
+  isSpec: "True"
+  fullName: SharpEngine.Renderer.SERender.Draw
+  nameWithType: SERender.Draw
+- uid: SharpEngine.Renderer.SERender.DrawCircleLines(System.Int32,System.Int32,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name: DrawCircleLines(int, int, float, Color, InstructionSource, int)
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawCircleLines_System_Int32_System_Int32_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
+  commentId: M:SharpEngine.Renderer.SERender.DrawCircleLines(System.Int32,System.Int32,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name.vb: DrawCircleLines(Integer, Integer, Single, Color, InstructionSource, Integer)
+  fullName: SharpEngine.Renderer.SERender.DrawCircleLines(int, int, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
+  fullName.vb: SharpEngine.Renderer.SERender.DrawCircleLines(Integer, Integer, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
+  nameWithType: SERender.DrawCircleLines(int, int, float, Color, InstructionSource, int)
+  nameWithType.vb: SERender.DrawCircleLines(Integer, Integer, Single, Color, InstructionSource, Integer)
+- uid: SharpEngine.Renderer.SERender.DrawCircleLines*
+  name: DrawCircleLines
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawCircleLines_
+  commentId: Overload:SharpEngine.Renderer.SERender.DrawCircleLines
+  isSpec: "True"
+  fullName: SharpEngine.Renderer.SERender.DrawCircleLines
+  nameWithType: SERender.DrawCircleLines
+- uid: SharpEngine.Renderer.SERender.DrawRectangle(SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name: DrawRectangle(Rect, Vec2, float, Color, InstructionSource, int)
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawRectangle_SharpEngine_Math_Rect_SharpEngine_Math_Vec2_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
+  commentId: M:SharpEngine.Renderer.SERender.DrawRectangle(SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name.vb: DrawRectangle(Rect, Vec2, Single, Color, InstructionSource, Integer)
+  fullName: SharpEngine.Renderer.SERender.DrawRectangle(SharpEngine.Math.Rect, SharpEngine.Math.Vec2, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
+  fullName.vb: SharpEngine.Renderer.SERender.DrawRectangle(SharpEngine.Math.Rect, SharpEngine.Math.Vec2, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
+  nameWithType: SERender.DrawRectangle(Rect, Vec2, float, Color, InstructionSource, int)
+  nameWithType.vb: SERender.DrawRectangle(Rect, Vec2, Single, Color, InstructionSource, Integer)
+- uid: SharpEngine.Renderer.SERender.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name: DrawRectangle(int, int, int, int, Color, InstructionSource, int)
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawRectangle_System_Int32_System_Int32_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
+  commentId: M:SharpEngine.Renderer.SERender.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name.vb: DrawRectangle(Integer, Integer, Integer, Integer, Color, InstructionSource, Integer)
+  fullName: SharpEngine.Renderer.SERender.DrawRectangle(int, int, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
+  fullName.vb: SharpEngine.Renderer.SERender.DrawRectangle(Integer, Integer, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
+  nameWithType: SERender.DrawRectangle(int, int, int, int, Color, InstructionSource, int)
+  nameWithType.vb: SERender.DrawRectangle(Integer, Integer, Integer, Integer, Color, InstructionSource, Integer)
+- uid: SharpEngine.Renderer.SERender.DrawRectangle*
+  name: DrawRectangle
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawRectangle_
+  commentId: Overload:SharpEngine.Renderer.SERender.DrawRectangle
+  isSpec: "True"
+  fullName: SharpEngine.Renderer.SERender.DrawRectangle
+  nameWithType: SERender.DrawRectangle
+- uid: SharpEngine.Renderer.SERender.DrawRectangleLines(SharpEngine.Math.Rect,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name: DrawRectangleLines(Rect, int, Color, InstructionSource, int)
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawRectangleLines_SharpEngine_Math_Rect_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
+  commentId: M:SharpEngine.Renderer.SERender.DrawRectangleLines(SharpEngine.Math.Rect,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name.vb: DrawRectangleLines(Rect, Integer, Color, InstructionSource, Integer)
+  fullName: SharpEngine.Renderer.SERender.DrawRectangleLines(SharpEngine.Math.Rect, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
+  fullName.vb: SharpEngine.Renderer.SERender.DrawRectangleLines(SharpEngine.Math.Rect, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
+  nameWithType: SERender.DrawRectangleLines(Rect, int, Color, InstructionSource, int)
+  nameWithType.vb: SERender.DrawRectangleLines(Rect, Integer, Color, InstructionSource, Integer)
+- uid: SharpEngine.Renderer.SERender.DrawRectangleLines*
+  name: DrawRectangleLines
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawRectangleLines_
+  commentId: Overload:SharpEngine.Renderer.SERender.DrawRectangleLines
+  isSpec: "True"
+  fullName: SharpEngine.Renderer.SERender.DrawRectangleLines
+  nameWithType: SERender.DrawRectangleLines
+- uid: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name: DrawText(Font, string, Vec2, Vec2, float, int, int, Color, InstructionSource, int)
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawText_Raylib_cs_Font_System_String_SharpEngine_Math_Vec2_SharpEngine_Math_Vec2_System_Single_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
+  commentId: M:SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name.vb: DrawText(Font, String, Vec2, Vec2, Single, Integer, Integer, Color, InstructionSource, Integer)
+  fullName: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font, string, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, float, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
+  fullName.vb: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font, String, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, Single, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
+  nameWithType: SERender.DrawText(Font, string, Vec2, Vec2, float, int, int, Color, InstructionSource, int)
+  nameWithType.vb: SERender.DrawText(Font, String, Vec2, Vec2, Single, Integer, Integer, Color, InstructionSource, Integer)
+- uid: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name: DrawText(Font, string, Vec2, int, int, Color, InstructionSource, int)
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawText_Raylib_cs_Font_System_String_SharpEngine_Math_Vec2_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
+  commentId: M:SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name.vb: DrawText(Font, String, Vec2, Integer, Integer, Color, InstructionSource, Integer)
+  fullName: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font, string, SharpEngine.Math.Vec2, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
+  fullName.vb: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font, String, SharpEngine.Math.Vec2, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
+  nameWithType: SERender.DrawText(Font, string, Vec2, int, int, Color, InstructionSource, int)
+  nameWithType.vb: SERender.DrawText(Font, String, Vec2, Integer, Integer, Color, InstructionSource, Integer)
+- uid: SharpEngine.Renderer.SERender.DrawText*
+  name: DrawText
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawText_
+  commentId: Overload:SharpEngine.Renderer.SERender.DrawText
+  isSpec: "True"
+  fullName: SharpEngine.Renderer.SERender.DrawText
+  nameWithType: SERender.DrawText
+- uid: SharpEngine.Renderer.SERender.DrawTexture(Raylib_cs.Texture2D,SharpEngine.Math.Rect,SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name: DrawTexture(Texture2D, Rect, Rect, Vec2, float, Color, InstructionSource, int)
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawTexture_Raylib_cs_Texture2D_SharpEngine_Math_Rect_SharpEngine_Math_Rect_SharpEngine_Math_Vec2_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
+  commentId: M:SharpEngine.Renderer.SERender.DrawTexture(Raylib_cs.Texture2D,SharpEngine.Math.Rect,SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
+  name.vb: DrawTexture(Texture2D, Rect, Rect, Vec2, Single, Color, InstructionSource, Integer)
+  fullName: SharpEngine.Renderer.SERender.DrawTexture(Raylib_cs.Texture2D, SharpEngine.Math.Rect, SharpEngine.Math.Rect, SharpEngine.Math.Vec2, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
+  fullName.vb: SharpEngine.Renderer.SERender.DrawTexture(Raylib_cs.Texture2D, SharpEngine.Math.Rect, SharpEngine.Math.Rect, SharpEngine.Math.Vec2, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
+  nameWithType: SERender.DrawTexture(Texture2D, Rect, Rect, Vec2, float, Color, InstructionSource, int)
+  nameWithType.vb: SERender.DrawTexture(Texture2D, Rect, Rect, Vec2, Single, Color, InstructionSource, Integer)
+- uid: SharpEngine.Renderer.SERender.DrawTexture*
+  name: DrawTexture
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawTexture_
+  commentId: Overload:SharpEngine.Renderer.SERender.DrawTexture
+  isSpec: "True"
+  fullName: SharpEngine.Renderer.SERender.DrawTexture
+  nameWithType: SERender.DrawTexture
+- uid: SharpEngine.Renderer.SERender.Instructions
+  name: Instructions
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_Instructions
+  commentId: F:SharpEngine.Renderer.SERender.Instructions
+  fullName: SharpEngine.Renderer.SERender.Instructions
+  nameWithType: SERender.Instructions
+- uid: SharpEngine.Renderer.SERender.LastEntityInstructionsNumber
+  name: LastEntityInstructionsNumber
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_LastEntityInstructionsNumber
+  commentId: F:SharpEngine.Renderer.SERender.LastEntityInstructionsNumber
+  fullName: SharpEngine.Renderer.SERender.LastEntityInstructionsNumber
+  nameWithType: SERender.LastEntityInstructionsNumber
+- uid: SharpEngine.Renderer.SERender.LastInstructionsNumber
+  name: LastInstructionsNumber
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_LastInstructionsNumber
+  commentId: F:SharpEngine.Renderer.SERender.LastInstructionsNumber
+  fullName: SharpEngine.Renderer.SERender.LastInstructionsNumber
+  nameWithType: SERender.LastInstructionsNumber
+- uid: SharpEngine.Renderer.SERender.LastUIInstructionsNumber
+  name: LastUIInstructionsNumber
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_LastUIInstructionsNumber
+  commentId: F:SharpEngine.Renderer.SERender.LastUIInstructionsNumber
+  fullName: SharpEngine.Renderer.SERender.LastUIInstructionsNumber
+  nameWithType: SERender.LastUIInstructionsNumber
+- uid: SharpEngine.Renderer.SERender.ScissorMode(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Renderer.InstructionSource,System.Int32,System.Action)
+  name: ScissorMode(int, int, int, int, InstructionSource, int, Action)
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_ScissorMode_System_Int32_System_Int32_System_Int32_System_Int32_SharpEngine_Renderer_InstructionSource_System_Int32_System_Action_
+  commentId: M:SharpEngine.Renderer.SERender.ScissorMode(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Renderer.InstructionSource,System.Int32,System.Action)
+  name.vb: ScissorMode(Integer, Integer, Integer, Integer, InstructionSource, Integer, Action)
+  fullName: SharpEngine.Renderer.SERender.ScissorMode(int, int, int, int, SharpEngine.Renderer.InstructionSource, int, System.Action)
+  fullName.vb: SharpEngine.Renderer.SERender.ScissorMode(Integer, Integer, Integer, Integer, SharpEngine.Renderer.InstructionSource, Integer, System.Action)
+  nameWithType: SERender.ScissorMode(int, int, int, int, InstructionSource, int, Action)
+  nameWithType.vb: SERender.ScissorMode(Integer, Integer, Integer, Integer, InstructionSource, Integer, Action)
+- uid: SharpEngine.Renderer.SERender.ScissorMode*
+  name: ScissorMode
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_ScissorMode_
+  commentId: Overload:SharpEngine.Renderer.SERender.ScissorMode
+  isSpec: "True"
+  fullName: SharpEngine.Renderer.SERender.ScissorMode
+  nameWithType: SERender.ScissorMode
 - uid: SharpEngine.Scene
   name: Scene
   href: api/SharpEngine.Scene.html

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SharpEngine.File.Lang;
+using SharpEngine.Data.Lang;
 using SharpEngine.Utils;
 
 namespace SharpEngine.Manager;

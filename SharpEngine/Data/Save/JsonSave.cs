@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using Newtonsoft.Json.Linq;
 
-namespace SharpEngine.File.Save;
+namespace SharpEngine.Data.Save;
 
 /// <summary>
 /// Class which represents Save with json data

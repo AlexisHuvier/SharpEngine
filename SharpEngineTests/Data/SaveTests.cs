@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SharpEngine.File.Save;
+using SharpEngine.Data.Save;
 
-namespace SharpEngineTests.File;
+namespace SharpEngineTests.Data;
 
 [TestClass]
 public class SaveTests

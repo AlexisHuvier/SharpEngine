@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 
-namespace SharpEngine.File.Save;
+namespace SharpEngine.Data.Save;
 
 /// <summary>
 /// Class which represents Save with binary data

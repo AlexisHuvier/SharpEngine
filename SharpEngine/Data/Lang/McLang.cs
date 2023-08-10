@@ -2,7 +2,7 @@
 using SharpEngine.Manager;
 using SharpEngine.Utils;
 
-namespace SharpEngine.File.Lang;
+namespace SharpEngine.Data.Lang;
 
 /// <summary>
 /// Class which represents Lang File with Minecraft Format (allow start line comments)

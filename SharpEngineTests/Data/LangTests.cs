@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SharpEngine.File.Lang;
+using SharpEngine.Data.Lang;
 
-namespace SharpEngineTests.File;
+namespace SharpEngineTests.Data;
 
 [TestClass]
 public class LangTests

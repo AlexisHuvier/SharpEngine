@@ -3,17 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SharpEngine.Component;
+using SharpEngine.Data.DataTable;
 using SharpEngine.Data.Lang;
 using SharpEngine.Data.Save;
 using SharpEngine.Entity;
 using SharpEngine.Manager;
 using SharpEngine.Math;
+using SharpEngineTests.Data;
 
 namespace SharpEngineTests;
 
 [TestClass]
 public class ManagerTests
 {
+    [TestMethod]
+    public void DataTable()
+    {
+        var jsonDataTable = new JsonDataTable<DataTableTests.Data>("Resources/DataTable/data.json");
+        var sqliteDataTable = new SQLiteDataTable<DataTableTests.Data>("Resources/DataTable/data.db");
+        
+        DataTableManager.AddDataTable("json", jsonDataTable);
+        DataTableManager.AddDataTable("sqlite", sqliteDataTable);
+
+        Assert.AreEqual("Data1", DataTableManager.Get<DataTableTests.Data>("json", x => x.Name == "Data1")?.Name);
+        Assert.AreEqual("Data2", DataTableManager.Get<DataTableTests.Data>("sqlite", x => x.Name == "Data2")?.Name);
+        Assert.AreEqual(null, DataTableManager.Get<DataTableTests.Data>("json", x => x.Name == "Data3")?.Name);
+
+        Assert.ThrowsException<Exception>(() => DataTableManager.Get<DataTableTests.Data>("NOP", o => true));
+    }
+    
     [TestMethod]
     public void Save()
     {

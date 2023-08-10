@@ -47,6 +47,7 @@ public static class DebugManager
         ImGui.Text($"Musics Number : {window.MusicManager.Musics.Count}");
         ImGui.Text($"Langs Number : {LangManager.Langs.Count}");
         ImGui.Text($"Saves Number : {SaveManager.Saves.Count}");
+        ImGui.Text($"DataTable Number : {DataTableManager.DataTableNames.Count}");
         ImGui.Text($"Scenes Number : {window.Scenes.Count}");
         ImGui.Text($"Entities Number : {window.Scenes.Select(x => x.Entities.Count).Sum()}");
         ImGui.Text($"Widgets (Without Child) Number : {window.Scenes.Select(x => x.Widgets.Count).Sum()}");

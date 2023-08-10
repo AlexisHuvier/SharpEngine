@@ -7,6 +7,16 @@
 [#] Bug Fixes<br>
 [.] Others
 
+### V 1.8.0 - 11/08/2023
+[+] DataTableManager
+[+] IDataTable
+[+] JsonDataTable
+[+] SQLiteDataTable
+[+] SERender : LastEntityInstructionsNumber, LastUIInstructionNumber<br>
+[\~] DebugManager : Add LastEntityInstructionsNumber, LastUIInstructionNumber and DataTable Number line in SharpEngine ImGui Window
+[\~] File : Move Save and Lang class in Data Folder (and rename namespaces)
+[\~] DMRender : Rename to SERender
+
 ### V 1.7.3 - 07/08/2023
 [+] Scene : delay parameter in RemoveWidget and RemoveEntity<br>
 [+] DMRender : LastInstructionsNumber<br>

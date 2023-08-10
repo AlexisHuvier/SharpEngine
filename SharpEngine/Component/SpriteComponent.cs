@@ -82,7 +82,7 @@ public class SpriteComponent: Component
 
         var texture = window.TextureManager.GetTexture(Texture);
         var position = _transformComponent.GetTransformedPosition(Offset);
-        DMRender.DrawTexture(
+        SERender.DrawTexture(
             texture,
             new Rect(0, 0, FlipX ? -texture.width : texture.width, FlipY ? -texture.height : texture.height),
             new Rect(position.X, position.Y, texture.width * _transformComponent.Scale.X,

@@ -290,12 +290,12 @@ public class PhysicsComponent: Component
                             _transform.Position.Y + offset.Y - size.Y / 2,
                             size.X, size.Y
                         );
-                        DMRender.DrawRectangleLines(rect, 2, Color.DarkRed, InstructionSource.Entity, int.MaxValue);
+                        SERender.DrawRectangleLines(rect, 2, Color.DarkRed, InstructionSource.Entity, int.MaxValue);
                         break;
                     case "circle":
                         var radius = (float)drawing[1];
                         var offsetCirc = (Vec2)drawing[2];
-                        DMRender.DrawCircleLines(
+                        SERender.DrawCircleLines(
                             (int)(_transform.Position.X + offsetCirc.X),
                             (int)(_transform.Position.Y + offsetCirc.Y), radius, Color.DarkRed,
                             InstructionSource.Entity, int.MaxValue);

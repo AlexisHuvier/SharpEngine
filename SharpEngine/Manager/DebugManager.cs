@@ -57,7 +57,9 @@ public static class DebugManager
         ImGui.Text($"Camera Position : {window.CameraManager.Camera2D.target}");
         ImGui.Text($"Camera Rotation : {window.CameraManager.Rotation}");
         ImGui.Separator();
-        ImGui.Text($"Number of Render Instructions : {DMRender.LastInstructionsNumber}");
+        ImGui.Text($"Number of Render Instructions : {SERender.LastInstructionsNumber}");
+        ImGui.Text($"Number of Entity Render Instructions : {SERender.LastEntityInstructionsNumber}");
+        ImGui.Text($"Number of UI Render Instructions : {SERender.LastUIInstructionsNumber}");
         ImGui.End();
     }
 

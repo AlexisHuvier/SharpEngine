@@ -173,7 +173,7 @@ public class Particle
     {
         if (Size == 0) return;
 
-        DMRender.DrawRectangle(new Rect(Position.X, Position.Y, Size, Size), new Vec2(Size / 2, Size / 2),
+        SERender.DrawRectangle(new Rect(Position.X, Position.Y, Size, Size), new Vec2(Size / 2, Size / 2),
             Rotation, CurrentColor, InstructionSource.Entity, ZLayer);
     }
 }

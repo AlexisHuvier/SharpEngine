@@ -51,7 +51,7 @@ public class Image: Widget
 
         var texture = window.TextureManager.GetTexture(Texture);
         var position = RealPosition;
-        DMRender.DrawTexture(texture, new Rect(0, 0, texture.width, texture.height),
+        SERender.DrawTexture(texture, new Rect(0, 0, texture.width, texture.height),
             new Rect(position.X, position.Y, texture.width * Scale.X, texture.height * Scale.Y),
             new Vec2(texture.width / 2f * Scale.X, texture.height / 2f * Scale.Y), Rotation, Color.White,
             InstructionSource.UI, ZLayer);

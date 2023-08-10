@@ -72,7 +72,7 @@ public class RectComponent: Component
         var size = Size * _transform.Scale;
         var position = _transform.GetTransformedPosition(Offset);
 
-        DMRender.DrawRectangle(new Rect(position.X, position.Y, size.X, size.Y), size / 2, _transform.Rotation, Color,
+        SERender.DrawRectangle(new Rect(position.X, position.Y, size.X, size.Y), size / 2, _transform.Rotation, Color,
             InstructionSource.Entity, _transform.ZLayer + ZLayerOffset);
     }
 }

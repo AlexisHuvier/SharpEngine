@@ -69,13 +69,13 @@ public class Checkbox: Widget
         if(!Displayed || Size == Vec2.Zero) return;
         
         var position = RealPosition;
-        DMRender.DrawRectangle(new Rect(position.X, position.Y, Size.X, Size.Y), Size / 2, 0, Color.Black,
+        SERender.DrawRectangle(new Rect(position.X, position.Y, Size.X, Size.Y), Size / 2, 0, Color.Black,
             InstructionSource.UI, ZLayer);
-        DMRender.DrawRectangle(new Rect(position.X, position.Y, Size.X - 4, Size.Y - 4), (Size - 4) / 2,
+        SERender.DrawRectangle(new Rect(position.X, position.Y, Size.X - 4, Size.Y - 4), (Size - 4) / 2,
             0, Color.White, InstructionSource.UI, ZLayer);
         
         if(IsChecked)
-            DMRender.DrawRectangle(new Rect(position.X, position.Y, Size.X - 6, Size.Y - 6), (Size - 6) / 2,
+            SERender.DrawRectangle(new Rect(position.X, position.Y, Size.X - 6, Size.Y - 6), (Size - 6) / 2,
             0, Color.Black, InstructionSource.UI, ZLayer);
     }
 }

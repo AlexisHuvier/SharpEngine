@@ -155,7 +155,7 @@ public class SpriteSheetComponent: Component
         
         var texture = window.TextureManager.GetTexture(Texture);
         var position = _transform.GetTransformedPosition(Offset);
-        DMRender.DrawTexture(
+        SERender.DrawTexture(
             texture,
             new Rect(
                 SpriteSize.X * (anim.Value.Indices[_currentImage] % (texture.width / SpriteSize.X)),

@@ -49,7 +49,7 @@ public class ColorRect: Widget
         if(!Displayed || Size == Vec2.Zero) return;
 
         var position = RealPosition;
-        DMRender.DrawRectangle(new Rect(position.X, position.Y, Size.X, Size.Y), Size / 2, Rotation, Color,
+        SERender.DrawRectangle(new Rect(position.X, position.Y, Size.X, Size.Y), Size / 2, Rotation, Color,
             InstructionSource.UI, ZLayer);
     }
 }

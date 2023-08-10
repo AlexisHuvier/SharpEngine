@@ -123,22 +123,22 @@ public class TextureButton: Widget
         var position = RealPosition;
 
         if (_state == ButtonState.Hover && Active)
-            DMRender.DrawRectangle((int)(position.X - (Size.X + 4) / 2), (int)(position.Y - (Size.Y + 4) / 2),
+            SERender.DrawRectangle((int)(position.X - (Size.X + 4) / 2), (int)(position.Y - (Size.Y + 4) / 2),
                 (int)(Size.X + 4),(int)(Size.Y + 4), Color.White, InstructionSource.UI, ZLayer);
 
-        DMRender.DrawRectangle((int)(position.X - Size.X / 2), (int)(position.Y - Size.Y / 2), (int)Size.X,
+        SERender.DrawRectangle((int)(position.X - Size.X / 2), (int)(position.Y - Size.Y / 2), (int)Size.X,
             (int)Size.Y, Color.Black, InstructionSource.UI, ZLayer);
-        DMRender.DrawTexture(texture.Value, new Rect(0, 0, texture.Value.width, texture.Value.height),
+        SERender.DrawTexture(texture.Value, new Rect(0, 0, texture.Value.width, texture.Value.height),
             new Rect(position.X + 2, position.Y + 2, Size.X - 4, Size.Y - 4), Size / 2, 0, Color.White,
             InstructionSource.UI, ZLayer);
         
         var fontSize = FontSize ?? font.Value.baseSize;
         var textSize = Raylib.MeasureTextEx(font.Value, Text, fontSize, 2);
-        DMRender.DrawText(font.Value, Text, position, textSize / 2, 0, fontSize, 2, FontColor, InstructionSource.UI,
+        SERender.DrawText(font.Value, Text, position, textSize / 2, 0, fontSize, 2, FontColor, InstructionSource.UI,
             ZLayer);
         
         if(_state == ButtonState.Down || !Active)
-            DMRender.DrawRectangle((int)(position.X - Size.X / 2), (int)(position.Y - Size.Y / 2), (int)Size.X,
+            SERender.DrawRectangle((int)(position.X - Size.X / 2), (int)(position.Y - Size.Y / 2), (int)Size.X,
                 (int)Size.Y, new Color(0, 0, 0, 128), InstructionSource.UI, ZLayer);
     }
 }

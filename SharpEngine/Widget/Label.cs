@@ -93,14 +93,14 @@ public class Label: Widget
             var finalPosition = new Vec2(
                 CenterAllLines ? realPosition.X - lineSize.X / 2 : realPosition.X - textSize.X / 2,
                 realPosition.Y - textSize.Y / 2 + i * lineSize.Y);
-            DMRender.DrawText(font.Value, lines[i], finalPosition, Vec2.Zero, Rotation, fontSize, 2, Color,
+            SERender.DrawText(font.Value, lines[i], finalPosition, Vec2.Zero, Rotation, fontSize, 2, Color,
                 InstructionSource.UI, ZLayer);
 
             if (Style.HasFlag(LabelStyle.Strike))
-                DMRender.DrawRectangle((int)finalPosition.X, (int)(finalPosition.Y + lineSize.Y / 2), (int)lineSize.X,
+                SERender.DrawRectangle((int)finalPosition.X, (int)(finalPosition.Y + lineSize.Y / 2), (int)lineSize.X,
                     2, Color.Black, InstructionSource.UI, ZLayer);
             if (Style.HasFlag(LabelStyle.Underline))
-                DMRender.DrawRectangle((int)finalPosition.X, (int)(finalPosition.Y + lineSize.Y), (int)lineSize.X, 2,
+                SERender.DrawRectangle((int)finalPosition.X, (int)(finalPosition.Y + lineSize.Y), (int)lineSize.X, 2,
                     Color.Black, InstructionSource.UI, ZLayer);
         }
     }

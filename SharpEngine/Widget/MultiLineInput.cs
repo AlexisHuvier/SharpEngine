@@ -131,9 +131,9 @@ public class MultiLineInput: Widget
 
         var position = RealPosition;
 
-        DMRender.DrawRectangle(new Rect(position.X, position.Y, Size.X, Size.Y), Size / 2, 0, Color.Black,
+        SERender.DrawRectangle(new Rect(position.X, position.Y, Size.X, Size.Y), Size / 2, 0, Color.Black,
             InstructionSource.UI, ZLayer);
-        DMRender.DrawRectangle(new Rect(position.X + 2, position.Y + 2, Size.X - 4, Size.Y - 4), Size / 2, 0,
+        SERender.DrawRectangle(new Rect(position.X + 2, position.Y + 2, Size.X - 4, Size.Y - 4), Size / 2, 0,
             Color.White, InstructionSource.UI, ZLayer);
         
         var font = Scene?.Window?.FontManager.GetFont(Font);
@@ -150,7 +150,7 @@ public class MultiLineInput: Widget
         var offsetX = textSize.X - (Size.X - 20);
         var offsetY = textSize.Y * lines.Length - (Size.Y - 8);
 
-        DMRender.ScissorMode((int)finalPosition.X, (int)finalPosition.Y, (int)Size.X - 8, (int)Size.Y - 8,
+        SERender.ScissorMode((int)finalPosition.X, (int)finalPosition.Y, (int)Size.X - 8, (int)Size.Y - 8,
             InstructionSource.UI, ZLayer, () =>
             {
                 for (var i = 0; i < lines.Length; i++)
@@ -158,12 +158,12 @@ public class MultiLineInput: Widget
                     var lineSize = Raylib.MeasureTextEx(font.Value, lines[i], fontSize, 2);
                     var pos = new Vec2(finalPosition.X - (offsetX > 0 ? offsetX : 0),
                         finalPosition.Y + i * lineSize.Y - (offsetY > 0 ? offsetY : 0));
-                    DMRender.DrawText(font.Value, lines[i], pos, fontSize, 2, Color.Black, InstructionSource.UI, 0);
+                    SERender.DrawText(font.Value, lines[i], pos, fontSize, 2, Color.Black, InstructionSource.UI, 0);
                 }
             });
 
         if (Focused)
-            DMRender.DrawRectangle((int)(finalPosition.X + 6 + textSize.X - (offsetX > 0 ? offsetX : 0)),
+            SERender.DrawRectangle((int)(finalPosition.X + 6 + textSize.X - (offsetX > 0 ? offsetX : 0)),
                 (int)(finalPosition.Y + textSize.Y * (lines.Length - 1)  - (offsetY > 0 ? offsetY : 0)),
                 5, (int)textSize.Y, Color.Black, InstructionSource.UI, ZLayer);
     }

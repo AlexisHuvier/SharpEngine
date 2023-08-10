@@ -307,7 +307,7 @@ public class Window
             Raylib.BeginDrawing();
             Raylib.ClearBackground(BackgroundColor);
             
-            DMRender.Draw(this);
+            SERender.Draw(this);
 
             if (Debug)
                 _seImGui.Draw();

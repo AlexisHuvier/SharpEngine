@@ -121,9 +121,9 @@ public class LineInput: Widget
 
         var position = RealPosition;
 
-        DMRender.DrawRectangle(new Rect(position.X, position.Y, Size.X, Size.Y), Size / 2, 0, Color.Black,
+        SERender.DrawRectangle(new Rect(position.X, position.Y, Size.X, Size.Y), Size / 2, 0, Color.Black,
             InstructionSource.UI, ZLayer);
-        DMRender.DrawRectangle(new Rect(position.X + 2, position.Y + 2, Size.X - 4, Size.Y - 4), Size / 2, 0,
+        SERender.DrawRectangle(new Rect(position.X + 2, position.Y + 2, Size.X - 4, Size.Y - 4), Size / 2, 0,
             Color.White, InstructionSource.UI, ZLayer);
         
         var font = Scene?.Window?.FontManager.GetFont(Font);
@@ -138,16 +138,16 @@ public class LineInput: Widget
         {
             var finalPosition = new Vec2(position.X - Size.X / 2 + 4, position.Y - textSize.Y / 2);
             
-            DMRender.ScissorMode((int)finalPosition.X, (int)finalPosition.Y, (int)Size.X - 8, (int)textSize.Y, 
+            SERender.ScissorMode((int)finalPosition.X, (int)finalPosition.Y, (int)Size.X - 8, (int)textSize.Y, 
                 InstructionSource.UI, ZLayer, () =>
                 {
-                    DMRender.DrawText(font.Value, Text, new Vec2(finalPosition.X - (offset > 0 ? offset : 0), finalPosition.Y),
+                    SERender.DrawText(font.Value, Text, new Vec2(finalPosition.X - (offset > 0 ? offset : 0), finalPosition.Y),
                         fontSize, 2, Color.Black, InstructionSource.UI, 0);
                 });
         }
 
         if (Focused)
-            DMRender.DrawRectangle((int)(position.X - Size.X / 2 + 10 + textSize.X - (offset > 0 ? offset : 0)),
+            SERender.DrawRectangle((int)(position.X - Size.X / 2 + 10 + textSize.X - (offset > 0 ? offset : 0)),
                 (int)(position.Y - textSize.Y / 2 + 4), 5, (int)textSize.Y - 8, Color.Black, InstructionSource.UI,
                 ZLayer);
     }

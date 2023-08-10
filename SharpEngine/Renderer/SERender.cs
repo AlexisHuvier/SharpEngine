@@ -10,12 +10,22 @@ namespace SharpEngine.Renderer;
 /// <summary>
 /// Static class which used to render textures, texts or rectangles
 /// </summary>
-public static class DMRender
+public static class SERender
 {
     /// <summary>
     /// Number of Last Instructions
     /// </summary>
-    public static int LastInstructionsNumber = 0;
+    public static int LastInstructionsNumber;
+
+    /// <summary>
+    /// Number of Last Entity Instructions
+    /// </summary>
+    public static int LastEntityInstructionsNumber;
+
+    /// <summary>
+    /// Number of Last UI Instructions
+    /// </summary>
+    public static int LastUIInstructionsNumber;
     
     /// <summary>
     /// Current Instructions to be rendered
@@ -27,6 +37,11 @@ public static class DMRender
         foreach (var instruction in instructions)
         {
             LastInstructionsNumber++;
+            if (instruction.Source == InstructionSource.Entity)
+                LastEntityInstructionsNumber++;
+            else
+                LastUIInstructionsNumber++;
+            
             switch (instruction.Type)
             {
                 case InstructionType.ScissorMode:
@@ -82,6 +97,8 @@ public static class DMRender
     public static void Draw(Window window)
     {
         LastInstructionsNumber = 0;
+        LastEntityInstructionsNumber = 0;
+        LastUIInstructionsNumber = 0;
         var entityInstructions = Instructions.Where(x => x.Source == InstructionSource.Entity).ToList();
         var uiInstructions = Instructions.Where(x => x.Source == InstructionSource.UI).ToList();
         

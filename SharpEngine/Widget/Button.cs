@@ -115,17 +115,17 @@ public class Button: Widget
                 (int)(Size.X + 4), (int)(Size.Y + 4), Color.White, InstructionSource.UI, ZLayer); 
 
         SERender.DrawRectangle((int)(position.X - Size.X / 2), (int)(position.Y - Size.Y / 2), (int)Size.X,
-            (int)Size.Y, Color.Black, InstructionSource.UI, ZLayer);
+            (int)Size.Y, Color.Black, InstructionSource.UI, ZLayer + 0.00001f);
         SERender.DrawRectangle((int)(position.X - (Size.X - 4) / 2), (int)(position.Y - (Size.Y - 4) / 2),
-            (int)(Size.X - 4), (int)(Size.Y - 4), BackgroundColor, InstructionSource.UI, ZLayer);
+            (int)(Size.X - 4), (int)(Size.Y - 4), BackgroundColor, InstructionSource.UI, ZLayer + 0.00002f);
         
         var fontSize = FontSize ?? font.Value.baseSize;
         var textSize = Raylib.MeasureTextEx(font.Value, Text, fontSize, 2);
         SERender.DrawText(font.Value, Text, position, textSize / 2, 0, fontSize, 2, FontColor, InstructionSource.UI,
-            ZLayer);
+            ZLayer + 0.00003f);
         
         if(_state == ButtonState.Down || !Active)
             SERender.DrawRectangle((int)(position.X - Size.X / 2), (int)(position.Y - Size.Y / 2), (int)Size.X,
-                (int)Size.Y, new Color(0, 0, 0, 128), InstructionSource.UI, ZLayer);
+                (int)Size.Y, new Color(0, 0, 0, 128), InstructionSource.UI, ZLayer + 0.00004f);
     }
 }

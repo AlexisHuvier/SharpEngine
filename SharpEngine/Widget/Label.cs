@@ -98,10 +98,10 @@ public class Label: Widget
 
             if (Style.HasFlag(LabelStyle.Strike))
                 SERender.DrawRectangle((int)finalPosition.X, (int)(finalPosition.Y + lineSize.Y / 2), (int)lineSize.X,
-                    2, Color.Black, InstructionSource.UI, ZLayer);
+                    2, Color.Black, InstructionSource.UI, ZLayer + 0.00001f);
             if (Style.HasFlag(LabelStyle.Underline))
                 SERender.DrawRectangle((int)finalPosition.X, (int)(finalPosition.Y + lineSize.Y), (int)lineSize.X, 2,
-                    Color.Black, InstructionSource.UI, ZLayer);
+                    Color.Black, InstructionSource.UI, ZLayer + 0.00001f);
         }
     }
 }

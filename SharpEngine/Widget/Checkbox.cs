@@ -72,10 +72,10 @@ public class Checkbox: Widget
         SERender.DrawRectangle(new Rect(position.X, position.Y, Size.X, Size.Y), Size / 2, 0, Color.Black,
             InstructionSource.UI, ZLayer);
         SERender.DrawRectangle(new Rect(position.X, position.Y, Size.X - 4, Size.Y - 4), (Size - 4) / 2,
-            0, Color.White, InstructionSource.UI, ZLayer);
+            0, Color.White, InstructionSource.UI, ZLayer + 0.00001f);
         
         if(IsChecked)
             SERender.DrawRectangle(new Rect(position.X, position.Y, Size.X - 6, Size.Y - 6), (Size - 6) / 2,
-            0, Color.Black, InstructionSource.UI, ZLayer);
+            0, Color.Black, InstructionSource.UI, ZLayer + 0.00002f);
     }
 }

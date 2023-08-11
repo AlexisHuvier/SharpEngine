@@ -60,6 +60,6 @@ public class Frame: Widget
             SERender.DrawRectangle(new Rect(position.X, position.Y, Size.X, Size.Y), Size / 2, 0, BackgroundColor.Value,
                 InstructionSource.UI, ZLayer);
         SERender.DrawRectangleLines(new Rect(position.X - Size.X / 2, position.Y - Size.Y / 2, Size.X, Size.Y),
-            BorderSize, BorderColor, InstructionSource.UI, ZLayer);
+            BorderSize, BorderColor, InstructionSource.UI, ZLayer + 0.00001f);
     }
 }

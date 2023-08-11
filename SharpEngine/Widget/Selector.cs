@@ -73,9 +73,9 @@ public class Selector: Widget
         Font = font;
         FontSize = fontSize;
 
-        LabelValue = new Label(Vec2.Zero, Selected, font, fontSize: fontSize);
-        LeftButton = new Button(Vec2.Zero, "<", font, new Vec2(30), fontSize: fontSize);
-        RightButton = new Button(Vec2.Zero, ">", font, new Vec2(30), fontSize: fontSize);
+        LabelValue = new Label(Vec2.Zero, Selected, font, fontSize: fontSize, zLayer: zLayer);
+        LeftButton = new Button(Vec2.Zero, "<", font, new Vec2(30), fontSize: fontSize, zLayer: zLayer);
+        RightButton = new Button(Vec2.Zero, ">", font, new Vec2(30), fontSize: fontSize, zLayer: zLayer);
 
         AddChild(LabelValue);
         AddChild(LeftButton).Clicked += LeftButtonClick;

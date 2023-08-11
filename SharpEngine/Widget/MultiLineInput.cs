@@ -134,7 +134,7 @@ public class MultiLineInput: Widget
         SERender.DrawRectangle(new Rect(position.X, position.Y, Size.X, Size.Y), Size / 2, 0, Color.Black,
             InstructionSource.UI, ZLayer);
         SERender.DrawRectangle(new Rect(position.X + 2, position.Y + 2, Size.X - 4, Size.Y - 4), Size / 2, 0,
-            Color.White, InstructionSource.UI, ZLayer);
+            Color.White, InstructionSource.UI, ZLayer + 0.00001f);
         
         var font = Scene?.Window?.FontManager.GetFont(Font);
         
@@ -151,7 +151,7 @@ public class MultiLineInput: Widget
         var offsetY = textSize.Y * lines.Length - (Size.Y - 8);
 
         SERender.ScissorMode((int)finalPosition.X, (int)finalPosition.Y, (int)Size.X - 8, (int)Size.Y - 8,
-            InstructionSource.UI, ZLayer, () =>
+            InstructionSource.UI, ZLayer + 0.00002f, () =>
             {
                 for (var i = 0; i < lines.Length; i++)
                 {
@@ -165,6 +165,6 @@ public class MultiLineInput: Widget
         if (Focused)
             SERender.DrawRectangle((int)(finalPosition.X + 6 + textSize.X - (offsetX > 0 ? offsetX : 0)),
                 (int)(finalPosition.Y + textSize.Y * (lines.Length - 1)  - (offsetY > 0 ? offsetY : 0)),
-                5, (int)textSize.Y, Color.Black, InstructionSource.UI, ZLayer);
+                5, (int)textSize.Y, Color.Black, InstructionSource.UI, ZLayer + 0.00003f);
     }
 }

@@ -20,7 +20,7 @@ public struct Instruction
     /// <summary>
     /// Z Layer of Instruction
     /// </summary>
-    public int ZLayer;
+    public float ZLayer;
     
     /// <summary>
     /// Parameters of Instruction

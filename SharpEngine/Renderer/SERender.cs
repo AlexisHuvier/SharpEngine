@@ -124,7 +124,7 @@ public static class SERender
     /// <param name="source">Instruction Source</param>
     /// <param name="zLayer">Z Layer</param>
     /// <param name="scissorAction">Function which render in scissor mode</param>
-    public static void ScissorMode(int posX, int posY, int width, int height, InstructionSource source, int zLayer, Action scissorAction)
+    public static void ScissorMode(int posX, int posY, int width, int height, InstructionSource source, float zLayer, Action scissorAction)
     {
         var instructions = new List<Instruction>(Instructions);
         Instructions.Clear();
@@ -150,7 +150,7 @@ public static class SERender
     /// <param name="color">Color</param>
     /// <param name="source">Instruction Source</param>
     /// <param name="zLayer">Z Layer</param>
-    public static void DrawRectangle(Rect rectangle, Vec2 origin, float rotation, Color color, InstructionSource source, int zLayer)
+    public static void DrawRectangle(Rect rectangle, Vec2 origin, float rotation, Color color, InstructionSource source, float zLayer)
     {
         Instructions.Add(new Instruction
         {
@@ -172,7 +172,7 @@ public static class SERender
     /// <param name="source">Instruction Source</param>
     /// <param name="zLayer">Z Layer</param>
     public static void DrawRectangle(int posX, int posY, int width, int height, Color color,
-        InstructionSource source, int zLayer)
+        InstructionSource source, float zLayer)
     {
         Instructions.Add(new Instruction
         {
@@ -192,7 +192,7 @@ public static class SERender
     /// <param name="source">Instruction Source</param>
     /// <param name="zLayer">Z Layer</param>
     public static void DrawRectangleLines(Rect rect, int borderSize, Color borderColor,
-        InstructionSource source, int zLayer)
+        InstructionSource source, float zLayer)
     {
         Instructions.Add(new Instruction
         {
@@ -213,7 +213,7 @@ public static class SERender
     /// <param name="source">Instruction Source</param>
     /// <param name="zLayer">Z Layer</param>
     public static void DrawCircleLines(int posX, int posY, float radius, Color borderColor, InstructionSource source,
-        int zLayer)
+        float zLayer)
     {
         Instructions.Add(new Instruction
         {
@@ -236,7 +236,7 @@ public static class SERender
     /// <param name="source">Instruction Source</param>
     /// <param name="zLayer">Z Layer</param>
     public static void DrawTexture(Texture2D texture, Rect src, Rect dest, Vec2 origin, float rotation, Color tint,
-        InstructionSource source, int zLayer)
+        InstructionSource source, float zLayer)
     {
         Instructions.Add(new Instruction
         {
@@ -261,7 +261,7 @@ public static class SERender
     /// <param name="source">Instruction Source</param>
     /// <param name="zLayer">Z Layer</param>
     public static void DrawText(Font font, string text, Vec2 position, Vec2 origin, float rotation, int fontSize,
-        int spacing, Color color, InstructionSource source, int zLayer)
+        int spacing, Color color, InstructionSource source, float zLayer)
     {
         Instructions.Add(new Instruction
         {
@@ -284,7 +284,7 @@ public static class SERender
     /// <param name="source">Instruction Source</param>
     /// <param name="zLayer">Z Layer</param>
     public static void DrawText(Font font, string text, Vec2 position, int fontSize, int spacing, Color color,
-        InstructionSource source, int zLayer)
+        InstructionSource source, float zLayer)
     {
         Instructions.Add(new Instruction
         {

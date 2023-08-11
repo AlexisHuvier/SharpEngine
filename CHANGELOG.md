@@ -7,6 +7,9 @@
 [#] Bug Fixes<br>
 [.] Others
 
+### V 1.9.2 - 11/08/2023
+[+] Window : consoleLog and fileLog parameters
+
 ### V 1.9.1 - 11/08/2023
 [#] SQLiteDataTable : Fix null values
 

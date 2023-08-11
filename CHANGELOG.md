@@ -8,19 +8,19 @@
 [.] Others
 
 ### V 1.9.0 - 11/08/2023
-[+] Slider
-[+] ProgressBar
-[\~] SERender : ZLayer is now float
+[+] Slider<br>
+[+] ProgressBar<br>
+[\~] SERender : ZLayer is now float<br>
 [#] Widgets : Fix ZLayer problems
 
 ### V 1.8.0 - 11/08/2023
-[+] DataTableManager
-[+] IDataTable
-[+] JsonDataTable
-[+] SQLiteDataTable
+[+] DataTableManager<br>
+[+] IDataTable<br>
+[+] JsonDataTable<br>
+[+] SQLiteDataTable<br>
 [+] SERender : LastEntityInstructionsNumber, LastUIInstructionNumber<br>
-[\~] DebugManager : Add LastEntityInstructionsNumber, LastUIInstructionNumber and DataTable Number line in SharpEngine ImGui Window
-[\~] File : Move Save and Lang class in Data Folder (and rename namespaces)
+[\~] DebugManager : Add LastEntityInstructionsNumber, LastUIInstructionNumber and DataTable Number line in SharpEngine ImGui Window<br>
+[\~] File : Move Save and Lang class in Data Folder (and rename namespaces)<br>
 [\~] DMRender : Rename to SERender
 
 ### V 1.7.3 - 07/08/2023

@@ -35,7 +35,9 @@ public class SQLiteDataTable<T>: IDataTable where T : new()
             var index = 0;
             foreach (var property in typeof(T).GetProperties())
             {
-                if(property.PropertyType == typeof(string))
+                if(reader.IsDBNull(index))
+                    property.SetValue(obj, null);
+                else if(property.PropertyType == typeof(string))
                     property.SetValue(obj, reader.GetString(index));
                 else if(property.PropertyType == typeof(int))
                     property.SetValue(obj, reader.GetInt32(index));

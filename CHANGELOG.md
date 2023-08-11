@@ -7,6 +7,9 @@
 [#] Bug Fixes<br>
 [.] Others
 
+### V 1.9.1 - 11/08/2023
+[#] SQLiteDataTable : Fix null values
+
 ### V 1.9.0 - 11/08/2023
 [+] Slider<br>
 [+] ProgressBar<br>

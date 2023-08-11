@@ -79,7 +79,7 @@
 
   <h1 id="SharpEngine_Window" data-uid="SharpEngine.Window" class="text-break">
     Class Window
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -145,9 +145,9 @@
 
   <a id="SharpEngine_Window__ctor_" data-uid="SharpEngine.Window.#ctor*"></a>
 
-  <h3 id="SharpEngine_Window__ctor_SharpEngine_Math_Vec2I_System_String_System_Nullable_SharpEngine_Utils_Color__System_Nullable_System_Int32__System_Boolean_" data-uid="SharpEngine.Window.#ctor(SharpEngine.Math.Vec2I,System.String,System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Boolean)">
-  Window(Vec2I, string, Color?, int?, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpEngine_Window__ctor_SharpEngine_Math_Vec2I_System_String_System_Nullable_SharpEngine_Utils_Color__System_Nullable_System_Int32__System_Boolean_System_Boolean_System_Boolean_" data-uid="SharpEngine.Window.#ctor(SharpEngine.Math.Vec2I,System.String,System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean)">
+  Window(Vec2I, string, Color?, int?, bool, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L188"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create and Init Window</p>
@@ -155,7 +155,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Window(Vec2I screenSize, string title, Color? backgroundColor = null, int? fps = 60, bool debug = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public Window(Vec2I screenSize, string title, Color? backgroundColor = null, int? fps = 60, bool debug = false, bool consoleLog = true, bool fileLog = false)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -175,6 +175,12 @@
     <dt><code>debug</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Debug Mode (false)</p>
 </dd>
+    <dt><code>consoleLog</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Log in Console</p>
+</dd>
+    <dt><code>fileLog</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Log in File (log.txt)</p>
+</dd>
   </dl>
 
 
@@ -190,9 +196,9 @@
 
   <a id="SharpEngine_Window__ctor_" data-uid="SharpEngine.Window.#ctor*"></a>
 
-  <h3 id="SharpEngine_Window__ctor_System_Int32_System_Int32_System_String_System_Nullable_SharpEngine_Utils_Color__System_Nullable_System_Int32__System_Boolean_" data-uid="SharpEngine.Window.#ctor(System.Int32,System.Int32,System.String,System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Boolean)">
-  Window(int, int, string, Color?, int?, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpEngine_Window__ctor_System_Int32_System_Int32_System_String_System_Nullable_SharpEngine_Utils_Color__System_Nullable_System_Int32__System_Boolean_System_Boolean_System_Boolean_" data-uid="SharpEngine.Window.#ctor(System.Int32,System.Int32,System.String,System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean)">
+  Window(int, int, string, Color?, int?, bool, bool, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L172"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create and Init Window</p>
@@ -200,7 +206,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Window(int width, int height, string title, Color? backgroundColor = null, int? fps = 60, bool debug = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public Window(int width, int height, string title, Color? backgroundColor = null, int? fps = 60, bool debug = false, bool consoleLog = true, bool fileLog = false)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -223,6 +229,12 @@
     <dt><code>debug</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p>Debug Mode (false)</p>
 </dd>
+    <dt><code>consoleLog</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Log in Console</p>
+</dd>
+    <dt><code>fileLog</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Log in File (log.txt)</p>
+</dd>
   </dl>
 
 
@@ -243,7 +255,7 @@
 
   <h3 id="SharpEngine_Window_BackgroundColor" data-uid="SharpEngine.Window.BackgroundColor">
   BackgroundColor
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L60"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Background Color used in Window</p>
@@ -274,7 +286,7 @@
 
   <h3 id="SharpEngine_Window_RenderImGui" data-uid="SharpEngine.Window.RenderImGui">
   RenderImGui
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L75"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Function which be called to render something in ImGui</p>
@@ -310,7 +322,7 @@
 
   <h3 id="SharpEngine_Window_CameraManager" data-uid="SharpEngine.Window.CameraManager">
   CameraManager
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L94"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Camera Manager of Window</p>
@@ -342,7 +354,7 @@
 
   <h3 id="SharpEngine_Window_CurrentScene" data-uid="SharpEngine.Window.CurrentScene">
   CurrentScene
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L135"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Current Scene</p>
@@ -374,7 +386,7 @@
 
   <h3 id="SharpEngine_Window_Debug" data-uid="SharpEngine.Window.Debug">
   Debug
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L80"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Manage Debug Mode of Window</p>
@@ -406,7 +418,7 @@
 
   <h3 id="SharpEngine_Window_FontManager" data-uid="SharpEngine.Window.FontManager">
   FontManager
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L102"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L105"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Font Manager of Window</p>
@@ -438,7 +450,7 @@
 
   <h3 id="SharpEngine_Window_IndexCurrentScene" data-uid="SharpEngine.Window.IndexCurrentScene">
   IndexCurrentScene
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L117"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L120"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Index of Current Scene</p>
@@ -470,7 +482,7 @@
 
   <h3 id="SharpEngine_Window_MusicManager" data-uid="SharpEngine.Window.MusicManager">
   MusicManager
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L115"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Music Manager of Window</p>
@@ -502,7 +514,7 @@
 
   <h3 id="SharpEngine_Window_Position" data-uid="SharpEngine.Window.Position">
   Position
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L51"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Position of Window</p>
@@ -534,7 +546,7 @@
 
   <h3 id="SharpEngine_Window_Scenes" data-uid="SharpEngine.Window.Scenes">
   Scenes
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L150"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get All Scenes</p>
@@ -566,7 +578,7 @@
 
   <h3 id="SharpEngine_Window_ScreenSize" data-uid="SharpEngine.Window.ScreenSize">
   ScreenSize
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L37"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Size of Window</p>
@@ -598,7 +610,7 @@
 
   <h3 id="SharpEngine_Window_SoundManager" data-uid="SharpEngine.Window.SoundManager">
   SoundManager
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L110"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sound Manager of Window</p>
@@ -630,7 +642,7 @@
 
   <h3 id="SharpEngine_Window_TextureManager" data-uid="SharpEngine.Window.TextureManager">
   TextureManager
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L100"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Texture Manager of Window</p>
@@ -662,7 +674,7 @@
 
   <h3 id="SharpEngine_Window_Title" data-uid="SharpEngine.Window.Title">
   Title
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Title of Window</p>
@@ -698,7 +710,7 @@
 
   <h3 id="SharpEngine_Window_AddScene_SharpEngine_Scene_" data-uid="SharpEngine.Window.AddScene(SharpEngine.Scene)">
   AddScene(Scene)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L216"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L239"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Add Scene to Window and Set Current Scene to it</p>
@@ -731,7 +743,7 @@
 
   <h3 id="SharpEngine_Window_GetCurrentScene__1" data-uid="SharpEngine.Window.GetCurrentScene``1">
   GetCurrentScene&lt;T&gt;()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L235"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L258"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get Current Scene cast as T</p>
@@ -770,7 +782,7 @@
 
   <h3 id="SharpEngine_Window_GetScene_System_Int32_" data-uid="SharpEngine.Window.GetScene(System.Int32)">
   GetScene(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L228"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L251"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get Scene by Index</p>
@@ -809,7 +821,7 @@
 
   <h3 id="SharpEngine_Window_GetScene__1_System_Int32_" data-uid="SharpEngine.Window.GetScene``1(System.Int32)">
   GetScene&lt;T&gt;(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L243"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L266"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Get Scene cast as T</p>
@@ -854,7 +866,7 @@
 
   <h3 id="SharpEngine_Window_Run" data-uid="SharpEngine.Window.Run">
   Run()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L248"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L271"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Run Window</p>
@@ -881,7 +893,7 @@
 
   <h3 id="SharpEngine_Window_SetMasterVolume_System_Single_" data-uid="SharpEngine.Window.SetMasterVolume(System.Single)">
   SetMasterVolume(float)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L210"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L233"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Set master volume</p>
@@ -914,7 +926,7 @@
 
   <h3 id="SharpEngine_Window_Stop" data-uid="SharpEngine.Window.Stop">
   Stop()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L344"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L367"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Stop Window</p>
@@ -941,7 +953,7 @@
 
   <h3 id="SharpEngine_Window_TakeScreenshot_System_String_" data-uid="SharpEngine.Window.TakeScreenshot(System.String)">
   TakeScreenshot(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L204"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L227"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Take a screenshot and save it</p>
@@ -977,7 +989,7 @@
 
   <h3 id="SharpEngine_Window_StartCallback" data-uid="SharpEngine.Window.StartCallback">
   StartCallback
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L65"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Event which be called in Start of Window (can stop start by set result to false)</p>
@@ -1008,7 +1020,7 @@
 
   <h3 id="SharpEngine_Window_StopCallback" data-uid="SharpEngine.Window.StopCallback">
   StopCallback
-  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L70"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Event which be called in Stop of Window (can stop stop by set result to false)</p>
@@ -1040,7 +1052,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L16" class="edit-link">Edit this page</a>
+          <a href="https://github.com/AlexisHuvier/SharpEngine/blob/master/SharpEngine/Window.cs/#L19" class="edit-link">Edit this page</a>
         </div>
 
         

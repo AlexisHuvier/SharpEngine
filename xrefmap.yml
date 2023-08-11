@@ -10325,24 +10325,24 @@ references:
   commentId: T:SharpEngine.Window
   fullName: SharpEngine.Window
   nameWithType: Window
-- uid: SharpEngine.Window.#ctor(SharpEngine.Math.Vec2I,System.String,System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Boolean)
-  name: Window(Vec2I, string, Color?, int?, bool)
-  href: api/SharpEngine.Window.html#SharpEngine_Window__ctor_SharpEngine_Math_Vec2I_System_String_System_Nullable_SharpEngine_Utils_Color__System_Nullable_System_Int32__System_Boolean_
-  commentId: M:SharpEngine.Window.#ctor(SharpEngine.Math.Vec2I,System.String,System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Boolean)
-  name.vb: New(Vec2I, String, Color?, Integer?, Boolean)
-  fullName: SharpEngine.Window.Window(SharpEngine.Math.Vec2I, string, SharpEngine.Utils.Color?, int?, bool)
-  fullName.vb: SharpEngine.Window.New(SharpEngine.Math.Vec2I, String, SharpEngine.Utils.Color?, Integer?, Boolean)
-  nameWithType: Window.Window(Vec2I, string, Color?, int?, bool)
-  nameWithType.vb: Window.New(Vec2I, String, Color?, Integer?, Boolean)
-- uid: SharpEngine.Window.#ctor(System.Int32,System.Int32,System.String,System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Boolean)
-  name: Window(int, int, string, Color?, int?, bool)
-  href: api/SharpEngine.Window.html#SharpEngine_Window__ctor_System_Int32_System_Int32_System_String_System_Nullable_SharpEngine_Utils_Color__System_Nullable_System_Int32__System_Boolean_
-  commentId: M:SharpEngine.Window.#ctor(System.Int32,System.Int32,System.String,System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Boolean)
-  name.vb: New(Integer, Integer, String, Color?, Integer?, Boolean)
-  fullName: SharpEngine.Window.Window(int, int, string, SharpEngine.Utils.Color?, int?, bool)
-  fullName.vb: SharpEngine.Window.New(Integer, Integer, String, SharpEngine.Utils.Color?, Integer?, Boolean)
-  nameWithType: Window.Window(int, int, string, Color?, int?, bool)
-  nameWithType.vb: Window.New(Integer, Integer, String, Color?, Integer?, Boolean)
+- uid: SharpEngine.Window.#ctor(SharpEngine.Math.Vec2I,System.String,System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean)
+  name: Window(Vec2I, string, Color?, int?, bool, bool, bool)
+  href: api/SharpEngine.Window.html#SharpEngine_Window__ctor_SharpEngine_Math_Vec2I_System_String_System_Nullable_SharpEngine_Utils_Color__System_Nullable_System_Int32__System_Boolean_System_Boolean_System_Boolean_
+  commentId: M:SharpEngine.Window.#ctor(SharpEngine.Math.Vec2I,System.String,System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean)
+  name.vb: New(Vec2I, String, Color?, Integer?, Boolean, Boolean, Boolean)
+  fullName: SharpEngine.Window.Window(SharpEngine.Math.Vec2I, string, SharpEngine.Utils.Color?, int?, bool, bool, bool)
+  fullName.vb: SharpEngine.Window.New(SharpEngine.Math.Vec2I, String, SharpEngine.Utils.Color?, Integer?, Boolean, Boolean, Boolean)
+  nameWithType: Window.Window(Vec2I, string, Color?, int?, bool, bool, bool)
+  nameWithType.vb: Window.New(Vec2I, String, Color?, Integer?, Boolean, Boolean, Boolean)
+- uid: SharpEngine.Window.#ctor(System.Int32,System.Int32,System.String,System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean)
+  name: Window(int, int, string, Color?, int?, bool, bool, bool)
+  href: api/SharpEngine.Window.html#SharpEngine_Window__ctor_System_Int32_System_Int32_System_String_System_Nullable_SharpEngine_Utils_Color__System_Nullable_System_Int32__System_Boolean_System_Boolean_System_Boolean_
+  commentId: M:SharpEngine.Window.#ctor(System.Int32,System.Int32,System.String,System.Nullable{SharpEngine.Utils.Color},System.Nullable{System.Int32},System.Boolean,System.Boolean,System.Boolean)
+  name.vb: New(Integer, Integer, String, Color?, Integer?, Boolean, Boolean, Boolean)
+  fullName: SharpEngine.Window.Window(int, int, string, SharpEngine.Utils.Color?, int?, bool, bool, bool)
+  fullName.vb: SharpEngine.Window.New(Integer, Integer, String, SharpEngine.Utils.Color?, Integer?, Boolean, Boolean, Boolean)
+  nameWithType: Window.Window(int, int, string, Color?, int?, bool, bool, bool)
+  nameWithType.vb: Window.New(Integer, Integer, String, Color?, Integer?, Boolean, Boolean, Boolean)
 - uid: SharpEngine.Window.#ctor*
   name: Window
   href: api/SharpEngine.Window.html#SharpEngine_Window__ctor_

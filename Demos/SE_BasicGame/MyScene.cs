@@ -1,5 +1,6 @@
 ﻿using SharpEngine;
 using SharpEngine.Component;
+using SharpEngine.Data.DataTable;
 using SharpEngine.Entity;
 using SharpEngine.Manager;
 using SharpEngine.Math;
@@ -12,6 +13,8 @@ namespace SE_BasicWindow;
 
 internal class MyScene : Scene
 {
+    public static readonly SQLiteDataTable<WeaponData> WeaponDB = new("Resources/data.db");
+    
     public MyScene()
     {
         var e1 = new Entity();
@@ -57,6 +60,7 @@ internal class MyScene : Scene
     {
         base.OpenScene();
         Window!.CameraManager.FollowEntity = Entities[0];
+        WeaponDB.Get(x => x.Name == "Couteau");
     }
 
     public override void Update(float delta)

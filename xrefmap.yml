@@ -4650,15 +4650,15 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Renderer.SERender.Draw
   nameWithType: SERender.Draw
-- uid: SharpEngine.Renderer.SERender.DrawCircleLines(System.Int32,System.Int32,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name: DrawCircleLines(int, int, float, Color, InstructionSource, int)
-  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawCircleLines_System_Int32_System_Int32_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
-  commentId: M:SharpEngine.Renderer.SERender.DrawCircleLines(System.Int32,System.Int32,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name.vb: DrawCircleLines(Integer, Integer, Single, Color, InstructionSource, Integer)
-  fullName: SharpEngine.Renderer.SERender.DrawCircleLines(int, int, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
-  fullName.vb: SharpEngine.Renderer.SERender.DrawCircleLines(Integer, Integer, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
-  nameWithType: SERender.DrawCircleLines(int, int, float, Color, InstructionSource, int)
-  nameWithType.vb: SERender.DrawCircleLines(Integer, Integer, Single, Color, InstructionSource, Integer)
+- uid: SharpEngine.Renderer.SERender.DrawCircleLines(System.Int32,System.Int32,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Single)
+  name: DrawCircleLines(int, int, float, Color, InstructionSource, float)
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawCircleLines_System_Int32_System_Int32_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Single_
+  commentId: M:SharpEngine.Renderer.SERender.DrawCircleLines(System.Int32,System.Int32,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Single)
+  name.vb: DrawCircleLines(Integer, Integer, Single, Color, InstructionSource, Single)
+  fullName: SharpEngine.Renderer.SERender.DrawCircleLines(int, int, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, float)
+  fullName.vb: SharpEngine.Renderer.SERender.DrawCircleLines(Integer, Integer, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Single)
+  nameWithType: SERender.DrawCircleLines(int, int, float, Color, InstructionSource, float)
+  nameWithType.vb: SERender.DrawCircleLines(Integer, Integer, Single, Color, InstructionSource, Single)
 - uid: SharpEngine.Renderer.SERender.DrawCircleLines*
   name: DrawCircleLines
   href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawCircleLines_
@@ -4666,24 +4666,24 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Renderer.SERender.DrawCircleLines
   nameWithType: SERender.DrawCircleLines
-- uid: SharpEngine.Renderer.SERender.DrawRectangle(SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name: DrawRectangle(Rect, Vec2, float, Color, InstructionSource, int)
-  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawRectangle_SharpEngine_Math_Rect_SharpEngine_Math_Vec2_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
-  commentId: M:SharpEngine.Renderer.SERender.DrawRectangle(SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name.vb: DrawRectangle(Rect, Vec2, Single, Color, InstructionSource, Integer)
-  fullName: SharpEngine.Renderer.SERender.DrawRectangle(SharpEngine.Math.Rect, SharpEngine.Math.Vec2, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
-  fullName.vb: SharpEngine.Renderer.SERender.DrawRectangle(SharpEngine.Math.Rect, SharpEngine.Math.Vec2, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
-  nameWithType: SERender.DrawRectangle(Rect, Vec2, float, Color, InstructionSource, int)
-  nameWithType.vb: SERender.DrawRectangle(Rect, Vec2, Single, Color, InstructionSource, Integer)
-- uid: SharpEngine.Renderer.SERender.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name: DrawRectangle(int, int, int, int, Color, InstructionSource, int)
-  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawRectangle_System_Int32_System_Int32_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
-  commentId: M:SharpEngine.Renderer.SERender.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name.vb: DrawRectangle(Integer, Integer, Integer, Integer, Color, InstructionSource, Integer)
-  fullName: SharpEngine.Renderer.SERender.DrawRectangle(int, int, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
-  fullName.vb: SharpEngine.Renderer.SERender.DrawRectangle(Integer, Integer, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
-  nameWithType: SERender.DrawRectangle(int, int, int, int, Color, InstructionSource, int)
-  nameWithType.vb: SERender.DrawRectangle(Integer, Integer, Integer, Integer, Color, InstructionSource, Integer)
+- uid: SharpEngine.Renderer.SERender.DrawRectangle(SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Single)
+  name: DrawRectangle(Rect, Vec2, float, Color, InstructionSource, float)
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawRectangle_SharpEngine_Math_Rect_SharpEngine_Math_Vec2_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Single_
+  commentId: M:SharpEngine.Renderer.SERender.DrawRectangle(SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Single)
+  name.vb: DrawRectangle(Rect, Vec2, Single, Color, InstructionSource, Single)
+  fullName: SharpEngine.Renderer.SERender.DrawRectangle(SharpEngine.Math.Rect, SharpEngine.Math.Vec2, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, float)
+  fullName.vb: SharpEngine.Renderer.SERender.DrawRectangle(SharpEngine.Math.Rect, SharpEngine.Math.Vec2, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Single)
+  nameWithType: SERender.DrawRectangle(Rect, Vec2, float, Color, InstructionSource, float)
+  nameWithType.vb: SERender.DrawRectangle(Rect, Vec2, Single, Color, InstructionSource, Single)
+- uid: SharpEngine.Renderer.SERender.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Single)
+  name: DrawRectangle(int, int, int, int, Color, InstructionSource, float)
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawRectangle_System_Int32_System_Int32_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Single_
+  commentId: M:SharpEngine.Renderer.SERender.DrawRectangle(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Single)
+  name.vb: DrawRectangle(Integer, Integer, Integer, Integer, Color, InstructionSource, Single)
+  fullName: SharpEngine.Renderer.SERender.DrawRectangle(int, int, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, float)
+  fullName.vb: SharpEngine.Renderer.SERender.DrawRectangle(Integer, Integer, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Single)
+  nameWithType: SERender.DrawRectangle(int, int, int, int, Color, InstructionSource, float)
+  nameWithType.vb: SERender.DrawRectangle(Integer, Integer, Integer, Integer, Color, InstructionSource, Single)
 - uid: SharpEngine.Renderer.SERender.DrawRectangle*
   name: DrawRectangle
   href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawRectangle_
@@ -4691,15 +4691,15 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Renderer.SERender.DrawRectangle
   nameWithType: SERender.DrawRectangle
-- uid: SharpEngine.Renderer.SERender.DrawRectangleLines(SharpEngine.Math.Rect,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name: DrawRectangleLines(Rect, int, Color, InstructionSource, int)
-  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawRectangleLines_SharpEngine_Math_Rect_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
-  commentId: M:SharpEngine.Renderer.SERender.DrawRectangleLines(SharpEngine.Math.Rect,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name.vb: DrawRectangleLines(Rect, Integer, Color, InstructionSource, Integer)
-  fullName: SharpEngine.Renderer.SERender.DrawRectangleLines(SharpEngine.Math.Rect, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
-  fullName.vb: SharpEngine.Renderer.SERender.DrawRectangleLines(SharpEngine.Math.Rect, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
-  nameWithType: SERender.DrawRectangleLines(Rect, int, Color, InstructionSource, int)
-  nameWithType.vb: SERender.DrawRectangleLines(Rect, Integer, Color, InstructionSource, Integer)
+- uid: SharpEngine.Renderer.SERender.DrawRectangleLines(SharpEngine.Math.Rect,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Single)
+  name: DrawRectangleLines(Rect, int, Color, InstructionSource, float)
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawRectangleLines_SharpEngine_Math_Rect_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Single_
+  commentId: M:SharpEngine.Renderer.SERender.DrawRectangleLines(SharpEngine.Math.Rect,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Single)
+  name.vb: DrawRectangleLines(Rect, Integer, Color, InstructionSource, Single)
+  fullName: SharpEngine.Renderer.SERender.DrawRectangleLines(SharpEngine.Math.Rect, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, float)
+  fullName.vb: SharpEngine.Renderer.SERender.DrawRectangleLines(SharpEngine.Math.Rect, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Single)
+  nameWithType: SERender.DrawRectangleLines(Rect, int, Color, InstructionSource, float)
+  nameWithType.vb: SERender.DrawRectangleLines(Rect, Integer, Color, InstructionSource, Single)
 - uid: SharpEngine.Renderer.SERender.DrawRectangleLines*
   name: DrawRectangleLines
   href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawRectangleLines_
@@ -4707,24 +4707,24 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Renderer.SERender.DrawRectangleLines
   nameWithType: SERender.DrawRectangleLines
-- uid: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name: DrawText(Font, string, Vec2, Vec2, float, int, int, Color, InstructionSource, int)
-  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawText_Raylib_cs_Font_System_String_SharpEngine_Math_Vec2_SharpEngine_Math_Vec2_System_Single_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
-  commentId: M:SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name.vb: DrawText(Font, String, Vec2, Vec2, Single, Integer, Integer, Color, InstructionSource, Integer)
-  fullName: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font, string, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, float, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
-  fullName.vb: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font, String, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, Single, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
-  nameWithType: SERender.DrawText(Font, string, Vec2, Vec2, float, int, int, Color, InstructionSource, int)
-  nameWithType.vb: SERender.DrawText(Font, String, Vec2, Vec2, Single, Integer, Integer, Color, InstructionSource, Integer)
-- uid: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name: DrawText(Font, string, Vec2, int, int, Color, InstructionSource, int)
-  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawText_Raylib_cs_Font_System_String_SharpEngine_Math_Vec2_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
-  commentId: M:SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name.vb: DrawText(Font, String, Vec2, Integer, Integer, Color, InstructionSource, Integer)
-  fullName: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font, string, SharpEngine.Math.Vec2, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
-  fullName.vb: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font, String, SharpEngine.Math.Vec2, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
-  nameWithType: SERender.DrawText(Font, string, Vec2, int, int, Color, InstructionSource, int)
-  nameWithType.vb: SERender.DrawText(Font, String, Vec2, Integer, Integer, Color, InstructionSource, Integer)
+- uid: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Single)
+  name: DrawText(Font, string, Vec2, Vec2, float, int, int, Color, InstructionSource, float)
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawText_Raylib_cs_Font_System_String_SharpEngine_Math_Vec2_SharpEngine_Math_Vec2_System_Single_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Single_
+  commentId: M:SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,SharpEngine.Math.Vec2,System.Single,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Single)
+  name.vb: DrawText(Font, String, Vec2, Vec2, Single, Integer, Integer, Color, InstructionSource, Single)
+  fullName: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font, string, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, float, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, float)
+  fullName.vb: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font, String, SharpEngine.Math.Vec2, SharpEngine.Math.Vec2, Single, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Single)
+  nameWithType: SERender.DrawText(Font, string, Vec2, Vec2, float, int, int, Color, InstructionSource, float)
+  nameWithType.vb: SERender.DrawText(Font, String, Vec2, Vec2, Single, Integer, Integer, Color, InstructionSource, Single)
+- uid: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Single)
+  name: DrawText(Font, string, Vec2, int, int, Color, InstructionSource, float)
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawText_Raylib_cs_Font_System_String_SharpEngine_Math_Vec2_System_Int32_System_Int32_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Single_
+  commentId: M:SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font,System.String,SharpEngine.Math.Vec2,System.Int32,System.Int32,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Single)
+  name.vb: DrawText(Font, String, Vec2, Integer, Integer, Color, InstructionSource, Single)
+  fullName: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font, string, SharpEngine.Math.Vec2, int, int, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, float)
+  fullName.vb: SharpEngine.Renderer.SERender.DrawText(Raylib_cs.Font, String, SharpEngine.Math.Vec2, Integer, Integer, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Single)
+  nameWithType: SERender.DrawText(Font, string, Vec2, int, int, Color, InstructionSource, float)
+  nameWithType.vb: SERender.DrawText(Font, String, Vec2, Integer, Integer, Color, InstructionSource, Single)
 - uid: SharpEngine.Renderer.SERender.DrawText*
   name: DrawText
   href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawText_
@@ -4732,15 +4732,15 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Renderer.SERender.DrawText
   nameWithType: SERender.DrawText
-- uid: SharpEngine.Renderer.SERender.DrawTexture(Raylib_cs.Texture2D,SharpEngine.Math.Rect,SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name: DrawTexture(Texture2D, Rect, Rect, Vec2, float, Color, InstructionSource, int)
-  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawTexture_Raylib_cs_Texture2D_SharpEngine_Math_Rect_SharpEngine_Math_Rect_SharpEngine_Math_Vec2_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Int32_
-  commentId: M:SharpEngine.Renderer.SERender.DrawTexture(Raylib_cs.Texture2D,SharpEngine.Math.Rect,SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Int32)
-  name.vb: DrawTexture(Texture2D, Rect, Rect, Vec2, Single, Color, InstructionSource, Integer)
-  fullName: SharpEngine.Renderer.SERender.DrawTexture(Raylib_cs.Texture2D, SharpEngine.Math.Rect, SharpEngine.Math.Rect, SharpEngine.Math.Vec2, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, int)
-  fullName.vb: SharpEngine.Renderer.SERender.DrawTexture(Raylib_cs.Texture2D, SharpEngine.Math.Rect, SharpEngine.Math.Rect, SharpEngine.Math.Vec2, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Integer)
-  nameWithType: SERender.DrawTexture(Texture2D, Rect, Rect, Vec2, float, Color, InstructionSource, int)
-  nameWithType.vb: SERender.DrawTexture(Texture2D, Rect, Rect, Vec2, Single, Color, InstructionSource, Integer)
+- uid: SharpEngine.Renderer.SERender.DrawTexture(Raylib_cs.Texture2D,SharpEngine.Math.Rect,SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Single)
+  name: DrawTexture(Texture2D, Rect, Rect, Vec2, float, Color, InstructionSource, float)
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawTexture_Raylib_cs_Texture2D_SharpEngine_Math_Rect_SharpEngine_Math_Rect_SharpEngine_Math_Vec2_System_Single_SharpEngine_Utils_Color_SharpEngine_Renderer_InstructionSource_System_Single_
+  commentId: M:SharpEngine.Renderer.SERender.DrawTexture(Raylib_cs.Texture2D,SharpEngine.Math.Rect,SharpEngine.Math.Rect,SharpEngine.Math.Vec2,System.Single,SharpEngine.Utils.Color,SharpEngine.Renderer.InstructionSource,System.Single)
+  name.vb: DrawTexture(Texture2D, Rect, Rect, Vec2, Single, Color, InstructionSource, Single)
+  fullName: SharpEngine.Renderer.SERender.DrawTexture(Raylib_cs.Texture2D, SharpEngine.Math.Rect, SharpEngine.Math.Rect, SharpEngine.Math.Vec2, float, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, float)
+  fullName.vb: SharpEngine.Renderer.SERender.DrawTexture(Raylib_cs.Texture2D, SharpEngine.Math.Rect, SharpEngine.Math.Rect, SharpEngine.Math.Vec2, Single, SharpEngine.Utils.Color, SharpEngine.Renderer.InstructionSource, Single)
+  nameWithType: SERender.DrawTexture(Texture2D, Rect, Rect, Vec2, float, Color, InstructionSource, float)
+  nameWithType.vb: SERender.DrawTexture(Texture2D, Rect, Rect, Vec2, Single, Color, InstructionSource, Single)
 - uid: SharpEngine.Renderer.SERender.DrawTexture*
   name: DrawTexture
   href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_DrawTexture_
@@ -4772,15 +4772,15 @@ references:
   commentId: F:SharpEngine.Renderer.SERender.LastUIInstructionsNumber
   fullName: SharpEngine.Renderer.SERender.LastUIInstructionsNumber
   nameWithType: SERender.LastUIInstructionsNumber
-- uid: SharpEngine.Renderer.SERender.ScissorMode(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Renderer.InstructionSource,System.Int32,System.Action)
-  name: ScissorMode(int, int, int, int, InstructionSource, int, Action)
-  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_ScissorMode_System_Int32_System_Int32_System_Int32_System_Int32_SharpEngine_Renderer_InstructionSource_System_Int32_System_Action_
-  commentId: M:SharpEngine.Renderer.SERender.ScissorMode(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Renderer.InstructionSource,System.Int32,System.Action)
-  name.vb: ScissorMode(Integer, Integer, Integer, Integer, InstructionSource, Integer, Action)
-  fullName: SharpEngine.Renderer.SERender.ScissorMode(int, int, int, int, SharpEngine.Renderer.InstructionSource, int, System.Action)
-  fullName.vb: SharpEngine.Renderer.SERender.ScissorMode(Integer, Integer, Integer, Integer, SharpEngine.Renderer.InstructionSource, Integer, System.Action)
-  nameWithType: SERender.ScissorMode(int, int, int, int, InstructionSource, int, Action)
-  nameWithType.vb: SERender.ScissorMode(Integer, Integer, Integer, Integer, InstructionSource, Integer, Action)
+- uid: SharpEngine.Renderer.SERender.ScissorMode(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Renderer.InstructionSource,System.Single,System.Action)
+  name: ScissorMode(int, int, int, int, InstructionSource, float, Action)
+  href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_ScissorMode_System_Int32_System_Int32_System_Int32_System_Int32_SharpEngine_Renderer_InstructionSource_System_Single_System_Action_
+  commentId: M:SharpEngine.Renderer.SERender.ScissorMode(System.Int32,System.Int32,System.Int32,System.Int32,SharpEngine.Renderer.InstructionSource,System.Single,System.Action)
+  name.vb: ScissorMode(Integer, Integer, Integer, Integer, InstructionSource, Single, Action)
+  fullName: SharpEngine.Renderer.SERender.ScissorMode(int, int, int, int, SharpEngine.Renderer.InstructionSource, float, System.Action)
+  fullName.vb: SharpEngine.Renderer.SERender.ScissorMode(Integer, Integer, Integer, Integer, SharpEngine.Renderer.InstructionSource, Single, System.Action)
+  nameWithType: SERender.ScissorMode(int, int, int, int, InstructionSource, float, Action)
+  nameWithType.vb: SERender.ScissorMode(Integer, Integer, Integer, Integer, InstructionSource, Single, Action)
 - uid: SharpEngine.Renderer.SERender.ScissorMode*
   name: ScissorMode
   href: api/SharpEngine.Renderer.SERender.html#SharpEngine_Renderer_SERender_ScissorMode_
@@ -9454,6 +9454,83 @@ references:
   commentId: E:SharpEngine.Widget.MultiLineInput.ValueChanged
   fullName: SharpEngine.Widget.MultiLineInput.ValueChanged
   nameWithType: MultiLineInput.ValueChanged
+- uid: SharpEngine.Widget.ProgressBar
+  name: ProgressBar
+  href: api/SharpEngine.Widget.ProgressBar.html
+  commentId: T:SharpEngine.Widget.ProgressBar
+  fullName: SharpEngine.Widget.ProgressBar
+  nameWithType: ProgressBar
+- uid: SharpEngine.Widget.ProgressBar.#ctor(SharpEngine.Math.Vec2,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Utils.Color},System.Single,System.Int32)
+  name: ProgressBar(Vec2, Vec2?, Color?, float, int)
+  href: api/SharpEngine.Widget.ProgressBar.html#SharpEngine_Widget_ProgressBar__ctor_SharpEngine_Math_Vec2_System_Nullable_SharpEngine_Math_Vec2__System_Nullable_SharpEngine_Utils_Color__System_Single_System_Int32_
+  commentId: M:SharpEngine.Widget.ProgressBar.#ctor(SharpEngine.Math.Vec2,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Utils.Color},System.Single,System.Int32)
+  name.vb: New(Vec2, Vec2?, Color?, Single, Integer)
+  fullName: SharpEngine.Widget.ProgressBar.ProgressBar(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2?, SharpEngine.Utils.Color?, float, int)
+  fullName.vb: SharpEngine.Widget.ProgressBar.New(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2?, SharpEngine.Utils.Color?, Single, Integer)
+  nameWithType: ProgressBar.ProgressBar(Vec2, Vec2?, Color?, float, int)
+  nameWithType.vb: ProgressBar.New(Vec2, Vec2?, Color?, Single, Integer)
+- uid: SharpEngine.Widget.ProgressBar.#ctor*
+  name: ProgressBar
+  href: api/SharpEngine.Widget.ProgressBar.html#SharpEngine_Widget_ProgressBar__ctor_
+  commentId: Overload:SharpEngine.Widget.ProgressBar.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: SharpEngine.Widget.ProgressBar.ProgressBar
+  fullName.vb: SharpEngine.Widget.ProgressBar.New
+  nameWithType: ProgressBar.ProgressBar
+  nameWithType.vb: ProgressBar.New
+- uid: SharpEngine.Widget.ProgressBar.Color
+  name: Color
+  href: api/SharpEngine.Widget.ProgressBar.html#SharpEngine_Widget_ProgressBar_Color
+  commentId: P:SharpEngine.Widget.ProgressBar.Color
+  fullName: SharpEngine.Widget.ProgressBar.Color
+  nameWithType: ProgressBar.Color
+- uid: SharpEngine.Widget.ProgressBar.Color*
+  name: Color
+  href: api/SharpEngine.Widget.ProgressBar.html#SharpEngine_Widget_ProgressBar_Color_
+  commentId: Overload:SharpEngine.Widget.ProgressBar.Color
+  isSpec: "True"
+  fullName: SharpEngine.Widget.ProgressBar.Color
+  nameWithType: ProgressBar.Color
+- uid: SharpEngine.Widget.ProgressBar.Draw
+  name: Draw()
+  href: api/SharpEngine.Widget.ProgressBar.html#SharpEngine_Widget_ProgressBar_Draw
+  commentId: M:SharpEngine.Widget.ProgressBar.Draw
+  fullName: SharpEngine.Widget.ProgressBar.Draw()
+  nameWithType: ProgressBar.Draw()
+- uid: SharpEngine.Widget.ProgressBar.Draw*
+  name: Draw
+  href: api/SharpEngine.Widget.ProgressBar.html#SharpEngine_Widget_ProgressBar_Draw_
+  commentId: Overload:SharpEngine.Widget.ProgressBar.Draw
+  isSpec: "True"
+  fullName: SharpEngine.Widget.ProgressBar.Draw
+  nameWithType: ProgressBar.Draw
+- uid: SharpEngine.Widget.ProgressBar.Size
+  name: Size
+  href: api/SharpEngine.Widget.ProgressBar.html#SharpEngine_Widget_ProgressBar_Size
+  commentId: P:SharpEngine.Widget.ProgressBar.Size
+  fullName: SharpEngine.Widget.ProgressBar.Size
+  nameWithType: ProgressBar.Size
+- uid: SharpEngine.Widget.ProgressBar.Size*
+  name: Size
+  href: api/SharpEngine.Widget.ProgressBar.html#SharpEngine_Widget_ProgressBar_Size_
+  commentId: Overload:SharpEngine.Widget.ProgressBar.Size
+  isSpec: "True"
+  fullName: SharpEngine.Widget.ProgressBar.Size
+  nameWithType: ProgressBar.Size
+- uid: SharpEngine.Widget.ProgressBar.Value
+  name: Value
+  href: api/SharpEngine.Widget.ProgressBar.html#SharpEngine_Widget_ProgressBar_Value
+  commentId: P:SharpEngine.Widget.ProgressBar.Value
+  fullName: SharpEngine.Widget.ProgressBar.Value
+  nameWithType: ProgressBar.Value
+- uid: SharpEngine.Widget.ProgressBar.Value*
+  name: Value
+  href: api/SharpEngine.Widget.ProgressBar.html#SharpEngine_Widget_ProgressBar_Value_
+  commentId: Overload:SharpEngine.Widget.ProgressBar.Value
+  isSpec: "True"
+  fullName: SharpEngine.Widget.ProgressBar.Value
+  nameWithType: ProgressBar.Value
 - uid: SharpEngine.Widget.ScrollFrame
   name: ScrollFrame
   href: api/SharpEngine.Widget.ScrollFrame.html
@@ -9721,6 +9798,105 @@ references:
   isSpec: "True"
   fullName: SharpEngine.Widget.Selector.Values
   nameWithType: Selector.Values
+- uid: SharpEngine.Widget.Slider
+  name: Slider
+  href: api/SharpEngine.Widget.Slider.html
+  commentId: T:SharpEngine.Widget.Slider
+  fullName: SharpEngine.Widget.Slider
+  nameWithType: Slider
+- uid: SharpEngine.Widget.Slider.#ctor(SharpEngine.Math.Vec2,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Utils.Color},System.Single,System.Int32)
+  name: Slider(Vec2, Vec2?, Color?, float, int)
+  href: api/SharpEngine.Widget.Slider.html#SharpEngine_Widget_Slider__ctor_SharpEngine_Math_Vec2_System_Nullable_SharpEngine_Math_Vec2__System_Nullable_SharpEngine_Utils_Color__System_Single_System_Int32_
+  commentId: M:SharpEngine.Widget.Slider.#ctor(SharpEngine.Math.Vec2,System.Nullable{SharpEngine.Math.Vec2},System.Nullable{SharpEngine.Utils.Color},System.Single,System.Int32)
+  name.vb: New(Vec2, Vec2?, Color?, Single, Integer)
+  fullName: SharpEngine.Widget.Slider.Slider(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2?, SharpEngine.Utils.Color?, float, int)
+  fullName.vb: SharpEngine.Widget.Slider.New(SharpEngine.Math.Vec2, SharpEngine.Math.Vec2?, SharpEngine.Utils.Color?, Single, Integer)
+  nameWithType: Slider.Slider(Vec2, Vec2?, Color?, float, int)
+  nameWithType.vb: Slider.New(Vec2, Vec2?, Color?, Single, Integer)
+- uid: SharpEngine.Widget.Slider.#ctor*
+  name: Slider
+  href: api/SharpEngine.Widget.Slider.html#SharpEngine_Widget_Slider__ctor_
+  commentId: Overload:SharpEngine.Widget.Slider.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: SharpEngine.Widget.Slider.Slider
+  fullName.vb: SharpEngine.Widget.Slider.New
+  nameWithType: Slider.Slider
+  nameWithType.vb: Slider.New
+- uid: SharpEngine.Widget.Slider.Color
+  name: Color
+  href: api/SharpEngine.Widget.Slider.html#SharpEngine_Widget_Slider_Color
+  commentId: P:SharpEngine.Widget.Slider.Color
+  fullName: SharpEngine.Widget.Slider.Color
+  nameWithType: Slider.Color
+- uid: SharpEngine.Widget.Slider.Color*
+  name: Color
+  href: api/SharpEngine.Widget.Slider.html#SharpEngine_Widget_Slider_Color_
+  commentId: Overload:SharpEngine.Widget.Slider.Color
+  isSpec: "True"
+  fullName: SharpEngine.Widget.Slider.Color
+  nameWithType: Slider.Color
+- uid: SharpEngine.Widget.Slider.Draw
+  name: Draw()
+  href: api/SharpEngine.Widget.Slider.html#SharpEngine_Widget_Slider_Draw
+  commentId: M:SharpEngine.Widget.Slider.Draw
+  fullName: SharpEngine.Widget.Slider.Draw()
+  nameWithType: Slider.Draw()
+- uid: SharpEngine.Widget.Slider.Draw*
+  name: Draw
+  href: api/SharpEngine.Widget.Slider.html#SharpEngine_Widget_Slider_Draw_
+  commentId: Overload:SharpEngine.Widget.Slider.Draw
+  isSpec: "True"
+  fullName: SharpEngine.Widget.Slider.Draw
+  nameWithType: Slider.Draw
+- uid: SharpEngine.Widget.Slider.Size
+  name: Size
+  href: api/SharpEngine.Widget.Slider.html#SharpEngine_Widget_Slider_Size
+  commentId: P:SharpEngine.Widget.Slider.Size
+  fullName: SharpEngine.Widget.Slider.Size
+  nameWithType: Slider.Size
+- uid: SharpEngine.Widget.Slider.Size*
+  name: Size
+  href: api/SharpEngine.Widget.Slider.html#SharpEngine_Widget_Slider_Size_
+  commentId: Overload:SharpEngine.Widget.Slider.Size
+  isSpec: "True"
+  fullName: SharpEngine.Widget.Slider.Size
+  nameWithType: Slider.Size
+- uid: SharpEngine.Widget.Slider.Update(System.Single)
+  name: Update(float)
+  href: api/SharpEngine.Widget.Slider.html#SharpEngine_Widget_Slider_Update_System_Single_
+  commentId: M:SharpEngine.Widget.Slider.Update(System.Single)
+  name.vb: Update(Single)
+  fullName: SharpEngine.Widget.Slider.Update(float)
+  fullName.vb: SharpEngine.Widget.Slider.Update(Single)
+  nameWithType: Slider.Update(float)
+  nameWithType.vb: Slider.Update(Single)
+- uid: SharpEngine.Widget.Slider.Update*
+  name: Update
+  href: api/SharpEngine.Widget.Slider.html#SharpEngine_Widget_Slider_Update_
+  commentId: Overload:SharpEngine.Widget.Slider.Update
+  isSpec: "True"
+  fullName: SharpEngine.Widget.Slider.Update
+  nameWithType: Slider.Update
+- uid: SharpEngine.Widget.Slider.Value
+  name: Value
+  href: api/SharpEngine.Widget.Slider.html#SharpEngine_Widget_Slider_Value
+  commentId: P:SharpEngine.Widget.Slider.Value
+  fullName: SharpEngine.Widget.Slider.Value
+  nameWithType: Slider.Value
+- uid: SharpEngine.Widget.Slider.Value*
+  name: Value
+  href: api/SharpEngine.Widget.Slider.html#SharpEngine_Widget_Slider_Value_
+  commentId: Overload:SharpEngine.Widget.Slider.Value
+  isSpec: "True"
+  fullName: SharpEngine.Widget.Slider.Value
+  nameWithType: Slider.Value
+- uid: SharpEngine.Widget.Slider.ValueChanged
+  name: ValueChanged
+  href: api/SharpEngine.Widget.Slider.html#SharpEngine_Widget_Slider_ValueChanged
+  commentId: E:SharpEngine.Widget.Slider.ValueChanged
+  fullName: SharpEngine.Widget.Slider.ValueChanged
+  nameWithType: Slider.ValueChanged
 - uid: SharpEngine.Widget.TextureButton
   name: TextureButton
   href: api/SharpEngine.Widget.TextureButton.html

@@ -915,6 +915,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Widget.ProgressBar.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Widget.ProgressBar.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpEngine.Widget.ScrollFrame.yml",
       "output": {
         ".html": {
@@ -929,6 +939,16 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpEngine.Widget.Selector.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpEngine.Widget.Slider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpEngine.Widget.Slider.html"
         }
       },
       "version": ""

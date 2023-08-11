@@ -7,6 +7,12 @@
 [#] Bug Fixes<br>
 [.] Others
 
+### V 1.9.0 - 11/08/2023
+[+] Slider
+[+] ProgressBar
+[\~] SERender : ZLayer is now float
+[#] Widgets : Fix ZLayer problems
+
 ### V 1.8.0 - 11/08/2023
 [+] DataTableManager
 [+] IDataTable

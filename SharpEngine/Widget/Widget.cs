@@ -93,7 +93,8 @@ public abstract class Widget
     public List<Widget> GetAllChildren()
     {
         var children = new List<Widget>(Children);
-        children.AddRange(Children.Select(x => x.GetAllChildren()).SelectMany(x => x));
+        foreach (var child in Children)
+            children.AddRange(child.GetAllChildren());
         return children;
     }
 

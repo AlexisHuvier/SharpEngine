@@ -99,8 +99,23 @@ public static class SERender
         LastInstructionsNumber = 0;
         LastEntityInstructionsNumber = 0;
         LastUIInstructionsNumber = 0;
-        var entityInstructions = Instructions.Where(x => x.Source == InstructionSource.Entity).ToList();
-        var uiInstructions = Instructions.Where(x => x.Source == InstructionSource.UI).ToList();
+        var entityInstructions = new List<Instruction>();
+        var uiInstructions = new List<Instruction>();
+
+        foreach (var instruction in Instructions)
+        {
+            switch (instruction.Source)
+            {
+                case InstructionSource.Entity:
+                    entityInstructions.Add(instruction);
+                    break;
+                case InstructionSource.UI:
+                    uiInstructions.Add(instruction);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
         
         entityInstructions.Sort((i1, i2) => i1.ZLayer.CompareTo(i2.ZLayer));
         uiInstructions.Sort((i1, i2) => i1.ZLayer.CompareTo(i2.ZLayer));

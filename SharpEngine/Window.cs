@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using Raylib_cs;
 using SharpEngine.Manager;
 using SharpEngine.Math;
@@ -55,17 +58,17 @@ public class Window
     /// Background Color used in Window
     /// </summary>
     public Color BackgroundColor;
-    
+
     /// <summary>
     /// Event which be called in Start of Window (can stop start by set result to false)
     /// </summary>
     public event EventHandler<BoolEventArgs>? StartCallback;
-    
+
     /// <summary>
     /// Event which be called in Stop of Window (can stop stop by set result to false)
     /// </summary>
     public event EventHandler<BoolEventArgs>? StopCallback;
-    
+
     /// <summary>
     /// Function which be called to render something in ImGui
     /// </summary>
@@ -83,24 +86,24 @@ public class Window
             DebugManager.SetLogLevel(value ? LogLevel.LogAll : LogLevel.LogInfo);
         }
     }
-    
-    
+
+
     /// <summary>
     /// Camera Manager of Window
     /// </summary>
     public CameraManager CameraManager { get; }
 
-    
+
     /// <summary>
     /// Texture Manager of Window
     /// </summary>
     public TextureManager TextureManager { get; }
-    
+
     /// <summary>
     /// Font Manager of Window
     /// </summary>
     public FontManager FontManager { get; }
-    
+
     /// <summary>
     /// Sound Manager of Window
     /// </summary>
@@ -119,7 +122,7 @@ public class Window
         get => _internalIndexCurrentScene;
         set
         {
-            if(_internalIndexCurrentScene != -1)
+            if (_internalIndexCurrentScene != -1)
                 Scenes[_internalIndexCurrentScene].CloseScene();
             _internalIndexCurrentScene = value;
             Scenes[_internalIndexCurrentScene].OpenScene();
@@ -134,7 +137,7 @@ public class Window
         get => Scenes[_internalIndexCurrentScene];
         set
         {
-            if(_internalIndexCurrentScene != 1)
+            if (_internalIndexCurrentScene != 1)
                 Scenes[_internalIndexCurrentScene].CloseScene();
             _internalIndexCurrentScene = Scenes.IndexOf(value);
             Scenes[_internalIndexCurrentScene].OpenScene();
@@ -145,13 +148,15 @@ public class Window
     /// Get All Scenes
     /// </summary>
     public List<Scene> Scenes { get; } = new();
-    
+
     private Vec2I _screenSize;
     private string _title;
     private readonly SeImGui _seImGui;
     private bool _closeWindow;
     private int _internalIndexCurrentScene = -1;
     private bool _debug;
+    private static bool _consoleLog = true;
+    private static bool _fileLog = false;
 
     /// <summary>
     /// Create and Init Window
@@ -162,8 +167,13 @@ public class Window
     /// <param name="backgroundColor">Background Color of Window (Black)</param>
     /// <param name="fps">Number of FPS (60)</param>
     /// <param name="debug">Debug Mode (false)</param>
-    public Window(int width, int height, string title, Color? backgroundColor = null, int? fps = 60, bool debug = false) : 
-        this(new Vec2I(width, height), title, backgroundColor, fps, debug) {}
+    /// <param name="consoleLog">Log in Console</param>
+    /// <param name="fileLog">Log in File (log.txt)</param>
+    public Window(int width, int height, string title, Color? backgroundColor = null, int? fps = 60, bool debug = false,
+        bool consoleLog = true, bool fileLog = false) :
+        this(new Vec2I(width, height), title, backgroundColor, fps, debug, consoleLog, fileLog)
+    {
+    }
 
     /// <summary>
     /// Create and Init Window
@@ -173,16 +183,29 @@ public class Window
     /// <param name="backgroundColor">Background Color of Window (Black)</param>
     /// <param name="fps">Number of FPS (60)</param>
     /// <param name="debug">Debug Mode (false)</param>
-    public Window(Vec2I screenSize, string title, Color? backgroundColor = null, int? fps = 60, bool debug = false)
+    /// <param name="consoleLog">Log in Console</param>
+    /// <param name="fileLog">Log in File (log.txt)</param>
+    public Window(Vec2I screenSize, string title, Color? backgroundColor = null, int? fps = 60, bool debug = false,
+        bool consoleLog = true, bool fileLog = false)
     {
+        _consoleLog = consoleLog;
+        _fileLog = fileLog;
         _title = title;
         _screenSize = screenSize;
         BackgroundColor = backgroundColor ?? Color.Black;
         Debug = debug;
-        
+
+        if (_fileLog && File.Exists("log.txt"))
+            File.Delete("log.txt");
+
+        unsafe
+        {
+            Raylib.SetTraceLogCallback(&LogCustom);
+        }
+
         Raylib.InitWindow(screenSize.X, screenSize.Y, title);
         Raylib.InitAudioDevice();
-        
+
         _seImGui = new SeImGui();
         _seImGui.Load(screenSize.X, screenSize.Y);
 
@@ -192,8 +215,8 @@ public class Window
         SoundManager = new SoundManager();
         MusicManager = new MusicManager();
         CameraManager.SetScreenSize(screenSize);
-        
-        if(fps != null)
+
+        if (fps != null)
             Raylib.SetTargetFPS(fps.Value);
     }
 
@@ -347,5 +370,29 @@ public class Window
         StopCallback?.Invoke(this, args);
         if(args.Result)
             _closeWindow = true;
+    }
+    
+    [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl)})]
+    private static unsafe void LogCustom(int logLevel, sbyte* text, sbyte* args)
+    {
+        var message = Logging.GetLogMessage(new IntPtr(text), new IntPtr(args));
+        message = (LogLevel)logLevel switch
+        {
+            LogLevel.LogTrace => $"TRACE: {message}",
+            LogLevel.LogAll => $"ALL: {message}",
+            LogLevel.LogDebug => $"DEBUG: {message}",
+            LogLevel.LogInfo => $"INFO: {message}",
+            LogLevel.LogWarning => $"WARNING: {message}",
+            LogLevel.LogError => $"ERROR: {message}",
+            LogLevel.LogFatal => $"FATAL: {message}",
+            _ => message
+        };
+        message = $"{DateTime.Now:dd/MM/yyyy HH:mm:ss} - {message}";
+        
+        if(_consoleLog)
+            Console.WriteLine(message);
+        if(_fileLog)
+            File.AppendAllText("log.txt", message+"\n");
+            
     }
 }

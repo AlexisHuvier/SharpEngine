@@ -1,9 +1,10 @@
-﻿using SharpEngine;
+using SharpEngine;
 using SharpEngine.Component;
 using SharpEngine.Data.DataTable;
 using SharpEngine.Entity;
 using SharpEngine.Manager;
 using SharpEngine.Math;
+using SharpEngine.Renderer;
 using SharpEngine.Utils;
 using SharpEngine.Utils.Input;
 using SharpEngine.Widget;
@@ -54,6 +55,8 @@ internal class MyScene : Scene
             (_, args) => pb2.Value = args.NewValue;
         AddWidget(new Slider(new Vec2(400, 775), new Vec2(250, 20), Color.Aqua, 51)).ValueChanged +=
             (_, args) => pb1.Value = args.NewValue;
+
+        AddWidget(new Label(new Vec2(800, 100), "&  é  '  (  -  è  _  ç  à  ù  $", "basic"));
     }
 
     public override void OpenScene()
@@ -70,5 +73,15 @@ internal class MyScene : Scene
         if (InputManager.IsKeyPressed(Key.A))
             Window!.CameraManager.Mode =
                 Window!.CameraManager.Mode == CameraMode.Follow ? CameraMode.Basic : CameraMode.Follow;
+    }
+
+    public override void Draw()
+    {
+        base.Draw();
+        SERender.DrawTexture(Window!.FontManager.GetFont("basic").texture,
+            new Rect(0, 0, Window!.FontManager.GetFont("basic").texture.width,
+                Window!.FontManager.GetFont("basic").texture.height),
+            new Rect(100, 500, Window!.FontManager.GetFont("basic").texture.width,
+                Window!.FontManager.GetFont("basic").texture.height), Vec2.Zero, 0, Color.White, InstructionSource.UI, 100000);
     }
 }

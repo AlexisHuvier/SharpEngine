@@ -7,6 +7,9 @@
 [#] Bug Fixes<br>
 [.] Others
 
+### V 1.9.3 - 12/08/2023
+[#] Raylib-cs : Rollback to 4.5.0.2 to fix Utf8 drawing
+
 ### V 1.9.2 - 11/08/2023
 [+] Window : consoleLog and fileLog parameters
 

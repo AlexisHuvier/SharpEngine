@@ -1,5 +1,11 @@
 # SharpEngine
 
+<h1>
+  This version is legacy, archived.<br>
+  SharpEngine now have its organization : (https://github.com/SharpEngine/)<br>
+  With Core Repository : (https://github.com/SharpEngine/SharpEngine.Core)
+</h1>
+
 C# 2D Game Engine
 
 ## Installation, Download, Usage
